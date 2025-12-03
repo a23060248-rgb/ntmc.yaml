@@ -1,0 +1,173 @@
+# yaml-language-server: $schema=https://schema.zeabur.app/template.json
+apiVersion: zeabur.com/v1
+kind: Template
+metadata:
+    name: n8n-saburs
+spec:
+    description: Exported from project 6925074f980ebb261f0e6cad
+    icon: https://img.5xcamp.us/i/2732381b-be89-478f-9f82-7d63beed4d81.png
+    services:
+        - name: postgresql
+          icon: https://raw.githubusercontent.com/zeabur/service-icons/main/marketplace/postgresql.svg
+          template: PREBUILT_V2
+          spec:
+            source:
+                image: postgres:17
+                command:
+                    - docker-entrypoint.sh
+                    - -c
+                    - config_file=/etc/postgresql/postgresql.conf
+            ports:
+                - id: database
+                  port: 5432
+                  type: TCP
+            volumes:
+                - id: data
+                  dir: /var/lib/postgresql/data
+            instructions:
+                - title: Connection String
+                  content: postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${PORT_FORWARDED_HOSTNAME}:${DATABASE_PORT_FORWARDED_PORT}/${POSTGRES_DATABASE}
+                - title: PostgreSQL Connect Command
+                  content: psql "postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${PORT_FORWARDED_HOSTNAME}:${DATABASE_PORT_FORWARDED_PORT}/${POSTGRES_DATABASE}"
+                - title: PostgreSQL username
+                  content: ${POSTGRES_USERNAME}
+                - title: PostgresSQL password
+                  content: ${POSTGRES_PASSWORD}
+                - title: PostgresSQL database
+                  content: ${POSTGRES_DATABASE}
+                - title: PostgreSQL host
+                  content: ${PORT_FORWARDED_HOSTNAME}
+                - title: PostgreSQL port
+                  content: ${DATABASE_PORT_FORWARDED_PORT}
+            env:
+                PGDATA:
+                    default: /var/lib/postgresql/data/pgdata
+                    expose: false
+                POSTGRES_CONNECTION_STRING:
+                    default: postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}
+                    expose: true
+                POSTGRES_DATABASE:
+                    default: ${POSTGRES_DB}
+                    expose: true
+                POSTGRES_DB:
+                    default: zeabur
+                    expose: false
+                POSTGRES_HOST:
+                    default: ${CONTAINER_HOSTNAME}
+                    expose: true
+                POSTGRES_PASSWORD:
+                    default: ${PASSWORD}
+                    expose: true
+                POSTGRES_PORT:
+                    default: ${DATABASE_PORT}
+                    expose: true
+                POSTGRES_URI:
+                    default: ${POSTGRES_CONNECTION_STRING}
+                    expose: true
+                POSTGRES_USER:
+                    default: root
+                    expose: false
+                POSTGRES_USERNAME:
+                    default: ${POSTGRES_USER}
+                    expose: true
+                PUBLIC_DOMAIN:
+                    default: ntmc
+                    expose: false
+            configs:
+                - path: /etc/postgresql/postgresql.conf
+                  template: |
+                    # https://github.com/postgres/postgres/blob/master/src/backend/utils/misc/postgresql.conf.sample
+                    listen_addresses = '*'
+                    max_connections = 100
+                    shared_buffers = 128MB
+                    dynamic_shared_memory_type = posix
+                    max_wal_size = 1GB
+                    min_wal_size = 80MB
+                    log_timezone = 'Etc/UTC'
+                    datestyle = 'iso, mdy'
+                    timezone = 'Etc/UTC'
+                    lc_messages = 'en_US.utf8'
+                    lc_monetary = 'en_US.utf8'
+                    lc_numeric = 'en_US.utf8'
+                    lc_time = 'en_US.utf8'
+                    default_text_search_config = 'pg_catalog.english'
+                  permission: null
+                  envsubst: null
+            healthCheck:
+                type: TCP
+                port: database
+            portForwarding:
+                enabled: true
+        - name: n8n
+          icon: https://img.5xcamp.us/i/2732381b-be89-478f-9f82-7d63beed4d81.png
+          template: PREBUILT_V2
+          spec:
+            source:
+                image: docker.io/n8nio/n8n:1.117.3
+            ports:
+                - id: web
+                  port: 5678
+                  type: HTTP
+            volumes:
+                - id: data
+                  dir: /root/.n8n
+            env:
+                DB_POSTGRESDB_DATABASE:
+                    default: ${POSTGRES_DATABASE}
+                    expose: false
+                DB_POSTGRESDB_HOST:
+                    default: ${POSTGRES_HOST}
+                    expose: false
+                DB_POSTGRESDB_PASSWORD:
+                    default: ${POSTGRES_PASSWORD}
+                    expose: false
+                DB_POSTGRESDB_PORT:
+                    default: ${POSTGRES_PORT}
+                    expose: false
+                DB_POSTGRESDB_USER:
+                    default: ${POSTGRES_USERNAME}
+                    expose: false
+                DB_TYPE:
+                    default: postgresdb
+                    expose: false
+                GENERIC_TIMEZONE:
+                    default: Asia/Taipei
+                    expose: false
+                N8N_BLOCK_ENV_ACCESS_IN_NODE:
+                    default: "false"
+                    expose: false
+                N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE:
+                    default: "true"
+                    expose: false
+                N8N_DEFAULT_BINARY_DATA_MODE:
+                    default: filesystem
+                    expose: false
+                N8N_DIAGNOSTICS_ENABLED:
+                    default: "false"
+                    expose: false
+                N8N_ENCRYPTION_KEY:
+                    default: ${PASSWORD}
+                    expose: false
+                N8N_HOST:
+                    default: ${ZEABUR_WEB_DOMAIN}
+                    expose: false
+                N8N_RUNNERS_ENABLED:
+                    default: "true"
+                    expose: false
+                NODE_ENV:
+                    default: production
+                    expose: false
+                PUBLIC_DOMAIN:
+                    default: ntmc
+                    expose: false
+                WEBHOOK_URL:
+                    default: ${ZEABUR_WEB_URL}
+                    expose: false
+            configs: []
+            healthCheck:
+                type: HTTP
+                port: web
+                http:
+                    path: /healthz
+            portForwarding:
+                enabled: false
