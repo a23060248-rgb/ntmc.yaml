@@ -1677,7 +1677,28 @@
   }
 }
 
-html, body { margin: 0; min-height: 100%; background: #020617; } #root { min-height: 100vh; }</style>
+html, body { margin: 0; min-height: 100%; background: #020617; } #root { min-height: 100vh; }
+
+/* 物料清單表格 - 固定左側料號與物料名稱欄 */
+.material-sheet-table th:nth-child(3),
+.material-sheet-table td:nth-child(3) {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: #0f172a;
+}
+.material-sheet-table th:nth-child(4),
+.material-sheet-table td:nth-child(4) {
+  position: sticky;
+  left: 96px;
+  z-index: 2;
+  background: #0f172a;
+}
+.material-sheet-table tr:hover td:nth-child(3),
+.material-sheet-table tr:hover td:nth-child(4) {
+  background: #1e293b;
+}
+</style>
 </head>
 <body>
   <div id="root"></div>
@@ -18403,7 +18424,7 @@ ${event.event_type}\uFF5C${event.serial_no}`);
         className: `rounded-full border px-4 py-2 text-xs transition ${materialGovernanceStatus === status ? "border-cyan-400 bg-cyan-400/15 text-cyan-100" : "border-slate-700 text-slate-300 hover:border-cyan-400/60"}`
       },
       status
-    )))), /* @__PURE__ */ import_react.default.createElement("div", { className: "grid gap-5 xl:grid-cols-[1.25fr_0.75fr]" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "rounded-3xl border border-slate-800 bg-slate-950/70 p-5 shadow-xl" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "mb-4 flex items-center justify-between" }, /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("h3", { className: "font-bold" }, "\u7269\u6599\u6E05\u55AE"), /* @__PURE__ */ import_react.default.createElement("p", { className: "mt-1 text-xs text-slate-400" }, "\u9996\u9801\u53EA\u5448\u73FE\u65E5\u5E38\u5224\u65B7\u9700\u8981\u7684\u95DC\u9375\u6B04\u4F4D\uFF1B\u5B8C\u6574Excel\u6B04\u4F4D\u53EF\u5728\u55AE\u7B46\u8A73\u60C5\u5206\u9801\u67E5\u770B\u3002")), /* @__PURE__ */ import_react.default.createElement("span", { className: "rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200" }, "\u76EE\u524D\u986F\u793A ", filteredMaterialSheetItems.length, " \u7B46\uFF5C\u6CBB\u7406\u7BE9\u9078\uFF1A", materialGovernanceStatus)), /* @__PURE__ */ import_react.default.createElement("div", { className: "max-h-[620px] overflow-auto rounded-2xl border border-slate-800" }, /* @__PURE__ */ import_react.default.createElement("table", { className: "w-full min-w-[1500px] text-xs" }, /* @__PURE__ */ import_react.default.createElement("thead", { className: "sticky top-0 z-10 bg-slate-900 text-slate-200" }, /* @__PURE__ */ import_react.default.createElement("tr", null, /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u7CFB\u7D71\u5225"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u7269\u6599\u5C6C\u6027"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u6599\u865F"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u7269\u6599\u540D\u7A31"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u898F\u683C"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u55AE\u4F4D"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-right" }, "\u9810\u4F30\u55AE\u50F9"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-right" }, "\u5EAB\u5B58\u91CF"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-center" }, "\u8DB3\u59201\u5E74"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-right" }, "\u9810\u4F30\u5E74\u7528\u91CF"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-center" }, "\u5B89\u5168\u7B49\u7D1A"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-right" }, "\u8ACB\u8CFC\u9EDE"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-center" }, "\u8CC7\u6599\u5B8C\u6574\u5EA6"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u5EFA\u8B70\u52D5\u4F5C"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u64CD\u4F5C"))), /* @__PURE__ */ import_react.default.createElement("tbody", null, filteredMaterialSheetItems.map((item) => /* @__PURE__ */ import_react.default.createElement(
+    )))), /* @__PURE__ */ import_react.default.createElement("div", { className: "grid gap-5 xl:grid-cols-[1.25fr_0.75fr]" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "rounded-3xl border border-slate-800 bg-slate-950/70 p-5 shadow-xl" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "mb-4 flex items-center justify-between" }, /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("h3", { className: "font-bold" }, "\u7269\u6599\u6E05\u55AE"), /* @__PURE__ */ import_react.default.createElement("p", { className: "mt-1 text-xs text-slate-400" }, "\u9996\u9801\u53EA\u5448\u73FE\u65E5\u5E38\u5224\u65B7\u9700\u8981\u7684\u95DC\u9375\u6B04\u4F4D\uFF1B\u5B8C\u6574Excel\u6B04\u4F4D\u53EF\u5728\u55AE\u7B46\u8A73\u60C5\u5206\u9801\u67E5\u770B\u3002")), /* @__PURE__ */ import_react.default.createElement("span", { className: "rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200" }, "\u76EE\u524D\u986F\u793A ", filteredMaterialSheetItems.length, " \u7B46\uFF5C\u6CBB\u7406\u7BE9\u9078\uFF1A", materialGovernanceStatus)), /* @__PURE__ */ import_react.default.createElement("div", { className: "max-h-[620px] overflow-auto rounded-2xl border border-slate-800" }, /* @__PURE__ */ import_react.default.createElement("table", { className: "material-sheet-table w-full min-w-[1500px] text-xs" }, /* @__PURE__ */ import_react.default.createElement("thead", { className: "sticky top-0 z-10 bg-slate-900 text-slate-200" }, /* @__PURE__ */ import_react.default.createElement("tr", null, /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u7CFB\u7D71\u5225"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u7269\u6599\u5C6C\u6027"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u6599\u865F"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u7269\u6599\u540D\u7A31"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u898F\u683C"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u55AE\u4F4D"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-right" }, "\u9810\u4F30\u55AE\u50F9"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-right" }, "\u5EAB\u5B58\u91CF"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-right" }, "\u5EAB\u5B58\u7F3A\u53E3"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-center" }, "\u8DB3\u59201\u5E74"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-right" }, "\u9810\u4F30\u5E74\u7528\u91CF"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-center" }, "\u6708\u7528\u91CF\u8DA8\u52E2"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-center" }, "\u5B89\u5168\u7B49\u7D1A"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-right" }, "\u8ACB\u8CFC\u9EDE"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-center" }, "\u8CC7\u6599\u5B8C\u6574\u5EA6"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u5EFA\u8B70\u52D5\u4F5C"), /* @__PURE__ */ import_react.default.createElement("th", { className: "px-3 py-3 text-left" }, "\u64CD\u4F5C"))), /* @__PURE__ */ import_react.default.createElement("tbody", null, filteredMaterialSheetItems.map((item) => /* @__PURE__ */ import_react.default.createElement(
       "tr",
       {
         key: item.key,
@@ -18411,7 +18432,7 @@ ${event.event_type}\uFF5C${event.serial_no}`);
           setSelectedMaterialSheetKey(item.key);
           setMaterialDetailTab("basic");
         },
-        className: `cursor-pointer border-t border-slate-800 hover:bg-slate-900/80 ${selectedMaterialSheet?.key === item.key ? "bg-cyan-400/10 ring-1 ring-inset ring-cyan-400/30" : ""}`
+        className: `cursor-pointer border-t border-slate-800 hover:bg-slate-900/80 ${selectedMaterialSheet?.key === item.key ? "bg-cyan-400/10 ring-1 ring-inset ring-cyan-400/30" : item.isInsufficient ? "bg-rose-950/50" : item.isBelowReorder ? "bg-amber-950/40" : ""}`
       },
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-slate-300" }, item.system),
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-slate-300" }, item.property),
@@ -18421,8 +18442,29 @@ ${event.event_type}\uFF5C${event.serial_no}`);
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-slate-300" }, item.unit),
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-right text-slate-300" }, item.unitPrice),
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-right text-slate-100" }, item.stockTotal),
+      /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-right" }, (() => {
+        const gap = (item.estimatedYearUsage || 0) - (item.stockTotal || 0);
+        if (!item.estimatedYearUsage && item.stockTotal === 0) return /* @__PURE__ */ import_react.default.createElement("span", { className: "text-slate-600" }, "\u2014");
+        if (gap <= 0) return /* @__PURE__ */ import_react.default.createElement("span", { className: "text-emerald-400 text-xs font-semibold" }, "\u5145\u8DB3");
+        return /* @__PURE__ */ import_react.default.createElement("span", { className: "text-rose-300 text-xs font-bold" }, "+", gap);
+      })()),
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-center" }, /* @__PURE__ */ import_react.default.createElement("span", { className: `rounded-full px-3 py-1 text-xs ${item.stockEnoughOneYear === "\u662F" ? "bg-emerald-400/15 text-emerald-200" : item.stockEnoughOneYear === "\u5426" ? "bg-rose-400/15 text-rose-200" : "bg-slate-700 text-slate-300"}` }, item.stockEnoughOneYear)),
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-right text-slate-300" }, item.estimatedYearUsage),
+      /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-2 text-center" }, (() => {
+        const vals = item.monthlyUsage.map((m) => Number(m.value) || 0);
+        const max = Math.max(...vals, 1);
+        const hasData = vals.some((v) => v > 0);
+        if (!hasData) return /* @__PURE__ */ import_react.default.createElement("span", { className: "text-slate-600 text-xs" }, "—");
+        const W = 72, H = 22;
+        const points = vals.map((v, i) => `${(i / (vals.length - 1)) * W},${H - (v / max) * H}`).join(" ");
+        const peakIdx = vals.indexOf(Math.max(...vals));
+        const px = (peakIdx / (vals.length - 1)) * W;
+        const py = H - (vals[peakIdx] / max) * H;
+        return /* @__PURE__ */ import_react.default.createElement("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, className: "overflow-visible" },
+          /* @__PURE__ */ import_react.default.createElement("polyline", { points, fill: "none", stroke: "#22d3ee", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),
+          /* @__PURE__ */ import_react.default.createElement("circle", { cx: px, cy: py, r: "2.5", fill: "#22d3ee" })
+        );
+      })()),
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-center" }, /* @__PURE__ */ import_react.default.createElement("span", { className: `rounded-full px-3 py-1 text-xs ${item.isCritical ? "bg-rose-400/15 text-rose-200" : "bg-slate-700 text-slate-300"}` }, item.safetyLevel || "-")),
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-right text-slate-300" }, item.reorderPoint),
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3 text-center" }, (() => {
@@ -18434,7 +18476,7 @@ ${event.event_type}\uFF5C${event.serial_no}`);
         return /* @__PURE__ */ import_react.default.createElement("span", { className: `rounded-full px-3 py-1 text-xs ${advice.primaryAction === "\u5EFA\u8B70\u8ACB\u8CFC" ? "bg-rose-400/15 text-rose-200" : advice.primaryAction === "\u8CC7\u6599\u4E0D\u8DB3" ? "bg-amber-400/15 text-amber-200" : advice.primaryAction === "\u6301\u7E8C\u89C0\u5BDF" ? "bg-emerald-400/15 text-emerald-200" : "bg-cyan-400/15 text-cyan-200"}` }, advice.primaryAction);
       })()),
       /* @__PURE__ */ import_react.default.createElement("td", { className: "px-3 py-3" }, /* @__PURE__ */ import_react.default.createElement("button", { className: "rounded-lg border border-slate-700 px-3 py-1 text-xs text-cyan-200 hover:border-cyan-400" }, "\u8A73\u60C5"))
-    )), filteredMaterialSheetItems.length === 0 && /* @__PURE__ */ import_react.default.createElement("tr", null, /* @__PURE__ */ import_react.default.createElement("td", { colSpan: 15, className: "px-4 py-8 text-center text-slate-500" }, "\u67E5\u7121\u7B26\u5408\u7BE9\u9078\u689D\u4EF6\u7684\u7269\u6599")))))), /* @__PURE__ */ import_react.default.createElement("div", { className: "rounded-3xl border border-slate-800 bg-slate-950/70 p-5 shadow-xl" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "mb-4" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "flex items-start justify-between gap-3" }, /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("h3", { className: "font-bold" }, "\u55AE\u7B46\u7269\u6599\u8A73\u60C5"), /* @__PURE__ */ import_react.default.createElement("p", { className: "mt-1 text-xs text-slate-400" }, selectedMaterialSheet?.partNo || "\u672A\u9078\u53D6")), selectedMaterialSheet && /* @__PURE__ */ import_react.default.createElement("span", { className: `rounded-full px-3 py-1 text-xs ${selectedMaterialSheet.isInsufficient ? "bg-rose-400/15 text-rose-200" : "bg-emerald-400/15 text-emerald-200"}` }, selectedMaterialSheet.isInsufficient ? "\u5EAB\u5B58\u98A8\u96AA" : "\u5EAB\u5B58\u53EF\u63A7")), selectedMaterialSheet && /* @__PURE__ */ import_react.default.createElement("div", { className: "mt-3 text-lg font-bold text-white" }, selectedMaterialSheet.name)), /* @__PURE__ */ import_react.default.createElement("div", { className: "mb-4 grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-6" }, [
+    )), filteredMaterialSheetItems.length === 0 && /* @__PURE__ */ import_react.default.createElement("tr", null, /* @__PURE__ */ import_react.default.createElement("td", { colSpan: 17, className: "px-4 py-8 text-center text-slate-500" }, "\u67E5\u7121\u7B26\u5408\u7BE9\u9078\u689D\u4EF6\u7684\u7269\u6599")))))), /* @__PURE__ */ import_react.default.createElement("div", { className: "rounded-3xl border border-slate-800 bg-slate-950/70 p-5 shadow-xl" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "mb-4" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "flex items-start justify-between gap-3" }, /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("h3", { className: "font-bold" }, "\u55AE\u7B46\u7269\u6599\u8A73\u60C5"), /* @__PURE__ */ import_react.default.createElement("p", { className: "mt-1 text-xs text-slate-400" }, selectedMaterialSheet?.partNo || "\u672A\u9078\u53D6")), selectedMaterialSheet && /* @__PURE__ */ import_react.default.createElement("span", { className: `rounded-full px-3 py-1 text-xs ${selectedMaterialSheet.isInsufficient ? "bg-rose-400/15 text-rose-200" : "bg-emerald-400/15 text-emerald-200"}` }, selectedMaterialSheet.isInsufficient ? "\u5EAB\u5B58\u98A8\u96AA" : "\u5EAB\u5B58\u53EF\u63A7")), selectedMaterialSheet && /* @__PURE__ */ import_react.default.createElement("div", { className: "mt-3 text-lg font-bold text-white" }, selectedMaterialSheet.name)), /* @__PURE__ */ import_react.default.createElement("div", { className: "mb-4 grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-6" }, [
       ["basic", "\u57FA\u672C\u8CC7\u6599"],
       ["usage", "\u7528\u91CF\u7D00\u9304"],
       ["stock", "\u5EAB\u5B58\u72C0\u614B"],
