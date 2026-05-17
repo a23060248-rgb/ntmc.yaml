@@ -1,0 +1,224 @@
+erDiagram
+  app_user ||--o{ work_order : creates
+  train ||--o{ work_order : belongs_to
+  work_order ||--o| pm_work_order : P_detail
+  work_order ||--o| fault_work_order : C_detail
+  work_order ||--o| repair_work_order : R_detail
+  work_order ||--o{ work_order_material : uses
+  work_order ||--o{ work_order_instrument : uses
+  work_order ||--o{ work_order_wi : references
+  work_order ||--o{ asset_event : creates
+  work_order ||--o{ inventory_transaction : consumes
+  work_order ||--o{ inventory_document : references
+
+  pm_template ||--o{ pm_template_material : default_materials
+  pm_template ||--o{ pm_template_instrument : default_instruments
+  pm_template ||--o{ pm_template_wi : default_wi
+
+  material ||--o{ asset : serialized_items
+  material ||--o{ inventory_balance : stock_balance
+  material ||--o{ inventory_bin_balance : bin_stock
+  material ||--o{ inventory_transaction : stock_history
+  material ||--o{ material_usage_history : usage_history
+  material ||--o{ inventory_document_line : stock_document_lines
+  material ||--o{ work_order_material : used_by
+  material ||--o{ pm_template_material : default_for_pm
+
+  equipment_group ||--o{ vehicle_position : defines_positions
+  equipment_group ||--o{ asset : groups_assets
+  train ||--o{ vehicle_position : has_positions
+  vehicle_position ||--o{ asset_event : position_history
+  asset ||--o{ asset_event : lifecycle
+  asset ||--o{ repair_record : outsourced_repairs
+  asset ||--o{ scrap_record : scrap_flow
+  asset ||--o{ asset_task : tasks
+
+  warehouse ||--o{ inventory_balance : stores
+  warehouse ||--o{ inventory_bin_balance : stores_by_bin
+  warehouse ||--o{ inventory_transaction : moves
+  warehouse ||--o{ warehouse_bin : contains
+  warehouse ||--o{ inventory_document : source_or_destination
+  warehouse ||--o{ inventory_document_line : line_source_or_destination
+  warehouse_bin ||--o{ inventory_bin_balance : has_balance
+  warehouse_bin ||--o{ inventory_document_line : line_bin
+  vendor ||--o{ repair_record : repairs
+
+  document_sequence ||--o{ inventory_document : numbers
+  inventory_document ||--o{ inventory_document_line : contains
+  inventory_document ||--o{ inventory_transaction : posts
+  inventory_document_line ||--o{ inventory_transaction : posts
+
+  instrument ||--o{ work_order_instrument : used_by
+  instrument ||--o{ pm_template_instrument : default_for_pm
+  wi_document ||--o{ work_order_wi : used_by
+  wi_document ||--o{ pm_template_wi : default_for_pm
+
+  app_user {
+    uuid id PK
+    text display_name
+    text department
+    text role_name
+  }
+
+  work_order {
+    uuid id PK
+    text work_order_no UK
+    text work_order_type "P/C/R/J"
+    text status
+    uuid source_work_order_id FK
+  }
+
+  document_sequence {
+    uuid id PK
+    text document_type
+    date sequence_date
+    text site_code
+    text target_code
+    integer last_sequence
+  }
+
+  pm_work_order {
+    uuid work_order_id PK
+    text pm_code
+    date plan_start_date
+    date latest_finish_date
+    jsonb form_snapshot
+  }
+
+  fault_work_order {
+    uuid work_order_id PK
+    text fault_category
+    uuid removed_asset_id FK
+    uuid installed_asset_id FK
+  }
+
+  repair_work_order {
+    uuid work_order_id PK
+    uuid removed_asset_id FK
+    text repair_method
+    text current_place
+    text outsourcing_status
+    text acceptance_result
+  }
+
+  workflow_option {
+    text option_group PK
+    text option_code PK
+    text option_label
+    integer sort_order
+    boolean is_terminal
+    boolean is_active
+  }
+
+  material {
+    uuid id PK
+    text part_no UK
+    text material_name
+    text system_code
+    text category_code
+    text type_code
+    text system_name
+    text material_type
+    boolean is_serialized
+    boolean repairable
+  }
+
+  material_usage_history {
+    uuid id PK
+    uuid material_id FK
+    text period_type
+    integer roc_year
+    integer usage_month
+    text usage_type
+    decimal qty
+  }
+
+  inventory_document {
+    uuid id PK
+    text document_no UK
+    text document_type
+    text movement_type
+    text document_status
+    date document_date
+    text site_code
+  }
+
+  inventory_document_line {
+    uuid id PK
+    uuid inventory_document_id FK
+    uuid material_id FK
+    uuid asset_id FK
+    decimal qty
+    text from_stock_status
+    text to_stock_status
+  }
+
+  warehouse {
+    uuid id PK
+    text warehouse_code UK
+    text warehouse_name
+    text location_type
+    text default_stock_status
+    boolean is_issue_destination
+  }
+
+  warehouse_bin {
+    uuid id PK
+    uuid warehouse_id FK
+    text bin_code
+    boolean is_active
+  }
+
+  asset {
+    uuid id PK
+    uuid material_id FK
+    text serial_no
+    text current_status
+    uuid current_position_id FK
+  }
+
+  asset_event {
+    uuid id PK
+    uuid asset_id FK
+    text event_type
+    text from_status
+    text to_status
+    uuid work_order_id FK
+    timestamptz event_at
+  }
+
+  inventory_transaction {
+    uuid id PK
+    uuid material_id FK
+    numeric qty_change
+    text transaction_type
+    uuid work_order_id FK
+  }
+
+  inventory_balance {
+    uuid material_id PK
+    uuid warehouse_id PK
+    text stock_status PK
+    numeric qty
+  }
+
+  inventory_bin_balance {
+    uuid material_id PK
+    uuid warehouse_id PK
+    uuid warehouse_bin_id PK
+    text stock_status PK
+    numeric qty
+  }
+
+  material_import_source {
+    uuid id PK
+    text import_batch
+    text source_file
+    integer source_row_no
+    text part_no
+    text warehouse_code
+    text warehouse_location_type
+    text bin_code
+    text stock_status
+    numeric stock_qty
+  }
