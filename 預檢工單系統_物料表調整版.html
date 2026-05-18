@@ -19869,7 +19869,7 @@ react-dom/cjs/react-dom-client.production.js:
   }
   .codex-material-overview-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+    grid-template-columns: 1fr;
     gap: 0.9rem;
   }
   .codex-material-next-card {
@@ -20494,6 +20494,35 @@ react-dom/cjs/react-dom-client.production.js:
     font-size: 0.72rem;
     line-height: 1.55;
   }
+  .codex-usage-supply-stack {
+    display: grid;
+    gap: 0.85rem;
+  }
+  .codex-usage-supply-block {
+    border: 1px solid rgba(51, 65, 85, 0.74);
+    border-radius: 1rem;
+    background: rgba(2, 6, 23, 0.32);
+    padding: 0.78rem;
+  }
+  .codex-usage-supply-title {
+    margin-bottom: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: rgb(241, 245, 249);
+    font-size: 0.82rem;
+    font-weight: 900;
+  }
+  .codex-usage-supply-title span {
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.78);
+    padding: 0.22rem 0.55rem;
+    color: rgb(148, 163, 184);
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
   .codex-reason-box {
     border: 1px solid rgba(251, 191, 36, 0.34);
     border-radius: 0.9rem;
@@ -20502,6 +20531,35 @@ react-dom/cjs/react-dom-client.production.js:
     padding: 0.75rem;
     font-size: 0.78rem;
     line-height: 1.55;
+  }
+  .codex-purchase-action-list {
+    margin-top: 0.7rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .codex-purchase-action-row {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 0.65rem;
+    align-items: start;
+    border: 1px solid rgba(51, 65, 85, 0.78);
+    border-radius: 0.8rem;
+    background: rgba(15, 23, 42, 0.62);
+    padding: 0.62rem 0.7rem;
+    color: rgb(203, 213, 225);
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+  .codex-purchase-action-row strong {
+    color: rgb(241, 245, 249);
+  }
+  .codex-purchase-action-row[data-priority="high"] {
+    border-color: rgba(251, 113, 133, 0.36);
+    background: rgba(127, 29, 29, 0.18);
+  }
+  .codex-purchase-action-row[data-priority="watch"] {
+    border-color: rgba(52, 211, 153, 0.32);
+    background: rgba(6, 78, 59, 0.16);
   }
   .codex-source-note {
     margin-top: 0.7rem;
@@ -21360,7 +21418,7 @@ react-dom/cjs/react-dom-client.production.js:
     listSection.classList.add("codex-material-view-hidden");
     if (querySection) querySection.classList.add("codex-material-view-hidden");
     row.classList.add("codex-row-expanded");
-    bindMaterialDetailPage(detailPage, item);
+    bindMaterialDetailPage(detailPage, item, row);
     window.setTimeout(function () {
       detailPage.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 0);
@@ -21394,7 +21452,7 @@ react-dom/cjs/react-dom-client.production.js:
     }
   }
 
-  function bindMaterialDetailPage(detailPage, item) {
+  function bindMaterialDetailPage(detailPage, item, row) {
     Array.prototype.forEach.call(detailPage.querySelectorAll("[data-material-back]"), function (button) {
       button.addEventListener("click", function () {
         closeMaterialDetailPage();
@@ -21408,7 +21466,17 @@ react-dom/cjs/react-dom-client.production.js:
     Array.prototype.forEach.call(detailPage.querySelectorAll("[data-detail-action]"), function (button) {
       button.addEventListener("click", function (event) {
         event.stopPropagation();
-        showIaToast(button.getAttribute("data-detail-action") + "：「" + item.name + "」");
+        var action = button.getAttribute("data-detail-action");
+        var movementType = movementTypeFromAction(action);
+        if (movementType) {
+          openInventoryMovementModal(movementType, item, detailPage, row);
+          return;
+        }
+        if (action === "補齊物料資料") {
+          openMaterialEditModal(item, detailPage, row);
+          return;
+        }
+        showIaToast(action + "：「" + item.name + "」");
       });
     });
   }
@@ -21421,6 +21489,454 @@ react-dom/cjs/react-dom-client.production.js:
     Array.prototype.forEach.call(detailPage.querySelectorAll("[data-material-tab-panel]"), function (panel) {
       panel.classList.toggle("is-active", panel.getAttribute("data-material-tab-panel") === tabName);
     });
+  }
+
+  function materialApiBaseUrl() {
+    return String(window.CodexERPApiBaseUrl || window.API_BASE_URL || "http://localhost:3001/api").replace(/\/+$/, "");
+  }
+
+  function plainNumber(value) {
+    var n = Number(String(value === null || value === undefined ? "" : value).replace(/[^0-9.-]/g, ""));
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function fieldValue(value) {
+    return value === "-" || value === null || value === undefined ? "" : String(value);
+  }
+
+  function selectValueHtml(listKey, selected) {
+    var selectedText = fieldValue(selected);
+    var options = activeReferenceItems(listKey).map(function (item) {
+      var name = item.name || item.code || "";
+      return '<option value="' + escapeInline(name) + '"' + (name === selectedText ? " selected" : "") + '>' + escapeInline(name) + '</option>';
+    }).join("");
+    if (selectedText && options.indexOf('value="' + escapeInline(selectedText) + '"') === -1) {
+      options = '<option value="' + escapeInline(selectedText) + '" selected>' + escapeInline(selectedText) + '</option>' + options;
+    }
+    return options;
+  }
+
+  function movementTypeFromAction(action) {
+    return {
+      "建立庫存異動": "ISSUE",
+      "新增庫存異動": "ISSUE",
+      "建立領料異動": "ISSUE",
+      "新增領料": "ISSUE",
+      "建立退料異動": "RETURN",
+      "新增退料": "RETURN",
+      "建立調撥異動": "TRANSFER",
+      "新增調撥": "TRANSFER"
+    }[action] || "";
+  }
+
+  function inventoryMovementLabel(type) {
+    return {
+      ISSUE: "領料",
+      RETURN: "退料",
+      TRANSFER: "調撥"
+    }[type] || "庫存異動";
+  }
+
+  function movementTypeOptionsHtml(selected) {
+    return ["ISSUE", "RETURN", "TRANSFER"].map(function (type) {
+      var label = inventoryMovementLabel(type);
+      return '<option value="' + type + '"' + (type === selected ? " selected" : "") + '>' + label + '</option>';
+    }).join("");
+  }
+
+  function inventoryMovementDefaults(type) {
+    var defaults = {
+      ISSUE: {
+        sourceWarehouseCode: "TH-CENTER",
+        sourceStockStatus: "AVAILABLE",
+        destinationWarehouseCode: "TH-SUB",
+        destinationStockStatus: "ISSUED",
+        note: "領料至分存站保管"
+      },
+      RETURN: {
+        sourceWarehouseCode: "TH-SUB",
+        sourceStockStatus: "ISSUED",
+        destinationWarehouseCode: "TH-CENTER",
+        destinationStockStatus: "AVAILABLE",
+        note: "退回主庫房"
+      },
+      TRANSFER: {
+        sourceWarehouseCode: "TH-CENTER",
+        sourceStockStatus: "AVAILABLE",
+        destinationWarehouseCode: "TH-SUB",
+        destinationStockStatus: "ISSUED",
+        note: "庫存調撥"
+      }
+    };
+    return defaults[type] || defaults.TRANSFER;
+  }
+
+  function stockStatusOptionsHtml(selected) {
+    var labels = {
+      AVAILABLE: "AVAILABLE｜可發料",
+      ISSUED: "ISSUED｜已領料保管",
+      IN_USE: "IN_USE｜使用中",
+      QUARANTINE: "QUARANTINE｜待判定",
+      REPAIR: "REPAIR｜維修中",
+      SCRAPPED: "SCRAPPED｜報廢"
+    };
+    return ["AVAILABLE", "ISSUED", "IN_USE", "QUARANTINE", "REPAIR", "SCRAPPED"].map(function (status) {
+      return '<option value="' + status + '"' + (status === selected ? " selected" : "") + '>' + labels[status] + '</option>';
+    }).join("");
+  }
+
+  function displayQty(value) {
+    var n = Number(value);
+    if (!Number.isFinite(n)) return fieldValue(value) || "0";
+    return n.toLocaleString("zh-TW", { maximumFractionDigits: 3 });
+  }
+
+  function setInventoryMovementField(form, name, value) {
+    var field = form && form.elements && form.elements[name];
+    if (field) field.value = value || "";
+  }
+
+  function isInventoryPresetNote(value) {
+    return ["", "領料至分存站保管", "退回主庫房", "庫存調撥"].indexOf(String(value || "").trim()) !== -1;
+  }
+
+  function applyInventoryMovementDefaults(form, type) {
+    var defaults = inventoryMovementDefaults(type);
+    form.setAttribute("data-movement-type", type);
+    setInventoryMovementField(form, "sourceWarehouseCode", defaults.sourceWarehouseCode);
+    setInventoryMovementField(form, "sourceStockStatus", defaults.sourceStockStatus);
+    setInventoryMovementField(form, "destinationWarehouseCode", defaults.destinationWarehouseCode);
+    setInventoryMovementField(form, "destinationStockStatus", defaults.destinationStockStatus);
+    if (form.elements.note && isInventoryPresetNote(form.elements.note.value)) {
+      form.elements.note.value = defaults.note;
+    }
+  }
+
+  function openInventoryMovementModal(type, item, detailPage, row) {
+    var detail = materialExcelDetail(item);
+    var defaults = inventoryMovementDefaults(type);
+    var modal = document.getElementById("codex-inventory-movement-modal");
+    if (modal) modal.remove();
+    modal = document.createElement("div");
+    modal.id = "codex-inventory-movement-modal";
+    modal.className = "codex-material-modal";
+    modal.innerHTML = [
+      '<div class="codex-material-backdrop" data-inventory-movement-close></div>',
+      '<section class="codex-material-dialog" role="dialog" aria-modal="true" aria-labelledby="codex-inventory-movement-title">',
+      '  <div class="codex-material-dialog-header">',
+      '    <div>',
+      '      <div id="codex-inventory-movement-title" class="codex-material-dialog-title">建立庫存異動</div>',
+      '      <div class="codex-material-dialog-subtitle">先選異動類型，再填數量與必要追蹤資訊；送出後會更新倉庫、儲位與交易紀錄。</div>',
+      '    </div>',
+      '    <button type="button" class="codex-material-close" data-inventory-movement-close aria-label="關閉庫存異動">×</button>',
+      '  </div>',
+      '  <form class="codex-material-form" data-inventory-movement-form data-movement-type="' + escapeInline(type) + '">',
+      '    <div class="codex-material-grid">',
+      '      <div class="codex-material-field"><label>料號</label><input name="partNo" value="' + escapeInline(detail.partNo) + '" readonly></div>',
+      '      <div class="codex-material-field"><label>物料名稱</label><input value="' + escapeInline(detail.name) + '" readonly></div>',
+      '      <div class="codex-material-field"><label>異動類型</label><select name="movementType">' + movementTypeOptionsHtml(type) + '</select></div>',
+      '      <div class="codex-material-field"><label>數量</label><input name="qty" type="number" min="0.001" step="0.001" value="1" required></div>',
+      '      <div class="codex-material-field"><label>來源倉庫代碼</label><input name="sourceWarehouseCode" value="' + escapeInline(defaults.sourceWarehouseCode) + '" required></div>',
+      '      <div class="codex-material-field"><label>來源庫存狀態</label><select name="sourceStockStatus">' + stockStatusOptionsHtml(defaults.sourceStockStatus) + '</select></div>',
+      '      <div class="codex-material-field"><label>來源儲位</label><input name="sourceBinCode" placeholder="空白時自動挑選有庫存儲位"></div>',
+      '      <div class="codex-material-field"><label>目的倉庫代碼</label><input name="destinationWarehouseCode" value="' + escapeInline(defaults.destinationWarehouseCode) + '" required></div>',
+      '      <div class="codex-material-field"><label>目的庫存狀態</label><select name="destinationStockStatus">' + stockStatusOptionsHtml(defaults.destinationStockStatus) + '</select></div>',
+      '      <div class="codex-material-field"><label>目的儲位</label><input name="destinationBinCode" placeholder="空白時自動挑選儲位"></div>',
+      '      <div class="codex-material-field"><label>關聯工單</label><input name="workOrderNo" placeholder="已有工單單號再填"></div>',
+      '      <div class="codex-material-field"><label>領用 / 保管人</label><input name="custodianName" placeholder="例如 王小明"></div>',
+      '      <div class="codex-material-field codex-material-field-wide"><label>備註</label><textarea name="note">' + escapeInline(defaults.note) + '</textarea></div>',
+      '    </div>',
+      '    <div class="codex-material-dialog-actions">',
+      '      <button type="button" class="codex-material-action" data-inventory-movement-close>取消</button>',
+      '      <button type="submit" class="codex-material-action codex-material-action-primary">建立異動單</button>',
+      '    </div>',
+      '  </form>',
+      '</section>'
+    ].join("");
+    modal.addEventListener("click", function (event) {
+      if (event.target && event.target.hasAttribute("data-inventory-movement-close")) modal.remove();
+    });
+    modal.querySelector("form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      submitInventoryMovement(event.currentTarget, item, detailPage, row, modal);
+    });
+    modal.querySelector('select[name="movementType"]').addEventListener("change", function (event) {
+      applyInventoryMovementDefaults(modal.querySelector("form"), event.currentTarget.value);
+    });
+    document.body.appendChild(modal);
+    window.setTimeout(function () {
+      var first = modal.querySelector('select[name="movementType"]');
+      if (first) first.focus();
+    }, 0);
+  }
+
+  function inventoryMovementPayload(form) {
+    var data = new FormData(form);
+    function text(name) {
+      return String(data.get(name) || "").trim();
+    }
+    var qty = Number(text("qty"));
+    if (!Number.isFinite(qty) || qty <= 0) throw new Error("請輸入大於 0 的數量");
+    return {
+      movementType: text("movementType") || form.getAttribute("data-movement-type") || "ISSUE",
+      partNo: text("partNo"),
+      qty: qty,
+      sourceWarehouseCode: text("sourceWarehouseCode").toUpperCase(),
+      sourceBinCode: text("sourceBinCode") || null,
+      sourceStockStatus: text("sourceStockStatus"),
+      destinationWarehouseCode: text("destinationWarehouseCode").toUpperCase(),
+      destinationBinCode: text("destinationBinCode") || null,
+      destinationStockStatus: text("destinationStockStatus"),
+      workOrderNo: text("workOrderNo") || null,
+      custodianName: text("custodianName") || null,
+      note: text("note") || null
+    };
+  }
+
+  function submitInventoryMovement(form, item, detailPage, row, modal) {
+    var payload;
+    try {
+      payload = inventoryMovementPayload(form);
+    } catch (error) {
+      showIaToast(error.message || "異動資料不完整");
+      return;
+    }
+    var submit = form.querySelector('button[type="submit"]');
+    if (submit) {
+      submit.disabled = true;
+      submit.textContent = "建立中...";
+    }
+    fetch(materialApiBaseUrl() + "/inventory/movements", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      return response.text().then(function (text) {
+        var data = text ? JSON.parse(text) : {};
+        if (!response.ok) throw new Error(data.error && data.error.message || "API " + response.status);
+        return data;
+      });
+    }).then(function (data) {
+      var movement = data.movement || {};
+      modal.remove();
+      showIaToast("已建立" + inventoryMovementLabel(payload.movementType) + "異動：" + (movement.document && movement.document.document_no || "單號產生中"));
+      refreshMaterialStockSnapshot(payload.partNo, item, detailPage, row);
+    }).catch(function (error) {
+      showIaToast(inventoryMovementLabel(payload.movementType) + "失敗：" + (error.message || "無法連線 API"));
+    }).finally(function () {
+      if (submit) {
+        submit.disabled = false;
+        submit.textContent = "建立異動單";
+      }
+    });
+  }
+
+  function refreshMaterialStockSnapshot(partNo, item, detailPage, row) {
+    fetch(materialApiBaseUrl() + "/materials/" + encodeURIComponent(partNo))
+      .then(function (response) {
+        return response.text().then(function (text) {
+          var data = text ? JSON.parse(text) : {};
+          if (!response.ok) throw new Error(data.error && data.error.message || "API " + response.status);
+          return data;
+        });
+      })
+      .then(function (data) {
+        if (!data.item || !data.item.stock) return;
+        applyMaterialStockSnapshot(data.item, item, detailPage, row);
+      })
+      .catch(function () {
+        showIaToast("異動已建立，重新整理後可看到最新庫存。");
+      });
+  }
+
+  function applyMaterialStockSnapshot(apiItem, item, detailPage, row) {
+    var stock = apiItem.stock || {};
+    var availableQty = Number(stock.availableQty);
+    var issuedQty = Number(stock.issuedQty) + Number(stock.inUseQty);
+    var totalQty = Number(stock.totalTrackedQty);
+    var reorderPoint = Number(apiItem.reorderPoint);
+    item.stock = displayQty(Number.isFinite(totalQty) ? totalQty : stock.totalTrackedQty);
+    item.stockEnough = Number.isFinite(availableQty) && Number.isFinite(reorderPoint) && availableQty > reorderPoint ? "是" : "否";
+    var excel = codexMaterialExcelDetails[item.partNo] || {};
+    excel.stock = excel.stock || {};
+    excel.stock.total = item.stock;
+    excel.stock.danh = Number.isFinite(availableQty) ? displayQty(availableQty) : fieldValue(stock.availableQty);
+    excel.stock.boq = Number.isFinite(issuedQty) ? displayQty(issuedQty) : fieldValue(stock.issuedQty);
+    excel.purchase = excel.purchase || {};
+    excel.purchase.enough1y = item.stockEnough;
+    excel.purchase.reorderPoint = apiItem.reorderPoint !== undefined && apiItem.reorderPoint !== null ? String(apiItem.reorderPoint) : excel.purchase.reorderPoint;
+    codexMaterialExcelDetails[item.partNo] = excel;
+    if (row) {
+      var cells = row.querySelectorAll("td");
+      if (cells[7]) cells[7].textContent = item.stock;
+      if (cells[8]) cells[8].textContent = item.stockEnough;
+      if (cells[11] && excel.purchase.reorderPoint) cells[11].textContent = excel.purchase.reorderPoint;
+    }
+    if (detailPage) {
+      detailPage.innerHTML = materialDetailPageHtml(item);
+      bindMaterialDetailPage(detailPage, item, row);
+    }
+  }
+
+  function openMaterialEditModal(item, detailPage, row) {
+    var detail = materialExcelDetail(item);
+    var p = detail.purchase || {};
+    var modal = document.getElementById("codex-material-edit-modal");
+    if (modal) modal.remove();
+    modal = document.createElement("div");
+    modal.id = "codex-material-edit-modal";
+    modal.className = "codex-material-modal";
+    modal.innerHTML = [
+      '<div class="codex-material-backdrop" data-material-edit-close></div>',
+      '<section class="codex-material-dialog" role="dialog" aria-modal="true" aria-labelledby="codex-material-edit-title">',
+      '  <div class="codex-material-dialog-header">',
+      '    <div>',
+      '      <div id="codex-material-edit-title" class="codex-material-dialog-title">補齊物料資料</div>',
+      '      <div class="codex-material-dialog-subtitle">更新物料主檔欄位；庫存數量、領退料與調撥仍由庫存異動單累積。</div>',
+      '    </div>',
+      '    <button type="button" class="codex-material-close" data-material-edit-close aria-label="關閉補資料">×</button>',
+      '  </div>',
+      '  <form class="codex-material-form" data-material-edit-form>',
+      '    <div class="codex-material-grid">',
+      '      <div class="codex-material-field"><label>料號</label><input name="partNo" value="' + escapeInline(detail.partNo) + '" readonly></div>',
+      '      <div class="codex-material-field"><label>物料名稱</label><input name="materialName" value="' + escapeInline(detail.name) + '" required></div>',
+      '      <div class="codex-material-field codex-material-field-wide"><label>規格</label><input name="spec" value="' + escapeInline(fieldValue(detail.spec)) + '"></div>',
+      '      <div class="codex-material-field"><label>單位</label><select name="unit">' + selectValueHtml("unit", detail.unit) + '</select></div>',
+      '      <div class="codex-material-field"><label>系統別</label><select name="systemName">' + selectValueHtml("material_system", detail.system) + '</select></div>',
+      '      <div class="codex-material-field"><label>物料屬性</label><select name="materialProperty">' + selectValueHtml("material_property", detail.property) + '</select></div>',
+      '      <div class="codex-material-field"><label>安全等級</label><select name="safetyLevel">' + ["1", "2", "3", "4", "未分類"].map(function (level) { return '<option value="' + level + '"' + (fieldValue(p.safetyLevel) === level ? " selected" : "") + '>' + level + '</option>'; }).join("") + '</select></div>',
+      '      <div class="codex-material-field"><label>請購點</label><input name="reorderPoint" type="number" min="0" step="1" value="' + escapeInline(String(plainNumber(p.reorderPoint) || 0)) + '"></div>',
+      '      <div class="codex-material-field"><label>交期天數</label><input name="leadTimeDays" type="number" min="0" step="1" value="' + escapeInline(String(plainNumber(p.leadTime) || "")) + '"></div>',
+      '      <div class="codex-material-field"><label>入庫單價</label><input name="estimatedUnitPrice" type="number" min="0" step="0.01" value="' + escapeInline(String(plainNumber(p.unitPrice) || "")) + '"></div>',
+      '      <div class="codex-material-field"><label>可修件</label><select name="repairable"><option value="">未填</option><option value="true"' + (p.repairable === "是" ? " selected" : "") + '>是</option><option value="false"' + (p.repairable === "否" ? " selected" : "") + '>否</option></select></div>',
+      '      <div class="codex-material-field"><label>市售品</label><select name="marketAvailable"><option value="">未填</option><option value="true"' + (p.market === "是" ? " selected" : "") + '>是</option><option value="false"' + (p.market === "否" ? " selected" : "") + '>否</option></select></div>',
+      '      <div class="codex-material-field codex-material-field-wide"><label>檢討說明</label><textarea name="reviewNote">' + escapeInline(fieldValue(p.review || detail.review || "")) + '</textarea></div>',
+      '    </div>',
+      '    <div class="codex-material-dialog-actions">',
+      '      <button type="button" class="codex-material-action" data-material-edit-close>取消</button>',
+      '      <button type="submit" class="codex-material-action codex-material-action-primary">寫入資料庫</button>',
+      '    </div>',
+      '  </form>',
+      '</section>'
+    ].join("");
+    modal.addEventListener("click", function (event) {
+      if (event.target && event.target.hasAttribute("data-material-edit-close")) modal.remove();
+    });
+    modal.querySelector("form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      submitMaterialEdit(event.currentTarget, item, detailPage, row, modal);
+    });
+    document.body.appendChild(modal);
+    window.setTimeout(function () {
+      var first = modal.querySelector('input[name="materialName"]');
+      if (first) first.focus();
+    }, 0);
+  }
+
+  function materialPatchPayload(form) {
+    var data = new FormData(form);
+    function text(name) {
+      return String(data.get(name) || "").trim();
+    }
+    function numberOrNull(name) {
+      var raw = text(name);
+      return raw === "" ? null : Number(raw);
+    }
+    function booleanOrNull(name) {
+      var raw = text(name);
+      if (raw === "true") return true;
+      if (raw === "false") return false;
+      return null;
+    }
+    var payload = {
+      materialName: text("materialName"),
+      spec: text("spec") || null,
+      unit: text("unit") || null,
+      systemName: text("systemName") || null,
+      materialProperty: text("materialProperty") || null,
+      safetyLevel: text("safetyLevel") === "未分類" ? null : text("safetyLevel"),
+      reorderPoint: numberOrNull("reorderPoint") === null ? 0 : numberOrNull("reorderPoint"),
+      leadTimeDays: numberOrNull("leadTimeDays"),
+      estimatedUnitPrice: numberOrNull("estimatedUnitPrice"),
+      repairable: booleanOrNull("repairable"),
+      marketAvailable: booleanOrNull("marketAvailable"),
+      reviewNote: text("reviewNote") || null
+    };
+    if (payload.repairable === null) delete payload.repairable;
+    return payload;
+  }
+
+  function submitMaterialEdit(form, item, detailPage, row, modal) {
+    var partNo = String(new FormData(form).get("partNo") || item.partNo || "").trim();
+    var payload = materialPatchPayload(form);
+    var submit = form.querySelector('button[type="submit"]');
+    if (submit) {
+      submit.disabled = true;
+      submit.textContent = "寫入中...";
+    }
+    fetch(materialApiBaseUrl() + "/materials/" + encodeURIComponent(partNo), {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      return response.text().then(function (text) {
+        var data = text ? JSON.parse(text) : {};
+        if (!response.ok) throw new Error(data.error && data.error.message || "API " + response.status);
+        return data;
+      });
+    }).then(function (data) {
+      applyMaterialEditToView(data.item || payload, payload, item, detailPage, row);
+      modal.remove();
+      showIaToast("已補齊並寫入資料庫：" + partNo);
+    }).catch(function (error) {
+      showIaToast("補資料失敗：" + (error.message || "無法連線 API"));
+    }).finally(function () {
+      if (submit) {
+        submit.disabled = false;
+        submit.textContent = "寫入資料庫";
+      }
+    });
+  }
+
+  function applyMaterialEditToView(apiItem, payload, item, detailPage, row) {
+    item.name = apiItem.materialName || payload.materialName || item.name;
+    item.spec = apiItem.spec || payload.spec || item.spec;
+    item.unit = apiItem.unit || payload.unit || item.unit;
+    item.system = apiItem.systemName || payload.systemName || item.system;
+    item.property = apiItem.materialProperty || payload.materialProperty || item.property;
+    item.safety = apiItem.safetyLevel || payload.safetyLevel || item.safety;
+    item.reorder = String(apiItem.reorderPoint !== undefined && apiItem.reorderPoint !== null ? apiItem.reorderPoint : (payload.reorderPoint !== null ? payload.reorderPoint : item.reorder || "0"));
+    var priceValue = apiItem.estimatedUnitPrice !== undefined && apiItem.estimatedUnitPrice !== null ? apiItem.estimatedUnitPrice : payload.estimatedUnitPrice;
+    if (priceValue !== null && priceValue !== undefined) {
+      var price = Number(priceValue);
+      item.unitPrice = Number.isFinite(price) ? "$ " + price.toLocaleString("zh-TW", { maximumFractionDigits: 2 }) : item.unitPrice;
+    }
+    var excel = codexMaterialExcelDetails[item.partNo] || {};
+    excel.spec = item.spec;
+    excel.purchase = excel.purchase || {};
+    excel.purchase.safetyLevel = item.safety;
+    excel.purchase.reorderPoint = item.reorder;
+    excel.purchase.leadTime = payload.leadTimeDays === null ? "" : String(payload.leadTimeDays);
+    excel.purchase.unitPrice = item.unitPrice;
+    excel.purchase.repairable = payload.repairable === true ? "是" : (payload.repairable === false ? "否" : excel.purchase.repairable);
+    excel.purchase.market = payload.marketAvailable === true ? "是" : (payload.marketAvailable === false ? "否" : excel.purchase.market);
+    excel.purchase.review = payload.reviewNote || "";
+    codexMaterialExcelDetails[item.partNo] = excel;
+    if (row) {
+      var cells = row.querySelectorAll("td");
+      if (cells[0]) cells[0].textContent = item.system;
+      if (cells[1]) cells[1].textContent = item.property;
+      if (cells[3]) cells[3].textContent = item.name;
+      if (cells[4]) cells[4].textContent = item.spec;
+      if (cells[5]) cells[5].textContent = item.unit;
+      if (cells[6]) cells[6].textContent = item.unitPrice;
+      if (cells[10]) cells[10].textContent = item.safety;
+      if (cells[11]) cells[11].textContent = item.reorder;
+    }
+    if (detailPage) {
+      detailPage.innerHTML = materialDetailPageHtml(item);
+      bindMaterialDetailPage(detailPage, item, row);
+    }
   }
 
   function expandInlineDetail(row) {
@@ -21496,29 +22012,19 @@ react-dom/cjs/react-dom-client.production.js:
       tagListHtml(detail.tags),
       '  </div>',
       '  <div class="codex-material-detail-actions">',
-      detailActionButton("領料", "建立領料異動", false),
-      detailActionButton("退料", "建立退料異動", false),
-      detailActionButton("調撥", "建立調撥異動", false),
+      detailActionButton("庫存異動", "建立庫存異動", false),
       detailActionButton("補資料", "補齊物料資料", true),
       '  </div>',
       '</div>',
       detailDecisionSummaryHtml(detail),
       '<div class="codex-material-detail-tabs">',
       detailTabButton("overview", "總覽", true),
-      detailTabButton("basic", "基本資料", false),
-      detailTabButton("stock", "庫存分布", false),
-      detailTabButton("usage", "用量趨勢", false),
-      detailTabButton("purchase", "補料判斷", false),
       detailTabButton("movement", "異動紀錄", false),
       detailTabButton("workorders", "工單關聯", false),
       detailTabButton("attachments", "照片附件", false),
       '</div>',
       '<div class="codex-material-detail-body">',
       detailTabPanel("overview", detailOverviewHtml(detail), true),
-      detailTabPanel("basic", detailSection("基本資料", basicDetailHtml(detail)), false),
-      detailTabPanel("stock", detailSection("庫存分布", stockDetailHtml(detail)), false),
-      detailTabPanel("usage", detailSection("用量趨勢", usageDetailHtml(detail)), false),
-      detailTabPanel("purchase", detailSection("補料判斷", purchaseDetailHtml(detail)), false),
       detailTabPanel("movement", detailSection("異動紀錄", movementHistoryHtml(detail)), false),
       detailTabPanel("workorders", detailSection("工單關聯", workOrderLinkHtml(detail)), false),
       detailTabPanel("attachments", detailSection("照片附件", attachmentPanelHtml(detail)), false),
@@ -21527,59 +22033,40 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function detailOverviewHtml(detail) {
-    var p = detail.purchase || {};
-    var stock = detail.stock || {};
     return '<div class="codex-material-overview-grid">' +
       '<div class="codex-detail-sections">' +
-      detailSection("資料摘要", '<div class="codex-detail-grid">' +
-        metricHtml("料號", detail.partNo) +
-        metricHtml("系統別", detail.system) +
-        metricHtml("物料屬性", detail.property) +
-        metricHtml("單位", detail.unit) +
-        metricHtml("公司庫存量", stock.total) +
-        metricHtml("安全關鍵等級", p.safetyLevel) +
-        metricHtml("請購點", p.reorderPoint) +
-        metricHtml("資料狀態", missingFieldText(detail).replace("。", "")) +
-      '</div>') +
-      detailSection("目前判斷", purchaseDetailHtml(detail)) +
+      detailSection("物料概要", overviewProfileHtml(detail)) +
+      detailSection("庫存分布", stockDetailHtml(detail)) +
+      detailSection("用料與補料", usageSupplyDetailHtml(detail)) +
       '</div>' +
-      nextActionsHtml(detail) +
       '</div>';
   }
 
-  function nextActionsHtml(detail) {
-    var stock = detail.stock || {};
+  function overviewProfileHtml(detail) {
     var p = detail.purchase || {};
-    var needsSupply = p.enough1y === "否" || usageNumber(stock.total) <= usageNumber(p.reorderPoint);
-    var actions = [
-      needsSupply ? "補料：先確認中心倉庫與分存站可調撥量，再決定採購。" : "補料：目前可維持觀察，定期看用量趨勢。",
-      "庫存：中心倉庫代表未領料，分存站代表現場已領用或備置。",
-      "回查：領料後要能回到 C/P/R/J 工單與車號或設備坑位。"
-    ];
-    if (missingFieldText(detail).indexOf("待補欄位") !== -1) {
-      actions.unshift(missingFieldText(detail));
-    }
-    return '<aside class="codex-material-next-card">' +
-      '<div class="codex-material-next-title">下一步</div>' +
-      '<div class="codex-material-next-list">' +
-      actions.map(function (text) {
-        return '<div class="codex-material-next-item">' + escapeInline(text) + '</div>';
-      }).join("") +
-      '</div>' +
-      '<div class="codex-inline-actions">' +
-      detailActionButton("建立異動單", "建立庫存異動單", true) +
-      detailActionButton("回查工單", "查看工單關聯", false) +
-      '</div>' +
-      '</aside>';
+    var stock = detail.stock || {};
+    return '<div class="codex-detail-basic">' +
+      photoBoxHtml(detail) +
+      '<div class="codex-detail-grid">' +
+        metricHtml("料號", detail.partNo) +
+        metricHtml("物料名稱", detail.name) +
+        metricHtml("規格", detail.spec) +
+        metricHtml("單位", detail.unit) +
+        metricHtml("系統別", detail.system) +
+        metricHtml("物料屬性", detail.property) +
+        metricHtml("公司庫存量", stock.total) +
+        metricHtml("請購點", p.reorderPoint) +
+        metricHtml("安全關鍵等級", p.safetyLevel) +
+        metricHtml("入庫單價", p.unitPrice) +
+        metricHtml("效期管理", expiryControlText(detail)) +
+        metricHtml("資料狀態", missingFieldText(detail).replace("。", "")) +
+      '</div></div>';
   }
 
   function movementHistoryHtml(detail) {
     return [
       '<div class="codex-material-ledger-toolbar">',
-      detailActionButton("領料", "新增領料", true),
-      detailActionButton("退料", "新增退料", false),
-      detailActionButton("調撥", "新增調撥", false),
-      detailActionButton("報廢", "新增報廢", false),
+      detailActionButton("新增庫存異動", "新增庫存異動", true),
       '</div>',
       '<table class="codex-material-ledger-table">',
       '  <thead><tr><th>日期</th><th>單號</th><th>類型</th><th>倉庫</th><th>數量</th><th>關聯工單</th><th>處理人</th></tr></thead>',
@@ -21668,15 +22155,13 @@ react-dom/cjs/react-dom-client.production.js:
       '  <div class="codex-detail-sections">',
       detailSection("基本資料", basicDetailHtml(detail)),
       detailSection("庫存分布", stockDetailHtml(detail)),
-      detailSection("用量趨勢", usageDetailHtml(detail)),
-      detailSection("請購判斷", purchaseDetailHtml(detail)),
+      detailSection("用料與補料", usageSupplyDetailHtml(detail)),
       '  </div>',
       '  <div class="codex-source-note">資料來源：物料主檔、庫存異動、年度用量與工單領用紀錄。</div>',
       '  <div class="codex-inline-actions">',
-      '    <button type="button" class="codex-inline-action" data-inline-action="補料判斷">補料判斷</button>',
+      '    <button type="button" class="codex-inline-action" data-inline-action="用料與補料">用料與補料</button>',
       '    <button type="button" class="codex-inline-action" data-inline-action="資料補齊">資料補齊</button>',
       '    <button type="button" class="codex-inline-action" data-inline-action="庫存異動單">庫存異動單</button>',
-      '    <button type="button" class="codex-inline-action" data-inline-action="查看用量趨勢">用量趨勢</button>',
       '    <button type="button" class="codex-inline-action" data-inline-action="查看庫存分布">庫存分布</button>',
       '  </div>',
       '</div>'
@@ -21898,21 +22383,21 @@ react-dom/cjs/react-dom-client.production.js:
     var annualRows = years.slice(-3).map(function (year) {
       return metricHtml(year + " 年用量", usageAnnualValue(usage, year));
     }).join("");
-    var trendNote = monthTotal > 0 || usageNumber(usage.fault1y) > 0 ? "後台會保留每筆領料、退料、調撥與報廢，這裡只呈現彙整後的趨勢；需要追原因時可回查工單、倉庫、車號/設備號與領料人。" : "尚缺完整用量紀錄，後續應由庫存異動紀錄自動產生趨勢，避免人工填寫後無法追溯。";
+    var trendNote = monthTotal > 0 || usageNumber(usage.fault1y) > 0 ? "本頁只看歷史用料事實：領料、退料、調撥與報廢會保留日期、工單、倉庫、車號/設備號與領料人；若某月突然放大，先回查原因，不在這裡直接下補料結論。" : "尚缺完整用料履歷，後續應由庫存異動紀錄自動產生趨勢，避免人工填寫後無法追溯。";
     return '<div class="codex-detail-grid">' +
       metricHtml("統計年度", selectedYear + " 年") +
-      metricHtml("近 12 個月用量", usageText(monthTotal)) +
+      metricHtml("近 12 個月出庫量", usageText(monthTotal)) +
       metricHtml("平均月耗", usageText(monthAvg)) +
-      metricHtml("最高單月用量", maxMonthLabel) +
+      metricHtml("高峰月份", maxMonthLabel) +
       metricHtml("近 1 年故障用量", usage.fault1y) +
       '</div>' +
       usageYearPillsHtml(years, selectedYear, usage) +
-      '<div class="codex-usage-note">後續年度會依用量異動日期自動增加，不再把 115、116 年繼續塞進物料主檔欄位。</div>' +
+      '<div class="codex-usage-note">用料履歷只回答「過去怎麼被消耗」：看年度、月份與異常峰值。要不要補料、先調撥還是採購，移到補料決策頁判斷。</div>' +
       usageTrendBarsHtml(months) +
       '<div class="codex-detail-grid is-wide" style="margin-top:0.65rem">' +
       annualRows +
-      metricHtml("近 12 月推估年用量", usageText(monthTotal)) +
-      metricHtml("資料用途", "請購/調撥判斷") +
+      metricHtml("資料層級", "歷史異動彙整") +
+      metricHtml("下一步", maxMonthValue > 0 ? "回查高峰月份原因" : "補齊異動紀錄") +
       '</div>' +
       '<div class="codex-usage-note">' + escapeInline(trendNote) + '</div>';
   }
@@ -21920,24 +22405,48 @@ react-dom/cjs/react-dom-client.production.js:
   function purchaseDetailHtml(detail) {
     var p = detail.purchase || {};
     var stock = detail.stock || {};
+    var locations = warehouseLocationsForStock(stock);
+    var centerTotal = locations.filter(function (location) {
+      return location.isCenter;
+    }).reduce(function (sum, location) {
+      return sum + usageNumber(location.qty);
+    }, 0);
+    var stockTotal = usageNumber(stock.total);
+    var reorderPoint = usageNumber(p.reorderPoint);
+    var estimatedFaultQty = usageNumber(p.estimatedFaultQty);
+    var targetQty = Math.max(reorderPoint, estimatedFaultQty);
+    var shortageQty = Math.max(0, targetQty - stockTotal);
+    var canTransfer = centerTotal > 0;
     var needsSupply = p.enough1y === "否" || usageNumber(stock.total) <= usageNumber(p.reorderPoint);
     var tone = needsSupply ? "danger" : "ok";
-    var decision = needsSupply ? "建議進入補料/調撥判斷" : "可先維持觀察";
+    var decision = needsSupply ? (canTransfer ? "先調撥，缺口再請購" : "建立補料需求") : "暫不補料，排入觀察";
+    var actionPriority = needsSupply ? "high" : "watch";
     return '<div class="codex-purchase-decision" data-tone="' + tone + '">' +
-      '<div class="codex-purchase-decision-main"><span>目前判斷</span><strong>' + escapeInline(decision) + '</strong></div>' +
+      '<div class="codex-purchase-decision-main"><span>補料決策</span><strong>' + escapeInline(decision) + '</strong></div>' +
       '<div class="codex-reason-box">' + escapeInline(purchaseReason(detail)) + '<br>' + escapeInline(missingFieldText(detail)) + '</div>' +
+      '</div>' +
+      '<div class="codex-purchase-action-list">' +
+      '<div class="codex-purchase-action-row" data-priority="' + actionPriority + '"><strong>1. 先看缺口</strong><span>目標量 ' + escapeInline(usageText(targetQty)) + '，目前公司總庫存 ' + escapeInline(usageText(stockTotal)) + '，估計缺口 ' + escapeInline(usageText(shortageQty)) + '。</span></div>' +
+      '<div class="codex-purchase-action-row" data-priority="' + (canTransfer ? "watch" : "high") + '"><strong>2. 先調撥</strong><span>中心倉庫可調撥量 ' + escapeInline(usageText(centerTotal)) + '；有量先走調撥，沒有量才直接進採購。</span></div>' +
+      '<div class="codex-purchase-action-row" data-priority="' + actionPriority + '"><strong>3. 再採購</strong><span>' + escapeInline(needsSupply ? "若調撥後仍不足，依交期、安全等級與市售性建立請購。" : "目前條件未觸發補料，保留在週期觀察清單。") + '</span></div>' +
       '</div>' +
       '<div class="codex-detail-grid is-wide">' +
       metricHtml("庫存是否足夠 1 年", p.enough1y) +
-      metricHtml("近 1 年故障率", p.failureRate) +
-      metricHtml("預估 1 年故障量", p.estimatedFaultQty) +
-      metricHtml("預估 1 年故障金額", p.estimatedFaultAmount) +
+      metricHtml("補料目標量", usageText(targetQty)) +
+      metricHtml("估計缺口", usageText(shortageQty)) +
+      metricHtml("中心可調撥量", usageText(centerTotal)) +
       metricHtml("安全關鍵等級", p.safetyLevel) +
-      metricHtml("可修件", p.repairable) +
       metricHtml("市售品", p.market) +
       metricHtml("交期(天)", p.leadTime) +
       metricHtml("請購點", p.reorderPoint) +
       metricHtml("入庫單價", p.unitPrice) +
+      '</div>';
+  }
+
+  function usageSupplyDetailHtml(detail) {
+    return '<div class="codex-usage-supply-stack">' +
+      '<div class="codex-usage-supply-block"><div class="codex-usage-supply-title">用料履歷<span>歷史事實</span></div>' + usageDetailHtml(detail) + '</div>' +
+      '<div class="codex-usage-supply-block"><div class="codex-usage-supply-title">補料決策<span>處理動作</span></div>' + purchaseDetailHtml(detail) + '</div>' +
       '</div>';
   }
 

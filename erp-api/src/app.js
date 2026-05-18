@@ -5,6 +5,7 @@ const { errorHandler } = require("./middleware/errorHandler");
 const materialsRouter = require("./routes/materials");
 const inventoryRouter = require("./routes/inventory");
 const warehousesRouter = require("./routes/warehouses");
+const databaseViewerRouter = require("./routes/databaseViewer");
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.get("/api/health/db", async (req, res, next) => {
   }
 });
 
+app.use(databaseViewerRouter);
 app.use("/api/materials", materialsRouter);
 app.use("/api/inventory", inventoryRouter);
 app.use("/api/warehouses", warehousesRouter);
