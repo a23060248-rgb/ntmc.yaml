@@ -21597,8 +21597,28 @@ react-dom/cjs/react-dom-client.production.js:
       return "info";
     }
 
+    function targetCodeFor(item) {
+      const text = `${item.kind || ""} ${item.object || ""}`;
+      return /equipment|設備|機廠|空壓|洗車|捲門|泵|壓縮/i.test(text) ? "DE" : "TS";
+    }
+
+    function rocDateForNo(isoDate) {
+      const match = String(isoDate || today).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return "1150519";
+      return `${Number(match[1]) - 1911}${match[2]}${match[3]}`;
+    }
+
+    function sequenceFor(item) {
+      const target = targetCodeFor(item);
+      const sameScope = scheduleItems
+        .filter((entry) => entry.date === item.date && targetCodeFor(entry) === target)
+        .sort((a, b) => String(a.object).localeCompare(String(b.object), "zh-Hant") || String(a.id).localeCompare(String(b.id)));
+      const index = sameScope.findIndex((entry) => entry.id === item.id);
+      return String(index >= 0 ? index + 1 : 1).padStart(3, "0");
+    }
+
     function pNoFor(item) {
-      return item.pNo || `P-11505-${item.object.replace(/[^0-9A-Za-z\u4e00-\u9fa5]/g, "").slice(0, 8)}`;
+      return `P-${rocDateForNo(item.date)}-D-${targetCodeFor(item)}-${sequenceFor(item)}`;
     }
 
     function days() {
@@ -22252,8 +22272,8 @@ react-dom/cjs/react-dom-client.production.js:
     const workItems = [
       { id: "PM-11505-109", object: "109", kind: "車輛", date: "2026-05-19", level: "第四級", template: "第四級", prev: "2026-04-17", pNo: "", status: "已預排", note: "今日預檢，作業前列印檢查表" },
       { id: "PM-11505-單軌", object: "單軌式起重機", kind: "機廠設備", date: "2026-05-19", level: "設備月檢", template: "設備月檢範本待建", prev: "2026-04-15", pNo: "", status: "已預排", note: "機廠設備需另外建立正式範本" },
-      { id: "PM-11505-110", object: "110", kind: "車輛", date: "2026-05-14", level: "第一級", template: "第一級", prev: "2026-04-10", pNo: "P-11505-110", status: "已完成", doneDate: "2026-05-14", result: "正常", note: "已回填履歷，不需再列印" },
-      { id: "PM-11505-108", object: "108", kind: "車輛", date: "2026-05-18", level: "第一級", template: "第一級", prev: "2026-04-16", pNo: "P-11505-108", status: "待回填", note: "已列印，待輸入檢查數值" },
+      { id: "PM-11505-110", object: "110", kind: "車輛", date: "2026-05-14", level: "第一級", template: "第一級", prev: "2026-04-10", pNo: "P-1150514-D-TS-001", status: "已完成", doneDate: "2026-05-14", result: "正常", note: "已回填履歷，不需再列印" },
+      { id: "PM-11505-108", object: "108", kind: "車輛", date: "2026-05-18", level: "第一級", template: "第一級", prev: "2026-04-16", pNo: "P-1150518-D-TS-001", status: "待回填", note: "已列印，待輸入檢查數值" },
       { id: "PM-11505-113", object: "113", kind: "車輛", date: "2026-05-27", level: "第二級", template: "第二級", prev: "2026-04-27", pNo: "", status: "已預排", note: "未到期" }
     ];
 
@@ -22277,8 +22297,28 @@ react-dom/cjs/react-dom-client.production.js:
       return templates.find((tpl) => tpl.level === item.template);
     }
 
+    function targetCodeFor(item) {
+      const text = `${item.kind || ""} ${item.object || ""}`;
+      return /equipment|設備|機廠|空壓|洗車|捲門|泵|壓縮/i.test(text) ? "DE" : "TS";
+    }
+
+    function rocDateForNo(isoDate) {
+      const match = String(isoDate || today).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return "1150519";
+      return `${Number(match[1]) - 1911}${match[2]}${match[3]}`;
+    }
+
+    function sequenceFor(item) {
+      const target = targetCodeFor(item);
+      const sameScope = workItems
+        .filter((entry) => entry.date === item.date && targetCodeFor(entry) === target)
+        .sort((a, b) => String(a.object).localeCompare(String(b.object), "zh-Hant") || String(a.id).localeCompare(String(b.id)));
+      const index = sameScope.findIndex((entry) => entry.id === item.id);
+      return String(index >= 0 ? index + 1 : 1).padStart(3, "0");
+    }
+
     function pNoFor(item) {
-      return item.pNo || `P-11505-${item.object.replace(/[^0-9A-Za-z\u4e00-\u9fa5]/g, "").slice(0, 8)}`;
+      return item.pNo || `P-${rocDateForNo(item.date)}-D-${targetCodeFor(item)}-${sequenceFor(item)}`;
     }
 
     function statusClass(status) {
@@ -23024,7 +23064,7 @@ react-dom/cjs/react-dom-client.production.js:
     };
 
     const form = {
-      serialNo: "P-1150519-D-TS-109",
+      serialNo: "P-1150519-D-TS-002",
       templateCode: "P4",
       vehicle: "109車",
       assetType: "車輛",
@@ -23515,6 +23555,938 @@ react-dom/cjs/react-dom-client.production.js:
     function enhanceCenter() {
       const container = findDashboardContainer();
       if (!container || container.dataset.codexPmOriginalAddOrder === "true") return;
+      renderCenter(container);
+    }
+
+    function scheduleEnhance() {
+      window.requestAnimationFrame(enhanceCenter);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", scheduleEnhance, { once: true });
+    } else {
+      scheduleEnhance();
+    }
+
+    const observer = new MutationObserver(scheduleEnhance);
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  })();
+</script>
+
+<!-- Codex PM calendar-first add-order flow -->
+<style id="codex-pm-calendar-first-style">
+  .codex-pm-calendar-first .codex-pm-calendar-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 1rem;
+    align-items: start;
+    margin-top: 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-calendar-panel,
+  .codex-pm-calendar-first .codex-pm-day-panel,
+  .codex-pm-calendar-first .codex-pm-print-panel,
+  .codex-pm-calendar-first .codex-pm-auto-section {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.76);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  .codex-pm-calendar-first .codex-pm-calendar-panel,
+  .codex-pm-calendar-first .codex-pm-day-panel,
+  .codex-pm-calendar-first .codex-pm-print-panel,
+  .codex-pm-calendar-first .codex-pm-auto-section {
+    padding: 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-month-head,
+  .codex-pm-calendar-first .codex-pm-side-head,
+  .codex-pm-calendar-first .codex-pm-print-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-month-head h3,
+  .codex-pm-calendar-first .codex-pm-side-head h3,
+  .codex-pm-calendar-first .codex-pm-print-head h3,
+  .codex-pm-calendar-first .codex-pm-auto-section h3 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .codex-pm-calendar-first .codex-pm-month-head p,
+  .codex-pm-calendar-first .codex-pm-side-head p,
+  .codex-pm-calendar-first .codex-pm-print-head p,
+  .codex-pm-calendar-first .codex-pm-auto-section p {
+    margin: 0.25rem 0 0;
+    color: #94a3b8;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .codex-pm-calendar-first .codex-pm-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-summary-card {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.7);
+    padding: 0.85rem 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-summary-card span {
+    display: block;
+    color: #93c5fd;
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .codex-pm-calendar-first .codex-pm-summary-card strong {
+    display: block;
+    margin-top: 0.25rem;
+    color: #f8fafc;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    border-top: 1px solid rgba(148, 163, 184, 0.16);
+    border-left: 1px solid rgba(148, 163, 184, 0.16);
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .codex-pm-calendar-first .codex-pm-weekday,
+  .codex-pm-calendar-first .codex-pm-day-cell {
+    border-right: 1px solid rgba(148, 163, 184, 0.16);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  }
+
+  .codex-pm-calendar-first .codex-pm-weekday {
+    background: rgba(15, 23, 42, 0.96);
+    color: #bfdbfe;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    padding: 0.65rem 0.55rem;
+    text-align: center;
+  }
+
+  .codex-pm-calendar-first .codex-pm-day-cell {
+    min-height: 132px;
+    background: rgba(15, 23, 42, 0.58);
+    padding: 0.55rem;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .codex-pm-calendar-first .codex-pm-day-cell.is-empty {
+    background: rgba(15, 23, 42, 0.24);
+  }
+
+  .codex-pm-calendar-first .codex-pm-day-cell.is-today {
+    background: rgba(8, 145, 178, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(34, 211, 238, 0.45);
+  }
+
+  .codex-pm-calendar-first .codex-pm-day-cell.is-selected {
+    box-shadow: inset 0 0 0 2px rgba(251, 191, 36, 0.7);
+  }
+
+  .codex-pm-calendar-first .codex-pm-day-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-height: 1.6rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-day-number {
+    color: #f8fafc;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .codex-pm-calendar-first .codex-pm-day-count {
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.16);
+    color: #a5f3fc;
+    font-size: 0.7rem;
+    line-height: 1.3;
+    padding: 0.12rem 0.45rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-event-list {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-event {
+    width: 100%;
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    border-radius: 7px;
+    background: rgba(8, 145, 178, 0.14);
+    color: #e0f2fe;
+    cursor: pointer;
+    font: inherit;
+    line-height: 1.35;
+    padding: 0.45rem 0.5rem;
+    text-align: left;
+  }
+
+  .codex-pm-calendar-first .codex-pm-event strong,
+  .codex-pm-calendar-first .codex-pm-side-item strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-event span,
+  .codex-pm-calendar-first .codex-pm-side-item span {
+    display: block;
+    margin-top: 0.12rem;
+    color: #bfdbfe;
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-event.is-selected,
+  .codex-pm-calendar-first .codex-pm-side-item.is-selected {
+    border-color: rgba(251, 191, 36, 0.75);
+    background: rgba(251, 191, 36, 0.14);
+  }
+
+  .codex-pm-calendar-first .codex-pm-side-list {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-side-item {
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.72);
+    cursor: pointer;
+    font: inherit;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  .codex-pm-calendar-first .codex-pm-level-pill,
+  .codex-pm-calendar-first .codex-pm-source-pill {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    padding: 0.16rem 0.48rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-level-pill {
+    background: rgba(34, 211, 238, 0.16);
+    color: #a5f3fc;
+  }
+
+  .codex-pm-calendar-first .codex-pm-source-pill {
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    background: rgba(8, 145, 178, 0.14);
+    color: #a5f3fc;
+  }
+
+  .codex-pm-calendar-first .codex-pm-action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.9rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-soft-button {
+    border: 1px solid rgba(34, 211, 238, 0.32);
+    border-radius: 8px;
+    background: rgba(8, 145, 178, 0.14);
+    color: #a5f3fc;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding: 0.58rem 0.8rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-soft-button.primary {
+    background: #22d3ee;
+    color: #082f49;
+    font-weight: 700;
+  }
+
+  .codex-pm-calendar-first .codex-pm-print-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(410px, 0.9fr);
+    gap: 1rem;
+    align-items: start;
+    margin-top: 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-auto-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-auto-field {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.72);
+    padding: 0.7rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-auto-field.wide {
+    grid-column: 1 / -1;
+  }
+
+  .codex-pm-calendar-first .codex-pm-auto-field span {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: #93c5fd;
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-auto-field strong {
+    display: block;
+    margin-top: 0.34rem;
+    color: #f8fafc;
+    line-height: 1.45;
+    white-space: pre-wrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-print-preview {
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #0f172a;
+    padding: 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-print-preview h3 {
+    margin: 0;
+    text-align: center;
+    color: #0f172a;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .codex-pm-calendar-first .codex-pm-paper-subtitle {
+    margin: 0.15rem 0 0.75rem;
+    border-bottom: 2px solid #0f172a;
+    color: #334155;
+    padding-bottom: 0.65rem;
+    text-align: center;
+  }
+
+  .codex-pm-calendar-first .codex-pm-paper-row {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    border-top: 1px solid #334155;
+    border-left: 1px solid #334155;
+    font-size: 0.78rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-paper-row span,
+  .codex-pm-calendar-first .codex-pm-paper-row strong {
+    border-right: 1px solid #334155;
+    border-bottom: 1px solid #334155;
+    padding: 0.45rem 0.55rem;
+    min-height: 2.45rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-paper-row span {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+
+  .codex-pm-calendar-first .codex-pm-paper-row strong {
+    color: #0f172a;
+    white-space: pre-wrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-note-box {
+    border: 1px solid rgba(251, 191, 36, 0.38);
+    border-radius: 8px;
+    background: rgba(251, 191, 36, 0.12);
+    color: #fde68a;
+    line-height: 1.6;
+    margin-top: 0.85rem;
+    padding: 0.8rem;
+  }
+
+  @media (max-width: 1180px) {
+    .codex-pm-calendar-first .codex-pm-calendar-layout,
+    .codex-pm-calendar-first .codex-pm-print-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .codex-pm-calendar-first .codex-pm-summary-grid,
+    .codex-pm-calendar-first .codex-pm-auto-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .codex-pm-calendar-first .codex-pm-calendar-grid {
+      display: block;
+      border: 0;
+    }
+
+    .codex-pm-calendar-first .codex-pm-weekday,
+    .codex-pm-calendar-first .codex-pm-day-cell.is-empty {
+      display: none;
+    }
+
+    .codex-pm-calendar-first .codex-pm-day-cell {
+      min-height: auto;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      border-radius: 8px;
+      margin-bottom: 0.65rem;
+    }
+  }
+</style>
+<script id="codex-pm-calendar-first-script">
+  (() => {
+    if (window.__codexPmCalendarFirstLoaded) return;
+    window.__codexPmCalendarFirstLoaded = true;
+
+    const today = "2026-05-19";
+    let activeView = "calendar";
+    let selectedId = "lrt-109-2026-05-19";
+    let selectedDate = today;
+
+    const templates = {
+      P1: {
+        label: "第一級",
+        period: "1M",
+        wiNo: "4-FM-H110-ERS13001-6",
+        file: "輕軌列車預防檢修檢查記錄表改(第一級)-4-FM-H110-ERS13001-6_1140826.doc"
+      },
+      P2: {
+        label: "第二級",
+        period: "3M",
+        wiNo: "4-FM-H110-ERS13001-6",
+        file: "輕軌列車預防檢修檢查記錄表改(第二級)-4-FM-H110-ERS13001-6_1141215.doc"
+      },
+      P3: {
+        label: "第三級",
+        period: "6M",
+        wiNo: "4-FM-H110-ERS13001-6",
+        file: "輕軌列車預防檢修檢查記錄表改(第三級)-4-FM-H110-ERS13001-6_1140826.doc"
+      },
+      P4: {
+        label: "第四級",
+        period: "1Y",
+        wiNo: "4-FM-H110-ERS13001-6",
+        file: "輕軌列車預防檢修檢查記錄表改(第四級)-4-FM-H110-ERS13001-6_1140826.doc"
+      },
+      EQUIP: {
+        label: "機廠設備預檢",
+        period: "PM",
+        wiNo: "依設備保養基準",
+        file: "機廠設備預防檢修檢查表.docx"
+      }
+    };
+
+    const scheduleItems = [
+      {
+        id: "lrt-103-2026-05-04",
+        date: "2026-05-04",
+        asset: "103車",
+        assetType: "車輛",
+        templateCode: "P2",
+        level: "第二級",
+        previousDone: "2026-02-04",
+        location: "淡海機廠",
+        department: "車輛廠",
+        note: "由 5 月預排表轉入"
+      },
+      {
+        id: "equip-door-2026-05-07",
+        date: "2026-05-07",
+        asset: "洗車機房捲門",
+        assetType: "機廠設備",
+        templateCode: "EQUIP",
+        level: "月保養",
+        previousDone: "2026-04-07",
+        location: "淡海機廠洗車區",
+        department: "機廠設備",
+        note: "設備保養週期自動轉入"
+      },
+      {
+        id: "lrt-106-2026-05-12",
+        date: "2026-05-12",
+        asset: "106車",
+        assetType: "車輛",
+        templateCode: "P1",
+        level: "第一級",
+        previousDone: "2026-04-12",
+        location: "淡海機廠",
+        department: "車輛廠",
+        note: "由 5 月預排表轉入"
+      },
+      {
+        id: "lrt-107-2026-05-19",
+        date: "2026-05-19",
+        asset: "107車",
+        assetType: "車輛",
+        templateCode: "P3",
+        level: "第三級",
+        previousDone: "2025-11-20",
+        location: "淡海機廠",
+        department: "車輛廠",
+        note: "今日預檢，可直接列印"
+      },
+      {
+        id: "lrt-109-2026-05-19",
+        date: "2026-05-19",
+        asset: "109車",
+        assetType: "車輛",
+        templateCode: "P4",
+        level: "第四級",
+        previousDone: "2025-05-16",
+        location: "淡海機廠",
+        department: "車輛廠",
+        note: "今日預檢，可直接列印"
+      },
+      {
+        id: "equip-compressor-2026-05-22",
+        date: "2026-05-22",
+        asset: "空壓機 A",
+        assetType: "機廠設備",
+        templateCode: "EQUIP",
+        level: "季保養",
+        previousDone: "2026-02-21",
+        location: "維修工場",
+        department: "機廠設備",
+        note: "設備保養週期自動轉入"
+      },
+      {
+        id: "lrt-112-2026-05-22",
+        date: "2026-05-22",
+        asset: "112車",
+        assetType: "車輛",
+        templateCode: "P1",
+        level: "第一級",
+        previousDone: "2026-04-22",
+        location: "淡海機廠",
+        department: "車輛廠",
+        note: "由 5 月預排表轉入"
+      },
+      {
+        id: "lrt-115-2026-05-29",
+        date: "2026-05-29",
+        asset: "115車",
+        assetType: "車輛",
+        templateCode: "P1",
+        level: "第一級",
+        previousDone: "2026-04-30",
+        location: "淡海機廠",
+        department: "車輛廠",
+        note: "由 5 月預排表轉入"
+      }
+    ];
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function selectedItem() {
+      return scheduleItems.find((item) => item.id === selectedId) || scheduleItems[0];
+    }
+
+    function templateFor(item) {
+      return templates[item.templateCode] || templates.P1;
+    }
+
+    function dateDay(dateText) {
+      return Number(dateText.slice(-2));
+    }
+
+    function toMinguo(isoDate) {
+      const match = String(isoDate).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return isoDate;
+      return `${Number(match[1]) - 1911}/${match[2]}/${match[3]}`;
+    }
+
+    function targetCodeFor(item) {
+      return item.assetType === "車輛" ? "TS" : "DE";
+    }
+
+    function rocDateForNo(isoDate) {
+      const match = String(isoDate || today).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return "1150519";
+      return `${Number(match[1]) - 1911}${match[2]}${match[3]}`;
+    }
+
+    function sequenceFor(item) {
+      const target = targetCodeFor(item);
+      const sameScope = scheduleItems
+        .filter((entry) => entry.date === item.date && targetCodeFor(entry) === target)
+        .sort((a, b) => String(a.asset).localeCompare(String(b.asset), "zh-Hant") || String(a.id).localeCompare(String(b.id)));
+      const index = sameScope.findIndex((entry) => entry.id === item.id);
+      return String(index >= 0 ? index + 1 : 1).padStart(3, "0");
+    }
+
+    function pNoFor(item) {
+      return `P-${rocDateForNo(item.date)}-D-${targetCodeFor(item)}-${sequenceFor(item)}`;
+    }
+
+    function autoFields(item) {
+      const template = templateFor(item);
+      const isVehicle = item.assetType === "車輛";
+      return [
+        ["P單號", pNoFor(item), "系統建立"],
+        ["車輛 / 設備", item.asset, "預排表"],
+        ["類型", item.assetType, "預排表"],
+        ["檢修級別", item.level, "預排表"],
+        ["維修週期", `${template.label} / ${template.period}`, "範本"],
+        ["預計施工日期", toMinguo(item.date), "預排表"],
+        ["前次完工日", toMinguo(item.previousDone), "預排表"],
+        ["設備位置", item.location, "預排表"],
+        ["維修單位", item.department, "預排表"],
+        ["W.I.No", template.wiNo, "範本"],
+        ["工作說明", `${item.asset} ${item.level}預防檢修`, "系統組合"],
+        ["套用檢查表", template.file, "範本設定"],
+        ["安全衛生預設", isVehicle ? "一般安全注意事項、電氣掛鎖掛牌" : "一般安全注意事項、設備隔離確認", "規則"],
+        ["儀器 / 用料預設", "依檢查項目帶入；現場完成後再回填實際值", "後續回填"]
+      ];
+    }
+
+    function renderStats() {
+      const todayItems = scheduleItems.filter((item) => item.date === today);
+      const vehicles = scheduleItems.filter((item) => item.assetType === "車輛").length;
+      const equipment = scheduleItems.filter((item) => item.assetType === "機廠設備").length;
+      const busyDay = scheduleItems.reduce((acc, item) => {
+        acc[item.date] = (acc[item.date] || 0) + 1;
+        return acc;
+      }, {});
+      const maxCount = Math.max(...Object.values(busyDay));
+      return `
+        <div class="codex-pm-summary-grid">
+          <div class="codex-pm-summary-card"><span>今日預檢</span><strong>${todayItems.length} 件</strong></div>
+          <div class="codex-pm-summary-card"><span>車輛排程</span><strong>${vehicles} 件</strong></div>
+          <div class="codex-pm-summary-card"><span>機廠設備</span><strong>${equipment} 件</strong></div>
+          <div class="codex-pm-summary-card"><span>單日最高量</span><strong>${maxCount} 件</strong></div>
+        </div>
+      `;
+    }
+
+    function renderTabs() {
+      const tabs = [
+        ["calendar", "月曆總覽"],
+        ["print", "作業前列印"],
+        ["feedback", "完工回填"],
+        ["templates", "範本設定"]
+      ];
+      return `
+        <div class="codex-pm-center-tabs" role="tablist">
+          ${tabs.map(([key, label]) => `
+            <button type="button" class="${activeView === key ? "active" : ""}" data-calendar-view="${key}">${label}</button>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderCalendarGrid() {
+      const weekdays = ["日", "一", "二", "三", "四", "五", "六"];
+      const firstOffset = new Date("2026-05-01T00:00:00").getDay();
+      const cells = [];
+      for (let i = 0; i < firstOffset; i += 1) cells.push(null);
+      for (let day = 1; day <= 31; day += 1) cells.push(day);
+      while (cells.length % 7) cells.push(null);
+
+      return `
+        <div class="codex-pm-calendar-grid">
+          ${weekdays.map((weekday) => `<div class="codex-pm-weekday">${weekday}</div>`).join("")}
+          ${cells.map((day) => {
+            if (!day) return `<div class="codex-pm-day-cell is-empty"></div>`;
+            const date = `2026-05-${String(day).padStart(2, "0")}`;
+            const events = scheduleItems.filter((item) => item.date === date);
+            const classes = [
+              "codex-pm-day-cell",
+              date === today ? "is-today" : "",
+              date === selectedDate ? "is-selected" : ""
+            ].filter(Boolean).join(" ");
+            return `
+              <div class="${classes}">
+                <div class="codex-pm-day-top">
+                  <span class="codex-pm-day-number">${day}</span>
+                  ${events.length ? `<span class="codex-pm-day-count">${events.length}件</span>` : ""}
+                </div>
+                <div class="codex-pm-event-list">
+                  ${events.map((item) => `
+                    <button type="button" class="codex-pm-event ${item.id === selectedId ? "is-selected" : ""}" data-calendar-item="${item.id}">
+                      <strong>${escapeHtml(item.asset)}</strong>
+                      <span>${escapeHtml(item.level)} · ${escapeHtml(item.assetType)}</span>
+                    </button>
+                  `).join("")}
+                </div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function renderSideList() {
+      const dayItems = scheduleItems.filter((item) => item.date === selectedDate);
+      const list = dayItems.length ? dayItems : scheduleItems.filter((item) => item.date === today);
+      return `
+        <aside class="codex-pm-day-panel">
+          <div class="codex-pm-side-head">
+            <div>
+              <h3>${toMinguo(selectedDate)} 預檢</h3>
+              <p>點一筆排程進入列印準備，資料會先由預排表與範本自動帶入。</p>
+            </div>
+          </div>
+          <div class="codex-pm-side-list">
+            ${list.map((item) => `
+              <button type="button" class="codex-pm-side-item ${item.id === selectedId ? "is-selected" : ""}" data-calendar-item="${item.id}">
+                <strong>${escapeHtml(item.asset)}</strong>
+                <span>${escapeHtml(item.level)} · ${escapeHtml(item.location)}</span>
+                <span>${escapeHtml(item.note)}</span>
+              </button>
+            `).join("")}
+          </div>
+          <div class="codex-pm-action-row">
+            <button type="button" class="codex-pm-soft-button primary" data-calendar-view="print">進入列印準備</button>
+            <button type="button" class="codex-pm-soft-button" data-calendar-view="feedback">回填完成資料</button>
+          </div>
+          <div class="codex-pm-note-box">建議保留月曆當首頁，再提供「整份 Excel 矩陣」切換；月曆負責今天要做什麼，矩陣負責主管審排與整月檢查。</div>
+        </aside>
+      `;
+    }
+
+    function renderCalendarView() {
+      return `
+        <div class="codex-pm-calendar-layout">
+          <section class="codex-pm-calendar-panel">
+            <div class="codex-pm-month-head">
+              <div>
+                <h3>115 年 5 月預檢月曆</h3>
+                <p>由每月預排表轉入，先看日期與工作量，再點進單筆工單列印。</p>
+              </div>
+              <span class="codex-pm-level-pill">月曆入口</span>
+            </div>
+            ${renderCalendarGrid()}
+          </section>
+          ${renderSideList()}
+        </div>
+      `;
+    }
+
+    function renderAutoField([label, value, source], wide = false) {
+      return `
+        <div class="codex-pm-auto-field ${wide ? "wide" : ""}">
+          <span>${escapeHtml(label)} <em class="codex-pm-source-pill">${escapeHtml(source)}</em></span>
+          <strong>${escapeHtml(value || "未帶入")}</strong>
+        </div>
+      `;
+    }
+
+    function renderPrintPreview(item) {
+      const fields = autoFields(item);
+      return `
+        <aside class="codex-pm-print-panel">
+          <div class="codex-pm-print-head">
+            <div>
+              <h3>列印預覽</h3>
+              <p>畫面用來核對資料；正式輸出仍套用原始 Word 檢查表。</p>
+            </div>
+            <span class="codex-pm-level-pill">${escapeHtml(item.level)}</span>
+          </div>
+          <div class="codex-pm-print-preview">
+            <h3>新北捷運股份有限公司</h3>
+            <p class="codex-pm-paper-subtitle">維修工單-預防檢修(PM Work Order)</p>
+            ${[
+              ["工單序號", pNoFor(item)],
+              ["設備", `${item.asset} / ${item.assetType}`],
+              ["工作說明", `${item.asset} ${item.level}預防檢修`],
+              ["維修週期", `${templateFor(item).label} / ${templateFor(item).period}`],
+              ["設備位置", item.location],
+              ["預計施工日期", toMinguo(item.date)],
+              ["工作說明書編號", templateFor(item).wiNo],
+              ["套用範本", templateFor(item).file]
+            ].map(([label, value]) => `
+              <div class="codex-pm-paper-row">
+                <span>${escapeHtml(label)}</span>
+                <strong>${escapeHtml(value)}</strong>
+              </div>
+            `).join("")}
+          </div>
+          <div class="codex-pm-action-row">
+            <button type="button" class="codex-pm-soft-button primary">產生 PDF / 列印</button>
+            <button type="button" class="codex-pm-soft-button" data-calendar-view="calendar">回月曆</button>
+          </div>
+        </aside>
+      `;
+    }
+
+    function renderPrintView() {
+      const item = selectedItem();
+      const fields = autoFields(item);
+      return `
+        <div class="codex-pm-print-layout">
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>作業前列印準備</h3>
+                <p>從月曆點進來後，預排表與範本能判斷的資料先自動帶入；你只需要核對必要欄位再列印。</p>
+              </div>
+              <span class="codex-pm-level-pill">${escapeHtml(item.asset)}</span>
+            </div>
+            <div class="codex-pm-auto-grid">
+              ${fields.map((field, index) => renderAutoField(field, index === 10 || index === 11 || index === 12 || index === 13)).join("")}
+            </div>
+            <div class="codex-pm-note-box">我的建議：匯入預排表時就先產生「待列印 P 單草稿」，並標記哪些欄位是自動、哪些欄位要人工確認。這樣現場早上只要打開今日月曆，點工單就能印。</div>
+          </section>
+          ${renderPrintPreview(item)}
+        </div>
+      `;
+    }
+
+    function renderFeedbackView() {
+      const item = selectedItem();
+      return `
+        <div class="codex-pm-print-layout">
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>完工回填</h3>
+                <p>紙本檢查完成後回來補實際值、處理情形、用料與儀器，回填只進履歷追蹤，不重印原表單。</p>
+              </div>
+              <span class="codex-pm-level-pill">${escapeHtml(item.asset)}</span>
+            </div>
+            <div class="codex-pm-auto-grid">
+              ${renderAutoField(["P單號", pNoFor(item), "已建立"])}
+              ${renderAutoField(["完工狀態", "待回填", "現場作業後"])}
+              ${renderAutoField(["實際施工日期", "現場完成後輸入", "人工回填"])}
+              ${renderAutoField(["檢查數值", "依紙本檢查項目回填", "人工回填"], true)}
+              ${renderAutoField(["維修處理情形", "正常 / 異常說明 / 後續追蹤", "人工回填"], true)}
+              ${renderAutoField(["用料說明", "無用料填 N/A；有用料填領料單或材料", "人工回填"], true)}
+            </div>
+          </section>
+          ${renderPrintPreview(item)}
+        </div>
+      `;
+    }
+
+    function renderTemplatesView() {
+      return `
+        <section class="codex-pm-auto-section" style="margin-top:1rem;">
+          <div class="codex-pm-print-head">
+            <div>
+              <h3>範本與自動帶入規則</h3>
+              <p>範本不要重畫，保留 Word 原檔；系統只管級別對應、欄位套版與版本管理。</p>
+            </div>
+            <span class="codex-pm-level-pill">格式不變</span>
+          </div>
+          <div class="codex-pm-auto-grid">
+            ${Object.values(templates).map((template) => renderAutoField([`${template.label} / ${template.period}`, template.file, "Word主檔"], true)).join("")}
+            ${renderAutoField(["自動帶入建議", "預排日期、車號/設備、檢修級別、P單、W.I.No、設備位置、維修單位、安全預設", "系統規則"], true)}
+            ${renderAutoField(["人工確認欄位", "現場負責人、特殊安全項目、臨時改期、實際檢查數值、用料與異常說明", "人員確認"], true)}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderActiveView() {
+      if (activeView === "print") return renderPrintView();
+      if (activeView === "feedback") return renderFeedbackView();
+      if (activeView === "templates") return renderTemplatesView();
+      return renderCalendarView();
+    }
+
+    function renderCenter(container) {
+      container.dataset.codexPmSuite = "true";
+      container.dataset.codexPmVehicleEquipment = "true";
+      container.dataset.codexPmWorkflowV2 = "true";
+      container.dataset.codexPmFinalPlan = "true";
+      container.dataset.codexPmOriginalAddOrder = "true";
+      container.dataset.codexPmCalendarFirst = "true";
+      container.classList.add("codex-pm-calendar-host", "codex-pm-calendar-first");
+      container.innerHTML = `
+        <div class="codex-pm-board">
+          <section class="codex-pm-hero">
+            <div class="codex-pm-panel">
+              <div class="codex-pm-title-row">
+                <div>
+                  <p class="codex-pm-kicker">預檢系統管理</p>
+                  <h2 class="codex-pm-title">月曆排程與作業前列印</h2>
+                  <p class="codex-pm-subtitle">進來先看月曆；點預排項目後，自動帶入 P單、車輛/設備、級別、範本與列印欄位，讓你核對後直接列印。</p>
+                </div>
+                <div class="codex-pm-actions">
+                  <button type="button" class="codex-pm-button primary" data-calendar-view="calendar">月曆總覽</button>
+                  <button type="button" class="codex-pm-button" data-calendar-view="print">列印準備</button>
+                </div>
+              </div>
+              ${renderStats()}
+            </div>
+          </section>
+          ${renderTabs()}
+          ${renderActiveView()}
+        </div>
+      `;
+      bindEvents(container);
+    }
+
+    function bindEvents(container) {
+      container.querySelectorAll("[data-calendar-view]").forEach((button) => {
+        button.addEventListener("click", () => {
+          activeView = button.getAttribute("data-calendar-view") || activeView;
+          renderCenter(container);
+        });
+      });
+
+      container.querySelectorAll("[data-calendar-item]").forEach((button) => {
+        button.addEventListener("click", () => {
+          selectedId = button.getAttribute("data-calendar-item") || selectedId;
+          const item = selectedItem();
+          selectedDate = item.date;
+          activeView = "print";
+          renderCenter(container);
+        });
+      });
+    }
+
+    function findDashboardContainer() {
+      const existing = document.querySelector(".codex-pm-calendar-host");
+      if (existing) return existing;
+      const heading = Array.from(document.querySelectorAll("h1,h2,h3")).find((node) => {
+        const text = (node.textContent || "").trim();
+        return text === "預檢工單清單" || text === "預檢系統管理" || text === "預檢管理";
+      });
+      if (!heading) return null;
+      return heading.closest(".no-print.space-y-6") || heading.closest("section") || heading.parentElement;
+    }
+
+    function enhanceCenter() {
+      const container = findDashboardContainer();
+      if (!container || container.dataset.codexPmCalendarFirst === "true") return;
       renderCenter(container);
     }
 
