@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const { query } = require("./db");
 const { errorHandler } = require("./middleware/errorHandler");
 const materialsRouter = require("./routes/materials");
@@ -28,6 +29,10 @@ app.get("/api/health/db", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+app.get(["/precheck", "/precheck-system"], (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../../預檢工單系統_物料表調整版.html"));
 });
 
 app.use(databaseViewerRouter);

@@ -23933,16 +23933,781 @@ react-dom/cjs/react-dom-client.production.js:
     padding: 0.8rem;
   }
 
+  .codex-pm-calendar-first .codex-pm-schedule-print-card {
+    grid-column: 1 / -1;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-wrap {
+    position: fixed;
+    left: -10000px;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet {
+    min-width: 1180px;
+    background: #fff;
+    color: #111827;
+    font-family: "思源黑體 TW Regular", "Source Han Sans TW", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet th,
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet td {
+    border: 1px solid #111827;
+    height: 1.55rem;
+    padding: 0.1rem 0.14rem;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.64rem;
+    line-height: 1.18;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet th {
+    background: #f1f5f9;
+    font-weight: 900;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .title-row th {
+    height: 2.2rem;
+    background: #fff;
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .object-col {
+    width: 12.5%;
+    text-align: center;
+    font-weight: 800;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .prev-col,
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .repair-date-col {
+    width: 5.4%;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .type-col {
+    width: 3.6%;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .day-col {
+    width: 2.15%;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .ad-col {
+    width: 2.2%;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .interval-col {
+    width: 6%;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .is-holiday {
+    background: #dff4ff;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .has-plan {
+    font-weight: 900;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .is-overdue {
+    color: #dc2626;
+    font-weight: 900;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .count-row td {
+    background: #f1f5f9;
+    font-weight: 900;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .note-row td {
+    height: 3.8rem;
+    padding: 0.28rem 0.36rem;
+    text-align: center;
+    white-space: pre-wrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-sheet .sign-row td {
+    height: 1.8rem;
+    border: 0;
+    text-align: left;
+    font-weight: 900;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-footer {
+    color: #111827;
+    background: #fff;
+    font-size: 0.58rem;
+    line-height: 1.25;
+    padding-top: 0.3rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-note {
+    white-space: pre-wrap;
+    text-align: left;
+  }
+
+  .codex-pm-calendar-first .codex-pm-schedule-print-signs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 0.4rem;
+    font-weight: 900;
+  }
+
+  #codex-schedule-print-root {
+    position: fixed;
+    left: -10000px;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  @media print {
+    @page {
+      size: A3 portrait;
+      margin: 5mm;
+    }
+
+    body * {
+      visibility: hidden !important;
+    }
+
+    #codex-schedule-print-root,
+    #codex-schedule-print-root *,
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet,
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet * {
+      visibility: visible !important;
+    }
+
+    #codex-schedule-print-root {
+      display: block !important;
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      right: 0 !important;
+      width: 284mm !important;
+      max-width: 284mm !important;
+      height: auto !important;
+      margin: 0 auto !important;
+      overflow: visible !important;
+      visibility: visible !important;
+      border: 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
+      box-sizing: border-box !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block !important;
+      width: 284mm !important;
+      max-width: 284mm !important;
+      min-width: 0 !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+      transform: none !important;
+      zoom: 1 !important;
+      filter: none !important;
+      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: subpixel-antialiased;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color: #000;
+      background: #fff;
+      font-family: "思源黑體 TW Regular", "Source Han Sans TW", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet table {
+      width: 100%;
+      border-collapse: collapse !important;
+      border-spacing: 0 !important;
+      table-layout: fixed !important;
+      border: 1pt solid #000 !important;
+      background: #fff !important;
+      box-shadow: none !important;
+      page-break-inside: avoid;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet thead {
+      display: table-header-group;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet th,
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet td {
+      border: 0.55pt solid #000 !important;
+      height: 4.8mm;
+      padding: 0.14mm 0.28mm;
+      text-align: center !important;
+      vertical-align: middle !important;
+      font-size: 5.7pt;
+      font-weight: 600;
+      line-height: 1.02;
+      color: #000 !important;
+      background: #fff;
+      overflow: hidden;
+      word-break: break-word;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      transform: none !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet th {
+      background: #eef2f7 !important;
+      font-weight: 900;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .title-row th {
+      height: 6.4mm;
+      background: #fff !important;
+      font-size: 9.6pt;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-align: center !important;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .object-col {
+      width: 11.8%;
+      font-weight: 800;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .prev-col,
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .repair-date-col {
+      width: 5%;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .type-col {
+      width: 3.4%;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .day-col {
+      width: 2.15%;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .ad-col {
+      width: 2.2%;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .interval-col {
+      width: 5.8%;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .is-holiday {
+      background: #e6f7ff !important;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .has-plan {
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .count-row td {
+      background: #eef2f7 !important;
+      font-weight: 900;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .note-row td {
+      height: 12mm;
+      border-bottom: 0 !important;
+      text-align: center;
+      font-size: 5.8pt;
+      line-height: 1.16;
+      background: #fffdf0 !important;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-sheet .sign-row td {
+      height: 6mm;
+      border: 0 !important;
+      text-align: left !important;
+      padding-left: 3mm;
+      font-size: 6pt;
+      background: #fff !important;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-footer {
+      width: 100%;
+      color: #000 !important;
+      background: #fff !important;
+      border: 0 !important;
+      padding: 1.3mm 0 0 !important;
+      font-size: 5.5pt;
+      line-height: 1.16;
+      box-sizing: border-box !important;
+      page-break-inside: avoid;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-note {
+      border: 0 !important;
+      background: #fff !important;
+      padding: 0 0.8mm 1.2mm !important;
+      text-align: left !important;
+      white-space: pre-wrap;
+    }
+
+    #codex-schedule-print-root .codex-pm-schedule-print-signs {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 8mm;
+      border: 0 !important;
+      background: #fff !important;
+      padding: 0 0.8mm !important;
+      font-size: 6pt;
+      font-weight: 900;
+    }
+  }
+
+  .codex-pm-calendar-first .codex-pm-center-tabs {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    margin-top: 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-filter-list,
+  .codex-pm-calendar-first .codex-pm-staff-task-list {
+    display: grid;
+    gap: 0.65rem;
+    margin-top: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-filter {
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #cbd5e1;
+    cursor: pointer;
+    font: inherit;
+    padding: 0.72rem;
+    text-align: left;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-filter strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-filter span {
+    display: block;
+    margin-top: 0.2rem;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-filter.is-active,
+  .codex-pm-calendar-first .codex-pm-staff-task.is-today {
+    border-color: rgba(34, 211, 238, 0.78);
+    background: rgba(8, 145, 178, 0.18);
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-task {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.72);
+    padding: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-task-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-task-title {
+    color: #f8fafc;
+    font-weight: 900;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-task-meta {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin-top: 0.75rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-task-meta span {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 7px;
+    background: rgba(2, 6, 23, 0.42);
+    color: #bfdbfe;
+    font-size: 0.76rem;
+    line-height: 1.45;
+    padding: 0.48rem 0.55rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-staff-task-meta strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 0.82rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-layout {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-toolbar {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) minmax(7rem, 0.55fr) minmax(7rem, 0.55fr) auto auto auto auto;
+    gap: 0.75rem;
+    align-items: end;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-field label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #93c5fd;
+    font-size: 0.76rem;
+    font-weight: 800;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-field select,
+  .codex-pm-calendar-first .codex-pm-planning-field input {
+    width: 100%;
+    min-height: 2.45rem;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.68);
+    color: #f8fafc;
+    padding: 0 0.75rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-permission-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-permission-chip {
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.7);
+    color: #cbd5e1;
+    font-size: 0.76rem;
+    font-weight: 800;
+    padding: 0.32rem 0.62rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-permission-chip.is-allowed {
+    border-color: rgba(34, 197, 94, 0.52);
+    background: rgba(22, 101, 52, 0.22);
+    color: #bbf7d0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-permission-chip.is-denied {
+    border-color: rgba(248, 113, 113, 0.46);
+    background: rgba(127, 29, 29, 0.22);
+    color: #fecaca;
+  }
+
+  .codex-pm-calendar-first .codex-pm-soft-button.is-active {
+    border-color: rgba(125, 211, 252, 0.7);
+    background: rgba(125, 211, 252, 0.18);
+    color: #e0f7ff;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix-wrap {
+    max-height: 68vh;
+    overflow: auto;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.5);
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix {
+    width: 100%;
+    min-width: 1820px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.78rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th,
+  .codex-pm-calendar-first .codex-pm-planning-matrix td {
+    border-right: 1px solid rgba(148, 163, 184, 0.14);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    padding: 0.42rem 0.45rem;
+    vertical-align: middle;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th {
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    background: #0f172a;
+    color: #bfdbfe;
+    white-space: nowrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th.codex-pm-interval-head {
+    line-height: 1.25;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .codex-pm-calendar-first .codex-pm-interval-head span {
+    display: block;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th.is-weekend {
+    background: #1e293b;
+    color: #fecaca;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th.is-holiday,
+  .codex-pm-calendar-first .codex-pm-planning-matrix td.is-holiday {
+    background: rgba(125, 211, 252, 0.16);
+    color: #dff7ff;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th.is-holiday {
+    color: #e0f7ff;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-day-label,
+  .codex-pm-calendar-first .codex-pm-plan-weekday {
+    display: block;
+    line-height: 1.2;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-weekday {
+    color: #94a3b8;
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th.is-weekend .codex-pm-plan-weekday {
+    color: #fecaca;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th.is-holiday .codex-pm-plan-weekday {
+    color: #bae6fd;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-day-button {
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background: transparent;
+    color: inherit;
+    cursor: default;
+    font: inherit;
+    padding: 0.1rem 0.15rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix.is-holiday-mode .codex-pm-planning-day-button {
+    border-color: rgba(125, 211, 252, 0.42);
+    cursor: pointer;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix.is-holiday-mode .codex-pm-planning-day-button:hover {
+    background: rgba(125, 211, 252, 0.18);
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(1),
+  .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(1) {
+    position: sticky;
+    left: 0;
+    z-index: 4;
+    min-width: 150px;
+    background: #020617;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(2),
+  .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(2) {
+    position: sticky;
+    left: 150px;
+    z-index: 4;
+    min-width: 118px;
+    background: #020617;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(3),
+  .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(3) {
+    position: sticky;
+    left: 268px;
+    z-index: 4;
+    min-width: 92px;
+    background: #020617;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(4),
+  .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(4) {
+    position: sticky;
+    left: 360px;
+    z-index: 4;
+    min-width: 88px;
+    background: #020617;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(5),
+  .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(5) {
+    position: sticky;
+    left: 448px;
+    z-index: 4;
+    min-width: 132px;
+    background: #020617;
+    box-shadow: 1px 0 0 rgba(148, 163, 184, 0.16);
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(1),
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(2),
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(3),
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(4),
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(5) {
+    z-index: 8;
+    background: #0f172a;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix tbody tr:hover td {
+    background: rgba(8, 145, 178, 0.12);
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix tbody tr:hover td.is-holiday,
+  .codex-pm-calendar-first .codex-pm-planning-matrix td.is-holiday {
+    background: rgba(125, 211, 252, 0.16);
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell {
+    width: 2.5rem;
+    min-width: 2.5rem;
+    height: 2.25rem;
+    text-align: center;
+    color: #e2e8f0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.has-plan {
+    background: rgba(34, 211, 238, 0.13);
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-holiday.has-plan {
+    background: rgba(125, 211, 252, 0.22);
+  }
+
+  .codex-pm-calendar-first .codex-pm-interval {
+    display: grid;
+    gap: 0.12rem;
+    line-height: 1.25;
+  }
+
+  .codex-pm-calendar-first .codex-pm-interval strong {
+    color: #f8fafc;
+    font-size: 0.82rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-interval small {
+    color: #93c5fd;
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+
+  .codex-pm-calendar-first .codex-pm-interval.is-near strong,
+  .codex-pm-calendar-first .codex-pm-interval.is-near small {
+    color: #fde68a;
+  }
+
+  .codex-pm-calendar-first .codex-pm-interval.is-over strong,
+  .codex-pm-calendar-first .codex-pm-interval.is-over small {
+    color: #f87171;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-token {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.22);
+    color: #a5f3fc;
+    font-weight: 900;
+    line-height: 1.5;
+    padding: 0.05rem 0.35rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-token.is-rotate {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fde68a;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell button {
+    width: 100%;
+    min-height: 1.9rem;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell button:disabled {
+    cursor: default;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-daily-row td {
+    background: #0f172a;
+    color: #bfdbfe;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .codex-pm-calendar-first .codex-pm-no-access {
+    border: 1px solid rgba(248, 113, 113, 0.4);
+    border-radius: 8px;
+    background: rgba(127, 29, 29, 0.18);
+    color: #fecaca;
+    line-height: 1.7;
+    padding: 1rem;
+  }
+
   @media (max-width: 1180px) {
     .codex-pm-calendar-first .codex-pm-calendar-layout,
-    .codex-pm-calendar-first .codex-pm-print-layout {
+    .codex-pm-calendar-first .codex-pm-print-layout,
+    .codex-pm-calendar-first .codex-pm-staff-layout,
+    .codex-pm-calendar-first .codex-pm-planning-toolbar {
       grid-template-columns: 1fr;
     }
   }
 
   @media (max-width: 760px) {
     .codex-pm-calendar-first .codex-pm-summary-grid,
-    .codex-pm-calendar-first .codex-pm-auto-grid {
+    .codex-pm-calendar-first .codex-pm-auto-grid,
+    .codex-pm-calendar-first .codex-pm-center-tabs,
+    .codex-pm-calendar-first .codex-pm-staff-task-meta {
       grid-template-columns: 1fr;
     }
 
@@ -23971,6 +24736,12 @@ react-dom/cjs/react-dom-client.production.js:
 
     const today = "2026-05-19";
     let activeView = "calendar";
+    let activeStaff = "all";
+    let planningRole = "planner";
+    let planningLocked = false;
+    let planningYear = 2026;
+    let planningMonth = 5;
+    let planningHolidayEditMode = false;
     let selectedId = "lrt-109-2026-05-19";
     let selectedDate = today;
 
@@ -24106,6 +24877,70 @@ react-dom/cjs/react-dom-client.production.js:
       }
     ];
 
+    const planningImportedYear = 2026;
+    const planningImportedMonth = 5;
+    const planningCycleValues = ["", "1M", "3M", "6M", "1Y", "鏇"];
+    const planningWeekdays = ["日", "一", "二", "三", "四", "五", "六"];
+    const planningCycleMonths = { "1M": 1, "3M": 3, "6M": 6, "1Y": 12 };
+    const planningIntervalLimits = {
+      "1M": { days: 36, km: "15,000" },
+      "3M": { days: 108, km: "30,000" },
+      "6M": { days: 216, km: "60,000" },
+      "1Y": { days: 438, km: "120,000" }
+    };
+    const planningManualCells = {};
+    const planningHolidayOverrides = {};
+    const planningRows = [
+      { asset: "101", prev: "2026-04-07", type: "1M", cells: { "07": "1M" } },
+      { asset: "102", prev: "2026-04-13", type: "1M", cells: { "13": "1M" } },
+      { asset: "103", prev: "2026-04-09", type: "3M", cells: { "06": "鏇", "07": "鏇", "08": "3M", "11": "3M" } },
+      { asset: "104", prev: "2026-04-20", type: "1M", cells: { "22": "1M" } },
+      { asset: "105", prev: "2026-04-09", type: "1M", cells: { "12": "1M" } },
+      { asset: "106", prev: "2026-04-02", type: "3M", cells: { "05": "3M", "06": "3M" } },
+      { asset: "107", prev: "2026-04-01", type: "1M", cells: { "04": "1M", "26": "鏇", "27": "鏇" } },
+      { asset: "108", prev: "2026-04-16", type: "1M", cells: { "18": "1M" } },
+      { asset: "109", prev: "2026-04-17", type: "1Y", cells: { "13": "鏇", "14": "鏇", "19": "1Y", "20": "1Y", "21": "1Y" } },
+      { asset: "110", prev: "2026-04-10", type: "1M", cells: { "14": "1M" } },
+      { asset: "111", prev: "2026-04-14", type: "1M", cells: { "15": "1M" } },
+      { asset: "112", prev: "2026-04-24", type: "1M", cells: { "25": "1M" } },
+      { asset: "113", prev: "2026-04-27", type: "1M", cells: { "27": "1M" } },
+      { asset: "114", prev: "2026-04-23", type: "1M", cells: { "22": "1M" } },
+      { asset: "115", prev: "2026-04-30", type: "1M", cells: { "29": "1M" } },
+      { asset: "213", prev: "2026-04-27", type: "1M", cells: { "26": "1M" } },
+      { asset: "214", prev: "2026-04-28", type: "1M", cells: { "28": "1M" } },
+      { asset: "215", prev: "2026-04-30", type: "1M", cells: { "29": "1M" } },
+      { asset: "自動洗車設備", prev: "2026-03-02", type: "N/A", cells: {} },
+      { asset: "路軌兩用車/復軌車", prev: "2026-04-20", type: "N/A", cells: {} },
+      { asset: "地下式同步升降機", prev: "2026-04-16", type: "N/A", cells: {} },
+      { asset: "移動式同步抬車機", prev: "2025-09-04", type: "N/A", cells: {} },
+      { asset: "噴漆塗裝設備", prev: "2025-11-05", type: "N/A", cells: {} },
+      { asset: "地下式自動車輪車床", prev: "2026-04-17", type: "3M", cells: { "05": "3M" } },
+      { asset: "電動牽引車", prev: "2026-03-16", type: "N/A", cells: {} },
+      { asset: "轉向架清洗設備", prev: "2026-01-08", type: "N/A", cells: {} },
+      { asset: "電動轉向架轉盤", prev: "2025-12-02", type: "N/A", cells: {} },
+      { asset: "轉向架升降台", prev: "2026-02-23", type: "3M", cells: { "06": "3M" } },
+      { asset: "廠用壓縮空氣系統", prev: "2025-09-11", type: "N/A", cells: {} },
+      { asset: "電動搬運車", prev: "2026-01-30", type: "N/A", cells: {} },
+      { asset: "加砂設備", prev: "2026-02-02", type: "3M", cells: { "07": "3M" } },
+      { asset: "復軌設備", prev: "2025-09-14", type: "N/A", cells: {} },
+      { asset: "架空式起重機-1T", prev: "2026-04-02", type: "1Y", cells: { "08": "1Y" } },
+      { asset: "架空式起重機-2.5T", prev: "2026-04-07", type: "1M", cells: { "11": "1M" } },
+      { asset: "架空式起重機-2.8T", prev: "2026-04-08", type: "1M", cells: { "12": "1M" } },
+      { asset: "架空式起重機-5T", prev: "2026-04-09", type: "1M", cells: { "13": "1M" } },
+      { asset: "架空式起重機-8.5T", prev: "2026-04-10", type: "1M", cells: { "14": "1M" } },
+      { asset: "架空式起重機-10T-1", prev: "2026-04-13", type: "1M", cells: { "15": "1M" } },
+      { asset: "架空式起重機-10T-2", prev: "2026-04-14", type: "1M", cells: { "18": "1M" } },
+      { asset: "單軌式起重機", prev: "2026-04-15", type: "1M", cells: { "19": "1M" } },
+      { asset: "懸臂式起重機", prev: "2026-04-16", type: "1M", cells: { "20": "1M" } },
+      { asset: "電動堆高機-2T", prev: "2026-04-17", type: "1Y", cells: { "21": "1Y" } },
+      { asset: "電動堆高機-3T", prev: "2026-04-27", type: "6M", cells: { "22": "6M" } },
+      { asset: "物料儲存系統(窄巷式撿料機)", prev: "2026-04-28", type: "1M", cells: { "25": "1M" } },
+      { asset: "柴油堆高機", prev: "2026-04-22", type: "6M", cells: { "26": "6M" } },
+      { asset: "直流供電(現場操控部分)", prev: "2026-04-23", type: "1M", cells: { "27": "1M" } },
+      { asset: "污水處理設備", prev: "2026-04-24", type: "N/A", cells: {} },
+      { asset: "移動式升降機", prev: "2026-03-30", type: "N/A", cells: {} }
+    ];
+
     function escapeHtml(value) {
       return String(value ?? "")
         .replace(/&/g, "&amp;")
@@ -24116,6 +24951,32 @@ react-dom/cjs/react-dom-client.production.js:
 
     function selectedItem() {
       return scheduleItems.find((item) => item.id === selectedId) || scheduleItems[0];
+    }
+
+    function staffFor(item) {
+      if (item.assetType === "機廠設備") return "機廠設備組";
+      const number = Number(String(item.asset || "").replace(/\D/g, ""));
+      if ([107, 109, 115].includes(number)) return "預檢一組";
+      return "預檢二組";
+    }
+
+    function shiftFor(item) {
+      if (item.assetType === "機廠設備") return "日班";
+      return Number(dateDay(item.date)) % 2 ? "早班" : "日班";
+    }
+
+    function staffStatusFor(item) {
+      if (item.date === today) return "今日作業";
+      if (item.date < today) return "待回填";
+      return "預排";
+    }
+
+    function staffOptions() {
+      return ["all"].concat(Array.from(new Set(scheduleItems.map(staffFor))));
+    }
+
+    function staffLabel(value) {
+      return value === "all" ? "全部同仁" : value;
     }
 
     function templateFor(item) {
@@ -24129,7 +24990,7 @@ react-dom/cjs/react-dom-client.production.js:
     function toMinguo(isoDate) {
       const match = String(isoDate).match(/^(\d{4})-(\d{2})-(\d{2})$/);
       if (!match) return isoDate;
-      return `${Number(match[1]) - 1911}/${match[2]}/${match[3]}`;
+      return `${match[1]}/${match[2]}/${match[3]}`;
     }
 
     function targetCodeFor(item) {
@@ -24198,6 +25059,7 @@ react-dom/cjs/react-dom-client.production.js:
     function renderTabs() {
       const tabs = [
         ["calendar", "月曆總覽"],
+        ["planning", "排程規劃"],
         ["print", "作業前列印"],
         ["feedback", "完工回填"],
         ["templates", "範本設定"]
@@ -24287,7 +25149,7 @@ react-dom/cjs/react-dom-client.production.js:
           <section class="codex-pm-calendar-panel">
             <div class="codex-pm-month-head">
               <div>
-                <h3>115 年 5 月預檢月曆</h3>
+                <h3>2026 年 5 月預檢月曆</h3>
                 <p>由每月預排表轉入，先看日期與工作量，再點進單筆工單列印。</p>
               </div>
               <span class="codex-pm-level-pill">月曆入口</span>
@@ -24305,6 +25167,97 @@ react-dom/cjs/react-dom-client.production.js:
           <span>${escapeHtml(label)} <em class="codex-pm-source-pill">${escapeHtml(source)}</em></span>
           <strong>${escapeHtml(value || "未帶入")}</strong>
         </div>
+      `;
+    }
+
+    function planningPrintNoteText() {
+      return "備註：\n使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。\n法規裕度為20%，月檢間隔上限為36天及15,000km、季檢為108天及30,000km，半年檢為216天及60,000km，年檢則為438天及120,000km(未滿1天以1天計)。";
+    }
+
+    function planningPrintTitleText() {
+      return `車輛課${planningYear - 1911}年${planningMonth}月電聯車維修排程預定表`;
+    }
+
+    function renderSchedulePrintSheet() {
+      const days = planningDays();
+      const counts = planningDailyCounts();
+      return `
+        <div class="codex-pm-schedule-print-sheet" id="codex-schedule-print-sheet">
+          <table aria-label="A3直立排程列印表">
+            <thead>
+              <tr class="title-row">
+                <th colspan="${days.length + 6}">${escapeHtml(planningPrintTitleText())}</th>
+              </tr>
+              <tr>
+                <th class="object-col" rowspan="2">${planningYear}年</th>
+                <th class="prev-col" rowspan="2">前次檢修<br>完工日</th>
+                <th class="type-col" rowspan="2">本月<br>檢修別</th>
+                ${days.map((day) => `<th class="day-col ${planningIsHoliday(day) ? "is-holiday" : ""}">${planningMonth}/${Number(day)}</th>`).join("")}
+                <th class="ad-col" rowspan="2">廣<br>告<br>車</th>
+                <th class="repair-date-col" rowspan="2">檢修日</th>
+                <th class="interval-col" rowspan="2">與前次檢修<br>間隔日數</th>
+              </tr>
+              <tr>
+                ${days.map((day) => `<th class="day-col ${planningIsHoliday(day) ? "is-holiday" : ""}">${planningWeekdayFor(day)}</th>`).join("")}
+              </tr>
+            </thead>
+            <tbody>
+              ${planningRows.map((row, rowIndex) => {
+                const cells = planningCellsForRow(row, rowIndex);
+                const firstPlanDay = planningFirstPlanDay(row, rowIndex);
+                const interval = planningIntervalMeta(row, rowIndex);
+                const plannedDate = firstPlanDay ? planningPrintMonthDay(planningIsoDate(firstPlanDay)) : "";
+                return `
+                  <tr>
+                    <td class="object-col">${escapeHtml(row.asset)}</td>
+                    <td class="prev-col">${escapeHtml(planningPrintMonthDay(row.prev))}</td>
+                    <td class="type-col">${escapeHtml(row.type || "")}</td>
+                    ${days.map((day) => {
+                      const value = cells[day] || "";
+                      return `<td class="day-col ${[planningIsHoliday(day) ? "is-holiday" : "", value ? "has-plan" : ""].filter(Boolean).join(" ")}">${escapeHtml(value)}</td>`;
+                    }).join("")}
+                    <td class="ad-col"></td>
+                    <td class="repair-date-col">${escapeHtml(plannedDate)}</td>
+                    <td class="interval-col ${interval.status === "is-over" ? "is-overdue" : ""}">${Number.isFinite(Number(interval.daysText)) ? `${escapeHtml(interval.daysText)}天` : ""}</td>
+                  </tr>
+                `;
+              }).join("")}
+              <tr class="count-row">
+                <td colspan="3">當日檢修數量</td>
+                ${days.map((day) => `<td class="day-col ${planningIsHoliday(day) ? "is-holiday" : ""}">${counts[day] || 0}</td>`).join("")}
+                <td colspan="3"></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="codex-pm-schedule-print-footer">
+            <div class="codex-pm-schedule-print-note">${escapeHtml(planningPrintNoteText())}</div>
+            <div class="codex-pm-schedule-print-signs">
+              <span>承辦人員：</span>
+              <span>審核主管：</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSchedulePrintCard() {
+      return `
+        <section class="codex-pm-auto-section codex-pm-schedule-print-card">
+          <div class="codex-pm-print-head">
+            <div>
+              <h3>整月排程表列印</h3>
+              <p>列印格式依照原 Excel 矩陣，A3 直立，範圍等同 A1:AK53。</p>
+            </div>
+            <span class="codex-pm-level-pill">A3 直立</span>
+          </div>
+          <div class="codex-pm-action-row">
+            <button type="button" class="codex-pm-soft-button primary" data-schedule-print>列印整月排程表</button>
+            <button type="button" class="codex-pm-soft-button" data-calendar-view="planning">回排程規劃</button>
+          </div>
+          <div class="codex-pm-schedule-print-wrap">
+            ${renderSchedulePrintSheet()}
+          </div>
+        </section>
       `;
     }
 
@@ -24414,7 +25367,449 @@ react-dom/cjs/react-dom-client.production.js:
       `;
     }
 
+    function planningPermission() {
+      const roles = {
+        admin: { label: "系統管理員", view: true, importExcel: true, edit: true, publish: true, lock: true },
+        planner: { label: "排程管理員", view: true, importExcel: true, edit: true, publish: false, lock: false },
+        supervisor: { label: "主管", view: true, importExcel: true, edit: true, publish: true, lock: true },
+        leader: { label: "班長", view: true, importExcel: false, edit: false, publish: false, lock: false },
+        staff: { label: "一般同仁", view: false, importExcel: false, edit: false, publish: false, lock: false }
+      };
+      return roles[planningRole] || roles.staff;
+    }
+
+    function planningCan(action) {
+      const permission = planningPermission();
+      if (action === "edit") return permission.edit && !planningLocked;
+      if (action === "publish") return permission.publish && !planningLocked;
+      if (action === "importExcel") return permission.importExcel && !planningLocked;
+      if (action === "lock") return permission.lock;
+      return Boolean(permission[action]);
+    }
+
+    function renderPlanningRoleOptions() {
+      return [
+        ["admin", "系統管理員"],
+        ["planner", "排程管理員"],
+        ["supervisor", "主管"],
+        ["leader", "班長"],
+        ["staff", "一般同仁"]
+      ].map(([value, label]) => `<option value="${value}" ${planningRole === value ? "selected" : ""}>${label}</option>`).join("");
+    }
+
+    function renderPlanningMonthOptions() {
+      return Array.from({ length: 12 }, (_, index) => {
+        const value = index + 1;
+        return `<option value="${value}" ${planningMonth === value ? "selected" : ""}>${value} 月</option>`;
+      }).join("");
+    }
+
+    function normalizePlanningYear(value) {
+      const number = Number(value);
+      if (!Number.isFinite(number)) return planningYear;
+      if (number >= 1900 && number <= 2200) return Math.trunc(number);
+      return planningYear;
+    }
+
+    function planningDisplayDate(isoDate) {
+      const match = String(isoDate || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return isoDate || "-";
+      return `${match[1]}/${match[2]}/${match[3]}`;
+    }
+
+    function planningPrintMonthDay(isoDate) {
+      const match = String(isoDate || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return isoDate || "";
+      return `${match[2]}/${match[3]}`;
+    }
+
+    function planningMonthNumber(year = planningYear, month = planningMonth) {
+      return year * 12 + (month - 1);
+    }
+
+    function planningMonthKey(year = planningYear, month = planningMonth) {
+      return `${year}-${String(month).padStart(2, "0")}`;
+    }
+
+    function planningDays() {
+      const days = new Date(planningYear, planningMonth, 0).getDate();
+      return Array.from({ length: days }, (_, index) => String(index + 1).padStart(2, "0"));
+    }
+
+    function planningIsoDate(day, year = planningYear, month = planningMonth) {
+      return `${year}-${String(month).padStart(2, "0")}-${String(Number(day)).padStart(2, "0")}`;
+    }
+
+    function planningWeekdayFor(day) {
+      return planningWeekdays[new Date(planningYear, planningMonth - 1, Number(day)).getDay()];
+    }
+
+    function planningIsWeekend(day) {
+      const weekday = new Date(planningYear, planningMonth - 1, Number(day)).getDay();
+      return weekday === 0 || weekday === 6;
+    }
+
+    function planningHolidayMap() {
+      const key = planningMonthKey();
+      planningHolidayOverrides[key] = planningHolidayOverrides[key] || {};
+      return planningHolidayOverrides[key];
+    }
+
+    function planningIsHoliday(day) {
+      return planningIsWeekend(day) || Boolean(planningHolidayOverrides[planningMonthKey()]?.[day]);
+    }
+
+    function planningHolidayCount() {
+      return planningDays().filter((day) => planningIsHoliday(day)).length;
+    }
+
+    function togglePlanningHoliday(day) {
+      const holidays = planningHolidayMap();
+      if (holidays[day]) delete holidays[day];
+      else holidays[day] = true;
+    }
+
+    function isMaintenanceToken(value) {
+      return /M|Y/.test(String(value || ""));
+    }
+
+    function addMonthsClamped(isoDate, months) {
+      const match = String(isoDate || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return "";
+      const sourceDay = Number(match[3]);
+      const target = new Date(Number(match[1]), Number(match[2]) - 1 + months, 1);
+      const targetYear = target.getFullYear();
+      const targetMonth = target.getMonth() + 1;
+      const lastDay = new Date(targetYear, targetMonth, 0).getDate();
+      return planningIsoDate(Math.min(sourceDay, lastDay), targetYear, targetMonth);
+    }
+
+    function planningGeneratedDayFromPrevious(row) {
+      const interval = planningCycleMonths[row.type];
+      const match = String(row.prev || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!interval || !match) return "";
+      const previousMonthNumber = planningMonthNumber(Number(match[1]), Number(match[2]));
+      const diff = planningMonthNumber() - previousMonthNumber;
+      if (diff <= 0 || diff % interval !== 0) return "";
+      const date = addMonthsClamped(row.prev, diff);
+      return date.startsWith(planningMonthKey()) ? date.slice(-2) : "";
+    }
+
+    function planningNextWorkDay(day, occupiedCells = {}) {
+      const days = planningDays();
+      const startIndex = Math.max(0, days.indexOf(day));
+      for (let index = startIndex; index < days.length; index += 1) {
+        const candidate = days[index];
+        if (planningIsHoliday(candidate)) continue;
+        if (occupiedCells[candidate]) continue;
+        return candidate;
+      }
+      return day;
+    }
+
+    function movePlanningCellsOffHolidays(cells) {
+      const adjusted = {};
+      planningDays().forEach((day) => {
+        const value = cells[day];
+        if (!value) return;
+        const targetDay = planningIsHoliday(day) || adjusted[day] ? planningNextWorkDay(day, adjusted) : day;
+        adjusted[targetDay] = value;
+      });
+      return adjusted;
+    }
+
+    function planningGeneratedCells(row) {
+      if (planningMonthKey() === planningMonthKey(planningImportedYear, planningImportedMonth)) {
+        return { ...(row.cells || {}) };
+      }
+      const interval = planningCycleMonths[row.type];
+      if (!interval) return {};
+
+      const cells = {};
+      const diff = planningMonthNumber() - planningMonthNumber(planningImportedYear, planningImportedMonth);
+      if (diff % interval === 0) {
+        const maxDay = planningDays().length;
+        Object.entries(row.cells || {}).forEach(([day, value]) => {
+          if (!isMaintenanceToken(value)) return;
+          const targetDay = Math.min(Number(day), maxDay);
+          if (targetDay > 0) cells[String(targetDay).padStart(2, "0")] = value;
+        });
+      }
+      if (Object.keys(cells).length) return cells;
+
+      const generatedDay = planningGeneratedDayFromPrevious(row);
+      if (generatedDay) cells[generatedDay] = row.type;
+      return cells;
+    }
+
+    function planningCellsForRow(row, rowIndex) {
+      const cells = planningGeneratedCells(row);
+      const edits = planningManualCells[planningMonthKey()]?.[rowIndex] || {};
+      Object.entries(edits).forEach(([day, value]) => {
+        if (value) cells[day] = value;
+        else delete cells[day];
+      });
+      return movePlanningCellsOffHolidays(cells);
+    }
+
+    function planningCellValue(row, rowIndex, day) {
+      return planningCellsForRow(row, rowIndex)[day] || "";
+    }
+
+    function setPlanningCellValue(rowIndex, day, value) {
+      const key = planningMonthKey();
+      planningManualCells[key] = planningManualCells[key] || {};
+      planningManualCells[key][rowIndex] = planningManualCells[key][rowIndex] || {};
+      planningManualCells[key][rowIndex][day] = value;
+    }
+
+    function planningFirstPlanDay(row, rowIndex) {
+      const cells = planningCellsForRow(row, rowIndex);
+      const days = planningDays();
+      return days.find((day) => isMaintenanceToken(cells[day])) || days.find((day) => cells[day]) || "";
+    }
+
+    function planningIntervalDays(row, rowIndex) {
+      const day = planningFirstPlanDay(row, rowIndex);
+      if (!day || !row.prev) return "-";
+      const previous = new Date(`${row.prev}T00:00:00`);
+      const planned = new Date(`${planningIsoDate(day)}T00:00:00`);
+      if (Number.isNaN(previous.getTime()) || Number.isNaN(planned.getTime())) return "-";
+      const diff = (planned - previous) / 86400000;
+      return String(diff > 0 ? Math.max(1, Math.ceil(diff)) : Math.round(diff));
+    }
+
+    function planningIntervalMeta(row, rowIndex) {
+      const daysText = planningIntervalDays(row, rowIndex);
+      const days = Number(daysText);
+      const limit = planningIntervalLimits[row.type];
+      if (!Number.isFinite(days)) return { daysText, limit, status: "" };
+      if (!limit) return { daysText, limit, status: "" };
+      const status = days > limit.days ? "is-over" : "";
+      return { daysText, limit, status };
+    }
+
+    function renderPlanningInterval(row, rowIndex) {
+      const meta = planningIntervalMeta(row, rowIndex);
+      if (!meta.limit) return escapeHtml(meta.daysText);
+      return `
+        <span class="codex-pm-interval ${meta.status}" title="上限 ${meta.limit.days} 天 / ${meta.limit.km} km">
+          <strong>${escapeHtml(meta.daysText)} 天</strong>
+        </span>
+      `;
+    }
+
+    function planningDailyCounts() {
+      return planningDays().reduce((acc, day) => {
+        acc[day] = planningRows.reduce((count, row, rowIndex) => {
+          return count + (isMaintenanceToken(planningCellValue(row, rowIndex, day)) ? 1 : 0);
+        }, 0);
+        return acc;
+      }, {});
+    }
+
+    function planningKind(row) {
+      return /^\d+$/.test(row.asset) ? "車輛" : "設備";
+    }
+
+    function planToken(value) {
+      if (!value) return "";
+      const rotateClass = value === "鏇" ? " is-rotate" : "";
+      return `<span class="codex-pm-plan-token${rotateClass}">${escapeHtml(value)}</span>`;
+    }
+
+    function renderPlanningMatrix() {
+      const canEdit = planningCan("edit");
+      const counts = planningDailyCounts();
+      const days = planningDays();
+      return `
+        <div class="codex-pm-planning-matrix-wrap" aria-label="排程規劃矩陣">
+          <table class="codex-pm-planning-matrix ${planningHolidayEditMode ? "is-holiday-mode" : ""}">
+            <thead>
+              <tr>
+                <th>車號 / 設備</th>
+                <th>前次完工日</th>
+                <th>檢修別</th>
+                <th>檢修日</th>
+                <th class="codex-pm-interval-head"><span>與前次檢修</span><span>間隔日數</span></th>
+                ${days.map((day) => `
+                  <th class="${[planningIsWeekend(day) ? "is-weekend" : "", planningIsHoliday(day) ? "is-holiday" : ""].filter(Boolean).join(" ")}">
+                    <button type="button" class="codex-pm-planning-day-button" data-planning-holiday-day="${day}" ${planningHolidayEditMode && canEdit ? "" : "disabled"} title="${planningHolidayEditMode && canEdit ? "點擊標記或取消國定假日" : planningIsHoliday(day) ? "放假日，系統自動避開排程" : ""}">
+                      <span class="codex-pm-plan-day-label">${planningMonth}/${Number(day)}</span>
+                      <span class="codex-pm-plan-weekday">${planningWeekdayFor(day)}</span>
+                    </button>
+                  </th>
+                `).join("")}
+              </tr>
+            </thead>
+            <tbody>
+              ${planningRows.map((row, rowIndex) => {
+                const firstPlanDay = planningFirstPlanDay(row, rowIndex);
+                const plannedDate = firstPlanDay ? planningDisplayDate(planningIsoDate(firstPlanDay)) : "-";
+                return `
+                  <tr>
+                    <td><strong>${escapeHtml(row.asset)}</strong><span class="codex-pm-source-pill">${planningKind(row)}</span></td>
+                    <td>${escapeHtml(planningDisplayDate(row.prev))}</td>
+                    <td>${escapeHtml(row.type || "-")}</td>
+                    <td>${escapeHtml(plannedDate)}</td>
+                    <td>${renderPlanningInterval(row, rowIndex)}</td>
+                    ${days.map((day) => {
+                    const value = planningCellValue(row, rowIndex, day);
+                    return `
+                      <td class="codex-pm-plan-cell ${[value ? "has-plan" : "", planningIsHoliday(day) ? "is-holiday" : ""].filter(Boolean).join(" ")}">
+                        <button type="button" data-planning-cell="${rowIndex}:${day}" ${canEdit && !planningIsHoliday(day) ? "" : "disabled"} title="${planningIsHoliday(day) ? "放假日不可排程" : canEdit ? "點擊切換排程" : "目前角色不可編輯"}">
+                          ${planToken(value)}
+                        </button>
+                      </td>
+                    `;
+                  }).join("")}
+                  </tr>
+                `;
+              }).join("")}
+              <tr class="codex-pm-planning-daily-row">
+                <td>當日檢修數量</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                ${days.map((day) => `<td class="${planningIsHoliday(day) ? "is-holiday" : ""}">${counts[day] || 0}</td>`).join("")}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderPlanningView() {
+      const permission = planningPermission();
+      const totalPlans = Object.values(planningDailyCounts()).reduce((sum, value) => sum + value, 0);
+      const vehicleRows = planningRows.filter((row) => planningKind(row) === "車輛").length;
+      const equipmentRows = planningRows.length - vehicleRows;
+      const days = planningDays();
+      return `
+        <div class="codex-pm-planning-layout">
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>排程規劃｜${planningYear} 年 ${planningMonth} 月</h3>
+                <p>以 2026 年 5 月 Excel 排程為基準，日期、星期、當日檢修數量會依西元年份與月份重算。</p>
+              </div>
+              <span class="codex-pm-level-pill">${planningLocked ? "已鎖定" : "草稿"}</span>
+            </div>
+            <div class="codex-pm-planning-toolbar">
+              <div class="codex-pm-planning-field">
+                <label>權限模擬</label>
+                <select data-planning-role>${renderPlanningRoleOptions()}</select>
+              </div>
+              <div class="codex-pm-planning-field">
+                <label>西元年</label>
+                <input type="number" min="1900" max="2200" step="1" value="${planningYear}" data-planning-year>
+              </div>
+              <div class="codex-pm-planning-field">
+                <label>月份</label>
+                <select data-planning-month>${renderPlanningMonthOptions()}</select>
+              </div>
+              <button type="button" class="codex-pm-soft-button ${planningHolidayEditMode ? "is-active" : ""}" data-planning-holiday-mode ${planningCan("edit") ? "" : "disabled"}>${planningHolidayEditMode ? "完成假日" : "假日設定"}</button>
+              <button type="button" class="codex-pm-soft-button" data-planning-import ${planningCan("importExcel") ? "" : "disabled"}>匯入 Excel</button>
+              <button type="button" class="codex-pm-soft-button primary" data-planning-publish ${planningCan("publish") ? "" : "disabled"}>發布排程</button>
+              <button type="button" class="codex-pm-soft-button" data-planning-lock ${planningCan("lock") ? "" : "disabled"}>${planningLocked ? "解除鎖定" : "鎖定月份"}</button>
+            </div>
+            <div class="codex-pm-permission-strip">
+              <span class="codex-pm-permission-chip ${permission.view ? "is-allowed" : "is-denied"}">檢視：${permission.view ? "可" : "不可"}</span>
+              <span class="codex-pm-permission-chip ${permission.importExcel ? "is-allowed" : "is-denied"}">匯入 Excel：${permission.importExcel ? "可" : "不可"}</span>
+              <span class="codex-pm-permission-chip ${permission.edit ? "is-allowed" : "is-denied"}">修改排程：${permission.edit ? "可" : "不可"}</span>
+              <span class="codex-pm-permission-chip ${permission.publish ? "is-allowed" : "is-denied"}">發布/鎖定：${permission.publish ? "可" : "不可"}</span>
+              <span class="codex-pm-permission-chip is-allowed">${planningYear} 年 ${planningMonth} 月 / ${days.length} 天</span>
+              <span class="codex-pm-permission-chip ${planningHolidayCount() ? "is-allowed" : ""}">放假 ${planningHolidayCount()} 天</span>
+              <span class="codex-pm-permission-chip is-allowed">${planningRows.length} 個對象 / ${totalPlans} 格檢修</span>
+            </div>
+          </section>
+          ${permission.view ? renderPlanningMatrix() : `
+            <div class="codex-pm-no-access">
+              <strong>一般同仁不可進入排程規劃。</strong><br>
+              正式系統會依登入帳號判斷角色；一般同仁只進入今日作業、列印與完工回填，不看整月排程編排頁。
+            </div>
+          `}
+          ${permission.view ? renderSchedulePrintCard() : ""}
+          <div class="codex-pm-note-box">
+            Excel 對應：日期列自動遞增、星期列依日期換算、排程格帶入檢修別，最下方日計只統計 1M / 3M / 6M / 1Y。<br>
+            假日設定：按「假日設定」後點日期欄，可標記國定假日；放假日整欄會以淡藍色顯示，系統自動排程會避開該日期。<br>
+            備註：使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。法規裕度為 20%，月檢間隔上限為 36 天及 15,000 km、季檢為 108 天及 30,000 km，半年檢為 216 天及 60,000 km，年檢則為 438 天及 120,000 km（未滿 1 天以 1 天計）。<br>
+            因此「與前次檢修間隔日數」必須顯示，排程人員才能直接判斷本次安排是否接近或超過檢修期限。
+          </div>
+        </div>
+      `;
+    }
+
+    function renderStaffView() {
+      const visibleItems = scheduleItems
+        .filter((item) => activeStaff === "all" || staffFor(item) === activeStaff)
+        .sort((a, b) => a.date.localeCompare(b.date) || String(a.asset).localeCompare(String(b.asset), "zh-Hant"));
+      const todayItems = visibleItems.filter((item) => item.date === today);
+      const upcomingItems = visibleItems.filter((item) => item.date >= today);
+      const list = upcomingItems.length ? upcomingItems : visibleItems;
+      return `
+        <div class="codex-pm-staff-layout">
+          <aside class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>同仁篩選</h3>
+                <p>給現場同仁使用，只看自己負責的 Excel 預排日曆。</p>
+              </div>
+            </div>
+            <div class="codex-pm-staff-filter-list">
+              ${staffOptions().map((staff) => {
+                const count = staff === "all" ? scheduleItems.length : scheduleItems.filter((item) => staffFor(item) === staff).length;
+                const todayCount = staff === "all" ? scheduleItems.filter((item) => item.date === today).length : scheduleItems.filter((item) => staffFor(item) === staff && item.date === today).length;
+                return `
+                  <button type="button" class="codex-pm-staff-filter ${activeStaff === staff ? "is-active" : ""}" data-staff-filter="${escapeHtml(staff)}">
+                    <strong>${escapeHtml(staffLabel(staff))}</strong>
+                    <span>今日 ${todayCount} 件 / 全月 ${count} 件</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+            <div class="codex-pm-note-box">這個分頁給同仁日常使用；主管排程與整月檢查仍留在「月曆總覽」。</div>
+          </aside>
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>${escapeHtml(staffLabel(activeStaff))}作業日曆</h3>
+                <p>由 Excel 預排表帶入。今日 ${todayItems.length} 件，點「列印準備」會帶入 P 單與檢查表欄位。</p>
+              </div>
+              <span class="codex-pm-level-pill">同仁專用</span>
+            </div>
+            <div class="codex-pm-staff-task-list">
+              ${list.map((item) => `
+                <article class="codex-pm-staff-task ${item.date === today ? "is-today" : ""}">
+                  <div class="codex-pm-staff-task-head">
+                    <div>
+                      <div class="codex-pm-staff-task-title">${escapeHtml(toMinguo(item.date))}｜${escapeHtml(item.asset)} ${escapeHtml(item.level)}</div>
+                      <p>${escapeHtml(item.note)}</p>
+                    </div>
+                    <span class="codex-pm-level-pill">${escapeHtml(staffStatusFor(item))}</span>
+                  </div>
+                  <div class="codex-pm-staff-task-meta">
+                    <span>負責同仁<strong>${escapeHtml(staffFor(item))}</strong></span>
+                    <span>班別<strong>${escapeHtml(shiftFor(item))}</strong></span>
+                    <span>位置<strong>${escapeHtml(item.location)}</strong></span>
+                    <span>P單號<strong>${escapeHtml(pNoFor(item))}</strong></span>
+                  </div>
+                  <div class="codex-pm-action-row">
+                    <button type="button" class="codex-pm-soft-button primary" data-calendar-item="${escapeHtml(item.id)}">列印準備</button>
+                    <button type="button" class="codex-pm-soft-button" data-staff-feedback="${escapeHtml(item.id)}">完工回填</button>
+                  </div>
+                </article>
+              `).join("")}
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
     function renderActiveView() {
+      if (activeView === "planning") return renderPlanningView();
+      if (activeView === "staff") return renderStaffView();
       if (activeView === "print") return renderPrintView();
       if (activeView === "feedback") return renderFeedbackView();
       if (activeView === "templates") return renderTemplatesView();
@@ -24441,6 +25836,7 @@ react-dom/cjs/react-dom-client.production.js:
                 </div>
                 <div class="codex-pm-actions">
                   <button type="button" class="codex-pm-button primary" data-calendar-view="calendar">月曆總覽</button>
+                  <button type="button" class="codex-pm-button" data-calendar-view="planning">排程規劃</button>
                   <button type="button" class="codex-pm-button" data-calendar-view="print">列印準備</button>
                 </div>
               </div>
@@ -24462,12 +25858,152 @@ react-dom/cjs/react-dom-client.production.js:
         });
       });
 
+      const roleSelect = container.querySelector("[data-planning-role]");
+      if (roleSelect) {
+        roleSelect.addEventListener("change", () => {
+          planningRole = roleSelect.value || "staff";
+          activeView = "planning";
+          renderCenter(container);
+        });
+      }
+
+      const yearInput = container.querySelector("[data-planning-year]");
+      if (yearInput) {
+        const applyPlanningYear = () => {
+          planningYear = normalizePlanningYear(yearInput.value);
+          activeView = "planning";
+          renderCenter(container);
+        };
+        yearInput.addEventListener("change", applyPlanningYear);
+        yearInput.addEventListener("blur", applyPlanningYear);
+        yearInput.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter") return;
+          event.preventDefault();
+          applyPlanningYear();
+        });
+      }
+
+      const monthSelect = container.querySelector("[data-planning-month]");
+      if (monthSelect) {
+        monthSelect.addEventListener("change", () => {
+          const currentYearInput = container.querySelector("[data-planning-year]");
+          if (currentYearInput) planningYear = normalizePlanningYear(currentYearInput.value);
+          const nextMonth = Number(monthSelect.value);
+          planningMonth = Number.isFinite(nextMonth) && nextMonth >= 1 && nextMonth <= 12 ? nextMonth : planningMonth;
+          activeView = "planning";
+          renderCenter(container);
+        });
+      }
+
+      const holidayModeButton = container.querySelector("[data-planning-holiday-mode]");
+      if (holidayModeButton) {
+        holidayModeButton.addEventListener("click", () => {
+          if (!planningCan("edit")) return;
+          planningHolidayEditMode = !planningHolidayEditMode;
+          activeView = "planning";
+          renderCenter(container);
+        });
+      }
+
+      container.querySelectorAll("[data-planning-holiday-day]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (!planningCan("edit") || !planningHolidayEditMode) return;
+          const day = button.getAttribute("data-planning-holiday-day") || "";
+          if (!day) return;
+          togglePlanningHoliday(day);
+          activeView = "planning";
+          renderCenter(container);
+        });
+      });
+
+      container.querySelectorAll("[data-planning-cell]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (!planningCan("edit")) return;
+          const [rowIndexText, day] = String(button.getAttribute("data-planning-cell") || "").split(":");
+          const row = planningRows[Number(rowIndexText)];
+          if (!row || !day) return;
+          if (planningIsHoliday(day)) return;
+          const current = planningCellValue(row, Number(rowIndexText), day);
+          const currentIndex = planningCycleValues.includes(current) ? planningCycleValues.indexOf(current) : 0;
+          const next = planningCycleValues[(currentIndex + 1) % planningCycleValues.length] || "";
+          setPlanningCellValue(Number(rowIndexText), day, next);
+          activeView = "planning";
+          renderCenter(container);
+        });
+      });
+
+      const importButton = container.querySelector("[data-planning-import]");
+      if (importButton) {
+        importButton.addEventListener("click", () => {
+          if (!planningCan("importExcel")) return;
+          activeView = "planning";
+          renderCenter(container);
+        });
+      }
+
+      const publishButton = container.querySelector("[data-planning-publish]");
+      if (publishButton) {
+        publishButton.addEventListener("click", () => {
+          if (!planningCan("publish")) return;
+          planningLocked = true;
+          activeView = "planning";
+          renderCenter(container);
+        });
+      }
+
+      const lockButton = container.querySelector("[data-planning-lock]");
+      if (lockButton) {
+        lockButton.addEventListener("click", () => {
+          if (!planningCan("lock")) return;
+          planningLocked = !planningLocked;
+          activeView = "planning";
+          renderCenter(container);
+        });
+      }
+
+      const schedulePrintButton = container.querySelector("[data-schedule-print]");
+      if (schedulePrintButton) {
+        schedulePrintButton.addEventListener("click", () => {
+          const sourceSheet = container.querySelector(".codex-pm-schedule-print-sheet");
+          if (!sourceSheet) return;
+          document.getElementById("codex-schedule-print-root")?.remove();
+          const printRoot = document.createElement("div");
+          printRoot.id = "codex-schedule-print-root";
+          printRoot.appendChild(sourceSheet.cloneNode(true));
+          document.body.appendChild(printRoot);
+          const cleanupPrintRoot = () => printRoot.remove();
+          window.addEventListener("afterprint", cleanupPrintRoot, { once: true });
+          printRoot.getBoundingClientRect();
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => window.print());
+          });
+        });
+      }
+
       container.querySelectorAll("[data-calendar-item]").forEach((button) => {
         button.addEventListener("click", () => {
           selectedId = button.getAttribute("data-calendar-item") || selectedId;
           const item = selectedItem();
           selectedDate = item.date;
           activeView = "print";
+          renderCenter(container);
+        });
+      });
+
+      container.querySelectorAll("[data-staff-filter]").forEach((button) => {
+        button.addEventListener("click", () => {
+          activeStaff = button.getAttribute("data-staff-filter") || "all";
+          activeView = "staff";
+          renderCenter(container);
+        });
+      });
+
+      container.querySelectorAll("[data-staff-feedback]").forEach((button) => {
+        button.addEventListener("click", () => {
+          selectedId = button.getAttribute("data-staff-feedback") || selectedId;
+          const item = selectedItem();
+          selectedDate = item.date;
+          activeView = "feedback";
           renderCenter(container);
         });
       });
