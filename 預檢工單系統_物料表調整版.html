@@ -21521,7 +21521,7 @@ react-dom/cjs/react-dom-client.production.js:
     if (window.__codexPmWorkflowV2Enhancement) return;
     window.__codexPmWorkflowV2Enhancement = true;
 
-    const today = "2026-05-19";
+    const today = "2026-05-21";
     const tabs = [
       { id: "matrix", title: "整份排程表", caption: "不收在小框，往下看完整車輛與機廠設備" },
       { id: "print", title: "今日列印", caption: "先列印 P 單與預檢表，P 單不是故障才有" },
@@ -22253,7 +22253,7 @@ react-dom/cjs/react-dom-client.production.js:
     if (window.__codexPmFinalPlanEnhancement) return;
     window.__codexPmFinalPlanEnhancement = true;
 
-    const today = "2026-05-19";
+    const today = "2026-05-21";
     const tabs = [
       { id: "schedule", title: "整份排程", caption: "完整查看，不再用篩選藏資料" },
       { id: "print", title: "作業前列印", caption: "一開始列印 P 單與檢查表" },
@@ -23575,12 +23575,24 @@ react-dom/cjs/react-dom-client.production.js:
 
 <!-- Codex PM calendar-first add-order flow -->
 <style id="codex-pm-calendar-first-style">
+  .codex-pm-calendar-first .codex-pm-board {
+    gap: 0.6rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-hero {
+    margin-bottom: 0.45rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-panel {
+    padding: 0.7rem !important;
+  }
+
   .codex-pm-calendar-first .codex-pm-calendar-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 340px;
-    gap: 1rem;
+    gap: 0.65rem;
     align-items: start;
-    margin-top: 1rem;
+    margin-top: 0.6rem;
   }
 
   .codex-pm-calendar-first .codex-pm-calendar-panel,
@@ -23597,7 +23609,7 @@ react-dom/cjs/react-dom-client.production.js:
   .codex-pm-calendar-first .codex-pm-day-panel,
   .codex-pm-calendar-first .codex-pm-print-panel,
   .codex-pm-calendar-first .codex-pm-auto-section {
-    padding: 1rem;
+    padding: 0.7rem;
   }
 
   .codex-pm-calendar-first .codex-pm-month-head,
@@ -23606,8 +23618,8 @@ react-dom/cjs/react-dom-client.production.js:
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 0.85rem;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
   }
 
   .codex-pm-calendar-first .codex-pm-month-head h3,
@@ -23616,8 +23628,8 @@ react-dom/cjs/react-dom-client.production.js:
   .codex-pm-calendar-first .codex-pm-auto-section h3 {
     margin: 0;
     color: #f8fafc;
-    font-size: 1rem;
-    line-height: 1.4;
+    font-size: 0.92rem;
+    line-height: 1.25;
   }
 
   .codex-pm-calendar-first .codex-pm-month-head p,
@@ -23626,37 +23638,37 @@ react-dom/cjs/react-dom-client.production.js:
   .codex-pm-calendar-first .codex-pm-auto-section p {
     margin: 0.25rem 0 0;
     color: #94a3b8;
-    font-size: 0.82rem;
-    line-height: 1.6;
+    font-size: 0.74rem;
+    line-height: 1.35;
   }
 
   .codex-pm-calendar-first .codex-pm-summary-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.75rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.45rem;
+    margin-top: 0.55rem;
   }
 
   .codex-pm-calendar-first .codex-pm-summary-card {
     border: 1px solid rgba(148, 163, 184, 0.18);
     border-radius: 8px;
     background: rgba(2, 6, 23, 0.7);
-    padding: 0.85rem 1rem;
+    padding: 0.48rem 0.62rem;
   }
 
   .codex-pm-calendar-first .codex-pm-summary-card span {
     display: block;
     color: #93c5fd;
-    font-size: 0.78rem;
-    line-height: 1.5;
+    font-size: 0.7rem;
+    line-height: 1.25;
   }
 
   .codex-pm-calendar-first .codex-pm-summary-card strong {
     display: block;
-    margin-top: 0.25rem;
+    margin-top: 0.14rem;
     color: #f8fafc;
-    font-size: 1.05rem;
-    line-height: 1.35;
+    font-size: 0.92rem;
+    line-height: 1.2;
   }
 
   .codex-pm-calendar-first .codex-pm-calendar-grid {
@@ -23684,7 +23696,7 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   .codex-pm-calendar-first .codex-pm-day-cell {
-    min-height: 132px;
+    min-height: 178px;
     background: rgba(15, 23, 42, 0.58);
     padding: 0.55rem;
     transition: background 0.15s ease, box-shadow 0.15s ease;
@@ -23741,7 +23753,8 @@ react-dom/cjs/react-dom-client.production.js:
     cursor: pointer;
     font: inherit;
     line-height: 1.35;
-    padding: 0.45rem 0.5rem;
+    min-height: 5.5rem;
+    padding: 0.62rem 0.62rem;
     text-align: left;
   }
 
@@ -23766,6 +23779,57 @@ react-dom/cjs/react-dom-client.production.js:
   .codex-pm-calendar-first .codex-pm-side-item.is-selected {
     border-color: rgba(251, 191, 36, 0.75);
     background: rgba(251, 191, 36, 0.14);
+  }
+
+  .codex-pm-calendar-first .codex-pm-event.is-done,
+  .codex-pm-calendar-first .codex-pm-side-item.is-done {
+    border-color: rgba(34, 197, 94, 0.5);
+    background: rgba(22, 163, 74, 0.16);
+  }
+
+  .codex-pm-calendar-first .codex-pm-event.is-feedback,
+  .codex-pm-calendar-first .codex-pm-side-item.is-feedback {
+    border-color: rgba(251, 191, 36, 0.5);
+    background: rgba(251, 191, 36, 0.12);
+  }
+
+  .codex-pm-calendar-first .codex-pm-event.is-manual-holiday,
+  .codex-pm-calendar-first .codex-pm-side-item.is-manual-holiday {
+    border-style: dashed;
+  }
+
+  .codex-pm-calendar-first .codex-pm-event.is-forced,
+  .codex-pm-calendar-first .codex-pm-side-item.is-forced {
+    border-color: rgba(248, 113, 113, 0.82);
+    background: rgba(127, 29, 29, 0.38);
+  }
+
+  .codex-pm-calendar-first .codex-pm-status-pill {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    color: #e2e8f0;
+    font-size: 0.68rem;
+    line-height: 1.25;
+    margin-top: 0.28rem;
+    padding: 0.12rem 0.42rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-status-pill.is-done {
+    border-color: rgba(34, 197, 94, 0.55);
+    color: #bbf7d0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-status-pill.is-feedback {
+    border-color: rgba(251, 191, 36, 0.58);
+    color: #fde68a;
+  }
+
+  .codex-pm-calendar-first .codex-pm-status-pill.is-forced {
+    border-color: rgba(248, 113, 113, 0.7);
+    color: #fecaca;
   }
 
   .codex-pm-calendar-first .codex-pm-side-list {
@@ -23809,8 +23873,8 @@ react-dom/cjs/react-dom-client.production.js:
   .codex-pm-calendar-first .codex-pm-action-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.55rem;
-    margin-top: 0.9rem;
+    gap: 0.35rem;
+    margin-top: 0.55rem;
   }
 
   .codex-pm-calendar-first .codex-pm-soft-button {
@@ -23820,9 +23884,9 @@ react-dom/cjs/react-dom-client.production.js:
     color: #a5f3fc;
     cursor: pointer;
     font: inherit;
-    font-size: 0.85rem;
-    line-height: 1.4;
-    padding: 0.58rem 0.8rem;
+    font-size: 0.76rem;
+    line-height: 1.25;
+    padding: 0.36rem 0.55rem;
   }
 
   .codex-pm-calendar-first .codex-pm-soft-button.primary {
@@ -23872,6 +23936,41 @@ react-dom/cjs/react-dom-client.production.js:
     color: #f8fafc;
     line-height: 1.45;
     white-space: pre-wrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-completion-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-completion-field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-completion-field.wide {
+    grid-column: 1 / -1;
+  }
+
+  .codex-pm-calendar-first .codex-pm-completion-field span {
+    color: #93c5fd;
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-completion-field input,
+  .codex-pm-calendar-first .codex-pm-completion-field select,
+  .codex-pm-calendar-first .codex-pm-completion-field textarea {
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.78);
+    color: #f8fafc;
+    font: inherit;
+    min-height: 2.45rem;
+    padding: 0.58rem 0.68rem;
   }
 
   .codex-pm-calendar-first .codex-pm-print-preview {
@@ -23928,9 +24027,10 @@ react-dom/cjs/react-dom-client.production.js:
     border-radius: 8px;
     background: rgba(251, 191, 36, 0.12);
     color: #fde68a;
-    line-height: 1.6;
-    margin-top: 0.85rem;
-    padding: 0.8rem;
+    font-size: 0.72rem;
+    line-height: 1.35;
+    margin-top: 0.45rem;
+    padding: 0.48rem 0.58rem;
   }
 
   .codex-pm-calendar-first .codex-pm-schedule-print-card {
@@ -24280,6 +24380,14 @@ react-dom/cjs/react-dom-client.production.js:
 
   .codex-pm-calendar-first .codex-pm-center-tabs {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin: 0.45rem 0 0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-center-tabs button {
+    min-height: 2.05rem;
+    padding: 0.34rem 0.45rem;
+    font-size: 0.78rem;
   }
 
   .codex-pm-calendar-first .codex-pm-staff-layout {
@@ -24375,77 +24483,79 @@ react-dom/cjs/react-dom-client.production.js:
 
   .codex-pm-calendar-first .codex-pm-planning-layout {
     display: grid;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.55rem;
+    margin-top: 0.55rem;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-toolbar {
     display: grid;
     grid-template-columns: minmax(10rem, 1fr) minmax(7rem, 0.55fr) minmax(7rem, 0.55fr) auto auto auto auto;
-    gap: 0.75rem;
+    gap: 0.45rem;
     align-items: end;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-field label {
     display: block;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.2rem;
     color: #93c5fd;
-    font-size: 0.76rem;
+    font-size: 0.68rem;
     font-weight: 800;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-field select,
   .codex-pm-calendar-first .codex-pm-planning-field input {
     width: 100%;
-    min-height: 2.45rem;
+    min-height: 2rem;
     border: 1px solid rgba(148, 163, 184, 0.24);
     border-radius: 8px;
     background: rgba(2, 6, 23, 0.68);
     color: #f8fafc;
-    padding: 0 0.75rem;
+    padding: 0 0.5rem;
+    font-size: 0.76rem;
   }
 
   .codex-pm-calendar-first .codex-pm-auto-scheduler {
     display: flex;
     justify-content: space-between;
-    gap: 0.85rem;
+    gap: 0.55rem;
     align-items: center;
-    margin-top: 0.85rem;
+    margin-top: 0.5rem;
     border: 1px solid rgba(34, 211, 238, 0.24);
     border-radius: 8px;
     background: rgba(8, 47, 73, 0.32);
-    padding: 0.75rem;
+    padding: 0.48rem 0.6rem;
   }
 
   .codex-pm-calendar-first .codex-pm-auto-scheduler strong,
   .codex-pm-calendar-first .codex-pm-auto-result strong {
     display: block;
     color: #f8fafc;
-    line-height: 1.35;
+    font-size: 0.8rem;
+    line-height: 1.25;
   }
 
   .codex-pm-calendar-first .codex-pm-auto-scheduler span,
   .codex-pm-calendar-first .codex-pm-auto-result span {
     display: block;
-    margin-top: 0.22rem;
+    margin-top: 0.14rem;
     color: #bfdbfe;
-    font-size: 0.78rem;
-    line-height: 1.45;
+    font-size: 0.68rem;
+    line-height: 1.25;
   }
 
   .codex-pm-calendar-first .codex-pm-auto-result {
-    margin-top: 0.65rem;
+    margin-top: 0.4rem;
     border: 1px solid rgba(34, 197, 94, 0.34);
     border-radius: 8px;
     background: rgba(22, 101, 52, 0.18);
-    padding: 0.65rem 0.75rem;
+    padding: 0.42rem 0.55rem;
   }
 
   .codex-pm-calendar-first .codex-pm-permission-strip {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
+    gap: 0.32rem;
+    margin-top: 0.45rem;
   }
 
   .codex-pm-calendar-first .codex-pm-permission-chip {
@@ -24453,9 +24563,9 @@ react-dom/cjs/react-dom-client.production.js:
     border-radius: 999px;
     background: rgba(15, 23, 42, 0.7);
     color: #cbd5e1;
-    font-size: 0.76rem;
+    font-size: 0.66rem;
     font-weight: 800;
-    padding: 0.32rem 0.62rem;
+    padding: 0.18rem 0.42rem;
   }
 
   .codex-pm-calendar-first .codex-pm-permission-chip.is-allowed {
@@ -24477,7 +24587,7 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix-wrap {
-    max-height: 68vh;
+    max-height: 78vh;
     overflow: auto;
     border: 1px solid rgba(148, 163, 184, 0.18);
     border-radius: 8px;
@@ -24486,17 +24596,17 @@ react-dom/cjs/react-dom-client.production.js:
 
   .codex-pm-calendar-first .codex-pm-planning-matrix {
     width: 100%;
-    min-width: 1820px;
+    min-width: 2040px;
     border-collapse: separate;
     border-spacing: 0;
-    font-size: 0.78rem;
+    font-size: 0.7rem;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix th,
   .codex-pm-calendar-first .codex-pm-planning-matrix td {
     border-right: 1px solid rgba(148, 163, 184, 0.14);
     border-bottom: 1px solid rgba(148, 163, 184, 0.14);
-    padding: 0.42rem 0.45rem;
+    padding: 0.24rem 0.28rem;
     vertical-align: middle;
   }
 
@@ -24507,6 +24617,8 @@ react-dom/cjs/react-dom-client.production.js:
     background: #0f172a;
     color: #bfdbfe;
     white-space: nowrap;
+    padding-top: 0.28rem;
+    padding-bottom: 0.28rem;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix th.codex-pm-interval-head {
@@ -24579,43 +24691,43 @@ react-dom/cjs/react-dom-client.production.js:
     position: sticky;
     left: 0;
     z-index: 4;
-    min-width: 150px;
+    min-width: 136px;
     background: #020617;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(2),
   .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(2) {
     position: sticky;
-    left: 150px;
+    left: 136px;
     z-index: 4;
-    min-width: 118px;
+    min-width: 104px;
     background: #020617;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(3),
   .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(3) {
     position: sticky;
-    left: 268px;
+    left: 240px;
     z-index: 4;
-    min-width: 92px;
+    min-width: 70px;
     background: #020617;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(4),
   .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(4) {
     position: sticky;
-    left: 360px;
+    left: 310px;
     z-index: 4;
-    min-width: 88px;
+    min-width: 78px;
     background: #020617;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(5),
   .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(5) {
     position: sticky;
-    left: 448px;
+    left: 388px;
     z-index: 4;
-    min-width: 132px;
+    min-width: 94px;
     background: #020617;
     box-shadow: 1px 0 0 rgba(148, 163, 184, 0.16);
   }
@@ -24629,6 +24741,27 @@ react-dom/cjs/react-dom-client.production.js:
     background: #0f172a;
   }
 
+  .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(3),
+  .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(5) {
+    padding: 0.14rem 0.2rem;
+    text-align: center;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(3) {
+    font-size: 0.66rem;
+    font-weight: 800;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(5) {
+    font-size: 0.58rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(n+6),
+  .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(n+6) {
+    width: 3.05rem;
+    min-width: 3.05rem;
+  }
+
   .codex-pm-calendar-first .codex-pm-planning-matrix tbody tr:hover td {
     background: rgba(8, 145, 178, 0.12);
   }
@@ -24639,9 +24772,9 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   .codex-pm-calendar-first .codex-pm-plan-cell {
-    width: 2.5rem;
-    min-width: 2.5rem;
-    height: 2.25rem;
+    width: 3.05rem;
+    min-width: 3.05rem;
+    height: 2.1rem;
     text-align: center;
     color: #e2e8f0;
   }
@@ -24654,20 +24787,30 @@ react-dom/cjs/react-dom-client.production.js:
     background: rgba(125, 211, 252, 0.22);
   }
 
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-manual-holiday.has-plan {
+    background: rgba(251, 191, 36, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.45);
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-forced.has-plan {
+    background: rgba(127, 29, 29, 0.42);
+    box-shadow: inset 0 0 0 1px rgba(248, 113, 113, 0.62);
+  }
+
   .codex-pm-calendar-first .codex-pm-interval {
     display: grid;
-    gap: 0.12rem;
-    line-height: 1.25;
+    gap: 0.04rem;
+    line-height: 1.15;
   }
 
   .codex-pm-calendar-first .codex-pm-interval strong {
     color: #f8fafc;
-    font-size: 0.82rem;
+    font-size: 0.72rem;
   }
 
   .codex-pm-calendar-first .codex-pm-interval small {
     color: #93c5fd;
-    font-size: 0.68rem;
+    font-size: 0.58rem;
     font-weight: 800;
   }
 
@@ -24685,13 +24828,14 @@ react-dom/cjs/react-dom-client.production.js:
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 2rem;
+    min-width: 1.7rem;
     border-radius: 999px;
     background: rgba(34, 211, 238, 0.22);
     color: #a5f3fc;
     font-weight: 900;
-    line-height: 1.5;
-    padding: 0.05rem 0.35rem;
+    font-size: 0.68rem;
+    line-height: 1.35;
+    padding: 0.02rem 0.24rem;
   }
 
   .codex-pm-calendar-first .codex-pm-plan-token.is-rotate {
@@ -24701,13 +24845,25 @@ react-dom/cjs/react-dom-client.production.js:
 
   .codex-pm-calendar-first .codex-pm-plan-cell button {
     width: 100%;
-    min-height: 1.9rem;
+    min-height: 1.65rem;
     border: 1px solid transparent;
     border-radius: 7px;
     background: transparent;
     color: inherit;
     cursor: pointer;
     font: inherit;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell button small {
+    display: block;
+    color: #fde68a;
+    font-size: 0.5rem;
+    line-height: 1;
+    margin-top: 0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-forced button small {
+    color: #fecaca;
   }
 
   .codex-pm-calendar-first .codex-pm-plan-cell button:disabled {
@@ -24819,10 +24975,10 @@ react-dom/cjs/react-dom-client.production.js:
     let planningRole = "planner";
     let planningLocked = false;
     let planningYear = 2026;
-    let planningMonth = 5;
+    let planningMonth = 6;
     let planningHolidayEditMode = false;
-    let selectedId = "lrt-109-2026-05-19";
-    let selectedDate = today;
+    let selectedId = "";
+    let selectedDate = "2026-06-01";
 
     const templates = {
       P1: {
@@ -24975,6 +25131,9 @@ react-dom/cjs/react-dom-client.production.js:
     const planningAutoPreviousDates = {};
     let planningAutoSummary = null;
     const planningHolidayOverrides = {};
+    const planningManualHolidayCells = {};
+    const planningCompletionRecords = {};
+    const planningForcedCells = {};
     const planningRows = [
       { asset: "101", prev: "2026-04-07", type: "1M", cells: { "07": "1M" } },
       { asset: "102", prev: "2026-04-13", type: "1M", cells: { "13": "1M" } },
@@ -25099,6 +25258,7 @@ react-dom/cjs/react-dom-client.production.js:
       "101": "101 車", "102": "102 車", "103": "103 車", "104": "104 車", "105": "105 車", "106": "106 車", "107": "107 車", "108": "108 車", "109": "109 車", "110": "110 車", "111": "111 車", "112": "112 車", "113": "113 車", "114": "114 車", "115": "115 車",
       "213": "117（213）車", "214": "118（214）車", "215": "119（215）車",
       "路軌兩用車/復軌車": "路軌兩用車／復軌車",
+      "拉線車兼高空維修作業車": "拉線車高空維修作業車",
       "物料儲存系統(窄巷式撿料機)": "物料儲存系統（穿梭式檢料機）",
       "直流供電(現場操控部分)": "直流供電（現場操控部分）"
     };
@@ -25108,6 +25268,8 @@ react-dom/cjs/react-dom-client.production.js:
     const planningSafetyCriticalEquipment = new Set(Object.keys(planningEquipmentAnnualPlan).filter((asset) => {
       return /起重機|車床|堆高機|直流供電|升降|復軌/.test(asset);
     }));
+
+    const planningDeferredEquipmentAssets = new Set(["拉線車高空維修作業車"]);
 
     function planningCanonicalAssetName(asset) {
       return planningAssetAliases[asset] || asset;
@@ -25143,6 +25305,34 @@ react-dom/cjs/react-dom-client.production.js:
           return parts && planningMonthNumber(parts.year, parts.month) < current;
         })
         .sort();
+    }
+
+    function planningRecordMatchesRow(record, row, rowIndex) {
+      if (!record || !row) return false;
+      if (Number.isFinite(Number(record.rowIndex)) && Number(record.rowIndex) === rowIndex) return true;
+      return planningCanonicalAssetName(record.asset) === planningCanonicalAssetName(row.asset);
+    }
+
+    function planningCompletionEntriesBeforeCurrent(row, rowIndex) {
+      const currentMonth = planningMonthNumber();
+      return Object.values(planningCompletionRecords)
+        .filter((record) => planningRecordMatchesRow(record, row, rowIndex))
+        .filter((record) => record.doneDate && planningMonthNumberForIso(record.doneDate) < currentMonth)
+        .map((record) => ({ date: record.doneDate, source: "actual" }));
+    }
+
+    function planningManualMaintenanceEntriesBeforeCurrent(rowIndex) {
+      const currentMonth = planningMonthNumber();
+      const entries = [];
+      [planningManualCells, planningManualHolidayCells].forEach((cellStore) => {
+        Object.entries(cellStore).forEach(([key, rows]) => {
+          const parts = planningKeyParts(key);
+          if (!parts || rowIndex < 0) return;
+          if (planningMonthNumber(parts.year, parts.month) >= currentMonth) return;
+          entries.push(...planningMaintenanceDateEntriesFromCells(rows?.[rowIndex], parts.year, parts.month, "schedule"));
+        });
+      });
+      return entries;
     }
 
     function planningNormalizePlanCode(value, kind) {
@@ -25207,7 +25397,8 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function selectedItem() {
-      return scheduleItems.find((item) => item.id === selectedId) || scheduleItems[0];
+      const items = allScheduleItems();
+      return items.find((item) => item.id === selectedId) || scheduleItems.find((item) => item.id === selectedId) || items[0] || scheduleItems[0];
     }
 
     function staffFor(item) {
@@ -25223,13 +25414,55 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function staffStatusFor(item) {
+      const status = workStatusForItem(item);
+      if (status === "已完工") return "已完工";
       if (item.date === today) return "今日作業";
       if (item.date < today) return "待回填";
       return "預排";
     }
 
+    function completionRecordFor(item) {
+      return planningCompletionRecords[item.id] || Object.values(planningCompletionRecords).find((record) => {
+        return record.scheduledDate === item.date
+          && planningCanonicalAssetName(record.asset) === planningCanonicalAssetName(item.asset)
+          && (!record.planValue || !item.planValue || record.planValue === item.planValue);
+      }) || null;
+    }
+
+    function workStatusForItem(item) {
+      if (completionRecordFor(item)) return "已完工";
+      if (item.date < today) return "待回填";
+      if (item.date === today) return "今日作業";
+      return "預排";
+    }
+
+    function workStatusClassForItem(item) {
+      const status = workStatusForItem(item);
+      if (status === "已完工") return "is-done";
+      if (status === "待回填") return "is-feedback";
+      if (status === "今日作業") return "is-today-work";
+      return "is-scheduled";
+    }
+
+    function actualDoneDateForItem(item) {
+      return completionRecordFor(item)?.doneDate || "";
+    }
+
+    function scheduleItemClassList(item) {
+      return [
+        item.id === selectedId ? "is-selected" : "",
+        workStatusClassForItem(item),
+        item.isManualHoliday ? "is-manual-holiday" : "",
+        item.isForced ? "is-forced" : ""
+      ].filter(Boolean).join(" ");
+    }
+
+    function scheduleItemStatusText(item) {
+      return `${workStatusForItem(item)}${item.isForced ? " / 需複核" : ""}${item.isManualHoliday ? " / 假日特排" : ""}`;
+    }
+
     function staffOptions() {
-      return ["all"].concat(Array.from(new Set(scheduleItems.map(staffFor))));
+      return ["all"].concat(Array.from(new Set(allScheduleItems().map(staffFor))));
     }
 
     function staffLabel(value) {
@@ -25238,6 +25471,131 @@ react-dom/cjs/react-dom-client.production.js:
 
     function templateFor(item) {
       return templates[item.templateCode] || templates.P1;
+    }
+
+    function planningLevelLabel(value, row) {
+      if (value === "鏇") return "鏇削";
+      const kind = planningKindForAsset(row.asset);
+      if (kind === "設備") {
+        if (value === "1M") return "月檢";
+        if (value === "3M") return "季檢";
+        if (value === "6M") return "半年檢";
+        if (value === "1Y") return "年檢";
+        if (value === "2Y") return "二年檢";
+        return value || "設備預檢";
+      }
+      if (value === "1M") return "第一級";
+      if (value === "3M") return "第二級";
+      if (value === "6M") return "第三級";
+      if (value === "1Y" || value === "2Y" || value === "5Y") return "第四級";
+      return value || "預檢";
+    }
+
+    function planningTemplateCodeFor(value, row) {
+      if (planningKindForAsset(row.asset) === "設備") return "EQUIP";
+      if (value === "3M") return "P2";
+      if (value === "6M") return "P3";
+      if (value === "1Y" || value === "2Y" || value === "5Y") return "P4";
+      return "P1";
+    }
+
+    function planningScheduleLocation(row) {
+      if (planningKindForAsset(row.asset) === "車輛") return "淡海機廠";
+      if (/洗車/.test(row.asset)) return "淡海機廠洗車區";
+      if (/供電/.test(row.asset)) return "淡海機廠供電區";
+      if (/車床|轉向架|起重機|堆高機|加砂/.test(row.asset)) return "維修工場";
+      return "淡海機廠";
+    }
+
+    function planningScheduleId(rowIndex, day, value) {
+      const safeValue = String(value || "PM").replace(/[^0-9A-Za-z]/g, "");
+      return `planning-${planningYear}-${String(planningMonth).padStart(2, "0")}-${rowIndex}-${day}-${safeValue}`;
+    }
+
+    function planningAdvanceMonth(year, month) {
+      const next = new Date(year, month, 1);
+      return { year: next.getFullYear(), month: next.getMonth() + 1 };
+    }
+
+    function ensurePlanningAutoForCurrentMonth() {
+      const targetYear = planningYear;
+      const targetMonth = planningMonth;
+      if (planningMonthNumber(targetYear, targetMonth) <= planningMonthNumber(planningImportedYear, planningImportedMonth)) return;
+
+      let cursor = planningAdvanceMonth(planningImportedYear, planningImportedMonth);
+      while (planningMonthNumber(cursor.year, cursor.month) <= planningMonthNumber(targetYear, targetMonth)) {
+        const key = planningMonthKey(cursor.year, cursor.month);
+        if (!planningAutoMonths[key]) {
+          planningYear = cursor.year;
+          planningMonth = cursor.month;
+          runPlanningAutoSchedule();
+        }
+        cursor = planningAdvanceMonth(cursor.year, cursor.month);
+      }
+
+      planningYear = targetYear;
+      planningMonth = targetMonth;
+    }
+
+    function planningScheduleItemsForCurrentMonth() {
+      if (planningMonthNumber() > planningMonthNumber(planningImportedYear, planningImportedMonth)) {
+        ensurePlanningAutoForCurrentMonth();
+      }
+      const items = [];
+      planningRows.forEach((row, rowIndex) => {
+        const kind = planningKindForAsset(row.asset);
+        const cells = planningCellsForRow(row, rowIndex);
+        Object.entries(cells).forEach(([day, value]) => {
+          if (!value) return;
+          const date = planningIsoDate(day);
+          const assetType = kind === "車輛" ? "車輛" : "機廠設備";
+          const fixedCycle = kind === "設備" ? planningEquipmentFixedCycleCode(row) : "";
+          const scheduleBasis = kind === "設備"
+            ? `檢修級別依年度表，固定週期 ${fixedCycle || value} 依最新完工日往後推算`
+            : "日期依週期裕度、工作日與負載條件排入";
+          const level = planningLevelLabel(value, row);
+          const isManualHoliday = Boolean(planningManualHolidayCells[planningMonthKey()]?.[rowIndex]?.[day]);
+          const forcedReason = planningForcedReasonForCell(rowIndex, day);
+          items.push({
+            id: planningScheduleId(rowIndex, day, value),
+            date,
+            asset: row.asset,
+            assetType,
+            rowIndex,
+            planValue: value,
+            isManualHoliday,
+            isForced: Boolean(forcedReason),
+            forcedReason,
+            templateCode: planningTemplateCodeFor(value, row),
+            level,
+            previousDone: planningPreviousDisplayDate(row, rowIndex) || row.prev || "",
+            location: planningScheduleLocation(row),
+            department: assetType === "車輛" ? "車輛廠" : "機廠設備",
+            note: forcedReason || `${planningYear} 年 ${planningMonth} 月年度預排 ${value}，${scheduleBasis}${isManualHoliday ? "；此筆為假日手動特排" : ""}`
+          });
+        });
+      });
+      return items.sort((a, b) => a.date.localeCompare(b.date) || a.asset.localeCompare(b.asset, "zh-Hant"));
+    }
+
+    function allScheduleItems() {
+      const key = planningMonthKey();
+      if (planningMonthNumber() <= planningMonthNumber(planningImportedYear, planningImportedMonth)) {
+        return scheduleItems.filter((item) => String(item.date).startsWith(key));
+      }
+      return planningScheduleItemsForCurrentMonth();
+    }
+
+    function ensureSelectedScheduleItem() {
+      const items = allScheduleItems();
+      const hasSelected = items.some((item) => item.id === selectedId);
+      if (!hasSelected && items.length) {
+        selectedId = items[0].id;
+        selectedDate = items[0].date;
+      } else if (items.length && !String(selectedDate || "").startsWith(planningMonthKey())) {
+        selectedDate = items[0].date;
+      }
+      return items;
     }
 
     function dateDay(dateText) {
@@ -25262,7 +25620,7 @@ react-dom/cjs/react-dom-client.production.js:
 
     function sequenceFor(item) {
       const target = targetCodeFor(item);
-      const sameScope = scheduleItems
+      const sameScope = allScheduleItems()
         .filter((entry) => entry.date === item.date && targetCodeFor(entry) === target)
         .sort((a, b) => String(a.asset).localeCompare(String(b.asset), "zh-Hant") || String(a.id).localeCompare(String(b.id)));
       const index = sameScope.findIndex((entry) => entry.id === item.id);
@@ -25295,19 +25653,23 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function renderStats() {
-      const todayItems = scheduleItems.filter((item) => item.date === today);
-      const vehicles = scheduleItems.filter((item) => item.assetType === "車輛").length;
-      const equipment = scheduleItems.filter((item) => item.assetType === "機廠設備").length;
-      const busyDay = scheduleItems.reduce((acc, item) => {
+      const items = allScheduleItems();
+      const todayItems = items.filter((item) => item.date === today);
+      const done = items.filter((item) => workStatusForItem(item) === "已完工").length;
+      const feedback = items.filter((item) => workStatusForItem(item) === "待回填").length;
+      const vehicles = items.filter((item) => item.assetType === "車輛").length;
+      const equipment = items.filter((item) => item.assetType === "機廠設備").length;
+      const busyDay = items.reduce((acc, item) => {
         acc[item.date] = (acc[item.date] || 0) + 1;
         return acc;
       }, {});
-      const maxCount = Math.max(...Object.values(busyDay));
+      const maxCount = Math.max(0, ...Object.values(busyDay));
       return `
         <div class="codex-pm-summary-grid">
           <div class="codex-pm-summary-card"><span>今日預檢</span><strong>${todayItems.length} 件</strong></div>
-          <div class="codex-pm-summary-card"><span>車輛排程</span><strong>${vehicles} 件</strong></div>
-          <div class="codex-pm-summary-card"><span>機廠設備</span><strong>${equipment} 件</strong></div>
+          <div class="codex-pm-summary-card"><span>待回填</span><strong>${feedback} 件</strong></div>
+          <div class="codex-pm-summary-card"><span>已完工</span><strong>${done} 件</strong></div>
+          <div class="codex-pm-summary-card"><span>車輛 / 機設</span><strong>${vehicles} / ${equipment}</strong></div>
           <div class="codex-pm-summary-card"><span>單日最高量</span><strong>${maxCount} 件</strong></div>
         </div>
       `;
@@ -25332,10 +25694,12 @@ react-dom/cjs/react-dom-client.production.js:
 
     function renderCalendarGrid() {
       const weekdays = ["日", "一", "二", "三", "四", "五", "六"];
-      const firstOffset = new Date("2026-05-01T00:00:00").getDay();
+      const items = ensureSelectedScheduleItem();
+      const firstOffset = new Date(`${planningYear}-${String(planningMonth).padStart(2, "0")}-01T00:00:00`).getDay();
+      const dayCount = new Date(planningYear, planningMonth, 0).getDate();
       const cells = [];
       for (let i = 0; i < firstOffset; i += 1) cells.push(null);
-      for (let day = 1; day <= 31; day += 1) cells.push(day);
+      for (let day = 1; day <= dayCount; day += 1) cells.push(day);
       while (cells.length % 7) cells.push(null);
 
       return `
@@ -25343,8 +25707,8 @@ react-dom/cjs/react-dom-client.production.js:
           ${weekdays.map((weekday) => `<div class="codex-pm-weekday">${weekday}</div>`).join("")}
           ${cells.map((day) => {
             if (!day) return `<div class="codex-pm-day-cell is-empty"></div>`;
-            const date = `2026-05-${String(day).padStart(2, "0")}`;
-            const events = scheduleItems.filter((item) => item.date === date);
+            const date = `${planningYear}-${String(planningMonth).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+            const events = items.filter((item) => item.date === date);
             const classes = [
               "codex-pm-day-cell",
               date === today ? "is-today" : "",
@@ -25358,9 +25722,11 @@ react-dom/cjs/react-dom-client.production.js:
                 </div>
                 <div class="codex-pm-event-list">
                   ${events.map((item) => `
-                    <button type="button" class="codex-pm-event ${item.id === selectedId ? "is-selected" : ""}" data-calendar-item="${item.id}">
+                    <button type="button" class="codex-pm-event ${scheduleItemClassList(item)}" data-calendar-item="${item.id}">
                       <strong>${escapeHtml(item.asset)}</strong>
                       <span>${escapeHtml(item.level)} · ${escapeHtml(item.assetType)}</span>
+                      <span>預計 ${planningMonth}/${dateDay(item.date)} · ${escapeHtml(pNoFor(item))}</span>
+                      <span class="codex-pm-status-pill ${item.isForced ? "is-forced" : workStatusClassForItem(item)}">${escapeHtml(scheduleItemStatusText(item))}</span>
                     </button>
                   `).join("")}
                 </div>
@@ -25372,8 +25738,9 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function renderSideList() {
-      const dayItems = scheduleItems.filter((item) => item.date === selectedDate);
-      const list = dayItems.length ? dayItems : scheduleItems.filter((item) => item.date === today);
+      const items = ensureSelectedScheduleItem();
+      const dayItems = items.filter((item) => item.date === selectedDate);
+      const list = dayItems.length ? dayItems : items;
       return `
         <aside class="codex-pm-day-panel">
           <div class="codex-pm-side-head">
@@ -25384,9 +25751,11 @@ react-dom/cjs/react-dom-client.production.js:
           </div>
           <div class="codex-pm-side-list">
             ${list.map((item) => `
-              <button type="button" class="codex-pm-side-item ${item.id === selectedId ? "is-selected" : ""}" data-calendar-item="${item.id}">
+              <button type="button" class="codex-pm-side-item ${scheduleItemClassList(item)}" data-calendar-item="${item.id}">
                 <strong>${escapeHtml(item.asset)}</strong>
                 <span>${escapeHtml(item.level)} · ${escapeHtml(item.location)}</span>
+                <span>預計 ${escapeHtml(planningDisplayDate(item.date))} · P單 ${escapeHtml(pNoFor(item))}</span>
+                <span class="codex-pm-status-pill ${item.isForced ? "is-forced" : workStatusClassForItem(item)}">${escapeHtml(scheduleItemStatusText(item))}${actualDoneDateForItem(item) ? `：${escapeHtml(planningDisplayDate(actualDoneDateForItem(item)))}` : ""}</span>
                 <span>${escapeHtml(item.note)}</span>
               </button>
             `).join("")}
@@ -25401,15 +25770,27 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function renderCalendarView() {
+      const items = ensureSelectedScheduleItem();
       return `
         <div class="codex-pm-calendar-layout">
           <section class="codex-pm-calendar-panel">
             <div class="codex-pm-month-head">
               <div>
-                <h3>2026 年 5 月預檢月曆</h3>
-                <p>由每月預排表轉入，先看日期與工作量，再點進單筆工單列印。</p>
+                <h3>${planningYear} 年 ${planningMonth} 月預檢月曆</h3>
+                <p>6-12 月依年度預排週期帶入，日期依前月完工日、工作日、週期裕度、列車可用率與負載條件自動排入。</p>
               </div>
-              <span class="codex-pm-level-pill">月曆入口</span>
+              <span class="codex-pm-level-pill">${items.length} 件</span>
+            </div>
+            <div class="codex-pm-planning-toolbar" style="margin-bottom:.85rem;">
+              <div class="codex-pm-planning-field">
+                <label>西元年</label>
+                <input type="number" min="1900" max="2200" step="1" value="${planningYear}" data-calendar-year>
+              </div>
+              <div class="codex-pm-planning-field">
+                <label>月份</label>
+                <select data-calendar-month>${renderPlanningMonthOptions()}</select>
+              </div>
+              <button type="button" class="codex-pm-soft-button primary" data-calendar-view="planning">檢視整份排程</button>
             </div>
             ${renderCalendarGrid()}
           </section>
@@ -25581,6 +25962,12 @@ react-dom/cjs/react-dom-client.production.js:
 
     function renderFeedbackView() {
       const item = selectedItem();
+      const record = completionRecordFor(item);
+      const doneDate = record?.doneDate || today;
+      const result = record?.result || "正常";
+      const valueSummary = record?.valueSummary || "依紙本檢查表回填";
+      const materialNote = record?.materialNote || "無用料";
+      const note = record?.note || "回填後進入履歷追蹤，不觸發列印。";
       return `
         <div class="codex-pm-print-layout">
           <section class="codex-pm-auto-section">
@@ -25593,12 +25980,41 @@ react-dom/cjs/react-dom-client.production.js:
             </div>
             <div class="codex-pm-auto-grid">
               ${renderAutoField(["P單號", pNoFor(item), "已建立"])}
-              ${renderAutoField(["完工狀態", "待回填", "現場作業後"])}
-              ${renderAutoField(["實際施工日期", "現場完成後輸入", "人工回填"])}
-              ${renderAutoField(["檢查數值", "依紙本檢查項目回填", "人工回填"], true)}
-              ${renderAutoField(["維修處理情形", "正常 / 異常說明 / 後續追蹤", "人工回填"], true)}
-              ${renderAutoField(["用料說明", "無用料填 N/A；有用料填領料單或材料", "人工回填"], true)}
+              ${renderAutoField(["預排日期", toMinguo(item.date), "預排表"])}
+              ${renderAutoField(["目前狀態", workStatusForItem(item), "履歷"])}
+              ${renderAutoField(["前次完工日", toMinguo(item.previousDone), "排程基準"])}
+              ${record ? renderAutoField(["實際完工日", toMinguo(record.doneDate), "已回填"]) : ""}
+              ${record ? renderAutoField(["處理結果", record.result || "正常", "已回填"]) : ""}
             </div>
+            <div class="codex-pm-completion-form">
+              <label class="codex-pm-completion-field">
+                <span>實際完工日</span>
+                <input type="date" value="${escapeHtml(doneDate)}" data-feedback-done-date>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>結果</span>
+                <select data-feedback-result>
+                  ${["正常", "異常追蹤", "需複檢"].map((option) => `<option value="${option}" ${result === option ? "selected" : ""}>${option}</option>`).join("")}
+                </select>
+              </label>
+              <label class="codex-pm-completion-field wide">
+                <span>量測值摘要</span>
+                <input type="text" value="${escapeHtml(valueSummary)}" data-feedback-values>
+              </label>
+              <label class="codex-pm-completion-field wide">
+                <span>用料說明</span>
+                <input type="text" value="${escapeHtml(materialNote)}" data-feedback-material>
+              </label>
+              <label class="codex-pm-completion-field wide">
+                <span>備註</span>
+                <textarea rows="3" data-feedback-note>${escapeHtml(note)}</textarea>
+              </label>
+            </div>
+            <div class="codex-pm-action-row">
+              <button type="button" class="codex-pm-soft-button primary" data-feedback-complete="${escapeHtml(item.id)}">回填並標記完工</button>
+              <button type="button" class="codex-pm-soft-button" data-calendar-view="calendar">回月曆看狀態</button>
+            </div>
+            <div class="codex-pm-note-box">呈現建議：預排表本身保留「計畫」，同仁做完後只在工單回填區改成「已完工」，月曆用狀態色提示；下次自動排程會優先抓實際完工日作為前次基準。</div>
           </section>
           ${renderPrintPreview(item)}
         </div>
@@ -25812,7 +26228,6 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function planningBaseMaintenanceInfo(row, rowIndex = -1) {
-      const currentMonth = planningMonthNumber();
       const entries = [];
       const currentHistorical = planningHistoricalPlanFor(row, rowIndex);
       if (currentHistorical?.prev) entries.push({ date: currentHistorical.prev, source: "record" });
@@ -25823,12 +26238,8 @@ react-dom/cjs/react-dom-client.production.js:
         entries.push(...planningHistoricalDoneEntry(plan, key, "schedule"));
       });
 
-      Object.entries(planningManualCells).forEach(([key, rows]) => {
-        const parts = planningKeyParts(key);
-        if (!parts || rowIndex < 0) return;
-        if (planningMonthNumber(parts.year, parts.month) >= currentMonth) return;
-        entries.push(...planningMaintenanceDateEntriesFromCells(rows?.[rowIndex], parts.year, parts.month, "schedule"));
-      });
+      entries.push(...planningManualMaintenanceEntriesBeforeCurrent(rowIndex));
+      entries.push(...planningCompletionEntriesBeforeCurrent(row, rowIndex));
       return entries.sort((a, b) => a.date.localeCompare(b.date)).pop() || { date: "", source: "" };
     }
 
@@ -25845,11 +26256,13 @@ react-dom/cjs/react-dom-client.production.js:
         if (!parts || !plan) return;
         entries.push(...planningRotationDateEntriesFromCells(plan.cells, parts.year, parts.month, "schedule"));
       });
-      Object.entries(planningManualCells).forEach(([key, rows]) => {
-        const parts = planningKeyParts(key);
-        if (!parts || rowIndex < 0) return;
-        if (planningMonthNumber(parts.year, parts.month) >= currentMonth) return;
-        entries.push(...planningRotationDateEntriesFromCells(rows?.[rowIndex], parts.year, parts.month, "schedule"));
+      [planningManualCells, planningManualHolidayCells].forEach((cellStore) => {
+        Object.entries(cellStore).forEach(([key, rows]) => {
+          const parts = planningKeyParts(key);
+          if (!parts || rowIndex < 0) return;
+          if (planningMonthNumber(parts.year, parts.month) >= currentMonth) return;
+          entries.push(...planningRotationDateEntriesFromCells(rows?.[rowIndex], parts.year, parts.month, "schedule"));
+        });
       });
       return entries.sort((a, b) => a.date.localeCompare(b.date)).pop() || { date: "", source: "" };
     }
@@ -25874,14 +26287,36 @@ react-dom/cjs/react-dom-client.production.js:
       return 1;
     }
 
-    function planningEquipmentUsesMonthlyCadence(row) {
-      if (planningKind(row) !== "\u8a2d\u5099") return false;
+    function planningVehicleCanHaveRotation(row) {
+      return ["3M", "6M", "1Y"].includes(planningAutoVehicleType(row));
+    }
+
+    function planningCycleValuesForRow(row) {
+      if (planningKind(row) === "車輛" && !planningVehicleCanHaveRotation(row)) {
+        return planningCycleValues.filter((value) => value !== "鏇");
+      }
+      if (planningKind(row) !== "車輛") {
+        return planningCycleValues.filter((value) => value !== "鏇");
+      }
+      return planningCycleValues;
+    }
+
+    function planningEquipmentFixedCycleCode(row) {
+      if (!row || planningKind(row) !== "設備") return "";
       const plan = planningAnnualPlanForAsset(row.asset) || {};
-      return Object.values(plan).filter(Boolean).length >= 8;
+      const plannedCodes = Object.values(plan)
+        .flatMap((value) => String(value || "").split("/"))
+        .map((code) => code.trim())
+        .filter(Boolean);
+      return ["1M", "3M", "6M", "1Y"].find((code) => plannedCodes.includes(code)) || planningPlanCodeForAsset(row.asset) || "";
+    }
+
+    function planningCanDeferEquipment(row) {
+      return planningDeferredEquipmentAssets.has(planningCanonicalAssetName(row?.asset || ""));
     }
 
     function planningAutoEquipmentInterval(type, row = null) {
-      if (row && planningEquipmentUsesMonthlyCadence(row)) return planningCycleDays["1M"];
+      if (row && planningKind(row) === "設備") return planningCycleDays[planningEquipmentFixedCycleCode(row)] || planningCycleDays[type] || 0;
       return planningCycleDays[type] || 0;
     }
 
@@ -25903,8 +26338,13 @@ react-dom/cjs/react-dom-client.production.js:
       return false;
     }
 
+    function planningHasRotationOnDay(ctx, day) {
+      return (ctx.vehicleLoads[day] || []).some((item) => item.value === "鏇");
+    }
+
     function planningAutoCanPlaceVehicle(ctx, day, meta) {
       if (planningIsHoliday(day)) return false;
+      if (meta.value === "鏇" && planningHasRotationOnDay(ctx, day)) return false;
       const loads = ctx.vehicleLoads[day] || [];
       if (loads.length === 0) return true;
       if (loads.length >= 2) return false;
@@ -25923,6 +26363,11 @@ react-dom/cjs/react-dom-client.production.js:
       ctx.cells[rowIndex] = ctx.cells[rowIndex] || {};
       ctx.cells[rowIndex][day] = value;
       ctx.tasks.push({ rowIndex, day, value, meta });
+      if (meta.forced) {
+        ctx.forcedCells[rowIndex] = ctx.forcedCells[rowIndex] || {};
+        ctx.forcedCells[rowIndex][day] = meta.reason || "此筆無法符合自動排程條件，已保留排程並標示需複核";
+        ctx.stats.forced += 1;
+      }
       if (meta.kind === "車輛") {
         ctx.vehicleLoads[day] = ctx.vehicleLoads[day] || [];
         ctx.vehicleLoads[day].push(meta);
@@ -25946,17 +26391,41 @@ react-dom/cjs/react-dom-client.production.js:
       });
     }
 
+    function planningEquipmentLoadScore(ctx, day) {
+      const rotatePenalty = (ctx.vehicleLoads[day] || []).some((item) => item.value === "鏇") ? 8 : 0;
+      return (ctx.equipmentLoads[day] || []).length + (ctx.vehicleLoads[day] || []).length * 3 + rotatePenalty;
+    }
+
     function planningAutoEquipmentCandidates(ctx, dueIso, fallback = false) {
       const days = fallback ? planningWorkdaysInRange(planningMonthStartIso(), planningMonthEndIso()) : [];
       return days.sort((a, b) => {
-        const loadA = (ctx.equipmentLoads[a] || []).length + (ctx.vehicleLoads[a] || []).length * 3;
-        const loadB = (ctx.equipmentLoads[b] || []).length + (ctx.vehicleLoads[b] || []).length * 3;
-        const rotateA = (ctx.vehicleLoads[a] || []).some((item) => item.value === "鏇") ? 8 : 0;
-        const rotateB = (ctx.vehicleLoads[b] || []).some((item) => item.value === "鏇") ? 8 : 0;
+        const loadA = planningEquipmentLoadScore(ctx, a);
+        const loadB = planningEquipmentLoadScore(ctx, b);
         const diffA = Math.abs(planningDaysBetween(planningIsoDate(a), dueIso));
         const diffB = Math.abs(planningDaysBetween(planningIsoDate(b), dueIso));
-        if (fallback) return diffA - diffB || rotateA - rotateB || loadA - loadB || Number(a) - Number(b);
-        return rotateA - rotateB || loadA - loadB || diffA - diffB || Number(a) - Number(b);
+        if (fallback) return diffA - diffB || loadA - loadB || Number(a) - Number(b);
+        return loadA - loadB || diffA - diffB || Number(a) - Number(b);
+      });
+    }
+
+    function planningDeferredEquipmentCandidates(ctx, row, dueIso, latestAllowedIso) {
+      if (!planningCanDeferEquipment(row) || !latestAllowedIso) return [];
+      const start = [dueIso, planningMonthStartIso()].sort().pop();
+      const end = [latestAllowedIso, planningMonthEndIso()].sort()[0];
+      if (!start || !end || start > end) return [];
+      return planningWorkdaysInRange(start, end).sort((a, b) => {
+        return Number(b) - Number(a) || planningEquipmentLoadScore(ctx, a) - planningEquipmentLoadScore(ctx, b);
+      });
+    }
+
+    function planningEquipmentCandidatesForPhase(ctx, row, dueIso, tolerance, latestAllowedIso, fallback = false) {
+      const deferredDays = planningDeferredEquipmentCandidates(ctx, row, dueIso, latestAllowedIso);
+      const normalDays = fallback ? planningAutoEquipmentCandidates(ctx, dueIso, true) : planningCandidateDaysAround(dueIso, tolerance);
+      const used = new Set();
+      return deferredDays.concat(normalDays).filter((day) => {
+        if (used.has(day)) return false;
+        used.add(day);
+        return true;
       });
     }
 
@@ -25980,10 +26449,12 @@ react-dom/cjs/react-dom-client.production.js:
         if (!parts || !plan) return;
         dates.push(...planningRotationDateEntriesFromCells(plan.cells, parts.year, parts.month, "schedule").map((entry) => entry.date));
       });
-      Object.entries(planningManualCells).forEach(([key, rows]) => {
-        const parts = planningKeyParts(key);
-        if (!parts) return;
-        dates.push(...planningRotationDateEntriesFromCells(rows?.[rowIndex], parts.year, parts.month, "schedule").map((entry) => entry.date));
+      [planningManualCells, planningManualHolidayCells].forEach((cellStore) => {
+        Object.entries(cellStore).forEach(([key, rows]) => {
+          const parts = planningKeyParts(key);
+          if (!parts) return;
+          dates.push(...planningRotationDateEntriesFromCells(rows?.[rowIndex], parts.year, parts.month, "schedule").map((entry) => entry.date));
+        });
       });
       Object.entries(ctx.cells[rowIndex] || {}).forEach(([day, value]) => {
         if (value === "\u93c7") dates.push(planningIsoDate(day));
@@ -26023,6 +26494,7 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function planningAutoPlaceRotationCycle(ctx, rowIndex, row) {
+      if (!planningVehicleCanHaveRotation(row)) return true;
       const previousRotation = planningBaseRotationInfo(row, rowIndex).date;
       if (!previousRotation) return true;
       const dueIso = planningAddDays(previousRotation, planningCycleDays["3M"]);
@@ -26053,17 +26525,18 @@ react-dom/cjs/react-dom-client.production.js:
         ctx.stats.rotation += sequence.length;
         return true;
       }
-      ctx.warnings.push(`${row.asset} 鏇削依 3M 週期已到期，但找不到不跨假日的連續工作日`);
-      return false;
+      return planningForceAssign(ctx, rowIndex, row, "鏇", dueIso, 2, "車輛", `${row.asset} 鏇削依 3M 週期已到期，但找不到不跨假日的連續工作日，仍排入最接近日期並以紅色標示需複核`);
     }
 
     function planningAutoPlaceVehicle(ctx, rowIndex, row) {
       const type = planningAutoVehicleType(row);
       if (!type) return true;
       const previousDate = planningAutoPreviousDate(row, rowIndex);
-      if (!previousDate) return false;
-      const dueIso = planningAddDays(previousDate, 30);
       const duration = planningAutoVehicleDuration(type);
+      if (!previousDate) {
+        return planningForceAssign(ctx, rowIndex, row, type, planningMonthStartIso(), duration, "車輛", `${row.asset} ${type} 缺前次完工日，仍排入本月並以紅色標示需複核`);
+      }
+      const dueIso = planningAddDays(previousDate, 30);
       for (const fallback of [false, true]) {
         const candidates = planningAutoVehicleCandidates(ctx, rowIndex, type, duration, dueIso, fallback);
         for (const firstDay of candidates) {
@@ -26075,7 +26548,15 @@ react-dom/cjs/react-dom-client.production.js:
           });
           if (!canPlace) continue;
           sequence.forEach((day, index) => {
-            planningAutoAssign(ctx, rowIndex, day, type, { kind: "車輛", value: type, stage: index + 1, duration, rowIndex });
+            planningAutoAssign(ctx, rowIndex, day, type, {
+              kind: "車輛",
+              value: type,
+              stage: index + 1,
+              duration,
+              rowIndex,
+              forced: fallback,
+              reason: fallback ? `${row.asset} ${type} 已排入最接近週期的工作日，但超出 24-36 天裕度，需複核` : ""
+            });
           });
           ctx.previousDates[rowIndex] = previousDate;
           ctx.stats.vehicle += duration;
@@ -26083,36 +26564,46 @@ react-dom/cjs/react-dom-client.production.js:
           return true;
         }
       }
-      ctx.warnings.push(`${row.asset} ${type} 為年度表定工項，但當月無可用工作日可放入`);
-      return false;
+      return planningForceAssign(ctx, rowIndex, row, type, dueIso, duration, "車輛", `${row.asset} ${type} 無法符合工作日、負載或可用車條件，仍排入最接近日期並以紅色標示需複核`);
     }
 
     function planningAutoPlaceEquipment(ctx, rowIndex, row, allowTwo = false) {
       const type = planningPlanCodeForAsset(row.asset);
       if (!type) return true;
+      const fixedCycle = planningEquipmentFixedCycleCode(row) || type;
       const previousInfo = planningBaseMaintenanceInfo(row, rowIndex);
       const intervalDays = planningAutoEquipmentInterval(type, row);
       if (!intervalDays) return true;
       const previousDate = previousInfo.date || "";
-      if (!previousDate) return true;
+      if (!previousDate) {
+        return planningForceAssign(ctx, rowIndex, row, type, planningMonthStartIso(), 1, "設備", `${row.asset} ${type} 缺前次完工日，仍排入本月並以紅色標示需複核`);
+      }
       const dueIso = planningAddDays(previousDate, intervalDays);
+      const latestAllowedIso = planningAddDays(previousDate, planningIntervalLimits[fixedCycle]?.days || Math.max(intervalDays, Math.round(intervalDays * 1.2)));
       const tolerance = Math.max(1, Math.round(intervalDays * 0.2));
       const phases = allowTwo
         ? [{ fallback: false, allowTwo: true }, { fallback: true, allowTwo: true }]
         : [{ fallback: false, allowTwo: false }];
       for (const phase of phases) {
-        const candidates = phase.fallback ? planningAutoEquipmentCandidates(ctx, dueIso, true) : planningCandidateDaysAround(dueIso, tolerance);
+        const candidates = planningEquipmentCandidatesForPhase(ctx, row, dueIso, tolerance, latestAllowedIso, phase.fallback);
         for (const day of candidates) {
           if (ctx.cells[rowIndex]?.[day]) continue;
           if (!planningAutoCanPlaceEquipment(ctx, day, row, phase.allowTwo)) continue;
-          planningAutoAssign(ctx, rowIndex, day, type, { kind: "設備", value: type, rowIndex });
+          planningAutoAssign(ctx, rowIndex, day, type, {
+            kind: "設備",
+            value: type,
+            rowIndex,
+            forced: phase.fallback,
+            reason: phase.fallback ? `${row.asset} ${type} 已改排至最接近最新完工日加 ${fixedCycle} 固定週期的工作日，但超出裕度，需複核` : ""
+          });
           ctx.previousDates[rowIndex] = previousDate;
           ctx.stats.equipment += 1;
-          if (phase.fallback) ctx.warnings.push(`${row.asset} ${type} 已保留年度表定工項，已改排至最接近週期的工作日，仍超出週期裕度，需主管確認`);
+          if (phase.fallback) ctx.warnings.push(`${row.asset} ${type} 已保留年度表定工項，已改排至最接近最新完工日加 ${fixedCycle} 固定週期的工作日，仍超出裕度，需主管確認`);
           return true;
         }
       }
-      return false;
+      if (!allowTwo) return false;
+      return planningForceAssign(ctx, rowIndex, row, type, dueIso, 1, "設備", `${row.asset} ${type} 無法符合最新完工日加 ${fixedCycle} 固定週期或當日負載條件，仍排入最接近日期並以紅色標示需複核`);
     }
 
     function runPlanningAutoSchedule() {
@@ -26126,9 +26617,10 @@ react-dom/cjs/react-dom-client.production.js:
         vehicleLoads: {},
         equipmentLoads: {},
         previousDates: {},
+        forcedCells: {},
         tasks: [],
         warnings: [],
-        stats: { vehicle: 0, equipment: 0, rotation: 0 }
+        stats: { vehicle: 0, equipment: 0, rotation: 0, forced: 0 }
       };
 
       const vehicleWork = planningRows
@@ -26147,7 +26639,7 @@ react-dom/cjs/react-dom-client.production.js:
         if (!planningAutoPlaceEquipment(ctx, rowIndex, row, false)) retryEquipment.push([rowIndex, row]);
       });
       retryEquipment.forEach(([rowIndex, row]) => {
-        if (!planningAutoPlaceEquipment(ctx, rowIndex, row, true)) ctx.warnings.push(`${row.asset} 未找到符合週期裕度的工作日`);
+        if (!planningAutoPlaceEquipment(ctx, rowIndex, row, true)) ctx.warnings.push(`${row.asset} 未找到符合最新完工日間隔的工作日`);
       });
 
       const expectedTasks = planningRows
@@ -26165,9 +26657,10 @@ react-dom/cjs/react-dom-client.production.js:
       });
       planningAutoMonths[key] = true;
       planningAutoPreviousDates[key] = ctx.previousDates;
+      planningForcedCells[key] = ctx.forcedCells;
       planningAutoSummary = {
         key,
-        text: `${planningYear} 年 ${planningMonth} 月已依年度表自動排班：表定 ${expectedTasks.length} 項、列車 ${ctx.stats.vehicle} 格、鏇削 ${ctx.stats.rotation} 格、機設 ${ctx.stats.equipment} 格`,
+        text: `${planningYear} 年 ${planningMonth} 月已依年度表自動排班：表定 ${expectedTasks.length} 項、列車 ${ctx.stats.vehicle} 格、鏇削 ${ctx.stats.rotation} 格、機設 ${ctx.stats.equipment} 格、紅色複核 ${ctx.stats.forced} 格`,
         warnings: ctx.warnings
       };
     }
@@ -26237,10 +26730,33 @@ react-dom/cjs/react-dom-client.production.js:
 
       const plannedType = planningTypeForRow(row, rowIndex);
       if (!plannedType || plannedType === "N/A") return {};
-      const interval = planningCycleMonths[plannedType];
-      if (!interval) return {};
 
       const cells = {};
+      if (planningKind(row) === "設備") {
+        const fixedCycle = planningEquipmentFixedCycleCode(row) || plannedType;
+        const previousDate = planningBaseMaintenanceDate(row, rowIndex) || row.prev || "";
+        const intervalDays = planningCycleDays[fixedCycle] || planningCycleDays[plannedType] || 0;
+        const dueIso = previousDate ? planningAddDays(previousDate, intervalDays) : planningMonthStartIso();
+        const latestAllowedIso = previousDate ? planningAddDays(previousDate, planningIntervalLimits[fixedCycle]?.days || Math.max(intervalDays, Math.round(intervalDays * 1.2))) : "";
+        const deferredDays = planningCanDeferEquipment(row) && latestAllowedIso
+          ? planningWorkdaysInRange([dueIso, planningMonthStartIso()].sort().pop(), [latestAllowedIso, planningMonthEndIso()].sort()[0]).sort((a, b) => Number(b) - Number(a))
+          : [];
+        if (deferredDays.length) {
+          cells[deferredDays[0]] = plannedType;
+          return cells;
+        }
+        const boundedIso = dueIso < planningMonthStartIso()
+          ? planningMonthStartIso()
+          : dueIso > planningMonthEndIso()
+            ? planningMonthEndIso()
+            : dueIso;
+        const targetDay = planningDayFromCurrentMonthIso(boundedIso);
+        if (targetDay) cells[targetDay] = plannedType;
+        return cells;
+      }
+
+      const interval = planningCycleMonths[plannedType];
+      if (!interval) return {};
       const diff = planningMonthNumber() - planningMonthNumber(planningImportedYear, planningImportedMonth);
       if (diff % interval === 0) {
         const maxDay = planningDays().length;
@@ -26259,8 +26775,14 @@ react-dom/cjs/react-dom-client.production.js:
 
     function planningCellsForRow(row, rowIndex) {
       const key = planningMonthKey();
+      const holidayEdits = planningManualHolidayCells[key]?.[rowIndex] || {};
       if (planningAutoMonths[key]) {
-        return movePlanningCellsOffHolidays({ ...(planningManualCells[key]?.[rowIndex] || {}) });
+        const cells = movePlanningCellsOffHolidays({ ...(planningManualCells[key]?.[rowIndex] || {}) });
+        Object.entries(holidayEdits).forEach(([day, value]) => {
+          if (value) cells[day] = value;
+          else delete cells[day];
+        });
+        return cells;
       }
       const cells = planningGeneratedCells(row, rowIndex);
       const edits = planningManualCells[key]?.[rowIndex] || {};
@@ -26268,7 +26790,16 @@ react-dom/cjs/react-dom-client.production.js:
         if (value) cells[day] = value;
         else delete cells[day];
       });
-      return planningHistoricalPlanFor(row, rowIndex, key) ? cells : movePlanningCellsOffHolidays(cells);
+      const adjusted = planningHistoricalPlanFor(row, rowIndex, key) ? cells : movePlanningCellsOffHolidays(cells);
+      Object.entries(holidayEdits).forEach(([day, value]) => {
+        if (value) adjusted[day] = value;
+        else delete adjusted[day];
+      });
+      return adjusted;
+    }
+
+    function planningForcedReasonForCell(rowIndex, day) {
+      return planningForcedCells[planningMonthKey()]?.[rowIndex]?.[day] || "";
     }
 
     function planningCellValue(row, rowIndex, day) {
@@ -26280,6 +26811,15 @@ react-dom/cjs/react-dom-client.production.js:
       planningManualCells[key] = planningManualCells[key] || {};
       planningManualCells[key][rowIndex] = planningManualCells[key][rowIndex] || {};
       planningManualCells[key][rowIndex][day] = value;
+      if (planningForcedCells[key]?.[rowIndex]?.[day]) delete planningForcedCells[key][rowIndex][day];
+    }
+
+    function setPlanningHolidayCellValue(rowIndex, day, value) {
+      const key = planningMonthKey();
+      planningManualHolidayCells[key] = planningManualHolidayCells[key] || {};
+      planningManualHolidayCells[key][rowIndex] = planningManualHolidayCells[key][rowIndex] || {};
+      planningManualHolidayCells[key][rowIndex][day] = value;
+      if (planningForcedCells[key]?.[rowIndex]?.[day]) delete planningForcedCells[key][rowIndex][day];
     }
 
     function planningFirstPlanDay(row, rowIndex) {
@@ -26312,10 +26852,15 @@ react-dom/cjs/react-dom-client.production.js:
       return String(diff > 0 ? Math.max(1, Math.ceil(diff)) : Math.round(diff));
     }
 
+    function planningIntervalLimitForRow(row) {
+      if (planningKind(row) === "設備") return planningIntervalLimits[planningEquipmentFixedCycleCode(row)] || planningIntervalLimits[planningTypeForRow(row)];
+      return planningIntervalLimits[planningTypeForRow(row)];
+    }
+
     function planningIntervalMeta(row, rowIndex) {
       const daysText = planningIntervalDays(row, rowIndex);
       const days = Number(daysText);
-      const limit = planningIntervalLimits[planningTypeForRow(row)];
+      const limit = planningIntervalLimitForRow(row);
       if (!Number.isFinite(days)) return { daysText, limit, status: "" };
       if (!limit) return { daysText, limit, status: "" };
       const status = days > limit.days ? "is-over" : "";
@@ -26464,7 +27009,7 @@ react-dom/cjs/react-dom-client.production.js:
         <div class="codex-pm-auto-scheduler">
           <div>
             <strong>年度表轉月排班／週排班</strong>
-            <span>先讀年度預定表建立當月工項，再依工作日、週期裕度、列車可用率、鏇削與車床衝突分配實際日期。</span>
+            <span>先讀年度預定表建立當月工項；車輛依前次完工日與可用率排程，機廠設備的級別看本月格、固定週期看全年最短週期，可後排設備會在不超期前提下往後排；鏇削限 3M / 6M / 1Y 當月，且同一天只能一台。</span>
           </div>
           <button type="button" class="codex-pm-soft-button primary" data-planning-auto ${planningCan("edit") ? "" : "disabled"}>
             ${isAfterImported ? "自動排本月" : "從 6 月開始自動排"}
@@ -26495,7 +27040,7 @@ react-dom/cjs/react-dom-client.production.js:
                 <th class="codex-pm-interval-head"><span>與前次檢修</span><span>間隔日數</span></th>
                 ${days.map((day) => `
                   <th class="${[planningIsWeekend(day) ? "is-weekend" : "", planningIsHoliday(day) ? "is-holiday" : ""].filter(Boolean).join(" ")}">
-                    <button type="button" class="codex-pm-planning-day-button" data-planning-holiday-day="${day}" ${planningHolidayEditMode && canEdit ? "" : "disabled"} title="${planningHolidayEditMode && canEdit ? "點擊標記或取消國定假日" : planningIsHoliday(day) ? "放假日，系統自動避開排程" : ""}">
+              <button type="button" class="codex-pm-planning-day-button" data-planning-holiday-day="${day}" ${planningHolidayEditMode && canEdit ? "" : "disabled"} title="${planningHolidayEditMode && canEdit ? "點擊標記或取消國定假日" : planningIsHoliday(day) ? "放假日，系統自動避開排程" : ""}">
                       <span class="codex-pm-plan-day-label">${planningMonth}/${Number(day)}</span>
                       <span class="codex-pm-plan-weekday">${planningWeekdayFor(day)}</span>
                     </button>
@@ -26517,10 +27062,14 @@ react-dom/cjs/react-dom-client.production.js:
                     <td>${renderPlanningInterval(row, rowIndex)}</td>
                     ${days.map((day) => {
                     const value = planningCellValue(row, rowIndex, day);
+                    const isManualHoliday = Boolean(planningManualHolidayCells[planningMonthKey()]?.[rowIndex]?.[day]);
+                    const forcedReason = planningForcedReasonForCell(rowIndex, day);
                     return `
-                      <td class="codex-pm-plan-cell ${[value ? "has-plan" : "", planningIsHoliday(day) ? "is-holiday" : ""].filter(Boolean).join(" ")}">
-                        <button type="button" data-planning-cell="${rowIndex}:${day}" ${canEdit && !planningIsHoliday(day) ? "" : "disabled"} title="${planningIsHoliday(day) ? "放假日不可排程" : canEdit ? "點擊切換排程" : "目前角色不可編輯"}">
+                      <td class="codex-pm-plan-cell ${[value ? "has-plan" : "", planningIsHoliday(day) ? "is-holiday" : "", isManualHoliday ? "is-manual-holiday" : "", forcedReason ? "is-forced" : ""].filter(Boolean).join(" ")}">
+                        <button type="button" data-planning-cell="${rowIndex}:${day}" ${canEdit ? "" : "disabled"} title="${forcedReason || (planningIsHoliday(day) ? "假日不可自動排程；必要時可手動特排" : canEdit ? "點擊切換排程" : "目前角色不可編輯")}">
                           ${planToken(value)}
+                          ${forcedReason ? `<small>複核</small>` : ""}
+                          ${isManualHoliday ? `<small>特排</small>` : ""}
                         </button>
                       </td>
                     `;
@@ -26597,16 +27146,20 @@ react-dom/cjs/react-dom-client.production.js:
           ${permission.view ? renderSchedulePrintCard() : ""}
           <div class="codex-pm-note-box">
             Excel 對應：日期列自動遞增、星期列依日期換算、排程格帶入檢修別，最下方日計只統計 1M / 3M / 6M / 1Y。<br>
-            假日設定：按「假日設定」後點日期欄，可標記國定假日；放假日整欄會以淡藍色顯示，系統自動排程會避開該日期。<br>
+            假日設定：按「假日設定」後點日期欄，可標記國定假日；放假日整欄會以淡藍色顯示，系統自動排程會避開該日期。極端需求時仍可直接點假日格手動特排，系統會用「特排」標示，正式版應要求主管原因。<br>
+            機廠設備：本月格的 1M / 3M / 6M / 1Y 代表本次檢修級別；固定週期則看全年最短週期，有 1M 用 1M，沒有 1M 但有 3M 用 3M，沒有 3M 但有 6M 用 6M，只有 1Y 就用 1Y。預排日期一律以最新實際完工日或前月完工日加固定週期往後推算；間隔檢核也以固定週期基準判斷。<br>
+            可後排設備：目前先納入「拉線車高空維修作業車」；系統會先找本月中「到期日之後、未超過週期上限」的較晚工作日，沒有可用日期時才回到最接近到期日。<br>
+            排不出來處理：年度表定項目不能消失；若無法符合週期裕度、當日負載、可用車或工作日條件，系統仍排入最接近日期，並用紅色「需複核」標示。<br>
             備註：使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。法規裕度為 20%，月檢間隔上限為 36 天及 15,000 km、季檢為 108 天及 30,000 km，半年檢為 216 天及 60,000 km，年檢則為 438 天及 120,000 km（未滿 1 天以 1 天計）。<br>
-            因此「與前次檢修間隔日數」必須顯示，排程人員才能直接判斷本次安排是否接近或超過檢修期限。
+            因此「與前次檢修間隔日數」必須顯示本次預排日與最新完工日的差距，排程人員才能直接判斷本次安排是否接近或超過檢修期限。
           </div>
         </div>
       `;
     }
 
     function renderStaffView() {
-      const visibleItems = scheduleItems
+      const items = allScheduleItems();
+      const visibleItems = items
         .filter((item) => activeStaff === "all" || staffFor(item) === activeStaff)
         .sort((a, b) => a.date.localeCompare(b.date) || String(a.asset).localeCompare(String(b.asset), "zh-Hant"));
       const todayItems = visibleItems.filter((item) => item.date === today);
@@ -26623,8 +27176,8 @@ react-dom/cjs/react-dom-client.production.js:
             </div>
             <div class="codex-pm-staff-filter-list">
               ${staffOptions().map((staff) => {
-                const count = staff === "all" ? scheduleItems.length : scheduleItems.filter((item) => staffFor(item) === staff).length;
-                const todayCount = staff === "all" ? scheduleItems.filter((item) => item.date === today).length : scheduleItems.filter((item) => staffFor(item) === staff && item.date === today).length;
+                const count = staff === "all" ? items.length : items.filter((item) => staffFor(item) === staff).length;
+                const todayCount = staff === "all" ? items.filter((item) => item.date === today).length : items.filter((item) => staffFor(item) === staff && item.date === today).length;
                 return `
                   <button type="button" class="codex-pm-staff-filter ${activeStaff === staff ? "is-active" : ""}" data-staff-filter="${escapeHtml(staff)}">
                     <strong>${escapeHtml(staffLabel(staff))}</strong>
@@ -26645,13 +27198,13 @@ react-dom/cjs/react-dom-client.production.js:
             </div>
             <div class="codex-pm-staff-task-list">
               ${list.map((item) => `
-                <article class="codex-pm-staff-task ${item.date === today ? "is-today" : ""}">
+                <article class="codex-pm-staff-task ${[item.date === today ? "is-today" : "", workStatusClassForItem(item), item.isManualHoliday ? "is-manual-holiday" : ""].filter(Boolean).join(" ")}">
                   <div class="codex-pm-staff-task-head">
                     <div>
                       <div class="codex-pm-staff-task-title">${escapeHtml(toMinguo(item.date))}｜${escapeHtml(item.asset)} ${escapeHtml(item.level)}</div>
                       <p>${escapeHtml(item.note)}</p>
                     </div>
-                    <span class="codex-pm-level-pill">${escapeHtml(staffStatusFor(item))}</span>
+                    <span class="codex-pm-level-pill">${escapeHtml(staffStatusFor(item))}${item.isManualHoliday ? " / 假日特排" : ""}</span>
                   </div>
                   <div class="codex-pm-staff-task-meta">
                     <span>負責同仁<strong>${escapeHtml(staffFor(item))}</strong></span>
@@ -26759,6 +27312,36 @@ react-dom/cjs/react-dom-client.production.js:
         });
       }
 
+      const calendarYearInput = container.querySelector("[data-calendar-year]");
+      if (calendarYearInput) {
+        const applyCalendarYear = () => {
+          planningYear = normalizePlanningYear(calendarYearInput.value);
+          activeView = "calendar";
+          renderCenter(container);
+        };
+        calendarYearInput.addEventListener("change", applyCalendarYear);
+        calendarYearInput.addEventListener("blur", applyCalendarYear);
+        calendarYearInput.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter") return;
+          event.preventDefault();
+          applyCalendarYear();
+        });
+      }
+
+      const calendarMonthSelect = container.querySelector("[data-calendar-month]");
+      if (calendarMonthSelect) {
+        calendarMonthSelect.addEventListener("change", () => {
+          const currentYearInput = container.querySelector("[data-calendar-year]");
+          if (currentYearInput) planningYear = normalizePlanningYear(currentYearInput.value);
+          const nextMonth = Number(calendarMonthSelect.value);
+          planningMonth = Number.isFinite(nextMonth) && nextMonth >= 1 && nextMonth <= 12 ? nextMonth : planningMonth;
+          selectedId = "";
+          selectedDate = `${planningYear}-${String(planningMonth).padStart(2, "0")}-01`;
+          activeView = "calendar";
+          renderCenter(container);
+        });
+      }
+
       const holidayModeButton = container.querySelector("[data-planning-holiday-mode]");
       if (holidayModeButton) {
         holidayModeButton.addEventListener("click", () => {
@@ -26786,11 +27369,12 @@ react-dom/cjs/react-dom-client.production.js:
           const [rowIndexText, day] = String(button.getAttribute("data-planning-cell") || "").split(":");
           const row = planningRows[Number(rowIndexText)];
           if (!row || !day) return;
-          if (planningIsHoliday(day)) return;
           const current = planningCellValue(row, Number(rowIndexText), day);
-          const currentIndex = planningCycleValues.includes(current) ? planningCycleValues.indexOf(current) : 0;
-          const next = planningCycleValues[(currentIndex + 1) % planningCycleValues.length] || "";
-          setPlanningCellValue(Number(rowIndexText), day, next);
+          const cycleValues = planningCycleValuesForRow(row);
+          const currentIndex = cycleValues.includes(current) ? cycleValues.indexOf(current) : 0;
+          const next = cycleValues[(currentIndex + 1) % cycleValues.length] || "";
+          if (planningIsHoliday(day)) setPlanningHolidayCellValue(Number(rowIndexText), day, next);
+          else setPlanningCellValue(Number(rowIndexText), day, next);
           activeView = "planning";
           renderCenter(container);
         });
@@ -26881,6 +27465,97 @@ react-dom/cjs/react-dom-client.production.js:
           renderCenter(container);
         });
       });
+
+      const feedbackCompleteButton = container.querySelector("[data-feedback-complete]");
+      if (feedbackCompleteButton) {
+        feedbackCompleteButton.addEventListener("click", () => {
+          const item = selectedItem();
+          const doneDate = container.querySelector("[data-feedback-done-date]")?.value || today;
+          planningCompletionRecords[item.id] = {
+            id: item.id,
+            rowIndex: item.rowIndex,
+            asset: item.asset,
+            planValue: item.planValue,
+            scheduledDate: item.date,
+            doneDate,
+            result: container.querySelector("[data-feedback-result]")?.value || "正常",
+            valueSummary: container.querySelector("[data-feedback-values]")?.value || "",
+            materialNote: container.querySelector("[data-feedback-material]")?.value || "",
+            note: container.querySelector("[data-feedback-note]")?.value || ""
+          };
+          Object.keys(planningAutoMonths).forEach((key) => {
+            if (key > planningMonthKey()) delete planningAutoMonths[key];
+          });
+          activeView = "calendar";
+          renderCenter(container);
+        });
+      }
+    }
+
+    function planningForcedCandidateDays(ctx, dueIso, kind) {
+      const workdays = planningWorkdaysInRange(planningMonthStartIso(), planningMonthEndIso());
+      const days = (workdays.length ? workdays : planningDays()).slice();
+      return days.sort((a, b) => {
+        const loadA = kind === "車輛"
+          ? (ctx.vehicleLoads[a] || []).length * 4 + (ctx.equipmentLoads[a] || []).length
+          : (ctx.equipmentLoads[a] || []).length + (ctx.vehicleLoads[a] || []).length * 3;
+        const loadB = kind === "車輛"
+          ? (ctx.vehicleLoads[b] || []).length * 4 + (ctx.equipmentLoads[b] || []).length
+          : (ctx.equipmentLoads[b] || []).length + (ctx.vehicleLoads[b] || []).length * 3;
+        const diffA = Math.abs(planningDaysBetween(planningIsoDate(a), dueIso || planningMonthStartIso()));
+        const diffB = Math.abs(planningDaysBetween(planningIsoDate(b), dueIso || planningMonthStartIso()));
+        return diffA - diffB || loadA - loadB || Number(a) - Number(b);
+      });
+    }
+
+    function planningForcedDaySequence(firstDay, count) {
+      const workdaySequence = planningWorkdaySequenceFrom(firstDay, count);
+      if (workdaySequence.length >= count) return workdaySequence;
+      const days = planningDays();
+      const startIndex = Math.max(0, days.indexOf(firstDay));
+      const sequence = [];
+      for (let index = startIndex; index < days.length && sequence.length < count; index += 1) sequence.push(days[index]);
+      for (let index = startIndex - 1; index >= 0 && sequence.length < count; index -= 1) sequence.unshift(days[index]);
+      return sequence;
+    }
+
+    function planningForceAssign(ctx, rowIndex, row, value, dueIso, duration, kind, reason) {
+      const candidates = planningForcedCandidateDays(ctx, dueIso, kind);
+      const firstDay = candidates[0] || planningDays()[0];
+      let sequence = [];
+      for (const candidate of candidates) {
+        const trial = planningForcedDaySequence(candidate, duration || 1);
+        if (trial.length && trial.every((day) => !ctx.cells[rowIndex]?.[day] && (value !== "鏇" || !planningHasRotationOnDay(ctx, day)))) {
+          sequence = trial;
+          break;
+        }
+      }
+      if (!sequence.length && value === "鏇") {
+        sequence = candidates
+          .filter((day) => !ctx.cells[rowIndex]?.[day] && !planningHasRotationOnDay(ctx, day))
+          .slice(0, duration || 1);
+      }
+      if (value === "鏇" && sequence.length < (duration || 1)) {
+        ctx.warnings.push(`${reason}；但受一天只能一台鏇削限制，本月可用日期不足，未自動疊排`);
+        return false;
+      }
+      if (!sequence.length) sequence = planningForcedDaySequence(firstDay, duration || 1);
+      sequence.forEach((day, index) => {
+        planningAutoAssign(ctx, rowIndex, day, value, {
+          kind,
+          value,
+          stage: index + 1,
+          duration: duration || 1,
+          rowIndex,
+          forced: true,
+          reason
+        });
+      });
+      ctx.warnings.push(reason);
+      if (kind === "車輛" && value === "鏇") ctx.stats.rotation += sequence.length;
+      else if (kind === "車輛") ctx.stats.vehicle += sequence.length;
+      else ctx.stats.equipment += sequence.length;
+      return true;
     }
 
     function findDashboardContainer() {
