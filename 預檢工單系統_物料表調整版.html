@@ -25056,6 +25056,72 @@ react-dom/cjs/react-dom-client.production.js:
     background: rgba(251, 191, 36, 0.08);
   }
 
+  .codex-pm-calendar-first .codex-pm-capability-table {
+    width: 100%;
+    min-width: 780px;
+    border-collapse: collapse;
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-table th,
+  .codex-pm-calendar-first .codex-pm-capability-table td {
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    color: #dbeafe;
+    font-size: 0.78rem;
+    padding: 0.5rem 0.55rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-table th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #0f172a;
+    color: #93c5fd;
+    font-weight: 900;
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-table th:first-child,
+  .codex-pm-calendar-first .codex-pm-capability-table td:first-child {
+    min-width: 220px;
+    text-align: left;
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-table label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.72);
+    cursor: pointer;
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-table input {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #22d3ee;
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-table label:has(input:checked) {
+    border-color: rgba(34, 211, 238, 0.65);
+    background: rgba(34, 211, 238, 0.14);
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-table input:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-note {
+    margin-top: 0.55rem;
+    color: #94a3b8;
+    font-size: 0.72rem;
+    line-height: 1.45;
+  }
+
   @media (max-width: 1180px) {
     .codex-pm-calendar-first .codex-pm-calendar-layout,
     .codex-pm-calendar-first .codex-pm-print-layout,
@@ -25113,6 +25179,7 @@ react-dom/cjs/react-dom-client.production.js:
       delete document.documentElement.dataset.codexPlanningStandalone;
     }
     let activeView = planningStandaloneMode ? "planning" : "calendar";
+    let planningSection = "schedule";
     let activeStaff = "all";
     let activeCompletionFilter = "pending";
     let planningRole = "planner";
@@ -25679,6 +25746,47 @@ react-dom/cjs/react-dom-client.production.js:
       return planningVehicleAnnualPlan[canonical] || planningEquipmentAnnualPlan[canonical] || null;
     }
 
+    function planningDefaultCapabilitiesForAsset(asset) {
+      const canonical = planningCanonicalAssetName(asset);
+      if (planningVehicleAnnualPlan[canonical]) return ["1M", "3M", "6M", "1Y", "5Y"];
+      const plan = planningEquipmentAnnualPlan[canonical] || {};
+      const levels = new Set();
+      Object.values(plan).forEach((value) => {
+        String(value || "").split("/").forEach((code) => {
+          const level = code.trim();
+          if (planningMaintenanceLevels.includes(level)) levels.add(level);
+        });
+      });
+      return planningMaintenanceLevels.filter((level) => levels.has(level));
+    }
+
+    function planningCapabilitiesForAsset(asset) {
+      const canonical = planningCanonicalAssetName(asset);
+      const saved = planningCapabilityOverrides[canonical];
+      if (Array.isArray(saved)) {
+        return planningMaintenanceLevels.filter((level) => saved.includes(level));
+      }
+      return planningDefaultCapabilitiesForAsset(canonical);
+    }
+
+    function planningCanUseLevelForAsset(asset, level) {
+      if (!level || level === "N/A" || level === "鏇") return true;
+      return planningCapabilitiesForAsset(asset).includes(level);
+    }
+
+    function planningSetCapabilityForAsset(asset, level, enabled) {
+      if (!planningMaintenanceLevels.includes(level)) return;
+      const canonical = planningCanonicalAssetName(asset);
+      const levels = new Set(planningCapabilitiesForAsset(canonical));
+      if (enabled) levels.add(level);
+      else levels.delete(level);
+      const next = planningMaintenanceLevels.filter((item) => levels.has(item));
+      const defaults = planningDefaultCapabilitiesForAsset(canonical);
+      if (JSON.stringify(next) === JSON.stringify(defaults)) delete planningCapabilityOverrides[canonical];
+      else planningCapabilityOverrides[canonical] = next;
+      planningSaveMaintenanceCapabilities();
+    }
+
     function planningKindForAsset(asset) {
       const canonical = planningCanonicalAssetName(asset);
       if (planningVehicleAnnualPlan[canonical]) return "車輛";
@@ -25691,7 +25799,8 @@ react-dom/cjs/react-dom-client.production.js:
       if (planningIsTransferredOut(canonical, planningYear, month)) return "";
       const kind = planningKindForAsset(canonical);
       const plan = planningAnnualPlanForAsset(canonical);
-      return planningNormalizePlanCode(plan?.[month] || "", kind);
+      const code = planningNormalizePlanCode(plan?.[month] || "", kind);
+      return planningCanUseLevelForAsset(canonical, code) ? code : "";
     }
 
     function planningDefaultPreviousDateForAsset(asset) {
@@ -26325,8 +26434,8 @@ react-dom/cjs/react-dom-client.production.js:
       return "備註：\n使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。\n法規裕度為20%，月檢間隔上限為36天及15,000km、季檢為108天及30,000km，半年檢為216天及60,000km，年檢則為438天及120,000km(未滿1天以1天計)。";
     }
 
-    function planningPrintTitleText() {
-      return `車輛課${planningYear - 1911}年${planningMonth}月電聯車維修排程預定表`;
+    function planningPrintTitleText(mode = "planned") {
+      return `車輛課${planningYear - 1911}年${planningMonth}月電聯車維修排程${mode === "completed" ? "完成表" : "預定表"}`;
     }
 
     function planningCompletedPrintCellsForRow(row, rowIndex) {
@@ -26377,21 +26486,18 @@ react-dom/cjs/react-dom-client.production.js:
       const days = planningDays();
       const counts = planningPrintCounts(mode);
       const isCompletedPrint = mode === "completed";
+      const fixedColumnCount = 2;
       return `
         <div class="codex-pm-schedule-print-sheet" data-print-kind="${mode}">
           <table aria-label="A3直立排程列印表">
             <thead>
               <tr class="title-row">
-                <th colspan="${days.length + 6}">${escapeHtml(planningPrintTitleText())}${isCompletedPrint ? "（完成表）" : "（預排表）"}</th>
+                <th colspan="${days.length + fixedColumnCount}">${escapeHtml(planningPrintTitleText(mode))}</th>
               </tr>
               <tr>
                 <th class="object-col" rowspan="2">${planningYear}年</th>
-                <th class="prev-col" rowspan="2">前次檢修<br>完工日</th>
                 <th class="type-col" rowspan="2">本月<br>檢修別</th>
                 ${days.map((day) => `<th class="day-col ${planningIsHoliday(day) ? "is-holiday" : ""}">${planningMonth}/${Number(day)}</th>`).join("")}
-                <th class="ad-col" rowspan="2">廣<br>告<br>車</th>
-                <th class="repair-date-col" rowspan="2">${isCompletedPrint ? "完工日" : "檢修日"}</th>
-                <th class="interval-col" rowspan="2">與前次檢修<br>間隔日數</th>
               </tr>
               <tr>
                 ${days.map((day) => `<th class="day-col ${planningIsHoliday(day) ? "is-holiday" : ""}">${planningWeekdayFor(day)}</th>`).join("")}
@@ -26405,22 +26511,17 @@ react-dom/cjs/react-dom-client.production.js:
                 return `
                   <tr>
                     <td class="object-col">${escapeHtml(row.asset)}</td>
-                    <td class="prev-col">${escapeHtml(planningPrintMonthDay(planningPreviousDisplayDate(row, rowIndex) || row.prev))}</td>
                     <td class="type-col">${escapeHtml(planningTypeForRow(row) || "")}</td>
                     ${days.map((day) => {
                       const value = cells[day] || "";
                       return `<td class="day-col ${[planningIsHoliday(day) ? "is-holiday" : "", value ? "has-plan" : ""].filter(Boolean).join(" ")}">${escapeHtml(value)}</td>`;
                     }).join("")}
-                    <td class="ad-col"></td>
-                    <td class="repair-date-col">${escapeHtml(displayDate)}</td>
-                    <td class="interval-col ${interval.status === "is-over" ? "is-overdue" : ""}">${Number.isFinite(Number(interval.daysText)) ? `${escapeHtml(interval.daysText)}天` : ""}</td>
                   </tr>
                 `;
               }).join("")}
               <tr class="count-row">
-                <td colspan="3">當日檢修數量</td>
+                <td colspan="2">當日檢修數量</td>
                 ${days.map((day) => `<td class="day-col ${planningIsHoliday(day) ? "is-holiday" : ""}">${counts[day] || 0}</td>`).join("")}
-                <td colspan="3"></td>
               </tr>
             </tbody>
           </table>
@@ -26441,14 +26542,12 @@ react-dom/cjs/react-dom-client.production.js:
           <div class="codex-pm-print-head">
             <div>
               <h3>整月排程表列印</h3>
-              <p>列印格式依照原 Excel 矩陣，A3 直立，範圍等同 A1:AK53。</p>
             </div>
             <span class="codex-pm-level-pill">A3 直立</span>
           </div>
           <div class="codex-pm-action-row">
             <button type="button" class="codex-pm-soft-button primary" data-schedule-print="planned">列印預排表</button>
             <button type="button" class="codex-pm-soft-button" data-schedule-print="completed">列印完成表</button>
-            <button type="button" class="codex-pm-soft-button" data-calendar-view="planning">回排程規劃</button>
           </div>
           <div class="codex-pm-schedule-print-wrap">
             ${renderSchedulePrintSheet("planned")}
@@ -26594,6 +26693,57 @@ react-dom/cjs/react-dom-client.production.js:
             ${Object.values(templates).map((template) => renderAutoField([`${template.label} / ${template.period}`, template.file, "Word主檔"], true)).join("")}
             ${renderAutoField(["自動帶入建議", "預排日期、車號/設備、檢修級別、P單、W.I.No、設備位置、維修單位、安全預設", "系統規則"], true)}
             ${renderAutoField(["人工確認欄位", "現場負責人、特殊安全項目、臨時改期、實際檢查數值、用料與異常說明", "人員確認"], true)}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderMaintenanceCapabilityChecklist() {
+      const rows = planningRows.map((row, rowIndex) => ({ row, rowIndex }));
+      return `
+        <section class="codex-pm-auto-section">
+          <div class="codex-pm-print-head">
+            <div>
+              <h3>檢修級別勾選表</h3>
+              <p>勾選代表該車號或設備可建立這一級檢修；年度排程只會使用被允許的級別。</p>
+            </div>
+            <span class="codex-pm-level-pill">主檔設定</span>
+          </div>
+          <div class="codex-pm-weekly-table-wrap">
+            <table class="codex-pm-capability-table">
+              <thead>
+                <tr>
+                  <th>車號 / 設備</th>
+                  <th>類別</th>
+                  ${planningMaintenanceLevels.map((level) => `<th>${level}</th>`).join("")}
+                </tr>
+              </thead>
+              <tbody>
+                ${rows.map(({ row, rowIndex }) => {
+                  const capabilities = planningCapabilitiesForAsset(row.asset);
+                  const transferred = planningTransferredOutInfo(row.asset);
+                  return `
+                    <tr>
+                      <td>
+                        <strong>${escapeHtml(row.asset)}</strong>
+                        ${transferred ? `<div class="codex-pm-capability-note">${escapeHtml(transferred.note)}</div>` : ""}
+                      </td>
+                      <td><span class="codex-pm-source-pill">${planningKind(row)}</span></td>
+                      ${planningMaintenanceLevels.map((level) => `
+                        <td>
+                          <label title="${escapeHtml(`${row.asset} ${level}`)}">
+                            <input type="checkbox" data-capability-checkbox="${rowIndex}:${level}" ${capabilities.includes(level) ? "checked" : ""} ${planningCan("edit") ? "" : "disabled"}>
+                          </label>
+                        </td>
+                      `).join("")}
+                    </tr>
+                  `;
+                }).join("")}
+              </tbody>
+            </table>
+          </div>
+          <div class="codex-pm-capability-note">
+            車輛保留 5Y 勾選作為主檔能力，但目前自動排班仍依你前面規則不納入 5Y 工作量；若原表為 5Y/1Y，仍只排 1Y。
           </div>
         </section>
       `;
@@ -26931,13 +27081,15 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function planningCycleValuesForRow(row) {
+      const allowedLevels = planningCapabilitiesForAsset(row.asset).filter((level) => level !== "5Y");
+      const baseValues = ["", ...allowedLevels];
       if (planningKind(row) === "車輛" && !planningVehicleCanHaveRotation(row)) {
-        return planningCycleValues.filter((value) => value !== "鏇");
+        return baseValues;
       }
       if (planningKind(row) !== "車輛") {
-        return planningCycleValues.filter((value) => value !== "鏇");
+        return baseValues;
       }
-      return planningCycleValues;
+      return [...baseValues, "鏇"];
     }
 
     function planningEquipmentFixedCycleCode(row, plannedType = planningPlanCodeForAsset(row?.asset || "")) {
@@ -27783,6 +27935,7 @@ react-dom/cjs/react-dom-client.production.js:
       if (planningIsMonthLocked()) planningHolidayEditMode = false;
       planningEnsureCoveredMonthGenerated();
       const permission = planningPermission();
+      const isCapabilitySection = planningSection === "capabilities";
       const totalPlans = Object.values(planningDailyCounts()).reduce((sum, value) => sum + value, 0);
       const visibleRows = planningVisibleRowEntries();
       const vehicleRows = visibleRows.filter(({ row }) => planningKind(row) === "車輛").length;
@@ -27793,8 +27946,7 @@ react-dom/cjs/react-dom-client.production.js:
           <section class="codex-pm-auto-section">
             <div class="codex-pm-print-head">
               <div>
-                <h3>排程規劃｜${planningYear} 年 ${planningMonth} 月</h3>
-                <p>以 2026 年 5 月 Excel 排程為基準，日期、星期、當日檢修數量會依西元年份與月份重算。</p>
+                <h3>${isCapabilitySection ? "檢修級別主檔" : `排程規劃｜${planningYear} 年 ${planningMonth} 月`}</h3>
               </div>
               <span class="codex-pm-level-pill">${planningLockStatusLabel()}</span>
             </div>
@@ -27816,25 +27968,17 @@ react-dom/cjs/react-dom-client.production.js:
               <button type="button" class="codex-pm-soft-button primary" data-planning-publish ${planningCan("publish") ? "" : "disabled"}>發布排程</button>
               <button type="button" class="codex-pm-soft-button" data-planning-lock ${planningCan("lock") ? "" : "disabled"}>${planningLockButtonLabel()}</button>
             </div>
-            ${renderPlanningAutoPanel()}
-            <div class="codex-pm-permission-strip">
-              <span class="codex-pm-permission-chip ${permission.view ? "is-allowed" : "is-denied"}">檢視：${permission.view ? "可" : "不可"}</span>
-              <span class="codex-pm-permission-chip ${permission.importExcel ? "is-allowed" : "is-denied"}">匯入 Excel：${permission.importExcel ? "可" : "不可"}</span>
-              <span class="codex-pm-permission-chip ${permission.edit ? "is-allowed" : "is-denied"}">修改排程：${permission.edit ? "可" : "不可"}</span>
-              <span class="codex-pm-permission-chip ${permission.publish ? "is-allowed" : "is-denied"}">發布/鎖定：${permission.publish ? "可" : "不可"}</span>
-              <span class="codex-pm-permission-chip is-allowed">${planningYear} 年 ${planningMonth} 月 / ${days.length} 天</span>
-              <span class="codex-pm-permission-chip ${planningHolidayCount() ? "is-allowed" : ""}">放假 ${planningHolidayCount()} 天</span>
-              <span class="codex-pm-permission-chip is-allowed">${visibleRows.length} 個對象 / ${totalPlans} 格檢修</span>
-            </div>
+            ${isCapabilitySection ? "" : renderPlanningAutoPanel()}
           </section>
-          ${permission.view ? renderPlanningMatrix() : `
+          ${!permission.view ? `
             <div class="codex-pm-no-access">
               <strong>一般同仁不可進入排程規劃。</strong><br>
               正式系統會依登入帳號判斷角色；一般同仁只進入今日作業、列印與完工回填，不看整月排程編排頁。
             </div>
-          `}
-          ${permission.view ? renderSchedulePrintCard() : ""}
-          <div class="codex-pm-note-box">
+          ` : isCapabilitySection ? renderMaintenanceCapabilityChecklist() : `
+            ${renderPlanningMatrix()}
+            ${renderSchedulePrintCard()}
+            <div class="codex-pm-note-box">
             Excel 對應：日期列自動遞增、星期列依日期換算、排程格帶入檢修別，最下方日計只統計 1M / 3M / 6M / 1Y。<br>
             假日設定：按「假日設定」後點日期欄，可標記國定假日；放假日整欄會以淡藍色顯示，系統自動排程會避開該日期。極端需求時仍可直接點假日格手動特排，系統會用「特排」標示，正式版應要求主管原因。<br>
             機廠設備：本月格的 1M / 3M / 6M / 1Y 代表本次檢修級別；固定週期則看全年最短週期，有 1M 用 1M，沒有 1M 但有 3M 用 3M，沒有 3M 但有 6M 用 6M，只有 1Y 就用 1Y。預排日期一律以最新實際完工日或前月完工日加固定週期往後推算；間隔檢核也以固定週期基準判斷。<br>
@@ -27842,7 +27986,8 @@ react-dom/cjs/react-dom-client.production.js:
             排不出來處理：年度表定項目不能消失；若無法符合週期裕度、當日負載、可用車或工作日條件，系統仍排入最接近日期，並用紅色「需複核」標示。<br>
             備註：使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。法規裕度為 20%，月檢間隔上限為 36 天及 15,000 km、季檢為 108 天及 30,000 km，半年檢為 216 天及 60,000 km，年檢則為 438 天及 120,000 km（未滿 1 天以 1 天計）。<br>
             因此「與前次檢修間隔日數」必須顯示本次預排日與最新完工日的差距，排程人員才能直接判斷本次安排是否接近或超過檢修期限。
-          </div>
+            </div>
+          `}
         </div>
       `;
     }
@@ -28190,6 +28335,8 @@ react-dom/cjs/react-dom-client.production.js:
                 </div>
                 <div class="codex-pm-actions">
                   ${planningStandaloneMode ? `
+                    <button type="button" class="codex-pm-button ${planningSection === "schedule" ? "primary" : ""}" data-planning-section="schedule">排程</button>
+                    <button type="button" class="codex-pm-button ${planningSection === "capabilities" ? "primary" : ""}" data-planning-section="capabilities">檢修級別</button>
                     <button type="button" class="codex-pm-button" data-front-page>回前台</button>
                   ` : `
                     <button type="button" class="codex-pm-button primary" data-calendar-view="calendar">月曆總覽</button>
@@ -28208,6 +28355,14 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function bindEvents(container) {
+      container.querySelectorAll("[data-planning-section]").forEach((button) => {
+        button.addEventListener("click", () => {
+          planningSection = button.getAttribute("data-planning-section") || "schedule";
+          activeView = "planning";
+          renderCenter(container);
+        });
+      });
+
       container.querySelectorAll("[data-planning-page]").forEach((button) => {
         button.addEventListener("click", () => {
           window.location.href = "/precheck?mode=planning";
@@ -28415,6 +28570,19 @@ react-dom/cjs/react-dom-client.production.js:
         });
       }
 
+      container.querySelectorAll("[data-capability-checkbox]").forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+          if (!planningCan("edit")) return;
+          const [rowIndexText, level] = String(checkbox.getAttribute("data-capability-checkbox") || "").split(":");
+          const row = planningRows[Number(rowIndexText)];
+          if (!row || !level) return;
+          planningSetCapabilityForAsset(row.asset, level, checkbox.checked);
+          planningRebuildLinkedYearFromCurrent({ includeCurrent: planningAutoTargetIsAfterImported() });
+          activeView = "planning";
+          renderCenter(container);
+        });
+      });
+
       container.querySelectorAll("[data-schedule-print]").forEach((schedulePrintButton) => {
         schedulePrintButton.addEventListener("click", () => {
           const printKind = schedulePrintButton.getAttribute("data-schedule-print") || "planned";
@@ -28427,7 +28595,12 @@ react-dom/cjs/react-dom-client.production.js:
           sheetClone.hidden = false;
           printRoot.appendChild(sheetClone);
           document.body.appendChild(printRoot);
-          const cleanupPrintRoot = () => printRoot.remove();
+          const originalTitle = document.title;
+          document.title = planningPrintTitleText(printKind === "completed" ? "completed" : "planned");
+          const cleanupPrintRoot = () => {
+            printRoot.remove();
+            document.title = originalTitle;
+          };
           window.addEventListener("afterprint", cleanupPrintRoot, { once: true });
           printRoot.getBoundingClientRect();
           requestAnimationFrame(() => {
