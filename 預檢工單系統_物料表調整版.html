@@ -24490,7 +24490,7 @@ react-dom/cjs/react-dom-client.production.js:
 
   .codex-pm-calendar-first .codex-pm-planning-toolbar {
     display: grid;
-    grid-template-columns: minmax(10rem, 1fr) minmax(7rem, 0.55fr) minmax(7rem, 0.55fr) auto auto auto auto;
+    grid-template-columns: minmax(10rem, 1fr) minmax(7rem, 0.55fr) minmax(7rem, 0.55fr) repeat(6, auto);
     gap: 0.45rem;
     align-items: end;
   }
@@ -25009,6 +25009,152 @@ react-dom/cjs/react-dom-client.production.js:
     text-align: center;
   }
 
+  .codex-pm-calendar-first .codex-pm-simple-schedule {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-schedule-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: end;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-schedule-head h4 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-schedule-head span {
+    color: #93c5fd;
+    font-size: 0.72rem;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-table-wrap {
+    overflow: auto;
+    border: 1px solid rgba(15, 23, 42, 0.9);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-table {
+    width: 100%;
+    min-width: 1080px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: #fff;
+    color: #111827;
+    font-family: "Times New Roman", "Microsoft JhengHei", serif;
+    font-size: 0.86rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-table th,
+  .codex-pm-calendar-first .codex-pm-simple-table td {
+    border: 1px solid #111827;
+    height: 2rem;
+    padding: 0.16rem 0.25rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-table th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #ffff00;
+    color: #111827;
+    font-weight: 900;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-table th:first-child,
+  .codex-pm-calendar-first .codex-pm-simple-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    width: 14rem;
+    background: #fff;
+    color: #111827;
+    font-weight: 800;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-table th:first-child {
+    z-index: 3;
+    background: #ffff00;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-table.is-vehicle th:first-child,
+  .codex-pm-calendar-first .codex-pm-simple-table.is-vehicle td:first-child {
+    width: 7rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-code {
+    color: #0000ff;
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .codex-pm-calendar-first .codex-pm-logic-layout {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-logic-summary {
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    border-radius: 8px;
+    background: rgba(8, 47, 73, 0.32);
+    color: #dbeafe;
+    font-size: 0.82rem;
+    font-weight: 800;
+    line-height: 1.7;
+    padding: 0.8rem 0.95rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-logic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-logic-card {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.58);
+    padding: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-logic-card h4 {
+    margin: 0 0 0.55rem;
+    color: #f8fafc;
+    font-size: 0.92rem;
+    letter-spacing: 0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-logic-card ol,
+  .codex-pm-calendar-first .codex-pm-logic-card ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: #dbeafe;
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  .codex-pm-calendar-first .codex-pm-logic-card li + li {
+    margin-top: 0.25rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-logic-card code,
+  .codex-pm-calendar-first .codex-pm-logic-summary code {
+    color: #fef3c7;
+    font-family: inherit;
+    font-weight: 900;
+  }
+
   .codex-pm-calendar-first .codex-pm-no-access {
     border: 1px solid rgba(248, 113, 113, 0.4);
     border-radius: 8px;
@@ -25171,13 +25317,18 @@ react-dom/cjs/react-dom-client.production.js:
       const date = new Date();
       return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
     })();
-    const planningStandaloneMode = window.location.pathname.includes("precheck-planning")
+    let planningStandaloneMode = window.location.pathname.includes("precheck-planning")
       || new URLSearchParams(window.location.search).get("mode") === "planning";
-    if (planningStandaloneMode) {
-      document.documentElement.dataset.codexPlanningStandalone = "true";
-    } else {
-      delete document.documentElement.dataset.codexPlanningStandalone;
+
+    function syncPlanningStandaloneMode() {
+      if (planningStandaloneMode) {
+        document.documentElement.dataset.codexPlanningStandalone = "true";
+      } else {
+        delete document.documentElement.dataset.codexPlanningStandalone;
+      }
     }
+
+    syncPlanningStandaloneMode();
     let activeView = planningStandaloneMode ? "planning" : "calendar";
     let planningSection = "schedule";
     let activeStaff = "all";
@@ -25346,9 +25497,15 @@ react-dom/cjs/react-dom-client.production.js:
     })();
     const planningCycleValues = ["", "1M", "3M", "6M", "1Y", "2Y", "鏇"];
     const planningWeekdays = ["日", "一", "二", "三", "四", "五", "六"];
+    const planningSimpleMonthLabels = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
     const planningCycleMonths = { "1M": 1, "3M": 3, "6M": 6, "1Y": 12, "2Y": 24 };
     const planningCycleDays = { "1M": 30, "3M": 90, "6M": 180, "1Y": 365, "2Y": 730 };
     const planningLevelPriority = { "": 0, "1M": 1, "3M": 2, "6M": 3, "1Y": 4, "2Y": 5, "5Y": 6 };
+    const planningInspectionBaseDays = 30;
+    const planningInspectionToleranceRate = 0.2;
+    const planningInspectionToleranceDays = Math.round(planningInspectionBaseDays * planningInspectionToleranceRate);
+    const planningInspectionMinDays = planningInspectionBaseDays - planningInspectionToleranceDays;
+    const planningInspectionMaxDays = planningInspectionBaseDays + planningInspectionToleranceDays;
     const planningIntervalLimits = {
       "1M": { days: 36, km: "15,000" },
       "3M": { days: 108, km: "30,000" },
@@ -25356,6 +25513,7 @@ react-dom/cjs/react-dom-client.production.js:
       "1Y": { days: 438, km: "120,000" },
       "2Y": { days: 876, km: "-" }
     };
+    const planningDailyCapacityLimit = 3;
     const planningManualCells = {};
     const planningAutoCellSnapshots = {};
     const planningAutoMonths = {};
@@ -26431,7 +26589,7 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function planningPrintNoteText() {
-      return "備註：\n使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。\n法規裕度為20%，月檢間隔上限為36天及15,000km、季檢為108天及30,000km，半年檢為216天及60,000km，年檢則為438天及120,000km(未滿1天以1天計)。";
+      return `備註：\n各次車輛預檢須距離上次施作日期${planningInspectionBaseDays}天，允許裕度為±${Math.round(planningInspectionToleranceRate * 100)}%，可排區間為${planningInspectionMinDays}-${planningInspectionMaxDays}天。\n使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。\n法規裕度為20%，月檢間隔上限為36天及15,000km、季檢為108天及30,000km，半年檢為216天及60,000km，年檢則為438天及120,000km(未滿1天以1天計)。`;
     }
 
     function planningPrintTitleText(mode = "planned") {
@@ -26903,6 +27061,10 @@ react-dom/cjs/react-dom-client.production.js:
       return planningHolidayOverrides[planningMonthKey()]?.[day] ? "人工不排日" : "";
     }
 
+    function planningHasManualHolidayOverride(key = planningMonthKey()) {
+      return Object.keys(planningHolidayOverrides[key] || {}).length > 0;
+    }
+
     function planningIsHoliday(day) {
       if (planningOfficialWorkdayName(day)) return false;
       return planningIsWeekend(day) || Boolean(planningOfficialHolidayName(day)) || Boolean(planningManualHolidayName(day));
@@ -26976,6 +27138,48 @@ react-dom/cjs/react-dom-client.production.js:
         guard += 1;
       }
       return days;
+    }
+
+    function planningKeyFromIso(isoDate) {
+      return String(isoDate || "").slice(0, 7);
+    }
+
+    function planningDayFromIso(isoDate) {
+      return String(isoDate || "").slice(-2);
+    }
+
+    function planningIsWorkIsoAnyMonth(isoDate) {
+      const match = String(isoDate || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return false;
+      if (planningOfficialWorkdayLabels[isoDate]) return true;
+      const day = match[3];
+      const weekday = new Date(Number(match[1]), Number(match[2]) - 1, Number(day)).getDay();
+      if (weekday === 0 || weekday === 6) return false;
+      if (planningOfficialHolidayLabels[isoDate]) return false;
+      return !planningHolidayOverrides[planningKeyFromIso(isoDate)]?.[day];
+    }
+
+    function planningIsoDatesInRange(startIso, endIso, guardLimit = 70) {
+      const dates = [];
+      let current = startIso;
+      let guard = 0;
+      while (current && current <= endIso && guard < guardLimit) {
+        dates.push(current);
+        current = planningAddDays(current, 1);
+        guard += 1;
+      }
+      return dates;
+    }
+
+    function planningCalendarWorkIsoSequenceFrom(startIso, count) {
+      const result = [];
+      let current = startIso;
+      for (let index = 0; index < count; index += 1) {
+        if (!planningIsWorkIsoAnyMonth(current)) return [];
+        result.push(current);
+        current = planningAddDays(current, 1);
+      }
+      return result;
     }
 
     function planningCandidateDaysAround(dueIso, toleranceDays) {
@@ -27134,8 +27338,13 @@ react-dom/cjs/react-dom-client.production.js:
       return (ctx.vehicleLoads[day] || []).some((item) => item.value === "鏇");
     }
 
+    function planningDailyLoadCount(ctx, day) {
+      return (ctx.vehicleLoads[day] || []).length + (ctx.equipmentLoads[day] || []).length;
+    }
+
     function planningAutoCanPlaceVehicle(ctx, day, meta) {
       if (planningIsHoliday(day)) return false;
+      if (planningDailyLoadCount(ctx, day) >= planningDailyCapacityLimit) return false;
       if (meta.value === "鏇" && planningHasRotationOnDay(ctx, day)) return false;
       const loads = ctx.vehicleLoads[day] || [];
       if (loads.length === 0) return true;
@@ -27145,6 +27354,7 @@ react-dom/cjs/react-dom-client.production.js:
 
     function planningAutoCanPlaceEquipment(ctx, day, row, allowTwo = false) {
       if (planningIsHoliday(day)) return false;
+      if (planningDailyLoadCount(ctx, day) >= planningDailyCapacityLimit) return false;
       const loads = ctx.equipmentLoads[day] || [];
       if (loads.length >= (allowTwo ? 2 : 1)) return false;
       if (/車床/.test(row.asset) && (ctx.vehicleLoads[day] || []).some((item) => item.value === "鏇")) return false;
@@ -27169,8 +27379,8 @@ react-dom/cjs/react-dom-client.production.js:
       }
     }
 
-    function planningAutoVehicleCandidates(ctx, rowIndex, type, duration, dueIso, fallback = false) {
-      const days = fallback ? planningWorkdaysInRange(planningMonthStartIso(), planningMonthEndIso()) : planningCandidateDaysAround(dueIso, 6);
+    function planningAutoVehicleCandidates(ctx, rowIndex, type, duration, dueIso, fallback = false, toleranceDays = planningInspectionToleranceDays) {
+      const days = fallback ? planningWorkdaysInRange(planningMonthStartIso(), planningMonthEndIso()) : planningCandidateDaysAround(dueIso, toleranceDays);
       return days.sort((a, b) => {
         const loadA = (ctx.vehicleLoads[a] || []).length * 4 + (ctx.equipmentLoads[a] || []).length;
         const loadB = (ctx.vehicleLoads[b] || []).length * 4 + (ctx.equipmentLoads[b] || []).length;
@@ -27261,25 +27471,74 @@ react-dom/cjs/react-dom-client.production.js:
       return planningRotationDatesBefore(ctx, rowIndex, row, maintenanceIso).some((date) => date >= start && date <= end);
     }
 
-    function planningAutoPlaceRotation(ctx, rowIndex, maintenanceDay, startIso, endIso) {
+    function planningCellValueForMonthKey(row, rowIndex, key, day) {
+      const holidayCells = planningManualHolidayCells[key]?.[rowIndex] || {};
+      if (Object.prototype.hasOwnProperty.call(holidayCells, day)) return holidayCells[day] || "";
+      const manualCells = planningManualCells[key]?.[rowIndex] || {};
+      if (Object.prototype.hasOwnProperty.call(manualCells, day)) return manualCells[day] || "";
+      const historical = planningHistoricalPlanFor(row, rowIndex, key);
+      return historical?.cells?.[day] || "";
+    }
+
+    function planningMonthDailyLoadCount(key, day) {
+      return planningRows.reduce((count, row, rowIndex) => {
+        return count + (planningCellValueForMonthKey(row, rowIndex, key, day) ? 1 : 0);
+      }, 0);
+    }
+
+    function planningMonthHasRotationOnDay(key, day) {
+      return planningRows.some((row, rowIndex) => planningCellValueForMonthKey(row, rowIndex, key, day) === "鏇");
+    }
+
+    function planningCanPlaceRotationIso(ctx, rowIndex, row, isoDate, stage) {
+      if (!planningIsWorkIsoAnyMonth(isoDate)) return false;
+      const key = planningKeyFromIso(isoDate);
+      const day = planningDayFromIso(isoDate);
+      const currentKey = planningMonthKey();
+      const meta = { kind: "車輛", value: "鏇", stage, rowIndex };
+      if (key === currentKey) {
+        return !ctx.cells[rowIndex]?.[day] && planningAutoCanPlaceVehicle(ctx, day, meta);
+      }
+      if (planningCellValueForMonthKey(row, rowIndex, key, day)) return false;
+      if (planningMonthDailyLoadCount(key, day) >= planningDailyCapacityLimit) return false;
+      return !planningMonthHasRotationOnDay(key, day);
+    }
+
+    function planningAssignRotationIso(ctx, rowIndex, isoDate, stage) {
+      const key = planningKeyFromIso(isoDate);
+      const day = planningDayFromIso(isoDate);
+      const currentKey = planningMonthKey();
+      const meta = { kind: "車輛", value: "鏇", stage, rowIndex, prepFor: currentKey };
+      if (key === currentKey) {
+        planningAutoAssign(ctx, rowIndex, day, "鏇", meta);
+        return;
+      }
+      planningManualCells[key] = planningManualCells[key] || {};
+      planningManualCells[key][rowIndex] = planningManualCells[key][rowIndex] || {};
+      planningManualCells[key][rowIndex][day] = "鏇";
+      if (planningMonthNumberForIso(isoDate) > planningMonthNumber(planningImportedYear, planningImportedMonth)) {
+        planningAutoMonths[key] = true;
+        planningMarkAutoCellSnapshot(key);
+      }
+    }
+
+    function planningAutoPlaceRotation(ctx, rowIndex, row, maintenanceDay, startIso, endIso) {
       const maintenanceIso = planningIsoDate(maintenanceDay);
-      const start = [startIso || planningAddDays(maintenanceIso, -14), planningMonthStartIso()].sort().pop();
-      const end = [endIso || planningAddDays(maintenanceIso, -1), planningMonthEndIso()].sort()[0];
+      const start = startIso || planningAddDays(maintenanceIso, -14);
+      const end = endIso || planningAddDays(maintenanceIso, -1);
       const candidates = start && end && start <= end
-        ? planningWorkdaysInRange(start, end).sort((a, b) => Math.abs(planningDaysBetween(planningIsoDate(a), planningAddDays(maintenanceIso, -10))) - Math.abs(planningDaysBetween(planningIsoDate(b), planningAddDays(maintenanceIso, -10))) || Number(a) - Number(b))
+        ? planningIsoDatesInRange(start, end).sort((a, b) => b.localeCompare(a))
         : [];
-      const selected = candidates.find((day) => {
-        const sequence = planningCalendarWorkdaySequenceFrom(day, 2);
+      const selected = candidates.find((isoDate) => {
+        const sequence = planningCalendarWorkIsoSequenceFrom(isoDate, 2);
         if (sequence.length < 2) return false;
-        return sequence.every((item, index) => {
-          const meta = { kind: "車輛", value: "鏇", stage: index + 1, rowIndex };
-          return !ctx.cells[rowIndex]?.[item] && planningAutoCanPlaceVehicle(ctx, item, meta);
-        });
+        if (sequence.some((item) => item >= maintenanceIso)) return false;
+        return sequence.every((item, index) => planningCanPlaceRotationIso(ctx, rowIndex, row, item, index + 1));
       });
       if (!selected) return false;
-      const sequence = planningCalendarWorkdaySequenceFrom(selected, 2);
-      sequence.forEach((day, index) => {
-        planningAutoAssign(ctx, rowIndex, day, "鏇", { kind: "車輛", value: "鏇", stage: index + 1, rowIndex });
+      const sequence = planningCalendarWorkIsoSequenceFrom(selected, 2);
+      sequence.forEach((isoDate, index) => {
+        planningAssignRotationIso(ctx, rowIndex, isoDate, index + 1);
       });
       ctx.stats.rotation += sequence.length;
       return true;
@@ -27287,37 +27546,16 @@ react-dom/cjs/react-dom-client.production.js:
 
     function planningAutoPlaceRotationCycle(ctx, rowIndex, row) {
       if (!planningVehicleCanHaveRotation(row)) return true;
-      const previousRotation = planningBaseRotationInfo(row, rowIndex).date;
-      if (!previousRotation) return true;
-      const dueIso = planningAddDays(previousRotation, planningCycleDays["3M"]);
-      const tolerance = Math.round(planningCycleDays["3M"] * 0.2);
-      const windowStart = planningAddDays(dueIso, -tolerance);
-      const windowEnd = planningAddDays(dueIso, tolerance);
-      if (windowEnd < planningMonthStartIso() || windowStart > planningMonthEndIso()) return true;
-      const start = [windowStart, planningMonthStartIso()].sort().pop();
-      const end = [windowEnd, planningMonthEndIso()].sort()[0];
-      const candidates = planningWorkdaysInRange(start, end).sort((a, b) => {
-        const diffA = Math.abs(planningDaysBetween(planningIsoDate(a), dueIso));
-        const diffB = Math.abs(planningDaysBetween(planningIsoDate(b), dueIso));
-        const loadA = (ctx.vehicleLoads[a] || []).length * 4 + (ctx.equipmentLoads[a] || []).length;
-        const loadB = (ctx.vehicleLoads[b] || []).length * 4 + (ctx.equipmentLoads[b] || []).length;
-        return diffA - diffB || loadA - loadB || Number(a) - Number(b);
-      });
-      for (const day of candidates) {
-        const sequence = planningCalendarWorkdaySequenceFrom(day, 2);
-        if (sequence.length < 2) continue;
-        const canPlace = sequence.every((item, index) => {
-          const meta = { kind: "車輛", value: "鏇", stage: index + 1, rowIndex };
-          return !ctx.cells[rowIndex]?.[item] && planningAutoCanPlaceVehicle(ctx, item, meta);
-        });
-        if (!canPlace) continue;
-        sequence.forEach((item, index) => {
-          planningAutoAssign(ctx, rowIndex, item, "鏇", { kind: "車輛", value: "鏇", stage: index + 1, rowIndex });
-        });
-        ctx.stats.rotation += sequence.length;
-        return true;
-      }
-      return planningForceAssign(ctx, rowIndex, row, "鏇", dueIso, 2, "車輛", `${row.asset} 鏇削依 3M 週期已到期，但找不到不跨假日的連續工作日，仍排入最接近日期並以紅色標示需複核`);
+      const type = planningAutoVehicleType(row);
+      const maintenanceDay = Object.entries(ctx.cells[rowIndex] || {})
+        .filter(([, value]) => value === type)
+        .map(([day]) => day)
+        .sort((a, b) => Number(a) - Number(b))[0];
+      if (!maintenanceDay) return true;
+      if (planningHasRotationBeforeMaintenance(ctx, rowIndex, row, maintenanceDay)) return true;
+      if (planningAutoPlaceRotation(ctx, rowIndex, row, maintenanceDay)) return true;
+      const dueIso = planningAddDays(planningIsoDate(maintenanceDay), -2);
+      return planningForceAssign(ctx, rowIndex, row, "鏇", dueIso, 2, "車輛", `${row.asset} 鏇削需在 ${type} 前完成，但找不到可排的連續工作日，仍排入最接近日期並以紅色標示需複核`);
     }
 
     function planningAutoPlaceVehicle(ctx, rowIndex, row) {
@@ -27328,9 +27566,9 @@ react-dom/cjs/react-dom-client.production.js:
       if (!previousDate) {
         return planningForceAssign(ctx, rowIndex, row, type, planningMonthStartIso(), duration, "車輛", `${row.asset} ${type} 缺前次完工日，仍排入本月並以紅色標示需複核`);
       }
-      const dueIso = planningAddDays(previousDate, 30);
+      const dueIso = planningAddDays(previousDate, planningInspectionBaseDays);
       for (const fallback of [false, true]) {
-        const candidates = planningAutoVehicleCandidates(ctx, rowIndex, type, duration, dueIso, fallback);
+        const candidates = planningAutoVehicleCandidates(ctx, rowIndex, type, duration, dueIso, fallback, planningInspectionToleranceDays);
         for (const firstDay of candidates) {
           const sequence = planningWorkdaySequenceFrom(firstDay, duration);
           if (sequence.length < duration) continue;
@@ -27347,12 +27585,12 @@ react-dom/cjs/react-dom-client.production.js:
               duration,
               rowIndex,
               forced: fallback,
-              reason: fallback ? `${row.asset} ${type} 已排入最接近週期的工作日，但超出 24-36 天裕度，需複核` : ""
+              reason: fallback ? `${row.asset} ${type} 已排入最接近週期的工作日，但超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天裕度，需複核` : ""
             });
           });
           ctx.previousDates[rowIndex] = previousDate;
           ctx.stats.vehicle += duration;
-          if (fallback) ctx.warnings.push(`${row.asset} ${type} 已保留年度表定工項，但日期超出 24-36 天裕度，需主管確認`);
+          if (fallback) ctx.warnings.push(`${row.asset} ${type} 已保留年度表定工項，但日期超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天裕度，需主管確認`);
           return true;
         }
       }
@@ -27419,8 +27657,11 @@ react-dom/cjs/react-dom-client.production.js:
         .map((row, rowIndex) => ({ row, rowIndex, code: planningPlanCodeForAsset(row.asset) }))
         .filter((item) => planningShouldShowRow(item.row) && planningKind(item.row) === "車輛" && item.code)
         .sort((a, b) => (planningLevelPriority[b.code] || 0) - (planningLevelPriority[a.code] || 0) || a.row.asset.localeCompare(b.row.asset, "zh-Hant"));
-      vehicleWork.forEach(({ row, rowIndex }) => planningAutoPlaceVehicle(ctx, rowIndex, row));
-      vehicleWork.forEach(({ row, rowIndex }) => planningAutoPlaceRotationCycle(ctx, rowIndex, row));
+      const rotationVehicleWork = vehicleWork.filter(({ row }) => planningVehicleCanHaveRotation(row));
+      const monthlyVehicleWork = vehicleWork.filter(({ row }) => !planningVehicleCanHaveRotation(row));
+      rotationVehicleWork.forEach(({ row, rowIndex }) => planningAutoPlaceVehicle(ctx, rowIndex, row));
+      rotationVehicleWork.forEach(({ row, rowIndex }) => planningAutoPlaceRotationCycle(ctx, rowIndex, row));
+      monthlyVehicleWork.forEach(({ row, rowIndex }) => planningAutoPlaceVehicle(ctx, rowIndex, row));
 
       const retryEquipment = [];
       const equipmentWork = planningRows
@@ -27585,7 +27826,10 @@ react-dom/cjs/react-dom-client.production.js:
         if (value) cells[day] = value;
         else delete cells[day];
       });
-      const adjusted = planningHistoricalPlanFor(row, rowIndex, key) ? cells : movePlanningCellsOffHolidays(cells);
+      const isHistoricalPlan = Boolean(planningHistoricalPlanFor(row, rowIndex, key));
+      const adjusted = isHistoricalPlan && !planningHasManualHolidayOverride(key)
+        ? cells
+        : movePlanningCellsOffHolidays(cells);
       Object.entries(holidayEdits).forEach(([day, value]) => {
         if (value) adjusted[day] = value;
         else delete adjusted[day];
@@ -27760,7 +28004,7 @@ react-dom/cjs/react-dom-client.production.js:
             level: isRotation ? "鏇削" : value,
             isMajor,
             isSafety,
-            adjustable: isRotation ? "可調整，須早於高階檢修" : kind === "設備" ? "可在同月份內調整週次" : "可在 24-36 天內調整",
+            adjustable: isRotation ? "可調整，須早於高階檢修" : kind === "設備" ? "可在同月份內調整週次" : `可在 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天內調整`,
             availability: kind === "車輛" && !isRotation ? "是" : "否",
             note: isRotation
               ? `季檢、半年檢、年檢前 1 至 2 週完成；不可晚於檢修。施作日：${days.map((item) => `${planningMonth}/${Number(item)}`).join("、")}`
@@ -27841,7 +28085,7 @@ react-dom/cjs/react-dom-client.production.js:
         <div class="codex-pm-auto-scheduler">
           <div>
             <strong>年度表轉月排班／週排班</strong>
-            <span>先讀年度預定表建立當月工項；車輛依前次完工日與可用率排程，機廠設備的級別看本月格、固定週期看全年最短週期，可後排設備會在不超期前提下往後排；鏇削限 3M / 6M / 1Y 當月，且同一天只能一台。</span>
+            <span>先讀年度預定表建立當月工項；各次車輛預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，可排區間為 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天。車輛會先排 3M / 6M / 1Y，再排該級檢修前置鏇削，最後才排 1M，避免月檢先占掉鏇削前置日。機廠設備的級別看本月格、固定週期看全年最短週期，可後排設備會在不超期前提下往後排。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆。鏇削由 3M / 6M / 1Y 觸發，需排在該級檢修前，月初檢修可提前到前月月底，且同一天只能一台。臨時假日會重排當月與後續月份，排不進上限會紅色標示需複核。</span>
           </div>
           <button type="button" class="codex-pm-soft-button primary" data-planning-auto ${planningCan("edit") ? "" : "disabled"}>
             自動排未來 1 年
@@ -27931,11 +28175,164 @@ react-dom/cjs/react-dom-client.production.js:
       `;
     }
 
+    function planningSimpleVehicleLabel(asset) {
+      return String(asset || "")
+        .replace(/ 車$/u, "")
+        .replace(/車$/u, "")
+        .replace(/（/g, "(")
+        .replace(/）/g, ")");
+    }
+
+    function planningSimpleDisplayCode(code, kind) {
+      if (!code) return "";
+      if (kind === "vehicle" && code === "1Y") return "5Y/1Y";
+      return code;
+    }
+
+    function renderPlanningSimpleCell(code, kind) {
+      const displayCode = planningSimpleDisplayCode(code, kind);
+      return displayCode ? `<span class="codex-pm-simple-code">${escapeHtml(displayCode)}</span>` : "";
+    }
+
+    function renderPlanningSimpleAnnualTable(title, firstColumnLabel, planMap, kind) {
+      const rows = Object.entries(planMap || {});
+      return `
+        <section class="codex-pm-auto-section codex-pm-simple-schedule">
+          <div class="codex-pm-simple-schedule-head">
+            <h4>${escapeHtml(title)}</h4>
+            <span>${rows.length} 筆 / 1-12 月</span>
+          </div>
+          <div class="codex-pm-simple-table-wrap">
+            <table class="codex-pm-simple-table ${kind === "vehicle" ? "is-vehicle" : "is-equipment"}">
+              <thead>
+                <tr>
+                  <th>${escapeHtml(firstColumnLabel)}</th>
+                  ${planningSimpleMonthLabels.map((label) => `<th>${escapeHtml(label)}</th>`).join("")}
+                </tr>
+              </thead>
+              <tbody>
+                ${rows.map(([asset, plan]) => `
+                  <tr>
+                    <td>${escapeHtml(kind === "vehicle" ? planningSimpleVehicleLabel(asset) : asset)}</td>
+                    ${planningSimpleMonthLabels.map((_, index) => `<td>${renderPlanningSimpleCell(plan?.[index + 1] || "", kind)}</td>`).join("")}
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderPlanningSimpleSchedule() {
+      return `
+        <div class="codex-pm-simple-schedule">
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>簡易排程總覽</h3>
+                <p>只看年度週期，不顯示日期、容量與假日調整；車輛與機廠設備分開，方便對照原本 Excel 控管表。</p>
+              </div>
+              <span class="codex-pm-level-pill">年度表</span>
+            </div>
+          </section>
+          ${renderPlanningSimpleAnnualTable("車輛預防檢修計畫表", "車號", planningVehicleAnnualPlan, "vehicle")}
+          ${renderPlanningSimpleAnnualTable("機廠設備預防檢修計畫表", "設備名稱", planningEquipmentAnnualPlan, "equipment")}
+        </div>
+      `;
+    }
+
+    function renderPlanningLogicDesign() {
+      return `
+        <div class="codex-pm-logic-layout">
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>自動排班邏輯</h3>
+                <p>年度表決定本月要做什麼，最新完工日決定排在哪一天；各次車輛預檢以距離上次施作 30 天為基準，允許 ±20% 裕度；車輛先排高階檢修與前置鏇削，再排月檢，容量、假日、設備週期負責限制；排不進去就紅色提醒需複核。</p>
+              </div>
+              <span class="codex-pm-level-pill">規則版</span>
+            </div>
+            <div class="codex-pm-logic-summary">
+              各次車輛預檢須距離上次施作日期 <code>${planningInspectionBaseDays}</code> 天，允許裕度 <code>±${Math.round(planningInspectionToleranceRate * 100)}%</code>，可排區間為 <code>${planningInspectionMinDays}-${planningInspectionMaxDays}</code> 天；車輛排程順序為 <code>3M / 6M / 1Y</code> 高階檢修優先、前置鏇削第二、<code>1M</code> 月檢最後。
+            </div>
+          </section>
+
+          <div class="codex-pm-logic-grid">
+            <section class="codex-pm-logic-card">
+              <h4>1. 資料來源</h4>
+              <ol>
+                <li>系統先讀取年度預排表，判斷每個月有哪些車輛或機廠設備要做 <code>1M / 3M / 6M / 1Y</code>。</li>
+                <li>每筆工項再抓最新實際完工日或前月完工日作為排程基準。</li>
+                <li>車輛每次預檢以最新施作日往後 <code>${planningInspectionBaseDays}</code> 天為基準，允許 <code>±${Math.round(planningInspectionToleranceRate * 100)}%</code> 裕度。</li>
+                <li>機廠設備另外判斷固定檢修週期：有 <code>1M</code> 用 <code>1M</code>，沒有就依序抓 <code>3M / 6M / 1Y</code>。</li>
+              </ol>
+            </section>
+
+            <section class="codex-pm-logic-card">
+              <h4>2. 車輛排程規則</h4>
+              <ol>
+                <li>車輛依檢修級別、前次完工日、可用工作日排程。</li>
+                <li>合法排程區間為上次施作後 <code>${planningInspectionMinDays}</code> 到 <code>${planningInspectionMaxDays}</code> 天；超出仍保留工項，但紅色標示需複核。</li>
+                <li>車輛檢修級別仍照年度表顯示。</li>
+                <li>排程順序先排 <code>3M / 6M / 1Y</code>，接著安排該級檢修前置鏇削，最後才排 <code>1M</code> 月檢。</li>
+                <li>一日如安排兩台車施作，僅限月檢加鏇削、月檢加月檢、季檢第二天加鏇削、季檢第二天加月檢。</li>
+              </ol>
+            </section>
+
+            <section class="codex-pm-logic-card">
+              <h4>3. 鏇削規則</h4>
+              <ol>
+                <li>鏇削不再用上一筆鏇削加 <code>3M</code> 自己排。</li>
+                <li>鏇削只由車輛 <code>3M / 6M / 1Y</code> 觸發。</li>
+                <li>系統會先排出車輛 <code>3M / 6M / 1Y</code> 的檢修日期，再往前找 2 天可用工作日安排鏇削。</li>
+                <li>鏇削前置日優先保留給高階檢修，不會被後續月檢先占用。</li>
+                <li>如果高階檢修排在月初，鏇削可以自動提前到前一個月月底。</li>
+                <li>鏇削仍維持一天只能一台。</li>
+              </ol>
+            </section>
+
+            <section class="codex-pm-logic-card">
+              <h4>4. 機廠設備排程規則</h4>
+              <ol>
+                <li>機廠設備依固定週期推算到期日。</li>
+                <li>當月顯示的檢修級別仍照年度表。</li>
+                <li>可後排設備，例如拉線車兼高空維修作業車，會優先往當月後面排。</li>
+                <li>可後排設備仍不能超過允許上限。</li>
+              </ol>
+            </section>
+
+            <section class="codex-pm-logic-card">
+              <h4>5. 容量、假日與異常</h4>
+              <ol>
+                <li>每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 <code>${planningDailyCapacityLimit}</code> 筆。</li>
+                <li>週末、國定假日、人工標記假日都不會自動排。</li>
+                <li>新增颱風假或臨時假日後，系統會從當月開始重排，後續月份也一起檢查。</li>
+                <li>若往後排時遇到容量滿，就繼續找下一個工作日。</li>
+                <li>若怎麼排都會超過檢修上限，仍排入最接近日期，但用紅色標示需複核。</li>
+              </ol>
+            </section>
+
+            <section class="codex-pm-logic-card">
+              <h4>6. 完工回填</h4>
+              <ol>
+                <li>排程只是預排。</li>
+                <li>實際同仁做完後，再回填完工日與檢查結果。</li>
+                <li>後續月份會用最新完工日重新推算，不會一直吃舊日期。</li>
+              </ol>
+            </section>
+          </div>
+        </div>
+      `;
+    }
+
     function renderPlanningView() {
       if (planningIsMonthLocked()) planningHolidayEditMode = false;
       planningEnsureCoveredMonthGenerated();
       const permission = planningPermission();
       const isCapabilitySection = planningSection === "capabilities";
+      const isSimpleSection = planningSection === "simple";
+      const isLogicSection = planningSection === "logic";
       const totalPlans = Object.values(planningDailyCounts()).reduce((sum, value) => sum + value, 0);
       const visibleRows = planningVisibleRowEntries();
       const vehicleRows = visibleRows.filter(({ row }) => planningKind(row) === "車輛").length;
@@ -27946,7 +28343,7 @@ react-dom/cjs/react-dom-client.production.js:
           <section class="codex-pm-auto-section">
             <div class="codex-pm-print-head">
               <div>
-                <h3>${isCapabilitySection ? "檢修級別主檔" : `排程規劃｜${planningYear} 年 ${planningMonth} 月`}</h3>
+                <h3>${isCapabilitySection ? "檢修級別主檔" : isLogicSection ? "排班邏輯" : isSimpleSection ? `簡易排程｜${planningYear} 年年度表` : `排程規劃｜${planningYear} 年 ${planningMonth} 月`}</h3>
               </div>
               <span class="codex-pm-level-pill">${planningLockStatusLabel()}</span>
             </div>
@@ -27964,26 +28361,30 @@ react-dom/cjs/react-dom-client.production.js:
                 <select data-planning-month>${renderPlanningMonthOptions()}</select>
               </div>
               <button type="button" class="codex-pm-soft-button ${planningHolidayEditMode ? "is-active" : ""}" data-planning-holiday-mode ${planningCan("edit") ? "" : "disabled"}>${planningHolidayEditMode ? "完成假日" : "假日設定"}</button>
+              <button type="button" class="codex-pm-soft-button ${isSimpleSection ? "is-active" : ""}" data-planning-section="simple">簡易排程</button>
+              <button type="button" class="codex-pm-soft-button ${isLogicSection ? "is-active" : ""}" data-planning-section="logic">排班邏輯</button>
               <button type="button" class="codex-pm-soft-button" data-planning-import ${planningCan("importExcel") ? "" : "disabled"}>匯入 Excel</button>
               <button type="button" class="codex-pm-soft-button primary" data-planning-publish ${planningCan("publish") ? "" : "disabled"}>發布排程</button>
               <button type="button" class="codex-pm-soft-button" data-planning-lock ${planningCan("lock") ? "" : "disabled"}>${planningLockButtonLabel()}</button>
             </div>
-            ${isCapabilitySection ? "" : renderPlanningAutoPanel()}
+            ${isCapabilitySection || isSimpleSection || isLogicSection ? "" : renderPlanningAutoPanel()}
           </section>
           ${!permission.view ? `
             <div class="codex-pm-no-access">
               <strong>一般同仁不可進入排程規劃。</strong><br>
               正式系統會依登入帳號判斷角色；一般同仁只進入今日作業、列印與完工回填，不看整月排程編排頁。
             </div>
-          ` : isCapabilitySection ? renderMaintenanceCapabilityChecklist() : `
+          ` : isCapabilitySection ? renderMaintenanceCapabilityChecklist() : isLogicSection ? renderPlanningLogicDesign() : isSimpleSection ? renderPlanningSimpleSchedule() : `
             ${renderPlanningMatrix()}
             ${renderSchedulePrintCard()}
             <div class="codex-pm-note-box">
             Excel 對應：日期列自動遞增、星期列依日期換算、排程格帶入檢修別，最下方日計只統計 1M / 3M / 6M / 1Y。<br>
             假日設定：按「假日設定」後點日期欄，可標記國定假日；放假日整欄會以淡藍色顯示，系統自動排程會避開該日期。極端需求時仍可直接點假日格手動特排，系統會用「特排」標示，正式版應要求主管原因。<br>
             機廠設備：本月格的 1M / 3M / 6M / 1Y 代表本次檢修級別；固定週期則看全年最短週期，有 1M 用 1M，沒有 1M 但有 3M 用 3M，沒有 3M 但有 6M 用 6M，只有 1Y 就用 1Y。預排日期一律以最新實際完工日或前月完工日加固定週期往後推算；間隔檢核也以固定週期基準判斷。<br>
+            鏇削處理：排程順序會先排車輛 3M / 6M / 1Y，再排該級檢修前置鏇削，最後才排 1M；鏇削不是單獨週期，只由車輛 3M / 6M / 1Y 觸發，並排在該級檢修前；若高階檢修排在月初，鏇削可自動提前到前一個月月底。<br>
             已移轉單位的工項會保留最後歷史紀錄，但移轉月份之後不再顯示，也不再納入自動排班。<br>
-            排不出來處理：年度表定項目不能消失；若無法符合週期裕度、當日負載、可用車或工作日條件，系統仍排入最接近日期，並用紅色「需複核」標示。<br>
+            排不出來處理：年度表定項目不能消失；車輛各次預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，也就是 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天內優先排入。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆；若無法符合週期裕度、當日負載、可用車或工作日條件，系統仍排入最接近日期，並用紅色「需複核」標示。<br>
+            臨時假日處理：新增颱風假或臨時假日後，系統會保留工項級別、最新完工日、固定週期與允許上限，並從當月開始連同後續月份整段重排；假日不可自動排，往後找工作日時會檢查每日容量、鏇削一天一台、機廠設備週期上限與可後排限制。<br>
             備註：使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。法規裕度為 20%，月檢間隔上限為 36 天及 15,000 km、季檢為 108 天及 30,000 km，半年檢為 216 天及 60,000 km，年檢則為 438 天及 120,000 km（未滿 1 天以 1 天計）。<br>
             因此「與前次檢修間隔日數」必須顯示本次預排日與最新完工日的差距，排程人員才能直接判斷本次安排是否接近或超過檢修期限。
             </div>
@@ -28336,11 +28737,15 @@ react-dom/cjs/react-dom-client.production.js:
                 <div class="codex-pm-actions">
                   ${planningStandaloneMode ? `
                     <button type="button" class="codex-pm-button ${planningSection === "schedule" ? "primary" : ""}" data-planning-section="schedule">排程</button>
+                    <button type="button" class="codex-pm-button ${planningSection === "simple" ? "primary" : ""}" data-planning-section="simple">簡易排程</button>
+                    <button type="button" class="codex-pm-button ${planningSection === "logic" ? "primary" : ""}" data-planning-section="logic">排班邏輯</button>
                     <button type="button" class="codex-pm-button ${planningSection === "capabilities" ? "primary" : ""}" data-planning-section="capabilities">檢修級別</button>
                     <button type="button" class="codex-pm-button" data-front-page>回前台</button>
                   ` : `
                     <button type="button" class="codex-pm-button primary" data-calendar-view="calendar">月曆總覽</button>
                     <button type="button" class="codex-pm-button" data-planning-page>排程規劃</button>
+                    <button type="button" class="codex-pm-button" data-planning-page="simple">簡易排程</button>
+                    <button type="button" class="codex-pm-button" data-planning-page="logic">排班邏輯</button>
                     <button type="button" class="codex-pm-button" data-calendar-view="completion">實際完工</button>
                   `}
                 </div>
@@ -28365,13 +28770,19 @@ react-dom/cjs/react-dom-client.production.js:
 
       container.querySelectorAll("[data-planning-page]").forEach((button) => {
         button.addEventListener("click", () => {
-          window.location.href = "/precheck?mode=planning";
+          planningSection = button.getAttribute("data-planning-page") || "schedule";
+          activeView = "planning";
+          renderCenter(container);
         });
       });
 
       container.querySelectorAll("[data-front-page]").forEach((button) => {
         button.addEventListener("click", () => {
-          window.location.href = "/precheck";
+          planningStandaloneMode = false;
+          syncPlanningStandaloneMode();
+          activeView = "calendar";
+          planningSection = "schedule";
+          renderCenter(container);
         });
       });
 
@@ -28379,7 +28790,9 @@ react-dom/cjs/react-dom-client.production.js:
         button.addEventListener("click", () => {
           const nextView = button.getAttribute("data-calendar-view") || activeView;
           if (nextView === "planning" && !planningStandaloneMode) {
-            window.location.href = "/precheck?mode=planning";
+            planningSection = "schedule";
+            activeView = "planning";
+            renderCenter(container);
             return;
           }
           activeView = nextView;
@@ -28472,7 +28885,7 @@ react-dom/cjs/react-dom-client.production.js:
           const day = button.getAttribute("data-planning-holiday-day") || "";
           if (!day) return;
           togglePlanningHoliday(day);
-          planningRebuildLinkedYearFromCurrent();
+          planningRebuildLinkedYearFromCurrent({ includeCurrent: true });
           activeView = "planning";
           renderCenter(container);
         });
