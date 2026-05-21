@@ -23583,6 +23583,10 @@ react-dom/cjs/react-dom-client.production.js:
     margin-bottom: 0.45rem;
   }
 
+  html[data-codex-planning-standalone="true"] main.flex-1.p-6 > div.no-print.mb-6:first-of-type {
+    display: none !important;
+  }
+
   .codex-pm-calendar-first .codex-pm-panel {
     padding: 0.7rem !important;
   }
@@ -24593,14 +24597,16 @@ react-dom/cjs/react-dom-client.production.js:
 
   .codex-pm-calendar-first .codex-pm-planning-matrix {
     width: 100%;
-    min-width: 2040px;
+    min-width: 2130px;
     border-collapse: separate;
     border-spacing: 0;
     font-size: 0.7rem;
+    table-layout: fixed;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix th,
   .codex-pm-calendar-first .codex-pm-planning-matrix td {
+    box-sizing: border-box;
     border-right: 1px solid rgba(148, 163, 184, 0.14);
     border-bottom: 1px solid rgba(148, 163, 184, 0.14);
     padding: 0.24rem 0.28rem;
@@ -24688,7 +24694,9 @@ react-dom/cjs/react-dom-client.production.js:
     position: sticky;
     left: 0;
     z-index: 4;
+    width: 136px;
     min-width: 136px;
+    max-width: 136px;
     background: #020617;
   }
 
@@ -24697,7 +24705,9 @@ react-dom/cjs/react-dom-client.production.js:
     position: sticky;
     left: 136px;
     z-index: 4;
+    width: 104px;
     min-width: 104px;
+    max-width: 104px;
     background: #020617;
   }
 
@@ -24706,7 +24716,9 @@ react-dom/cjs/react-dom-client.production.js:
     position: sticky;
     left: 240px;
     z-index: 4;
+    width: 70px;
     min-width: 70px;
+    max-width: 70px;
     background: #020617;
   }
 
@@ -24715,16 +24727,31 @@ react-dom/cjs/react-dom-client.production.js:
     position: sticky;
     left: 310px;
     z-index: 4;
-    min-width: 78px;
+    width: 92px;
+    min-width: 92px;
+    max-width: 92px;
     background: #020617;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(5),
   .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(5) {
     position: sticky;
-    left: 388px;
+    left: 402px;
     z-index: 4;
-    min-width: 94px;
+    width: 92px;
+    min-width: 92px;
+    max-width: 92px;
+    background: #020617;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(6),
+  .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(6) {
+    position: sticky;
+    left: 494px;
+    z-index: 4;
+    width: 118px;
+    min-width: 118px;
+    max-width: 118px;
     background: #020617;
     box-shadow: 1px 0 0 rgba(148, 163, 184, 0.16);
   }
@@ -24733,13 +24760,15 @@ react-dom/cjs/react-dom-client.production.js:
   .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(2),
   .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(3),
   .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(4),
-  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(5) {
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(5),
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(6) {
     z-index: 8;
     background: #0f172a;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(3),
-  .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(5) {
+  .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(5),
+  .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(6) {
     padding: 0.14rem 0.2rem;
     text-align: center;
   }
@@ -24749,14 +24778,53 @@ react-dom/cjs/react-dom-client.production.js:
     font-weight: 800;
   }
 
-  .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(5) {
+  .codex-pm-calendar-first .codex-pm-planning-matrix tbody td:nth-child(6) {
     font-size: 0.58rem;
   }
 
-  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(n+6),
-  .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(n+6) {
+  .codex-pm-calendar-first .codex-pm-planning-matrix th:nth-child(n+7),
+  .codex-pm-calendar-first .codex-pm-planning-matrix td:nth-child(n+7) {
     width: 3.05rem;
     min-width: 3.05rem;
+    max-width: 3.05rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-operation-matrix th:nth-child(5),
+  .codex-pm-calendar-first .codex-pm-operation-matrix td:nth-child(5) {
+    left: 402px;
+    width: 118px;
+    min-width: 118px;
+    max-width: 118px;
+    box-shadow: 1px 0 0 rgba(148, 163, 184, 0.16);
+  }
+
+  .codex-pm-calendar-first .codex-pm-operation-matrix th:nth-child(6),
+  .codex-pm-calendar-first .codex-pm-operation-matrix td:nth-child(6) {
+    left: auto;
+    min-width: 3.05rem;
+    box-shadow: none;
+  }
+
+  .codex-pm-calendar-first .codex-pm-operation-matrix td:nth-child(n+6) {
+    position: static;
+    left: auto;
+    z-index: auto;
+  }
+
+  .codex-pm-calendar-first .codex-pm-operation-matrix th:nth-child(n+6) {
+    left: auto;
+    box-shadow: none;
+  }
+
+  .codex-pm-calendar-first .codex-pm-operation-matrix th:nth-child(n+6),
+  .codex-pm-calendar-first .codex-pm-operation-matrix td:nth-child(n+6) {
+    width: 3.05rem;
+    min-width: 3.05rem;
+    max-width: 3.05rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-operation-matrix tbody td:nth-child(6) {
+    font-size: 0.7rem;
   }
 
   .codex-pm-calendar-first .codex-pm-planning-matrix tbody tr:hover td {
@@ -24792,6 +24860,37 @@ react-dom/cjs/react-dom-client.production.js:
   .codex-pm-calendar-first .codex-pm-plan-cell.is-forced.has-plan {
     background: rgba(127, 29, 29, 0.42);
     box-shadow: inset 0 0 0 1px rgba(248, 113, 113, 0.62);
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-completed.has-plan {
+    background: rgba(22, 163, 74, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.5);
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-delayed.has-plan {
+    background: rgba(251, 191, 36, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.5);
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-overdue.has-plan {
+    background: rgba(127, 29, 29, 0.42);
+    box-shadow: inset 0 0 0 1px rgba(248, 113, 113, 0.62);
+  }
+
+  .codex-pm-calendar-first .codex-pm-date-stack {
+    display: grid;
+    gap: 0.05rem;
+    line-height: 1.15;
+  }
+
+  .codex-pm-calendar-first .codex-pm-date-stack small {
+    color: #94a3b8;
+    font-size: 0.56rem;
+    font-weight: 800;
+  }
+
+  .codex-pm-calendar-first .codex-pm-date-stack.is-done small {
+    color: #86efac;
   }
 
   .codex-pm-calendar-first .codex-pm-interval {
@@ -24860,6 +24959,18 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   .codex-pm-calendar-first .codex-pm-plan-cell.is-forced button small {
+    color: #fecaca;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-completed button small {
+    color: #bbf7d0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-delayed button small {
+    color: #fde68a;
+  }
+
+  .codex-pm-calendar-first .codex-pm-plan-cell.is-overdue button small {
     color: #fecaca;
   }
 
@@ -24996,11 +25107,24 @@ react-dom/cjs/react-dom-client.production.js:
     })();
     const planningStandaloneMode = window.location.pathname.includes("precheck-planning")
       || new URLSearchParams(window.location.search).get("mode") === "planning";
+    if (planningStandaloneMode) {
+      document.documentElement.dataset.codexPlanningStandalone = "true";
+    } else {
+      delete document.documentElement.dataset.codexPlanningStandalone;
+    }
     let activeView = planningStandaloneMode ? "planning" : "calendar";
     let activeStaff = "all";
     let activeCompletionFilter = "pending";
     let planningRole = "planner";
-    let planningLocked = false;
+    const planningLockedMonthsStorageKey = "codexPmPlanningLockedMonths";
+    const planningLockedMonths = (() => {
+      try {
+        const savedLocks = JSON.parse(window.localStorage?.getItem(planningLockedMonthsStorageKey) || "{}") || {};
+        return savedLocks && typeof savedLocks === "object" && !Array.isArray(savedLocks) ? savedLocks : {};
+      } catch (error) {
+        return {};
+      }
+    })();
     let planningYear = 2026;
     let planningMonth = 5;
     let planningHolidayEditMode = false;
@@ -25141,6 +25265,18 @@ react-dom/cjs/react-dom-client.production.js:
 
     const planningImportedYear = 2026;
     const planningImportedMonth = 5;
+    const planningAutoCoverageStorageKey = "codexPmPlanningAutoCoverageEnd";
+    const planningInitialAutoCoverageEndNumber = planningImportedYear * 12 + (planningImportedMonth - 1) + 12;
+    let planningAutoCoverageEndNumber = (() => {
+      try {
+        const savedNumber = Number(window.localStorage?.getItem(planningAutoCoverageStorageKey));
+        return Number.isFinite(savedNumber) && savedNumber >= planningInitialAutoCoverageEndNumber
+          ? savedNumber
+          : planningInitialAutoCoverageEndNumber;
+      } catch (error) {
+        return planningInitialAutoCoverageEndNumber;
+      }
+    })();
     const planningCycleValues = ["", "1M", "3M", "6M", "1Y", "2Y", "鏇"];
     const planningWeekdays = ["日", "一", "二", "三", "四", "五", "六"];
     const planningCycleMonths = { "1M": 1, "3M": 3, "6M": 6, "1Y": 12, "2Y": 24 };
@@ -25154,12 +25290,17 @@ react-dom/cjs/react-dom-client.production.js:
       "2Y": { days: 876, km: "-" }
     };
     const planningManualCells = {};
+    const planningAutoCellSnapshots = {};
     const planningAutoMonths = {};
     const planningAutoPreviousDates = {};
     let planningAutoSummary = null;
     const planningHolidayOverrides = {};
     const planningManualHolidayCells = {};
-    const planningCompletionRecords = {};
+    const planningCompletionRecordsStorageKey = "codexPmPlanningCompletionRecords";
+    const planningCompletionRecords = planningLoadCompletionRecords();
+    const planningCapabilityStorageKey = "codexPmMaintenanceCapabilities";
+    const planningMaintenanceLevels = ["1M", "3M", "6M", "1Y", "2Y", "5Y"];
+    const planningCapabilityOverrides = planningLoadMaintenanceCapabilities();
     const planningForcedCells = {};
     const planningOfficialHolidayLabels = {
       "2026-01-01": "開國紀念日（元旦）",
@@ -25200,6 +25341,46 @@ react-dom/cjs/react-dom-client.production.js:
       "2026-12-27": "行憲紀念日連假"
     };
     const planningOfficialWorkdayLabels = {};
+
+    function planningLoadCompletionRecords() {
+      try {
+        const savedRecords = JSON.parse(window.localStorage?.getItem(planningCompletionRecordsStorageKey) || "{}") || {};
+        return savedRecords && typeof savedRecords === "object" && !Array.isArray(savedRecords) ? savedRecords : {};
+      } catch (error) {
+        return {};
+      }
+    }
+
+    function planningSaveCompletionRecords() {
+      try {
+        window.localStorage?.setItem(planningCompletionRecordsStorageKey, JSON.stringify(planningCompletionRecords));
+      } catch (error) {
+        // localStorage may be unavailable in some embedded previews; in-memory records still keep the current page correct.
+      }
+    }
+
+    function planningSyncCompletionRecordsFromStorage() {
+      const savedRecords = planningLoadCompletionRecords();
+      Object.keys(planningCompletionRecords).forEach((key) => delete planningCompletionRecords[key]);
+      Object.assign(planningCompletionRecords, savedRecords);
+    }
+
+    function planningLoadMaintenanceCapabilities() {
+      try {
+        const savedCapabilities = JSON.parse(window.localStorage?.getItem(planningCapabilityStorageKey) || "{}") || {};
+        return savedCapabilities && typeof savedCapabilities === "object" && !Array.isArray(savedCapabilities) ? savedCapabilities : {};
+      } catch (error) {
+        return {};
+      }
+    }
+
+    function planningSaveMaintenanceCapabilities() {
+      try {
+        window.localStorage?.setItem(planningCapabilityStorageKey, JSON.stringify(planningCapabilityOverrides));
+      } catch (error) {
+        // Keep the current page usable even when localStorage is unavailable.
+      }
+    }
     const planningRows = [
       { asset: "101", prev: "2026-04-07", type: "1M", cells: { "07": "1M" } },
       { asset: "102", prev: "2026-04-13", type: "1M", cells: { "13": "1M" } },
@@ -25597,6 +25778,52 @@ react-dom/cjs/react-dom-client.production.js:
       return completionRecordFor(item)?.doneDate || "";
     }
 
+    function planningScheduleItemForCell(row, rowIndex, day, value) {
+      const date = planningIsoDate(day);
+      const kind = planningKindForAsset(row.asset);
+      const assetType = kind === "頠?" ? "頠?" : "璈?閮剖?";
+      return {
+        id: planningScheduleId(rowIndex, day, value),
+        date,
+        asset: row.asset,
+        assetType,
+        rowIndex,
+        planValue: value,
+        isForced: Boolean(planningForcedReasonForCell(rowIndex, day)),
+        level: planningLevelLabel(value, row)
+      };
+    }
+
+    function planningCompletionRecordsForRow(row, rowIndex) {
+      const key = planningMonthKey();
+      return Object.values(planningCompletionRecords)
+        .filter((record) => planningRecordMatchesRow(record, row, rowIndex))
+        .filter((record) => String(record.scheduledDate || "").startsWith(key) || String(record.doneDate || "").startsWith(key))
+        .sort((a, b) => String(a.doneDate || a.scheduledDate || "").localeCompare(String(b.doneDate || b.scheduledDate || "")));
+    }
+
+    function planningActualDoneDateForRow(row, rowIndex) {
+      return planningCompletionRecordsForRow(row, rowIndex).slice(-1)[0]?.doneDate || "";
+    }
+
+    function planningCellCompletionInfo(item) {
+      const record = completionRecordFor(item);
+      if (record?.doneDate) {
+        if (record.doneDate > item.date) return { status: "delayed", label: "延後", record };
+        if (record.doneDate < item.date) return { status: "early", label: "提前", record };
+        return { status: "completed", label: "完成", record };
+      }
+      if (item.date < today) return { status: "overdue", label: "逾期", record: null };
+      return { status: "pending", label: "未完", record: null };
+    }
+
+    function planningCompletionClass(status) {
+      if (status === "completed" || status === "early") return "is-completed";
+      if (status === "delayed") return "is-delayed";
+      if (status === "overdue") return "is-overdue";
+      return "";
+    }
+
     function scheduleItemClassList(item) {
       return [
         item.id === selectedId ? "is-selected" : "",
@@ -25725,8 +25952,46 @@ react-dom/cjs/react-dom-client.production.js:
       delete planningAutoMonths[key];
       delete planningAutoPreviousDates[key];
       delete planningForcedCells[key];
+      delete planningAutoCellSnapshots[key];
       if (clearManual) delete planningManualCells[key];
       if (planningAutoSummary?.key === key) planningAutoSummary = null;
+    }
+
+    function planningAutoCellSnapshotForKey(key) {
+      return JSON.stringify({
+        cells: planningManualCells[key] || {},
+        holidayCells: planningManualHolidayCells[key] || {}
+      });
+    }
+
+    function planningMarkAutoCellSnapshot(key) {
+      planningAutoCellSnapshots[key] = planningAutoCellSnapshotForKey(key);
+    }
+
+    function planningMonthHasManualScheduleEdits(key) {
+      return Boolean(planningAutoCellSnapshots[key])
+        && planningAutoCellSnapshots[key] !== planningAutoCellSnapshotForKey(key);
+    }
+
+    function planningRegenerateCoveredMonthsThroughCurrent() {
+      const targetYear = planningYear;
+      const targetMonth = planningMonth;
+      const targetNumber = planningMonthNumber(targetYear, targetMonth);
+      const importedNumber = planningMonthNumber(planningImportedYear, planningImportedMonth);
+      if (targetNumber <= importedNumber || targetNumber > planningAutoCoverageEndNumber) return;
+
+      for (let number = importedNumber + 1; number <= targetNumber; number += 1) {
+        const next = planningMonthFromNumber(number);
+        const key = planningMonthKey(next.year, next.month);
+        planningYear = next.year;
+        planningMonth = next.month;
+        if (planningAutoMonths[key] && planningMonthHasManualScheduleEdits(key)) continue;
+        planningDeleteGeneratedMonth(key, true);
+        runPlanningAutoSchedule();
+      }
+
+      planningYear = targetYear;
+      planningMonth = targetMonth;
     }
 
     function planningClearGeneratedMonthsAfter(year = planningYear, month = planningMonth, spanMonths = 12) {
@@ -25734,6 +25999,7 @@ react-dom/cjs/react-dom-client.production.js:
       const end = current + spanMonths;
       const keys = new Set([
         ...Object.keys(planningManualCells),
+        ...Object.keys(planningAutoCellSnapshots),
         ...Object.keys(planningAutoMonths),
         ...Object.keys(planningAutoPreviousDates),
         ...Object.keys(planningForcedCells)
@@ -25753,17 +26019,14 @@ react-dom/cjs/react-dom-client.production.js:
       const importedNumber = planningMonthNumber(planningImportedYear, planningImportedMonth);
       const warnings = [];
 
+      const startNumber = includeCurrent && originNumber > importedNumber
+        ? originNumber
+        : Math.max(originNumber + 1, importedNumber + 1);
+      const endNumber = startNumber + 11;
       if (includeCurrent && originNumber > importedNumber) {
         planningDeleteGeneratedMonth(planningMonthKey(originYear, originMonth), true);
-        planningYear = originYear;
-        planningMonth = originMonth;
-        runPlanningAutoSchedule();
-        warnings.push(...(planningAutoSummary?.warnings || []));
       }
-
       planningClearGeneratedMonthsAfter(originYear, originMonth, 12);
-      const startNumber = Math.max(originNumber + 1, importedNumber + 1);
-      const endNumber = startNumber + 11;
       for (let number = startNumber; number <= endNumber; number += 1) {
         const next = planningMonthFromNumber(number);
         planningYear = next.year;
@@ -25774,6 +26037,7 @@ react-dom/cjs/react-dom-client.production.js:
 
       planningYear = originYear;
       planningMonth = originMonth;
+      planningSetAutoCoverageEnd(endNumber);
       const start = planningMonthFromNumber(startNumber);
       const end = planningMonthFromNumber(endNumber);
       planningAutoSummary = {
@@ -26065,15 +26329,60 @@ react-dom/cjs/react-dom-client.production.js:
       return `車輛課${planningYear - 1911}年${planningMonth}月電聯車維修排程預定表`;
     }
 
-    function renderSchedulePrintSheet() {
+    function planningCompletedPrintCellsForRow(row, rowIndex) {
+      const result = {};
+      const cells = planningCellsForRow(row, rowIndex);
+      Object.entries(cells).forEach(([day, value]) => {
+        if (!isMaintenanceToken(value)) return;
+        const item = planningScheduleItemForCell(row, rowIndex, day, value);
+        const info = planningCellCompletionInfo(item);
+        if (info.record?.doneDate) {
+          const doneDay = planningDayFromCurrentMonthIso(info.record.doneDate) || day;
+          result[doneDay] = `${value}完`;
+          if (doneDay !== day) result[day] = info.record.doneDate > item.date ? "延" : "早";
+        } else if (item.date < today) {
+          result[day] = "未";
+        }
+      });
+      return result;
+    }
+
+    function planningPrintCellsForRow(row, rowIndex, mode = "planned") {
+      return mode === "completed" ? planningCompletedPrintCellsForRow(row, rowIndex) : planningCellsForRow(row, rowIndex);
+    }
+
+    function planningPrintCounts(mode = "planned") {
+      if (mode !== "completed") return planningDailyCounts();
+      return planningDays().reduce((acc, day) => {
+        acc[day] = planningVisibleRowEntries().reduce((count, { row, rowIndex }) => {
+          const cells = planningCompletedPrintCellsForRow(row, rowIndex);
+          return count + (String(cells[day] || "").includes("完") ? 1 : 0);
+        }, 0);
+        return acc;
+      }, {});
+    }
+
+    function planningPrintDateForRow(row, rowIndex, mode = "planned") {
+      if (mode === "completed") return planningPrintMonthDay(planningActualDoneDateForRow(row, rowIndex));
+      const firstPlanDay = planningFirstPlanDay(row, rowIndex);
+      return firstPlanDay ? planningPrintMonthDay(planningIsoDate(firstPlanDay)) : "";
+    }
+
+    function planningPrintIntervalForRow(row, rowIndex, mode = "planned") {
+      if (mode === "completed" && !planningActualDoneDateForRow(row, rowIndex)) return planningIntervalMeta(row, rowIndex);
+      return mode === "completed" ? planningEffectiveIntervalMeta(row, rowIndex) : planningIntervalMeta(row, rowIndex);
+    }
+
+    function renderSchedulePrintSheet(mode = "planned") {
       const days = planningDays();
-      const counts = planningDailyCounts();
+      const counts = planningPrintCounts(mode);
+      const isCompletedPrint = mode === "completed";
       return `
-        <div class="codex-pm-schedule-print-sheet" id="codex-schedule-print-sheet">
+        <div class="codex-pm-schedule-print-sheet" data-print-kind="${mode}">
           <table aria-label="A3直立排程列印表">
             <thead>
               <tr class="title-row">
-                <th colspan="${days.length + 6}">${escapeHtml(planningPrintTitleText())}</th>
+                <th colspan="${days.length + 6}">${escapeHtml(planningPrintTitleText())}${isCompletedPrint ? "（完成表）" : "（預排表）"}</th>
               </tr>
               <tr>
                 <th class="object-col" rowspan="2">${planningYear}年</th>
@@ -26081,7 +26390,7 @@ react-dom/cjs/react-dom-client.production.js:
                 <th class="type-col" rowspan="2">本月<br>檢修別</th>
                 ${days.map((day) => `<th class="day-col ${planningIsHoliday(day) ? "is-holiday" : ""}">${planningMonth}/${Number(day)}</th>`).join("")}
                 <th class="ad-col" rowspan="2">廣<br>告<br>車</th>
-                <th class="repair-date-col" rowspan="2">檢修日</th>
+                <th class="repair-date-col" rowspan="2">${isCompletedPrint ? "完工日" : "檢修日"}</th>
                 <th class="interval-col" rowspan="2">與前次檢修<br>間隔日數</th>
               </tr>
               <tr>
@@ -26090,21 +26399,20 @@ react-dom/cjs/react-dom-client.production.js:
             </thead>
             <tbody>
               ${planningVisibleRowEntries().map(({ row, rowIndex }) => {
-                const cells = planningCellsForRow(row, rowIndex);
-                const firstPlanDay = planningFirstPlanDay(row, rowIndex);
-                const interval = planningIntervalMeta(row, rowIndex);
-                const plannedDate = firstPlanDay ? planningPrintMonthDay(planningIsoDate(firstPlanDay)) : "";
+                const cells = planningPrintCellsForRow(row, rowIndex, mode);
+                const interval = planningPrintIntervalForRow(row, rowIndex, mode);
+                const displayDate = planningPrintDateForRow(row, rowIndex, mode);
                 return `
                   <tr>
                     <td class="object-col">${escapeHtml(row.asset)}</td>
-                    <td class="prev-col">${escapeHtml(planningPrintMonthDay(row.prev))}</td>
+                    <td class="prev-col">${escapeHtml(planningPrintMonthDay(planningPreviousDisplayDate(row, rowIndex) || row.prev))}</td>
                     <td class="type-col">${escapeHtml(planningTypeForRow(row) || "")}</td>
                     ${days.map((day) => {
                       const value = cells[day] || "";
                       return `<td class="day-col ${[planningIsHoliday(day) ? "is-holiday" : "", value ? "has-plan" : ""].filter(Boolean).join(" ")}">${escapeHtml(value)}</td>`;
                     }).join("")}
                     <td class="ad-col"></td>
-                    <td class="repair-date-col">${escapeHtml(plannedDate)}</td>
+                    <td class="repair-date-col">${escapeHtml(displayDate)}</td>
                     <td class="interval-col ${interval.status === "is-over" ? "is-overdue" : ""}">${Number.isFinite(Number(interval.daysText)) ? `${escapeHtml(interval.daysText)}天` : ""}</td>
                   </tr>
                 `;
@@ -26138,11 +26446,13 @@ react-dom/cjs/react-dom-client.production.js:
             <span class="codex-pm-level-pill">A3 直立</span>
           </div>
           <div class="codex-pm-action-row">
-            <button type="button" class="codex-pm-soft-button primary" data-schedule-print>列印整月排程表</button>
+            <button type="button" class="codex-pm-soft-button primary" data-schedule-print="planned">列印預排表</button>
+            <button type="button" class="codex-pm-soft-button" data-schedule-print="completed">列印完成表</button>
             <button type="button" class="codex-pm-soft-button" data-calendar-view="planning">回排程規劃</button>
           </div>
           <div class="codex-pm-schedule-print-wrap">
-            ${renderSchedulePrintSheet()}
+            ${renderSchedulePrintSheet("planned")}
+            <div hidden>${renderSchedulePrintSheet("completed")}</div>
           </div>
         </section>
       `;
@@ -26292,7 +26602,7 @@ react-dom/cjs/react-dom-client.production.js:
     function planningPermission() {
       const roles = {
         admin: { label: "系統管理員", view: true, importExcel: true, edit: true, publish: true, lock: true },
-        planner: { label: "排程管理員", view: true, importExcel: true, edit: true, publish: false, lock: false },
+        planner: { label: "排程管理員", view: true, importExcel: true, edit: true, publish: false, lock: true },
         supervisor: { label: "主管", view: true, importExcel: true, edit: true, publish: true, lock: true },
         leader: { label: "班長", view: true, importExcel: false, edit: false, publish: false, lock: false },
         staff: { label: "一般同仁", view: false, importExcel: false, edit: false, publish: false, lock: false }
@@ -26302,9 +26612,10 @@ react-dom/cjs/react-dom-client.production.js:
 
     function planningCan(action) {
       const permission = planningPermission();
-      if (action === "edit") return permission.edit && !planningLocked;
-      if (action === "publish") return permission.publish && !planningLocked;
-      if (action === "importExcel") return permission.importExcel && !planningLocked;
+      const isLocked = planningIsMonthLocked();
+      if (action === "edit") return permission.edit && !isLocked;
+      if (action === "publish") return permission.publish && !isLocked;
+      if (action === "importExcel") return permission.importExcel && !isLocked;
       if (action === "lock") return permission.lock;
       return Boolean(permission[action]);
     }
@@ -26351,6 +26662,59 @@ react-dom/cjs/react-dom-client.production.js:
 
     function planningMonthKey(year = planningYear, month = planningMonth) {
       return `${year}-${String(month).padStart(2, "0")}`;
+    }
+
+    function planningPersistAutoCoverageEnd() {
+      try {
+        window.localStorage?.setItem(planningAutoCoverageStorageKey, String(planningAutoCoverageEndNumber));
+      } catch (error) {
+        // Local storage can be unavailable in restricted browser modes; the in-memory coverage still works.
+      }
+    }
+
+    function planningSetAutoCoverageEnd(monthNumber) {
+      const nextNumber = Math.max(Number(monthNumber) || 0, planningInitialAutoCoverageEndNumber);
+      planningAutoCoverageEndNumber = nextNumber;
+      planningPersistAutoCoverageEnd();
+    }
+
+    function planningShouldShowAutoPanel() {
+      return planningMonthNumber() > planningAutoCoverageEndNumber;
+    }
+
+    function planningEnsureCoveredMonthGenerated() {
+      const currentNumber = planningMonthNumber();
+      if (currentNumber <= planningMonthNumber(planningImportedYear, planningImportedMonth)) return;
+      if (currentNumber > planningAutoCoverageEndNumber) return;
+      ensurePlanningAutoForCurrentMonth();
+    }
+
+    function planningPersistLockedMonths() {
+      try {
+        window.localStorage?.setItem(planningLockedMonthsStorageKey, JSON.stringify(planningLockedMonths));
+      } catch (error) {
+        // Local storage can be unavailable in restricted browser modes; the in-memory lock still works.
+      }
+    }
+
+    function planningIsMonthLocked(year = planningYear, month = planningMonth) {
+      return Boolean(planningLockedMonths[planningMonthKey(year, month)]);
+    }
+
+    function planningSetMonthLocked(locked, year = planningYear, month = planningMonth) {
+      const key = planningMonthKey(year, month);
+      if (locked) planningLockedMonths[key] = true;
+      else delete planningLockedMonths[key];
+      planningPersistLockedMonths();
+      if (locked) planningHolidayEditMode = false;
+    }
+
+    function planningLockStatusLabel() {
+      return planningIsMonthLocked() ? "已鎖定" : "草稿";
+    }
+
+    function planningLockButtonLabel() {
+      return planningIsMonthLocked() ? "解除鎖定" : "鎖定月份";
     }
 
     function planningDays() {
@@ -26934,6 +27298,7 @@ react-dom/cjs/react-dom-client.production.js:
       planningAutoMonths[key] = true;
       planningAutoPreviousDates[key] = ctx.previousDates;
       planningForcedCells[key] = ctx.forcedCells;
+      planningMarkAutoCellSnapshot(key);
       planningAutoSummary = {
         key,
         text: `${planningYear} 年 ${planningMonth} 月已依年度表自動排班：表定 ${expectedTasks.length} 項、列車 ${ctx.stats.vehicle} 格、鏇削 ${ctx.stats.rotation} 格、機設 ${ctx.stats.equipment} 格、紅色複核 ${ctx.stats.forced} 格`,
@@ -27101,8 +27466,15 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function planningFirstPlanDay(row, rowIndex) {
-      const historical = planningHistoricalPlanFor(row, rowIndex);
-      if (historical?.done?.startsWith(planningMonthKey())) return historical.done.slice(-2);
+      const key = planningMonthKey();
+      const historical = planningHistoricalPlanFor(row, rowIndex, key);
+      if (historical) {
+        const merged = planningHistoricalCellsWithEdits(historical, key, rowIndex);
+        if (!merged.hasEdits && historical.done?.startsWith(key)) return historical.done.slice(-2);
+        const days = planningDays();
+        const maintenanceDays = days.filter((day) => isMaintenanceToken(merged.cells?.[day]));
+        return maintenanceDays.slice(-1)[0] || days.find((day) => merged.cells?.[day]) || "";
+      }
       const cells = planningCellsForRow(row, rowIndex);
       const days = planningDays();
       return days.find((day) => isMaintenanceToken(cells[day])) || days.find((day) => cells[day]) || "";
@@ -27115,8 +27487,12 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function planningIntervalDays(row, rowIndex) {
-      const historical = planningHistoricalPlanFor(row, rowIndex);
-      if (historical && historical.interval !== undefined && historical.interval !== "" && historical.prev && historical.type !== "N/A") {
+      const key = planningMonthKey();
+      const historical = planningHistoricalPlanFor(row, rowIndex, key);
+      const hasHistoricalEdits = historical
+        ? planningHistoricalCellsWithEdits(historical, key, rowIndex).hasEdits
+        : false;
+      if (!hasHistoricalEdits && historical && historical.interval !== undefined && historical.interval !== "" && historical.prev && historical.type !== "N/A") {
         const historicalInterval = Number(historical.interval);
         if (Number.isFinite(historicalInterval) && historicalInterval > 0 && historicalInterval < 2000) return String(historical.interval);
       }
@@ -27127,6 +27503,18 @@ react-dom/cjs/react-dom-client.production.js:
       const planned = new Date(`${planningIsoDate(day)}T00:00:00`);
       if (Number.isNaN(previous.getTime()) || Number.isNaN(planned.getTime())) return "-";
       const diff = (planned - previous) / 86400000;
+      return String(diff > 0 ? Math.max(1, Math.ceil(diff)) : Math.round(diff));
+    }
+
+    function planningEffectiveIntervalDays(row, rowIndex) {
+      const actualDoneDate = planningActualDoneDateForRow(row, rowIndex);
+      if (!actualDoneDate) return planningIntervalDays(row, rowIndex);
+      const previousDate = planningPreviousDisplayDate(row, rowIndex);
+      if (!previousDate) return "-";
+      const previous = new Date(`${previousDate}T00:00:00`);
+      const actual = new Date(`${actualDoneDate}T00:00:00`);
+      if (Number.isNaN(previous.getTime()) || Number.isNaN(actual.getTime())) return "-";
+      const diff = (actual - previous) / 86400000;
       return String(diff > 0 ? Math.max(1, Math.ceil(diff)) : Math.round(diff));
     }
 
@@ -27145,8 +27533,22 @@ react-dom/cjs/react-dom-client.production.js:
       return { daysText, limit, status };
     }
 
+    function planningEffectiveIntervalMeta(row, rowIndex) {
+      const daysText = planningEffectiveIntervalDays(row, rowIndex);
+      const days = Number(daysText);
+      const limit = planningIntervalLimitForRow(row);
+      if (!Number.isFinite(days)) return { daysText, limit, status: "" };
+      if (!limit) return { daysText, limit, status: "" };
+      const status = days > limit.days ? "is-over" : "";
+      return { daysText, limit, status };
+    }
+
     function renderPlanningInterval(row, rowIndex) {
       const meta = planningIntervalMeta(row, rowIndex);
+      return renderPlanningIntervalMeta(meta);
+    }
+
+    function renderPlanningIntervalMeta(meta) {
       if (!meta.limit) return escapeHtml(meta.daysText);
       return `
         <span class="codex-pm-interval ${meta.status}" title="上限 ${meta.limit.days} 天 / ${meta.limit.km} km">
@@ -27280,7 +27682,7 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function renderPlanningAutoPanel() {
-      const isAfterImported = planningAutoTargetIsAfterImported();
+      if (!planningShouldShowAutoPanel()) return "";
       const key = planningMonthKey();
       const summary = planningAutoSummary?.key === key ? planningAutoSummary : null;
       return `
@@ -27290,7 +27692,7 @@ react-dom/cjs/react-dom-client.production.js:
             <span>先讀年度預定表建立當月工項；車輛依前次完工日與可用率排程，機廠設備的級別看本月格、固定週期看全年最短週期，可後排設備會在不超期前提下往後排；鏇削限 3M / 6M / 1Y 當月，且同一天只能一台。</span>
           </div>
           <button type="button" class="codex-pm-soft-button primary" data-planning-auto ${planningCan("edit") ? "" : "disabled"}>
-            ${isAfterImported ? "自動排本月" : "從 6 月開始自動排"}
+            自動排未來 1 年
           </button>
         </div>
         ${summary ? `
@@ -27314,11 +27716,12 @@ react-dom/cjs/react-dom-client.production.js:
                 <th>車號 / 設備</th>
                 <th>前次完工日</th>
                 <th>檢修別</th>
-                <th>檢修日</th>
+                <th>預計檢修日</th>
+                <th>實際完工日</th>
                 <th class="codex-pm-interval-head"><span>與前次檢修</span><span>間隔日數</span></th>
                 ${days.map((day) => `
                   <th class="${[planningIsWeekend(day) ? "is-weekend" : "", planningIsHoliday(day) ? "is-holiday" : ""].filter(Boolean).join(" ")}">
-              <button type="button" class="codex-pm-planning-day-button" data-planning-holiday-day="${day}" ${planningHolidayEditMode && canEdit ? "" : "disabled"} title="${planningHolidayTitle(day, planningHolidayEditMode && canEdit)}">
+                    <button type="button" class="codex-pm-planning-day-button" data-planning-holiday-day="${day}" ${planningHolidayEditMode && canEdit ? "" : "disabled"} title="${planningHolidayTitle(day, planningHolidayEditMode && canEdit)}">
                       <span class="codex-pm-plan-day-label">${planningMonth}/${Number(day)}</span>
                       <span class="codex-pm-plan-weekday">${planningWeekdayFor(day)}</span>
                     </button>
@@ -27331,32 +27734,39 @@ react-dom/cjs/react-dom-client.production.js:
                 const firstPlanDay = planningFirstPlanDay(row, rowIndex);
                 const plannedDate = firstPlanDay ? planningDisplayDate(planningIsoDate(firstPlanDay)) : "-";
                 const previousDate = planningPreviousDisplayDate(row, rowIndex);
+                const actualDoneDate = planningActualDoneDateForRow(row, rowIndex);
+                const effectiveInterval = planningEffectiveIntervalMeta(row, rowIndex);
                 return `
                   <tr>
                     <td><strong>${escapeHtml(row.asset)}</strong><span class="codex-pm-source-pill">${planningKind(row)}</span></td>
                     <td>${escapeHtml(planningDisplayDate(previousDate))}</td>
                     <td>${escapeHtml(planningTypeForRow(row) || "-")}</td>
                     <td>${escapeHtml(plannedDate)}</td>
-                    <td>${renderPlanningInterval(row, rowIndex)}</td>
+                    <td><span class="codex-pm-date-stack ${actualDoneDate ? "is-done" : ""}">${escapeHtml(actualDoneDate ? planningDisplayDate(actualDoneDate) : "-")}${actualDoneDate ? "<small>已回填</small>" : "<small>未完工</small>"}</span></td>
+                    <td>${renderPlanningIntervalMeta(effectiveInterval)}</td>
                     ${days.map((day) => {
-                    const value = planningCellValue(row, rowIndex, day);
-                    const isManualHoliday = Boolean(planningManualHolidayCells[planningMonthKey()]?.[rowIndex]?.[day]);
-                    const forcedReason = planningForcedReasonForCell(rowIndex, day);
-                    return `
-                      <td class="codex-pm-plan-cell ${[value ? "has-plan" : "", planningIsHoliday(day) ? "is-holiday" : "", isManualHoliday ? "is-manual-holiday" : "", forcedReason ? "is-forced" : ""].filter(Boolean).join(" ")}">
-                        <button type="button" data-planning-cell="${rowIndex}:${day}" ${canEdit ? "" : "disabled"} title="${forcedReason || (planningIsHoliday(day) ? `${planningHolidayReason(day)}不可自動排程；必要時可手動特排` : canEdit ? "點擊切換排程" : "目前角色不可編輯")}">
-                          ${planToken(value)}
-                          ${forcedReason ? `<small>複核</small>` : ""}
-                          ${isManualHoliday ? `<small>特排</small>` : ""}
-                        </button>
-                      </td>
-                    `;
-                  }).join("")}
+                      const value = planningCellValue(row, rowIndex, day);
+                      const isManualHoliday = Boolean(planningManualHolidayCells[planningMonthKey()]?.[rowIndex]?.[day]);
+                      const forcedReason = planningForcedReasonForCell(rowIndex, day);
+                      const cellItem = value ? planningScheduleItemForCell(row, rowIndex, day, value) : null;
+                      const completionInfo = cellItem ? planningCellCompletionInfo(cellItem) : null;
+                      return `
+                        <td class="codex-pm-plan-cell ${[value ? "has-plan" : "", planningIsHoliday(day) ? "is-holiday" : "", isManualHoliday ? "is-manual-holiday" : "", forcedReason ? "is-forced" : "", completionInfo ? planningCompletionClass(completionInfo.status) : ""].filter(Boolean).join(" ")}">
+                          <button type="button" data-planning-cell="${rowIndex}:${day}" ${canEdit ? "" : "disabled"} title="${forcedReason || (planningIsHoliday(day) ? `${planningHolidayReason(day)}不可自動排程；必要時可手動特排` : canEdit ? "點擊切換排程" : "目前角色不可編輯")}">
+                            ${planToken(value)}
+                            ${completionInfo && value ? `<small>${escapeHtml(completionInfo.label)}</small>` : ""}
+                            ${forcedReason ? `<small>複核</small>` : ""}
+                            ${isManualHoliday ? `<small>特排</small>` : ""}
+                          </button>
+                        </td>
+                      `;
+                    }).join("")}
                   </tr>
                 `;
               }).join("")}
               <tr class="codex-pm-planning-daily-row">
                 <td>當日檢修數量</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -27370,6 +27780,8 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function renderPlanningView() {
+      if (planningIsMonthLocked()) planningHolidayEditMode = false;
+      planningEnsureCoveredMonthGenerated();
       const permission = planningPermission();
       const totalPlans = Object.values(planningDailyCounts()).reduce((sum, value) => sum + value, 0);
       const visibleRows = planningVisibleRowEntries();
@@ -27384,7 +27796,7 @@ react-dom/cjs/react-dom-client.production.js:
                 <h3>排程規劃｜${planningYear} 年 ${planningMonth} 月</h3>
                 <p>以 2026 年 5 月 Excel 排程為基準，日期、星期、當日檢修數量會依西元年份與月份重算。</p>
               </div>
-              <span class="codex-pm-level-pill">${planningLocked ? "已鎖定" : "草稿"}</span>
+              <span class="codex-pm-level-pill">${planningLockStatusLabel()}</span>
             </div>
             <div class="codex-pm-planning-toolbar">
               <div class="codex-pm-planning-field">
@@ -27402,7 +27814,7 @@ react-dom/cjs/react-dom-client.production.js:
               <button type="button" class="codex-pm-soft-button ${planningHolidayEditMode ? "is-active" : ""}" data-planning-holiday-mode ${planningCan("edit") ? "" : "disabled"}>${planningHolidayEditMode ? "完成假日" : "假日設定"}</button>
               <button type="button" class="codex-pm-soft-button" data-planning-import ${planningCan("importExcel") ? "" : "disabled"}>匯入 Excel</button>
               <button type="button" class="codex-pm-soft-button primary" data-planning-publish ${planningCan("publish") ? "" : "disabled"}>發布排程</button>
-              <button type="button" class="codex-pm-soft-button" data-planning-lock ${planningCan("lock") ? "" : "disabled"}>${planningLocked ? "解除鎖定" : "鎖定月份"}</button>
+              <button type="button" class="codex-pm-soft-button" data-planning-lock ${planningCan("lock") ? "" : "disabled"}>${planningLockButtonLabel()}</button>
             </div>
             ${renderPlanningAutoPanel()}
             <div class="codex-pm-permission-strip">
@@ -27833,6 +28245,7 @@ react-dom/cjs/react-dom-client.production.js:
       if (yearInput) {
         const applyPlanningYear = () => {
           planningYear = normalizePlanningYear(yearInput.value);
+          planningRegenerateCoveredMonthsThroughCurrent();
           activeView = "planning";
           renderCenter(container);
         };
@@ -27852,6 +28265,7 @@ react-dom/cjs/react-dom-client.production.js:
           if (currentYearInput) planningYear = normalizePlanningYear(currentYearInput.value);
           const nextMonth = Number(monthSelect.value);
           planningMonth = Number.isFinite(nextMonth) && nextMonth >= 1 && nextMonth <= 12 ? nextMonth : planningMonth;
+          planningRegenerateCoveredMonthsThroughCurrent();
           activeView = "planning";
           renderCenter(container);
         });
@@ -27978,7 +28392,8 @@ react-dom/cjs/react-dom-client.production.js:
       if (publishButton) {
         publishButton.addEventListener("click", () => {
           if (!planningCan("publish")) return;
-          planningLocked = true;
+          if (!window.confirm(`確認發布並鎖定 ${planningYear} 年 ${planningMonth} 月排程？\n\n鎖定後本月份不可再調整、匯入或重新自動排程，需按「解除鎖定」才可修改。`)) return;
+          planningSetMonthLocked(true);
           activeView = "planning";
           renderCenter(container);
         });
@@ -27988,21 +28403,29 @@ react-dom/cjs/react-dom-client.production.js:
       if (lockButton) {
         lockButton.addEventListener("click", () => {
           if (!planningCan("lock")) return;
-          planningLocked = !planningLocked;
+          const nextLocked = !planningIsMonthLocked();
+          const actionText = nextLocked ? "鎖定" : "解除鎖定";
+          const detailText = nextLocked
+            ? "鎖定後本月份不可再調整、匯入或重新自動排程。"
+            : "解除後本月份可重新調整排程。";
+          if (!window.confirm(`確認${actionText} ${planningYear} 年 ${planningMonth} 月？\n\n${detailText}`)) return;
+          planningSetMonthLocked(nextLocked);
           activeView = "planning";
           renderCenter(container);
         });
       }
 
-      const schedulePrintButton = container.querySelector("[data-schedule-print]");
-      if (schedulePrintButton) {
+      container.querySelectorAll("[data-schedule-print]").forEach((schedulePrintButton) => {
         schedulePrintButton.addEventListener("click", () => {
-          const sourceSheet = container.querySelector(".codex-pm-schedule-print-sheet");
+          const printKind = schedulePrintButton.getAttribute("data-schedule-print") || "planned";
+          const sourceSheet = container.querySelector(`.codex-pm-schedule-print-sheet[data-print-kind="${printKind}"]`);
           if (!sourceSheet) return;
           document.getElementById("codex-schedule-print-root")?.remove();
           const printRoot = document.createElement("div");
           printRoot.id = "codex-schedule-print-root";
-          printRoot.appendChild(sourceSheet.cloneNode(true));
+          const sheetClone = sourceSheet.cloneNode(true);
+          sheetClone.hidden = false;
+          printRoot.appendChild(sheetClone);
           document.body.appendChild(printRoot);
           const cleanupPrintRoot = () => printRoot.remove();
           window.addEventListener("afterprint", cleanupPrintRoot, { once: true });
@@ -28011,7 +28434,7 @@ react-dom/cjs/react-dom-client.production.js:
             requestAnimationFrame(() => window.print());
           });
         });
-      }
+      });
 
       container.querySelectorAll("[data-calendar-item]").forEach((button) => {
         button.addEventListener("click", () => {
@@ -28078,12 +28501,26 @@ react-dom/cjs/react-dom-client.production.js:
             materialNote: container.querySelector("[data-feedback-material]")?.value || "",
             note: container.querySelector("[data-feedback-note]")?.value || ""
           };
+          planningSaveCompletionRecords();
           planningRebuildLinkedYearFromCurrent();
           activeView = feedbackCompleteButton.getAttribute("data-feedback-return") || "calendar";
           renderCenter(container);
         });
       }
     }
+
+    function planningRefreshRenderedCenter() {
+      const container = document.querySelector(".codex-pm-calendar-host");
+      if (container?.dataset.codexPmCalendarFirst === "true") renderCenter(container);
+    }
+
+    window.addEventListener("storage", (event) => {
+      if (event.key !== planningCompletionRecordsStorageKey) return;
+      planningSyncCompletionRecordsFromStorage();
+      const importedNumber = planningMonthNumber(planningImportedYear, planningImportedMonth);
+      planningRebuildLinkedYearFromCurrent({ includeCurrent: planningMonthNumber() > importedNumber });
+      planningRefreshRenderedCenter();
+    });
 
     function planningForcedCandidateDays(ctx, dueIso, kind) {
       const workdays = planningWorkdaysInRange(planningMonthStartIso(), planningMonthEndIso());
