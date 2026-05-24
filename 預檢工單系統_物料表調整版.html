@@ -19664,6 +19664,17 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function renderDashboard(container) {
+      window.codexPmPendingPrecheckHome = true;
+      container.innerHTML = "";
+      const showNewHome = () => {
+        if (window.codexPmShowPrecheckHome) {
+          window.codexPmPendingPrecheckHome = false;
+          window.codexPmShowPrecheckHome();
+        }
+      };
+      window.setTimeout(showNewHome, 0);
+      window.setTimeout(showNewHome, 120);
+      return;
       container.innerHTML = `
         <div class="codex-pm-board">
           <section class="codex-pm-hero">
@@ -20540,6 +20551,44 @@ react-dom/cjs/react-dom-client.production.js:
     function scheduleEnhance() {
       window.requestAnimationFrame(enhanceCenter);
     }
+
+    function findPrecheckHomeMount() {
+      const headings = Array.from(document.querySelectorAll("h1,h2,h3"));
+      const title = headings.find((node) => (node.textContent || "").trim() === "預檢系統管理");
+      const header = title && (title.closest(".no-print.mb-6") || title.closest("section") || title.parentElement);
+      const main = header && header.closest("main");
+      if (!header || !main) return document.querySelector(".codex-pm-calendar-host");
+
+      let host = main.querySelector(":scope > .codex-pm-calendar-host[data-codex-precheck-home='true']");
+      if (!host) {
+        host = document.createElement("div");
+        host.className = "codex-pm-calendar-host codex-pm-calendar-first";
+        host.dataset.codexPrecheckHome = "true";
+        header.insertAdjacentElement("afterend", host);
+      }
+
+      Array.from(main.children).forEach((child) => {
+        if (child !== header && child !== host) child.hidden = true;
+      });
+      header.hidden = false;
+      host.hidden = false;
+      return host;
+    }
+
+    window.codexPmShowPrecheckHome = function () {
+      const container = findPrecheckHomeMount() || document.querySelector(".codex-pm-calendar-host") || findDashboardContainer();
+      if (!container) return false;
+      planningStandaloneMode = false;
+      syncPlanningStandaloneMode();
+      activeView = "calendar";
+      activeManagementSection = "";
+      planningSection = "schedule";
+      renderCenter(container);
+      window.requestAnimationFrame(() => {
+        container.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      return true;
+    };
 
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", scheduleEnhance, { once: true });
@@ -23546,9 +23595,15 @@ react-dom/cjs/react-dom-client.production.js:
       if (existing) return existing;
       const heading = Array.from(document.querySelectorAll("h1,h2,h3")).find((node) => {
         const text = (node.textContent || "").trim();
-        return text === "預檢工單清單" || text === "預檢系統管理" || text === "預檢管理";
+        return text === "預檢工單清單";
       });
       if (!heading) return null;
+      const headingText = (heading.textContent || "").trim();
+      if (headingText === "預檢工單清單") {
+        planningStandaloneMode = false;
+        syncPlanningStandaloneMode();
+        activeView = "calendar";
+      }
       return heading.closest(".no-print.space-y-6") || heading.closest("section") || heading.parentElement;
     }
 
@@ -23948,6 +24003,84 @@ react-dom/cjs/react-dom-client.production.js:
     color: #f8fafc;
     line-height: 1.45;
     white-space: pre-wrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-card {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.72);
+    color: inherit;
+    cursor: pointer;
+    padding: 0.85rem;
+    text-align: left;
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-card:hover,
+  .codex-pm-calendar-first .codex-pm-management-card.is-active {
+    border-color: rgba(34, 211, 238, 0.58);
+    background: rgba(8, 145, 178, 0.16);
+    transform: translateY(-1px);
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-card span {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: #93c5fd;
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-card strong {
+    display: block;
+    margin-top: 0.34rem;
+    color: #f8fafc;
+    line-height: 1.45;
+    white-space: pre-wrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-tabs-panel.is-compact {
+    padding: 0.8rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-tab-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-tab {
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #dbeafe;
+    cursor: pointer;
+    font-size: 0.92rem;
+    font-weight: 800;
+    min-height: 2.7rem;
+    padding: 0.55rem 0.95rem;
+    transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-tab:hover,
+  .codex-pm-calendar-first .codex-pm-management-tab.is-active {
+    border-color: rgba(34, 211, 238, 0.7);
+    background: rgba(8, 145, 178, 0.22);
+    color: #f8fafc;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-tabs-panel,
+  .codex-pm-calendar-first [data-management-panel] {
+    scroll-margin-top: 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-layout.is-management-subpage > .codex-pm-management-tabs-panel {
+    display: none;
+  }
+
+  .codex-pm-calendar-first .codex-pm-management-tabs-panel {
+    display: none;
   }
 
   .codex-pm-calendar-first .codex-pm-completion-form {
@@ -25234,6 +25367,14 @@ react-dom/cjs/react-dom-client.production.js:
     min-height: 1.6rem;
   }
 
+  .codex-pm-calendar-first .codex-pm-simple-cell.is-legacy .codex-pm-simple-code,
+  .codex-pm-calendar-first .codex-pm-simple-cell.is-legacy .codex-pm-simple-meta,
+  .codex-pm-calendar-first .codex-pm-simple-cell.is-legacy .codex-pm-simple-date,
+  .codex-pm-calendar-first .codex-pm-simple-cell.is-legacy .codex-pm-simple-rotation,
+  .codex-pm-calendar-first .codex-pm-simple-cell.is-legacy .codex-pm-simple-legacy {
+    color: #64748b;
+  }
+
   .codex-pm-calendar-first .codex-pm-simple-cell.is-review .codex-pm-simple-code,
   .codex-pm-calendar-first .codex-pm-simple-cell.is-review .codex-pm-simple-meta,
   .codex-pm-calendar-first .codex-pm-simple-cell.is-review .codex-pm-simple-rotation,
@@ -25273,6 +25414,15 @@ react-dom/cjs/react-dom-client.production.js:
 
   .codex-pm-calendar-first .codex-pm-simple-review {
     font-size: 0.58rem;
+    font-weight: 900;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-simple-legacy {
+    font-size: 0.56rem;
     font-weight: 900;
     max-width: 100%;
     overflow: hidden;
@@ -25442,6 +25592,185 @@ react-dom/cjs/react-dom-client.production.js:
     opacity: 0.55;
   }
 
+  .codex-pm-calendar-first .codex-pm-capability-table input.codex-pm-matrix-input {
+    width: 100%;
+    min-width: 6rem;
+    height: 2.15rem;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.62);
+    color: #dbeafe;
+    font-size: 0.76rem;
+    padding: 0 0.55rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-table input.codex-pm-matrix-qty {
+    min-width: 3.6rem;
+    text-align: center;
+  }
+
+  .codex-pm-calendar-first .codex-pm-table-button {
+    border: 1px solid rgba(251, 113, 133, 0.5);
+    border-radius: 8px;
+    background: rgba(251, 113, 133, 0.1);
+    color: #fecdd3;
+    cursor: pointer;
+    font-size: 0.72rem;
+    font-weight: 800;
+    min-height: 2rem;
+    padding: 0 0.65rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-rule-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-rule-strip span {
+    border: 1px solid rgba(34, 211, 238, 0.26);
+    border-radius: 999px;
+    background: rgba(8, 145, 178, 0.1);
+    color: #bae6fd;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.28rem 0.65rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-default-table {
+    min-width: 1040px;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-default-table .codex-pm-material-group-head th {
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom-color: rgba(34, 211, 238, 0.22);
+    color: #67e8f9;
+    font-size: 0.72rem;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-default-table .codex-pm-material-info-head {
+    text-align: left;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-default-table .codex-pm-material-qty-cell {
+    background: rgba(8, 145, 178, 0.055);
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-preview {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.42);
+    margin: 0.75rem 0;
+    padding: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-preview-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-preview-head strong {
+    color: #e0f2fe;
+    font-size: 0.92rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-preview-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-preview-tabs button {
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #bfdbfe;
+    cursor: pointer;
+    font-size: 0.72rem;
+    font-weight: 900;
+    min-height: 1.8rem;
+    padding: 0 0.65rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-preview-tabs button.is-active {
+    border-color: rgba(34, 211, 238, 0.7);
+    background: rgba(8, 145, 178, 0.24);
+    color: #f8fafc;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-preview-box {
+    border: 1px solid rgba(148, 163, 184, 0.26);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.78);
+    color: #f8fafc;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.75;
+    min-height: 5.2rem;
+    padding: 0.8rem 1rem;
+    white-space: pre-wrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-override {
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    border-radius: 8px;
+    background: rgba(8, 145, 178, 0.08);
+    margin-top: 0.85rem;
+    padding: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-override-head {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: space-between;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-override-head strong {
+    color: #e0f2fe;
+    display: block;
+    font-size: 0.92rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-override-head span {
+    color: #93c5fd;
+    display: block;
+    font-size: 0.74rem;
+    margin-top: 0.15rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-override-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-override-actions button {
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #bfdbfe;
+    cursor: pointer;
+    font-size: 0.74rem;
+    font-weight: 900;
+    min-height: 2rem;
+    padding: 0 0.75rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-material-override-actions button.is-active {
+    border-color: rgba(34, 211, 238, 0.72);
+    background: rgba(8, 145, 178, 0.28);
+    color: #f8fafc;
+  }
+
   .codex-pm-calendar-first .codex-pm-capability-note {
     margin-top: 0.55rem;
     color: #94a3b8;
@@ -25512,6 +25841,7 @@ react-dom/cjs/react-dom-client.production.js:
     syncPlanningStandaloneMode();
     let activeView = planningStandaloneMode ? "planning" : "calendar";
     let planningSection = "schedule";
+    let activeManagementSection = "";
     let activeStaff = "all";
     let activeCompletionFilter = "pending";
     let planningRole = "planner";
@@ -25529,6 +25859,52 @@ react-dom/cjs/react-dom-client.production.js:
     let planningHolidayEditMode = false;
     let selectedId = "";
     let selectedDate = "2026-05-01";
+    let activeMaterialPreviewLevel = "qty1m";
+    const materialDefaultsStorageKey = "codexPmMaterialDefaultsV3";
+    const printMaterialOverridesStorageKey = "codexPmPrintMaterialOverrides";
+    const defaultMaterialDefaults = [
+      { item: "空調濾網", spec: "客室：N/A、駕駛室：N/A", unit: "", qty1m: "N/A", qty3m: "N/A", qty6m: "N/A", qty1y: "N/A", note: "以說明文字帶入" },
+      { item: "鍊條保護劑", spec: "", unit: "ml", qty1m: "10", qty3m: "15", qty6m: "20", qty1y: "30", note: "各級用量不同" },
+      { item: "矽膠輔助劑", spec: "", unit: "g", qty1m: "15", qty3m: "20", qty6m: "25", qty1y: "30", note: "各級用量不同" }
+    ];
+    let materialDefaults = (() => {
+      try {
+        const saved = JSON.parse(window.localStorage?.getItem(materialDefaultsStorageKey) || "[]");
+        if (Array.isArray(saved) && saved.length) {
+          return saved.map((item) => ({
+            item: String(item.item || ""),
+            spec: String(item.spec || ""),
+            unit: String(item.unit || ""),
+            qty1m: String(item.qty1m || "0"),
+            qty3m: String(item.qty3m || "0"),
+            qty6m: String(item.qty6m || "0"),
+            qty1y: String(item.qty1y || "0"),
+            note: String(item.note || "")
+          }));
+        }
+      } catch (error) {}
+      return defaultMaterialDefaults.map((item) => ({ ...item }));
+    })();
+
+    function saveMaterialDefaults() {
+      try {
+        window.localStorage?.setItem(materialDefaultsStorageKey, JSON.stringify(materialDefaults));
+      } catch (error) {}
+    }
+    let printMaterialOverrides = (() => {
+      try {
+        const saved = JSON.parse(window.localStorage?.getItem(printMaterialOverridesStorageKey) || "{}");
+        return saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
+      } catch (error) {
+        return {};
+      }
+    })();
+
+    function savePrintMaterialOverrides() {
+      try {
+        window.localStorage?.setItem(printMaterialOverridesStorageKey, JSON.stringify(printMaterialOverrides));
+      } catch (error) {}
+    }
 
     const templates = {
       P1: {
@@ -26352,6 +26728,27 @@ react-dom/cjs/react-dom-client.production.js:
       return templates[item.templateCode] || templates.P1;
     }
 
+    function materialLevelKeyForItem(item) {
+      const value = String(item?.planValue || item?.level || "1M");
+      if (value.includes("3M")) return "qty3m";
+      if (value.includes("6M")) return "qty6m";
+      if (value.includes("1Y") || value.includes("2Y") || value.includes("5Y")) return "qty1y";
+      return "qty1m";
+    }
+
+    function materialOverrideForItem(item) {
+      const override = printMaterialOverrides[item?.id] || {};
+      return {
+        cabin: override.cabin || "N/A",
+        driver: override.driver || "N/A"
+      };
+    }
+
+    function airFilterLineForItem(item) {
+      const override = materialOverrideForItem(item);
+      return `空調濾網（客室：${override.cabin}、駕駛室：${override.driver}）`;
+    }
+
     function planningLevelLabel(value, row) {
       if (value === "鏇") return "鏇削";
       const kind = planningKindForAsset(row.asset);
@@ -26635,8 +27032,9 @@ react-dom/cjs/react-dom-client.production.js:
         ["W.I.No", template.wiNo, "範本"],
         ["工作說明", `${item.asset} ${item.level}預防檢修`, "系統組合"],
         ["套用檢查表", template.file, "範本設定"],
+        ["用料說明或領料單編號", materialTextForItem(item), "主檔預設 / 本次覆寫"],
         ["安全衛生預設", isVehicle ? "一般安全注意事項、電氣掛鎖掛牌" : "一般安全注意事項、設備隔離確認", "規則"],
-        ["儀器 / 用料預設", "依檢查項目帶入；現場完成後再回填實際值", "後續回填"]
+        ["儀器預設", "依檢查項目帶入；現場完成後再回填實際值", "後續回填"]
       ];
     }
 
@@ -26943,6 +27341,7 @@ react-dom/cjs/react-dom-client.production.js:
               ["設備位置", item.location],
               ["預計施工日期", toMinguo(item.date)],
               ["工作說明書編號", templateFor(item).wiNo],
+              ["用料說明或領料單編號", materialTextForItem(item)],
               ["套用範本", templateFor(item).file]
             ].map(([label, value]) => `
               <div class="codex-pm-paper-row">
@@ -26959,9 +27358,45 @@ react-dom/cjs/react-dom-client.production.js:
       `;
     }
 
+    function materialWashModeForItem(item) {
+      const override = materialOverrideForItem(item);
+      if (override.cabin === "水洗" && override.driver === "水洗") return "both";
+      if (override.cabin === "水洗") return "cabin";
+      if (override.driver === "水洗") return "driver";
+      return "none";
+    }
+
+    function renderMaterialOverridePanel(item) {
+      const mode = materialWashModeForItem(item);
+      const options = [
+        ["none", "恢復 N/A"],
+        ["cabin", "客室水洗"],
+        ["driver", "駕駛室水洗"],
+        ["both", "兩者水洗"]
+      ];
+      return `
+        <div class="codex-pm-material-override">
+          <div class="codex-pm-material-override-head">
+            <div>
+              <strong>本次空調濾網狀態</strong>
+              <span>只覆寫這張作業包；主檔仍維持預設 N/A。</span>
+            </div>
+            <div class="codex-pm-material-override-actions">
+              ${options.map(([key, label]) => `
+                <button type="button" class="${mode === key ? "is-active" : ""}" data-print-material-wash="${key}">
+                  ${label}
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     function renderPrintView() {
       const item = selectedItem();
       const fields = autoFields(item);
+      const wideFields = new Set(["工作說明", "套用檢查表", "用料說明或領料單編號", "安全衛生預設"]);
       return `
         <div class="codex-pm-print-layout">
           <section class="codex-pm-auto-section">
@@ -26973,8 +27408,9 @@ react-dom/cjs/react-dom-client.production.js:
               <span class="codex-pm-level-pill">${escapeHtml(item.asset)}</span>
             </div>
             <div class="codex-pm-auto-grid">
-              ${fields.map((field, index) => renderAutoField(field, index === 10 || index === 11 || index === 12 || index === 13)).join("")}
+              ${fields.map((field) => renderAutoField(field, wideFields.has(field[0]))).join("")}
             </div>
+            ${renderMaterialOverridePanel(item)}
             <div class="codex-pm-note-box">前台作業包只做列印與回填入口；排程日期、假日與重排仍由後台處理。</div>
           </section>
           ${renderPrintPreview(item)}
@@ -27059,6 +27495,244 @@ react-dom/cjs/react-dom-client.production.js:
             ${renderAutoField(["人工確認欄位", "現場負責人、特殊安全項目、臨時改期、實際檢查數值、用料與異常說明", "人員確認"], true)}
           </div>
         </section>
+      `;
+    }
+
+    function managementCard(key, title, description, source) {
+      return `
+        <button type="button" class="codex-pm-management-card ${activeManagementSection === key ? "is-active" : ""}" data-management-section="${key}">
+          <span>${escapeHtml(source)}</span>
+          <strong>${escapeHtml(title)}</strong>
+          <span>${escapeHtml(description)}</span>
+        </button>
+      `;
+    }
+
+    function managementTab(key, label) {
+      return `
+        <button type="button" class="codex-pm-management-tab ${activeManagementSection === key ? "is-active" : ""}" data-management-section="${key}">
+          ${escapeHtml(label)}
+        </button>
+      `;
+    }
+
+    function renderManagementTabsView() {
+      if (activeManagementSection) {
+        return "";
+      }
+      return `
+        <section class="codex-pm-auto-section codex-pm-management-tabs-panel">
+          <div class="codex-pm-auto-grid">
+            ${managementCard("instruments", "儀器列表", "勾選 1M / 3M / 6M / 1Y 後，連動新增預檢工單的儀器欄位。", "主檔")}
+            ${managementCard("materials", "用料說明或領料單編號", "設定各級預檢表單自動帶入的用料文字、數量與單位。", "主檔")}
+            ${managementCard("wi", "工作說明書編號(W.I.No)", "管理各級預檢對應之工作說明書編號。", "套版")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderInstrumentManagementView() {
+      const instruments = [
+        { id: "15530037", name: "絕緣電阻計", type: "電氣量測", valid: "2026-12-31", status: "可使用", levels: ["1M", "3M", "6M", "1Y"] },
+        { id: "101831232", name: "扭力扳手", type: "機械量測", valid: "2026-10-31", status: "可使用", levels: ["1M", "3M", "6M", "1Y"] },
+        { id: "V091118", name: "萬用電錶", type: "電氣量測", valid: "2026-09-30", status: "可使用", levels: ["1M", "3M", "6M", "1Y"] }
+      ];
+      return `
+        <section class="codex-pm-auto-section" data-management-panel="instruments">
+          <div class="codex-pm-print-head">
+            <div>
+              <h3>儀器主檔管理</h3>
+              <p>管理預檢表單會帶入的儀器編號、儀器名稱、校驗狀態與適用預檢等級。</p>
+            </div>
+            <div class="codex-pm-actions">
+              <button type="button" class="codex-pm-soft-button primary">新增儀器</button>
+            </div>
+          </div>
+          <div class="codex-pm-planning-toolbar">
+            <label class="codex-pm-planning-field">
+              <span>關鍵字搜尋</span>
+              <input type="text" value="" placeholder="儀器編號 / 名稱">
+            </label>
+            <label class="codex-pm-planning-field">
+              <span>儀器類型</span>
+              <select><option>全部</option><option>電氣量測</option><option>機械量測</option></select>
+            </label>
+            <label class="codex-pm-planning-field">
+              <span>校驗狀態</span>
+              <select><option>全部</option><option>可使用</option><option>即將到期</option><option>停用</option></select>
+            </label>
+            <label class="codex-pm-planning-field">
+              <span>適用預檢等級</span>
+              <select><option>全部</option><option>1M / 月檢</option><option>3M / 季檢</option><option>6M / 半年檢</option><option>1Y / 年檢</option></select>
+            </label>
+          </div>
+          <div class="codex-pm-weekly-table-wrap">
+            <table class="codex-pm-capability-table">
+              <thead>
+                <tr>
+                  <th>儀器編號</th>
+                  <th>儀器名稱</th>
+                  <th>儀器類型</th>
+                  <th>校驗效期</th>
+                  <th>狀態</th>
+                  <th>1M</th>
+                  <th>3M</th>
+                  <th>6M</th>
+                  <th>1Y</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${instruments.map((item) => `
+                  <tr>
+                    <td><strong>${escapeHtml(item.id)}</strong></td>
+                    <td>${escapeHtml(item.name)}</td>
+                    <td>${escapeHtml(item.type)}</td>
+                    <td>${escapeHtml(item.valid)}</td>
+                    <td><span class="codex-pm-status-pill is-done">${escapeHtml(item.status)}</span></td>
+                    ${["1M", "3M", "6M", "1Y"].map((level) => `<td><label><input type="checkbox" ${item.levels.includes(level) ? "checked" : ""}></label></td>`).join("")}
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      `;
+    }
+
+    const materialPreviewLevels = [
+      { key: "qty1m", label: "1M / 月檢" },
+      { key: "qty3m", label: "3M / 季檢" },
+      { key: "qty6m", label: "6M / 半年檢" },
+      { key: "qty1y", label: "1Y / 年檢" }
+    ];
+
+    function materialDefaultLine(item, levelKey) {
+      const rawQty = String(item[levelKey] || "").trim();
+      if (!rawQty || rawQty === "0") return "";
+      const spec = String(item.spec || "").trim();
+      const unit = String(item.unit || "").trim();
+      if (rawQty.toUpperCase() === "N/A" && spec.includes("：")) {
+        return `${item.item}（${spec}）`;
+      }
+      const specText = spec ? `（${spec}）` : "";
+      const unitText = unit ? ` ${unit}` : "";
+      return `${item.item}${specText}：${rawQty}${unitText}`;
+    }
+
+    function materialTextForItem(item) {
+      const levelKey = materialLevelKeyForItem(item);
+      const lines = materialDefaults.map((material) => {
+        if (/空調濾網/.test(String(material.item || ""))) return airFilterLineForItem(item);
+        return materialDefaultLine(material, levelKey);
+      }).filter(Boolean);
+      return lines.length ? lines.join("\n") : "N/A";
+    }
+
+    function renderMaterialPreviewText() {
+      const lines = materialDefaults.map((item) => materialDefaultLine(item, activeMaterialPreviewLevel)).filter(Boolean);
+      return lines.length ? lines.join("\n") : "本級別未設定預設用料，列印時帶入 N/A。";
+    }
+
+    function renderMaterialNoteManagementView() {
+      return `
+        <section class="codex-pm-auto-section" data-management-panel="materials">
+          <div class="codex-pm-print-head">
+            <div>
+              <h3>用料說明或領料單編號</h3>
+              <p>維護各級預檢表單列印時要自動帶入的用料文字與數量。</p>
+            </div>
+            <div class="codex-pm-actions">
+              <button type="button" class="codex-pm-soft-button primary" data-material-default-add>新增用料</button>
+            </div>
+          </div>
+          <div class="codex-pm-material-rule-strip">
+            <span>0 代表不自動帶入</span>
+            <span>數量依檢修級別不同</span>
+            <span>實際用量完工後再回填</span>
+          </div>
+          <div class="codex-pm-material-preview">
+            <div class="codex-pm-material-preview-head">
+              <strong>表單帶入預覽</strong>
+              <div class="codex-pm-material-preview-tabs">
+                ${materialPreviewLevels.map((level) => `<button type="button" class="${activeMaterialPreviewLevel === level.key ? "is-active" : ""}" data-material-preview-level="${level.key}">${level.label}</button>`).join("")}
+              </div>
+            </div>
+            <div class="codex-pm-material-preview-box">${escapeHtml(renderMaterialPreviewText())}</div>
+          </div>
+          <div class="codex-pm-weekly-table-wrap">
+            <table class="codex-pm-capability-table codex-pm-material-default-table">
+              <thead>
+                <tr class="codex-pm-material-group-head">
+                  <th colspan="3" class="codex-pm-material-info-head">用料資料</th>
+                  <th colspan="4">各級檢修預帶數量</th>
+                  <th colspan="2">管理</th>
+                </tr>
+                <tr>
+                  <th>用料名稱</th>
+                  <th>規格</th>
+                  <th>單位</th>
+                  <th>1M / 月檢</th>
+                  <th>3M / 季檢</th>
+                  <th>6M / 半年檢</th>
+                  <th>1Y / 年檢</th>
+                  <th>備註</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${materialDefaults.map((item, index) => `
+                  <tr>
+                    <td><input class="codex-pm-matrix-input" type="text" value="${escapeHtml(item.item)}" data-material-default-index="${index}" data-material-default-field="item"></td>
+                    <td><input class="codex-pm-matrix-input" type="text" value="${escapeHtml(item.spec)}" data-material-default-index="${index}" data-material-default-field="spec"></td>
+                    <td><input class="codex-pm-matrix-input codex-pm-matrix-qty" type="text" value="${escapeHtml(item.unit)}" data-material-default-index="${index}" data-material-default-field="unit"></td>
+                    <td class="codex-pm-material-qty-cell"><input class="codex-pm-matrix-input codex-pm-matrix-qty" type="text" value="${escapeHtml(item.qty1m)}" data-material-default-index="${index}" data-material-default-field="qty1m"></td>
+                    <td class="codex-pm-material-qty-cell"><input class="codex-pm-matrix-input codex-pm-matrix-qty" type="text" value="${escapeHtml(item.qty3m)}" data-material-default-index="${index}" data-material-default-field="qty3m"></td>
+                    <td class="codex-pm-material-qty-cell"><input class="codex-pm-matrix-input codex-pm-matrix-qty" type="text" value="${escapeHtml(item.qty6m)}" data-material-default-index="${index}" data-material-default-field="qty6m"></td>
+                    <td class="codex-pm-material-qty-cell"><input class="codex-pm-matrix-input codex-pm-matrix-qty" type="text" value="${escapeHtml(item.qty1y)}" data-material-default-index="${index}" data-material-default-field="qty1y"></td>
+                    <td><input class="codex-pm-matrix-input" type="text" value="${escapeHtml(item.note)}" data-material-default-index="${index}" data-material-default-field="note"></td>
+                    <td><button type="button" class="codex-pm-table-button" data-material-default-delete="${index}">刪除</button></td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+          <div class="codex-pm-note-box">定位：這裡是列印前的預設帶料矩陣，不取代正式物料庫存。現場實際領用量、領料單號與差異原因，仍在完工回填或物料流程補登。</div>
+        </section>
+      `;
+    }
+
+    function renderWiManagementView() {
+      return `
+        <section class="codex-pm-auto-section" data-management-panel="wi">
+          <div class="codex-pm-print-head">
+            <div>
+              <h3>工作說明書編號(W.I.No)</h3>
+              <p>管理各級預檢與設備類別對應的工作說明書編號。</p>
+            </div>
+            <div class="codex-pm-actions">
+              <button type="button" class="codex-pm-soft-button primary">新增 W.I.No</button>
+            </div>
+          </div>
+          <div class="codex-pm-auto-grid">
+            ${Object.values(templates).map((template) => renderAutoField([`${template.label} / ${template.period}`, template.wiNo, template.file], true)).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderManagementSectionView() {
+      if (activeManagementSection === "materials") return renderMaterialNoteManagementView();
+      if (activeManagementSection === "wi") return renderWiManagementView();
+      if (activeManagementSection === "instruments") return renderInstrumentManagementView();
+      return "";
+    }
+
+    function renderManagementHomeView() {
+      return `
+        <div class="codex-pm-planning-layout codex-pm-management-layout ${activeManagementSection ? "is-management-subpage" : ""}">
+          ${renderManagementTabsView()}
+          ${renderManagementSectionView()}
+        </div>
       `;
     }
 
@@ -27861,7 +28535,7 @@ react-dom/cjs/react-dom-client.production.js:
 
     function planningForcePlaceVehicleInLegalWindow(ctx, rowIndex, row, type, duration, previousDate, dueIso, options = {}) {
       const candidates = planningAutoVehicleForceCandidateDays(ctx, rowIndex, row, type, duration, dueIso, options);
-      const reason = `${row.asset} ${type} 年度表定工項不可漏排；已排入最接近 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天法規區間的工作日，但容量或搭配需人工複核`;
+      const reason = `${row.asset} ${type} 年度表定工項不可漏排；已排入最接近 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天法規區間的工作日，容量或搭配限制下由系統保留排程`;
       if (!candidates.length) {
         return planningForceAssign(ctx, rowIndex, row, type, dueIso, duration, "車輛", reason);
       }
@@ -27883,7 +28557,7 @@ react-dom/cjs/react-dom-client.production.js:
           selected.strictRotationSequence.forEach((isoDate, index) => planningAssignRotationIso(ctx, rowIndex, isoDate, index + 1));
           ctx.stats.rotation += selected.strictRotationSequence.length;
         } else if (selected.forcedRotationSequence.length >= 2) {
-          const rotationReason = `${row.asset} 鏇削須在 ${type} 前完成；已排入檢修前工作日，但容量或搭配需人工複核`;
+          const rotationReason = `${row.asset} 鏇削須在 ${type} 前完成；已排入檢修前工作日，容量或搭配限制下由系統保留排程`;
           selected.forcedRotationSequence.forEach((isoDate, index) => planningAssignRotationIsoForced(ctx, rowIndex, isoDate, index + 1, rotationReason));
           ctx.stats.rotation += selected.forcedRotationSequence.length;
           ctx.warnings.push(rotationReason);
@@ -28052,7 +28726,7 @@ react-dom/cjs/react-dom-client.production.js:
       planningMarkAutoCellSnapshot(key);
       planningAutoSummary = {
         key,
-        text: `${planningYear} 年 ${planningMonth} 月已依年度表自動排班：表定 ${expectedTasks.length} 項、列車 ${ctx.stats.vehicle} 格、鏇削 ${ctx.stats.rotation} 格、機設 ${ctx.stats.equipment} 格、紅色複核 ${ctx.stats.forced} 格`,
+        text: `${planningYear} 年 ${planningMonth} 月已依年度表自動排班：表定 ${expectedTasks.length} 項、列車 ${ctx.stats.vehicle} 格、鏇削 ${ctx.stats.rotation} 格、機設 ${ctx.stats.equipment} 格、保留排程 ${ctx.stats.forced} 格`,
         warnings: ctx.warnings
       };
     }
@@ -28448,7 +29122,7 @@ react-dom/cjs/react-dom-client.production.js:
         <div class="codex-pm-auto-scheduler">
           <div>
             <strong>年度表轉月排班／週排班</strong>
-            <span>先讀年度預定表建立當月工項；各次車輛預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，可排區間為 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天。這是車輛法規硬限制，系統不可把車輛預檢自動排到區間外。裕度可以往前用來補空班，不只往後順延。車輛會先排 3M / 6M / 1Y，並先嘗試把該級檢修前置鏇削排在檢修前，再用 1M 補足剩餘可用工作日，避免月檢先占掉鏇削窗口。機廠設備的級別看本月格、固定週期看全年最短週期，可後排設備會在不超期前提下往後排。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆。鏇削由 3M / 6M / 1Y 觸發，優先排在該級檢修前，月初檢修可提前到前月月底，且同一天只能一台。年度表定車輛工項不可漏排；若容量或搭配卡住，仍排入最接近的法規區間工作日並以紅色標示需複核。</span>
+            <span>先讀年度預定表建立當月工項；各次車輛預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，可排區間為 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天。這是車輛法規硬限制，系統不可把車輛預檢自動排到區間外。裕度可以往前用來補空班，不只往後順延。車輛會先排 3M / 6M / 1Y，並先嘗試把該級檢修前置鏇削排在檢修前，再用 1M 補足剩餘可用工作日，避免月檢先占掉鏇削窗口。機廠設備的級別看本月格、固定週期看全年最短週期，可後排設備會在不超期前提下往後排。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆。鏇削由 3M / 6M / 1Y 觸發，優先排在該級檢修前，月初檢修可提前到前月月底，且同一天只能一台。年度表定車輛工項不可漏排；若容量或搭配卡住，系統仍會保留排程，但簡易排程驗證只在未排、間隔超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天、鏇削缺漏時顯示紅色複核。</span>
           </div>
           <button type="button" class="codex-pm-soft-button primary" data-planning-auto ${planningCan("edit") ? "" : "disabled"}>
             自動排未來 2 年
@@ -28457,7 +29131,7 @@ react-dom/cjs/react-dom-client.production.js:
         ${summary ? `
           <div class="codex-pm-auto-result">
             <strong>${escapeHtml(summary.text)}</strong>
-            ${summary.warnings.length ? `<span>需人工複核：${summary.warnings.map(escapeHtml).join("、")}</span>` : `<span>未發現需要人工複核的排程衝突。</span>`}
+            ${summary.warnings.length ? `<span>排程提醒：${summary.warnings.map(escapeHtml).join("、")}</span>` : `<span>未發現排程提醒。</span>`}
           </div>
         ` : ""}
       `;
@@ -28581,6 +29255,10 @@ react-dom/cjs/react-dom-client.production.js:
       return number <= planningAutoCoverageEndNumber && number >= planningMonthNumber(planningImportedYear, 1);
     }
 
+    function planningSimpleIsLegacyMonth(year, month) {
+      return planningMonthNumber(year, month) < planningMonthNumber(planningImportedYear, planningImportedMonth);
+    }
+
     function planningSimpleRowIndexForAsset(asset) {
       const canonical = planningCanonicalAssetName(asset);
       return planningRows.findIndex((row) => planningCanonicalAssetName(row.asset) === canonical);
@@ -28701,31 +29379,42 @@ react-dom/cjs/react-dom-client.production.js:
         ? planningSimpleRotationDatesBefore(row, rowIndex, maintenanceDates[0])
         : [];
       const forcedReasons = planningSimpleForcedReasons(rowIndex, [...maintenanceDates, ...rotationDates]);
-      const issues = [];
-      if (!maintenanceDates.length) issues.push("未排");
-      if (isVehicle && Number.isFinite(intervalDays) && (intervalDays < planningInspectionMinDays || intervalDays > planningInspectionMaxDays)) {
-        issues.push("間隔");
+      const isLegacyMonth = planningSimpleIsLegacyMonth(planningYear, month);
+      const hardIssueDetails = [];
+      if (!maintenanceDates.length) {
+        hardIssueDetails.push("年度表有工項，但本月沒有產生預排日期");
       }
-      if (needsRotation && rotationDates.length < 2) issues.push("鏇削");
-      if (forcedReasons.length) issues.push("複核");
-      const reviewClass = issues.length ? " is-review" : "";
+      if (isVehicle && Number.isFinite(intervalDays) && (intervalDays < planningInspectionMinDays || intervalDays > planningInspectionMaxDays)) {
+        hardIssueDetails.push(`間隔超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天`);
+      }
+      if (needsRotation && rotationDates.length < 2) {
+        hardIssueDetails.push("鏇削未排或未完整排在高階檢修前");
+      }
+      const hasHardIssues = !isLegacyMonth && hardIssueDetails.length > 0;
+      const reviewClass = hasHardIssues ? " is-review" : "";
+      const legacyClass = isLegacyMonth ? " is-legacy" : "";
       const intervalText = Number.isFinite(intervalDays) ? `${intervalDays}天` : "-";
       const dateText = planningSimpleDateRange(maintenanceDates);
       const rotationText = needsRotation ? `鏇 ${rotationDates.length ? planningSimpleDateRange(rotationDates) : "未排"}` : "";
       const tooltipDetails = [
-        issues.length ? `需複核：${[...new Set(issues)].join("、")}` : "排程檢核正常",
+        isLegacyMonth
+          ? `${planningYear}/${month} 為既有月份，不套用建議排程紅色驗證`
+          : (hasHardIssues
+            ? `需複核：${[...new Set(hardIssueDetails)].join("、")}`
+            : "排程檢核正常"),
         previousDate ? `前次：${planningDisplayDate(previousDate)}` : "",
         maintenanceDates.length ? `預排：${maintenanceDates.map(planningDisplayDate).join("、")}` : "",
         rotationDates.length ? `鏇削：${rotationDates.map(planningDisplayDate).join("、")}` : "",
-        ...forcedReasons
+        ...(hasHardIssues ? forcedReasons : [])
       ].filter(Boolean).join("；");
       return `
-        <div class="codex-pm-simple-cell${reviewClass}" title="${escapeHtml(tooltipDetails)}">
+        <div class="codex-pm-simple-cell${reviewClass}${legacyClass}" title="${escapeHtml(tooltipDetails)}">
           <span class="codex-pm-simple-code">${escapeHtml(displayCode)}</span>
           <span class="codex-pm-simple-date">${escapeHtml(dateText)}</span>
           <span class="codex-pm-simple-meta">差 ${escapeHtml(intervalText)}</span>
           ${rotationText ? `<span class="codex-pm-simple-rotation">${escapeHtml(rotationText)}</span>` : ""}
-          ${issues.length ? `<span class="codex-pm-simple-review">複核</span>` : ""}
+          ${isLegacyMonth ? `<span class="codex-pm-simple-legacy">既有 / 不驗證</span>` : ""}
+          ${hasHardIssues ? `<span class="codex-pm-simple-review">複核</span>` : ""}
         </div>
       `;
     }
@@ -28770,7 +29459,7 @@ react-dom/cjs/react-dom-client.production.js:
             <div class="codex-pm-print-head">
               <div>
                 <h3>簡易排程驗證</h3>
-                <p>每格顯示年度週期、實際預排日期、與前次完工日差距；車輛高階檢修另列鏇削日期，紅色代表需複核。</p>
+                <p>每格顯示年度週期、實際預排日期、與前次完工日差距；車輛高階檢修另列鏇削日期。紅色只代表硬條件需複核：未排、間隔超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天，或鏇削缺漏。</p>
               </div>
               <div class="codex-pm-simple-year-switch" aria-label="簡易排程年度切換">
                 ${simpleYears.map((year) => `<button type="button" class="${year === planningYear ? "is-active" : ""}" data-planning-simple-year="${year}">${year}</button>`).join("")}
@@ -28790,7 +29479,7 @@ react-dom/cjs/react-dom-client.production.js:
             <div class="codex-pm-print-head">
               <div>
                 <h3>自動排班邏輯</h3>
-                <p>年度表決定本月要做什麼，最新完工日決定排在哪一天；各次車輛預檢以距離上次施作 30 天為基準，允許 ±20% 裕度，24-36 天是法規硬限制；車輛先排高階檢修並先嘗試鎖定檢修前鏇削窗口，再排月檢補空班；年度表定車輛工項不可漏排，容量或搭配需人工確認時以紅色複核呈現。</p>
+                <p>年度表決定本月要做什麼，最新完工日決定排在哪一天；各次車輛預檢以距離上次施作 30 天為基準，允許 ±20% 裕度，24-36 天是法規硬限制；車輛先排高階檢修並先嘗試鎖定檢修前鏇削窗口，再排月檢補空班；年度表定車輛工項不可漏排。簡易排程驗證只在硬條件不合格時以紅色複核呈現，容量或搭配曾由系統保留但硬條件符合時不列為複核。</p>
               </div>
               <span class="codex-pm-level-pill">規則版</span>
             </div>
@@ -28850,7 +29539,7 @@ react-dom/cjs/react-dom-client.production.js:
                 <li>週末、國定假日、人工標記假日都不會自動排。</li>
                 <li>新增颱風假或臨時假日後，系統會從當月開始重排，後續月份也一起檢查。</li>
                 <li>若往後排時遇到容量滿，就繼續找下一個工作日。</li>
-                <li>車輛年度表定工項不可漏排；若容量或搭配卡住，仍排入最接近的 <code>24-36</code> 天法規區間工作日並以紅色「需複核」保留。</li>
+                <li>車輛年度表定工項不可漏排；若容量或搭配卡住，仍保留在最接近的 <code>24-36</code> 天法規區間工作日。只要間隔、鏇削與日期都符合硬條件，簡易排程驗證不顯示紅色複核。</li>
               </ol>
             </section>
 
@@ -28904,7 +29593,8 @@ react-dom/cjs/react-dom-client.production.js:
               <button type="button" class="codex-pm-soft-button ${planningHolidayEditMode ? "is-active" : ""}" data-planning-holiday-mode ${planningCan("edit") ? "" : "disabled"}>${planningHolidayEditMode ? "完成假日" : "假日設定"}</button>
               <button type="button" class="codex-pm-soft-button ${isSimpleSection ? "is-active" : ""}" data-planning-section="simple">簡易排程</button>
               <button type="button" class="codex-pm-soft-button ${isLogicSection ? "is-active" : ""}" data-planning-section="logic">排班邏輯</button>
-              <button type="button" class="codex-pm-soft-button" data-planning-import ${planningCan("importExcel") ? "" : "disabled"}>匯入 Excel</button>
+              <button type="button" class="codex-pm-soft-button" data-planning-template ${planningCan("importExcel") ? "" : "disabled"}>預排格式</button>
+              <button type="button" class="codex-pm-soft-button" data-planning-import ${planningCan("importExcel") ? "" : "disabled"}>匯入/上傳預排</button>
               <button type="button" class="codex-pm-soft-button primary" data-planning-publish ${planningCan("publish") ? "" : "disabled"}>發布排程</button>
               <button type="button" class="codex-pm-soft-button" data-planning-lock ${planningCan("lock") ? "" : "disabled"}>${planningLockButtonLabel()}</button>
             </div>
@@ -28924,7 +29614,7 @@ react-dom/cjs/react-dom-client.production.js:
             機廠設備：本月格的 1M / 3M / 6M / 1Y 代表本次檢修級別；固定週期則看全年最短週期，有 1M 用 1M，沒有 1M 但有 3M 用 3M，沒有 3M 但有 6M 用 6M，只有 1Y 就用 1Y。預排日期一律以最新實際完工日或前月完工日加固定週期往後推算；間隔檢核也以固定週期基準判斷。<br>
             鏇削處理：排程順序會先排車輛 3M / 6M / 1Y，接著先嘗試把該級檢修前置鏇削排在檢修前，再用裕度安排 1M 補空班；鏇削不是單獨週期，只由車輛 3M / 6M / 1Y 觸發。若高階檢修排在月初，鏇削可自動提前到前一個月月底。若月檢或設備占到鏇削窗口，系統會優先改排月檢與設備，不讓鏇削消失。<br>
             已移轉單位的工項會保留最後歷史紀錄，但移轉月份之後不再顯示，也不再納入自動排班。<br>
-            排不出來處理：年度表定項目不能消失；車輛各次預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，也就是 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天內排入。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆；若車輛無法同時符合負載、可用車或工作日條件，仍排入最接近的法規區間工作日並用紅色「需複核」標示，不讓年度表定工項消失。機廠設備若無法符合週期、當日負載或工作日條件，才保留最接近日期並用紅色「需複核」標示。<br>
+            排不出來處理：年度表定項目不能消失；車輛各次預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，也就是 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天內排入。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆；若車輛受負載、可用車或工作日條件影響，系統仍優先保留在最接近的法規區間工作日，不讓年度表定工項消失。簡易排程驗證只有在年度表有工項卻未排、車輛間隔超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天，或高階檢修鏇削缺漏時，才用紅色「複核」標示。<br>
             臨時假日處理：新增颱風假或臨時假日後，系統會保留工項級別、最新完工日、固定週期與允許上限，並從當月開始連同後續月份整段重排；假日不可自動排，往後找工作日時會檢查每日容量、鏇削一天一台、機廠設備週期上限與可後排限制。<br>
             備註：使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。法規裕度為 20%，月檢間隔上限為 36 天及 15,000 km、季檢為 108 天及 30,000 km，半年檢為 216 天及 60,000 km，年檢則為 438 天及 120,000 km（未滿 1 天以 1 天計）。<br>
             因此「與前次檢修間隔日數」必須顯示本次預排日與最新完工日的差距，排程人員才能直接判斷本次安排是否接近或超過檢修期限。
@@ -29233,6 +29923,7 @@ react-dom/cjs/react-dom-client.production.js:
 
     function renderActiveView() {
       if (planningStandaloneMode) return renderPlanningView();
+      if (activeView === "management") return renderManagementHomeView();
       if (activeView === "planning") return renderPlanningView();
       if (activeView === "staff") return renderStaffViewV2();
       if (activeView === "completion") return renderCompletionView();
@@ -29250,14 +29941,13 @@ react-dom/cjs/react-dom-client.production.js:
       container.dataset.codexPmOriginalAddOrder = "true";
       container.dataset.codexPmCalendarFirst = "true";
       container.classList.add("codex-pm-calendar-host", "codex-pm-calendar-first");
-      container.innerHTML = `
-        <div class="codex-pm-board">
+      const topHero = !planningStandaloneMode && activeView === "management" ? "" : `
           <section class="codex-pm-hero">
             <div class="codex-pm-panel">
               <div class="codex-pm-title-row">
                 <div>
-                  <p class="codex-pm-kicker">${planningStandaloneMode ? "排程人員" : "預檢系統管理"}</p>
-                  <h2 class="codex-pm-title">${planningStandaloneMode ? "排程規劃" : "月曆總覽與作業包"}</h2>
+                  <p class="codex-pm-kicker">${planningStandaloneMode ? "排程人員" : "功能選單"}</p>
+                  <h2 class="codex-pm-title">${planningStandaloneMode ? "排程規劃" : "月曆總覽"}</h2>
                 </div>
                 <div class="codex-pm-actions">
                   ${planningStandaloneMode ? `
@@ -29269,19 +29959,33 @@ react-dom/cjs/react-dom-client.production.js:
                   ` : `
                     <button type="button" class="codex-pm-button ${activeView === "calendar" ? "primary" : ""}" data-calendar-view="calendar">月曆總覽</button>
                     <button type="button" class="codex-pm-button ${activeView === "print" ? "primary" : ""}" data-calendar-view="print">作業包</button>
-                    <button type="button" class="codex-pm-button" data-planning-page>排程規劃</button>
-                    <button type="button" class="codex-pm-button" data-planning-page="simple">簡易排程</button>
-                    <button type="button" class="codex-pm-button" data-planning-page="logic">排班邏輯</button>
-                    <button type="button" class="codex-pm-button ${activeView === "completion" ? "primary" : ""}" data-calendar-view="completion">完工回填</button>
+                    <button type="button" class="codex-pm-button ${activeView === "planning" ? "primary" : ""}" data-calendar-view="planning">排班規劃</button>
                   `}
                 </div>
               </div>
             </div>
           </section>
+      `;
+      container.innerHTML = `
+        <div class="codex-pm-board">
+          ${topHero}
           ${renderActiveView()}
         </div>
       `;
       bindEvents(container);
+    }
+
+    function downloadPlanningTemplate() {
+      const csv = "\uFEFF日期,類別,車號或設備,檢修級別,前次完工日,預排起日,預排迄日,是否鏇削,備註\n2026-06-03,車輛,101,1M,2026-05-04,2026-06-03,2026-06-03,否,\n2026-06-05,機廠設備,地下式自動車輪車床,3M,2026-05-05,2026-06-05,2026-06-05,否,\n";
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `預檢預排匯入格式_${planningYear}_${String(planningMonth).padStart(2, "0")}.csv`;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
     }
 
     function bindEvents(container) {
@@ -29310,6 +30014,83 @@ react-dom/cjs/react-dom-client.production.js:
           renderCenter(container);
         });
       });
+
+      container.querySelectorAll("[data-management-section]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const nextSection = button.getAttribute("data-management-section") || "";
+          activeManagementSection = nextSection;
+          activeView = "management";
+          renderCenter(container);
+          window.requestAnimationFrame(() => {
+            container.querySelector(`[data-management-panel="${nextSection}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+      });
+
+      container.querySelectorAll("[data-management-home]").forEach((button) => {
+        button.addEventListener("click", () => {
+          activeManagementSection = "";
+          activeView = "management";
+          renderCenter(container);
+          window.requestAnimationFrame(() => {
+            container.querySelector(".codex-pm-management-tabs-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+      });
+
+      container.querySelectorAll("[data-material-default-field]").forEach((input) => {
+        input.addEventListener("input", () => {
+          const index = Number(input.getAttribute("data-material-default-index"));
+          const field = input.getAttribute("data-material-default-field") || "";
+          if (!Number.isInteger(index) || !materialDefaults[index] || !(field in materialDefaults[index])) return;
+          materialDefaults[index][field] = input.value;
+          saveMaterialDefaults();
+        });
+      });
+
+      container.querySelectorAll("[data-material-preview-level]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const nextLevel = button.getAttribute("data-material-preview-level") || "qty1m";
+          if (materialPreviewLevels.some((level) => level.key === nextLevel)) {
+            activeMaterialPreviewLevel = nextLevel;
+            activeManagementSection = "materials";
+            activeView = "management";
+            renderCenter(container);
+          }
+        });
+      });
+
+      container.querySelectorAll("[data-material-default-delete]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const index = Number(button.getAttribute("data-material-default-delete"));
+          if (!Number.isInteger(index) || !materialDefaults[index]) return;
+          materialDefaults.splice(index, 1);
+          saveMaterialDefaults();
+          activeManagementSection = "materials";
+          activeView = "management";
+          renderCenter(container);
+        });
+      });
+
+      const addMaterialDefaultButton = container.querySelector("[data-material-default-add]");
+      if (addMaterialDefaultButton) {
+        addMaterialDefaultButton.addEventListener("click", () => {
+          materialDefaults.push({
+            item: "新增用料",
+            spec: "",
+            unit: "",
+            qty1m: "0",
+            qty3m: "0",
+            qty6m: "0",
+            qty1y: "0",
+            note: ""
+          });
+          saveMaterialDefaults();
+          activeManagementSection = "materials";
+          activeView = "management";
+          renderCenter(container);
+        });
+      }
 
       container.querySelectorAll("[data-front-page]").forEach((button) => {
         button.addEventListener("click", () => {
@@ -29491,6 +30272,14 @@ react-dom/cjs/react-dom-client.production.js:
         });
       }
 
+      const templateButton = container.querySelector("[data-planning-template]");
+      if (templateButton) {
+        templateButton.addEventListener("click", () => {
+          if (!planningCan("importExcel")) return;
+          downloadPlanningTemplate();
+        });
+      }
+
       const publishButton = container.querySelector("[data-planning-publish]");
       if (publishButton) {
         publishButton.addEventListener("click", () => {
@@ -29562,6 +30351,23 @@ react-dom/cjs/react-dom-client.production.js:
           selectedId = button.getAttribute("data-calendar-item") || selectedId;
           const item = selectedItem();
           selectedDate = item.date;
+          activeView = "print";
+          renderCenter(container);
+        });
+      });
+
+      container.querySelectorAll("[data-print-material-wash]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = selectedItem();
+          const mode = button.getAttribute("data-print-material-wash") || "none";
+          const next = {
+            none: { cabin: "N/A", driver: "N/A" },
+            cabin: { cabin: "水洗", driver: "N/A" },
+            driver: { cabin: "N/A", driver: "水洗" },
+            both: { cabin: "水洗", driver: "水洗" }
+          }[mode] || { cabin: "N/A", driver: "N/A" };
+          printMaterialOverrides[item.id] = next;
+          savePrintMaterialOverrides();
           activeView = "print";
           renderCenter(container);
         });
@@ -29727,11 +30533,75 @@ react-dom/cjs/react-dom-client.production.js:
       if (existing) return existing;
       const heading = Array.from(document.querySelectorAll("h1,h2,h3")).find((node) => {
         const text = (node.textContent || "").trim();
-        return text === "預檢工單清單" || text === "預檢系統管理" || text === "預檢管理";
+        return text === "預檢工單清單";
       });
       if (!heading) return null;
+      const headingText = (heading.textContent || "").trim();
+      if (headingText === "預檢工單清單") {
+        planningStandaloneMode = false;
+        syncPlanningStandaloneMode();
+        activeView = "calendar";
+      }
       return heading.closest(".no-print.space-y-6") || heading.closest("section") || heading.parentElement;
     }
+
+    function findPrecheckHomeMount() {
+      const headings = Array.from(document.querySelectorAll("h1,h2,h3"));
+      const title = headings.find((node) => (node.textContent || "").replace(/\s+/g, "").trim() === "預檢系統管理");
+      const header = title && (title.closest(".no-print.mb-6") || title.closest("section") || title.parentElement);
+      const main = header && header.closest("main");
+      if (!header || !main) {
+        return document.querySelector(".codex-pm-calendar-host[data-codex-precheck-home='true']") || document.querySelector(".codex-pm-calendar-host");
+      }
+
+      let host = main.querySelector(":scope > .codex-pm-calendar-host[data-codex-precheck-home='true']");
+      if (!host) {
+        host = document.createElement("div");
+        host.className = "codex-pm-calendar-host codex-pm-calendar-first";
+        host.dataset.codexPrecheckHome = "true";
+        header.insertAdjacentElement("afterend", host);
+      }
+
+      Array.from(main.children).forEach((child) => {
+        if (child !== header && child !== host) child.hidden = true;
+      });
+      header.hidden = false;
+      host.hidden = false;
+      return host;
+    }
+
+    window.codexPmShowPrecheckHome = function () {
+      const container = findPrecheckHomeMount() || findDashboardContainer();
+      if (!container) return false;
+      planningStandaloneMode = false;
+      syncPlanningStandaloneMode();
+      activeView = "calendar";
+      activeManagementSection = "";
+      planningSection = "schedule";
+      renderCenter(container);
+      window.codexPmPendingPrecheckHome = false;
+      window.requestAnimationFrame(() => {
+        container.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      return true;
+    };
+
+    window.codexPmShowManagementSection = function (section) {
+      const container = findPrecheckHomeMount() || findDashboardContainer();
+      if (!container) return false;
+      planningStandaloneMode = false;
+      syncPlanningStandaloneMode();
+      activeView = "management";
+      activeManagementSection = section || "instruments";
+      planningSection = "schedule";
+      renderCenter(container);
+      window.codexPmPendingPrecheckHome = false;
+      window.requestAnimationFrame(() => {
+        const panel = container.querySelector(`[data-management-panel="${activeManagementSection}"]`);
+        (panel || container).scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      return true;
+    };
 
     function enhanceCenter() {
       const container = findDashboardContainer();
@@ -29751,6 +30621,158 @@ react-dom/cjs/react-dom-client.production.js:
 
     const observer = new MutationObserver(scheduleEnhance);
     observer.observe(document.documentElement, { childList: true, subtree: true });
+  })();
+</script>
+
+<script id="codex-pm-home-button-script">
+  (() => {
+    function compactText(node) {
+      return (node && node.textContent ? node.textContent : "").replace(/\s+/g, "").trim();
+    }
+
+    function isHomeButton(button) {
+      if (!button || button.closest("aside")) return false;
+      const text = compactText(button);
+      return text.includes("預檢首頁") || text === "首頁" || text.endsWith("首頁");
+    }
+
+    function renameHomeButton(button) {
+      if (!isHomeButton(button) || compactText(button).includes("預檢首頁")) return;
+      let replaced = false;
+      button.childNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE && node.textContent.includes("首頁")) {
+          node.textContent = node.textContent.replace("首頁", " 預檢首頁");
+          replaced = true;
+        }
+      });
+      if (!replaced) button.appendChild(document.createTextNode(" 預檢首頁"));
+      button.dataset.codexPmHomeButton = "true";
+      button.title = "回到預檢首頁：管理入口與月曆總覽";
+    }
+
+    function normalizeHomeButtons() {
+      document.querySelectorAll("button").forEach(renameHomeButton);
+    }
+
+    function resetToPrecheckHome() {
+      if (window.codexPmShowPrecheckHome && window.codexPmShowPrecheckHome()) {
+        normalizeHomeButtons();
+        return;
+      }
+      window.setTimeout(() => {
+        if (window.codexPmShowPrecheckHome && window.codexPmShowPrecheckHome()) {
+          normalizeHomeButtons();
+          return;
+        }
+        const calendarButton = document.querySelector('.codex-pm-calendar-host [data-calendar-view="calendar"]');
+        if (calendarButton) calendarButton.click();
+        const host = document.querySelector(".codex-pm-calendar-host") || document.querySelector("h1,h2");
+        if (host) host.scrollIntoView({ behavior: "smooth", block: "start" });
+        normalizeHomeButtons();
+      }, 80);
+    }
+
+    function interceptHomeButton(event) {
+      const button = event.target && event.target.closest ? event.target.closest("button") : null;
+      if (isHomeButton(button)) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+        resetToPrecheckHome();
+      }
+    }
+
+    document.addEventListener("pointerdown", interceptHomeButton, true);
+    document.addEventListener("click", interceptHomeButton, true);
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", normalizeHomeButtons, { once: true });
+    } else {
+      normalizeHomeButtons();
+    }
+
+    new MutationObserver(normalizeHomeButtons).observe(document.documentElement, { childList: true, subtree: true });
+  })();
+</script>
+
+<script id="codex-pm-management-card-router">
+  (() => {
+    const sectionRules = [
+      { section: "instruments", labels: ["儀器列表"] },
+      { section: "materials", labels: ["表單用料", "用料預設", "用料說明", "領料單編號"] },
+      { section: "wi", labels: ["工作說明書", "W.I.No", "W.I.No"] }
+    ];
+
+    function compactText(node) {
+      return (node && node.textContent ? node.textContent : "").replace(/\s+/g, "").trim();
+    }
+
+    function precheckHeaderFrom(target) {
+      const header = target && target.closest ? target.closest(".no-print.mb-6") : null;
+      if (!header) return null;
+      const title = Array.from(header.querySelectorAll("h1,h2,h3")).find((node) => compactText(node) === "預檢系統管理");
+      return title ? header : null;
+    }
+
+    function sectionFromEvent(event, header) {
+      const path = typeof event.composedPath === "function" ? event.composedPath() : [];
+      for (const node of path) {
+        if (!(node instanceof Element) || node === header) break;
+        const text = compactText(node);
+        if (!text) continue;
+        const hits = sectionRules.filter((rule) => rule.labels.some((label) => text.includes(label)));
+        if (hits.length === 1) return hits[0].section;
+      }
+      return "";
+    }
+
+    function routeManagementCard(event) {
+      const header = precheckHeaderFrom(event.target);
+      if (!header) return;
+      const section = sectionFromEvent(event, header);
+      if (!section) return;
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      const show = () => window.codexPmShowManagementSection && window.codexPmShowManagementSection(section);
+      if (!show()) window.setTimeout(show, 80);
+    }
+
+    document.addEventListener("pointerdown", routeManagementCard, true);
+    document.addEventListener("click", routeManagementCard, true);
+  })();
+</script>
+
+<script id="codex-pm-old-calendar-center-guard">
+  (() => {
+    function compactText(node) {
+      return (node && node.textContent ? node.textContent : "").replace(/\s+/g, "").trim();
+    }
+
+    function hasOldCalendarCenter() {
+      return Array.from(document.querySelectorAll("h1,h2,h3,.codex-pm-title")).some((node) => {
+        const text = compactText(node);
+        return text === "月曆排程中心" || text === "預檢排程中心";
+      });
+    }
+
+    let pending = false;
+    function redirectOldCenter() {
+      if (pending) return;
+      if (!window.codexPmPendingPrecheckHome && !hasOldCalendarCenter()) return;
+      pending = true;
+      window.requestAnimationFrame(() => {
+        if (window.codexPmShowPrecheckHome) window.codexPmShowPrecheckHome();
+        pending = false;
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", redirectOldCenter, { once: true });
+    } else {
+      redirectOldCenter();
+    }
+    new MutationObserver(redirectOldCenter).observe(document.documentElement, { childList: true, subtree: true });
   })();
 </script>
 
