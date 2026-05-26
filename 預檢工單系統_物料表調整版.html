@@ -29122,7 +29122,7 @@ react-dom/cjs/react-dom-client.production.js:
         <div class="codex-pm-auto-scheduler">
           <div>
             <strong>年度表轉月排班／週排班</strong>
-            <span>先讀年度預定表建立當月工項；各次車輛預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，可排區間為 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天。這是車輛法規硬限制，系統不可把車輛預檢自動排到區間外。裕度可以往前用來補空班，不只往後順延。車輛會先排 3M / 6M / 1Y，並先嘗試把該級檢修前置鏇削排在檢修前，再用 1M 補足剩餘可用工作日，避免月檢先占掉鏇削窗口。機廠設備的級別看本月格、固定週期看全年最短週期，可後排設備會在不超期前提下往後排。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆。鏇削由 3M / 6M / 1Y 觸發，優先排在該級檢修前，月初檢修可提前到前月月底，且同一天只能一台。年度表定車輛工項不可漏排；若容量或搭配卡住，系統仍會保留排程，但簡易排程驗證只在未排、間隔超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天、鏇削缺漏時顯示紅色複核。</span>
+            <span>先讀年度預定表建立當月工項；各次車輛預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，可排區間為 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天。這是車輛法規硬限制，系統不可把車輛預檢自動排到區間外。裕度可以往前用來補空班，不只往後順延。車輛會先排 3M / 6M / 1Y，並先嘗試把該級檢修前置鏇削排在檢修前，再用 1M 補足剩餘可用工作日，避免月檢先占掉鏇削窗口。機廠設備的級別看本月格、固定週期看全年最短週期，可後排設備會在不超期前提下往後排。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆。鏇削由 3M / 6M / 1Y 觸發，優先排在該級檢修前，月初檢修可提前到前月月底，且同一天只能一台。年度表定車輛工項不可漏排；若容量或搭配卡住，系統仍會保留排程，但簡易排班檢視只在未排、間隔超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天、鏇削缺漏時顯示紅色複核。</span>
           </div>
           <button type="button" class="codex-pm-soft-button primary" data-planning-auto ${planningCan("edit") ? "" : "disabled"}>
             自動排未來 2 年
@@ -29458,10 +29458,10 @@ react-dom/cjs/react-dom-client.production.js:
           <section class="codex-pm-auto-section">
             <div class="codex-pm-print-head">
               <div>
-                <h3>簡易排程驗證</h3>
+                <h3>簡易排班檢視</h3>
                 <p>每格顯示年度週期、實際預排日期、與前次完工日差距；車輛高階檢修另列鏇削日期。紅色只代表硬條件需複核：未排、間隔超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天，或鏇削缺漏。</p>
               </div>
-              <div class="codex-pm-simple-year-switch" aria-label="簡易排程年度切換">
+              <div class="codex-pm-simple-year-switch" aria-label="簡易排班檢視年度切換">
                 ${simpleYears.map((year) => `<button type="button" class="${year === planningYear ? "is-active" : ""}" data-planning-simple-year="${year}">${year}</button>`).join("")}
               </div>
             </div>
@@ -29479,7 +29479,7 @@ react-dom/cjs/react-dom-client.production.js:
             <div class="codex-pm-print-head">
               <div>
                 <h3>自動排班邏輯</h3>
-                <p>年度表決定本月要做什麼，最新完工日決定排在哪一天；各次車輛預檢以距離上次施作 30 天為基準，允許 ±20% 裕度，24-36 天是法規硬限制；車輛先排高階檢修並先嘗試鎖定檢修前鏇削窗口，再排月檢補空班；年度表定車輛工項不可漏排。簡易排程驗證只在硬條件不合格時以紅色複核呈現，容量或搭配曾由系統保留但硬條件符合時不列為複核。</p>
+                <p>年度表決定本月要做什麼，最新完工日決定排在哪一天；各次車輛預檢以距離上次施作 30 天為基準，允許 ±20% 裕度，24-36 天是法規硬限制；車輛先排高階檢修並先嘗試鎖定檢修前鏇削窗口，再排月檢補空班；年度表定車輛工項不可漏排。簡易排班檢視只在硬條件不合格時以紅色複核呈現，容量或搭配曾由系統保留但硬條件符合時不列為複核。</p>
               </div>
               <span class="codex-pm-level-pill">規則版</span>
             </div>
@@ -29539,7 +29539,7 @@ react-dom/cjs/react-dom-client.production.js:
                 <li>週末、國定假日、人工標記假日都不會自動排。</li>
                 <li>新增颱風假或臨時假日後，系統會從當月開始重排，後續月份也一起檢查。</li>
                 <li>若往後排時遇到容量滿，就繼續找下一個工作日。</li>
-                <li>車輛年度表定工項不可漏排；若容量或搭配卡住，仍保留在最接近的 <code>24-36</code> 天法規區間工作日。只要間隔、鏇削與日期都符合硬條件，簡易排程驗證不顯示紅色複核。</li>
+                <li>車輛年度表定工項不可漏排；若容量或搭配卡住，仍保留在最接近的 <code>24-36</code> 天法規區間工作日。只要間隔、鏇削與日期都符合硬條件，簡易排班檢視不顯示紅色複核。</li>
               </ol>
             </section>
 
@@ -29573,7 +29573,7 @@ react-dom/cjs/react-dom-client.production.js:
           <section class="codex-pm-auto-section">
             <div class="codex-pm-print-head">
               <div>
-                <h3>${isCapabilitySection ? "檢修級別主檔" : isLogicSection ? "排班邏輯" : isSimpleSection ? `簡易排程｜${planningYear} 年年度表` : `排程規劃｜${planningYear} 年 ${planningMonth} 月`}</h3>
+                <h3>${isCapabilitySection ? "檢修級別主檔" : isLogicSection ? "排班邏輯" : isSimpleSection ? `簡易排班檢視｜${planningYear} 年年度表` : `排程規劃｜${planningYear} 年 ${planningMonth} 月`}</h3>
               </div>
               <span class="codex-pm-level-pill">${planningLockStatusLabel()}</span>
             </div>
@@ -29591,7 +29591,7 @@ react-dom/cjs/react-dom-client.production.js:
                 <select data-planning-month>${renderPlanningMonthOptions()}</select>
               </div>
               <button type="button" class="codex-pm-soft-button ${planningHolidayEditMode ? "is-active" : ""}" data-planning-holiday-mode ${planningCan("edit") ? "" : "disabled"}>${planningHolidayEditMode ? "完成假日" : "假日設定"}</button>
-              <button type="button" class="codex-pm-soft-button ${isSimpleSection ? "is-active" : ""}" data-planning-section="simple">簡易排程</button>
+              <button type="button" class="codex-pm-soft-button ${isSimpleSection ? "is-active" : ""}" data-planning-section="simple">簡易排班檢視</button>
               <button type="button" class="codex-pm-soft-button ${isLogicSection ? "is-active" : ""}" data-planning-section="logic">排班邏輯</button>
               <button type="button" class="codex-pm-soft-button" data-planning-template ${planningCan("importExcel") ? "" : "disabled"}>預排格式</button>
               <button type="button" class="codex-pm-soft-button" data-planning-import ${planningCan("importExcel") ? "" : "disabled"}>匯入/上傳預排</button>
@@ -29614,7 +29614,7 @@ react-dom/cjs/react-dom-client.production.js:
             機廠設備：本月格的 1M / 3M / 6M / 1Y 代表本次檢修級別；固定週期則看全年最短週期，有 1M 用 1M，沒有 1M 但有 3M 用 3M，沒有 3M 但有 6M 用 6M，只有 1Y 就用 1Y。預排日期一律以最新實際完工日或前月完工日加固定週期往後推算；間隔檢核也以固定週期基準判斷。<br>
             鏇削處理：排程順序會先排車輛 3M / 6M / 1Y，接著先嘗試把該級檢修前置鏇削排在檢修前，再用裕度安排 1M 補空班；鏇削不是單獨週期，只由車輛 3M / 6M / 1Y 觸發。若高階檢修排在月初，鏇削可自動提前到前一個月月底。若月檢或設備占到鏇削窗口，系統會優先改排月檢與設備，不讓鏇削消失。<br>
             已移轉單位的工項會保留最後歷史紀錄，但移轉月份之後不再顯示，也不再納入自動排班。<br>
-            排不出來處理：年度表定項目不能消失；車輛各次預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，也就是 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天內排入。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆；若車輛受負載、可用車或工作日條件影響，系統仍優先保留在最接近的法規區間工作日，不讓年度表定工項消失。簡易排程驗證只有在年度表有工項卻未排、車輛間隔超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天，或高階檢修鏇削缺漏時，才用紅色「複核」標示。<br>
+            排不出來處理：年度表定項目不能消失；車輛各次預檢須距離上次施作日期 ${planningInspectionBaseDays} 天，允許裕度 ±${Math.round(planningInspectionToleranceRate * 100)}%，也就是 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天內排入。每日容量依車輛搭配規則最多兩台，並可再搭配一筆機廠設備，總量最多 ${planningDailyCapacityLimit} 筆；若車輛受負載、可用車或工作日條件影響，系統仍優先保留在最接近的法規區間工作日，不讓年度表定工項消失。簡易排班檢視只有在年度表有工項卻未排、車輛間隔超出 ${planningInspectionMinDays}-${planningInspectionMaxDays} 天，或高階檢修鏇削缺漏時，才用紅色「複核」標示。<br>
             臨時假日處理：新增颱風假或臨時假日後，系統會保留工項級別、最新完工日、固定週期與允許上限，並從當月開始連同後續月份整段重排；假日不可自動排，往後找工作日時會檢查每日容量、鏇削一天一台、機廠設備週期上限與可後排限制。<br>
             備註：使用期間及行駛公里數以先到者開始安排檢修，後到達者為施行限期。法規裕度為 20%，月檢間隔上限為 36 天及 15,000 km、季檢為 108 天及 30,000 km，半年檢為 216 天及 60,000 km，年檢則為 438 天及 120,000 km（未滿 1 天以 1 天計）。<br>
             因此「與前次檢修間隔日數」必須顯示本次預排日與最新完工日的差距，排程人員才能直接判斷本次安排是否接近或超過檢修期限。
@@ -29952,7 +29952,7 @@ react-dom/cjs/react-dom-client.production.js:
                 <div class="codex-pm-actions">
                   ${planningStandaloneMode ? `
                     <button type="button" class="codex-pm-button ${planningSection === "schedule" ? "primary" : ""}" data-planning-section="schedule">排程</button>
-                    <button type="button" class="codex-pm-button ${planningSection === "simple" ? "primary" : ""}" data-planning-section="simple">簡易排程</button>
+                    <button type="button" class="codex-pm-button ${planningSection === "simple" ? "primary" : ""}" data-planning-section="simple">簡易排班檢視</button>
                     <button type="button" class="codex-pm-button ${planningSection === "logic" ? "primary" : ""}" data-planning-section="logic">排班邏輯</button>
                     <button type="button" class="codex-pm-button ${planningSection === "capabilities" ? "primary" : ""}" data-planning-section="capabilities">檢修級別</button>
                     <button type="button" class="codex-pm-button" data-front-page>回前台</button>
