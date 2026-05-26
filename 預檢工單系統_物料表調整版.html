@@ -23130,7 +23130,7 @@ react-dom/cjs/react-dom-client.production.js:
     function wiNoTextForTemplateCode(templateCode) {
       const list = wiNoMaster.filter((item) => item.levels.includes(templateCode));
       if (!list.length) return "本級別尚未設定工作說明書主檔";
-      return list.map((item) => `${item.no}｜${item.name}`).join("\n");
+      return list.map((item) => item.no).join("\n");
     }
 
     const form = {
@@ -23153,15 +23153,15 @@ react-dom/cjs/react-dom-client.production.js:
       planStartDate: "2026-05-07",
       latestFinishDate: "2026-05-07",
       maintenanceType: "預防性維修",
-      contractor: "本項 N/A",
-      mileage: "本項 N/A",
-      operationHours: "本項 N/A",
+      contractor: "■本項 N / A",
+      mileage: "■本項 N / A",
+      operationHours: "■本項 N / A",
       correctiveAction: "已完成1M預檢作業。\n相關事項詳如附件(1M檢查紀錄表)。",
       dangerStart: "13:00",
       dangerEnd: "15:00",
       dangerTotal: "2 小時",
       faultyParts: "空調濾網（客室：N/A、駕駛室：N/A）\n鍊條保護劑：10 ml\n矽膠輔助劑：15 g",
-      turnRoundParts: "本項 N/A",
+      turnRoundParts: "■本項 N / A",
       instruments: "15530037、101831232、V091118",
       actualStartDate: "",
       actualFinishDate: "",
@@ -23170,14 +23170,14 @@ react-dom/cjs/react-dom-client.production.js:
       inhouseNa: "否",
       inhouseStaffQty: "",
       inhouseManHour: "",
-      contractorCompletedBy: "本項 N/A",
+      contractorCompletedBy: "■本項 N / A",
       outsourceNa: "是",
       outsourceStaffQty: "",
       outsourceManHour: "",
       ntmcCompletedBy: "",
       ntmcApprovedBy: "",
-      groupList: "本項 N/A",
-      remark: "本項 N/A",
+      groupList: "■本項 N / A",
+      remark: "■本項 N / A",
       safety: {
         generalSafety: true,
         electricalLockout: false,
@@ -23253,7 +23253,7 @@ react-dom/cjs/react-dom-client.production.js:
         ["危險工時起訖", `${form.dangerStart}～${form.dangerEnd}`],
         ["危險總工時", form.dangerTotal],
         ["用料說明", form.faultyParts],
-        ["周轉件上線/下線資料", form.turnRoundParts],
+        ["設備位址 / 設備名稱 / 上線編號 / 下線編號", form.turnRoundParts],
         ["儀器編號", form.instruments],
         ["實際施工日期", toMinguo(form.actualStartDate)],
         ["實際完工日期", toMinguo(form.actualFinishDate)],
@@ -23394,7 +23394,7 @@ react-dom/cjs/react-dom-client.production.js:
               ${field("派工人", "assignedBy")}
               ${field("現場工作負責人", "personInCharge")}
               ${field("執行分類", "executionType", { options: ["自辦", "協力", "外包"] })}
-              ${field("工作類別", "maintenanceType")}
+              ${field("工作類別", "maintenanceType", { options: ["預防性維修", "大修"] })}
               ${field("維修外包/協力商", "contractor")}
               ${field("電聯車里程數", "mileage")}
               ${field("運轉時數", "operationHours")}
@@ -23426,7 +23426,7 @@ react-dom/cjs/react-dom-client.production.js:
               ${field("危險工時結束", "dangerEnd")}
               ${field("危險總工時", "dangerTotal")}
               ${field("用料說明或領料單編號", "faultyParts", { type: "textarea", wide: true })}
-              ${field("周轉件上線/下線資料", "turnRoundParts", { type: "textarea", wide: true })}
+              ${field("設備位址 / 設備名稱 / 上線編號 / 下線編號", "turnRoundParts", { type: "textarea", wide: true })}
               ${field("儀器編號", "instruments", { type: "textarea", wide: true })}
               ${field("實際施工日期", "actualStartDate", { type: "date" })}
               ${field("實際完工日期", "actualFinishDate", { type: "date" })}
@@ -24070,6 +24070,119 @@ react-dom/cjs/react-dom-client.production.js:
     color: #f8fafc;
     line-height: 1.45;
     white-space: pre-wrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-editor {
+    margin-top: 0.85rem;
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    border-radius: 8px;
+    background: rgba(8, 47, 73, 0.26);
+    padding: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-editor-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-editor-head strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-editor-head span {
+    display: block;
+    margin-top: 0.18rem;
+    color: #bfdbfe;
+    font-size: 0.74rem;
+    line-height: 1.4;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-editor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-control {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.42);
+    padding: 0.65rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-control.wide {
+    grid-column: 1 / -1;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-control label,
+  .codex-pm-calendar-first .codex-pm-work-package-na-row span {
+    display: block;
+    color: #93c5fd;
+    font-size: 0.72rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-control select,
+  .codex-pm-calendar-first .codex-pm-work-package-control textarea {
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.74);
+    color: #f8fafc;
+    color-scheme: dark;
+    font: inherit;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin-top: 0.35rem;
+    padding: 0.5rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-control select option {
+    background: #020617;
+    color: #f8fafc;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-control textarea {
+    min-height: 4.8rem;
+    resize: vertical;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-control small {
+    display: block;
+    margin-top: 0.36rem;
+    color: #cbd5e1;
+    font-size: 0.72rem;
+    line-height: 1.35;
+    white-space: pre-wrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-na-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-na-toggle {
+    display: inline-flex;
+    gap: 0.36rem;
+    align-items: center;
+    color: #f8fafc;
+    cursor: pointer;
+    font-size: 0.76rem;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-na-toggle input {
+    accent-color: #22d3ee;
   }
 
   .codex-pm-calendar-first .codex-pm-management-card {
@@ -24737,8 +24850,14 @@ react-dom/cjs/react-dom-client.production.js:
     border-radius: 8px;
     background: rgba(2, 6, 23, 0.68);
     color: #f8fafc;
+    color-scheme: dark;
     padding: 0 0.5rem;
     font-size: 0.76rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-planning-field select option {
+    background: #020617;
+    color: #f8fafc;
   }
 
   .codex-pm-calendar-first .codex-pm-auto-scheduler {
@@ -25659,7 +25778,8 @@ react-dom/cjs/react-dom-client.production.js:
     opacity: 0.55;
   }
 
-  .codex-pm-calendar-first .codex-pm-capability-table input.codex-pm-matrix-input {
+  .codex-pm-calendar-first .codex-pm-capability-table input.codex-pm-matrix-input,
+  .codex-pm-calendar-first .codex-pm-capability-table select.codex-pm-matrix-input {
     width: 100%;
     min-width: 6rem;
     height: 2.15rem;
@@ -25667,8 +25787,14 @@ react-dom/cjs/react-dom-client.production.js:
     border-radius: 8px;
     background: rgba(2, 6, 23, 0.62);
     color: #dbeafe;
+    color-scheme: dark;
     font-size: 0.76rem;
     padding: 0 0.55rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-capability-table select.codex-pm-matrix-input option {
+    background: #020617;
+    color: #f8fafc;
   }
 
   .codex-pm-calendar-first .codex-pm-capability-table input.codex-pm-matrix-qty {
@@ -25973,6 +26099,34 @@ react-dom/cjs/react-dom-client.production.js:
       } catch (error) {}
     }
 
+    const workPackageOverridesStorageKey = "codexPmWorkPackageOverridesV1";
+    const workPackageMaintenanceTypeOptions = ["預防性維修", "大修"];
+    const workPackageExecutionTypeOptions = ["自辦", "協力", "外包"];
+    const workPackageNaFieldDefinitions = [
+      { key: "maintenanceContractor", label: "維修外包/協力商", placeholder: "輸入廠商名稱、聯絡窗口或合約資訊" },
+      { key: "mileage", label: "電聯車里程數", placeholder: "輸入里程數，例如 12345 km" },
+      { key: "operationHours", label: "運轉時數", placeholder: "輸入運轉時數" },
+      { key: "turnRoundParts", label: "設備位址 / 設備名稱 / 上線編號 / 下線編號", placeholder: "逐行輸入設備位址、設備名稱、上線編號、下線編號" },
+      { key: "contractorCompletedBy", label: "維修外包/協力人員", placeholder: "輸入外包或協力人員姓名" },
+      { key: "outSourcingManpower", label: "外包/協力人力", placeholder: "輸入外包/協力工作人數、實際維修工時或人力說明" },
+      { key: "remark", label: "附註", placeholder: "輸入附註內容" },
+      { key: "groupList", label: "群組組成清單", placeholder: "輸入群組組成清單" }
+    ];
+    let workPackageOverrides = (() => {
+      try {
+        const saved = JSON.parse(window.localStorage?.getItem(workPackageOverridesStorageKey) || "{}");
+        return saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
+      } catch (error) {
+        return {};
+      }
+    })();
+
+    function saveWorkPackageOverrides() {
+      try {
+        window.localStorage?.setItem(workPackageOverridesStorageKey, JSON.stringify(workPackageOverrides));
+      } catch (error) {}
+    }
+
     const templates = {
       P1: {
         label: "第一級",
@@ -26079,7 +26233,7 @@ react-dom/cjs/react-dom-client.production.js:
     function workInstructionTextForItem(item) {
       const list = applicableWorkInstructionsForItem(item);
       if (!list.length) return `${workInstructionLevelForItem(item)} 尚未設定工作說明書主檔`;
-      return list.map((wi) => `${wi.no}｜${wi.name}`).join("\n");
+      return list.map((wi) => wi.no).join("\n");
     }
 
     const workPackageInventory = {
@@ -26099,42 +26253,86 @@ react-dom/cjs/react-dom-client.production.js:
           { phase: "派工規劃階段", name: "維修週期(Maintenance Period)", source: "作業包主檔", value: "月檢", page: "作業包主檔", note: "P1 固定帶入" },
           { phase: "派工規劃階段", name: "計畫數量(Qty)", source: "固定預設值", value: "1", page: "作業包主檔", note: "車輛預檢預設 1" },
           { phase: "派工規劃階段", name: "設備位置(Location)", source: "排程自動帶入", value: "車號，例如 101 車", page: "月曆排程 / 作業包", note: "由被點選排程帶入" },
-          { phase: "派工規劃階段", name: "工作類別(Maintenance Type)", source: "固定預設值", value: "■預防性維修 □大修", page: "作業包主檔", note: "P1 固定預設" },
+          { phase: "派工規劃階段", name: "工作類別(Maintenance Type)", source: "作業包主檔 / 可編輯", value: "■預防性維修 □大修", page: "作業包主檔", note: "可選預防性維修或大修，列印用 ■/□ 顯示" },
           { phase: "派工規劃階段", name: "工作說明書編號(W.I.No)", source: "工作說明書主檔", value: "依車號/設備與檢修級別自動篩選", page: "工作說明書主檔", note: "像儀器列表一樣，用勾選決定每級要帶入哪些 W.I.No" },
           { phase: "派工規劃階段", name: "新北捷運維修單位(NTMC Dept)", source: "部門主檔", value: "車輛課", page: "作業包主檔", note: "P1 車輛預設" },
           { phase: "派工規劃階段", name: "派工人(Assigned by)", source: "排程/人員", value: "排程或主管指定", page: "作業包 / 人員", note: "列印前可覆寫" },
-          { phase: "派工規劃階段", name: "維修外包/協力商(Maintenance Contractor)", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "P1 目前自辦，不啟用外包欄" },
-          { phase: "派工規劃階段", name: "執行分類", source: "作業包主檔", value: "■自辦 □協力 □外包", page: "作業包主檔", note: "預設自辦" },
+          { phase: "派工規劃階段", name: "維修外包/協力商(Maintenance Contractor)", source: "作業包主檔 / 可編輯", value: "■本項 N / A 或輸入廠商", page: "作業包主檔", note: "可切換本項 N / A；輸入文字後自動改為 □本項 N / A" },
+          { phase: "派工規劃階段", name: "執行分類", source: "作業包主檔 / 可編輯", value: "■自辦 □協力 □外包", page: "作業包主檔", note: "可選自辦、協力或外包，列印用 ■/□ 顯示" },
           { phase: "派工規劃階段", name: "現場工作負責人(Person in charge)", source: "排程/人員", value: "現場班組或指定人", page: "作業包 / 人員", note: "列印前確認" },
           { phase: "派工規劃階段", name: "預計施工日期(Plan Start Date)", source: "排程自動帶入", value: "排程日期，民國格式列印", page: "月曆排程", note: "由預排日期帶入" },
           { phase: "派工規劃階段", name: "所需安全衛生作業項目", source: "作業包主檔", value: "■高架作業、■一般安全衛生作業", page: "作業包主檔", note: "其餘依實際勾選" },
-          { phase: "派工規劃階段", name: "電聯車里程數(Mileage)", source: "固定 N/A", value: "□本項 N/A", page: "作業包主檔", note: "目前 P1 封面不填里程" },
-          { phase: "派工規劃階段", name: "運轉時數(Operation)", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "目前 P1 封面不填運轉時數" },
+          { phase: "派工規劃階段", name: "電聯車里程數(Mileage)", source: "作業包主檔 / 可編輯", value: "■本項 N / A 或輸入里程數", page: "作業包主檔", note: "可切換本項 N / A，也可輸入公里數" },
+          { phase: "派工規劃階段", name: "運轉時數(Operation)", source: "作業包主檔 / 可編輯", value: "■本項 N / A 或輸入時數", page: "作業包主檔", note: "可切換本項 N / A，也可輸入運轉時數" },
           { phase: "派工規劃階段", name: "最晚需完成日期(Latest Finish Date)", source: "排程自動帶入", value: "預設同預計施工日期", page: "月曆排程 / 作業包", note: "必要時可依主管規則延後" },
           { phase: "完工驗收階段", name: "維修處理情形(Corrective Action)", source: "作業包主檔 + 完工回填", value: "已完成1M預檢作業。相關事項詳如附件(1M檢查紀錄表)。", page: "實際完工", note: "預設文字可由完工回填覆寫" },
           { phase: "完工驗收階段", name: "危險工時起訖", source: "作業包主檔", value: "13:00～15:00", page: "作業包主檔", note: "P1 預設危險工時" },
           { phase: "完工驗收階段", name: "危險總工時", source: "作業包主檔", value: "2 小時", page: "作業包主檔", note: "由起訖時間換算或人工維護" },
           { phase: "完工驗收階段", name: "用料說明或領料單編號(Faulty Parts)", source: "用料主檔 + 完工回填", value: "空調濾網 N/A；鍊條保護劑 10 ml；矽膠輔助劑 15 g", page: "用料說明或領料單編號", note: "已獨立成可維護分頁" },
-          { phase: "完工驗收階段", name: "設備位址/設備名稱/上線編號/下線編號", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "周轉件流程目前不用" },
+          { phase: "完工驗收階段", name: "設備位址/設備名稱/上線編號/下線編號", source: "作業包主檔 / 可編輯", value: "■本項 N / A 或輸入周轉件資料", page: "作業包主檔", note: "已改為原 RTF 欄位名稱" },
           { phase: "完工驗收階段", name: "實際施工日期與時間", source: "現場完工回填", value: "完工時填入", page: "實際完工", note: "回填後視為完工資料來源" },
           { phase: "完工驗收階段", name: "實際完工日期與時間", source: "現場完工回填", value: "完工時填入", page: "實際完工", note: "會回寫排程的前次完工依據" },
           { phase: "完工驗收階段", name: "完成數量(Qty Completed)", source: "現場完工回填", value: "1", page: "實際完工", note: "預設 1，可回填確認" },
           { phase: "完工驗收階段", name: "成本中心(Cost Center)", source: "部門主檔", value: "車輛課", page: "作業包主檔", note: "P1 車輛預設" },
-          { phase: "完工驗收階段", name: "自有人力 In-house 是否 N/A", source: "現場完工回填", value: "□本項 N/A", page: "實際完工", note: "有人力時不勾 N/A" },
+          { phase: "完工驗收階段", name: "自有人力 In-house 是否 N/A", source: "現場完工回填", value: "□本項 N / A", page: "實際完工", note: "有人力時不勾 N / A" },
           { phase: "完工驗收階段", name: "自有人力工作人數(Staff Qty)", source: "現場完工回填", value: "完工時填入", page: "實際完工", note: "統計工時用" },
           { phase: "完工驗收階段", name: "自有人力實際維修工時(Total Man-hour)", source: "現場完工回填", value: "完工時填入", page: "實際完工", note: "統計工時用" },
-          { phase: "完工驗收階段", name: "維修外包/協力人員(Contractor Completed by)", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "P1 目前自辦" },
+          { phase: "完工驗收階段", name: "維修外包/協力人員(Contractor Completed by)", source: "作業包主檔 / 可編輯", value: "■本項 N / A 或輸入人員", page: "作業包主檔", note: "可切換本項 N / A；外包或協力啟用時輸入人員" },
           { phase: "完工驗收階段", name: "儀器編號(Instrument No)", source: "儀器主檔 + 完工回填", value: "15530037、101831232、V091118", page: "儀器列表", note: "已獨立成可維護分頁" },
-          { phase: "完工驗收階段", name: "外包/協力人力 Out Sourcing 是否 N/A", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "P1 目前不啟用外包人力" },
-          { phase: "完工驗收階段", name: "外包/協力工作人數", source: "固定 N/A", value: "空白", page: "作業包主檔", note: "外包啟用時才填" },
-          { phase: "完工驗收階段", name: "外包/協力實際維修工時", source: "固定 N/A", value: "空白", page: "作業包主檔", note: "外包啟用時才填" },
+          { phase: "完工驗收階段", name: "外包/協力人力 Out Sourcing 是否 N/A", source: "作業包主檔 / 可編輯", value: "■本項 N / A 或輸入人力說明", page: "作業包主檔", note: "外包/協力人力欄位可輸入工作人數與工時" },
+          { phase: "完工驗收階段", name: "外包/協力工作人數", source: "作業包主檔 / 可編輯", value: "見外包/協力人力欄位", page: "作業包主檔", note: "輸入於外包/協力人力欄位" },
+          { phase: "完工驗收階段", name: "外包/協力實際維修工時", source: "作業包主檔 / 可編輯", value: "見外包/協力人力欄位", page: "作業包主檔", note: "輸入於外包/協力人力欄位" },
           { phase: "結案階段", name: "新北維修人員(NTMC Completed by)", source: "主管審核/結案", value: "結案時填入", page: "實際完工 / 結案", note: "完工資料確認後填" },
           { phase: "結案階段", name: "新北結案核准人員(NTMC Closed out & Approved by)", source: "主管審核/結案", value: "結案時填入", page: "實際完工 / 結案", note: "主管確認欄" },
-          { phase: "結案階段", name: "附註(Remark)", source: "固定 N/A + 回填", value: "■本項 N/A", page: "實際完工", note: "有特殊狀況才覆寫" },
-          { phase: "結案階段", name: "群組組成清單(Group List)", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "P1 封面目前不使用" }
+          { phase: "結案階段", name: "附註(Remark)", source: "作業包主檔 / 可編輯", value: "■本項 N / A 或輸入附註", page: "作業包主檔", note: "可切換本項 N / A，也可輸入附註" },
+          { phase: "結案階段", name: "群組組成清單(Group List)", source: "作業包主檔 / 可編輯", value: "■本項 N / A 或輸入清單", page: "作業包主檔", note: "可切換本項 N / A，也可輸入群組組成清單" }
         ]
       }
     };
+
+    const workPackageCoverageRows = [
+      { rtf: "工單序號 / FR Serial No", system: "工單序號 / FR Serial No", status: "只有顯示", note: "由排程日期與序號產生" },
+      { rtf: "系統名稱(System)", system: "系統名稱(System)", status: "只有顯示", note: "依車輛/設備類型帶入" },
+      { rtf: "設備群組編號 / 設備標示編號", system: "設備群組編號 / 設備標示編號", status: "只有顯示", note: "由作業包主檔帶入" },
+      { rtf: "設備群組名稱 / 設備標示名稱", system: "設備群組名稱 / 設備標示名稱", status: "只有顯示", note: "由作業包主檔帶入" },
+      { rtf: "工作說明(Job Description)", system: "工作說明(Job Description)", status: "只有顯示", note: "依車號/設備與級別組合" },
+      { rtf: "維修週期(Maintenance Period)", system: "維修週期(Maintenance Period)", status: "只有顯示", note: "依 P1/P2/P3/P4 範本帶入" },
+      { rtf: "計畫數量(Qty)", system: "計畫數量(Qty)", status: "只有顯示", note: "目前預設 1" },
+      { rtf: "設備位置(Location)", system: "設備位置(Location)", status: "只有顯示", note: "由排程車號或設備帶入" },
+      { rtf: "工作類別(Maintenance Type)", system: "工作類別", status: "已可編輯", note: "可選預防性維修 / 大修" },
+      { rtf: "工作說明書編號(W.I.No)", system: "工作說明書編號(W.I.No)", status: "只有顯示", note: "由工作說明書主檔勾選帶入" },
+      { rtf: "新北捷運維修單位(NTMC Dept)", system: "新北捷運維修單位(NTMC Dept)", status: "只有顯示", note: "由車輛/設備部門帶入" },
+      { rtf: "派工人(Assigned by)", system: "派工人(Assigned by)", status: "只有顯示", note: "目前列印前指定" },
+      { rtf: "維修外包/協力商(Maintenance Contractor)", system: "維修外包/協力商", status: "已可編輯", note: "可輸入或切換本項 N / A" },
+      { rtf: "執行分類", system: "執行分類", status: "已可編輯", note: "可選自辦 / 協力 / 外包" },
+      { rtf: "現場工作負責人(Person in charge)", system: "現場工作負責人(Person in charge)", status: "只有顯示", note: "目前列印前指定" },
+      { rtf: "預計施工日期(Plan Start Date)", system: "預計施工日期(Plan Start Date)", status: "只有顯示", note: "由排程帶入" },
+      { rtf: "所需安全衛生作業項目", system: "所需安全衛生作業項目", status: "只有顯示", note: "目前依車輛/設備預設" },
+      { rtf: "電聯車里程數(Mileage)", system: "電聯車里程數", status: "已可編輯", note: "可輸入或切換本項 N / A" },
+      { rtf: "運轉時數(Operation)", system: "運轉時數", status: "已可編輯", note: "可輸入或切換本項 N / A" },
+      { rtf: "最晚需完成日期(Latest Finish Date)", system: "最晚需完成日期(Latest Finish Date)", status: "只有顯示", note: "目前預設同預計施工日期" },
+      { rtf: "維修處理情形(Corrective Action)", system: "維修處理情形(Corrective Action)", status: "只有顯示", note: "由級別預設或完工回填" },
+      { rtf: "危險工時起訖", system: "危險工時起訖", status: "只有顯示", note: "由作業包主檔帶入" },
+      { rtf: "危險總工時", system: "危險總工時", status: "只有顯示", note: "由作業包主檔帶入" },
+      { rtf: "用料說明或領料單編號(Faulty Parts)", system: "用料說明或領料單編號", status: "已可編輯", note: "用料欄位已有空調濾網覆寫入口" },
+      { rtf: "設備位址 / 設備名稱 / 上線編號 / 下線編號", system: "設備位址 / 設備名稱 / 上線編號 / 下線編號", status: "已可編輯", note: "已拆開舊的周轉件合併顯示" },
+      { rtf: "實際施工日期與時間", system: "實際施工日期與時間", status: "只有顯示", note: "完工回填階段填入" },
+      { rtf: "實際完工日期與時間", system: "實際完工日期與時間", status: "只有顯示", note: "完工回填階段填入" },
+      { rtf: "完成數量(Qty Completed)", system: "完成數量(Qty Completed)", status: "只有顯示", note: "目前預設 1" },
+      { rtf: "成本中心(Cost Center)", system: "成本中心(Cost Center)", status: "只有顯示", note: "依部門帶入" },
+      { rtf: "自有人力 In-house 是否 N/A", system: "自有人力 In-house 是否 N/A", status: "只有顯示", note: "由完工回填處理" },
+      { rtf: "自有人力工作人數(Staff Qty)", system: "自有人力工作人數(Staff Qty)", status: "只有顯示", note: "由完工回填處理" },
+      { rtf: "自有人力實際維修工時(Total Man-hour)", system: "自有人力實際維修工時(Total Man-hour)", status: "只有顯示", note: "由完工回填處理" },
+      { rtf: "維修外包/協力人員(Contractor Completed by)", system: "維修外包/協力人員", status: "已可編輯", note: "可輸入或切換本項 N / A" },
+      { rtf: "儀器編號(Instrument No)", system: "儀器編號(Instrument No)", status: "只有顯示", note: "由儀器主檔帶入" },
+      { rtf: "外包/協力人力 Out Sourcing 是否 N/A", system: "外包/協力人力", status: "已可編輯", note: "可輸入或切換本項 N / A" },
+      { rtf: "外包/協力工作人數", system: "外包/協力工作人數", status: "已可編輯", note: "以外包/協力人力欄位承接" },
+      { rtf: "外包/協力實際維修工時", system: "外包/協力實際維修工時", status: "已可編輯", note: "以外包/協力人力欄位承接" },
+      { rtf: "新北維修人員(NTMC Completed by)", system: "新北維修人員(NTMC Completed by)", status: "只有顯示", note: "結案階段填入" },
+      { rtf: "新北結案核准人員(NTMC Closed out & Approved by)", system: "新北結案核准人員(NTMC Closed out & Approved by)", status: "只有顯示", note: "結案階段填入" },
+      { rtf: "附註(Remark)", system: "附註", status: "已可編輯", note: "可輸入或切換本項 N / A" },
+      { rtf: "群組組成清單(Group List)", system: "群組組成清單", status: "已可編輯", note: "可輸入或切換本項 N / A" }
+    ];
 
     const scheduleItems = [
       {
@@ -26941,6 +27139,64 @@ react-dom/cjs/react-dom-client.production.js:
       };
     }
 
+    function defaultWorkPackageOverride() {
+      const base = {
+        maintenanceType: "預防性維修",
+        executionType: "自辦"
+      };
+      workPackageNaFieldDefinitions.forEach((field) => {
+        base[`${field.key}Na`] = true;
+        base[`${field.key}Text`] = "";
+      });
+      return base;
+    }
+
+    function normalizeWorkPackageOverride(record = {}) {
+      const normalized = defaultWorkPackageOverride();
+      const maintenanceType = String(record.maintenanceType || normalized.maintenanceType);
+      const executionType = String(record.executionType || normalized.executionType);
+      normalized.maintenanceType = workPackageMaintenanceTypeOptions.includes(maintenanceType) ? maintenanceType : "預防性維修";
+      normalized.executionType = workPackageExecutionTypeOptions.includes(executionType) ? executionType : "自辦";
+      workPackageNaFieldDefinitions.forEach((field) => {
+        const naKey = `${field.key}Na`;
+        const textKey = `${field.key}Text`;
+        normalized[naKey] = typeof record[naKey] === "boolean" ? record[naKey] : true;
+        normalized[textKey] = String(record[textKey] || "");
+      });
+      return normalized;
+    }
+
+    function workPackageOverrideForItem(item) {
+      return normalizeWorkPackageOverride(workPackageOverrides[item?.id] || {});
+    }
+
+    function updateWorkPackageOverrideForItem(item, patch) {
+      if (!item?.id) return;
+      workPackageOverrides[item.id] = normalizeWorkPackageOverride({
+        ...workPackageOverrideForItem(item),
+        ...patch
+      });
+      saveWorkPackageOverrides();
+    }
+
+    function workPackageSquareOptions(options, selected) {
+      return options.map((option) => `${option === selected ? "■" : "□"}${option}`).join(" ");
+    }
+
+    function workPackageNaValue(config, key) {
+      const text = String(config[`${key}Text`] || "").trim();
+      if (config[`${key}Na`] || !text) return "■本項 N / A";
+      return `□本項 N / A\n${text}`;
+    }
+
+    function workPackageNaText(config, key) {
+      return String(config[`${key}Text`] || "").trim();
+    }
+
+    function workPackageSelectOptions(options, selected) {
+      return options.map((option) => `<option value="${escapeHtml(option)}"${option === selected ? " selected" : ""}>${escapeHtml(option)}</option>`).join("");
+    }
+
     function airFilterLineForItem(item) {
       const override = materialOverrideForItem(item);
       return `空調濾網（客室：${override.cabin}、駕駛室：${override.driver}）`;
@@ -27216,34 +27472,59 @@ react-dom/cjs/react-dom-client.production.js:
     function autoFields(item) {
       const template = templateFor(item);
       const isVehicle = item.assetType === "車輛";
+      const workPackage = workPackageOverrideForItem(item);
+      const department = isVehicle ? "車輛課" : item.department;
+      const systemName = isVehicle ? "ERS" : "機廠設備";
+      const groupName = isVehicle ? "輕軌列車" : item.asset;
+      const safetyItems = isVehicle
+        ? "□動火管制區內之動火作業 ■高架作業 □侷限空間/缺氧作業 □高壓活線作業 □其他作業 ■一般安全衛生作業 □消防隔離 □吊掛作業 □電氣設備斷電掛卡 □架空線斷電 □架設短路夾"
+        : "□動火管制區內之動火作業 □高架作業 □侷限空間/缺氧作業 □高壓活線作業 □其他作業 ■一般安全衛生作業 □消防隔離 □吊掛作業 □電氣設備斷電掛卡 □架空線斷電 □架設短路夾";
+      const outSourcingText = workPackageNaText(workPackage, "outSourcingManpower");
+      const outSourcingIsNa = workPackage.outSourcingManpowerNa || !outSourcingText;
       return [
-        ["P單號", pNoFor(item), "系統建立"],
-        ["車輛 / 設備", item.asset, "預排表"],
-        ["類型", item.assetType, "預排表"],
-        ["檢修級別", item.level, "預排表"],
-        ["維修週期", `${template.label} / ${template.period}`, "範本"],
-        ["預計施工日期", toMinguo(item.date), "預排表"],
-        ["前次完工日", toMinguo(item.previousDone), "預排表"],
-        ["設備位置", item.location, "預排表"],
-        ["維修單位", item.department, "預排表"],
+        ["工單序號 / FR Serial No", pNoFor(item), "系統建立"],
+        ["系統名稱(System)", systemName, "作業包主檔"],
+        ["設備群組編號 / 設備標示編號", isVehicle ? "ERS" : item.asset, "作業包主檔"],
+        ["設備群組名稱 / 設備標示名稱", groupName, "作業包主檔"],
+        ["工作說明(Job Description)", `${item.asset} ${item.level}預防檢修`, "系統組合"],
+        ["維修週期(Maintenance Period)", `${template.label} / ${template.period}`, "範本"],
+        ["計畫數量(Qty)", "1", "作業包主檔"],
+        ["設備位置(Location)", item.location, "預排表"],
+        ["工作類別", workPackageSquareOptions(workPackageMaintenanceTypeOptions, workPackage.maintenanceType), "作業包主檔 / 可編輯"],
         ["工作說明書編號(W.I.No)", workInstructionTextForItem(item), "工作說明書主檔"],
-        ["工作說明", `${item.asset} ${item.level}預防檢修`, "系統組合"],
-        ["工作類別", "■預防性維修 □大修", "作業包主檔"],
-        ["執行分類", "■自辦 □協力 □外包", "作業包主檔"],
-        ["維修外包/協力商", "■本項 N/A", "作業包主檔"],
-        ["電聯車里程數", isVehicle ? "□本項 N/A" : "不適用", "作業包主檔"],
-        ["運轉時數", "■本項 N/A", "作業包主檔"],
-        ["套用檢查表", template.file, "範本設定"],
+        ["新北捷運維修單位(NTMC Dept)", department, "作業包主檔"],
+        ["派工人(Assigned by)", "列印前指定", "人員確認"],
+        ["維修外包/協力商", workPackageNaValue(workPackage, "maintenanceContractor"), "作業包主檔 / 可編輯"],
+        ["執行分類", workPackageSquareOptions(workPackageExecutionTypeOptions, workPackage.executionType), "作業包主檔 / 可編輯"],
+        ["現場工作負責人(Person in charge)", "列印前指定", "人員確認"],
+        ["預計施工日期(Plan Start Date)", toMinguo(item.date), "預排表"],
+        ["所需安全衛生作業項目", safetyItems, "作業包主檔"],
+        ["電聯車里程數", workPackageNaValue(workPackage, "mileage"), "作業包主檔 / 可編輯"],
+        ["運轉時數", workPackageNaValue(workPackage, "operationHours"), "作業包主檔 / 可編輯"],
+        ["最晚需完成日期(Latest Finish Date)", toMinguo(item.date), "預排表"],
+        ["維修處理情形(Corrective Action)", template.period === "1M" ? "已完成1M預檢作業。相關事項詳如附件(1M檢查紀錄表)。" : "依級別表單預設文字帶入", "作業包主檔"],
+        ["危險工時起訖", template.period === "1M" ? "13:00～15:00" : "依級別主檔設定", "作業包主檔"],
+        ["危險總工時", template.period === "1M" ? "2 小時" : "依級別主檔設定", "作業包主檔"],
         ["用料說明或領料單編號", materialTextForItem(item), "主檔預設 / 本次覆寫"],
-        ["安全衛生預設", isVehicle ? "一般安全注意事項、電氣掛鎖掛牌" : "一般安全注意事項、設備隔離確認", "規則"],
-        ["維修處理情形", template.period === "1M" ? "已完成1M預檢作業。相關事項詳如附件(1M檢查紀錄表)。" : "依級別表單預設文字帶入", "作業包主檔"],
-        ["危險工時", template.period === "1M" ? "13:00～15:00；2 小時" : "依級別主檔設定", "作業包主檔"],
-        ["周轉件上線/下線資料", "■本項 N/A", "作業包主檔"],
-        ["儀器預設", template.period === "1M" ? "15530037、101831232、V091118" : "依檢查項目帶入；現場完成後再回填實際值", "儀器主檔"],
-        ["自有人力欄位", "工作人數、實際維修工時由完工回填", "實際完工"],
-        ["外包/協力人力", "■本項 N/A", "作業包主檔"],
-        ["結案欄位", "新北維修人員、結案核准人員由結案填入", "主管審核/結案"],
-        ["附註 / 群組組成清單", "■本項 N/A", "作業包主檔"]
+        ["設備位址 / 設備名稱 / 上線編號 / 下線編號", workPackageNaValue(workPackage, "turnRoundParts"), "作業包主檔 / 可編輯"],
+        ["實際施工日期與時間", "完工時填入", "實際完工"],
+        ["實際完工日期與時間", "完工時填入", "實際完工"],
+        ["完成數量(Qty Completed)", "1", "實際完工"],
+        ["成本中心(Cost Center)", department, "作業包主檔"],
+        ["自有人力 In-house 是否 N/A", "□本項 N / A", "實際完工"],
+        ["自有人力工作人數(Staff Qty)", "完工時填入", "實際完工"],
+        ["自有人力實際維修工時(Total Man-hour)", "完工時填入", "實際完工"],
+        ["維修外包/協力人員", workPackageNaValue(workPackage, "contractorCompletedBy"), "作業包主檔 / 可編輯"],
+        ["儀器編號(Instrument No)", template.period === "1M" ? "15530037、101831232、V091118\n□本項 N / A" : "依檢查項目帶入；現場完成後再回填實際值\n□本項 N / A", "儀器主檔"],
+        ["外包/協力人力", workPackageNaValue(workPackage, "outSourcingManpower"), "作業包主檔 / 可編輯"],
+        ["外包/協力工作人數", outSourcingIsNa ? "■本項 N / A" : "見外包/協力人力欄位", "作業包主檔 / 可編輯"],
+        ["外包/協力實際維修工時", outSourcingIsNa ? "■本項 N / A" : "見外包/協力人力欄位", "作業包主檔 / 可編輯"],
+        ["新北維修人員(NTMC Completed by)", "結案時填入", "主管審核/結案"],
+        ["新北結案核准人員(NTMC Closed out & Approved by)", "結案時填入", "主管審核/結案"],
+        ["附註", workPackageNaValue(workPackage, "remark"), "作業包主檔 / 可編輯"],
+        ["群組組成清單", workPackageNaValue(workPackage, "groupList"), "作業包主檔 / 可編輯"],
+        ["套用檢查表", template.file, "範本設定"],
+        ["前次完工日", toMinguo(item.previousDone), "排程基準"]
       ];
     }
 
@@ -27601,10 +27882,72 @@ react-dom/cjs/react-dom-client.production.js:
       `;
     }
 
+    function renderWorkPackageNaEditor(field, config) {
+      const isNa = Boolean(config[`${field.key}Na`]);
+      const text = String(config[`${field.key}Text`] || "");
+      const wide = ["turnRoundParts", "outSourcingManpower", "remark", "groupList"].includes(field.key);
+      return `
+        <div class="codex-pm-work-package-control ${wide ? "wide" : ""}">
+          <div class="codex-pm-work-package-na-row">
+            <span>${escapeHtml(field.label)}</span>
+            <label class="codex-pm-work-package-na-toggle">
+              <input type="checkbox" data-work-package-na="${escapeHtml(field.key)}"${isNa ? " checked" : ""}>
+              ${isNa ? "■" : "□"}本項 N / A
+            </label>
+          </div>
+          <textarea data-work-package-text="${escapeHtml(field.key)}" placeholder="${escapeHtml(field.placeholder)}">${escapeHtml(text)}</textarea>
+          <small>${escapeHtml(workPackageNaValue(config, field.key))}</small>
+        </div>
+      `;
+    }
+
+    function renderWorkPackageEditor(item) {
+      const config = workPackageOverrideForItem(item);
+      return `
+        <div class="codex-pm-work-package-editor">
+          <div class="codex-pm-work-package-editor-head">
+            <div>
+              <strong>作業包主檔欄位</strong>
+              <span>這裡的選項與輸入會同步到左側代入內容、右側 P 單預覽與作業包欄位盤點。</span>
+            </div>
+            <span class="codex-pm-level-pill">RTF 欄位</span>
+          </div>
+          <div class="codex-pm-work-package-editor-grid">
+            <div class="codex-pm-work-package-control">
+              <label>工作類別</label>
+              <select data-work-package-select="maintenanceType">
+                ${workPackageSelectOptions(workPackageMaintenanceTypeOptions, config.maintenanceType)}
+              </select>
+              <small>${escapeHtml(workPackageSquareOptions(workPackageMaintenanceTypeOptions, config.maintenanceType))}</small>
+            </div>
+            <div class="codex-pm-work-package-control">
+              <label>執行分類</label>
+              <select data-work-package-select="executionType">
+                ${workPackageSelectOptions(workPackageExecutionTypeOptions, config.executionType)}
+              </select>
+              <small>${escapeHtml(workPackageSquareOptions(workPackageExecutionTypeOptions, config.executionType))}</small>
+            </div>
+            ${workPackageNaFieldDefinitions.map((field) => renderWorkPackageNaEditor(field, config)).join("")}
+          </div>
+        </div>
+      `;
+    }
+
     function renderPrintView() {
       const item = selectedItem();
       const fields = autoFields(item);
-      const wideFields = new Set(["工作說明書編號(W.I.No)", "工作說明", "套用檢查表", "用料說明或領料單編號", "安全衛生預設"]);
+      const wideFields = new Set([
+        "設備群組名稱 / 設備標示名稱",
+        "工作說明(Job Description)",
+        "工作說明書編號(W.I.No)",
+        "所需安全衛生作業項目",
+        "用料說明或領料單編號",
+        "設備位址 / 設備名稱 / 上線編號 / 下線編號",
+        "儀器編號(Instrument No)",
+        "附註",
+        "群組組成清單",
+        "套用檢查表"
+      ]);
       return `
         <div class="codex-pm-print-layout">
           <section class="codex-pm-auto-section">
@@ -27614,6 +27957,7 @@ react-dom/cjs/react-dom-client.production.js:
               </div>
               <span class="codex-pm-level-pill">${escapeHtml(item.asset)}</span>
             </div>
+            ${renderWorkPackageEditor(item)}
             <div class="codex-pm-auto-grid">
               ${fields.map((field) => renderAutoField(field, wideFields.has(field[0]))).join("")}
             </div>
@@ -27742,9 +28086,14 @@ react-dom/cjs/react-dom-client.production.js:
     function renderWorkPackageInventoryView() {
       const pack = workPackageInventory.P1;
       const fields = pack.fields;
+      const coverageRows = workPackageCoverageRows;
       const phases = [...new Set(fields.map((field) => field.phase))];
       const sourceCounts = fields.reduce((acc, field) => {
         acc[field.source] = (acc[field.source] || 0) + 1;
+        return acc;
+      }, {});
+      const coverageStatusCounts = coverageRows.reduce((acc, row) => {
+        acc[row.status] = (acc[row.status] || 0) + 1;
         return acc;
       }, {});
       return `
@@ -27759,12 +28108,40 @@ react-dom/cjs/react-dom-client.production.js:
           <div class="codex-pm-auto-grid">
             ${renderAutoField(["表單來源", pack.formTitle, "RTF 範本"], true)}
             ${renderAutoField(["已盤點欄位", `${fields.length} 欄`, "不可漏欄"], false)}
+            ${renderAutoField(["RTF 對照欄位", `${coverageRows.length} 欄`, "原始表單"], false)}
             ${renderAutoField(["表單區段", phases.join(" / "), "原表單"], true)}
-            ${renderAutoField(["主要缺口", "人力工時、結案人員、固定 N/A 欄位需要納入作業包主檔，不只放在代入內容。", "設計待補"], true)}
+            ${renderAutoField(["主要缺口", "目前未標示缺少欄位；工作類別、執行分類、N / A 與周轉件欄位已納入作業包主檔。人員與完工工時仍屬完工/結案階段顯示。", "盤點狀態"], true)}
           </div>
           <div class="codex-pm-material-rule-strip">
             ${Object.entries(sourceCounts).map(([source, count]) => `<span>${escapeHtml(source)}：${count} 欄</span>`).join("")}
           </div>
+          <div class="codex-pm-material-rule-strip">
+            ${["已可編輯", "只有顯示", "缺少", "合併顯示需拆開"].map((status) => `<span>${escapeHtml(status)}：${coverageStatusCounts[status] || 0} 欄</span>`).join("")}
+          </div>
+          <div class="codex-pm-note-box">RTF 欄位 → 系統欄位 → 狀態</div>
+          <div class="codex-pm-weekly-table-wrap">
+            <table class="codex-pm-capability-table">
+              <thead>
+                <tr>
+                  <th>RTF 欄位</th>
+                  <th>系統欄位</th>
+                  <th>狀態</th>
+                  <th>備註</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${coverageRows.map((row) => `
+                  <tr>
+                    <td><strong>${escapeHtml(row.rtf)}</strong></td>
+                    <td>${escapeHtml(row.system)}</td>
+                    <td><span class="codex-pm-source-pill">${escapeHtml(row.status)}</span></td>
+                    <td>${escapeHtml(row.note)}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+          <div class="codex-pm-note-box">作業包欄位盤點表</div>
           <div class="codex-pm-weekly-table-wrap">
             <table class="codex-pm-capability-table">
               <thead>
@@ -30734,6 +31111,43 @@ react-dom/cjs/react-dom-client.production.js:
           activeView = "print";
           renderCenter(container);
         });
+      });
+
+      container.querySelectorAll("[data-work-package-select]").forEach((select) => {
+        select.addEventListener("change", () => {
+          const item = selectedItem();
+          const field = select.getAttribute("data-work-package-select") || "";
+          if (!["maintenanceType", "executionType"].includes(field)) return;
+          updateWorkPackageOverrideForItem(item, { [field]: select.value });
+          activeView = "print";
+          renderCenter(container);
+        });
+      });
+
+      container.querySelectorAll("[data-work-package-na]").forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+          const item = selectedItem();
+          const key = checkbox.getAttribute("data-work-package-na") || "";
+          if (!workPackageNaFieldDefinitions.some((field) => field.key === key)) return;
+          updateWorkPackageOverrideForItem(item, { [`${key}Na`]: checkbox.checked });
+          activeView = "print";
+          renderCenter(container);
+        });
+      });
+
+      container.querySelectorAll("[data-work-package-text]").forEach((input) => {
+        const applyWorkPackageText = () => {
+          const item = selectedItem();
+          const key = input.getAttribute("data-work-package-text") || "";
+          if (!workPackageNaFieldDefinitions.some((field) => field.key === key)) return;
+          const patch = { [`${key}Text`]: input.value };
+          if (String(input.value || "").trim()) patch[`${key}Na`] = false;
+          updateWorkPackageOverrideForItem(item, patch);
+          activeView = "print";
+          renderCenter(container);
+        };
+        input.addEventListener("change", applyWorkPackageText);
+        input.addEventListener("blur", applyWorkPackageText);
       });
 
       container.querySelectorAll("[data-staff-filter]").forEach((button) => {
