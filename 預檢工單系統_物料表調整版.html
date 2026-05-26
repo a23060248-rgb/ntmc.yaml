@@ -19583,7 +19583,7 @@ react-dom/cjs/react-dom-client.production.js:
               <div class="codex-pm-month">2026 年 6 月預檢排程</div>
               <div class="codex-pm-month-note">先看日期負載，再進入單日派工與轉單。</div>
             </div>
-            <button type="button" class="codex-pm-button" data-pm-new>新增預檢工單</button>
+            <button type="button" class="codex-pm-button" data-pm-new>＋臨時工單</button>
           </div>
           <div class="codex-pm-weekdays">
             ${weekdays.map((day) => `<div class="codex-pm-weekday">${day}</div>`).join("")}
@@ -19761,7 +19761,7 @@ react-dom/cjs/react-dom-client.production.js:
       if (newButton) {
         newButton.addEventListener("click", () => {
           const appButton = Array.from(document.querySelectorAll("button")).find((button) => {
-            return !container.contains(button) && button.textContent && button.textContent.includes("新增預檢工單");
+            return !container.contains(button) && button.textContent && (button.textContent.includes("臨時工單") || button.textContent.includes("新增預檢工單"));
           });
           if (appButton) appButton.click();
         });
@@ -20526,7 +20526,7 @@ react-dom/cjs/react-dom-client.production.js:
       if (newButton) {
         newButton.addEventListener("click", () => {
           const appButton = Array.from(document.querySelectorAll("button")).find((button) => {
-            return !container.contains(button) && button.textContent && button.textContent.includes("新增預檢工單");
+            return !container.contains(button) && button.textContent && (button.textContent.includes("臨時工單") || button.textContent.includes("新增預檢工單"));
           });
           if (appButton) appButton.click();
         });
@@ -23083,67 +23083,106 @@ react-dom/cjs/react-dom-client.production.js:
 
     const today = "2026-05-19";
     let activeTab = "order";
-    let outputMode = "preview";
+    let outputMode = "mapping";
 
     const templates = {
       P1: {
         label: "第一級",
         period: "1M",
-        wiNo: "4-FM-H110-ERS13001-6",
+        wiNo: "由工作說明書主檔帶入",
         file: "輕軌列車預防檢修檢查記錄表改(第一級)-4-FM-H110-ERS13001-6_1140826.doc"
       },
       P2: {
         label: "第二級",
         period: "3M",
-        wiNo: "4-FM-H110-ERS13001-6",
+        wiNo: "由工作說明書主檔帶入",
         file: "輕軌列車預防檢修檢查記錄表改(第二級)-4-FM-H110-ERS13001-6_1141215.doc"
       },
       P3: {
         label: "第三級",
         period: "6M",
-        wiNo: "4-FM-H110-ERS13001-6",
+        wiNo: "由工作說明書主檔帶入",
         file: "輕軌列車預防檢修檢查記錄表改(第三級)-4-FM-H110-ERS13001-6_1140826.doc"
       },
       P4: {
         label: "第四級",
         period: "1Y",
-        wiNo: "4-FM-H110-ERS13001-6",
+        wiNo: "由工作說明書主檔帶入",
         file: "輕軌列車預防檢修檢查記錄表改(第四級)-4-FM-H110-ERS13001-6_1140826.doc"
       }
     };
 
+    const wiNoMaster = [
+      { no: "3-WI-H110-ERS001", name: "車輛外觀與一般檢查", levels: ["P1"] },
+      { no: "3-WI-H110-ERS002", name: "車門系統檢查", levels: ["P1"] },
+      { no: "3-WI-H110-ERS003", name: "煞車系統檢查", levels: ["P1"] },
+      { no: "3-WI-H110-ERS004", name: "空調系統檢查", levels: ["P1"] },
+      { no: "3-WI-H110-ERS005", name: "車載設備檢查", levels: ["P1"] },
+      { no: "3-WI-H110-ERS006", name: "轉向架相關檢查", levels: ["P1"] },
+      { no: "3-WI-H110-ERS007", name: "連結器檢查", levels: ["P1"] },
+      { no: "3-WI-H110-ERS008", name: "車下設備檢查", levels: ["P1"] },
+      { no: "3-WI-H110-ERS009", name: "年度深度檢查", levels: ["P1"] },
+      { no: "3-WI-H110-ERS010", name: "待補正式名稱", levels: ["P1"] },
+      { no: "3-WI-H110-ERS011", name: "待補正式名稱", levels: ["P1"] },
+      { no: "3-WI-H110-ERS012", name: "待補正式名稱", levels: ["P1"] }
+    ];
+
+    function wiNoTextForTemplateCode(templateCode) {
+      const list = wiNoMaster.filter((item) => item.levels.includes(templateCode));
+      if (!list.length) return "本級別尚未設定工作說明書主檔";
+      return list.map((item) => `${item.no}｜${item.name}`).join("\n");
+    }
+
     const form = {
-      serialNo: "P-1150519-D-TS-002",
-      templateCode: "P4",
-      vehicle: "109車",
+      serialNo: "P-1150507-D-TS-001",
+      templateCode: "P1",
+      vehicle: "101 車",
       assetType: "車輛",
-      systemName: "輕軌車輛系統",
-      equipGroupNo: "LRT-109",
-      equipGroupName: "109車",
-      jobDescription: "109車 第四級預防檢修",
-      maintenancePeriod: "第四級 / 1Y",
+      systemName: "ERS",
+      equipGroupNo: "ERS",
+      equipGroupName: "輕軌列車",
+      jobDescription: "第一級(1M)",
+      maintenancePeriod: "月檢",
       qtyPlan: "1",
-      location: "淡海機廠",
-      wiNo: "4-FM-H110-ERS13001-6",
-      ntmcDept: "車輛廠",
-      assignedBy: "預檢系統",
+      location: "101 車",
+      wiNo: wiNoTextForTemplateCode("P1"),
+      ntmcDept: "車輛課",
+      assignedBy: "",
       executionType: "自辦",
-      personInCharge: "現場班組",
-      planStartDate: today,
-      latestFinishDate: today,
-      correctiveAction: "依紙本檢查表完成後回填，供履歷追蹤。",
-      faultyParts: "本次預檢無領料時填 N/A；有更換材料時填領料單或用料說明。",
-      instruments: "依檢查項目選用量測儀器。",
+      personInCharge: "",
+      planStartDate: "2026-05-07",
+      latestFinishDate: "2026-05-07",
+      maintenanceType: "預防性維修",
+      contractor: "本項 N/A",
+      mileage: "本項 N/A",
+      operationHours: "本項 N/A",
+      correctiveAction: "已完成1M預檢作業。\n相關事項詳如附件(1M檢查紀錄表)。",
+      dangerStart: "13:00",
+      dangerEnd: "15:00",
+      dangerTotal: "2 小時",
+      faultyParts: "空調濾網（客室：N/A、駕駛室：N/A）\n鍊條保護劑：10 ml\n矽膠輔助劑：15 g",
+      turnRoundParts: "本項 N/A",
+      instruments: "15530037、101831232、V091118",
       actualStartDate: "",
       actualFinishDate: "",
-      qtyCompleted: "",
-      costCenter: "車輛廠",
-      remark: "作業前列印一次；回填資料只更新履歷，不重印原表單。",
+      qtyCompleted: "1",
+      costCenter: "車輛課",
+      inhouseNa: "否",
+      inhouseStaffQty: "",
+      inhouseManHour: "",
+      contractorCompletedBy: "本項 N/A",
+      outsourceNa: "是",
+      outsourceStaffQty: "",
+      outsourceManHour: "",
+      ntmcCompletedBy: "",
+      ntmcApprovedBy: "",
+      groupList: "本項 N/A",
+      remark: "本項 N/A",
       safety: {
         generalSafety: true,
-        electricalLockout: true,
+        electricalLockout: false,
         hotWork: false,
-        heightWork: false,
+        heightWork: true,
         confinedSpace: false,
         highVoltageLive: false,
         fireIsolation: false,
@@ -23189,9 +23228,10 @@ react-dom/cjs/react-dom-client.production.js:
 
     function refreshTemplateFields() {
       const template = selectedTemplate();
-      form.maintenancePeriod = `${template.label} / ${template.period}`;
-      form.wiNo = template.wiNo;
-      form.jobDescription = `${form.vehicle || form.equipGroupName} ${template.label}預防檢修`;
+      const periodText = { P1: "月檢", P2: "季檢", P3: "半年檢", P4: "年檢" }[form.templateCode] || template.period;
+      form.maintenancePeriod = periodText;
+      form.wiNo = wiNoTextForTemplateCode(form.templateCode);
+      form.jobDescription = `${template.label}(${template.period})`;
     }
 
     function mappingRows() {
@@ -23199,14 +23239,37 @@ react-dom/cjs/react-dom-client.production.js:
         ["工單序號", form.serialNo],
         ["工作說明", form.jobDescription],
         ["維修週期", form.maintenancePeriod],
+        ["工作說明書編號(W.I.No)", form.wiNo],
         ["設備位置", form.location],
         ["派工人", form.assignedBy],
         ["現場工作負責人", form.personInCharge],
         ["預計施工日期", toMinguo(form.planStartDate)],
         ["最晚需完成日期", toMinguo(form.latestFinishDate)],
+        ["工作類別", form.maintenanceType],
+        ["維修外包/協力商", form.contractor],
+        ["電聯車里程數", form.mileage],
+        ["運轉時數", form.operationHours],
         ["維修處理情形", form.correctiveAction],
+        ["危險工時起訖", `${form.dangerStart}～${form.dangerEnd}`],
+        ["危險總工時", form.dangerTotal],
         ["用料說明", form.faultyParts],
-        ["儀器編號", form.instruments]
+        ["周轉件上線/下線資料", form.turnRoundParts],
+        ["儀器編號", form.instruments],
+        ["實際施工日期", toMinguo(form.actualStartDate)],
+        ["實際完工日期", toMinguo(form.actualFinishDate)],
+        ["完成數量", form.qtyCompleted],
+        ["成本中心", form.costCenter],
+        ["自有人力是否 N/A", form.inhouseNa],
+        ["自有人力工作人數", form.inhouseStaffQty],
+        ["自有人力實際維修工時", form.inhouseManHour],
+        ["維修外包/協力人員", form.contractorCompletedBy],
+        ["外包/協力人力是否 N/A", form.outsourceNa],
+        ["外包/協力工作人數", form.outsourceStaffQty],
+        ["外包/協力實際維修工時", form.outsourceManHour],
+        ["新北維修人員", form.ntmcCompletedBy],
+        ["新北結案核准人員", form.ntmcApprovedBy],
+        ["附註", form.remark],
+        ["群組組成清單", form.groupList]
       ];
     }
 
@@ -23260,9 +23323,8 @@ react-dom/cjs/react-dom-client.production.js:
 
     function renderTabs() {
       const tabs = [
-        ["order", "新增預檢工單"],
-        ["preview", "表單預覽"],
-        ["mapping", "欄位核對"],
+        ["order", "臨時工單"],
+        ["mapping", "代入內容"],
         ["feedback", "完工回填"],
         ["templates", "範本設定"]
       ];
@@ -23294,8 +23356,8 @@ react-dom/cjs/react-dom-client.production.js:
           <section class="codex-pm-form-section">
             <div class="codex-pm-section-head">
               <div>
-                <h3>新增預檢工單</h3>
-                <p>沿用你原本的做法：先選車輛、級別與日期，系統建立 P 單並帶出對應檢查表。</p>
+                <h3>臨時工單</h3>
+                <p>用於排程外、主管交辦或補建的預檢工單；正式排程仍從月曆進入。</p>
               </div>
               <span class="codex-pm-pill">選項帶入表單</span>
             </div>
@@ -23327,11 +23389,15 @@ react-dom/cjs/react-dom-client.production.js:
               ${field("設備群組名稱", "equipGroupName")}
               ${field("維修週期", "maintenancePeriod")}
               ${field("工作說明", "jobDescription", { wide: true })}
-              ${field("工作說明書編號 W.I.No", "wiNo")}
+              ${field("工作說明書主檔帶入 W.I.No", "wiNo", { type: "textarea", wide: true })}
               ${field("新北捷運維修單位", "ntmcDept")}
               ${field("派工人", "assignedBy")}
               ${field("現場工作負責人", "personInCharge")}
               ${field("執行分類", "executionType", { options: ["自辦", "協力", "外包"] })}
+              ${field("工作類別", "maintenanceType")}
+              ${field("維修外包/協力商", "contractor")}
+              ${field("電聯車里程數", "mileage")}
+              ${field("運轉時數", "operationHours")}
             </div>
           </section>
 
@@ -23339,7 +23405,7 @@ react-dom/cjs/react-dom-client.production.js:
             <div class="codex-pm-section-head">
               <div>
                 <h3>安全衛生作業項目</h3>
-                <p>和原本表單欄位一致，勾選後進入列印預覽與套版資料。</p>
+                <p>和原本表單欄位一致，勾選後進入代入內容與套版資料。</p>
               </div>
               <span class="codex-pm-pill">核對必填</span>
             </div>
@@ -23356,12 +23422,26 @@ react-dom/cjs/react-dom-client.production.js:
             </div>
             <div class="codex-pm-field-grid">
               ${field("維修處理情形", "correctiveAction", { type: "textarea", wide: true })}
+              ${field("危險工時開始", "dangerStart")}
+              ${field("危險工時結束", "dangerEnd")}
+              ${field("危險總工時", "dangerTotal")}
               ${field("用料說明或領料單編號", "faultyParts", { type: "textarea", wide: true })}
+              ${field("周轉件上線/下線資料", "turnRoundParts", { type: "textarea", wide: true })}
               ${field("儀器編號", "instruments", { type: "textarea", wide: true })}
               ${field("實際施工日期", "actualStartDate", { type: "date" })}
               ${field("實際完工日期", "actualFinishDate", { type: "date" })}
               ${field("完成數量", "qtyCompleted")}
               ${field("成本中心", "costCenter")}
+              ${field("自有人力是否 N/A", "inhouseNa", { options: ["否", "是"] })}
+              ${field("自有人力工作人數", "inhouseStaffQty")}
+              ${field("自有人力實際維修工時", "inhouseManHour")}
+              ${field("維修外包/協力人員", "contractorCompletedBy")}
+              ${field("外包/協力人力是否 N/A", "outsourceNa", { options: ["是", "否"] })}
+              ${field("外包/協力工作人數", "outsourceStaffQty")}
+              ${field("外包/協力實際維修工時", "outsourceManHour")}
+              ${field("新北維修人員", "ntmcCompletedBy")}
+              ${field("新北結案核准人員", "ntmcApprovedBy")}
+              ${field("群組組成清單", "groupList", { type: "textarea", wide: true })}
               ${field("附註", "remark", { type: "textarea", wide: true })}
             </div>
           </section>
@@ -23413,7 +23493,7 @@ react-dom/cjs/react-dom-client.production.js:
           <strong>目前套用範本：${escapeHtml(template.label)}（${escapeHtml(template.period)}）</strong>
           <span>${escapeHtml(template.file)}</span>
         </div>
-        <table class="codex-pm-mapping-table" aria-label="Word欄位核對">
+        <table class="codex-pm-mapping-table" aria-label="Word代入內容">
           <thead>
             <tr>
               <th>Word 欄位</th>
@@ -23483,19 +23563,11 @@ react-dom/cjs/react-dom-client.production.js:
         <aside class="codex-pm-output-panel">
           <div class="codex-pm-output-head">
             <div>
-              <h3>表單輸出</h3>
-              <p class="codex-pm-output-note">左側資料變更後，右側預覽同步更新；正式列印由後端套用原始 Word 範本。</p>
-            </div>
-            <div class="codex-pm-output-toggle" aria-label="輸出模式">
-              <button type="button" class="${outputMode === "preview" ? "active" : ""}" data-output-mode="preview">列印預覽</button>
-              <button type="button" class="${outputMode === "mapping" ? "active" : ""}" data-output-mode="mapping">欄位核對</button>
+              <h3>代入表單內容</h3>
+              <p class="codex-pm-output-note">這裡只確認資料會套到哪個 Word 欄位；正式列印以原始 Word/RTF 範本輸出。</p>
             </div>
           </div>
-          ${outputMode === "preview" ? renderPreview() : renderMapping()}
-          <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.85rem;">
-            <button type="button" class="codex-pm-action-button primary" data-output-mode="preview">作業前列印</button>
-            <button type="button" class="codex-pm-action-button" data-output-mode="mapping">核對套版欄位</button>
-          </div>
+          ${renderMapping()}
         </aside>
       `;
     }
@@ -23509,10 +23581,6 @@ react-dom/cjs/react-dom-client.production.js:
       }
       if (activeTab === "mapping") {
         outputMode = "mapping";
-        return `<div class="codex-pm-order-layout"><div>${renderOrderForm()}</div>${renderOutputPanel()}</div>`;
-      }
-      if (activeTab === "preview") {
-        outputMode = "preview";
         return `<div class="codex-pm-order-layout"><div>${renderOrderForm()}</div>${renderOutputPanel()}</div>`;
       }
       return `<div class="codex-pm-order-layout"><div>${renderOrderForm()}</div>${renderOutputPanel()}</div>`;
@@ -23532,11 +23600,11 @@ react-dom/cjs/react-dom-client.production.js:
               <div class="codex-pm-add-hero">
                 <div>
                   <p class="codex-pm-kicker">預檢系統管理</p>
-                  <h2 class="codex-pm-title">新增預檢工單與表單套版</h2>
-                  <p class="codex-pm-subtitle">依照你原本的新增工單設計調整：排程或手動新增先建立 P 單，選擇檢修級別後帶出 Word 範本，作業前列印一次，完工後只回填追蹤資料。</p>
+                  <h2 class="codex-pm-title">臨時工單與表單套版</h2>
+                  <p class="codex-pm-subtitle">臨時工單用於排程外補建或主管交辦；正式排程仍從月曆點選後列印與回填。</p>
                 </div>
                 <div style="display:flex;flex-wrap:wrap;gap:.5rem;align-content:start;justify-content:flex-end;">
-                  <button type="button" class="codex-pm-button primary" data-original-tab="order">新增工單</button>
+                  <button type="button" class="codex-pm-button primary" data-original-tab="order">＋臨時工單</button>
                   <button type="button" class="codex-pm-button" data-original-tab="feedback">回填追蹤</button>
                 </div>
               </div>
@@ -23554,7 +23622,6 @@ react-dom/cjs/react-dom-client.production.js:
       container.querySelectorAll("[data-original-tab]").forEach((button) => {
         button.addEventListener("click", () => {
           activeTab = button.getAttribute("data-original-tab") || activeTab;
-          if (activeTab === "preview") outputMode = "preview";
           if (activeTab === "mapping") outputMode = "mapping";
           renderCenter(container);
         });
@@ -23563,7 +23630,7 @@ react-dom/cjs/react-dom-client.production.js:
       container.querySelectorAll("[data-output-mode]").forEach((button) => {
         button.addEventListener("click", () => {
           outputMode = button.getAttribute("data-output-mode") || outputMode;
-          if (activeTab === "preview" || activeTab === "mapping") activeTab = outputMode;
+          if (activeTab === "mapping") activeTab = outputMode;
           renderCenter(container);
         });
       });
@@ -25910,32 +25977,162 @@ react-dom/cjs/react-dom-client.production.js:
       P1: {
         label: "第一級",
         period: "1M",
-        wiNo: "4-FM-H110-ERS13001-6",
+        wiNo: "由工作說明書主檔帶入",
         file: "輕軌列車預防檢修檢查記錄表改(第一級)-4-FM-H110-ERS13001-6_1140826.doc"
       },
       P2: {
         label: "第二級",
         period: "3M",
-        wiNo: "4-FM-H110-ERS13001-6",
+        wiNo: "由工作說明書主檔帶入",
         file: "輕軌列車預防檢修檢查記錄表改(第二級)-4-FM-H110-ERS13001-6_1141215.doc"
       },
       P3: {
         label: "第三級",
         period: "6M",
-        wiNo: "4-FM-H110-ERS13001-6",
+        wiNo: "由工作說明書主檔帶入",
         file: "輕軌列車預防檢修檢查記錄表改(第三級)-4-FM-H110-ERS13001-6_1140826.doc"
       },
       P4: {
         label: "第四級",
         period: "1Y",
-        wiNo: "4-FM-H110-ERS13001-6",
+        wiNo: "由工作說明書主檔帶入",
         file: "輕軌列車預防檢修檢查記錄表改(第四級)-4-FM-H110-ERS13001-6_1140826.doc"
       },
       EQUIP: {
         label: "機廠設備預檢",
         period: "PM",
-        wiNo: "依設備保養基準",
+        wiNo: "由工作說明書主檔帶入",
         file: "機廠設備預防檢修檢查表.docx"
+      }
+    };
+
+    const workInstructionLevels = ["1M", "3M", "6M", "1Y", "2Y", "5Y"];
+    const workInstructionMasterStorageKey = "codexPmWorkInstructionMasterV1";
+    const defaultWorkInstructionMaster = [
+      { id: "WI-001", no: "3-WI-H110-ERS001", name: "車輛外觀與一般檢查", category: "車輛", levels: ["1M"] },
+      { id: "WI-002", no: "3-WI-H110-ERS002", name: "車門系統檢查", category: "車輛", levels: ["1M"] },
+      { id: "WI-003", no: "3-WI-H110-ERS003", name: "煞車系統檢查", category: "車輛", levels: ["1M"] },
+      { id: "WI-004", no: "3-WI-H110-ERS004", name: "空調系統檢查", category: "車輛", levels: ["1M"] },
+      { id: "WI-005", no: "3-WI-H110-ERS005", name: "車載設備檢查", category: "車輛", levels: ["1M"] },
+      { id: "WI-006", no: "3-WI-H110-ERS006", name: "轉向架相關檢查", category: "車輛", levels: ["1M"] },
+      { id: "WI-007", no: "3-WI-H110-ERS007", name: "連結器檢查", category: "車輛", levels: ["1M"] },
+      { id: "WI-008", no: "3-WI-H110-ERS008", name: "車下設備檢查", category: "車輛", levels: ["1M"] },
+      { id: "WI-009", no: "3-WI-H110-ERS009", name: "年度深度檢查", category: "車輛", levels: ["1M"] },
+      { id: "WI-010", no: "3-WI-H110-ERS010", name: "待補正式名稱", category: "車輛", levels: ["1M"] },
+      { id: "WI-011", no: "3-WI-H110-ERS011", name: "待補正式名稱", category: "車輛", levels: ["1M"] },
+      { id: "WI-012", no: "3-WI-H110-ERS012", name: "待補正式名稱", category: "車輛", levels: ["1M"] },
+      { id: "WI-EQ-001", no: "依設備保養基準", name: "機廠設備預防檢修保養基準", category: "機廠設備", levels: ["1M", "3M", "6M", "1Y", "2Y"] }
+    ];
+
+    function normalizeWorkInstructionItem(item, index) {
+      const category = ["車輛", "機廠設備"].includes(item?.category) ? item.category : "車輛";
+      const levels = Array.isArray(item?.levels)
+        ? item.levels.filter((level) => workInstructionLevels.includes(level))
+        : [];
+      return {
+        id: String(item?.id || `WI-${String(index + 1).padStart(3, "0")}`),
+        no: String(item?.no || ""),
+        name: String(item?.name || ""),
+        category,
+        levels,
+      };
+    }
+
+    let workInstructionMaster = (() => {
+      try {
+        const saved = JSON.parse(window.localStorage?.getItem(workInstructionMasterStorageKey) || "[]");
+        if (Array.isArray(saved) && saved.length) return saved.map(normalizeWorkInstructionItem);
+      } catch (error) {}
+      return defaultWorkInstructionMaster.map(normalizeWorkInstructionItem);
+    })();
+
+    function saveWorkInstructionMaster() {
+      try {
+        window.localStorage?.setItem(workInstructionMasterStorageKey, JSON.stringify(workInstructionMaster));
+      } catch (error) {}
+    }
+
+    function workInstructionLevelForItem(item) {
+      const template = templateFor(item);
+      const text = `${item?.planValue || ""} ${item?.level || ""} ${template?.period || ""} ${item?.templateCode || ""}`;
+      if (text.includes("5Y")) return "5Y";
+      if (text.includes("2Y")) return "2Y";
+      if (text.includes("1Y") || text.includes("年檢") || text.includes("第四級") || item?.templateCode === "P4") return "1Y";
+      if (text.includes("6M") || text.includes("半年") || text.includes("第三級") || item?.templateCode === "P3") return "6M";
+      if (text.includes("3M") || text.includes("季") || text.includes("第二級") || item?.templateCode === "P2") return "3M";
+      return "1M";
+    }
+
+    function workInstructionCategoryMatches(wi, item) {
+      if (!wi || wi.category === "通用") return true;
+      return wi.category === item.assetType;
+    }
+
+    function applicableWorkInstructionsForItem(item) {
+      const level = workInstructionLevelForItem(item);
+      return workInstructionMaster.filter((wi) =>
+        wi.levels.includes(level)
+        && workInstructionCategoryMatches(wi, item)
+      );
+    }
+
+    function workInstructionTextForItem(item) {
+      const list = applicableWorkInstructionsForItem(item);
+      if (!list.length) return `${workInstructionLevelForItem(item)} 尚未設定工作說明書主檔`;
+      return list.map((wi) => `${wi.no}｜${wi.name}`).join("\n");
+    }
+
+    const workPackageInventory = {
+      P1: {
+        label: "第一級",
+        period: "1M / 月檢",
+        sourceFile: "預檢工單_P1封面.rtf",
+        formTitle: "維修工單-預防檢修(PM Work Order)",
+        fields: [
+          { phase: "表頭", name: "公司名稱", source: "固定預設值", value: "新北捷運股份有限公司", page: "範本設定", note: "列印固定抬頭" },
+          { phase: "表頭", name: "表單名稱", source: "固定預設值", value: "維修工單-預防檢修(PM Work Order)", page: "範本設定", note: "套用原 RTF/Word 標題" },
+          { phase: "表頭", name: "工單序號 / FR Serial No", source: "排程自動帶入", value: "P-民國年月日-D-TS-序號", page: "月曆排程 / 作業包", note: "由排程日期、類別與當日序號產生" },
+          { phase: "派工規劃階段", name: "系統名稱(System)", source: "車輛主檔", value: "ERS", page: "作業包主檔", note: "P1 車輛預設 ERS" },
+          { phase: "派工規劃階段", name: "設備群組編號 / 設備標示編號", source: "車輛主檔", value: "ERS", page: "作業包主檔", note: "後續可依車號主檔拆分" },
+          { phase: "派工規劃階段", name: "設備群組名稱 / 設備標示名稱", source: "車輛主檔", value: "輕軌列車", page: "作業包主檔", note: "列印時搭配車號" },
+          { phase: "派工規劃階段", name: "工作說明(Job Description)", source: "作業包主檔", value: "第一級(1M)", page: "作業包主檔", note: "P1 固定帶入" },
+          { phase: "派工規劃階段", name: "維修週期(Maintenance Period)", source: "作業包主檔", value: "月檢", page: "作業包主檔", note: "P1 固定帶入" },
+          { phase: "派工規劃階段", name: "計畫數量(Qty)", source: "固定預設值", value: "1", page: "作業包主檔", note: "車輛預檢預設 1" },
+          { phase: "派工規劃階段", name: "設備位置(Location)", source: "排程自動帶入", value: "車號，例如 101 車", page: "月曆排程 / 作業包", note: "由被點選排程帶入" },
+          { phase: "派工規劃階段", name: "工作類別(Maintenance Type)", source: "固定預設值", value: "■預防性維修 □大修", page: "作業包主檔", note: "P1 固定預設" },
+          { phase: "派工規劃階段", name: "工作說明書編號(W.I.No)", source: "工作說明書主檔", value: "依車號/設備與檢修級別自動篩選", page: "工作說明書主檔", note: "像儀器列表一樣，用勾選決定每級要帶入哪些 W.I.No" },
+          { phase: "派工規劃階段", name: "新北捷運維修單位(NTMC Dept)", source: "部門主檔", value: "車輛課", page: "作業包主檔", note: "P1 車輛預設" },
+          { phase: "派工規劃階段", name: "派工人(Assigned by)", source: "排程/人員", value: "排程或主管指定", page: "作業包 / 人員", note: "列印前可覆寫" },
+          { phase: "派工規劃階段", name: "維修外包/協力商(Maintenance Contractor)", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "P1 目前自辦，不啟用外包欄" },
+          { phase: "派工規劃階段", name: "執行分類", source: "作業包主檔", value: "■自辦 □協力 □外包", page: "作業包主檔", note: "預設自辦" },
+          { phase: "派工規劃階段", name: "現場工作負責人(Person in charge)", source: "排程/人員", value: "現場班組或指定人", page: "作業包 / 人員", note: "列印前確認" },
+          { phase: "派工規劃階段", name: "預計施工日期(Plan Start Date)", source: "排程自動帶入", value: "排程日期，民國格式列印", page: "月曆排程", note: "由預排日期帶入" },
+          { phase: "派工規劃階段", name: "所需安全衛生作業項目", source: "作業包主檔", value: "■高架作業、■一般安全衛生作業", page: "作業包主檔", note: "其餘依實際勾選" },
+          { phase: "派工規劃階段", name: "電聯車里程數(Mileage)", source: "固定 N/A", value: "□本項 N/A", page: "作業包主檔", note: "目前 P1 封面不填里程" },
+          { phase: "派工規劃階段", name: "運轉時數(Operation)", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "目前 P1 封面不填運轉時數" },
+          { phase: "派工規劃階段", name: "最晚需完成日期(Latest Finish Date)", source: "排程自動帶入", value: "預設同預計施工日期", page: "月曆排程 / 作業包", note: "必要時可依主管規則延後" },
+          { phase: "完工驗收階段", name: "維修處理情形(Corrective Action)", source: "作業包主檔 + 完工回填", value: "已完成1M預檢作業。相關事項詳如附件(1M檢查紀錄表)。", page: "實際完工", note: "預設文字可由完工回填覆寫" },
+          { phase: "完工驗收階段", name: "危險工時起訖", source: "作業包主檔", value: "13:00～15:00", page: "作業包主檔", note: "P1 預設危險工時" },
+          { phase: "完工驗收階段", name: "危險總工時", source: "作業包主檔", value: "2 小時", page: "作業包主檔", note: "由起訖時間換算或人工維護" },
+          { phase: "完工驗收階段", name: "用料說明或領料單編號(Faulty Parts)", source: "用料主檔 + 完工回填", value: "空調濾網 N/A；鍊條保護劑 10 ml；矽膠輔助劑 15 g", page: "用料說明或領料單編號", note: "已獨立成可維護分頁" },
+          { phase: "完工驗收階段", name: "設備位址/設備名稱/上線編號/下線編號", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "周轉件流程目前不用" },
+          { phase: "完工驗收階段", name: "實際施工日期與時間", source: "現場完工回填", value: "完工時填入", page: "實際完工", note: "回填後視為完工資料來源" },
+          { phase: "完工驗收階段", name: "實際完工日期與時間", source: "現場完工回填", value: "完工時填入", page: "實際完工", note: "會回寫排程的前次完工依據" },
+          { phase: "完工驗收階段", name: "完成數量(Qty Completed)", source: "現場完工回填", value: "1", page: "實際完工", note: "預設 1，可回填確認" },
+          { phase: "完工驗收階段", name: "成本中心(Cost Center)", source: "部門主檔", value: "車輛課", page: "作業包主檔", note: "P1 車輛預設" },
+          { phase: "完工驗收階段", name: "自有人力 In-house 是否 N/A", source: "現場完工回填", value: "□本項 N/A", page: "實際完工", note: "有人力時不勾 N/A" },
+          { phase: "完工驗收階段", name: "自有人力工作人數(Staff Qty)", source: "現場完工回填", value: "完工時填入", page: "實際完工", note: "統計工時用" },
+          { phase: "完工驗收階段", name: "自有人力實際維修工時(Total Man-hour)", source: "現場完工回填", value: "完工時填入", page: "實際完工", note: "統計工時用" },
+          { phase: "完工驗收階段", name: "維修外包/協力人員(Contractor Completed by)", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "P1 目前自辦" },
+          { phase: "完工驗收階段", name: "儀器編號(Instrument No)", source: "儀器主檔 + 完工回填", value: "15530037、101831232、V091118", page: "儀器列表", note: "已獨立成可維護分頁" },
+          { phase: "完工驗收階段", name: "外包/協力人力 Out Sourcing 是否 N/A", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "P1 目前不啟用外包人力" },
+          { phase: "完工驗收階段", name: "外包/協力工作人數", source: "固定 N/A", value: "空白", page: "作業包主檔", note: "外包啟用時才填" },
+          { phase: "完工驗收階段", name: "外包/協力實際維修工時", source: "固定 N/A", value: "空白", page: "作業包主檔", note: "外包啟用時才填" },
+          { phase: "結案階段", name: "新北維修人員(NTMC Completed by)", source: "主管審核/結案", value: "結案時填入", page: "實際完工 / 結案", note: "完工資料確認後填" },
+          { phase: "結案階段", name: "新北結案核准人員(NTMC Closed out & Approved by)", source: "主管審核/結案", value: "結案時填入", page: "實際完工 / 結案", note: "主管確認欄" },
+          { phase: "結案階段", name: "附註(Remark)", source: "固定 N/A + 回填", value: "■本項 N/A", page: "實際完工", note: "有特殊狀況才覆寫" },
+          { phase: "結案階段", name: "群組組成清單(Group List)", source: "固定 N/A", value: "■本項 N/A", page: "作業包主檔", note: "P1 封面目前不使用" }
+        ]
       }
     };
 
@@ -27029,12 +27226,24 @@ react-dom/cjs/react-dom-client.production.js:
         ["前次完工日", toMinguo(item.previousDone), "預排表"],
         ["設備位置", item.location, "預排表"],
         ["維修單位", item.department, "預排表"],
-        ["W.I.No", template.wiNo, "範本"],
+        ["工作說明書編號(W.I.No)", workInstructionTextForItem(item), "工作說明書主檔"],
         ["工作說明", `${item.asset} ${item.level}預防檢修`, "系統組合"],
+        ["工作類別", "■預防性維修 □大修", "作業包主檔"],
+        ["執行分類", "■自辦 □協力 □外包", "作業包主檔"],
+        ["維修外包/協力商", "■本項 N/A", "作業包主檔"],
+        ["電聯車里程數", isVehicle ? "□本項 N/A" : "不適用", "作業包主檔"],
+        ["運轉時數", "■本項 N/A", "作業包主檔"],
         ["套用檢查表", template.file, "範本設定"],
         ["用料說明或領料單編號", materialTextForItem(item), "主檔預設 / 本次覆寫"],
         ["安全衛生預設", isVehicle ? "一般安全注意事項、電氣掛鎖掛牌" : "一般安全注意事項、設備隔離確認", "規則"],
-        ["儀器預設", "依檢查項目帶入；現場完成後再回填實際值", "後續回填"]
+        ["維修處理情形", template.period === "1M" ? "已完成1M預檢作業。相關事項詳如附件(1M檢查紀錄表)。" : "依級別表單預設文字帶入", "作業包主檔"],
+        ["危險工時", template.period === "1M" ? "13:00～15:00；2 小時" : "依級別主檔設定", "作業包主檔"],
+        ["周轉件上線/下線資料", "■本項 N/A", "作業包主檔"],
+        ["儀器預設", template.period === "1M" ? "15530037、101831232、V091118" : "依檢查項目帶入；現場完成後再回填實際值", "儀器主檔"],
+        ["自有人力欄位", "工作人數、實際維修工時由完工回填", "實際完工"],
+        ["外包/協力人力", "■本項 N/A", "作業包主檔"],
+        ["結案欄位", "新北維修人員、結案核准人員由結案填入", "主管審核/結案"],
+        ["附註 / 群組組成清單", "■本項 N/A", "作業包主檔"]
       ];
     }
 
@@ -27325,33 +27534,32 @@ react-dom/cjs/react-dom-client.production.js:
         <aside class="codex-pm-print-panel">
           <div class="codex-pm-print-head">
             <div>
-              <h3>列印預覽</h3>
-              <p>畫面用來核對資料；正式輸出仍套用原始 Word 檢查表。</p>
+              <h3>表單欄位對照</h3>
             </div>
             <span class="codex-pm-level-pill">${escapeHtml(item.level)}</span>
           </div>
-          <div class="codex-pm-print-preview">
-            <h3>新北捷運股份有限公司</h3>
-            <p class="codex-pm-paper-subtitle">維修工單-預防檢修(PM Work Order)</p>
-            ${[
-              ["工單序號", pNoFor(item)],
-              ["設備", `${item.asset} / ${item.assetType}`],
-              ["工作說明", `${item.asset} ${item.level}預防檢修`],
-              ["維修週期", `${templateFor(item).label} / ${templateFor(item).period}`],
-              ["設備位置", item.location],
-              ["預計施工日期", toMinguo(item.date)],
-              ["工作說明書編號", templateFor(item).wiNo],
-              ["用料說明或領料單編號", materialTextForItem(item)],
-              ["套用範本", templateFor(item).file]
-            ].map(([label, value]) => `
-              <div class="codex-pm-paper-row">
-                <span>${escapeHtml(label)}</span>
-                <strong>${escapeHtml(value)}</strong>
-              </div>
-            `).join("")}
+          <div class="codex-pm-weekly-table-wrap">
+            <table class="codex-pm-capability-table">
+              <thead>
+                <tr>
+                  <th>欄位</th>
+                  <th>代入表單內容</th>
+                  <th>來源</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${fields.map(([label, value, source]) => `
+                  <tr>
+                    <td><strong>${escapeHtml(label)}</strong></td>
+                    <td>${escapeHtml(value)}</td>
+                    <td><span class="codex-pm-source-pill">${escapeHtml(source)}</span></td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
           </div>
           <div class="codex-pm-action-row">
-            <button type="button" class="codex-pm-soft-button primary">產生 PDF / 列印</button>
+            <button type="button" class="codex-pm-soft-button primary">確認代入內容</button>
             <button type="button" class="codex-pm-soft-button" data-calendar-view="calendar">回月曆</button>
           </div>
         </aside>
@@ -27396,14 +27604,13 @@ react-dom/cjs/react-dom-client.production.js:
     function renderPrintView() {
       const item = selectedItem();
       const fields = autoFields(item);
-      const wideFields = new Set(["工作說明", "套用檢查表", "用料說明或領料單編號", "安全衛生預設"]);
+      const wideFields = new Set(["工作說明書編號(W.I.No)", "工作說明", "套用檢查表", "用料說明或領料單編號", "安全衛生預設"]);
       return `
         <div class="codex-pm-print-layout">
           <section class="codex-pm-auto-section">
             <div class="codex-pm-print-head">
               <div>
-                <h3>作業包</h3>
-                <p>從前台矩陣點進來後，預排表與範本能判斷的資料先自動帶入；先列印 P 單與檢查表，做完後再回填完工資料。</p>
+                <h3>代入表單內容</h3>
               </div>
               <span class="codex-pm-level-pill">${escapeHtml(item.asset)}</span>
             </div>
@@ -27523,10 +27730,68 @@ react-dom/cjs/react-dom-client.production.js:
       return `
         <section class="codex-pm-auto-section codex-pm-management-tabs-panel">
           <div class="codex-pm-auto-grid">
-            ${managementCard("instruments", "儀器列表", "勾選 1M / 3M / 6M / 1Y 後，連動新增預檢工單的儀器欄位。", "主檔")}
+            ${managementCard("package", "作業包欄位盤點", "以 P1 第一級 1M 封面為標準，把表單所有欄位分類成排程、主檔、回填、結案與固定 N/A。", "作業包")}
+            ${managementCard("instruments", "儀器列表", "勾選 1M / 3M / 6M / 1Y 後，連動臨時工單的儀器欄位。", "主檔")}
             ${managementCard("materials", "用料說明或領料單編號", "設定各級預檢表單自動帶入的用料文字、數量與單位。", "主檔")}
-            ${managementCard("wi", "工作說明書編號(W.I.No)", "管理各級預檢對應之工作說明書編號。", "套版")}
+            ${managementCard("wi", "工作說明書主檔", "勾選 W.I.No 適用 1M / 3M / 6M / 1Y / 2Y / 5Y，工單只帶入本次級別。", "主檔")}
           </div>
+        </section>
+      `;
+    }
+
+    function renderWorkPackageInventoryView() {
+      const pack = workPackageInventory.P1;
+      const fields = pack.fields;
+      const phases = [...new Set(fields.map((field) => field.phase))];
+      const sourceCounts = fields.reduce((acc, field) => {
+        acc[field.source] = (acc[field.source] || 0) + 1;
+        return acc;
+      }, {});
+      return `
+        <section class="codex-pm-auto-section" data-management-panel="package">
+          <div class="codex-pm-print-head">
+            <div>
+              <h3>作業包欄位盤點｜${escapeHtml(pack.label)} ${escapeHtml(pack.period)}</h3>
+              <p>先把 1M 封面所有欄位固定下來；後續 P2/P3/P4 只換欄位內容，不換欄位架構。</p>
+            </div>
+            <span class="codex-pm-level-pill">${escapeHtml(pack.sourceFile)}</span>
+          </div>
+          <div class="codex-pm-auto-grid">
+            ${renderAutoField(["表單來源", pack.formTitle, "RTF 範本"], true)}
+            ${renderAutoField(["已盤點欄位", `${fields.length} 欄`, "不可漏欄"], false)}
+            ${renderAutoField(["表單區段", phases.join(" / "), "原表單"], true)}
+            ${renderAutoField(["主要缺口", "人力工時、結案人員、固定 N/A 欄位需要納入作業包主檔，不只放在代入內容。", "設計待補"], true)}
+          </div>
+          <div class="codex-pm-material-rule-strip">
+            ${Object.entries(sourceCounts).map(([source, count]) => `<span>${escapeHtml(source)}：${count} 欄</span>`).join("")}
+          </div>
+          <div class="codex-pm-weekly-table-wrap">
+            <table class="codex-pm-capability-table">
+              <thead>
+                <tr>
+                  <th>表單區段</th>
+                  <th>欄位名稱</th>
+                  <th>來源分類</th>
+                  <th>1M 預設值 / 帶入規則</th>
+                  <th>系統維護位置</th>
+                  <th>備註</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${fields.map((field) => `
+                  <tr>
+                    <td><span class="codex-pm-source-pill">${escapeHtml(field.phase)}</span></td>
+                    <td><strong>${escapeHtml(field.name)}</strong></td>
+                    <td>${escapeHtml(field.source)}</td>
+                    <td>${escapeHtml(field.value)}</td>
+                    <td>${escapeHtml(field.page)}</td>
+                    <td>${escapeHtml(field.note)}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+          <div class="codex-pm-note-box">後續你貼第二級、第三級、第四級表單時，我會沿用這張欄位盤點表，只調整每一級的工作說明、週期、W.I.No、用料、儀器、安全項目、工時與 N/A 預設。</div>
         </section>
       `;
     }
@@ -27706,21 +27971,64 @@ react-dom/cjs/react-dom-client.production.js:
         <section class="codex-pm-auto-section" data-management-panel="wi">
           <div class="codex-pm-print-head">
             <div>
-              <h3>工作說明書編號(W.I.No)</h3>
-              <p>管理各級預檢與設備類別對應的工作說明書編號。</p>
+              <h3>工作說明書主檔</h3>
             </div>
             <div class="codex-pm-actions">
-              <button type="button" class="codex-pm-soft-button primary">新增 W.I.No</button>
+              <button type="button" class="codex-pm-soft-button primary" data-wi-add>新增工作說明書</button>
             </div>
           </div>
-          <div class="codex-pm-auto-grid">
-            ${Object.values(templates).map((template) => renderAutoField([`${template.label} / ${template.period}`, template.wiNo, template.file], true)).join("")}
+          <div class="codex-pm-material-rule-strip">
+            <span>勾選代表該級別會帶入表單</span>
+            <span>工單依適用類別 + 檢修級別自動篩選</span>
+          </div>
+          <div class="codex-pm-planning-toolbar">
+            <label class="codex-pm-planning-field">
+              <span>關鍵字搜尋</span>
+              <input type="text" value="" placeholder="W.I.No / 名稱">
+            </label>
+            <label class="codex-pm-planning-field">
+              <span>適用類別</span>
+              <select><option>全部</option><option>車輛</option><option>機廠設備</option></select>
+            </label>
+            <label class="codex-pm-planning-field">
+              <span>適用檢修級別</span>
+              <select><option>全部</option>${workInstructionLevels.map((level) => `<option>${level}</option>`).join("")}</select>
+            </label>
+          </div>
+          <div class="codex-pm-weekly-table-wrap">
+            <table class="codex-pm-capability-table">
+              <thead>
+                <tr>
+                  <th>W.I.No</th>
+                  <th>工作說明書名稱</th>
+                  <th>適用類別</th>
+                  ${workInstructionLevels.map((level) => `<th>${level}</th>`).join("")}
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${workInstructionMaster.map((item, index) => `
+                  <tr>
+                    <td><input class="codex-pm-matrix-input" type="text" value="${escapeHtml(item.no)}" data-wi-field-index="${index}" data-wi-field="no"></td>
+                    <td><input class="codex-pm-matrix-input" type="text" value="${escapeHtml(item.name)}" data-wi-field-index="${index}" data-wi-field="name"></td>
+                    <td>
+                      <select class="codex-pm-matrix-input" data-wi-field-index="${index}" data-wi-field="category">
+                        ${["車輛", "機廠設備"].map((option) => `<option value="${option}" ${item.category === option ? "selected" : ""}>${option}</option>`).join("")}
+                      </select>
+                    </td>
+                    ${workInstructionLevels.map((level) => `<td><label><input type="checkbox" data-wi-level="${index}:${level}" ${item.levels.includes(level) ? "checked" : ""}></label></td>`).join("")}
+                    <td><button type="button" class="codex-pm-table-button" data-wi-delete="${index}">刪除</button></td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
           </div>
         </section>
       `;
     }
 
     function renderManagementSectionView() {
+      if (activeManagementSection === "package") return renderWorkPackageInventoryView();
       if (activeManagementSection === "materials") return renderMaterialNoteManagementView();
       if (activeManagementSection === "wi") return renderWiManagementView();
       if (activeManagementSection === "instruments") return renderInstrumentManagementView();
@@ -29959,6 +30267,7 @@ react-dom/cjs/react-dom-client.production.js:
                   ` : `
                     <button type="button" class="codex-pm-button ${activeView === "calendar" ? "primary" : ""}" data-calendar-view="calendar">月曆總覽</button>
                     <button type="button" class="codex-pm-button ${activeView === "print" ? "primary" : ""}" data-calendar-view="print">作業包</button>
+                    <button type="button" class="codex-pm-button ${activeView === "management" && activeManagementSection === "package" ? "primary" : ""}" data-management-section="package">作業包主檔</button>
                     <button type="button" class="codex-pm-button ${activeView === "planning" ? "primary" : ""}" data-calendar-view="planning">排班規劃</button>
                   `}
                 </div>
@@ -30091,6 +30400,60 @@ react-dom/cjs/react-dom-client.production.js:
           renderCenter(container);
         });
       }
+
+      container.querySelectorAll("[data-wi-field]").forEach((input) => {
+        const applyWorkInstructionField = () => {
+          const index = Number(input.getAttribute("data-wi-field-index"));
+          const field = input.getAttribute("data-wi-field") || "";
+          if (!Number.isInteger(index) || !workInstructionMaster[index] || !(field in workInstructionMaster[index])) return;
+          workInstructionMaster[index][field] = input.value;
+          saveWorkInstructionMaster();
+        };
+        input.addEventListener("input", applyWorkInstructionField);
+        input.addEventListener("change", applyWorkInstructionField);
+      });
+
+      container.querySelectorAll("[data-wi-level]").forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+          const [indexText, level] = String(checkbox.getAttribute("data-wi-level") || "").split(":");
+          const index = Number(indexText);
+          if (!Number.isInteger(index) || !workInstructionMaster[index] || !workInstructionLevels.includes(level)) return;
+          const levels = new Set(workInstructionMaster[index].levels || []);
+          if (checkbox.checked) levels.add(level);
+          else levels.delete(level);
+          workInstructionMaster[index].levels = workInstructionLevels.filter((item) => levels.has(item));
+          saveWorkInstructionMaster();
+        });
+      });
+
+      const addWorkInstructionButton = container.querySelector("[data-wi-add]");
+      if (addWorkInstructionButton) {
+        addWorkInstructionButton.addEventListener("click", () => {
+          workInstructionMaster.push(normalizeWorkInstructionItem({
+            id: `WI-${Date.now()}`,
+            no: "新增 W.I.No",
+            name: "新增工作說明書",
+            category: "車輛",
+            levels: ["1M"],
+          }, workInstructionMaster.length));
+          saveWorkInstructionMaster();
+          activeManagementSection = "wi";
+          activeView = "management";
+          renderCenter(container);
+        });
+      }
+
+      container.querySelectorAll("[data-wi-delete]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const index = Number(button.getAttribute("data-wi-delete"));
+          if (!Number.isInteger(index) || !workInstructionMaster[index]) return;
+          workInstructionMaster.splice(index, 1);
+          saveWorkInstructionMaster();
+          activeManagementSection = "wi";
+          activeView = "management";
+          renderCenter(container);
+        });
+      });
 
       container.querySelectorAll("[data-front-page]").forEach((button) => {
         button.addEventListener("click", () => {
@@ -30698,9 +31061,10 @@ react-dom/cjs/react-dom-client.production.js:
 <script id="codex-pm-management-card-router">
   (() => {
     const sectionRules = [
+      { section: "package", labels: ["作業包欄位盤點", "作業包主檔", "作業包"] },
       { section: "instruments", labels: ["儀器列表"] },
       { section: "materials", labels: ["表單用料", "用料預設", "用料說明", "領料單編號"] },
-      { section: "wi", labels: ["工作說明書", "W.I.No", "W.I.No"] }
+      { section: "wi", labels: ["工作說明書主檔", "工作說明書", "W.I.No"] }
     ];
 
     function compactText(node) {
@@ -32624,7 +32988,7 @@ react-dom/cjs/react-dom-client.production.js:
     return [
       "首頁",
       "儀表板",
-      "新增預檢工單",
+      "臨時工單",
       "新增工單",
       "故檢",
       "預檢",
@@ -41239,6 +41603,45 @@ react-dom/cjs/react-dom-client.production.js:
   new MutationObserver(scheduleRender).observe(document.body, { childList: true, subtree: true });
   window.setTimeout(scheduleRender, 800);
   window.setTimeout(scheduleRender, 2400);
+})();
+</script>
+<script>
+(function () {
+  const replacements = [
+    ["新增預檢工單", "臨時工單"],
+    ["新增工單", "臨時工單"],
+    ["表單預覽", "代入表單內容"],
+    ["固定格式預覽", "代入表單內容"],
+    ["列印預覽", "代入表單內容"],
+    ["列印目前預覽", "核對套版欄位"],
+    ["列印臨時工單", "核對套版欄位"],
+    ["選擇預檢等級後，系統自動帶入固定工單內容。", "排程外補建或主管交辦時使用；正式預排請從月曆排程列印。"]
+  ];
+
+  function applyTemporaryOrderLabels(root) {
+    if (!root) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node = walker.nextNode();
+    while (node) {
+      let text = node.nodeValue;
+      replacements.forEach(([from, to]) => {
+        text = text.replaceAll(from, to);
+      });
+      if (text !== node.nodeValue) node.nodeValue = text;
+      node = walker.nextNode();
+    }
+  }
+
+  function scheduleTemporaryOrderLabels() {
+    window.requestAnimationFrame(() => applyTemporaryOrderLabels(document.body));
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scheduleTemporaryOrderLabels);
+  } else {
+    scheduleTemporaryOrderLabels();
+  }
+  new MutationObserver(scheduleTemporaryOrderLabels).observe(document.body, { childList: true, subtree: true });
 })();
 </script>
 </body>
