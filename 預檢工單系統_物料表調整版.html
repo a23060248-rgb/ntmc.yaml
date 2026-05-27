@@ -23156,7 +23156,7 @@ react-dom/cjs/react-dom-client.production.js:
       contractor: "■本項 N / A",
       mileage: "■本項 N / A",
       operationHours: "■本項 N / A",
-      correctiveAction: "已完成1M預檢作業。\n相關事項詳如附件(1M檢查紀錄表)。",
+      correctiveAction: "",
       dangerStart: "13:00",
       dangerEnd: "15:00",
       dangerTotal: "2 小時",
@@ -25153,7 +25153,7 @@ react-dom/cjs/react-dom-client.production.js:
       visibility: visible !important;
       background: #fff !important;
       box-sizing: border-box !important;
-      padding: 8mm !important;
+      padding: 0 !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
@@ -25164,8 +25164,30 @@ react-dom/cjs/react-dom-client.production.js:
       box-shadow: none !important;
       color: #111827 !important;
       margin: 0 auto !important;
-      max-width: 190mm !important;
+      max-width: 194mm !important;
       padding: 2mm !important;
+      width: 194mm !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-editor-head {
+      margin-bottom: 1.4mm !important;
+      text-align: center !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-company {
+      color: #c2410c !important;
+      display: block !important;
+      font-size: 10pt !important;
+      font-weight: 700 !important;
+      line-height: 1.15 !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-editor-head strong {
+      color: #c2410c !important;
+      display: block !important;
+      font-size: 11pt !important;
+      font-weight: 700 !important;
+      line-height: 1.15 !important;
     }
 
     #codex-work-package-print-root .codex-pm-work-package-form-scroll {
@@ -25182,6 +25204,61 @@ react-dom/cjs/react-dom-client.production.js:
     #codex-work-package-print-root .codex-pm-work-package-form-table th,
     #codex-work-package-print-root .codex-pm-work-package-form-table td {
       border: 0.55pt solid #000 !important;
+      color: #111827 !important;
+      font-family: "思源黑體 TW Regular", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif !important;
+      font-size: 7pt !important;
+      font-weight: 600 !important;
+      line-height: 1.18 !important;
+      padding: 1.35mm 1.6mm !important;
+      vertical-align: top !important;
+      white-space: pre-wrap !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-form-table .phase-row th {
+      background: #cfe3f7 !important;
+      font-size: 7.5pt !important;
+      font-weight: 800 !important;
+      text-align: center !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-form-cell {
+      background: #dbeeff !important;
+      min-height: 7mm !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-form-cell.is-mid {
+      min-height: 13mm !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-form-cell.is-tall {
+      min-height: 20mm !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-form-label {
+      color: #111827 !important;
+      display: block !important;
+      font-size: 6.4pt !important;
+      font-weight: 800 !important;
+      line-height: 1.12 !important;
+      margin-bottom: 0.8mm !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-form-value {
+      color: #111827 !important;
+      font-size: 7pt !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+      white-space: pre-wrap !important;
+    }
+
+    #codex-work-package-print-root .codex-pm-work-package-form-table .signature-row td {
+      background: #fff !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-bottom: 0 !important;
+      height: 12mm !important;
+      padding-top: 3mm !important;
+      text-align: left !important;
     }
 
     #codex-schedule-print-root .codex-pm-schedule-print-sheet {
@@ -26749,6 +26826,7 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     const workPackageOverridesStorageKey = "codexPmWorkPackageOverridesV1";
+    const workPackageSafetyManualMigrationKey = "codexPmSafetyManualSelectionV1";
     const workPackageMaintenanceTypeOptions = ["預防性維修", "大修"];
     const workPackageExecutionTypeOptions = ["自辦", "協力", "外包"];
     const workPackageSafetyOptionDefinitions = [
@@ -26809,6 +26887,21 @@ react-dom/cjs/react-dom-client.production.js:
         window.localStorage?.setItem(workPackageOverridesStorageKey, JSON.stringify(workPackageOverrides));
       } catch (error) {}
     }
+
+    function migrateSafetyItemsToManualSelection() {
+      try {
+        if (window.localStorage?.getItem(workPackageSafetyManualMigrationKey)) return;
+        Object.values(workPackageOverrides || {}).forEach((record) => {
+          if (record && typeof record === "object" && Array.isArray(record.safetyItems)) {
+            record.safetyItems = [];
+          }
+        });
+        window.localStorage?.setItem(workPackageSafetyManualMigrationKey, "1");
+        saveWorkPackageOverrides();
+      } catch (error) {}
+    }
+
+    migrateSafetyItemsToManualSelection();
 
     const templates = {
       P1: {
@@ -26944,11 +27037,11 @@ react-dom/cjs/react-dom-client.production.js:
           { phase: "派工規劃階段", name: "執行分類", source: "作業包主檔 / 可編輯", value: "■自辦 □協力 □外包", page: "作業包主檔", note: "可選自辦、協力或外包，列印用 ■/□ 顯示" },
           { phase: "派工規劃階段", name: "現場工作負責人(Person in charge)", source: "排程/人員", value: "現場班組或指定人", page: "作業包 / 人員", note: "列印前確認" },
           { phase: "派工規劃階段", name: "預計施工日期(Plan Start Date)", source: "排程自動帶入", value: "排程日期，民國格式列印", page: "月曆排程", note: "由預排日期帶入" },
-          { phase: "派工規劃階段", name: "所需安全衛生作業項目", source: "作業包主檔", value: "■高架作業、■一般安全衛生作業", page: "作業包主檔", note: "其餘依實際勾選" },
+          { phase: "派工規劃階段", name: "所需安全衛生作業項目", source: "填寫時選擇", value: "預設不勾選，由同仁依本次作業自行勾選", page: "作業包欄位編輯", note: "列印封面依本張作業包勾選內容顯示 ■/□" },
           { phase: "派工規劃階段", name: "電聯車里程數(Mileage)", source: "作業包主檔 / 可編輯", value: "□本項 N / A 或輸入里程數", page: "作業包主檔", note: "預設未勾 N / A，可切換或輸入公里數" },
           { phase: "派工規劃階段", name: "運轉時數(Operation)", source: "作業包主檔 / 可編輯", value: "■本項 N / A 或輸入時數", page: "作業包主檔", note: "可切換本項 N / A，也可輸入運轉時數" },
           { phase: "派工規劃階段", name: "最晚需完成日期(Latest Finish Date)", source: "排程自動帶入 / 工作日推算", value: "依檢修級別作業天數，跳過假日後自動帶入", page: "月曆排程 / 作業包", note: "車輛 1M=1 天、3M/6M=2 天、1Y=3 天；機廠設備=1 天" },
-          { phase: "完工驗收階段", name: "維修處理情形(Corrective Action)", source: "作業包主檔 + 完工回填", value: "已完成1M預檢作業。相關事項詳如附件(1M檢查紀錄表)。", page: "實際完工", note: "預設文字可由完工回填覆寫" },
+          { phase: "完工驗收階段", name: "維修處理情形(Corrective Action)", source: "使用者手填", value: "空白，由同仁完工後填寫", page: "作業包欄位編輯", note: "不自動預設文字，列印封面空白或帶入手填內容" },
           { phase: "完工驗收階段", name: "危險工時起訖", source: "使用者輸入", value: "空白，由同仁填寫", page: "作業包主檔", note: "P1 畫面保留空白格" },
           { phase: "完工驗收階段", name: "危險總工時", source: "使用者輸入", value: "空白，由同仁填寫", page: "作業包主檔", note: "P1 畫面保留空白格" },
           { phase: "完工驗收階段", name: "用料說明或領料單編號(Faulty Parts)", source: "用料主檔 + 完工回填", value: "空調濾網 N/A；鍊條保護劑 10 ml；矽膠輔助劑 15 g", page: "用料說明或領料單編號", note: "已獨立成可維護分頁" },
@@ -26990,11 +27083,11 @@ react-dom/cjs/react-dom-client.production.js:
       { rtf: "執行分類", system: "執行分類", status: "已可編輯", note: "可選自辦 / 協力 / 外包" },
       { rtf: "現場工作負責人(Person in charge)", system: "現場工作負責人(Person in charge)", status: "只有顯示", note: "目前列印前指定" },
       { rtf: "預計施工日期(Plan Start Date)", system: "預計施工日期(Plan Start Date)", status: "只有顯示", note: "由排程帶入" },
-      { rtf: "所需安全衛生作業項目", system: "所需安全衛生作業項目", status: "只有顯示", note: "目前依車輛/設備預設" },
+      { rtf: "所需安全衛生作業項目", system: "所需安全衛生作業項目", status: "已可編輯", note: "填寫作業包時自行勾選，不由主檔預設" },
       { rtf: "電聯車里程數(Mileage)", system: "電聯車里程數", status: "已可編輯", note: "可輸入或切換本項 N / A" },
       { rtf: "運轉時數(Operation)", system: "運轉時數", status: "已可編輯", note: "可輸入或切換本項 N / A" },
       { rtf: "最晚需完成日期(Latest Finish Date)", system: "最晚需完成日期(Latest Finish Date)", status: "只有顯示", note: "依作業天數推算，只算工作日並跳過假日" },
-      { rtf: "維修處理情形(Corrective Action)", system: "維修處理情形(Corrective Action)", status: "只有顯示", note: "由級別預設或完工回填" },
+      { rtf: "維修處理情形(Corrective Action)", system: "維修處理情形(Corrective Action)", status: "已可編輯", note: "改為手填空白，不依檢修級別自動帶文字" },
       { rtf: "危險工時起訖", system: "危險工時起訖", status: "已可編輯", note: "使用時間選擇器填開始與結束時間" },
       { rtf: "危險總工時", system: "危險總工時", status: "系統計算", note: "依危險工時起訖自動計算小時數" },
       { rtf: "用料說明或領料單編號(Faulty Parts)", system: "用料說明或領料單編號", status: "已可編輯", note: "用料欄位已有空調濾網覆寫入口" },
@@ -27859,7 +27952,16 @@ react-dom/cjs/react-dom-client.production.js:
       workPackageTextFieldDefinitions.forEach((field) => {
         normalized[field.key] = String(record[field.key] || "");
       });
+      if (isLegacyCorrectiveAction(normalized.correctiveAction)) {
+        normalized.correctiveAction = "";
+      }
       return normalized;
+    }
+
+    function isLegacyCorrectiveAction(value) {
+      const text = String(value || "").replace(/\s+/g, "");
+      return text === "依級別表單預設文字帶入"
+        || /^已完成(?:1M|3M|6M|1Y|2Y|5Y)?預檢作業。?相關事項詳如附件/.test(text);
     }
 
     function workPackageOverrideForItem(item) {
@@ -27880,7 +27982,7 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function workPackageDefaultSafetyItemsForItem(item) {
-      return item?.assetType === "車輛" ? ["heightWork", "generalSafety"] : ["generalSafety"];
+      return [];
     }
 
     function workPackageSafetyItemsForItem(config, item) {
@@ -28378,7 +28480,7 @@ react-dom/cjs/react-dom-client.production.js:
       const template = templateFor(item);
       const isVehicle = item.assetType === "車輛";
       const workPackage = workPackageOverrideForItem(item);
-      const correctiveText = workPackage.correctiveAction || (template.period === "1M" ? "已完成1M預檢作業。相關事項詳如附件(1M檢查紀錄表)。" : "依級別表單預設文字帶入");
+      const correctiveText = workPackage.correctiveAction || "";
       const dangerPeriodText = workPackageDangerPeriodText(workPackage);
       const dangerTotalHoursText = workPackageDangerTotalHoursText(workPackage);
       const actualStartDateText = workPackageDateRocText(workPackage, "actualStartDateTime");
@@ -28414,11 +28516,11 @@ react-dom/cjs/react-dom-client.production.js:
         ["執行分類", workPackageSquareOptions(workPackageExecutionTypeOptions, workPackage.executionType), "作業包主檔 / 可編輯"],
         ["現場工作負責人(Person in charge)", workPackage.personInCharge || "列印前指定", "人員確認"],
         ["預計施工日期(Plan Start Date)", toRocDate(item.date), "預排表"],
-        ["所需安全衛生作業項目", safetyItems, "作業包主檔"],
+        ["所需安全衛生作業項目", safetyItems, "填寫時選擇"],
         ["電聯車里程數", workPackageNaValue(workPackage, "mileage"), "作業包主檔 / 可編輯"],
         ["運轉時數", workPackageNaValue(workPackage, "operationHours"), "作業包主檔 / 可編輯"],
         ["最晚需完成日期(Latest Finish Date)", workPackageLatestFinishRocForItem(item), "預排表 / 工作日推算"],
-        ["維修處理情形(Corrective Action)", correctiveText, "作業包主檔 / 可編輯"],
+        ["維修處理情形(Corrective Action)", correctiveText, "使用者手填"],
         ["危險工時起訖", dangerPeriodText || "同仁填寫", "使用者輸入"],
         ["危險總工時", dangerTotalHoursText ? `${dangerTotalHoursText} 小時` : "依起訖時間自動計算", "系統計算"],
         ["用料說明或領料單編號", materialSummary, "主檔預設 / 本次覆寫"],
@@ -28442,6 +28544,34 @@ react-dom/cjs/react-dom-client.production.js:
         ["套用檢查表", template.file, "範本設定"],
         ["前次完工日", toMinguo(item.previousDone), "排程基準"]
       ];
+    }
+
+    function workPackageCoverMappingPhase(label = "") {
+      if (/維修處理|危險|用料|設備位址|實際施工|實際完工|完成數量|成本中心|自有人力|協力人員|儀器|外包\/協力/.test(label)) {
+        return "完工驗收階段";
+      }
+      if (/新北維修人員|結案|附註|群組組成/.test(label)) {
+        return "結案階段";
+      }
+      return "派工規劃階段";
+    }
+
+    function workPackageCoverMappingDataType(source = "") {
+      if (/實際完工|主管審核|結案/.test(source)) return "完工回填";
+      if (/使用者輸入|人員確認|可編輯/.test(source)) return "作業包欄位";
+      if (/主檔|範本|檢查表/.test(source)) return "主檔帶入";
+      if (/預排表|排程|工作日|系統/.test(source)) return "系統自動";
+      return "參照資料";
+    }
+
+    function workPackageCoverMappingRows(item) {
+      return autoFields(item).map(([label, value, source]) => ({
+        phase: workPackageCoverMappingPhase(label),
+        wordField: label,
+        packageValue: value || "",
+        source,
+        dataType: workPackageCoverMappingDataType(source)
+      }));
     }
 
     function renderStats() {
@@ -28726,24 +28856,15 @@ react-dom/cjs/react-dom-client.production.js:
     }
 
     function renderPrintPreview(item) {
-      const fields = autoFields(item);
+      const fields = workPackageCoverMappingRows(item);
       if (!workPackageReferenceOpen) {
-        return `
-          <aside class="codex-pm-print-panel codex-pm-reference-panel is-collapsed">
-            <div class="codex-pm-print-head">
-              <div>
-                <h3>欄位對照</h3>
-              </div>
-              <button type="button" class="codex-pm-soft-button" data-work-package-reference-toggle>展開</button>
-            </div>
-          </aside>
-        `;
+        return "";
       }
       return `
         <aside class="codex-pm-print-panel codex-pm-reference-panel">
           <div class="codex-pm-print-head">
             <div>
-              <h3>表單欄位對照</h3>
+              <h3>Word 封面欄位對應</h3>
             </div>
             <button type="button" class="codex-pm-soft-button" data-work-package-reference-toggle>收合</button>
           </div>
@@ -28751,17 +28872,21 @@ react-dom/cjs/react-dom-client.production.js:
             <table class="codex-pm-capability-table">
               <thead>
                 <tr>
-                  <th>欄位</th>
-                  <th>代入表單內容</th>
-                  <th>來源</th>
+                  <th>階段</th>
+                  <th>Word 封面欄位</th>
+                  <th>作業包目前值</th>
+                  <th>資料來源</th>
+                  <th>類型</th>
                 </tr>
               </thead>
               <tbody>
-                ${fields.map(([label, value, source]) => `
+                ${fields.map((field) => `
                   <tr>
-                    <td><strong>${escapeHtml(label)}</strong></td>
-                    <td>${escapeHtml(value)}</td>
-                    <td><span class="codex-pm-source-pill">${escapeHtml(source)}</span></td>
+                    <td><span class="codex-pm-source-pill">${escapeHtml(field.phase)}</span></td>
+                    <td><strong>${escapeHtml(field.wordField)}</strong></td>
+                    <td>${escapeHtml(field.packageValue)}</td>
+                    <td>${escapeHtml(field.source)}</td>
+                    <td><span class="codex-pm-source-pill">${escapeHtml(field.dataType)}</span></td>
                   </tr>
                 `).join("")}
               </tbody>
@@ -28934,9 +29059,7 @@ react-dom/cjs/react-dom-client.production.js:
       const template = templateFor(item);
       const isVehicle = item.assetType === "車輛";
       const department = isVehicle ? "車輛課" : item.department;
-      const correctiveText = template.period === "1M"
-        ? "已完成1M預檢作業。\n相關事項詳如附件(1M檢查紀錄表)。"
-        : "依級別表單預設文字帶入";
+      const correctiveText = "";
       const correctiveValue = config.correctiveAction || correctiveText;
       const dangerPeriodText = workPackageDangerPeriodText(config);
       const dangerTotalHoursText = workPackageDangerTotalHoursText(config);
@@ -28962,7 +29085,7 @@ react-dom/cjs/react-dom-client.production.js:
             renderWorkPackageEditField("執行分類", renderWorkPackageOptionButtons("executionType", workPackageExecutionTypeOptions, config.executionType), "作業包主檔 / 可編輯", "executionType"),
             renderWorkPackageEditField("現場工作負責人(Person in charge)", renderWorkPackageTextInput("personInCharge", config, "列印前指定"), "人員確認", "personInCharge"),
             renderWorkPackageEditField("預計施工日期(Plan Start Date)", escapeHtml(toRocDate(item.date)), "預排表", "planStartDate"),
-            renderWorkPackageEditField("所需安全衛生作業項目", renderWorkPackageSafetyOptions(item, config), "作業包主檔", "safety", { wide: true }),
+            renderWorkPackageEditField("所需安全衛生作業項目", renderWorkPackageSafetyOptions(item, config), "填寫時選擇", "safety", { wide: true }),
             renderWorkPackageEditField("電聯車里程數(Mileage)", renderWorkPackageNaControl(workPackageFieldDefinition("mileage"), config), "作業包主檔 / 可編輯", "mileage"),
             renderWorkPackageEditField("運轉時數(Operation)", renderWorkPackageNaControl(workPackageFieldDefinition("operationHours"), config), "作業包主檔 / 可編輯", "operationHours"),
             renderWorkPackageEditField("最晚需完成日期(Latest Finish Date)", escapeHtml(workPackageLatestFinishRocForItem(item)), "預排表 / 工作日推算", "latestFinishDate")
@@ -29109,14 +29232,211 @@ react-dom/cjs/react-dom-client.production.js:
       `;
     }
 
+    function workPackagePrintText(value) {
+      if (value === null || typeof value === "undefined") return "";
+      return String(value);
+    }
+
+    function workPackagePrintHtml(value) {
+      return escapeHtml(workPackagePrintText(value));
+    }
+
+    function workPackageSystemNameForCover(item) {
+      return item?.assetType === "車輛" ? "ERS" : (item?.department || item?.assetType || "機廠設備");
+    }
+
+    function workPackageGroupCodeForCover(item) {
+      return item?.assetType === "車輛" ? "ERS" : (item?.assetType || "機廠設備");
+    }
+
+    function workPackageGroupNameForCover(item) {
+      return item?.assetType === "車輛" ? "輕軌列車" : (item?.asset || "");
+    }
+
+    function workPackageLocationForCover(item) {
+      return item?.asset || "";
+    }
+
+    function workPackageDepartmentForCover(item) {
+      return item?.assetType === "車輛" ? "車輛課" : (item?.department || "車輛課");
+    }
+
+    function workPackageDefaultCorrectiveText(template) {
+      return "";
+    }
+
+    function workPackagePrintNaText(config, key, fallback = "") {
+      const text = String(config?.[`${key}Text`] || "").trim();
+      if (config?.[`${key}Na`]) return "■本項 N / A";
+      const body = text || String(fallback || "").trim();
+      return body ? `${body}\n□本項 N / A` : "□本項 N / A";
+    }
+
+    function workPackagePrintOptionLine(options, selected) {
+      return options.map((option) => `${option === selected ? "■" : "□"}${option}`).join("　");
+    }
+
+    function workPackagePrintManpower(config, naKey, staffKey, hoursKey) {
+      if (config?.[`${naKey}Na`]) return "■本項 N / A";
+      const staff = String(config?.[staffKey] || "").trim();
+      const hours = String(config?.[hoursKey] || "").trim();
+      return [
+        "□本項 N / A",
+        `工作人數：${staff}`,
+        `實際維修工時：${hours}`
+      ].join("\n");
+    }
+
+    function renderWorkPackageCoverPhase(title) {
+      return `<tr class="phase-row"><th colspan="8">${workPackagePrintHtml(title)}</th></tr>`;
+    }
+
+    function renderWorkPackageCoverCell(label, value, options = {}) {
+      const colSpan = options.colSpan || 1;
+      const rowSpan = options.rowSpan || 1;
+      const classes = ["codex-pm-work-package-form-cell", options.className || ""].filter(Boolean).join(" ");
+      const valueClass = ["codex-pm-work-package-form-value", options.valueClass || ""].filter(Boolean).join(" ");
+      return `
+        <td class="${classes}" colspan="${colSpan}" rowspan="${rowSpan}">
+          ${label ? `<span class="codex-pm-work-package-form-label">${workPackagePrintHtml(label)}</span>` : ""}
+          <div class="${valueClass}">${workPackagePrintHtml(value)}</div>
+        </td>
+      `;
+    }
+
+    function renderWorkPackageCover(item) {
+      const config = workPackageOverrideForItem(item);
+      const template = templateFor(item);
+      const department = workPackageDepartmentForCover(item);
+      const correctiveText = config.correctiveAction || "";
+      const dangerPeriodText = workPackageDangerPeriodText(config);
+      const dangerTotalHoursText = workPackageDangerTotalHoursText(config);
+      const actualStartDateText = workPackageDateRocText(config, "actualStartDateTime");
+      const actualCompletionDateText = workPackageDateRocText(config, "actualCompletionDateTime");
+      const qtyCompletedText = config.qtyCompleted || "1";
+      const materialText = workPackagePrintNaText(config, "materialFaultyParts", materialTextForItem(item));
+      const instrumentText = workPackagePrintNaText(config, "instrumentNo", instrumentTextForItem(item));
+      const contractorText = workPackagePrintNaText(config, "maintenanceContractor");
+      const turnRoundText = workPackagePrintNaText(config, "turnRoundParts");
+      const mileageText = workPackagePrintNaText(config, "mileage");
+      const operationText = workPackagePrintNaText(config, "operationHours");
+      const contractorCompletedByText = workPackagePrintNaText(config, "contractorCompletedBy");
+      const remarkText = workPackagePrintNaText(config, "remark");
+      const groupListText = workPackagePrintNaText(config, "groupList");
+      const outsourcingText = [
+        contractorCompletedByText,
+        workPackagePrintManpower(config, "outSourcingManpower", "outSourcingStaffQty", "outSourcingManHours")
+      ].filter(Boolean).join("\n");
+      return `
+        <div class="codex-pm-work-package-editor is-cover-print">
+          <div class="codex-pm-work-package-editor-head">
+            <div>
+              <span class="codex-pm-work-package-company">新北捷運股份有限公司</span>
+              <strong>維修工單-預防檢修(PM Work Order)</strong>
+            </div>
+          </div>
+          <div class="codex-pm-work-package-form-scroll">
+            <table class="codex-pm-work-package-form-table" aria-label="P工單封面">
+              <colgroup>
+                <col style="width:12.5%">
+                <col style="width:12.5%">
+                <col style="width:12.5%">
+                <col style="width:12.5%">
+                <col style="width:12.5%">
+                <col style="width:12.5%">
+                <col style="width:12.5%">
+                <col style="width:12.5%">
+              </colgroup>
+              <tbody>
+                ${renderWorkPackageCoverPhase("派工規劃階段")}
+                <tr>
+                  ${renderWorkPackageCoverCell("工單序號 / FR Serial No", pNoFor(item), { colSpan: 3 })}
+                  ${renderWorkPackageCoverCell("系統名稱(System)", workPackageSystemNameForCover(item), { colSpan: 2 })}
+                  ${renderWorkPackageCoverCell("設備群組編號 / 設備標示編號", workPackageGroupCodeForCover(item), { colSpan: 3 })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("設備群組名稱 / 設備標示名稱", workPackageGroupNameForCover(item), { colSpan: 3 })}
+                  ${renderWorkPackageCoverCell("工作說明(Job Description)", workPackageJobDescription(template), { colSpan: 3 })}
+                  ${renderWorkPackageCoverCell("維修週期(Maintenance Period)", workPackagePeriodText(template), { colSpan: 2 })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("計畫數量(Qty)", "1", { colSpan: 1 })}
+                  ${renderWorkPackageCoverCell("設備位置(Location)", workPackageLocationForCover(item), { colSpan: 3 })}
+                  ${renderWorkPackageCoverCell("工作類別", workPackagePrintOptionLine(workPackageMaintenanceTypeOptions, config.maintenanceType), { colSpan: 2 })}
+                  ${renderWorkPackageCoverCell("執行分類", workPackagePrintOptionLine(workPackageExecutionTypeOptions, config.executionType), { colSpan: 2 })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("工作說明書編號(W.I.No)", workInstructionFormTextForItem(item), { colSpan: 8, className: "is-mid", valueClass: "multi-value wi-compact" })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("新北捷運維修單位(NTMC Dept)", department, { colSpan: 2 })}
+                  ${renderWorkPackageCoverCell("派工人(Assigned by)", config.assignedBy, { colSpan: 2 })}
+                  ${renderWorkPackageCoverCell("維修外包/協力商(Maintenance Contractor)", contractorText, { colSpan: 4 })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("現場工作負責人(Person in charge)", config.personInCharge, { colSpan: 3 })}
+                  ${renderWorkPackageCoverCell("預計施工日期(Plan Start Date)", toRocDate(item.date), { colSpan: 2 })}
+                  ${renderWorkPackageCoverCell("最晚需完成日期(Latest Finish Date)", workPackageLatestFinishRocForItem(item), { colSpan: 3 })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("所需安全衛生作業項目", workPackageSafetyTextForItem(config, item), { colSpan: 8, className: "is-mid", valueClass: "multi-value" })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("電聯車里程數(Mileage)", mileageText, { colSpan: 3 })}
+                  ${renderWorkPackageCoverCell("運轉時數(Operation)", operationText, { colSpan: 2 })}
+                  ${renderWorkPackageCoverCell("成本中心(Cost Center)", department, { colSpan: 3 })}
+                </tr>
+                ${renderWorkPackageCoverPhase("完工驗收階段")}
+                <tr>
+                  ${renderWorkPackageCoverCell("維修處理情形(Corrective Action)", correctiveText, { colSpan: 8, className: "is-tall", valueClass: "multi-value" })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("危險工時起訖", dangerPeriodText, { colSpan: 3 })}
+                  ${renderWorkPackageCoverCell("危險總工時", dangerTotalHoursText ? `${dangerTotalHoursText} 小時` : "", { colSpan: 2 })}
+                  ${renderWorkPackageCoverCell("完成數量(Qty Completed)", qtyCompletedText, { colSpan: 3 })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("用料說明或領料單編號(Faulty Parts)", materialText, { colSpan: 8, className: "is-mid", valueClass: "multi-value" })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("設備位址 / 設備名稱 / 上線編號 / 下線編號", turnRoundText, { colSpan: 8, className: "is-mid", valueClass: "multi-value" })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("實際施工日期與時間", actualStartDateText, { colSpan: 2 })}
+                  ${renderWorkPackageCoverCell("實際完工日期與時間", actualCompletionDateText, { colSpan: 2 })}
+                  ${renderWorkPackageCoverCell("自有人力 In-house", workPackagePrintManpower(config, "inHouseManpower", "inHouseStaffQty", "inHouseManHours"), { colSpan: 4, className: "is-mid", valueClass: "multi-value" })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("維修外包/協力人員 / 外包協力人力", outsourcingText, { colSpan: 4, className: "is-mid", valueClass: "multi-value" })}
+                  ${renderWorkPackageCoverCell("儀器編號(Instrument No)", instrumentText, { colSpan: 4, className: "is-mid", valueClass: "multi-value" })}
+                </tr>
+                ${renderWorkPackageCoverPhase("結案階段")}
+                <tr>
+                  ${renderWorkPackageCoverCell("新北維修人員(NTMC Completed by)", config.ntmcCompletedBy, { colSpan: 4, className: "is-mid" })}
+                  ${renderWorkPackageCoverCell("新北結案核准人員(NTMC Closed out & Approved by)", config.ntmcApprovedBy, { colSpan: 4, className: "is-mid" })}
+                </tr>
+                <tr>
+                  ${renderWorkPackageCoverCell("附註(Remark)", remarkText, { colSpan: 4, className: "is-mid", valueClass: "multi-value" })}
+                  ${renderWorkPackageCoverCell("群組組成清單(Group List)", groupListText, { colSpan: 4, className: "is-mid", valueClass: "multi-value" })}
+                </tr>
+                <tr class="signature-row">
+                  <td colspan="4">承辦人員：</td>
+                  <td colspan="4">審查主管：</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
     function renderWorkPackageEditor(item) {
       const config = workPackageOverrideForItem(item);
       const template = templateFor(item);
       const isVehicle = item.assetType === "車輛";
       const department = isVehicle ? "車輛課" : item.department;
-      const correctiveText = template.period === "1M"
-        ? "已完成1M預檢作業。\n相關事項詳如附件(1M檢查紀錄表)。"
-        : "依級別表單預設文字帶入";
+      const correctiveText = "";
+      const correctiveValue = config.correctiveAction || correctiveText;
       return `
         <div class="codex-pm-work-package-editor">
           <div class="codex-pm-work-package-editor-head">
@@ -29219,7 +29539,7 @@ react-dom/cjs/react-dom-client.production.js:
 
     function workPackagePrintTitleText(item) {
       const template = templateFor(item);
-      return `${pNoFor(item)}_${item.asset}_${template.period || item.level}_作業包`;
+      return `${pNoFor(item)}_${item.asset}_${template.period || item.level}_P工單封面`;
     }
 
     function renderPrintView() {
@@ -29235,7 +29555,8 @@ react-dom/cjs/react-dom-client.production.js:
               </div>
               <div class="codex-pm-actions">
                 <span class="codex-pm-level-pill">${escapeHtml(levelText)}</span>
-                <button type="button" class="codex-pm-soft-button primary" data-work-package-print>列印表單</button>
+                <button type="button" class="codex-pm-soft-button" data-work-package-reference-toggle>${workPackageReferenceOpen ? "收合欄位對應" : "封面欄位對應"}</button>
+                <button type="button" class="codex-pm-soft-button primary" data-work-package-print>列印封面</button>
               </div>
             </div>
             ${renderWorkPackageEditView(item)}
@@ -29386,7 +29707,7 @@ react-dom/cjs/react-dom-client.production.js:
             ${renderAutoField(["已盤點欄位", `${fields.length} 欄`, "不可漏欄"], false)}
             ${renderAutoField(["RTF 對照欄位", `${coverageRows.length} 欄`, "原始表單"], false)}
             ${renderAutoField(["表單區段", phases.join(" / "), "原表單"], true)}
-            ${renderAutoField(["主要缺口", "目前未標示缺少欄位；工作類別、執行分類、N / A 與周轉件欄位已納入作業包主檔。人員與完工工時仍屬完工/結案階段顯示。", "盤點狀態"], true)}
+            ${renderAutoField(["主要缺口", "封面欄位已可對應作業包；安全衛生作業項目改為填寫時自行勾選。維修處理情形改為手填空白。", "盤點狀態"], true)}
           </div>
           <div class="codex-pm-material-rule-strip">
             ${Object.entries(sourceCounts).map(([source, count]) => `<span>${escapeHtml(source)}：${count} 欄</span>`).join("")}
@@ -32384,11 +32705,17 @@ react-dom/cjs/react-dom-client.production.js:
           document.getElementById("codex-work-package-print-root")?.remove();
           const printRoot = document.createElement("div");
           printRoot.id = "codex-work-package-print-root";
-          printRoot.innerHTML = renderWorkPackageEditor(item);
+          printRoot.innerHTML = renderWorkPackageCover(item);
           document.body.appendChild(printRoot);
+          document.getElementById("codex-work-package-print-page-style")?.remove();
+          const printPageStyle = document.createElement("style");
+          printPageStyle.id = "codex-work-package-print-page-style";
+          printPageStyle.textContent = "@page { size: A4 portrait; margin: 8mm; }";
+          document.head.appendChild(printPageStyle);
           const originalTitle = document.title;
           document.title = workPackagePrintTitleText(item);
           const cleanupPrintRoot = () => {
+            printPageStyle.remove();
             printRoot.remove();
             document.title = originalTitle;
           };
