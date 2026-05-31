@@ -18520,6 +18520,7 @@ ${event.event_type}\uFF5C${event.serial_no}`);
     ), /* @__PURE__ */ import_react.default.createElement(
       "button",
       {
+        type: "button",
         onClick: () => setActiveTab("materialTable"),
         className: `flex w-full items-center gap-3 rounded-2xl px-3 py-3 text-left text-sm ${activeTab === "materialTable" ? "bg-cyan-500/20 font-semibold text-cyan-200 ring-1 ring-cyan-400/30" : "text-slate-300 hover:bg-slate-800"}`
       },
@@ -18528,6 +18529,7 @@ ${event.event_type}\uFF5C${event.serial_no}`);
     ), /* @__PURE__ */ import_react.default.createElement(
       "button",
       {
+        type: "button",
         onClick: () => setActiveTab("turnRoundHistory"),
         className: `flex w-full items-center gap-3 rounded-2xl px-3 py-3 text-left text-sm ${activeTab === "turnRoundHistory" ? "bg-cyan-500/20 font-semibold text-cyan-200 ring-1 ring-cyan-400/30" : "text-slate-300 hover:bg-slate-800"}`
       },
@@ -24513,6 +24515,31 @@ react-dom/cjs/react-dom-client.production.js:
     gap: 0.35rem;
   }
 
+  .codex-pm-calendar-first .codex-pm-work-package-danger-ranges {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-range-add,
+  .codex-pm-calendar-first .codex-pm-work-package-range-remove {
+    border: 1px solid rgba(34, 211, 238, 0.34);
+    border-radius: 6px;
+    background: rgba(8, 145, 178, 0.16);
+    color: #a5f3fc;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1;
+    min-height: 1.9rem;
+    padding: 0.24rem 0.52rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-work-package-range-remove {
+    border-color: rgba(248, 113, 113, 0.28);
+    background: rgba(127, 29, 29, 0.18);
+    color: #fecaca;
+  }
+
   .codex-pm-calendar-first .codex-pm-work-package-time-range input[type="time"] {
     border: 1px solid rgba(148, 163, 184, 0.28);
     border-radius: 6px;
@@ -28182,7 +28209,8 @@ react-dom/cjs/react-dom-client.production.js:
       const base = {
         maintenanceType: "預防性維修",
         executionType: "自辦",
-        safetyItems: null
+        safetyItems: null,
+        dangerRanges: [{ start: "", end: "" }]
       };
       workPackageNaFieldDefinitions.forEach((field) => {
         base[`${field.key}Na`] = typeof field.defaultNa === "boolean" ? field.defaultNa : true;
@@ -28215,6 +28243,11 @@ react-dom/cjs/react-dom-client.production.js:
       workPackageTextFieldDefinitions.forEach((field) => {
         normalized[field.key] = String(record[field.key] || "");
       });
+      normalized.dangerRanges = workPackageDangerRanges(record, true);
+      normalized.dangerStartTime = normalized.dangerRanges[0]?.start || "";
+      normalized.dangerEndTime = normalized.dangerRanges[0]?.end || "";
+      normalized.dangerTotalHours = workPackageDangerTotalHoursText(normalized);
+      normalized.dangerWorkPeriod = workPackageDangerPeriodText(normalized);
       if (isLegacyCorrectiveAction(normalized.correctiveAction)) {
         normalized.correctiveAction = "";
       }
@@ -28409,31 +28442,77 @@ react-dom/cjs/react-dom-client.production.js:
       return hours * 60 + minutes;
     }
 
-    function workPackageDangerPeriodText(config) {
-      const start = String(config.dangerStartTime || "").trim();
-      const end = String(config.dangerEndTime || "").trim();
+    function normalizeWorkPackageDangerRange(range = {}) {
+      return {
+        start: String(range?.start || "").trim(),
+        end: String(range?.end || "").trim()
+      };
+    }
+
+    function workPackageDangerRanges(config = {}, includeBlank = false) {
+      const rawRanges = Array.isArray(config.dangerRanges)
+        ? config.dangerRanges.map(normalizeWorkPackageDangerRange)
+        : [];
+      const ranges = includeBlank ? rawRanges : rawRanges.filter((range) => range.start || range.end);
+      if (!ranges.length) {
+        const start = String(config.dangerStartTime || "").trim();
+        const end = String(config.dangerEndTime || "").trim();
+        if (start || end) ranges.push({ start, end });
+      }
+      return ranges.length || !includeBlank ? ranges : [{ start: "", end: "" }];
+    }
+
+    function workPackageDangerRangeText(range) {
+      const start = String(range?.start || "").trim();
+      const end = String(range?.end || "").trim();
       if (start && end) return `${start}～${end}`;
       if (start) return `${start}～`;
       if (end) return `～${end}`;
+      return "";
+    }
+
+    function workPackageDangerRangeMinutes(range) {
+      const start = workPackageTimeToMinutes(range?.start);
+      const end = workPackageTimeToMinutes(range?.end);
+      if (start === null || end === null) return null;
+      let diff = end - start;
+      if (diff < 0) diff += 24 * 60;
+      return diff;
+    }
+
+    function workPackageFormatDangerHours(minutes) {
+      if (!Number.isFinite(minutes) || minutes <= 0) return "";
+      const hours = Math.round((minutes / 60) * 10) / 10;
+      return Number.isInteger(hours) ? String(hours) : hours.toFixed(1);
+    }
+
+    function workPackageDangerPeriodText(config) {
+      const ranges = workPackageDangerRanges(config);
+      if (ranges.length) return ranges.map(workPackageDangerRangeText).filter(Boolean).join("\n");
       return String(config.dangerWorkPeriod || "").trim();
     }
 
     function workPackageDangerTotalHoursText(config) {
-      const start = workPackageTimeToMinutes(config.dangerStartTime);
-      const end = workPackageTimeToMinutes(config.dangerEndTime);
-      if (start === null || end === null) return "";
-      let diff = end - start;
-      if (diff < 0) diff += 24 * 60;
-      const hours = Math.round((diff / 60) * 10) / 10;
-      return Number.isInteger(hours) ? String(hours) : hours.toFixed(1);
+      const totalMinutes = workPackageDangerRanges(config)
+        .map(workPackageDangerRangeMinutes)
+        .filter((minutes) => minutes !== null)
+        .reduce((sum, minutes) => sum + minutes, 0);
+      return workPackageFormatDangerHours(totalMinutes);
     }
 
     function renderWorkPackageDangerTimeInput(config) {
+      const ranges = workPackageDangerRanges(config, true);
       return `
-        <div class="codex-pm-work-package-time-range">
-          <input type="time" step="600" data-work-package-text-field="dangerStartTime" value="${escapeHtml(config.dangerStartTime || "")}" aria-label="危險工時開始">
-          <span>至</span>
-          <input type="time" step="600" data-work-package-text-field="dangerEndTime" value="${escapeHtml(config.dangerEndTime || "")}" aria-label="危險工時結束">
+        <div class="codex-pm-work-package-danger-ranges">
+          ${ranges.map((range, index) => `
+            <div class="codex-pm-work-package-time-range">
+              <input type="time" step="600" data-work-package-danger-start="${index}" value="${escapeHtml(range.start)}" aria-label="危險工時第${index + 1}段開始">
+              <span>至</span>
+              <input type="time" step="600" data-work-package-danger-end="${index}" value="${escapeHtml(range.end)}" aria-label="危險工時第${index + 1}段結束">
+              ${ranges.length > 1 ? `<button type="button" class="codex-pm-work-package-range-remove" data-work-package-danger-remove="${index}">刪除</button>` : ""}
+            </div>
+          `).join("")}
+          <button type="button" class="codex-pm-work-package-range-add" data-work-package-danger-add>新增時段</button>
         </div>
       `;
     }
@@ -33451,6 +33530,54 @@ react-dom/cjs/react-dom-client.production.js:
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
           applyWorkPackageSafety();
+        });
+      });
+
+      container.querySelectorAll("[data-work-package-danger-start], [data-work-package-danger-end]").forEach((input) => {
+        const applyDangerRange = () => {
+          const item = selectedItem();
+          const startIndex = input.getAttribute("data-work-package-danger-start");
+          const endIndex = input.getAttribute("data-work-package-danger-end");
+          const index = Number(startIndex ?? endIndex ?? 0);
+          if (!Number.isInteger(index) || index < 0) return;
+          const config = workPackageOverrideForItem(item);
+          const ranges = workPackageDangerRanges(config, true);
+          const current = normalizeWorkPackageDangerRange(ranges[index] || {});
+          ranges[index] = {
+            ...current,
+            [startIndex !== null ? "start" : "end"]: input.value
+          };
+          updateWorkPackageOverrideForItem(item, { dangerRanges: ranges });
+          activeView = "print";
+          renderCenter(container);
+        };
+        input.addEventListener("change", applyDangerRange);
+        input.addEventListener("blur", applyDangerRange);
+      });
+
+      container.querySelectorAll("[data-work-package-danger-add]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = selectedItem();
+          const config = workPackageOverrideForItem(item);
+          const ranges = workPackageDangerRanges(config, true);
+          updateWorkPackageOverrideForItem(item, {
+            dangerRanges: [...ranges, { start: "", end: "" }]
+          });
+          activeView = "print";
+          renderCenter(container);
+        });
+      });
+
+      container.querySelectorAll("[data-work-package-danger-remove]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = selectedItem();
+          const index = Number(button.getAttribute("data-work-package-danger-remove") || 0);
+          const ranges = workPackageDangerRanges(workPackageOverrideForItem(item), true);
+          if (!Number.isInteger(index) || index < 0 || ranges.length <= 1) return;
+          ranges.splice(index, 1);
+          updateWorkPackageOverrideForItem(item, { dangerRanges: ranges });
+          activeView = "print";
+          renderCenter(container);
         });
       });
 
@@ -44362,6 +44489,163 @@ react-dom/cjs/react-dom-client.production.js:
   window.setTimeout(scheduleRender, 2400);
 })();
 </script>
+<script id="codex-material-turnaround-route-guard-script">
+(function () {
+  if (window.CodexMaterialTurnaroundRouteGuardReady) return;
+  window.CodexMaterialTurnaroundRouteGuardReady = true;
+
+  function textOf(node) {
+    return String(node && node.textContent || "").replace(/\s+/g, "").trim();
+  }
+
+  function isMaterialText(text) {
+    return text === "物料表" || text.indexOf("物料表") !== -1;
+  }
+
+  function isTurnaroundText(text) {
+    return text.indexOf("周轉件履歷") !== -1 || text.indexOf("周轉建履歷") !== -1;
+  }
+
+  function routeFromText(text) {
+    if (isTurnaroundText(text)) return "turnaround";
+    if (isMaterialText(text)) return "material";
+    return "";
+  }
+
+  function isInsideRoutePage(node) {
+    return !!(node && node.closest && node.closest("#codex-rwork-root,#codex-turnaround-root,#codex-material-api-panel,#codex-material-route-host,#codex-turnaround-route-host"));
+  }
+
+  function findSidebarButton(route) {
+    return Array.prototype.slice.call(document.querySelectorAll("aside button")).find(function (button) {
+      var text = textOf(button);
+      return route === "material" ? isMaterialText(text) : isTurnaroundText(text);
+    });
+  }
+
+  function clearPrecheckOverlay() {
+    Array.prototype.forEach.call(document.querySelectorAll(".codex-pm-calendar-host"), function (host) {
+      host.remove();
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("main > *"), function (child) {
+      child.hidden = false;
+    });
+  }
+
+  function clearStandaloneRoute() {
+    ["codex-material-route-host", "codex-turnaround-route-host"].forEach(function (id) {
+      var node = document.getElementById(id);
+      if (node) node.remove();
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("main > *"), function (child) {
+      child.hidden = false;
+    });
+    window.CodexStandaloneMainRoute = "";
+  }
+
+  function scheduleClearStandaloneRoute() {
+    window.setTimeout(clearStandaloneRoute, 0);
+    window.setTimeout(clearStandaloneRoute, 120);
+    window.setTimeout(clearStandaloneRoute, 420);
+  }
+
+  function hasRoutePage(route) {
+    if (route === "material" && document.getElementById("codex-material-api-panel")) return true;
+    if (route === "turnaround" && (document.getElementById("codex-rwork-root") || document.getElementById("codex-turnaround-root"))) return true;
+    return Array.prototype.some.call(document.querySelectorAll("main h1,main h2,main h3"), function (heading) {
+      var text = textOf(heading);
+      return route === "material" ? text === "物料表" || text.indexOf("物料查詢") !== -1 : isTurnaroundText(text);
+    });
+  }
+
+  function hideMainSiblings(host) {
+    var main = host && host.parentElement;
+    if (!main) return;
+    Array.prototype.forEach.call(main.children, function (child) {
+      child.hidden = child !== host;
+    });
+    host.hidden = false;
+  }
+
+  function ensureRouteHost(route) {
+    if (hasRoutePage(route)) return;
+    var main = document.querySelector("main.flex-1") || document.querySelector("main") || document.body;
+    if (!main) return;
+    var id = route === "material" ? "codex-material-route-host" : "codex-turnaround-route-host";
+    var otherId = route === "material" ? "codex-turnaround-route-host" : "codex-material-route-host";
+    var other = document.getElementById(otherId);
+    if (other) other.remove();
+    var host = document.getElementById(id);
+    if (!host) {
+      host = document.createElement("div");
+      host.id = id;
+      host.className = "no-print space-y-5";
+      main.prepend(host);
+    }
+    if (route === "material") {
+      host.innerHTML = '<section class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5 shadow-xl"><div class="mb-4 flex flex-wrap items-center justify-between gap-3"><div><h2 class="text-lg font-bold">物料表</h2><p class="mt-1 text-sm text-slate-400">物料主檔、庫存、請購點與用料資料。</p></div></div></section>';
+      window.setTimeout(function () {
+        if (window.CodexMaterialApiBridge && typeof window.CodexMaterialApiBridge.sync === "function") {
+          window.CodexMaterialApiBridge.sync();
+        }
+      }, 0);
+    } else {
+      host.innerHTML = '<section class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5 shadow-xl"><h2 class="text-lg font-bold">周轉件履歷</h2></section>';
+    }
+    hideMainSiblings(host);
+    host.scrollIntoView({ block: "start" });
+  }
+
+  function verifyRoute(route, clickedButton) {
+    clearPrecheckOverlay();
+    if (hasRoutePage(route)) return;
+    var button = findSidebarButton(route);
+    if (button && button !== clickedButton) button.click();
+    window.setTimeout(function () {
+      clearPrecheckOverlay();
+      if (!hasRoutePage(route)) ensureRouteHost(route);
+    }, 120);
+  }
+
+  function scheduleVerify(route, clickedButton) {
+    window.setTimeout(function () { verifyRoute(route, clickedButton); }, 60);
+    window.setTimeout(function () { verifyRoute(route, clickedButton); }, 260);
+    window.setTimeout(function () { verifyRoute(route, clickedButton); }, 650);
+  }
+
+  document.addEventListener("click", function (event) {
+    var action = event.target && event.target.closest && event.target.closest("button,a,[role='button']");
+    if (!action || isInsideRoutePage(action)) return;
+    // React app sidebar: skip route guard entirely, only clear the vanilla-JS injected overlay
+    if (action.closest && action.closest("aside") && action.closest("#root")) {
+      window.setTimeout(function () {
+        // Only remove vanilla-JS created hosts (data-codex-precheck-home).
+        // DO NOT remove React-managed elements — React handles those via reconciliation.
+        Array.prototype.forEach.call(
+          document.querySelectorAll(".codex-pm-calendar-host[data-codex-precheck-home]"),
+          function (h) { h.remove(); }
+        );
+        Array.prototype.forEach.call(document.querySelectorAll("main > *"), function (c) { c.hidden = false; });
+      }, 0);
+      return;
+    }
+    var route = routeFromText(textOf(action));
+    if (!route) {
+      if (action.closest && action.closest("aside")) scheduleClearStandaloneRoute();
+      return;
+    }
+    window.CodexStandaloneMainRoute = route;
+    var sidebarButton = findSidebarButton(route);
+    if (sidebarButton && sidebarButton !== action) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      sidebarButton.click();
+    }
+    scheduleVerify(route, action);
+  }, true);
+})();
+</script>
 <script>
 (function () {
   const replacements = [
@@ -44399,6 +44683,47 @@ react-dom/cjs/react-dom-client.production.js:
     scheduleTemporaryOrderLabels();
   }
   new MutationObserver(scheduleTemporaryOrderLabels).observe(document.body, { childList: true, subtree: true });
+})();
+</script>
+<script id="codex-react-precheck-guard">
+(function () {
+  // Root cause fix: vanilla JS renderCenter() was calling container.innerHTML on React-managed
+  // elements (the .no-print.space-y-6 div found by findDashboardContainer), which breaks
+  // React's fiber tree and causes "removeChild: not a child" errors on reconciliation.
+  //
+  // Fix: mark those React containers with data-codex-pm-suite="true" BEFORE the calendar
+  // scripts' requestAnimationFrame fires enhanceCenter(). The enhanceCenter() check
+  // `if (!container || container.dataset.codexPmSuite === "true") return;` will then skip them.
+  // We then mount the calendar via codexPmShowPrecheckHome() which uses findPrecheckHomeMount()
+  // — a safe path that creates a NEW vanilla-JS element instead of corrupting React's DOM.
+
+  function guardAndMount() {
+    var root = document.getElementById('root');
+    if (!root) return;
+    var marked = false;
+    Array.prototype.forEach.call(root.querySelectorAll('h1,h2,h3'), function (h) {
+      if (h.textContent.trim() !== '預檢工單清單') return; // "預檢工單清單"
+      if (h.closest('.codex-pm-calendar-host')) return; // already inside a safe calendar host
+      var c = h.closest('.no-print.space-y-6') || h.closest('section') || h.parentElement;
+      if (c && !c.dataset.codexPmSuite) {
+        c.dataset.codexPmSuite = 'true'; // blocks enhanceCenter from calling renderCenter on it
+        marked = true;
+      }
+    });
+    if (marked && !root.querySelector('.codex-pm-calendar-host[data-codex-precheck-home]')) {
+      // Mount calendar via the safe path (findPrecheckHomeMount creates a new element)
+      window.requestAnimationFrame(function () {
+        if (window.codexPmShowPrecheckHome &&
+            !root.querySelector('.codex-pm-calendar-host[data-codex-precheck-home]')) {
+          window.codexPmShowPrecheckHome();
+        }
+      });
+    }
+  }
+
+  var root = document.getElementById('root') || document.body;
+  new MutationObserver(guardAndMount).observe(root, { childList: true, subtree: true });
+  window.requestAnimationFrame(guardAndMount);
 })();
 </script>
 </body>
