@@ -27047,6 +27047,7 @@ react-dom/cjs/react-dom-client.production.js:
     let activeManagementSection = "";
     let activeStaff = "all";
     let activeCompletionFilter = "pending";
+    let pendingBackfillSelectedId = "";
     let workPackageReferenceOpen = false;
     let pendingWorkPackageAnchor = "";
     let planningRole = "planner";
@@ -32870,7 +32871,7 @@ react-dom/cjs/react-dom-client.production.js:
             </label>
           </div>
           <div class="codex-pm-action-row">
-            <button type="button" class="codex-pm-soft-button primary" data-feedback-complete="${escapeHtml(item.id)}" data-feedback-return="completion">送出完工</button>
+            <button type="button" class="codex-pm-soft-button primary" data-feedback-complete="${escapeHtml(item.id)}" data-feedback-return="${activeView === "pendingBackfill" ? "pendingBackfill" : "completion"}">送出完工</button>
             <button type="button" class="codex-pm-soft-button" data-calendar-view="calendar">回月曆總覽</button>
           </div>
         </section>
@@ -32925,12 +32926,102 @@ react-dom/cjs/react-dom-client.production.js:
       `;
     }
 
+    function pendingBackfillRows() {
+      const candidates = allScheduleItems()
+        .filter((item) => workStatusForItem(item) !== "已完工")
+        .slice(0, 3);
+      const fallback = allScheduleItems().slice(0, 3);
+      const source = candidates.length ? candidates : fallback;
+      const printedDays = [3, 2, 1];
+      const anomalyCounts = [0, 1, 0];
+      return source.map((item, index) => ({
+        item,
+        printedDaysAgo: printedDays[index] || 1,
+        anomalyCount: anomalyCounts[index] || 0
+      }));
+    }
+
+    function renderPendingBackfillList() {
+      const rows = pendingBackfillRows();
+      return `
+        <section class="codex-pm-auto-section">
+          <div class="codex-pm-print-head">
+            <div>
+              <h3>待回填工單</h3>
+              <p>集中顯示已列印但尚未完工的 P 工單，現場完成後從這裡進入回填。</p>
+            </div>
+            <span class="codex-pm-level-pill">${rows.length} 件</span>
+          </div>
+          <div class="codex-pm-planning-matrix-wrap">
+            <table class="codex-pm-planning-matrix">
+              <thead>
+                <tr>
+                  <th>工單號</th>
+                  <th>車號 / 設備</th>
+                  <th>等級</th>
+                  <th>預排日期</th>
+                  <th>已列印幾天前</th>
+                  <th>異常筆數</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rows.map(({ item, printedDaysAgo, anomalyCount }) => `
+                  <tr>
+                    <td>${escapeHtml(pNoFor(item))}</td>
+                    <td>${escapeHtml(item.asset)}</td>
+                    <td><span class="codex-pm-level-pill">${escapeHtml(item.level)}</span></td>
+                    <td>${escapeHtml(planningDisplayDate(item.date))}</td>
+                    <td>${escapeHtml(String(printedDaysAgo))} 天</td>
+                    <td><span class="codex-pm-status-pill ${anomalyCount ? "is-review" : ""}">${escapeHtml(String(anomalyCount))}</span></td>
+                    <td>
+                      <button type="button" class="codex-pm-soft-button primary" data-pending-backfill-start="${escapeHtml(item.id)}">開始回填</button>
+                    </td>
+                  </tr>
+                `).join("") || `
+                  <tr>
+                    <td colspan="7">
+                      <div class="codex-pm-note-box">目前沒有待回填工單。</div>
+                    </td>
+                  </tr>
+                `}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderPendingBackfillView() {
+      const selected = pendingBackfillSelectedId
+        ? allScheduleItems().find((item) => item.id === pendingBackfillSelectedId)
+        : null;
+      if (!selected) return renderPendingBackfillList();
+      selectedId = selected.id;
+      selectedDate = selected.date;
+      return `
+        <div class="codex-pm-planning-layout">
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>開始回填</h3>
+                <p>${escapeHtml(selected.asset)} ${escapeHtml(selected.level)}，先回填封面完工資料；檢查表細項與 C 工單連動下一步再展開。</p>
+              </div>
+              <button type="button" class="codex-pm-soft-button" data-pending-backfill-list>回待回填清單</button>
+            </div>
+          </section>
+          ${renderCompletionEditor(selected)}
+        </div>
+      `;
+    }
+
     function renderActiveView() {
       if (planningStandaloneMode) return renderPlanningView();
       if (activeView === "management") return renderManagementHomeView();
       if (activeView === "planning") return renderPlanningView();
       if (activeView === "staff") return renderStaffViewV2();
       if (activeView === "completion") return renderCompletionView();
+      if (activeView === "pendingBackfill") return renderPendingBackfillView();
       if (activeView === "print") return renderPrintView();
       if (activeView === "feedback") return renderFeedbackView();
       if (activeView === "templates") return renderTemplatesView();
@@ -32964,6 +33055,7 @@ react-dom/cjs/react-dom-client.production.js:
                     <button type="button" class="codex-pm-button ${activeView === "calendar" ? "primary" : ""}" data-calendar-view="calendar">月曆總覽</button>
                     <button type="button" class="codex-pm-button ${activeView === "print" ? "primary" : ""}" data-calendar-view="print">作業包</button>
                     <button type="button" class="codex-pm-button ${activeView === "management" && activeManagementSection === "package" ? "primary" : ""}" data-management-section="package">作業包主檔</button>
+                    <button type="button" class="codex-pm-button ${activeView === "pendingBackfill" ? "primary" : ""}" data-calendar-view="pendingBackfill">待回填</button>
                     <button type="button" class="codex-pm-button ${activeView === "planning" ? "primary" : ""}" data-calendar-view="planning">排班規劃</button>
                   `}
                 </div>
@@ -33164,6 +33256,7 @@ react-dom/cjs/react-dom-client.production.js:
       container.querySelectorAll("[data-calendar-view]").forEach((button) => {
         button.addEventListener("click", () => {
           const nextView = button.getAttribute("data-calendar-view") || activeView;
+          pendingBackfillSelectedId = "";
           if (nextView === "planning" && !planningStandaloneMode) {
             planningSection = "schedule";
             activeView = "planning";
@@ -33177,6 +33270,28 @@ react-dom/cjs/react-dom-client.production.js:
           renderCenter(container);
         });
       });
+
+      container.querySelectorAll("[data-pending-backfill-start]").forEach((button) => {
+        button.addEventListener("click", () => {
+          pendingBackfillSelectedId = button.getAttribute("data-pending-backfill-start") || "";
+          const item = allScheduleItems().find((entry) => entry.id === pendingBackfillSelectedId);
+          if (item) {
+            selectedId = item.id;
+            selectedDate = item.date;
+          }
+          activeView = "pendingBackfill";
+          renderCenter(container);
+        });
+      });
+
+      const pendingBackfillListButton = container.querySelector("[data-pending-backfill-list]");
+      if (pendingBackfillListButton) {
+        pendingBackfillListButton.addEventListener("click", () => {
+          pendingBackfillSelectedId = "";
+          activeView = "pendingBackfill";
+          renderCenter(container);
+        });
+      }
 
       const roleSelect = container.querySelector("[data-planning-role]");
       if (roleSelect) {
@@ -33678,6 +33793,7 @@ react-dom/cjs/react-dom-client.production.js:
           planningSaveCompletionRecords();
           planningRebuildLinkedYearFromCurrent();
           activeView = feedbackCompleteButton.getAttribute("data-feedback-return") || "calendar";
+          if (activeView === "pendingBackfill") pendingBackfillSelectedId = "";
           renderCenter(container);
         });
       }
