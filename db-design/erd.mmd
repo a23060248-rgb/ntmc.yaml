@@ -7,6 +7,7 @@ erDiagram
   work_order ||--o{ work_order_material : uses
   work_order ||--o{ work_order_instrument : uses
   work_order ||--o{ work_order_wi : references
+  work_order ||--o{ pm_work_order_check_result : check_results
   work_order ||--o{ asset_event : creates
   work_order ||--o{ inventory_transaction : consumes
   work_order ||--o{ inventory_document : references
@@ -14,6 +15,8 @@ erDiagram
   pm_template ||--o{ pm_template_material : default_materials
   pm_template ||--o{ pm_template_instrument : default_instruments
   pm_template ||--o{ pm_template_wi : default_wi
+  pm_template ||--o{ pm_template_check_item : check_items
+  pm_template_check_item ||--o{ pm_work_order_check_result : result_source
 
   material ||--o{ asset : serialized_items
   material ||--o{ inventory_balance : stock_balance
@@ -83,6 +86,26 @@ erDiagram
     date plan_start_date
     date latest_finish_date
     jsonb form_snapshot
+  }
+
+  pm_template_check_item {
+    uuid id PK
+    uuid pm_template_id FK
+    text section
+    text item_no
+    text check_type
+    text default_status
+    boolean requires_value
+  }
+
+  pm_work_order_check_result {
+    uuid id PK
+    uuid work_order_id FK
+    uuid check_item_id FK
+    text result_status
+    text result_value
+    uuid filled_by FK
+    timestamptz filled_at
   }
 
   fault_work_order {

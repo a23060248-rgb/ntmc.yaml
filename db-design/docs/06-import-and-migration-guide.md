@@ -35,6 +35,7 @@
 \i migration-vehicle-position-slots.sql
 \i migration-asset-installation-import-staging.sql
 \i migration-repair-workflow-options.sql
+\i migration-pm-check-items.sql
 \i migration-document-sequence-inventory-document.sql
 \i seed-repair-workflow-options.sql
 \i material-import-tamhai.sql
@@ -171,3 +172,13 @@ FROM v_material_stock_summary
 ORDER BY stock_advice DESC, part_no
 LIMIT 20;
 ```
+## 新增 migration：預檢檢查項目預留
+
+`migration-pm-check-items.sql` 會建立：
+
+| 資料表 | 用途 |
+| --- | --- |
+| `pm_template_check_item` | P1/P2/P3/P4 檢查項目的模板定義。 |
+| `pm_work_order_check_result` | P 工單每項檢查的實際回填結果。 |
+
+此 migration 只預留資料結構，不會立即把現有 Word 檢查表拆成數位化項目。

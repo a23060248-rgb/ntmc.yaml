@@ -120,3 +120,48 @@ J 工單用於非例行作業：
 | `work_order_attachment` | 工單附件。 |
 
 這些關聯表讓 P/C/R/J 共用同一套物料、儀器、WI 與附件機制。
+## P 預檢檢查項目數位化預留
+
+目前 P 預檢作業仍以紙本 Word 檢查表為正式作業文件；系統先保留數位化檢查項目的資料結構，未來可逐步把 1M / 3M / 6M / 1Y 的檢查表拆成可回填項目。
+
+| 資料表 | 用途 |
+| --- | --- |
+| `pm_template_check_item` | 模板層，定義 P1/P2/P3/P4 各有哪些檢查項目。 |
+| `pm_work_order_check_result` | 工單層，記錄某張 P 工單每一項檢查的實際結果。 |
+
+### `pm_template_check_item`
+
+| 欄位 | 說明 |
+| --- | --- |
+| `id` | 檢查項目唯一識別。 |
+| `pm_template_id` | 對應 `pm_template`，例如 P1 / P2 / P3 / P4。 |
+| `section` | 區段標題，例如空調系統、車門系統。 |
+| `item_no` | 項目編號，例如 A-01。 |
+| `item_description` | 檢查描述。 |
+| `check_type` | `checkbox` / `value` / `text`。 |
+| `standard_value` | 標準值或判斷基準。 |
+| `unit` | 量測單位。 |
+| `default_status` | 新工單產生時的預設狀態，例如未填或 N/A。 |
+| `requires_value` | 是否要求填入量測值。 |
+| `sort_order` | 顯示排序。 |
+| `is_active` | 是否啟用。 |
+
+### `pm_work_order_check_result`
+
+| 欄位 | 說明 |
+| --- | --- |
+| `id` | 檢查結果唯一識別。 |
+| `work_order_id` | 對應 P 工單。 |
+| `check_item_id` | 對應模板檢查項目。 |
+| `result_status` | 正常 / 異常 / N/A / 未填。 |
+| `result_value` | 實際量測值或文字結果。 |
+| `remark` | 備註。 |
+| `filled_by` | 回填人。 |
+| `filled_at` | 回填時間。 |
+| `updated_at` | 最後修改時間。 |
+
+### 目前實作原則
+
+1. 先建立資料表，不立即把 Word 檢查表全部拆成動態項目。
+2. 作業包畫面先保留「檢查項目」區塊，提示本版仍使用紙本檢查表。
+3. 等封面套版、排程、列印與完工回填流程穩定後，再逐步匯入 P1/P2/P3/P4 檢查項目。
