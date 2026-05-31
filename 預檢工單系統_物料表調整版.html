@@ -25175,6 +25175,120 @@ react-dom/cjs/react-dom-client.production.js:
     padding: 0.58rem 0.68rem;
   }
 
+  .codex-pm-calendar-first .codex-pm-backfill-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-section-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-section {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 0.8rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-section-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: #f8fafc;
+    cursor: pointer;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-section-toggle input {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #22d3ee;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-section-toggle span {
+    color: #93c5fd;
+    font-size: 0.78rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-items {
+    display: grid;
+    gap: 0.55rem;
+    margin-top: 0.75rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-item-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 0.7rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+    padding-top: 0.55rem;
+    color: #dbeafe;
+    font-size: 0.82rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-item-row label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    color: #bfdbfe;
+    white-space: nowrap;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-measure-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.65rem;
+    margin-top: 0.85rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-measure {
+    display: grid;
+    gap: 0.35rem;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.58);
+    padding: 0.7rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-measure span {
+    color: #93c5fd;
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-measure input {
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.78);
+    color: #f8fafc;
+    font: inherit;
+    min-height: 2.25rem;
+    padding: 0.48rem 0.58rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-note {
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    border-radius: 8px;
+    background: rgba(8, 145, 178, 0.1);
+    color: #bae6fd;
+    line-height: 1.6;
+    margin-top: 0.85rem;
+    padding: 0.75rem;
+  }
+
+  @media (max-width: 1180px) {
+    .codex-pm-calendar-first .codex-pm-backfill-section-grid,
+    .codex-pm-calendar-first .codex-pm-backfill-measure-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .codex-pm-calendar-first .codex-pm-print-preview {
     border-radius: 8px;
     background: #f8fafc;
@@ -32992,6 +33106,235 @@ react-dom/cjs/react-dom-client.production.js:
       `;
     }
 
+    function pendingBackfillLevelCode(item) {
+      const raw = `${item?.templateCode || ""} ${item?.planValue || ""} ${item?.level || ""}`;
+      if (raw.includes("P4") || raw.includes("1Y") || raw.includes("2Y") || raw.includes("5Y") || raw.includes("第四級")) return "1Y";
+      if (raw.includes("P3") || raw.includes("6M") || raw.includes("第三級")) return "6M";
+      if (raw.includes("P2") || raw.includes("3M") || raw.includes("第二級")) return "3M";
+      return "1M";
+    }
+
+    function pendingBackfillLevelLabel(levelCode) {
+      if (levelCode === "3M") return "第二級 / 3M / 季檢";
+      if (levelCode === "6M") return "第三級 / 6M / 半年檢";
+      if (levelCode === "1Y") return "第四級 / 1Y / 年檢";
+      return "第一級 / 1M / 月檢";
+    }
+
+    function pendingBackfillCheckSections(item) {
+      const levelCode = pendingBackfillLevelCode(item);
+      const sections = [
+        ["body", "車體配件", ["車端外觀與各蓋板固定正常", "各管路無滲漏", "車門、扶手與外部標示完整"]],
+        ["interior", "內裝設備", ["客室照明與緊急設備正常", "座椅、地板與內裝固定正常", "駕駛室設備外觀正常"]],
+        ["bogie", "轉向架", ["轉向架外觀無裂損", "懸吊與減震器無漏油", "制動相關外觀正常"]],
+        ["traction", "電力推進", ["牽引箱外觀正常", "電纜固定與接地正常", "冷卻風扇與濾網狀態正常"]],
+        ["ac", "空調通風", ["空調濾網狀態確認", "送風與回風口無阻塞", "空調風扇運轉正常"]],
+        ["aux", "輔助設備", ["空壓機與附屬管路正常", "滅火器與安全設備期限正常", "蓄電池外觀與端子固定正常"]]
+      ];
+      const addItems = (key, items) => {
+        const section = sections.find(([sectionKey]) => sectionKey === key);
+        if (section) section[2].push(...items);
+      };
+      if (["3M", "6M", "1Y"].includes(levelCode)) {
+        addItems("body", ["車體底部與防護件固定檢查", "車鉤及緩衝裝置外觀檢查"]);
+        addItems("bogie", ["輪緣與踏面狀態確認", "轉向架固定螺栓與防鬆標記檢查"]);
+        addItems("traction", ["牽引電纜接頭與固定支架檢查", "推進系統散熱與濾網狀態檢查"]);
+      }
+      if (["6M", "1Y"].includes(levelCode)) {
+        addItems("interior", ["緊急通話與廣播設備功能確認", "客室門緊急釋放裝置檢查"]);
+        addItems("ac", ["空調排水與冷凝水管路檢查", "空調濾網清洗或更換確認"]);
+        addItems("aux", ["空壓機保養與壓力建立時間確認", "蓄電池端子清潔與固定檢查"]);
+      }
+      if (levelCode === "1Y") {
+        sections.push(
+          ["annual-safety", "年度安全確認", ["年度安全標示與滅火器完整性確認", "逃生與緊急設備年度功能確認", "各系統年度保養文件核對"]],
+          ["annual-record", "年度文件核對", ["本次年檢檢查表附件確認", "重要量測值與趨勢追蹤註記", "異常追蹤與 C 工單關聯確認"]]
+        );
+      }
+      return sections;
+    }
+
+    function pendingBackfillMeasurements() {
+      return [
+        ["累積里程", "km，完工回填時填寫", "", "mileage"],
+        ["碳刷厚度 M1", "mm，標準 > 6mm", "7.2"],
+        ["碳刷厚度 M5", "mm，標準 > 6mm", "7.0"],
+        ["碳刷高低差", "mm，標準 < 5mm", "1.5"],
+        ["絕緣電阻", "KΩ，標準 > 1KΩ", "2.4"],
+        ["空調風扇溫度 A1", "°C，標準 <= 80°C", "62"],
+        ["空調風扇溫度 A2", "°C，標準 <= 80°C", "64"],
+        ["空調風扇溫度 B1", "°C，標準 <= 80°C", "61"],
+        ["空調風扇溫度 B2", "°C，標準 <= 80°C", "63"],
+        ["滅火器下次檢查日期", "日期", "2026-12-31"]
+      ];
+    }
+
+    function renderPendingBackfillSection([sectionKey, title, items]) {
+      return `
+        <article class="codex-pm-backfill-section">
+          <label class="codex-pm-backfill-section-toggle">
+            <span>
+              <strong>${escapeHtml(title)}</strong><br>
+              本區段全部正常
+            </span>
+            <input type="checkbox" checked data-backfill-section-toggle="${escapeHtml(sectionKey)}">
+          </label>
+          <div class="codex-pm-backfill-items" data-backfill-section-items="${escapeHtml(sectionKey)}" hidden>
+            ${items.map((item, index) => `
+              <div class="codex-pm-backfill-item-row">
+                <strong>${escapeHtml(item)}</strong>
+                <label><input type="radio" name="bf-${escapeHtml(sectionKey)}-${index}" checked>正常</label>
+                <label><input type="radio" name="bf-${escapeHtml(sectionKey)}-${index}">異常</label>
+              </div>
+            `).join("")}
+          </div>
+        </article>
+      `;
+    }
+
+    function renderPendingBackfillEditor(item) {
+      const record = completionRecordFor(item);
+      const doneDate = record?.doneDate || today;
+      const result = record?.result || "正常";
+      const valueSummary = record?.valueSummary || "";
+      const materialNote = record?.materialNote || "";
+      const note = record?.note || "";
+      const startDate = record?.actualStart || item.date || today;
+      const levelCode = pendingBackfillLevelCode(item);
+      const levelLabel = pendingBackfillLevelLabel(levelCode);
+      const checkSections = pendingBackfillCheckSections(item);
+      return `
+        <div class="codex-pm-backfill-stack">
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>Part 1：封面完工資料</h3>
+                <p>這裡回填 P 單封面會追蹤的完工資訊；不重新列印原 Word 檢查表。</p>
+              </div>
+              <span class="codex-pm-level-pill">${escapeHtml(pNoFor(item))}</span>
+            </div>
+            <div class="codex-pm-auto-grid">
+              ${renderAutoField(["車號 / 設備", item.asset, item.assetType || ""])}
+              ${renderAutoField(["檢修等級", item.level, item.templateCode || ""])}
+              ${renderAutoField(["預排日期", planningDisplayDate(item.date), "計畫"])}
+              ${renderAutoField(["前次完工", planningDisplayDate(item.previousDone), "排程基準"])}
+            </div>
+            <div class="codex-pm-completion-form">
+              <label class="codex-pm-completion-field">
+                <span>實際施工日期</span>
+                <input type="date" value="${escapeHtml(startDate)}" data-feedback-start-date>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>實際完工日期</span>
+                <input type="date" value="${escapeHtml(doneDate)}" data-feedback-done-date>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>自有人力人數</span>
+                <input type="number" min="0" value="${escapeHtml(String(record?.ownStaffCount || 2))}" data-feedback-own-staff>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>自有人力工時</span>
+                <input type="number" min="0" step="0.5" value="${escapeHtml(String(record?.ownStaffHours || 8))}" data-feedback-own-hours>
+              </label>
+              <label class="codex-pm-completion-field wide">
+                <span>外包協力</span>
+                <label class="codex-pm-check-chip">
+                  <input type="checkbox" checked data-backfill-outsourcing-toggle>
+                  <span>本項 N/A</span>
+                </label>
+                <input type="text" value="${escapeHtml(record?.outsourcingNote || "")}" placeholder="取消 N/A 後填寫外包廠商、人數或工時" data-backfill-outsourcing-detail hidden>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>危險工時 1 起</span>
+                <input type="time" value="09:00" data-danger-time>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>危險工時 1 迄</span>
+                <input type="time" value="10:30" data-danger-time>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>危險工時 2 起</span>
+                <input type="time" data-danger-time>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>危險工時 2 迄</span>
+                <input type="time" data-danger-time>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>危險工時加總</span>
+                <input type="text" value="1.5 小時" data-danger-total readonly>
+              </label>
+              <label class="codex-pm-completion-field">
+                <span>檢查結果</span>
+                <select data-feedback-result>
+                  ${["正常", "異常", "N/A", "需複檢"].map((option) => `<option value="${option}" ${result === option ? "selected" : ""}>${option}</option>`).join("")}
+                </select>
+              </label>
+              <label class="codex-pm-completion-field wide">
+                <span>維修處理情形</span>
+                <textarea rows="3" data-feedback-note>${escapeHtml(note)}</textarea>
+              </label>
+            </div>
+          </section>
+
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>Part 2：檢查表回填</h3>
+                <p>目前套用 ${escapeHtml(levelLabel)} 模板；區段預設全部正常，有異常時取消該區段才展開逐項勾選。</p>
+              </div>
+              <span class="codex-pm-level-pill">${escapeHtml(levelCode)}｜${checkSections.length} 區段</span>
+            </div>
+            <div class="codex-pm-backfill-section-grid">
+              ${checkSections.map(renderPendingBackfillSection).join("")}
+            </div>
+          </section>
+
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>量測型項目</h3>
+                <p>這些不是單純正常勾選，完工回填時必須填實際值，後續可作趨勢追蹤。</p>
+              </div>
+              <span class="codex-pm-level-pill">必填</span>
+            </div>
+            <div class="codex-pm-backfill-measure-grid">
+              ${pendingBackfillMeasurements().map(([label, hint, value, key]) => `
+                <label class="codex-pm-backfill-measure">
+                  <span>${escapeHtml(label)}<br>${escapeHtml(hint)}</span>
+                  <input type="${label.includes("日期") ? "date" : "text"}" value="${escapeHtml(value)}" ${key ? `data-feedback-measure="${escapeHtml(key)}"` : ""}>
+                </label>
+              `).join("")}
+            </div>
+            <label class="codex-pm-completion-field wide" style="margin-top:0.85rem;">
+              <span>量測摘要</span>
+              <textarea rows="2" data-feedback-values>${escapeHtml(valueSummary)}</textarea>
+            </label>
+          </section>
+
+          <section class="codex-pm-auto-section">
+            <div class="codex-pm-print-head">
+              <div>
+                <h3>異常彙整</h3>
+                <p>第二階段先集中記錄；第三階段會把這裡與 C 工單建立 / 更新流程接起來。</p>
+              </div>
+              <span class="codex-pm-level-pill">C 工單預留</span>
+            </div>
+            <label class="codex-pm-completion-field wide">
+              <span>實際用料 / 領料備註</span>
+              <textarea rows="2" data-feedback-material>${escapeHtml(materialNote)}</textarea>
+            </label>
+            <div class="codex-pm-backfill-note">若本次有異常，先在維修處理情形與量測摘要寫清楚；下一階段會在這裡列出「建立新 C 工單 / 更新現有 C 工單 / 僅記錄」。</div>
+            <div class="codex-pm-action-row">
+              <button type="button" class="codex-pm-soft-button" data-pending-backfill-draft>暫存草稿</button>
+              <button type="button" class="codex-pm-soft-button primary" data-feedback-complete="${escapeHtml(item.id)}" data-feedback-return="pendingBackfill">確認完工</button>
+              <button type="button" class="codex-pm-soft-button" data-pending-backfill-list>回待回填清單</button>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
     function renderPendingBackfillView() {
       const selected = pendingBackfillSelectedId
         ? allScheduleItems().find((item) => item.id === pendingBackfillSelectedId)
@@ -33010,7 +33353,7 @@ react-dom/cjs/react-dom-client.production.js:
               <button type="button" class="codex-pm-soft-button" data-pending-backfill-list>回待回填清單</button>
             </div>
           </section>
-          ${renderCompletionEditor(selected)}
+          ${renderPendingBackfillEditor(selected)}
         </div>
       `;
     }
@@ -33290,6 +33633,54 @@ react-dom/cjs/react-dom-client.production.js:
           pendingBackfillSelectedId = "";
           activeView = "pendingBackfill";
           renderCenter(container);
+        });
+      }
+
+      container.querySelectorAll("[data-backfill-section-toggle]").forEach((input) => {
+        const syncSection = () => {
+          const key = input.getAttribute("data-backfill-section-toggle") || "";
+          const items = container.querySelector(`[data-backfill-section-items="${CSS.escape(key)}"]`);
+          if (items) items.hidden = input.checked;
+        };
+        input.addEventListener("change", syncSection);
+        syncSection();
+      });
+
+      const outsourcingToggle = container.querySelector("[data-backfill-outsourcing-toggle]");
+      const outsourcingDetail = container.querySelector("[data-backfill-outsourcing-detail]");
+      if (outsourcingToggle && outsourcingDetail) {
+        const syncOutsourcing = () => {
+          outsourcingDetail.hidden = outsourcingToggle.checked;
+        };
+        outsourcingToggle.addEventListener("change", syncOutsourcing);
+        syncOutsourcing();
+      }
+
+      const dangerInputs = Array.from(container.querySelectorAll("[data-danger-time]"));
+      const dangerTotal = container.querySelector("[data-danger-total]");
+      if (dangerInputs.length && dangerTotal) {
+        const minutesOf = (value) => {
+          const match = String(value || "").match(/^(\d{2}):(\d{2})$/);
+          return match ? Number(match[1]) * 60 + Number(match[2]) : null;
+        };
+        const syncDangerTotal = () => {
+          let minutes = 0;
+          for (let index = 0; index < dangerInputs.length; index += 2) {
+            const start = minutesOf(dangerInputs[index]?.value);
+            const end = minutesOf(dangerInputs[index + 1]?.value);
+            if (start === null || end === null || end <= start) continue;
+            minutes += end - start;
+          }
+          dangerTotal.value = `${(minutes / 60).toFixed(1)} 小時`;
+        };
+        dangerInputs.forEach((input) => input.addEventListener("input", syncDangerTotal));
+        syncDangerTotal();
+      }
+
+      const pendingBackfillDraftButton = container.querySelector("[data-pending-backfill-draft]");
+      if (pendingBackfillDraftButton) {
+        pendingBackfillDraftButton.addEventListener("click", () => {
+          window.alert("草稿已暫存於本頁原型。正式版會寫入 pm_work_order_check_result 草稿狀態。");
         });
       }
 
@@ -33785,6 +34176,14 @@ react-dom/cjs/react-dom-client.production.js:
             planValue: item.planValue,
             scheduledDate: item.date,
             doneDate,
+            actualStart: container.querySelector("[data-feedback-start-date]")?.value || "",
+            ownStaffCount: container.querySelector("[data-feedback-own-staff]")?.value || "",
+            ownStaffHours: container.querySelector("[data-feedback-own-hours]")?.value || "",
+            outsourcingNote: container.querySelector("[data-backfill-outsourcing-toggle]")?.checked
+              ? "N/A"
+              : (container.querySelector("[data-backfill-outsourcing-detail]")?.value || ""),
+            dangerHours: container.querySelector("[data-danger-total]")?.value || "",
+            mileage: container.querySelector('[data-feedback-measure="mileage"]')?.value || "",
             result: container.querySelector("[data-feedback-result]")?.value || "正常",
             valueSummary: container.querySelector("[data-feedback-values]")?.value || "",
             materialNote: container.querySelector("[data-feedback-material]")?.value || "",
