@@ -23699,6 +23699,21 @@ react-dom/cjs/react-dom-client.production.js:
 
 <!-- Codex PM calendar-first add-order flow -->
 <style id="codex-pm-calendar-first-style">
+  .codex-pm-calendar-first {
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .codex-pm-calendar-first .codex-pm-board,
+  .codex-pm-calendar-first .codex-pm-hero,
+  .codex-pm-calendar-first .codex-pm-panel,
+  .codex-pm-calendar-first .codex-pm-auto-section,
+  .codex-pm-calendar-first .codex-pm-planning-layout {
+    max-width: 100%;
+    min-width: 0;
+  }
+
   .codex-pm-calendar-first .codex-pm-board {
     gap: 0.6rem;
   }
@@ -26071,6 +26086,18 @@ react-dom/cjs/react-dom-client.production.js:
     table-layout: fixed;
   }
 
+  .codex-pm-calendar-first .codex-pm-backfill-table-wrap {
+    max-height: none;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-table {
+    min-width: 760px;
+    width: 100%;
+    table-layout: auto;
+  }
+
   .codex-pm-calendar-first .codex-pm-planning-matrix th,
   .codex-pm-calendar-first .codex-pm-planning-matrix td {
     box-sizing: border-box;
@@ -26254,6 +26281,24 @@ react-dom/cjs/react-dom-client.production.js:
     width: 3.05rem;
     min-width: 3.05rem;
     max-width: 3.05rem;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-table th,
+  .codex-pm-calendar-first .codex-pm-backfill-table td {
+    position: static !important;
+    left: auto !important;
+    z-index: auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    white-space: normal;
+  }
+
+  .codex-pm-calendar-first .codex-pm-backfill-table th {
+    position: sticky !important;
+    top: 0;
+    z-index: 3 !important;
+    background: #0f172a;
   }
 
   .codex-pm-calendar-first .codex-pm-operation-matrix th:nth-child(5),
@@ -33066,8 +33111,8 @@ react-dom/cjs/react-dom-client.production.js:
             </div>
             <span class="codex-pm-level-pill">${rows.length} 件</span>
           </div>
-          <div class="codex-pm-planning-matrix-wrap">
-            <table class="codex-pm-planning-matrix">
+          <div class="codex-pm-planning-matrix-wrap codex-pm-backfill-table-wrap">
+            <table class="codex-pm-planning-matrix codex-pm-backfill-table">
               <thead>
                 <tr>
                   <th>工單號</th>
@@ -33123,13 +33168,94 @@ react-dom/cjs/react-dom-client.production.js:
 
     function pendingBackfillCheckSections(item) {
       const levelCode = pendingBackfillLevelCode(item);
+      // 1M 完整 74 工項（依實車 1M 月檢查表）
       const sections = [
-        ["body", "車體配件", ["車端外觀與各蓋板固定正常", "各管路無滲漏", "車門、扶手與外部標示完整"]],
-        ["interior", "內裝設備", ["客室照明與緊急設備正常", "座椅、地板與內裝固定正常", "駕駛室設備外觀正常"]],
-        ["bogie", "轉向架", ["轉向架外觀無裂損", "懸吊與減震器無漏油", "制動相關外觀正常"]],
-        ["traction", "電力推進", ["牽引箱外觀正常", "電纜固定與接地正常", "冷卻風扇與濾網狀態正常"]],
-        ["ac", "空調通風", ["空調濾網狀態確認", "送風與回風口無阻塞", "空調風扇運轉正常"]],
-        ["aux", "輔助設備", ["空壓機與附屬管路正常", "滅火器與安全設備期限正常", "蓄電池外觀與端子固定正常"]]
+        ["body", "1. 車體配件", [
+          "駕駛室外板 — 外板本體及漆面是否正常",
+          "駕駛室外板 — 金屬零配件是否正常",
+          "車身外板 — 外板本體及漆面是否正常",
+          "車身外板 — 金屬零配件是否正常",
+          "轉向架裙板 — 外板本體及漆面是否正常",
+          "轉向架裙板 — 檢查蓋能正常開啟及關閉",
+          "轉向架裙板 — 金屬零配件是否正常",
+          "聯結器及遮罩 — 本體及漆面是否正常",
+          "聯結器及遮罩 — 目視檢查零件是否正常",
+          "旅客資訊顯示系統 — 車頭/車外/車內顯示器/車次顯示裝置是否正常",
+          "旅客資訊顯示系統 — 確認LED是否缺少"
+        ]],
+        ["interior", "2. 內裝設備", [
+          "輪椅安全帶/固定座 — 目視外觀正常",
+          "輪椅安全帶/固定座 — 試拉掛鉤功能正常",
+          "滅火器 — 外觀完整及保存期限確認",
+          "滅火器 — 安全插銷完整",
+          "滅火器 — 壓力值在綠色範圍",
+          "滅火器 — 下次性能檢查日期確認",
+          "側窗玻璃 — 駕駛室擋風/側窗/目的地/客室側窗(大)/(小)目視正常",
+          "地板構造及地板披覆 — 目視確認是否正常",
+          "內裝襯板 — 側牆/端牆/門柱區域/天花板/座椅區/日光燈飾板",
+          "扶手、拉環、立柱 — 垂直握桿/中央立柱/天花板水平扶手/多功能區水平扶手/手拉環",
+          "旅客座椅 — 外觀是否正常",
+          "駕駛室座椅 — 各活動部位調整功能正常",
+          "駕駛室設備 — 雨刷水量確認及功能",
+          "駕駛室設備 — HMI及各類按鈕與主控制器",
+          "擊窗器 — 外觀正常，鉛封完整"
+        ]],
+        ["bogie", "3. 轉向架", [
+          "轉向架本體 — 目視完整性/框完整性/重大髒汙清潔",
+          "轉向架本體 — 緊固件鎖緊狀態/各管路無滲漏",
+          "一次懸吊及止擋 — 目視(橡膠、金屬含耐磨板)正常",
+          "一次懸吊及止擋 — 確認無變形裂痕及緊固件正常",
+          "二次懸吊及緩衝橡皮 — 目視捲簧及墊片正常",
+          "二次懸吊及緩衝橡皮 — 確認二次懸吊/彈簧座/衝擊面正常",
+          "車體止擋 — 目視是否正常",
+          "牽引桿(含橡皮元件) — 目視是否正常/確認無裂痕、緊固件正常",
+          "排障器 — 目視是否正常",
+          "齒輪傳動裝置 — 目視齒輪箱外觀/外殼油氣痕跡或灰塵",
+          "齒輪傳動裝置 — 油面視窗確認及量油螺栓油面高度",
+          "齒輪傳動裝置 — 量油螺栓金屬微粒確認/鎖緊(扭力150 Nm)",
+          "齒輪傳動裝置 — 目視保護罩及內部彈性齒輪",
+          "車輪與車軸 — 目視輪軸組外觀/接地裝置(導電板)/固定螺栓",
+          "車輪輪厚量測(符合規範) — M1端 / M5端，填量測值 (mm)"
+        ]],
+        ["traction", "4. 電力推進", [
+          "推進/輔助電力系統 — 牽引換流器及輔電供應器外觀確認",
+          "推進/輔助電力系統 — 散熱風道清潔",
+          "集電弓碳刷厚度(>6mm) — M1端 / M5端，填量測值 (mm)",
+          "集電弓碳刷磨耗高低差(≤5mm) — 填量測值 (mm)",
+          "集電弓總成 — 目視弓頭/碳刷/導電編織線/運動阻尼器",
+          "集電弓 — 緊固螺栓確認正常",
+          "集電弓 — 絕緣礙子清潔及矽膠潤滑",
+          "集電弓/避雷器清潔",
+          "集電弓絕緣電阻測量(>1KΩ) — 填量測值 (KΩ)",
+          "集電弓 — 鍊條清潔並潤滑",
+          "集電弓手搖曲柄功能確認 — 插入→GB-K311亮起→升至高高位GB-K310確認→拔除自動降弓→高/低位磁性開關",
+          "儲能電池(ESS) — 確認ESS雙端正常放電",
+          "照明系統(車外) — 頭燈/尾燈/煞車燈/方向燈/晝行燈/標誌燈/霧燈/後霧燈/倒車燈/車頂燈",
+          "照明系統(車內) — 旅客車廂照明/駕駛室照明/閱讀燈/上下車門處燈"
+        ]],
+        ["ac", "5. 空調通風", [
+          "車廂旅客區空調 — 目視HVAC CMS HMI畫面正常",
+          "車廂旅客區空調 — 目視空氣濾網，髒汙時清潔/更換",
+          "車廂旅客區空調 — 確認冷凝器/蒸發器風扇正常(>80°C為異常)",
+          "客室風扇溫度 A組(>80°C異常) — A1/A2/A3/A4，填量測值 (°C)",
+          "客室風扇溫度 B組(>80°C異常) — B1/B2/B3/B4，填量測值 (°C)",
+          "駕駛室空調 — 目視HVAC CMS HMI畫面正常",
+          "駕駛室空調 — 目視空氣濾網，髒汙時清潔/更換",
+          "駕駛室空調 — 確認冷凝器/蒸發器風扇正常",
+          "駕駛室加熱裝置 — 目視HVAC CMS HMI畫面正常",
+          "駕駛室加熱裝置 — 目視電熱器出口正常(髒汙清潔)",
+          "駕駛室加熱裝置 — 確認駕駛室電熱器送風機功能正常"
+        ]],
+        ["aux", "6. 輔助設備", [
+          "撒砂裝置 — HMI畫面砂箱儲量確認",
+          "撒砂裝置 — 目視外部組件及管路，確認噴灑功能正常",
+          "輪緣潤滑裝置 — HMI畫面潤滑劑儲量確認",
+          "輪緣潤滑裝置 — 清潔潤滑噴頭不可堵塞，確認噴灑功能",
+          "警音裝置 — 確認駕駛室蜂鳴器功能正常",
+          "警音裝置 — 確認車外警音喇叭功能正常",
+          "雨刷設備 — 確認雨刷水是否充足",
+          "雨刷設備 — 檢查雨刷水箱是否正常"
+        ]]
       ];
       const addItems = (key, items) => {
         const section = sections.find(([sectionKey]) => sectionKey === key);
@@ -34316,19 +34442,40 @@ react-dom/cjs/react-dom-client.production.js:
         return document.querySelector(".codex-pm-calendar-host[data-codex-precheck-home='true']") || document.querySelector(".codex-pm-calendar-host");
       }
 
-      let host = main.querySelector(":scope > .codex-pm-calendar-host[data-codex-precheck-home='true']");
+      // Insert host OUTSIDE React's #root so reconciliation never removes it
+      let host = document.querySelector(".codex-pm-calendar-host[data-codex-precheck-home='true']");
       if (!host) {
         host = document.createElement("div");
         host.className = "codex-pm-calendar-host codex-pm-calendar-first";
         host.dataset.codexPrecheckHome = "true";
-        header.insertAdjacentElement("afterend", host);
+        const reactRoot = document.getElementById("root");
+        if (reactRoot && reactRoot.parentElement) {
+          reactRoot.insertAdjacentElement("afterend", host);
+        } else {
+          document.body.appendChild(host);
+        }
       }
 
-      Array.from(main.children).forEach((child) => {
-        if (child !== header && child !== host) child.hidden = true;
-      });
-      header.hidden = false;
+      // Use position:fixed to overlay the main content area (right of sidebar)
+      const aside = main.closest("div")?.querySelector("aside") || document.querySelector("aside");
+      const sidebarW = aside ? aside.getBoundingClientRect().width || aside.offsetWidth || 256 : 256;
+      host.style.cssText = `position:fixed;top:0;left:${sidebarW}px;right:0;bottom:0;overflow-y:auto;z-index:20;background:#071927;`;
+      main.hidden = true;
       host.hidden = false;
+
+      // When user clicks a sidebar navigation item, restore <main> and hide the host
+      // so React pages (物料表, 周轉件履歷…) remain accessible
+      if (aside && !aside._codexNavRestoreGuard) {
+        aside._codexNavRestoreGuard = true;
+        aside.addEventListener("click", (e) => {
+          const link = e.target && e.target.closest ? e.target.closest("a, button") : null;
+          if (!link || link.closest(".codex-pm-calendar-host")) return;
+          main.hidden = false;
+          host.hidden = true;
+          host.style.display = "none";
+        }, { capture: true });
+      }
+
       return host;
     }
 
