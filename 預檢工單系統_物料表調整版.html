@@ -46068,6 +46068,17 @@ react-dom/cjs/react-dom-client.production.js:
     return !!(node && node.closest && node.closest("#codex-turnaround-pit-matrix-root,#codex-turnaround-pit-route-host,#codex-rwork-root,#codex-turnaround-root,#codex-material-api-panel,#codex-material-route-host,#codex-turnaround-route-host"));
   }
 
+  var standaloneRouteHostIds = [
+    "codex-material-route-host",
+    "codex-turnaround-route-host",
+    "codex-turnaround-pit-route-host",
+    "codex-turnaround-view-switch-host"
+  ];
+
+  function isStandaloneRouteHost(node) {
+    return !!(node && standaloneRouteHostIds.indexOf(node.id) !== -1);
+  }
+
   function findSidebarButton(route) {
     return Array.prototype.slice.call(document.querySelectorAll("aside button")).find(function (button) {
       var text = textOf(button);
@@ -46085,12 +46096,27 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function clearStandaloneRoute() {
-    ["codex-material-route-host", "codex-turnaround-route-host", "codex-turnaround-pit-route-host", "codex-turnaround-view-switch-host"].forEach(function (id) {
+    standaloneRouteHostIds.forEach(function (id) {
       var node = document.getElementById(id);
       if (node) node.remove();
     });
     Array.prototype.forEach.call(document.querySelectorAll("main > *"), function (child) {
       child.hidden = false;
+    });
+    window.CodexStandaloneMainRoute = "";
+  }
+
+  function hideStandaloneRoute() {
+    standaloneRouteHostIds.forEach(function (id) {
+      var node = document.getElementById(id);
+      if (!node) return;
+      node.hidden = true;
+      node.style.display = "none";
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("main > *"), function (child) {
+      if (isStandaloneRouteHost(child)) return;
+      child.hidden = false;
+      child.style.display = "";
     });
     window.CodexStandaloneMainRoute = "";
   }
@@ -46121,6 +46147,8 @@ react-dom/cjs/react-dom-client.production.js:
       host.className = "no-print space-y-5";
       main.prepend(host);
     }
+    host.hidden = false;
+    host.style.display = "";
     host.innerHTML = '<div id="codex-rwork-root" class="codex-rwork-root"></div>';
     if (typeof window.CodexRworkV8Render === "function") {
       window.CodexRworkV8Render();
@@ -46150,6 +46178,7 @@ react-dom/cjs/react-dom-client.production.js:
       child.hidden = child !== host;
     });
     host.hidden = false;
+    host.style.display = "";
   }
 
   function ensureRouteHost(route) {
@@ -46167,6 +46196,8 @@ react-dom/cjs/react-dom-client.production.js:
       host.className = "no-print space-y-5";
       main.prepend(host);
     }
+    host.hidden = false;
+    host.style.display = "";
     if (route === "material") {
       host.innerHTML = '<section class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5 shadow-xl"><div class="mb-4 flex flex-wrap items-center justify-between gap-3"><div><h2 class="text-lg font-bold">物料表</h2><p class="mt-1 text-sm text-slate-400">物料主檔、庫存、請購點與用料資料。</p></div></div></section>';
       window.setTimeout(function () {
@@ -46211,16 +46242,21 @@ react-dom/cjs/react-dom-client.production.js:
         showStandaloneTurnaround();
         return;
       }
-      window.setTimeout(function () {
-        clearStandaloneRoute();
-        // Only remove vanilla-JS created hosts (data-codex-precheck-home).
-        // DO NOT remove React-managed elements — React handles those via reconciliation.
+      var cleanupForReactRoute = function () {
+        hideStandaloneRoute();
+        // Only hide vanilla-JS created precheck hosts during React navigation.
+        // Removing nodes in the same tick as React reconciliation can trigger
+        // "removeChild: not a child" when switching to pages such as 物料表.
         Array.prototype.forEach.call(
           document.querySelectorAll(".codex-pm-calendar-host[data-codex-precheck-home]"),
-          function (h) { h.remove(); }
+          function (h) {
+            h.hidden = true;
+            h.style.display = "none";
+          }
         );
-        Array.prototype.forEach.call(document.querySelectorAll("main > *"), function (c) { c.hidden = false; });
-      }, 0);
+      };
+      window.requestAnimationFrame(cleanupForReactRoute);
+      window.setTimeout(cleanupForReactRoute, 120);
       return;
     }
     var route = routeFromText(textOf(action));
@@ -48370,7 +48406,12 @@ react-dom/cjs/react-dom-client.production.js:
         marked = true;
       }
     });
-    if (marked && !root.querySelector('.codex-pm-calendar-host[data-codex-precheck-home]')) {
+    var existingHome = root.querySelector('.codex-pm-calendar-host[data-codex-precheck-home]');
+    if (marked && existingHome) {
+      existingHome.hidden = false;
+      existingHome.style.display = '';
+    }
+    if (marked && !existingHome) {
       // Mount calendar via the safe path (findPrecheckHomeMount creates a new element)
       window.requestAnimationFrame(function () {
         if (window.codexPmShowPrecheckHome &&
