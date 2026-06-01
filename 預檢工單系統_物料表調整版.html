@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
@@ -43639,15 +43639,16 @@ react-dom/cjs/react-dom-client.production.js:
 <script id="codex-rwork-v7-script">
 (function () {
   var categoryMap = {
-    "電聯車系統": {
-      "車載通訊系統": ["閉路電視系統異常（CCTV）", "廣播系統異常", "通訊中斷"],
-      "IP 擴音器": ["電源板", "主控板", "通訊模組", "未判定"]
+    "車載通訊系統": {
+      "IP 擴音器": ["電源板", "主控板", "通訊模組", "未判定"],
+      "PEI": ["通話按鍵", "麥克風", "喇叭", "未判定"],
+      "CCTV": ["攝影機", "錄影主機", "交換器", "未判定"]
     },
     "車門系統": {
       "門控器": ["控制板", "端子排", "通訊模組", "未判定"]
     },
     "煞車系統": {
-      "電子液壓控制單元": ["壓力感測器", "控制板", "未判定"]
+      "EHU": ["Y2 比例閥", "Y4 閥", "壓力感測器", "控制板", "未判定"]
     },
     "空調系統": {
       "空調控制器": ["通訊模組", "控制板", "未判定"]
@@ -44296,15 +44297,16 @@ react-dom/cjs/react-dom-client.production.js:
 <script id="codex-rwork-v8-script">
 (function () {
   var categoryMap = {
-    "電聯車系統": {
-      "車載通訊系統": ["閉路電視系統異常（CCTV）", "廣播系統異常", "通訊中斷"],
-      "IP 擴音器": ["電源板", "主控板", "通訊模組", "未判定"]
+    "車載通訊系統": {
+      "IP 擴音器": ["電源板", "主控板", "通訊模組", "未判定"],
+      "PEI": ["通話模組", "按鈕模組", "通訊模組", "未判定"],
+      "CCTV": ["攝影機", "錄影主機", "通訊模組", "未判定"]
     },
     "車門系統": {
       "門控器": ["控制板", "端子排", "通訊模組", "未判定"]
     },
     "煞車系統": {
-      "電子液壓控制單元": ["壓力感測器", "控制板", "未判定"]
+      "EHU": ["Y2 比例閥", "Y4 閥", "壓力感測器", "控制板", "未判定"]
     },
     "空調系統": {
       "空調控制器": ["通訊模組", "控制板", "未判定"]
@@ -44325,10 +44327,11 @@ react-dom/cjs/react-dom-client.production.js:
   function partNoFromSerial(serial, fallbackComponent) {
     var value = String(serial || "").trim();
     var componentMap = {
-      "車載通訊系統": "PA-IP-AMP",
       "IP 擴音器": "PA-IP-AMP",
+      "PEI": "PEI",
+      "CCTV": "CCTV",
       "門控器": "DCU",
-      "電子液壓控制單元": "BR-EHCU",
+      "EHU": "BR-EHCU",
       "空調控制器": "KN700"
     };
     if (!value) return componentMap[fallbackComponent] || "待補料號";
@@ -44340,12 +44343,12 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   var orders = [
-    ["R-1150513-D-TS-001", "C-1150513-D-TS-008", "車載通訊系統異常", "電聯車系統", "車載通訊系統", "閉路電視系統異常（CCTV）", "PA-IP-AMP-0003", "PA-IP-AMP-0008", "103 車／M2／車載通訊設備箱", "維修中", "外修", "廠商／採購驗收中", "採購驗收中", "未處理", "等待採購驗收完成後入庫結案", 7, ["外修中", "未逾期"]],
-    ["R-1150513-D-TS-002", "C-1150513-D-TS-012", "車門無法正常開閉", "車門系統", "門控器", "控制板", "DCU-L-003", "DCU-L-008", "101 車／M1／左側車門控制單元坑位", "待處理", "待判定", "待修區", "未送修", "未處理", "判定內修、外修或報廢", 2, ["待判定"]],
-    ["R-1150513-D-TS-003", "C-1150512-D-TS-006", "煞車壓力異常", "煞車系統", "電子液壓控制單元", "壓力感測器", "BR-EHCU-0017", "BR-EHCU-0021", "108 車／M4／煞車控制箱", "已入庫結案", "外修", "備品倉", "採購驗收完成", "合格", "已結案", 0, ["已修復"]],
-    ["R-1150513-D-TS-004", "C-1150511-D-TS-009", "車載通訊系統異常", "電聯車系統", "車載通訊系統", "未判定", "", "PA-IP-AMP-0011", "105 車／M3／車載通訊設備箱", "待處理", "待判定", "待修區", "未送修", "未處理", "補拆下件序號後再判定", 3, ["履歷不完整", "拆下件序號待補", "高風險"]],
-    ["R-1150513-D-TS-005", "C-1150509-D-TS-007", "空調控制異常", "空調系統", "空調控制器", "通訊模組", "KN700-000", "KN700-001", "101 車／M1／駕駛室空調控制器坑位", "已報廢結案", "報廢", "報廢區", "未送修", "不合格", "已結案", 0, ["已報廢"]],
-    ["R-1150513-D-TS-006", "C-1150508-D-TS-005", "車門反覆異常", "車門系統", "門控器", "未判定", "DCU-R-014", "DCU-R-020", "106 車／M2／右側車門控制單元坑位", "維修中", "內修", "內修區", "未送修", "未處理", "登錄維修結果", 5, ["重複故障"]]
+    ["R-1150513-D-TS-001", "C-1150513-D-TS-008", "電聯車系統 / 車載通訊系統 / IP 擴音器異常 / 電源板", "車載通訊系統", "IP 擴音器", "電源板", "PA-IP-AMP-0003", "PA-IP-AMP-0008", "103 車／M2／車載通訊設備箱", "維修中", "外修", "廠商／採購驗收中", "採購驗收中", "未處理", "等待採購驗收完成後入庫結案", 7, ["外修中", "未逾期"]],
+    ["R-1150513-D-TS-002", "C-1150513-D-TS-012", "電聯車系統 / 車門系統 / 門控器異常 / 控制板", "車門系統", "門控器", "控制板", "DCU-L-003", "DCU-L-008", "101 車／M1／左側車門控制單元坑位", "待處理", "待判定", "待修區", "未送修", "未處理", "判定內修、外修或報廢", 2, ["待判定"]],
+    ["R-1150513-D-TS-003", "C-1150512-D-TS-006", "電聯車系統 / 煞車系統 / 煞車液壓單元(EHU)異常 / Y2(比例閥)", "煞車系統", "EHU", "Y2 比例閥", "BR-EHCU-0017", "BR-EHCU-0021", "108 車／M4／煞車控制箱", "已入庫結案", "外修", "備品倉", "採購驗收完成", "合格", "已結案", 0, ["已修復"]],
+    ["R-1150513-D-TS-004", "C-1150511-D-TS-009", "電聯車系統 / 車載通訊系統 / 旅客緊急對講機(PEI)異常 / 待判定", "車載通訊系統", "PEI", "未判定", "", "PEI-0011", "105 車／M3／旅客緊急對講機坑位", "待處理", "待判定", "待修區", "未送修", "未處理", "補拆下件序號後再判定", 3, ["履歷不完整", "拆下件序號待補", "高風險"]],
+    ["R-1150513-D-TS-005", "C-1150509-D-TS-007", "電聯車系統 / 空調系統 / 空調控制器異常 / 通訊模組", "空調系統", "空調控制器", "通訊模組", "KN700-000", "KN700-001", "101 車／M1／駕駛室空調控制器坑位", "已報廢結案", "報廢", "報廢區", "未送修", "不合格", "已結案", 0, ["已報廢"]],
+    ["R-1150513-D-TS-006", "C-1150508-D-TS-005", "電聯車系統 / 車門系統 / 門控器異常 / 未判定", "車門系統", "門控器", "未判定", "DCU-R-014", "DCU-R-020", "106 車／M2／右側車門控制單元坑位", "維修中", "內修", "內修區", "未送修", "未處理", "登錄維修結果", 5, ["重複故障"]]
   ].map(function (row) {
     return {
       rOrderNo: row[0],
@@ -44382,10 +44385,11 @@ react-dom/cjs/react-dom-client.production.js:
   var acceptanceOptions = ["未處理", "合格", "退回", "不合格"];
 
   var materialOptions = [
-    { component: "車載通訊系統", partNo: "PA-IP-AMP" },
     { component: "IP 擴音器", partNo: "PA-IP-AMP" },
+    { component: "PEI", partNo: "PEI" },
+    { component: "CCTV", partNo: "CCTV" },
     { component: "門控器", partNo: "DCU" },
-    { component: "電子液壓控制單元", partNo: "BR-EHCU" },
+    { component: "EHU", partNo: "BR-EHCU" },
     { component: "空調控制器", partNo: "KN700" }
   ];
 
@@ -44536,15 +44540,42 @@ react-dom/cjs/react-dom-client.production.js:
     if (components.indexOf(order.faultComponent) === -1) components = components.concat([order.faultComponent]);
     var subs = subsFor(order.mainSystem, order.faultComponent);
     if (subs.indexOf(order.faultSubComponent || "未判定") === -1) subs = subs.concat([order.faultSubComponent || "未判定"]);
-    return '<div class="codex-rwork-v8-class-editor"><div class="codex-rwork-v8-class-title">三層分類</div>' +
-      classSelect("is-root", "主系統", "mainSystem", allSystems(), order.mainSystem, order.rOrderNo) +
-      classSelect("is-child", "第二層分類", "faultComponent", components, order.faultComponent, order.rOrderNo) +
-      classSelect("is-grandchild", "第三層分類", "faultSubComponent", subs, order.faultSubComponent || "未判定", order.rOrderNo) +
+    return '<div class="codex-rwork-v8-class-editor"><div class="codex-rwork-v8-class-title">R 工單三層分類</div>' +
+      classSelect("is-root", "系統", "mainSystem", allSystems(), order.mainSystem, order.rOrderNo) +
+      classSelect("is-child", "故障零組件", "faultComponent", components, order.faultComponent, order.rOrderNo) +
+      classSelect("is-grandchild", "故障子件", "faultSubComponent", subs, order.faultSubComponent || "未判定", order.rOrderNo) +
     '</div>';
   }
 
   function field(label, value) {
     return '<div class="codex-rwork-field"><span>' + escapeHtml(label) + '</span><strong>' + escapeHtml(value || "-") + '</strong></div>';
+  }
+
+  function sourceInfoHtml(order) {
+    return '<div class="codex-rwork-v8-route">' +
+      '<div class="codex-rwork-v8-route-head"><span>來源資訊</span><strong>C 工單只做追溯</strong></div>' +
+      '<div class="codex-rwork-v8-route-grid">' +
+        field("來源 C 工單", order.sourceFaultOrder) +
+        field("C 工單狀態", order.sourceFaultStatus) +
+        field("原裝位置", order.originalLocation || "待補") +
+      '</div>' +
+      '<div class="codex-rwork-v8-route-note">來源 C 分類：' + escapeHtml(order.sourceFaultCategory || "-") + '</div>' +
+    '</div>';
+  }
+
+  function turnaroundAssetHtml(order) {
+    return '<div class="codex-rwork-v8-route">' +
+      '<div class="codex-rwork-v8-route-head"><span>周轉件資訊</span><strong>序號掛鉤</strong></div>' +
+      '<div class="codex-rwork-v8-route-grid">' +
+        editInput("拆下件序號", "removedEquipmentId", order.removedEquipmentId, order.rOrderNo) +
+        field("拆下件料號", order.removedPartNo || "待補料號") +
+        editInput("原裝位置", "originalLocation", order.originalLocation, order.rOrderNo) +
+        editInput("裝上件序號（履歷參照）", "installedEquipmentId", order.installedEquipmentId, order.rOrderNo) +
+        field("裝上件料號（履歷參照）", order.installedPartNo || "-") +
+        field("R 建立依據", (order.sourceFaultOrder || "-") + " + " + (order.removedEquipmentId || "拆下件序號待補")) +
+      '</div>' +
+      '<div class="codex-rwork-v8-route-note">R 工單追蹤拆下來的壞件；裝上件只寫入出庫、安裝與已上車履歷，不建立 R 工單。</div>' +
+    '</div>';
   }
 
   function identityEditorHtml(order) {
@@ -44625,7 +44656,7 @@ react-dom/cjs/react-dom-client.production.js:
       '<div class="codex-rwork-section-head"><div><h3>篩選</h3><p>只保留資料條件。</p></div></div>' +
       '<div class="codex-rwork-v6-filter-grid">' +
         '<div class="codex-rwork-select-wrap"><label>關鍵字</label><input class="codex-rwork-v8-search" data-v8-search="true" value="' + escapeHtml(state.query) + '" placeholder="搜尋 R 工單、C 工單、設備名稱、設備序號、坑位、風險"></div>' +
-        '<div class="codex-rwork-select-wrap"><label>主系統</label><select class="codex-rwork-select" data-v8-filter="mainSystem">' + filterOptions(allSystems(), state.mainSystem) + '</select></div>' +
+        '<div class="codex-rwork-select-wrap"><label>系統</label><select class="codex-rwork-select" data-v8-filter="mainSystem">' + filterOptions(allSystems(), state.mainSystem) + '</select></div>' +
         '<div class="codex-rwork-select-wrap"><label>故障零組件</label><select class="codex-rwork-select" data-v8-filter="faultComponent">' + filterOptions(componentFilterOptions(), state.faultComponent) + '</select></div>' +
         '<div class="codex-rwork-select-wrap"><label>處理路線</label><select class="codex-rwork-select" data-v8-filter="repairMethod">' + filterOptions(repairOptions, state.repairMethod) + '</select></div>' +
         '<div class="codex-rwork-select-wrap"><label>目前位置</label><select class="codex-rwork-select" data-v8-filter="currentPlace">' + filterOptions(placeOptions, state.currentPlace) + '</select></div>' +
@@ -44641,19 +44672,22 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function expandHtml(order) {
-    return '<tr class="codex-rwork-v8-expand-row"><td colspan="7">' +
+    return '<tr class="codex-rwork-v8-expand-row"><td colspan="10">' +
       '<div class="codex-rwork-v8-detail">' +
-        '<div class="codex-rwork-v8-card"><h4>' + escapeHtml(order.rOrderNo) + '｜可編輯詳情</h4>' +
-          '<div class="codex-rwork-v8-source"><span>來源 C：' + escapeHtml(order.sourceFaultOrder) + '（' + escapeHtml(order.sourceFaultStatus) + '）</span><span>R 工單：拆下件維修</span><span>維修看設備與坑位</span><span>料號：物料表參照</span><span>裝上件：僅履歷參照</span></div>' +
-          identityEditorHtml(order) +
-          materialEditorHtml(order) +
+        '<div class="codex-rwork-v8-card"><h4>' + escapeHtml(order.rOrderNo) + '｜來源與周轉件</h4>' +
+          '<div class="codex-rwork-v8-source"><span>掛鉤：來源 C 工單 + 拆下件序號</span><span>來源 C：' + escapeHtml(order.sourceFaultOrder) + '（' + escapeHtml(order.sourceFaultStatus) + '）</span><span>裝上件：僅履歷參照</span></div>' +
+          sourceInfoHtml(order) +
+          turnaroundAssetHtml(order) +
+        '</div>' +
+        '<div class="codex-rwork-v8-card"><h4>R 維修分類與追蹤</h4>' +
           classEditorHtml(order) +
           routeEditorHtml(order) +
           outsourcingEditorHtml(order) +
+          materialEditorHtml(order) +
         '</div>' +
         '<div class="codex-rwork-v8-card"><h4>履歷時間軸</h4>' +
           '<div class="codex-rwork-v8-mini">' +
-            field("故障分類來源", order.sourceFaultCategory) +
+            field("來源 C 分類", order.sourceFaultCategory) +
             field("停留天數", order.stayDays + " 天") +
           '</div>' +
           timelineHtml(order) +
@@ -44665,18 +44699,18 @@ react-dom/cjs/react-dom-client.production.js:
   function tableHtml(list) {
     if (!list.length) return '<div class="codex-rwork-empty">目前沒有符合條件的 R 工單。</div>';
     return '<div class="codex-rwork-table-wrap"><table class="codex-rwork-table codex-rwork-v8-table"><thead><tr>' +
-      '<th>R 工單 / 來源 C</th><th>設備名稱 / 設備序號 / 坑位</th><th>R 狀態</th><th>處理路線 / 位置</th><th>外修追蹤</th><th>三層分類</th><th>停留 / 風險</th>' +
+      '<th>R 工單</th><th>來源 C 工單</th><th>拆下件序號</th><th>系統</th><th>故障零組件</th><th>故障子件</th><th>R 狀態</th><th>目前位置</th><th>處理方式</th><th>停留 / 風險</th>' +
       '</tr></thead><tbody>' + list.map(function (order) {
-        var outsourcingText = order.repairMethod === "外修"
-          ? '<span class="codex-rwork-id">' + escapeHtml(order.outsourcingStatus) + '</span><span class="codex-rwork-sub">驗收：' + escapeHtml(order.procurementAcceptanceResult) + '</span>'
-          : '<span class="codex-rwork-id">不適用</span><span class="codex-rwork-sub">非外修路線</span>';
         var main = '<tr class="' + (order.rOrderNo === state.selected ? "is-selected" : "") + '" data-v8-row="true" data-v8-order="' + escapeHtml(order.rOrderNo) + '" tabindex="0">' +
-          '<td><span class="codex-rwork-id">' + escapeHtml(order.rOrderNo) + '</span><span class="codex-rwork-sub">來源 ' + escapeHtml(order.sourceFaultOrder) + '（已結案）</span></td>' +
-          '<td><span class="codex-rwork-id">' + escapeHtml(order.faultComponent || "未判定設備") + '</span><span class="codex-rwork-sub">拆下序號 ' + escapeHtml(order.removedEquipmentId || "待補") + '</span><span class="codex-rwork-sub">坑位 ' + escapeHtml(order.originalLocation || "待補") + '</span><span class="codex-rwork-sub">裝上序號 ' + escapeHtml(order.installedEquipmentId || "-") + '，僅履歷參照</span></td>' +
+          '<td><span class="codex-rwork-id">' + escapeHtml(order.rOrderNo) + '</span><span class="codex-rwork-sub">周轉件維修追蹤</span></td>' +
+          '<td><span class="codex-rwork-id">' + escapeHtml(order.sourceFaultOrder) + '</span><span class="codex-rwork-sub">' + escapeHtml(order.sourceFaultStatus) + '</span></td>' +
+          '<td><span class="codex-rwork-id">' + escapeHtml(order.removedEquipmentId || "待補") + '</span><span class="codex-rwork-sub">裝上 ' + escapeHtml(order.installedEquipmentId || "-") + ' 僅履歷</span></td>' +
+          '<td><span class="codex-rwork-id">' + escapeHtml(order.mainSystem) + '</span></td>' +
+          '<td><span class="codex-rwork-id">' + escapeHtml(order.faultComponent || "未判定") + '</span></td>' +
+          '<td><span class="codex-rwork-id">' + escapeHtml(order.faultSubComponent || "未判定") + '</span></td>' +
           '<td>' + badge(order.rStatus, statusTone(order.rStatus)) + '</td>' +
-          '<td><span class="codex-rwork-id">' + escapeHtml(order.repairMethod) + '</span><span class="codex-rwork-sub">' + escapeHtml(order.currentPlace) + '</span></td>' +
-          '<td>' + outsourcingText + '</td>' +
-          '<td>' + classTreeHtml(order) + '</td>' +
+          '<td><span class="codex-rwork-id">' + escapeHtml(order.currentPlace) + '</span><span class="codex-rwork-sub">原裝 ' + escapeHtml(order.originalLocation || "待補") + '</span></td>' +
+          '<td><span class="codex-rwork-id">' + escapeHtml(order.repairMethod) + '</span><span class="codex-rwork-sub">' + escapeHtml(order.outsourcingStatus || "未送修") + '</span></td>' +
           '<td><span class="codex-rwork-id">' + escapeHtml(order.stayDays) + ' 天</span>' + tagsHtml(order.riskTags) + '</td>' +
         '</tr>';
         return main + (order.rOrderNo === state.selected ? expandHtml(order) : "");
@@ -44688,10 +44722,10 @@ react-dom/cjs/react-dom-client.production.js:
     keepSelection(list);
     list = filtered();
     return '<div class="codex-rwork-v8-shell" data-codex-rwork-structure="v2" data-codex-rwork-structure-v3="true" data-codex-rwork-structure-v4="true" data-codex-rwork-structure-v5="true" data-codex-rwork-structure-v6="true" data-codex-rwork-structure-v7="true" data-codex-rwork-structure-v8="true">' +
-      '<section class="codex-rwork-panel codex-rwork-top"><div class="codex-rwork-title-row"><div><h2 class="codex-rwork-title">周轉件履歷／R 工單待辦</h2><div class="codex-rwork-desc">C 工單管故障排除，P 工單管預檢，R 工單管拆下件維修；裝上件只作履歷參照。</div><div class="codex-rwork-v8-rule"><span>C：故障排除</span><span>P：預檢</span><span>R：壞的拆下件維修</span><span>裝上件：不建立 R 工單</span></div></div><div class="codex-rwork-actions"><button type="button" class="codex-rwork-btn">匯出履歷</button><button type="button" class="codex-rwork-btn is-primary">+ 新增 R 事件</button></div></div></section>' +
+      '<section class="codex-rwork-panel codex-rwork-top"><div class="codex-rwork-title-row"><div><h2 class="codex-rwork-title">周轉件履歷／R 工單待辦</h2><div class="codex-rwork-desc">R 工單用「來源 C 工單 + 拆下件序號」掛鉤；三層分類只用於維修統計與查詢。</div><div class="codex-rwork-v8-rule"><span>掛鉤：序號</span><span>系統</span><span>故障零組件</span><span>故障子件</span></div></div><div class="codex-rwork-actions"><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="matrix">查看坑位矩陣</button><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="equipment">設備名稱總覽</button><button type="button" class="codex-rwork-btn">匯出履歷</button><button type="button" class="codex-rwork-btn is-primary">+ 新增 R 事件</button></div></div></section>' +
       statusHtml() +
       filtersHtml() +
-      '<section class="codex-rwork-panel codex-rwork-v6-list"><div class="codex-rwork-section-head"><div><h3>R 工單清單</h3><p>全寬顯示；點擊列後在該列下方展開可編輯詳情。</p></div><div class="codex-rwork-count-pill">目前顯示 ' + list.length + ' 筆</div></div>' + tableHtml(list) + '</section>' +
+      '<section class="codex-rwork-panel codex-rwork-v6-list"><div class="codex-rwork-section-head"><div><h3>R 工單清單</h3><p>主表先看來源 C、拆下件序號與 R 三層分類；點擊列後展開完整追蹤資料。</p></div><div class="codex-rwork-count-pill">目前顯示 ' + list.length + ' 筆</div></div>' + tableHtml(list) + '</section>' +
     '</div>';
   }
 
@@ -44828,6 +44862,8 @@ react-dom/cjs/react-dom-client.production.js:
       }
     }
   }
+
+  window.CodexRworkV8Render = draw;
 
   function applyV8() {
     var root = document.getElementById("codex-rwork-root");
@@ -46029,7 +46065,7 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function isInsideRoutePage(node) {
-    return !!(node && node.closest && node.closest("#codex-rwork-root,#codex-turnaround-root,#codex-material-api-panel,#codex-material-route-host,#codex-turnaround-route-host"));
+    return !!(node && node.closest && node.closest("#codex-turnaround-pit-matrix-root,#codex-turnaround-pit-route-host,#codex-rwork-root,#codex-turnaround-root,#codex-material-api-panel,#codex-material-route-host,#codex-turnaround-route-host"));
   }
 
   function findSidebarButton(route) {
@@ -46049,7 +46085,7 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function clearStandaloneRoute() {
-    ["codex-material-route-host", "codex-turnaround-route-host"].forEach(function (id) {
+    ["codex-material-route-host", "codex-turnaround-route-host", "codex-turnaround-pit-route-host", "codex-turnaround-view-switch-host"].forEach(function (id) {
       var node = document.getElementById(id);
       if (node) node.remove();
     });
@@ -46063,6 +46099,39 @@ react-dom/cjs/react-dom-client.production.js:
     window.setTimeout(clearStandaloneRoute, 0);
     window.setTimeout(clearStandaloneRoute, 120);
     window.setTimeout(clearStandaloneRoute, 420);
+  }
+
+  function showStandaloneTurnaround() {
+    clearPrecheckOverlay();
+    ["codex-material-route-host", "codex-turnaround-pit-route-host", "codex-turnaround-view-switch-host"].forEach(function (id) {
+      var node = document.getElementById(id);
+      if (node) node.remove();
+    });
+    var main = document.querySelector("main.flex-1") || document.querySelector("main") || document.body;
+    if (!main) return;
+    var routeParent = main;
+    while (routeParent && routeParent !== document.body) {
+      routeParent.hidden = false;
+      routeParent = routeParent.parentElement;
+    }
+    var host = document.getElementById("codex-turnaround-route-host");
+    if (!host) {
+      host = document.createElement("div");
+      host.id = "codex-turnaround-route-host";
+      host.className = "no-print space-y-5";
+      main.prepend(host);
+    }
+    host.innerHTML = '<div id="codex-rwork-root" class="codex-rwork-root"></div>';
+    if (typeof window.CodexRworkV8Render === "function") {
+      window.CodexRworkV8Render();
+    } else {
+      window.setTimeout(function () {
+        if (typeof window.CodexRworkV8Render === "function") window.CodexRworkV8Render();
+      }, 0);
+    }
+    window.CodexStandaloneMainRoute = "turnaround";
+    hideMainSiblings(host);
+    host.scrollIntoView({ block: "start" });
   }
 
   function hasRoutePage(route) {
@@ -46134,7 +46203,16 @@ react-dom/cjs/react-dom-client.production.js:
     if (!action || isInsideRoutePage(action)) return;
     // React app sidebar: skip route guard entirely, only clear the vanilla-JS injected overlay
     if (action.closest && action.closest("aside") && action.closest("#root")) {
+      var reactRoute = routeFromText(textOf(action));
+      if (reactRoute === "turnaround") {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+        showStandaloneTurnaround();
+        return;
+      }
       window.setTimeout(function () {
+        clearStandaloneRoute();
         // Only remove vanilla-JS created hosts (data-codex-precheck-home).
         // DO NOT remove React-managed elements — React handles those via reconciliation.
         Array.prototype.forEach.call(
@@ -46201,6 +46279,1677 @@ react-dom/cjs/react-dom-client.production.js:
   new MutationObserver(scheduleTemporaryOrderLabels).observe(document.body, { childList: true, subtree: true });
 })();
 </script>
+<style id="codex-turnaround-pit-matrix-style">
+  .codex-turnaround-pit-root {
+    color: #e5f4ff;
+  }
+
+  .codex-turnaround-view-switch {
+    position: sticky;
+    top: 10px;
+    z-index: 30;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 0 12px;
+    padding: 12px;
+    border: 1px solid rgba(34, 211, 238, 0.32);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.92);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+  }
+
+  .codex-turnaround-view-switch span {
+    margin-right: auto;
+    color: #67e8f9;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-view-switch button {
+    min-height: 38px;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 8px;
+    padding: 0 16px;
+    color: #dbeafe;
+    background: rgba(15, 23, 42, 0.82);
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  .codex-turnaround-view-switch button.is-active {
+    border-color: rgba(34, 211, 238, 0.72);
+    background: rgba(8, 145, 178, 0.36);
+    color: #ecfeff;
+  }
+
+  .codex-turnaround-pit-root * {
+    box-sizing: border-box;
+  }
+
+  .codex-turnaround-pit-shell {
+    display: grid;
+    gap: 14px;
+  }
+
+  .codex-turnaround-pit-panel {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.76);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.24);
+  }
+
+  .codex-turnaround-pit-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .codex-turnaround-pit-title {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  .codex-turnaround-pit-subtitle {
+    margin-top: 5px;
+    color: #8fb6d8;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .codex-turnaround-pit-tabs,
+  .codex-turnaround-pit-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .codex-turnaround-pit-tab,
+  .codex-turnaround-pit-check,
+  .codex-turnaround-pit-select {
+    min-height: 36px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 8px;
+    color: #dbeafe;
+    background: rgba(15, 23, 42, 0.72);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-pit-tab,
+  .codex-turnaround-pit-check {
+    padding: 0 13px;
+    cursor: pointer;
+  }
+
+  .codex-turnaround-pit-tab.is-active,
+  .codex-turnaround-pit-check.is-active {
+    border-color: rgba(34, 211, 238, 0.72);
+    background: rgba(8, 145, 178, 0.36);
+    color: #ecfeff;
+  }
+
+  .codex-turnaround-pit-select {
+    padding: 0 10px;
+    outline: none;
+  }
+
+  .codex-turnaround-pit-matrix-wrap {
+    overflow: auto;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .codex-turnaround-pit-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 12px;
+  }
+
+  .codex-turnaround-pit-table th,
+  .codex-turnaround-pit-table td {
+    border-right: 1px solid rgba(148, 163, 184, 0.14);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    vertical-align: top;
+  }
+
+  .codex-turnaround-pit-table th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    min-width: 152px;
+    padding: 9px;
+    color: #9ed8ff;
+    background: #111827;
+    text-align: left;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .codex-turnaround-pit-table .is-train-head,
+  .codex-turnaround-pit-train {
+    position: sticky;
+    left: 0;
+    z-index: 4;
+    min-width: 92px;
+    background: #0b1220;
+  }
+
+  .codex-turnaround-pit-train {
+    padding: 10px 9px;
+    color: #f8fafc;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-pit-slot-head span {
+    display: block;
+    color: #e0f7ff;
+    font-size: 12px;
+  }
+
+  .codex-turnaround-pit-slot-head small {
+    display: block;
+    margin-top: 3px;
+    color: #7dd3fc;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-pit-cell {
+    width: 152px;
+    min-height: 76px;
+    border: 0;
+    padding: 8px;
+    color: #e5f4ff;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .codex-turnaround-pit-cell:hover,
+  .codex-turnaround-pit-cell.is-selected {
+    outline: 2px solid rgba(34, 211, 238, 0.72);
+    outline-offset: -2px;
+  }
+
+  .codex-turnaround-pit-card {
+    display: grid;
+    gap: 6px;
+    min-height: 64px;
+    border-radius: 8px;
+    padding: 9px;
+    line-height: 1.3;
+  }
+
+  .codex-turnaround-pit-card strong {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .codex-turnaround-pit-card span {
+    color: rgba(226, 246, 255, 0.94);
+    font-size: 11px;
+    font-weight: 760;
+  }
+
+  .codex-turnaround-pit-card .codex-turnaround-pit-status {
+    width: max-content;
+    max-width: 100%;
+    border-radius: 999px;
+    padding: 2px 8px;
+    color: #ecfeff;
+    background: rgba(2, 6, 23, 0.32);
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-pit-card .codex-turnaround-pit-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: rgba(191, 219, 254, 0.84);
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .codex-turnaround-pit-card[data-tone="normal"] {
+    background: rgba(16, 185, 129, 0.28);
+    border: 1px solid rgba(52, 211, 153, 0.42);
+  }
+
+  .codex-turnaround-pit-card[data-tone="watch"] {
+    background: rgba(245, 158, 11, 0.28);
+    border: 1px solid rgba(251, 191, 36, 0.45);
+  }
+
+  .codex-turnaround-pit-card[data-tone="repair"] {
+    background: rgba(244, 63, 94, 0.3);
+    border: 1px solid rgba(251, 113, 133, 0.5);
+  }
+
+  .codex-turnaround-pit-card[data-tone="ship"] {
+    background: rgba(14, 165, 233, 0.25);
+    border: 1px solid rgba(56, 189, 248, 0.46);
+  }
+
+  .codex-turnaround-pit-card[data-tone="empty"] {
+    background: rgba(100, 116, 139, 0.18);
+    border: 1px dashed rgba(148, 163, 184, 0.34);
+  }
+
+  .codex-turnaround-pit-detail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    padding: 16px;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .codex-turnaround-pit-detail-card {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    padding: 13px;
+    background: rgba(15, 23, 42, 0.56);
+  }
+
+  .codex-turnaround-pit-detail-card h3 {
+    margin: 0 0 10px;
+    color: #f8fafc;
+    font-size: 15px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-pit-detail-card.is-rwork {
+    border-color: rgba(251, 113, 133, 0.28);
+    background: rgba(127, 29, 29, 0.14);
+  }
+
+  .codex-turnaround-pit-detail-note {
+    margin-top: 10px;
+    border: 1px solid rgba(34, 211, 238, 0.16);
+    border-radius: 8px;
+    padding: 9px;
+    color: #bae6fd;
+    background: rgba(8, 145, 178, 0.1);
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .codex-turnaround-pit-kv {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 8px;
+    padding: 7px 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.11);
+    color: #dbeafe;
+    font-size: 12px;
+  }
+
+  .codex-turnaround-pit-kv:first-of-type {
+    border-top: 0;
+  }
+
+  .codex-turnaround-pit-kv span {
+    color: #8fb6d8;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-pit-kv strong {
+    color: #f8fafc;
+    font-weight: 850;
+  }
+
+  .codex-turnaround-pit-events {
+    display: grid;
+    gap: 9px;
+  }
+
+  .codex-turnaround-pit-event {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+  }
+
+  .codex-turnaround-pit-event time {
+    color: #7dd3fc;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-pit-event div {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    padding: 9px;
+    background: rgba(2, 6, 23, 0.38);
+    color: #dbeafe;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .codex-turnaround-pit-event strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #f8fafc;
+    font-size: 13px;
+  }
+
+  .codex-turnaround-pit-spares {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 9px;
+    padding: 0 16px 16px;
+  }
+
+  .codex-turnaround-pit-spare {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    padding: 11px;
+    background: rgba(15, 23, 42, 0.5);
+  }
+
+  .codex-turnaround-pit-spare strong,
+  .codex-turnaround-pit-spare span {
+    display: block;
+  }
+
+  .codex-turnaround-pit-spare strong {
+    color: #f8fafc;
+    font-size: 13px;
+  }
+
+  .codex-turnaround-pit-spare span {
+    margin-top: 4px;
+    color: #8fb6d8;
+    font-size: 12px;
+  }
+
+  .codex-turnaround-equipment-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 0 16px 16px;
+  }
+
+  .codex-turnaround-equipment-metric {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    padding: 12px;
+    background: rgba(15, 23, 42, 0.56);
+  }
+
+  .codex-turnaround-equipment-metric span,
+  .codex-turnaround-equipment-metric strong {
+    display: block;
+  }
+
+  .codex-turnaround-equipment-metric span {
+    color: #8fb6d8;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-equipment-metric strong {
+    margin-top: 5px;
+    color: #f8fafc;
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-equipment-table-wrap {
+    overflow: auto;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .codex-turnaround-equipment-table {
+    width: 100%;
+    min-width: 960px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 12px;
+  }
+
+  .codex-turnaround-equipment-table th,
+  .codex-turnaround-equipment-table td {
+    border-right: 1px solid rgba(148, 163, 184, 0.14);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    padding: 10px;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .codex-turnaround-equipment-table th {
+    color: #9ed8ff;
+    background: #111827;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .codex-turnaround-equipment-table tr.is-selected td {
+    background: rgba(34, 211, 238, 0.08);
+  }
+
+  .codex-turnaround-equipment-name {
+    display: grid;
+    gap: 3px;
+    color: #f8fafc;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-equipment-name small {
+    color: #8fb6d8;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-equipment-open {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .codex-turnaround-equipment-count {
+    display: inline-flex;
+    min-width: 34px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 4px 8px;
+    color: #ecfeff;
+    background: rgba(8, 145, 178, 0.25);
+    font-weight: 900;
+  }
+
+  .codex-turnaround-equipment-status {
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 5px 10px;
+    color: #ecfeff;
+    background: rgba(16, 185, 129, 0.22);
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .codex-turnaround-equipment-status.is-risk {
+    background: rgba(244, 63, 94, 0.28);
+  }
+
+  .codex-turnaround-equipment-status.is-watch {
+    background: rgba(245, 158, 11, 0.26);
+  }
+
+  .codex-turnaround-equipment-detail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    padding: 16px;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .codex-turnaround-equipment-detail-card {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    padding: 13px;
+    background: rgba(15, 23, 42, 0.56);
+  }
+
+  .codex-turnaround-equipment-detail-card h3 {
+    margin: 0 0 10px;
+    color: #f8fafc;
+    font-size: 15px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-equipment-list {
+    display: grid;
+    gap: 8px;
+  }
+
+  .codex-turnaround-equipment-item {
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 8px;
+    padding: 9px;
+    background: rgba(2, 6, 23, 0.35);
+    color: #dbeafe;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .codex-turnaround-equipment-item strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  @media (max-width: 1000px) {
+    .codex-turnaround-pit-detail {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<script id="codex-turnaround-pit-matrix-script">
+(function () {
+  if (window.CodexTurnaroundPitMatrixReady) return;
+  window.CodexTurnaroundPitMatrixReady = true;
+
+  var trains = ["101車", "102車", "103車", "104車", "105車", "106車", "107車", "108車", "109車", "110車", "111車", "112車", "113車", "114車", "115車", "213車", "214車", "215車"];
+  var moduleOrder = ["M1", "M2", "M3", "M4", "M5"];
+  var state = {
+    module: "M1",
+    group: "全部",
+    train: "全部",
+    status: "全部",
+    abnormalOnly: true,
+    showChildren: false,
+    selectedKey: "",
+    selectedEquipment: ""
+  };
+  var ts101PitMasterLines =   [
+      "M1\t車載通訊系統\tTETRA收發機(Tetra Transceiver)\t50-D-TS101-M1-TETRA\t50-D-TS101-M1\t獨立件",
+      "M1\t車載通訊系統\t影像連結單元(Video link)\t50-D-TS101-M1-VID\t50-D-TS101-M1\t獨立件",
+      "M1\t車載通訊系統\t車載控制單元(OBCU)\t50-D-TS101-M1-OBCU\t50-D-TS101-M1\t獨立件",
+      "M1\t車載通訊系統\t網管型乙太網路交換器(駕駛室)\t50-D-TS101-M1-ETH/CAB\t50-D-TS101-M1\t獨立件",
+      "M1\t車載通訊系統\tWi-Fi模組\t50-D-TS101-M1-WIFI\t50-D-TS101-M1\t獨立件",
+      "M1\t車載號誌系統\tBPI界面轉換器\t50-D-TS101-M1-BPI\t50-D-TS101-M1\t獨立件",
+      "M1\t車載號誌系統\t速度監控HMI\t50-D-TS101-M1-HMI\t50-D-TS101-M1\t獨立件",
+      "M1\t車輛操作及控制設備系統\t主控制器總成\t50-D-TS101-M1-MC\t50-D-TS101-M1\t總成",
+      "M1\t車輛操作及控制設備系統\tGPS機\t50-D-TS101-M1-GPS\t50-D-TS101-M1\t子件",
+      "M1\t監控與安全裝置系統\t車輛控制單元(VCU)\t50-D-TS101-M1-VCU\t50-D-TS101-M1\t獨立件",
+      "M1\t空調與通風系統\t駕駛室空調總成\t50-D-TS101-M1-CABAC\t50-D-TS101-M1\t總成",
+      "M1\t空調與通風系統\t空調控制器KN700\t50-D-TS101-M1-CABAC-CTRL\t50-D-TS101-M1-CABAC\t子件",
+      "M1\t空調與通風系統\t空調渦捲式壓縮機\t50-D-TS101-M1-CABAC-COMP\t50-D-TS101-M1-CABAC\t子件",
+      "M1\t空調與通風系統\t空調變頻器\t50-D-TS101-M1-CABAC-INV\t50-D-TS101-M1-CABAC\t子件",
+      "M1\t車門系統\t車門控制單元(DCU)-L\t50-D-TS101-M1-DCU-L\t50-D-TS101-M1\t獨立件",
+      "M1\t車門系統\t車門控制單元(DCU)-R\t50-D-TS101-M1-DCU-R\t50-D-TS101-M1\t獨立件",
+      "M1\t車門系統\t驅動馬達-L\t50-D-TS101-M1-DMOT-L\t50-D-TS101-M1\t獨立件",
+      "M1\t車門系統\t驅動馬達-R\t50-D-TS101-M1-DMOT-R\t50-D-TS101-M1\t獨立件",
+      "M1\t車載通訊系統\t旅客緊急對講機(PEI)-L\t50-D-TS101-M1-PEI-L\t50-D-TS101-M1\t獨立件",
+      "M1\t車載通訊系統\t旅客緊急對講機(PEI)-R\t50-D-TS101-M1-PEI-R\t50-D-TS101-M1\t獨立件",
+      "M1\t車載通訊系統\t網管型乙太網路交換器(模組1/2/4/5)\t50-D-TS101-M1-ETH/SW\t50-D-TS101-M1\t獨立件",
+      "M1\t車輛操作及控制設備系統\t撒砂裝置空壓機\t50-D-TS101-M1-SD/COMP\t50-D-TS101-M1\t獨立件",
+      "M1\t車輛操作及控制設備系統\t輪緣潤滑壓縮機\t50-D-TS101-M1-FLUB/COMP\t50-D-TS101-M1\t獨立件",
+      "M1\t煞車系統\t煞車控制單元(BCU)總成\t50-D-TS101-M1-BCU\t50-D-TS101-M1\t總成",
+      "M1\t煞車系統\tBCU_(AIO)類比輸入/輸出板\t50-D-TS101-M1-BCU-AIO\t50-D-TS101-M1-BCU\t子件",
+      "M1\t煞車系統\tBCU_(CIB)控制器網路界面板\t50-D-TS101-M1-BCU-CIB\t50-D-TS101-M1-BCU\t子件",
+      "M1\t煞車系統\tBCU_(CPU)中央處理器板\t50-D-TS101-M1-BCU-CPU\t50-D-TS101-M1-BCU\t子件",
+      "M1\t煞車系統\tBCU_(DIO)數位輸入/輸出板\t50-D-TS101-M1-BCU-DIO\t50-D-TS101-M1-BCU\t子件",
+      "M1\t煞車系統\tBCU_(PSB)電源板\t50-D-TS101-M1-BCU-PSB\t50-D-TS101-M1-BCU\t子件",
+      "M1\t煞車系統\tBCU_(VCB)閥控制板\t50-D-TS101-M1-BCU-VCB\t50-D-TS101-M1-BCU\t子件",
+      "M1\t電力與推進系統\t牽引換流器及輔助電源異常(CC400)\t50-D-TS101-M1-CC400\t50-D-TS101-M1\t總成",
+      "M1\t電力與推進系統\tACU卡板\t50-D-TS101-M1-CC400-ACU\t50-D-TS101-M1-CC400\t子件",
+      "M1\t電力與推進系統\tTCU卡板\t50-D-TS101-M1-CC400-TCU\t50-D-TS101-M1-CC400\t子件",
+      "M1\t電力與推進系統\t牽引電抗器\t50-D-TS101-M1-CC400-TRAC/Reactor\t50-D-TS101-M1-CC400\t子件",
+      "M1\t電力與推進系統\t輔電電抗器\t50-D-TS101-M1-CC400-AUX/Reactor\t50-D-TS101-M1-CC400\t子件",
+      "M1\t電力與推進系統\t儲能裝置電抗器\t50-D-TS101-M1-CC400-ESS/Reactor\t50-D-TS101-M1-CC400\t子件",
+      "M1\t電力與推進系統\t高頻整流器模組(XC)\t50-D-TS101-M1-CC400-XC\t50-D-TS101-M1-CC400\t子件",
+      "M1\t電力與推進系統\t輔助變流器模組(AUX)\t50-D-TS101-M1-CC400-AUX\t50-D-TS101-M1-CC400\t子件",
+      "M1\t電力與推進系統\t煞車電阻器(含箱體)\t50-D-TS101-M1-BRES\t\t獨立件",
+      "M1\t轉向架系統\t轉向架\t50-D-TS101-M1-BOGIE\t50-D-TS101-M1\t總成",
+      "M1\t轉向架系統\t動力式車輪-L1\t50-D-TS101-M1-BOGIE-WHL-AX1L\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t動力式車輪-L2\t50-D-TS101-M1-BOGIE-WHL-AX2L\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t動力式車輪-R1\t50-D-TS101-M1-BOGIE-WHL-AX1R\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t動力式車輪-R2\t50-D-TS101-M1-BOGIE-WHL-AX2R\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t齒輪箱總成-L1\t50-D-TS101-M1-BOGIE-GB-AX1L\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t齒輪箱總成-L2\t50-D-TS101-M1-BOGIE-GB-AX2L\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t齒輪箱總成-R1\t50-D-TS101-M1-BOGIE-GB-AX1R\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t齒輪箱總成-R2\t50-D-TS101-M1-BOGIE-GB-AX2R\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t動力式煞車卡鉗總成-L1\t50-D-TS101-M1-BOGIE-BCAL-AX1L\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t動力式煞車卡鉗總成-L2\t50-D-TS101-M1-BOGIE-BCAL-AX2L\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t動力式煞車卡鉗總成-R1\t50-D-TS101-M1-BOGIE-BCAL-AX1R\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t動力式煞車卡鉗總成-R2\t50-D-TS101-M1-BOGIE-BCAL-AX2R\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t牽引馬達總成-L1(TM1)\t50-D-TS101-M1-BOGIE-TM-AX1L\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t牽引馬達總成-L2(TM2)\t50-D-TS101-M1-BOGIE-TM-AX2L\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t牽引馬達總成-R1(TM3)\t50-D-TS101-M1-BOGIE-TM-AX1R\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t牽引馬達總成-R2(TM4)\t50-D-TS101-M1-BOGIE-TM-AX2R\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t煞車液壓單元總成(EHU)\t50-D-TS101-M1-BOGIE-EHU\t50-D-TS101-M1-BOGIE\t子件",
+      "M1\t轉向架系統\t輔助液壓單元總成(AHU)\t50-D-TS101-M1-BOGIE-AHU\t50-D-TS101-M1-BOGIE\t子件",
+      "M2\t車門系統\t車門控制單元(DCU)-L\t50-D-TS101-M2-DCU-L\t50-D-TS101-M2\t獨立件",
+      "M2\t車門系統\t車門控制單元(DCU)-R\t50-D-TS101-M2-DCU-R\t50-D-TS101-M2\t獨立件",
+      "M2\t車門系統\t驅動馬達-L\t50-D-TS101-M2-DMOT-L\t50-D-TS101-M2\t獨立件",
+      "M2\t車門系統\t驅動馬達-R\t50-D-TS101-M2-DMOT-R\t50-D-TS101-M2\t獨立件",
+      "M2\t車載通訊系統\t旅客緊急對講機(PEI)-L\t50-D-TS101-M2-PEI-L\t50-D-TS101-M2\t獨立件",
+      "M2\t車載通訊系統\t旅客緊急對講機(PEI)-R\t50-D-TS101-M2-PEI-R\t50-D-TS101-M2\t獨立件",
+      "M2\t車載通訊系統\tIP擴音器\t50-D-TS101-M2-PA-IP\t50-D-TS101-M2\t獨立件",
+      "M2\t車載通訊系統\t網管型乙太網路交換器(模組1/2/4/5)\t50-D-TS101-M2-ETH-SW\t50-D-TS101-M2\t獨立件",
+      "M2\t空調與通風系統\t客室空調總成-R1\t50-D-TS101-M2-PAC-R1\t50-D-TS101-M2\t總成",
+      "M2\t空調與通風系統\t空調渦捲式壓縮機-R1\t50-D-TS101-M2-PAC-R1-COMP\t50-D-TS101-M2-PAC-R1\t子件",
+      "M2\t空調與通風系統\t空調控制器KN700-R1\t50-D-TS101-M2-PAC-R1-CTRL\t50-D-TS101-M2-PAC-R1\t子件",
+      "M2\t空調與通風系統\t客室空調總成-L2\t50-D-TS101-M2-PAC-L2\t50-D-TS101-M2\t總成",
+      "M2\t空調與通風系統\t空調渦捲式壓縮機-L2\t50-D-TS101-M2-PAC-L2-COMP\t50-D-TS101-M2-PAC-L2\t子件",
+      "M2\t空調與通風系統\t空調控制器KN700-L2\t50-D-TS101-M2-PAC-L2-CTRL\t50-D-TS101-M2-PAC-L2\t子件",
+      "M2\t電力與推進系統\t儲能電池(ESS)總成\t50-D-TS101-M2-ESS\t50-D-TS101-M2\t總成",
+      "M2\t電力與推進系統\t冷卻器總成\t50-D-TS101-M2-ESS-COOL\t50-D-TS101-M2-ESS\t子件",
+      "M3\t車載通訊系統\t旅客緊急對講機(PEI)-L\t50-D-TS101-M3-PEI-L\t50-D-TS101-M3\t獨立件",
+      "M3\t車載通訊系統\t旅客緊急對講機(PEI)-R\t50-D-TS101-M3-PEI-R\t50-D-TS101-M3\t獨立件",
+      "M3\t車載通訊系統\t網管型乙太網路交換器(模組3)\t50-D-TS101-M3-ETH-SW\t50-D-TS101-M3\t獨立件",
+      "M3\t車載號誌系統\t中央控制單元(CCU)\t50-D-TS101-M3-CCU\t50-D-TS101-M3\t總成",
+      "M3\t車載號誌系統\t1030卡板(CCU內)\t50-D-TS101-M3-CCU-1030\t50-D-TS101-M3-CCU\t子件",
+      "M3\t車載號誌系統\t1092卡板(CCU內)\t50-D-TS101-M3-CCU-1092\t50-D-TS101-M3-CCU\t子件",
+      "M3\t車載號誌系統\tA212卡板(CCU內)\t50-D-TS101-M3-CCU-A212\t50-D-TS101-M3-CCU\t子件",
+      "M3\t車載號誌系統\tDIO-16A/15E卡板\t50-D-TS101-M3-CCU-DIO\t50-D-TS101-M3-CCU\t子件",
+      "M3\t車載號誌系統\tHIST V4卡版\t50-D-TS101-M3-CCU-HIST\t50-D-TS101-M3-CCU\t子件",
+      "M3\t車載號誌系統\tREL V3卡板\t50-D-TS101-M3-CCU-REL\t50-D-TS101-M3-CCU\t子件",
+      "M3\t車載號誌系統\t速度轉換器 (GMU)\t50-D-TS101-M3-GMU\t50-D-TS101-M3\t獨立件",
+      "M3\t車載號誌系統\t應答器天線-L\t50-D-TS101-M3-BALISE-L\t50-D-TS101-M3\t獨立件",
+      "M3\t車載號誌系統\t應答器天線-R\t50-D-TS101-M3-BALISE-R\t50-D-TS101-M3\t獨立件",
+      "M3\t車載號誌系統\tATP乙太網交換機\t50-D-TS101-M3-ATP-SW\t50-D-TS101-M3\t獨立件",
+      "M3\t煞車系統\t煞車控制單元(BCU)總成\t50-D-TS101-M3-BCU\t50-D-TS101-M3\t總成",
+      "M3\t煞車系統\tBCU_(AIO)類比輸入/輸出板\t50-D-TS101-M3-BCU-AIO\t50-D-TS101-M3-BCU\t子件",
+      "M3\t煞車系統\tBCU_(CIB)控制器網路界面板\t50-D-TS101-M3-BCU-CIB\t50-D-TS101-M3-BCU\t子件",
+      "M3\t煞車系統\tBCU_(CPU)中央處理器板\t50-D-TS101-M3-BCU-CPU\t50-D-TS101-M3-BCU\t子件",
+      "M3\t煞車系統\tBCU_(DIO)數位輸入/輸出板\t50-D-TS101-M3-BCU-DIO\t50-D-TS101-M3-BCU\t子件",
+      "M3\t煞車系統\tBCU_(PSB)電源板\t50-D-TS101-M3-BCU-PSB\t50-D-TS101-M3-BCU\t子件",
+      "M3\t煞車系統\tBCU_(VCB)閥控制板\t50-D-TS101-M3-BCU-VCB\t50-D-TS101-M3-BCU\t子件",
+      "M3\t煞車系統\t煞車液壓單元總成(EHU)\t50-D-TS101-M3-EHU\t50-D-TS101-M3\t總成",
+      "M3\t煞車系統\t輔助液壓單元總成(AHU)\t50-D-TS101-M3-AHU\t50-D-TS101-M3\t總成",
+      "M3\t電力與推進系統\t高速斷路器總成\t50-D-TS101-M3-HSCB\t50-D-TS101-M3\t總成",
+      "M3\t電力與推進系統\t集電弓總成\t50-D-TS101-M3-PANTO\t50-D-TS101-M3\t總成",
+      "M3\t電力與推進系統\t集電弓主軸驅動器\t50-D-TS101-M3-PANTO-DRV\t50-D-TS101-M3-PANTO\t子件",
+      "M3\t監控與安全裝置系統\t行車監視紀錄器總成\t50-D-TS101-M3-TDR\t50-D-TS101-M3\t總成",
+      "M3\t監控與安全裝置系統\t診斷CPU\t50-D-TS101-M3-TDR-CPU\t50-D-TS101-M3-TDR\t子件",
+      "M3\t轉向架系統\t轉向架\t50-D-TS101-M3-BOGIE\t50-D-TS101-M3\t總成",
+      "M3\t轉向架系統\t非動力式車輪-L3\t50-D-TS101-M3-BOGIE-WHL-AX3L\t50-D-TS101-M3-BOGIE\t子件",
+      "M3\t轉向架系統\t非動力式車輪-L4\t50-D-TS101-M3-BOGIE-WHL-AX4L\t50-D-TS101-M3-BOGIE\t子件",
+      "M3\t轉向架系統\t非動力式車輪-R3\t50-D-TS101-M3-BOGIE-WHL-AX3R\t50-D-TS101-M3-BOGIE\t子件",
+      "M3\t轉向架系統\t非動力式車輪-R4\t50-D-TS101-M3-BOGIE-WHL-AX4R\t50-D-TS101-M3-BOGIE\t子件",
+      "M3\t轉向架系統\t非動力式煞車卡鉗總成-L3\t50-D-TS101-M3-BOGIE-BCAL-AX3L\t50-D-TS101-M3-BOGIE\t子件",
+      "M3\t轉向架系統\t非動力式煞車卡鉗總成-L4\t50-D-TS101-M3-BOGIE-BCAL-AX4L\t50-D-TS101-M3-BOGIE\t子件",
+      "M3\t轉向架系統\t非動力式煞車卡鉗總成-R3\t50-D-TS101-M3-BOGIE-BCAL-AX3R\t50-D-TS101-M3-BOGIE\t子件",
+      "M3\t轉向架系統\t非動力式煞車卡鉗總成-R4\t50-D-TS101-M3-BOGIE-BCAL-AX4R\t50-D-TS101-M3-BOGIE\t子件",
+      "M4\t車門系統\t車門控制單元(DCU)-L\t50-D-TS101-M4-DCU-L\t50-D-TS101-M4\t獨立件",
+      "M4\t車門系統\t車門控制單元(DCU)-R\t50-D-TS101-M4-DCU-R\t50-D-TS101-M4\t獨立件",
+      "M4\t車門系統\t驅動馬達-L\t50-D-TS101-M4-DMOT-L\t50-D-TS101-M4\t獨立件",
+      "M4\t車門系統\t驅動馬達-R\t50-D-TS101-M4-DMOT-R\t50-D-TS101-M4\t獨立件",
+      "M4\t車載通訊系統\t旅客緊急對講機(PEI)-L\t50-D-TS101-M4-PEI-L\t50-D-TS101-M4\t獨立件",
+      "M4\t車載通訊系統\t旅客緊急對講機(PEI)-R\t50-D-TS101-M4-PEI-R\t50-D-TS101-M4\t獨立件",
+      "M4\t車載通訊系統\tIP擴音器\t50-D-TS101-M4-PA-IP\t50-D-TS101-M4\t獨立件",
+      "M4\t車載通訊系統\t網管型乙太網路交換器(模組1/2/4/5)\t50-D-TS101-M4-ETH-SW\t50-D-TS101-M4\t獨立件",
+      "M4\t空調與通風系統\t客室空調總成-R1\t50-D-TS101-M4-PAC/R1\t50-D-TS101-M4\t總成",
+      "M4\t空調與通風系統\t空調渦捲式壓縮機-R1\t50-D-TS101-M4-PAC/R1-COMP\t50-D-TS101-M4-PAC-R1\t子件",
+      "M4\t空調與通風系統\t空調控制器KN700-R1\t50-D-TS101-M4-PAC/R1-CTRL\t50-D-TS101-M4-PAC-R1\t子件",
+      "M4\t空調與通風系統\t客室空調總成-L2\t50-D-TS101-M4-PAC/L2\t50-D-TS101-M4\t總成",
+      "M4\t空調與通風系統\t空調渦捲式壓縮機-L2\t50-D-TS101-M4-PAC/L2-COMP\t50-D-TS101-M4-PAC-L2\t子件",
+      "M4\t空調與通風系統\t空調控制器KN700-L2\t50-D-TS101-M4-PAC/L2-CTRL\t50-D-TS101-M4-PAC-L2\t子件",
+      "M4\t電力與推進系統\t儲能電池(ESS)總成\t50-D-TS101-M4-ESS\t50-D-TS101-M4\t獨立件",
+      "M4\t電力與推進系統\t冷卻器總成\t50-D-TS101-M4-COOL\t50-D-TS101-M4\t獨立件",
+      "M5\t車載通訊系統\tTETRA收發機(Tetra Transceiver)\t50-D-TS101-M5-TETRA\t50-D-TS101-M5\t獨立件",
+      "M5\t車載通訊系統\t影像連結單元(Video link)\t50-D-TS101-M5-VID\t50-D-TS101-M5\t獨立件",
+      "M5\t車載通訊系統\t車載控制單元(OBCU)\t50-D-TS101-M5-OBCU\t50-D-TS101-M5\t獨立件",
+      "M5\t車載通訊系統\t網管型乙太網路交換器(駕駛室)\t50-D-TS101-M5-ETH/CAB\t50-D-TS101-M5\t獨立件",
+      "M5\t車載通訊系統\tWi-Fi模組\t50-D-TS101-M5-WIFI\t50-D-TS101-M5\t獨立件",
+      "M5\t車載通訊系統\t旅客緊急對講機(PEI)-L\t50-D-TS101-M5-PEI-L\t50-D-TS101-M5\t獨立件",
+      "M5\t車載通訊系統\t旅客緊急對講機(PEI)-R\t50-D-TS101-M5-PEI-R\t50-D-TS101-M5\t獨立件",
+      "M5\t車載通訊系統\t網管型乙太網路交換器(模組1/2/4/5)\t50-D-TS101-M5-ETH/SW\t50-D-TS101-M5\t獨立件",
+      "M5\t車載號誌系統\tBPI界面轉換器\t50-D-TS101-M5-BPI\t50-D-TS101-M5\t獨立件",
+      "M5\t車載號誌系統\t速度監控HMI\t50-D-TS101-M5-HMI\t50-D-TS101-M5\t獨立件",
+      "M5\t車輛操作及控制設備系統\t主控制器總成\t50-D-TS101-M5-MC\t50-D-TS101-M5\t總成",
+      "M5\t車輛操作及控制設備系統\tGPS機\t50-D-TS101-M5-GPS\t50-D-TS101-M5\t子件",
+      "M5\t車輛操作及控制設備系統\t撒砂裝置空壓機\t50-D-TS101-M5-SD/COMP\t50-D-TS101-M5\t獨立件",
+      "M5\t車輛操作及控制設備系統\t輪緣潤滑壓縮機\t50-D-TS101-M5-FLUB/COMP\t50-D-TS101-M5\t獨立件",
+      "M5\t監控與安全裝置系統\t車輛控制單元(VCU)\t50-D-TS101-M5-VCU\t50-D-TS101-M5\t獨立件",
+      "M5\t空調與通風系統\t駕駛室空調總成\t50-D-TS101-M5-CABAC\t50-D-TS101-M5\t總成",
+      "M5\t空調與通風系統\t空調控制器KN700\t50-D-TS101-M5-CABAC-CTRL\t50-D-TS101-M5-CABAC\t子件",
+      "M5\t空調與通風系統\t空調渦捲式壓縮機\t50-D-TS101-M5-CABAC-COMP\t50-D-TS101-M5-CABAC\t子件",
+      "M5\t空調與通風系統\t空調變頻器\t50-D-TS101-M5-CABAC-INV\t50-D-TS101-M5-CABAC\t子件",
+      "M5\t車門系統\t車門控制單元(DCU)-L\t50-D-TS101-M5-DCU-L\t50-D-TS101-M5\t獨立件",
+      "M5\t車門系統\t車門控制單元(DCU)-R\t50-D-TS101-M5-DCU-R\t50-D-TS101-M5\t獨立件",
+      "M5\t車門系統\t驅動馬達-L\t50-D-TS101-M5-DMOT-L\t50-D-TS101-M5\t獨立件",
+      "M5\t車門系統\t驅動馬達-R\t50-D-TS101-M5-DMOT-R\t50-D-TS101-M5\t獨立件",
+      "M5\t煞車系統\t煞車控制單元(BCU)總成\t50-D-TS101-M5-BCU\t50-D-TS101-M5\t總成",
+      "M5\t煞車系統\tBCU_(AIO)類比輸入/輸出板\t50-D-TS101-M5-BCU-AIO\t50-D-TS101-M5-BCU\t子件",
+      "M5\t煞車系統\tBCU_(CIB)控制器網路界面板\t50-D-TS101-M5-BCU-CIB\t50-D-TS101-M5-BCU\t子件",
+      "M5\t煞車系統\tBCU_(CPU)中央處理器板\t50-D-TS101-M5-BCU-CPU\t50-D-TS101-M5-BCU\t子件",
+      "M5\t煞車系統\tBCU_(DIO)數位輸入/輸出板\t50-D-TS101-M5-BCU-DIO\t50-D-TS101-M5-BCU\t子件",
+      "M5\t煞車系統\tBCU_(PSB)電源板\t50-D-TS101-M5-BCU-PSB\t50-D-TS101-M5-BCU\t子件",
+      "M5\t煞車系統\tBCU_(VCB)閥控制板\t50-D-TS101-M5-BCU-VCB\t50-D-TS101-M5-BCU\t子件",
+      "M5\t煞車系統\t煞車液壓單元總成(EHU)\t50-D-TS101-M5-EHU\t50-D-TS101-M5\t總成",
+      "M5\t煞車系統\t輔助液壓單元總成(AHU)\t50-D-TS101-M5-AHU\t50-D-TS101-M5\t總成",
+      "M5\t電力與推進系統\t牽引換流器及輔助電源異常(CC400)\t50-D-TS101-M5-CC400\t50-D-TS101-M5\t總成",
+      "M5\t電力與推進系統\tACU卡板\t50-D-TS101-M5-CC400-ACU\t50-D-TS101-M5-CC400\t子件",
+      "M5\t電力與推進系統\tTCU卡板\t50-D-TS101-M5-CC400-TCU\t50-D-TS101-M5-CC400\t子件",
+      "M5\t電力與推進系統\t牽引電抗器\t50-D-TS101-M5-CC400-TRAC/Reactor\t50-D-TS101-M5-CC400\t子件",
+      "M5\t電力與推進系統\t輔電電抗器\t50-D-TS101-M5-CC400-AUX/Reactor\t50-D-TS101-M5-CC400\t子件",
+      "M5\t電力與推進系統\t儲能裝置電抗器\t50-D-TS101-M5-CC400-ESS/Reactor\t50-D-TS101-M5-CC400\t子件",
+      "M5\t電力與推進系統\t高頻整流器模組(XC)\t50-D-TS101-M5-CC400-XC\t50-D-TS101-M5-CC400\t子件",
+      "M5\t電力與推進系統\t輔助變流器模組(AUX)\t50-D-TS101-M5-CC400-AUX\t50-D-TS101-M5-CC400\t子件",
+      "M5\t電力與推進系統\t煞車電阻器(含箱體)\t50-D-TS101-M5-BRES\t50-D-TS101-M5-CC400\t獨立件",
+      "M5\t轉向架系統\t轉向架\t50-D-TS101-M5-BOGIE\t50-D-TS101-M5\t總成",
+      "M5\t轉向架系統\t齒輪箱總成-L5\t50-D-TS101-M5-BOGIE-GB-AX5L\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t齒輪箱總成-L6\t50-D-TS101-M5-BOGIE-GB-AX6L\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t齒輪箱總成-R5\t50-D-TS101-M5-BOGIE-GB-AX5R\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t齒輪箱總成-R6\t50-D-TS101-M5-BOGIE-GB-AX6R\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t動力式車輪-L5\t50-D-TS101-M5-BOGIE-WHL-AX5L\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t動力式車輪-L6\t50-D-TS101-M5-BOGIE-WHL-AX6L\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t動力式車輪-R5\t50-D-TS101-M5-BOGIE-WHL-AX5R\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t動力式車輪-R6\t50-D-TS101-M5-BOGIE-WHL-AX6R\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t動力式煞車卡鉗總成-L5\t50-D-TS101-M5-BOGIE-BCAL-AX5L\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t動力式煞車卡鉗總成-L6\t50-D-TS101-M5-BOGIE-BCAL-AX6L\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t動力式煞車卡鉗總成-R5\t50-D-TS101-M5-BOGIE-BCAL-AX5R\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t動力式煞車卡鉗總成-R6\t50-D-TS101-M5-BOGIE-BCAL-AX6R\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t牽引馬達總成-L5(TM4)\t50-D-TS101-M5-BOGIE-TM-AX5L\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t牽引馬達總成-L6(TM3)\t50-D-TS101-M5-BOGIE-TM-AX6L\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t牽引馬達總成-R5(TM2)\t50-D-TS101-M5-BOGIE-TM-AX5R\t50-D-TS101-M5-BOGIE\t子件",
+      "M5\t轉向架系統\t牽引馬達總成-R6(TM1)\t50-D-TS101-M5-BOGIE-TM-AX6R\t50-D-TS101-M5-BOGIE\t子件"
+  ];
+
+  function normalizePitName(value) {
+    return String(value || "").replace(/^↳\s*/, "").trim();
+  }
+
+  function pitCodeFromLocation(locationId) {
+    return String(locationId || "").replace(/^50-D-TS101-/, "");
+  }
+
+  function pitModuleFromLocation(locationId) {
+    var match = String(locationId || "").match(/50-D-TS101-(M[1-5])(?:-|$)/);
+    return match ? match[1] : "";
+  }
+
+  function pitShortLabel(locationId) {
+    var code = pitCodeFromLocation(locationId);
+    return code || locationId || "未定義坑位";
+  }
+
+  function parseTs101PitMasterLines(lines) {
+    return lines.map(function (line, index) {
+      var parts = String(line || "").split("\t");
+      var locationId = parts[3] || "";
+      var module = parts[0] || pitModuleFromLocation(locationId);
+      var name = normalizePitName(parts[2] || "");
+      var group = parts[1] || "未分類";
+      var attr = parts[5] || "未分類";
+      return {
+        id: locationId,
+        module: module,
+        group: group,
+        name: name,
+        locationId: locationId,
+        parentId: parts[4] || "",
+        attr: attr,
+        type: attr,
+        code: pitCodeFromLocation(locationId),
+        label: pitShortLabel(locationId),
+        sourceIndex: index + 1
+      };
+    }).filter(function (slot) {
+      return slot.module && slot.locationId;
+    });
+  }
+
+  var pitMasterRows = parseTs101PitMasterLines(ts101PitMasterLines);
+  var pitRowsByLocation = pitMasterRows.reduce(function (map, slot) {
+    map[slot.locationId] = slot;
+    return map;
+  }, {});
+  var modules = moduleOrder.reduce(function (map, module) {
+    map[module] = pitMasterRows.filter(function (slot) { return slot.module === module; });
+    return map;
+  }, {});
+  var equipmentOrder = ["煞車液壓單元總成(EHU)", "輔助液壓單元總成(AHU)", "煞車控制單元(BCU)總成", "車門控制單元(DCU)-L", "車門控制單元(DCU)-R", "車載控制單元(OBCU)", "TETRA收發機(Tetra Transceiver)", "旅客緊急對講機(PEI)-L", "旅客緊急對講機(PEI)-R", "牽引馬達總成-L1(TM1)", "牽引馬達總成-L5(TM4)", "齒輪箱總成-L1", "齒輪箱總成-L5", "集電弓總成"];
+
+  function materialNoForSlot(slot) {
+    var text = String((slot && slot.name) || "") + " " + String((slot && slot.locationId) || "");
+    if (/煞車液壓單元|EHU/.test(text)) return "50.83.0001.LO";
+    if (/煞車控制單元|BCU/.test(text)) return "50.83.0002.LO";
+    if (/車門控制單元|DCU/.test(text)) return "50.82.0004.LO";
+    if (/車載控制單元|OBCU/.test(text)) return "50.86.0001.LO";
+    if (/TETRA/.test(text)) return "50.86.0002.LO";
+    if (/旅客緊急對講機|PEI/.test(text)) return "50.86.0003.LO";
+    if (/空調|PAC|CABAC/.test(text)) return "50.94.0054.LO";
+    if (/輔助液壓單元|AHU/.test(text)) return "50.94.0055.LO";
+    if (/儲能電池|ESS/.test(text)) return "50.72.0001.LO";
+    if (/冷卻器|COOL/.test(text)) return "50.72.0002.LO";
+    if (/牽引馬達|DMOT|BOGIE-TM/.test(text)) return "50.61.0001.LO";
+    if (/齒輪箱|BOGIE-GB/.test(text)) return "50.61.0002.LO";
+    if (/集電弓|PANTO/.test(text)) return "50.75.0001.LO";
+    return "待對應物料主檔";
+  }
+  function escapeHtml(value) {
+    return String(value === undefined || value === null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function unique(list) {
+    return list.filter(function (value, index) {
+      return value && list.indexOf(value) === index;
+    });
+  }
+
+  function slotList() {
+    var list = modules[state.module] || [];
+    if (!state.showChildren) {
+      list = list.filter(function (slot) { return slot.attr !== "子件"; });
+    }
+    if (state.group !== "全部") {
+      list = list.filter(function (slot) { return slot.group === state.group; });
+    }
+    return list;
+  }
+
+  function trainList() {
+    return state.train === "全部" ? trains : trains.filter(function (train) { return train === state.train; });
+  }
+
+  function groups() {
+    return ["全部"].concat(unique(moduleOrder.flatMap(function (module) {
+      return modules[module].map(function (slot) { return slot.group; });
+    })));
+  }
+
+  function statusTone(status) {
+    if (status === "正常上線") return "normal";
+    if (status === "觀察中") return "watch";
+    if (status === "待修" || status === "下線待檢") return "repair";
+    if (status === "送修中") return "ship";
+    return "empty";
+  }
+
+  function cellStatusFor(module, trainIndex, slotIndex, slot) {
+    var seedText = String(module || "") + "|" + String(trainIndex) + "|" + String(slotIndex) + "|" + String(slot && slot.locationId || "");
+    var seed = 0;
+    for (var i = 0; i < seedText.length; i += 1) seed += seedText.charCodeAt(i) * (i + 3);
+    if (module === "M1" && trains[trainIndex] === "101車" && slot && slot.locationId === "50-D-TS101-M1-DCU-L") return "待修";
+    if (seed % 31 === 0) return "空位";
+    if (seed % 23 === 0) return "送修中";
+    if (seed % 17 === 0) return "待修";
+    if (seed % 11 === 0) return "觀察中";
+    return "正常上線";
+  }
+
+  function cellStatus(trainIndex, slotIndex) {
+    return cellStatusFor(state.module, trainIndex, slotIndex, slotList()[slotIndex]);
+  }
+
+  function buildCellFor(module, train, slot, slotIndex) {
+    var trainIndex = trains.indexOf(train);
+    var status = cellStatusFor(module, trainIndex, slotIndex, slot);
+    var trainNo = train.replace("車", "");
+    var serialSeed = String(slot.code || slot.locationId || "SLOT").replace(/^M[1-5]-/, "").replace(/[^A-Z0-9]/gi, "").toUpperCase();
+    var serial = status === "空位" ? "" : serialSeed + "-" + trainNo + "-" + String(slot.sourceIndex || slotIndex + 1).padStart(3, "0");
+    var materialNo = materialNoForSlot(slot);
+    var day = String(4 + ((trainIndex + slotIndex) % 24)).padStart(2, "0");
+    var workType = status === "待修" ? "C" : status === "送修中" ? "R" : "P";
+    var workOrder = status === "空位" ? "" : workType + "-11505" + day + "-D-TS-" + String(slotIndex + 1).padStart(3, "0");
+    return {
+      key: module + "|" + train + "|" + slot.locationId,
+      module: module,
+      train: train,
+      slot: slot,
+      status: status,
+      tone: statusTone(status),
+      serial: serial,
+      materialNo: materialNo,
+      materialSerial: materialNo === "待對應物料主檔" ? "待建檔" : materialNo + "-" + trainNo + "-" + String(slot.sourceIndex || slotIndex + 1).padStart(3, "0"),
+      workOrder: workOrder,
+      replaceDate: status === "空位" ? "" : "115.05." + day,
+      lastEvent: status === "正常上線" ? "預檢確認正常" : status === "觀察中" ? "列入觀察" : status === "送修中" ? "拆下送修" : status === "待修" ? "下線待修" : "未建檔"
+    };
+  }
+
+  function buildCell(train, slot, slotIndex) {
+    return buildCellFor(state.module, train, slot, slotIndex);
+  }
+
+  function cellVisible(cell) {
+    if (state.status !== "全部" && cell.status !== state.status) return false;
+    if (state.abnormalOnly && cell.status === "正常上線") return false;
+    return true;
+  }
+
+  function selectedCell() {
+    var slots = slotList();
+    for (var t = 0; t < trains.length; t += 1) {
+      for (var s = 0; s < slots.length; s += 1) {
+        var cell = buildCell(trains[t], slots[s], s);
+        if (cell.key === state.selectedKey) return cell;
+      }
+    }
+    return null;
+  }
+
+  function componentName(cell) {
+    if (!cell) return "";
+    var parent = cell.slot.parentId && pitRowsByLocation[cell.slot.parentId];
+    if (parent && parent.locationId !== "50-D-TS101-" + cell.module) {
+      return parent.name + " / " + parent.locationId;
+    }
+    return cell.slot.name + " / " + cell.slot.locationId;
+  }
+
+  function subPartName(slot) {
+    if (!slot) return "待判定";
+    var parent = slot.parentId && pitRowsByLocation[slot.parentId];
+    if (parent && parent.locationId !== "50-D-TS101-" + slot.module) return slot.name;
+    return slot.attr === "子件" ? slot.name : "待判定";
+  }
+
+  function isRepairSerial(cell) {
+    return !!(cell && cell.serial && (cell.status === "待修" || cell.status === "送修中" || cell.status === "下線待檢"));
+  }
+
+  function sourceCOrder(cell) {
+    if (!cell || !cell.workOrder) return "-";
+    return cell.workOrder.replace(/^[A-Z]-/, "C-");
+  }
+
+  function rWorkOrder(cell) {
+    if (!isRepairSerial(cell)) return "";
+    if (cell.status === "送修中" && cell.workOrder) return cell.workOrder.replace(/^[A-Z]-/, "R-");
+    return (cell.workOrder || "C-1150504-D-TS-001").replace(/^[A-Z]-/, "R-");
+  }
+
+  function shortWorkOrder(value) {
+    var text = String(value || "");
+    var match = text.match(/^([A-Z])-.*-(\d{3})$/);
+    return match ? match[1] + "-" + match[2] : (text || "-");
+  }
+
+  function equipmentKeyForSlot(slot) {
+    if (!slot) return "";
+    return slot.name;
+  }
+
+  function equipmentNameForKey(key) {
+    return key || "";
+  }
+
+  function materialNoForKey(key) {
+    var slot = pitMasterRows.find(function (item) { return item.name === key; });
+    return slot ? materialNoForSlot(slot) : "待對應物料主檔";
+  }
+
+  function allPitCells() {
+    var cells = [];
+    moduleOrder.forEach(function (module) {
+      (modules[module] || []).forEach(function (slot, slotIndex) {
+        trains.forEach(function (train) {
+          cells.push(buildCellFor(module, train, slot, slotIndex));
+        });
+      });
+    });
+    return cells;
+  }
+
+  function warehouseRowsForEquipment(item) {
+    var base = item.key.length + item.name.length;
+    var rows = [
+      { warehouse: "淡海機廠主庫房", location: "TH-CENTER", qty: 1 + (base % 3), status: "可用" },
+      { warehouse: "淡海分存站（機械工廠）", location: "TH-SUB", qty: base % 2, status: base % 2 ? "備置" : "無庫存" }
+    ];
+    return rows.filter(function (row) { return row.qty > 0; }).map(function (row, index) {
+      return {
+        warehouse: row.warehouse,
+        location: row.location,
+        serial: item.key + "-SP-" + String(index + 1).padStart(2, "0"),
+        materialSerial: item.materialNo + "-WH" + String(index + 1).padStart(2, "0"),
+        status: row.status,
+        qty: row.qty
+      };
+    });
+  }
+
+  function equipmentStatus(item) {
+    if (item.repair > 0 || item.ship > 0) return "異常";
+    if (item.watch > 0) return "觀察";
+    return "正常";
+  }
+
+  function equipmentPriority(item) {
+    return item.repair * 1000 + item.ship * 700 + item.watch * 300 + item.onTrain;
+  }
+
+  function equipmentItems() {
+    var map = {};
+    allPitCells().forEach(function (cell) {
+      var key = equipmentKeyForSlot(cell.slot);
+      if (!key) return;
+      if (!map[key]) {
+        map[key] = {
+          key: key,
+          name: equipmentNameForKey(key),
+          system: cell.slot.group,
+          materialNo: materialNoForSlot(cell.slot),
+          materialNos: [],
+          onTrain: 0,
+          warehouse: 0,
+          repair: 0,
+          ship: 0,
+          watch: 0,
+          rOrders: 0,
+          cells: []
+        };
+      }
+      var item = map[key];
+      if (item.system.indexOf(cell.slot.group) === -1) item.system += " / " + cell.slot.group;
+      var materialNo = materialNoForSlot(cell.slot);
+      if (materialNo && item.materialNos.indexOf(materialNo) === -1) item.materialNos.push(materialNo);
+      if (cell.status === "正常上線") item.onTrain += 1;
+      if (cell.status === "觀察中") {
+        item.watch += 1;
+        item.onTrain += 1;
+      }
+      if (cell.status === "待修") item.repair += 1;
+      if (cell.status === "送修中") item.ship += 1;
+      if (isRepairSerial(cell)) item.rOrders += 1;
+      item.cells.push(cell);
+    });
+    return Object.keys(map).map(function (key) {
+      var item = map[key];
+      item.materialNo = item.materialNos.length ? item.materialNos.slice(0, 3).join(" / ") : materialNoForKey(key);
+      if (item.materialNos.length > 3) item.materialNo += " ...";
+      item.warehouseRows = warehouseRowsForEquipment(item);
+      item.warehouse = item.warehouseRows.reduce(function (sum, row) { return sum + row.qty; }, 0);
+      item.status = equipmentStatus(item);
+      return item;
+    }).sort(function (a, b) {
+      var risk = equipmentPriority(b) - equipmentPriority(a);
+      if (risk) return risk;
+      var orderA = equipmentOrder.indexOf(a.key);
+      var orderB = equipmentOrder.indexOf(b.key);
+      if (orderA === -1) orderA = 999;
+      if (orderB === -1) orderB = 999;
+      return orderA - orderB || a.name.localeCompare(b.name, "zh-Hant");
+    });
+  }
+
+  function selectedEquipmentItem() {
+    var list = equipmentItems();
+    if (!state.selectedEquipment && list.length) state.selectedEquipment = list[0].key;
+    return list.find(function (item) { return item.key === state.selectedEquipment; }) || list[0] || null;
+  }
+
+  function renderEventList(events) {
+    return '<div class="codex-turnaround-pit-events">' + events.map(function (event) {
+      return '<div class="codex-turnaround-pit-event"><time>' + escapeHtml(event.date) + '</time><div><strong>' + escapeHtml(event.title) + '</strong>' + escapeHtml(event.body) + '</div></div>';
+    }).join("") + '</div>';
+  }
+
+  function pitHistoryEvents(cell) {
+    var installSerial = cell.status === "空位" ? "" : cell.serial;
+    return [
+      { date: "115.03.12", title: "坑位建檔", body: cell.train + "｜" + cell.slot.locationId + "｜" + cell.slot.name + " 建立可裝位置，作為車上位置履歷主軸。" },
+      { date: cell.replaceDate || "115.05.04", title: "上線 / 裝車", body: cell.train + "｜" + cell.slot.locationId + " 裝用 " + (installSerial || "未建檔") + "，關聯工單 " + (cell.workOrder || "-") + "。" },
+      { date: "115.05.18", title: cell.lastEvent, body: "此格保留位置歷程；不代表同一顆序號永遠固定在此坑位。" }
+    ];
+  }
+
+  function serialHistoryEvents(cell) {
+    if (!cell.serial) {
+      return [
+        { date: "-", title: "目前空位", body: "此坑位目前沒有序號，僅保留坑位位置紀錄。" }
+      ];
+    }
+    var events = [
+      { date: "115.01.15", title: "序號建檔", body: cell.serial + " 建立個體主檔，分類為 " + cell.slot.group + " / " + componentName(cell) + "。" },
+      { date: "115.03.12", title: "倉庫/庫房入庫", body: "可追蹤採購、保固、入庫與待裝狀態，後續不受坑位變更影響。" },
+      { date: cell.replaceDate || "115.05.04", title: "裝車上線", body: cell.serial + " 裝至 " + cell.train + "｜" + cell.slot.locationId + "，來源工單 " + (cell.workOrder || "-") + "。" }
+    ];
+    if (cell.status === "正常上線") {
+      events.push({ date: "115.05.18", title: "預檢確認正常", body: "序號目前仍在車上服役，沒有未結 R 工單。" });
+    } else if (cell.status === "觀察中") {
+      events.push({ date: "115.05.18", title: "列入觀察", body: "序號仍掛在目前坑位，但需要追蹤症狀與下次檢修結果。" });
+    } else if (isRepairSerial(cell)) {
+      events.push({ date: "115.05.18", title: "下線 / R 工單追蹤", body: "拆下序號 " + cell.serial + "，以序號掛鉤 R 工單，不用靠階層本身掛鉤。" });
+    }
+    return events;
+  }
+
+  function renderRWorkTracking(cell) {
+    if (!cell.serial) {
+      return '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>R 工單追蹤</h3>' +
+        '<div class="codex-turnaround-pit-kv"><span>目前狀態</span><strong>空位，沒有可追蹤序號</strong></div>' +
+        '<div class="codex-turnaround-pit-detail-note">R 工單會掛在拆下件序號；坑位空著時不建立 R 工單。</div>' +
+      '</div>';
+    }
+    if (!isRepairSerial(cell)) {
+      return '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>R 工單追蹤</h3>' +
+        '<div class="codex-turnaround-pit-kv"><span>掛鉤依據</span><strong>拆下件序號</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>目前 R 單</span><strong>沒有未結 R 工單</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>目前序號</span><strong>' + escapeHtml(cell.serial) + '</strong></div>' +
+        '<div class="codex-turnaround-pit-detail-note">階層保留為分類：系統 → 故障零組件 → 故障子件；真正連動 C/R 工單的是序號。</div>' +
+      '</div>';
+    }
+    return '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>R 工單追蹤</h3>' +
+      '<div class="codex-turnaround-pit-kv"><span>R 工單</span><strong>' + escapeHtml(rWorkOrder(cell)) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>來源 C 工單</span><strong>' + escapeHtml(sourceCOrder(cell)) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>拆下件序號</span><strong>' + escapeHtml(cell.serial) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>系統</span><strong>' + escapeHtml(cell.slot.group) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>故障零組件</span><strong>' + escapeHtml(componentName(cell)) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>故障子件</span><strong>' + escapeHtml(subPartName(cell.slot)) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>R 狀態</span><strong>' + escapeHtml(cell.status === "送修中" ? "送修中 / 維修追蹤" : "待判定 / 待建立維修流程") + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>目前位置</span><strong>' + escapeHtml(cell.status === "送修中" ? "廠商或維修區" : "待修區") + '</strong></div>' +
+      '<div class="codex-turnaround-pit-detail-note">R 工單用序號串 C 工單、拆下、送修、回裝；階層只負責讓同仁分類和統計。</div>' +
+    '</div>';
+  }
+
+  function renderOptions(list, selected) {
+    return list.map(function (item) {
+      return '<option value="' + escapeHtml(item) + '"' + (item === selected ? " selected" : "") + ">" + escapeHtml(item) + "</option>";
+    }).join("");
+  }
+
+  function renderTabs() {
+    return moduleOrder.map(function (module) {
+      return '<button type="button" class="codex-turnaround-pit-tab ' + (state.module === module ? "is-active" : "") + '" data-pit-module="' + module + '">' + module + "</button>";
+    }).join("");
+  }
+
+  function renderFilters() {
+    return '<div class="codex-turnaround-pit-filters">' +
+      '<select class="codex-turnaround-pit-select" data-pit-filter="group">' + renderOptions(groups(), state.group) + '</select>' +
+      '<select class="codex-turnaround-pit-select" data-pit-filter="train">' + renderOptions(["全部"].concat(trains), state.train) + '</select>' +
+      '<select class="codex-turnaround-pit-select" data-pit-filter="status">' + renderOptions(["全部", "正常上線", "觀察中", "待修", "送修中", "空位"], state.status) + '</select>' +
+      '<button type="button" class="codex-turnaround-pit-check ' + (state.abnormalOnly ? "is-active" : "") + '" data-pit-abnormal>' + (state.abnormalOnly ? "■" : "□") + '只看異常</button>' +
+      '<button type="button" class="codex-turnaround-pit-check ' + (state.showChildren ? "is-active" : "") + '" data-pit-children>' + (state.showChildren ? "■" : "□") + '顯示子件</button>' +
+    '</div>';
+  }
+
+  function renderMatrix() {
+    var slots = slotList();
+    var rows = trainList();
+    if (!slots.length || !rows.length) {
+      return '<div class="codex-turnaround-pit-detail-card">目前沒有符合條件的坑位。</div>';
+    }
+    var head = '<tr><th class="is-train-head">車號</th>' + slots.map(function (slot) {
+      return '<th class="codex-turnaround-pit-slot-head"><span>' + escapeHtml(slot.label) + '</span><small>' + escapeHtml(slot.name) + '</small></th>';
+    }).join("") + "</tr>";
+    var body = rows.map(function (train) {
+      var cells = slots.map(function (slot, slotIndex) {
+        var cell = buildCell(train, slot, slotIndex);
+        if (!cellVisible(cell)) return '<td><div class="codex-turnaround-pit-cell"></div></td>';
+        var selected = cell.key === state.selectedKey ? " is-selected" : "";
+        return '<td><button type="button" class="codex-turnaround-pit-cell' + selected + '" data-pit-cell="' + escapeHtml(cell.key) + '">' +
+          '<div class="codex-turnaround-pit-card" data-tone="' + escapeHtml(cell.tone) + '">' +
+            '<strong>' + escapeHtml(cell.serial || "空位") + '</strong>' +
+            '<span class="codex-turnaround-pit-status">' + escapeHtml(cell.status) + '</span>' +
+            '<span class="codex-turnaround-pit-meta"><span>' + escapeHtml(shortWorkOrder(cell.workOrder)) + '</span><span>' + escapeHtml(cell.replaceDate || "未建檔") + '</span></span>' +
+          '</div></button></td>';
+      }).join("");
+      return '<tr><td class="codex-turnaround-pit-train">' + escapeHtml(train) + '</td>' + cells + '</tr>';
+    }).join("");
+    return '<div class="codex-turnaround-pit-matrix-wrap"><table class="codex-turnaround-pit-table"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>';
+  }
+
+  function renderDetail() {
+    var cell = selectedCell();
+    if (!cell) {
+      return '<div class="codex-turnaround-pit-detail">' +
+        '<div class="codex-turnaround-pit-detail-card"><h3>坑位履歷</h3><div class="codex-turnaround-pit-kv"><span>目前選取</span><strong>請點選矩陣中的坑位</strong></div></div>' +
+        '<div class="codex-turnaround-pit-detail-card"><h3>設備序號履歷</h3><div class="codex-turnaround-pit-events"><div class="codex-turnaround-pit-event"><time>-</time><div><strong>尚未選取序號</strong>點選坑位後，這裡會展開該顆序號的入庫、裝車、下線與維修生命週期。</div></div></div></div>' +
+        '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>R 工單追蹤</h3><div class="codex-turnaround-pit-kv"><span>掛鉤方式</span><strong>拆下件序號</strong></div><div class="codex-turnaround-pit-detail-note">階層用來分類；C/R 工單真正連動的是序號。</div></div>' +
+      '</div>';
+    }
+    return '<div class="codex-turnaround-pit-detail">' +
+      '<div class="codex-turnaround-pit-detail-card"><h3>目前坑位</h3>' +
+        '<div class="codex-turnaround-pit-kv"><span>車號</span><strong>' + escapeHtml(cell.train) + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>坑位代碼</span><strong>' + escapeHtml(cell.slot.locationId) + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>設備名稱</span><strong>' + escapeHtml(cell.slot.name) + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>系統</span><strong>' + escapeHtml(cell.slot.group) + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>上層節點</span><strong>' + escapeHtml(cell.slot.parentId || "-") + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>屬性</span><strong>' + escapeHtml(cell.slot.attr) + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>設備序號</span><strong>' + escapeHtml(cell.serial || "空位 / 未建檔") + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>物料序號</span><strong>' + escapeHtml(cell.materialSerial || "-") + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>目前狀態</span><strong>' + escapeHtml(cell.status) + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>最近工單</span><strong>' + escapeHtml(cell.workOrder || "-") + '</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>最近更換日</span><strong>' + escapeHtml(cell.replaceDate || "-") + '</strong></div>' +
+      '</div>' +
+      '<div class="codex-turnaround-pit-detail-card"><h3>坑位履歷</h3>' + renderEventList(pitHistoryEvents(cell)) + '</div>' +
+      '<div class="codex-turnaround-pit-detail-card"><h3>設備序號履歷</h3>' + renderEventList(serialHistoryEvents(cell)) + '</div>' +
+      renderRWorkTracking(cell) +
+    '</div>';
+  }
+
+  function renderSpares() {
+    var activeGroups = slotList().map(function (slot) { return slot.group; });
+    var spares = unique(activeGroups).slice(0, 6).map(function (group, index) {
+      var available = 2 + (index % 3);
+      var repair = index % 2;
+      return '<div class="codex-turnaround-pit-spare"><strong>' + escapeHtml(group) + '｜倉庫/庫房</strong><span>可用件：' + available + '　送修中：' + repair + '</span><span>最低安全水位：2</span></div>';
+    }).join("");
+    return '<div class="codex-turnaround-pit-spares">' + spares + '</div>';
+  }
+
+  function equipmentSummaryHtml(list) {
+    var totals = list.reduce(function (sum, item) {
+      sum.names += 1;
+      sum.onTrain += item.onTrain;
+      sum.warehouse += item.warehouse;
+      sum.risk += item.repair + item.ship;
+      sum.rOrders += item.rOrders;
+      return sum;
+    }, { names: 0, onTrain: 0, warehouse: 0, risk: 0, rOrders: 0 });
+    return '<div class="codex-turnaround-equipment-summary">' +
+      '<div class="codex-turnaround-equipment-metric"><span>設備名稱</span><strong>' + totals.names + '</strong></div>' +
+      '<div class="codex-turnaround-equipment-metric"><span>車上使用</span><strong>' + totals.onTrain + '</strong></div>' +
+      '<div class="codex-turnaround-equipment-metric"><span>倉庫/庫房</span><strong>' + totals.warehouse + '</strong></div>' +
+      '<div class="codex-turnaround-equipment-metric"><span>待修/送修</span><strong>' + totals.risk + '</strong></div>' +
+      '<div class="codex-turnaround-equipment-metric"><span>R 工單</span><strong>' + totals.rOrders + '</strong></div>' +
+    '</div>';
+  }
+
+  function equipmentTableHtml(list) {
+    return '<div class="codex-turnaround-equipment-table-wrap"><table class="codex-turnaround-equipment-table"><thead><tr>' +
+      '<th>設備名稱</th><th>系統</th><th>物料號</th><th>車上使用</th><th>倉庫/庫房</th><th>待修</th><th>送修中</th><th>觀察中</th><th>R 工單</th><th>狀態</th>' +
+      '</tr></thead><tbody>' + list.map(function (item) {
+        var selected = item.key === state.selectedEquipment ? " is-selected" : "";
+        var statusClass = item.status === "異常" ? " is-risk" : item.status === "觀察" ? " is-watch" : "";
+        return '<tr class="' + selected + '">' +
+          '<td><button type="button" class="codex-turnaround-equipment-open" data-equipment-key="' + escapeHtml(item.key) + '"><span class="codex-turnaround-equipment-name">' + escapeHtml(item.name) + '<small>坑位數 ' + item.cells.length + '</small></span></button></td>' +
+          '<td>' + escapeHtml(item.system) + '</td>' +
+          '<td>' + escapeHtml(item.materialNo) + '</td>' +
+          '<td><span class="codex-turnaround-equipment-count">' + item.onTrain + '</span></td>' +
+          '<td><span class="codex-turnaround-equipment-count">' + item.warehouse + '</span></td>' +
+          '<td><span class="codex-turnaround-equipment-count">' + item.repair + '</span></td>' +
+          '<td><span class="codex-turnaround-equipment-count">' + item.ship + '</span></td>' +
+          '<td><span class="codex-turnaround-equipment-count">' + item.watch + '</span></td>' +
+          '<td><span class="codex-turnaround-equipment-count">' + item.rOrders + '</span></td>' +
+          '<td><span class="codex-turnaround-equipment-status' + statusClass + '">' + escapeHtml(item.status) + '</span></td>' +
+        '</tr>';
+      }).join("") + '</tbody></table></div>';
+  }
+
+  function equipmentCellSort(cell) {
+    var order = { "待修": 1, "送修中": 2, "觀察中": 3, "正常上線": 4, "空位": 9 };
+    return order[cell.status] || 8;
+  }
+
+  function equipmentDetailList(rows, emptyText) {
+    if (!rows.length) return '<div class="codex-turnaround-equipment-item">' + escapeHtml(emptyText) + '</div>';
+    return '<div class="codex-turnaround-equipment-list">' + rows.map(function (row) {
+      return '<div class="codex-turnaround-equipment-item">' + row + '</div>';
+    }).join("") + '</div>';
+  }
+
+  function equipmentDetailHtml(item) {
+    if (!item) return "";
+    var cells = item.cells.slice().sort(function (a, b) {
+      return equipmentCellSort(a) - equipmentCellSort(b) || a.train.localeCompare(b.train) || a.slot.locationId.localeCompare(b.slot.locationId);
+    });
+    var onTrainRows = cells.filter(function (cell) { return cell.status !== "空位" && cell.status !== "送修中"; }).slice(0, 12).map(function (cell) {
+      return '<strong>' + escapeHtml(cell.train + "｜" + cell.slot.locationId + "｜" + cell.slot.name) + '</strong>' +
+        '設備序號：' + escapeHtml(cell.serial || "未建檔") + '<br>' +
+        '物料序號：' + escapeHtml(cell.materialSerial || "待建檔") + '<br>' +
+        '狀態：' + escapeHtml(cell.status) + '　最近工單：' + escapeHtml(shortWorkOrder(cell.workOrder)) + '　更換日：' + escapeHtml(cell.replaceDate || "-");
+    });
+    var warehouseRows = item.warehouseRows.map(function (row) {
+      return '<strong>' + escapeHtml(row.warehouse + "｜" + row.location) + '</strong>' +
+        '設備序號：' + escapeHtml(row.serial) + '<br>' +
+        '物料序號：' + escapeHtml(row.materialSerial) + '　數量：' + row.qty + '　狀態：' + escapeHtml(row.status);
+    });
+    var repairRows = cells.filter(function (cell) { return isRepairSerial(cell); }).map(function (cell) {
+      return '<strong>' + escapeHtml(rWorkOrder(cell) || "待建立 R 工單") + '</strong>' +
+        '來源 C：' + escapeHtml(sourceCOrder(cell)) + '<br>' +
+        '拆下件：' + escapeHtml(cell.serial) + '　坑位：' + escapeHtml(cell.slot.locationId) + '<br>' +
+        '故障子件：' + escapeHtml(subPartName(cell.slot)) + '<br>' +
+        '目前位置：' + escapeHtml(cell.status === "送修中" ? "廠商或維修區" : "待修區") + '　狀態：' + escapeHtml(cell.status);
+    });
+    return '<div class="codex-turnaround-equipment-detail">' +
+      '<div class="codex-turnaround-equipment-detail-card"><h3>車上坑位排序</h3>' + equipmentDetailList(onTrainRows, "目前沒有車上使用資料。") + '</div>' +
+      '<div class="codex-turnaround-equipment-detail-card"><h3>倉庫/庫房</h3>' + equipmentDetailList(warehouseRows, "目前沒有倉庫/庫房可用件。") + '</div>' +
+      '<div class="codex-turnaround-equipment-detail-card"><h3>待修 / 送修 / R 工單</h3>' + equipmentDetailList(repairRows, "目前沒有待修、送修或未結 R 工單。") + '</div>' +
+    '</div>';
+  }
+
+  function equipmentOverviewHtml() {
+    var list = equipmentItems();
+    var selected = selectedEquipmentItem();
+    return '<div id="codex-turnaround-equipment-root" class="codex-turnaround-pit-root">' +
+      '<div class="codex-turnaround-pit-shell">' +
+        '<section class="codex-turnaround-pit-panel">' +
+          '<div class="codex-turnaround-pit-head">' +
+            '<div><h2 class="codex-turnaround-pit-title">設備名稱總覽</h2><div class="codex-turnaround-pit-subtitle">以 TS101 正式坑位主檔彙整設備名稱、設備序號、坑位、倉庫/庫房與 R 工單狀態。</div></div>' +
+            '<div class="codex-turnaround-pit-tabs"><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="list">回 R 工單清單</button><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="matrix">坑位矩陣</button></div>' +
+          '</div>' +
+          equipmentSummaryHtml(list) +
+          equipmentTableHtml(list) +
+          equipmentDetailHtml(selected) +
+        '</section>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function rootHtml() {
+    return '<div id="codex-turnaround-pit-matrix-root" class="codex-turnaround-pit-root">' +
+      '<div class="codex-turnaround-pit-shell">' +
+        '<section class="codex-turnaround-pit-panel">' +
+          '<div class="codex-turnaround-pit-head">' +
+            '<div><h2 class="codex-turnaround-pit-title">周轉件坑位視覺化矩陣</h2><div class="codex-turnaround-pit-subtitle">以 TS101 正式坑位主檔延伸 18 台車；預設只看異常並收合子件，需要追細項時再展開。</div></div>' +
+            '<div class="codex-turnaround-pit-tabs"><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="list">回 R 工單清單</button><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="equipment">設備名稱總覽</button>' + renderTabs() + '</div>' +
+          '</div>' +
+          '<div class="codex-turnaround-pit-head" style="padding-top:0;">' + renderFilters() + '</div>' +
+          renderMatrix() +
+          renderDetail() +
+        '</section>' +
+        '<section class="codex-turnaround-pit-panel"><div class="codex-turnaround-pit-head"><div><h3 class="codex-turnaround-pit-title" style="font-size:18px;">倉庫/庫房</h3><div class="codex-turnaround-pit-subtitle">庫房內周轉件獨立顯示，不混在車上坑位矩陣。</div></div></div>' + renderSpares() + '</section>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function bind(root) {
+    Array.prototype.forEach.call(root.querySelectorAll("[data-pit-module]"), function (button) {
+      button.addEventListener("click", function () {
+        state.module = button.getAttribute("data-pit-module") || "M1";
+        state.selectedKey = "";
+        draw(root);
+      });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-pit-filter]"), function (select) {
+      select.addEventListener("change", function () {
+        state[select.getAttribute("data-pit-filter")] = select.value;
+        state.selectedKey = "";
+        draw(root);
+      });
+    });
+    var abnormal = root.querySelector("[data-pit-abnormal]");
+    if (abnormal) {
+      abnormal.addEventListener("click", function () {
+        state.abnormalOnly = !state.abnormalOnly;
+        state.selectedKey = "";
+        draw(root);
+      });
+    }
+    var children = root.querySelector("[data-pit-children]");
+    if (children) {
+      children.addEventListener("click", function () {
+        state.showChildren = !state.showChildren;
+        state.selectedKey = "";
+        draw(root);
+      });
+    }
+    Array.prototype.forEach.call(root.querySelectorAll("[data-pit-cell]"), function (button) {
+      button.addEventListener("click", function () {
+        state.selectedKey = button.getAttribute("data-pit-cell") || "";
+        draw(root);
+      });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-equipment-key]"), function (button) {
+      button.addEventListener("click", function () {
+        state.selectedEquipment = button.getAttribute("data-equipment-key") || "";
+        drawEquipment(root);
+      });
+    });
+  }
+
+  function draw(target) {
+    var root = target || document.getElementById("codex-turnaround-pit-route-host") || document.getElementById("codex-turnaround-route-host") || document.getElementById("codex-rwork-root") || document.getElementById("codex-turnaround-root");
+    if (!root) return;
+    root.innerHTML = rootHtml();
+    bind(root);
+  }
+
+  function drawEquipment(target) {
+    var root = target || document.getElementById("codex-turnaround-pit-route-host") || document.getElementById("codex-turnaround-route-host") || document.getElementById("codex-rwork-root") || document.getElementById("codex-turnaround-root");
+    if (!root) return;
+    root.innerHTML = equipmentOverviewHtml();
+    bind(root);
+  }
+
+  function textOf(node) {
+    return String(node && node.textContent || "").replace(/\s+/g, "").trim();
+  }
+
+  function isTurnaroundButton(node) {
+    return textOf(node).indexOf("周轉件履歷") !== -1 || textOf(node).indexOf("周轉建履歷") !== -1;
+  }
+
+  function routeMain() {
+    return document.querySelector("main.flex-1") || document.querySelector("main") || document.body;
+  }
+
+  function visibleRworkRoot() {
+    var candidates = [
+      document.getElementById("codex-turnaround-route-host"),
+      document.getElementById("codex-rwork-root"),
+      document.getElementById("codex-turnaround-root")
+    ].filter(Boolean);
+    var visible = candidates.find(function (node) {
+      return !node.hidden && textOf(node).indexOf("周轉件") !== -1;
+    });
+    return visible || candidates[0] || null;
+  }
+
+  function removePitHost() {
+    var host = document.getElementById("codex-turnaround-pit-route-host");
+    if (host) host.remove();
+  }
+
+  function removeSwitchHost() {
+    var host = document.getElementById("codex-turnaround-view-switch-host");
+    if (host) host.remove();
+  }
+
+  function restoreRouteSiblings() {
+    var main = routeMain();
+    Array.prototype.forEach.call(main.children, function (child) {
+      child.hidden = false;
+    });
+  }
+
+  function keepTurnaroundRouteOnly() {
+    var main = routeMain();
+    var keepIds = {
+      "codex-turnaround-route-host": true,
+      "codex-turnaround-pit-route-host": true,
+      "codex-turnaround-view-switch-host": true
+    };
+    Array.prototype.forEach.call(main.children, function (child) {
+      var keep = !!keepIds[child.id] || !!child.querySelector("#codex-rwork-root,#codex-turnaround-root,#codex-turnaround-pit-route-host,#codex-turnaround-pit-matrix-root");
+      child.hidden = !keep;
+    });
+  }
+
+  function ensureSwitchHost() {
+    var main = routeMain();
+    var anchor = visibleRworkRoot() || document.getElementById("codex-turnaround-pit-route-host");
+    var parent = anchor && anchor.parentElement ? anchor.parentElement : main;
+    var host = document.getElementById("codex-turnaround-view-switch-host");
+    if (!host) {
+      host = document.createElement("div");
+      host.id = "codex-turnaround-view-switch-host";
+      host.className = "no-print";
+    }
+    if (anchor && host.nextElementSibling !== anchor) {
+      parent.insertBefore(host, anchor);
+    } else if (!host.parentElement) {
+      parent.prepend(host);
+    }
+    if (host.getAttribute("data-active-view") !== activeRouteView) {
+      host.setAttribute("data-active-view", activeRouteView);
+      host.innerHTML = '<div class="codex-turnaround-view-switch" aria-label="周轉件快捷切換">' +
+        '<span>快捷切換</span>' +
+        '<button type="button" class="' + (activeRouteView === "list" ? "is-active" : "") + '" data-turnaround-view="list">R 工單清單（首頁）</button>' +
+        '<button type="button" class="' + (activeRouteView === "matrix" ? "is-active" : "") + '" data-turnaround-view="matrix">坑位矩陣</button>' +
+        '<button type="button" class="' + (activeRouteView === "equipment" ? "is-active" : "") + '" data-turnaround-view="equipment">設備名稱總覽</button>' +
+      '</div>';
+      Array.prototype.forEach.call(host.querySelectorAll("[data-turnaround-view]"), function (button) {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          activeRouteView = button.getAttribute("data-turnaround-view") || "list";
+          if (activeRouteView === "matrix") {
+            showPitMatrix(true);
+          } else if (activeRouteView === "equipment") {
+            showEquipmentOverview(true);
+          } else {
+            showListHome(true);
+          }
+        });
+      });
+    }
+    return host;
+  }
+
+  function showListHome(scroll) {
+    removePitHost();
+    removeSwitchHost();
+    var root = visibleRworkRoot();
+    if (root) root.hidden = false;
+    keepTurnaroundRouteOnly();
+    if (scroll && root) root.scrollIntoView({ block: "start" });
+  }
+
+  function showPitMatrix(scroll) {
+    Array.prototype.forEach.call(document.querySelectorAll(".codex-pm-calendar-host"), function (host) {
+      host.remove();
+    });
+    var main = routeMain();
+    removeSwitchHost();
+    var rworkRoot = visibleRworkRoot();
+    if (rworkRoot) rworkRoot.hidden = true;
+    var root = document.getElementById("codex-turnaround-pit-route-host");
+    if (!root) {
+      root = document.createElement("div");
+      root.id = "codex-turnaround-pit-route-host";
+      root.className = "no-print space-y-5";
+      var parent = rworkRoot && rworkRoot.parentElement ? rworkRoot.parentElement : main;
+      if (rworkRoot) {
+        parent.insertBefore(root, rworkRoot);
+      } else {
+        parent.prepend(root);
+      }
+    }
+    root.hidden = false;
+    if (!root.querySelector("#codex-turnaround-pit-matrix-root")) {
+      try {
+        draw(root);
+      } catch (error) {
+        root.innerHTML = '<div class="codex-turnaround-pit-root"><section class="codex-turnaround-pit-panel"><h2 class="codex-turnaround-pit-title">坑位矩陣載入失敗</h2><div class="codex-turnaround-pit-subtitle">' + escapeHtml(error && error.message || error) + '</div></section></div>';
+        if (window.console && console.error) console.error(error);
+      }
+    }
+    keepTurnaroundRouteOnly();
+    if (scroll) root.scrollIntoView({ block: "start" });
+  }
+
+  function showEquipmentOverview(scroll) {
+    Array.prototype.forEach.call(document.querySelectorAll(".codex-pm-calendar-host"), function (host) {
+      host.remove();
+    });
+    var main = routeMain();
+    removeSwitchHost();
+    var rworkRoot = visibleRworkRoot();
+    if (rworkRoot) rworkRoot.hidden = true;
+    var root = document.getElementById("codex-turnaround-pit-route-host");
+    if (!root) {
+      root = document.createElement("div");
+      root.id = "codex-turnaround-pit-route-host";
+      root.className = "no-print space-y-5";
+      var parent = rworkRoot && rworkRoot.parentElement ? rworkRoot.parentElement : main;
+      if (rworkRoot) {
+        parent.insertBefore(root, rworkRoot);
+      } else {
+        parent.prepend(root);
+      }
+    }
+    root.hidden = false;
+    if (!root.querySelector("#codex-turnaround-equipment-root")) {
+      try {
+        drawEquipment(root);
+      } catch (error) {
+        root.innerHTML = '<div class="codex-turnaround-pit-root"><section class="codex-turnaround-pit-panel"><h2 class="codex-turnaround-pit-title">設備名稱總覽載入失敗</h2><div class="codex-turnaround-pit-subtitle">' + escapeHtml(error && error.message || error) + '</div></section></div>';
+        if (window.console && console.error) console.error(error);
+      }
+    }
+    keepTurnaroundRouteOnly();
+    if (scroll) root.scrollIntoView({ block: "start" });
+  }
+
+  function updateRouteView(scroll) {
+    var rworkRoot = visibleRworkRoot();
+    var pitRoot = document.getElementById("codex-turnaround-pit-route-host");
+    if (!rworkRoot && !pitRoot) {
+      removeSwitchHost();
+      return;
+    }
+    if (activeRouteView === "matrix") {
+      showPitMatrix(scroll);
+    } else if (activeRouteView === "equipment") {
+      showEquipmentOverview(scroll);
+    } else {
+      showListHome(scroll);
+    }
+  }
+
+  var scheduled = false;
+  function applyIfTurnaroundVisible() {
+    scheduled = false;
+    var root = visibleRworkRoot();
+    var pitRoot = document.getElementById("codex-turnaround-pit-route-host");
+    if (!root && !pitRoot) {
+      removeSwitchHost();
+      return;
+    }
+    if (root) {
+      var text = textOf(root);
+      if (text.indexOf("周轉件") === -1 && root.id !== "codex-rwork-root" && root.id !== "codex-turnaround-root" && root.id !== "codex-turnaround-route-host") return;
+    }
+    updateRouteView(false);
+  }
+
+  function scheduleApply() {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(applyIfTurnaroundVisible);
+  }
+
+  document.addEventListener("click", function (event) {
+    var shortcut = event.target && event.target.closest ? event.target.closest("[data-turnaround-shortcut]") : null;
+    if (shortcut) {
+      event.preventDefault();
+      event.stopPropagation();
+      activeRouteView = shortcut.getAttribute("data-turnaround-shortcut") || "list";
+      if (activeRouteView === "matrix") {
+        showPitMatrix(true);
+      } else if (activeRouteView === "equipment") {
+        showEquipmentOverview(true);
+      } else {
+        showListHome(true);
+      }
+      window.setTimeout(function () { updateRouteView(true); }, 20);
+      return;
+    }
+    var button = event.target && event.target.closest ? event.target.closest("aside button") : null;
+    if (!button || !isTurnaroundButton(button)) return;
+    activeRouteView = "list";
+    window.setTimeout(function () { updateRouteView(true); }, 80);
+    window.setTimeout(function () { updateRouteView(false); }, 260);
+    window.setTimeout(function () { updateRouteView(false); }, 700);
+  }, true);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scheduleApply);
+  } else {
+    scheduleApply();
+  }
+  new MutationObserver(scheduleApply).observe(document.body, { childList: true, subtree: true });
+  window.setTimeout(scheduleApply, 800);
+  window.setTimeout(scheduleApply, 2400);
+})();
+</script>
 <script id="codex-react-precheck-guard">
 (function () {
   // Root cause fix: vanilla JS renderCenter() was calling container.innerHTML on React-managed
@@ -46244,4 +47993,5 @@ react-dom/cjs/react-dom-client.production.js:
 </script>
 </body>
 </html>
+
 
