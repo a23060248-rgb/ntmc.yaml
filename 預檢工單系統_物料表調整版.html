@@ -44722,10 +44722,10 @@ react-dom/cjs/react-dom-client.production.js:
     keepSelection(list);
     list = filtered();
     return '<div class="codex-rwork-v8-shell" data-codex-rwork-structure="v2" data-codex-rwork-structure-v3="true" data-codex-rwork-structure-v4="true" data-codex-rwork-structure-v5="true" data-codex-rwork-structure-v6="true" data-codex-rwork-structure-v7="true" data-codex-rwork-structure-v8="true">' +
-      '<section class="codex-rwork-panel codex-rwork-top"><div class="codex-rwork-title-row"><div><h2 class="codex-rwork-title">周轉件履歷／R 工單待辦</h2><div class="codex-rwork-desc">R 工單用「來源 C 工單 + 拆下件序號」掛鉤；三層分類只用於維修統計與查詢。</div><div class="codex-rwork-v8-rule"><span>掛鉤：序號</span><span>系統</span><span>故障零組件</span><span>故障子件</span></div></div><div class="codex-rwork-actions"><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="matrix">查看坑位矩陣</button><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="equipment">設備名稱總覽</button><button type="button" class="codex-rwork-btn">匯出履歷</button><button type="button" class="codex-rwork-btn is-primary">+ 新增 R 事件</button></div></div></section>' +
+      '<section class="codex-rwork-panel codex-rwork-top"><div class="codex-rwork-title-row"><div><h2 class="codex-rwork-title">周轉件首頁 / R 單清冊</h2><div class="codex-rwork-desc">集中查看 R 單、來源 C 單、拆下件序號、目前位置與處理狀態；坑位矩陣只負責視覺化檢視。</div><div class="codex-rwork-v8-rule"><span>掛鉤：序號</span><span>來源 C 單</span><span>R 單狀態</span><span>目前位置</span></div></div><div class="codex-rwork-actions"><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="matrix">坑位矩陣</button><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="equipment">設備名稱總覽</button><button type="button" class="codex-rwork-btn">匯出清冊</button><button type="button" class="codex-rwork-btn is-primary">+ 新增 R 事件</button></div></div></section>' +
       statusHtml() +
       filtersHtml() +
-      '<section class="codex-rwork-panel codex-rwork-v6-list"><div class="codex-rwork-section-head"><div><h3>R 工單清單</h3><p>主表先看來源 C、拆下件序號與 R 三層分類；點擊列後展開完整追蹤資料。</p></div><div class="codex-rwork-count-pill">目前顯示 ' + list.length + ' 筆</div></div>' + tableHtml(list) + '</section>' +
+      '<section class="codex-rwork-panel codex-rwork-v6-list"><div class="codex-rwork-section-head"><div><h3>R 單清冊</h3><p>主表先看來源 C、拆下件序號與 R 三層分類；點擊列後展開完整追蹤資料。</p></div><div class="codex-rwork-count-pill">目前顯示 ' + list.length + ' 筆</div></div>' + tableHtml(list) + '</section>' +
     '</div>';
   }
 
@@ -46409,6 +46409,29 @@ react-dom/cjs/react-dom-client.production.js:
     border-top: 1px solid rgba(148, 163, 184, 0.14);
   }
 
+  .codex-turnaround-pit-scroll-top {
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    background: rgba(15, 23, 42, 0.62);
+  }
+
+  .codex-turnaround-pit-scroll-spacer {
+    height: 14px;
+  }
+
+  .codex-turnaround-pit-scroll-help {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 10px;
+    color: #8fb6d8;
+    background: rgba(2, 6, 23, 0.35);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
   .codex-turnaround-pit-table {
     width: max-content;
     min-width: 100%;
@@ -46532,24 +46555,199 @@ react-dom/cjs/react-dom-client.production.js:
     border: 1px solid rgba(52, 211, 153, 0.42);
   }
 
-  .codex-turnaround-pit-card[data-tone="watch"] {
-    background: rgba(245, 158, 11, 0.28);
-    border: 1px solid rgba(251, 191, 36, 0.45);
+  .codex-turnaround-pit-card[data-tone="empty"] {
+    background: rgba(245, 158, 11, 0.22);
+    border: 1px dashed rgba(251, 191, 36, 0.58);
   }
 
+  .codex-turnaround-pit-card[data-tone="danger"],
   .codex-turnaround-pit-card[data-tone="repair"] {
     background: rgba(244, 63, 94, 0.3);
     border: 1px solid rgba(251, 113, 133, 0.5);
   }
 
+  .codex-turnaround-pit-card[data-tone="process"],
+  .codex-turnaround-pit-card[data-tone="watch"],
   .codex-turnaround-pit-card[data-tone="ship"] {
-    background: rgba(14, 165, 233, 0.25);
-    border: 1px solid rgba(56, 189, 248, 0.46);
+    background: rgba(109, 40, 217, 0.27);
+    border: 1px solid rgba(167, 139, 250, 0.48);
   }
 
-  .codex-turnaround-pit-card[data-tone="empty"] {
+  .codex-turnaround-pit-card[data-tone="scrap"] {
     background: rgba(100, 116, 139, 0.18);
-    border: 1px dashed rgba(148, 163, 184, 0.34);
+    border: 1px solid rgba(148, 163, 184, 0.34);
+  }
+
+  .codex-turnaround-pit-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 390px;
+    gap: 14px;
+    padding: 0 16px 16px;
+    align-items: start;
+  }
+
+  .codex-turnaround-pit-main {
+    min-width: 0;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(2, 6, 23, 0.35);
+  }
+
+  .codex-turnaround-pit-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    padding: 0 16px 16px;
+  }
+
+  .codex-turnaround-pit-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 999px;
+    padding: 5px 9px;
+    color: #c7ddf5;
+    background: rgba(15, 23, 42, 0.52);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-pit-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    display: inline-block;
+  }
+
+  .codex-turnaround-pit-swatch[data-tone="normal"] { background: #10b981; }
+  .codex-turnaround-pit-swatch[data-tone="empty"] { background: #f59e0b; }
+  .codex-turnaround-pit-swatch[data-tone="danger"] { background: #f43f5e; }
+  .codex-turnaround-pit-swatch[data-tone="process"] { background: #8b5cf6; }
+  .codex-turnaround-pit-swatch[data-tone="scrap"] { background: #64748b; }
+
+  .codex-turnaround-pit-context-stats {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+    background: rgba(15, 23, 42, 0.45);
+  }
+
+  .codex-turnaround-pit-stat {
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 8px;
+    padding: 9px;
+    background: rgba(2, 6, 23, 0.36);
+  }
+
+  .codex-turnaround-pit-stat span,
+  .codex-turnaround-pit-stat strong {
+    display: block;
+  }
+
+  .codex-turnaround-pit-stat span {
+    color: #8fb6d8;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-pit-stat strong {
+    margin-top: 4px;
+    color: #f8fafc;
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-pit-drawer {
+    position: sticky;
+    top: 74px;
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+    border: 1px solid rgba(34, 211, 238, 0.24);
+    border-radius: 8px;
+    padding: 12px;
+    background: rgba(2, 6, 23, 0.86);
+    box-shadow: 0 22px 52px rgba(0, 0, 0, 0.26);
+  }
+
+  .codex-turnaround-pit-drawer-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .codex-turnaround-pit-drawer-head strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 16px;
+    font-weight: 950;
+  }
+
+  .codex-turnaround-pit-drawer-head span {
+    display: block;
+    margin-top: 3px;
+    color: #8fb6d8;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .codex-turnaround-pit-badge {
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 5px 9px;
+    color: #ecfeff;
+    background: rgba(8, 145, 178, 0.25);
+    font-size: 12px;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .codex-turnaround-pit-drawer-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .codex-turnaround-pit-drawer-tab {
+    min-height: 34px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 8px;
+    color: #c7ddf5;
+    background: rgba(15, 23, 42, 0.68);
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  .codex-turnaround-pit-drawer-tab.is-active {
+    border-color: rgba(34, 211, 238, 0.72);
+    background: rgba(8, 145, 178, 0.34);
+    color: #ecfeff;
+  }
+
+  .codex-turnaround-pit-action-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .codex-turnaround-pit-action-row button {
+    min-height: 34px;
+    border: 1px solid rgba(34, 211, 238, 0.24);
+    border-radius: 8px;
+    color: #bae6fd;
+    background: rgba(8, 145, 178, 0.14);
+    font-size: 12px;
+    font-weight: 900;
+  }
   }
 
   .codex-turnaround-pit-detail {
@@ -46577,6 +46775,11 @@ react-dom/cjs/react-dom-client.production.js:
   .codex-turnaround-pit-detail-card.is-rwork {
     border-color: rgba(251, 113, 133, 0.28);
     background: rgba(127, 29, 29, 0.14);
+  }
+
+  .codex-turnaround-pit-detail-card.is-spare {
+    border-color: rgba(245, 158, 11, 0.3);
+    background: rgba(120, 53, 15, 0.14);
   }
 
   .codex-turnaround-pit-detail-note {
@@ -46842,6 +47045,20 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   @media (max-width: 1000px) {
+    .codex-turnaround-pit-workspace {
+      grid-template-columns: 1fr;
+    }
+
+    .codex-turnaround-pit-drawer {
+      position: relative;
+      top: auto;
+      max-height: none;
+    }
+
+    .codex-turnaround-pit-context-stats {
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+    }
+
     .codex-turnaround-pit-detail {
       grid-template-columns: 1fr;
     }
@@ -46859,11 +47076,12 @@ react-dom/cjs/react-dom-client.production.js:
     group: "全部",
     train: "全部",
     status: "全部",
-    abnormalOnly: true,
     showChildren: false,
     selectedKey: "",
-    selectedEquipment: ""
+    selectedEquipment: "",
+    detailTab: "current"
   };
+  var activeRouteView = "list";
   var ts101PitMasterLines =   [
       "M1\t車載通訊系統\tTETRA收發機(Tetra Transceiver)\t50-D-TS101-M1-TETRA\t50-D-TS101-M1\t獨立件",
       "M1\t車載通訊系統\t影像連結單元(Video link)\t50-D-TS101-M1-VID\t50-D-TS101-M1\t獨立件",
@@ -47162,10 +47380,15 @@ react-dom/cjs/react-dom-client.production.js:
 
   function statusTone(status) {
     if (status === "正常上線") return "normal";
-    if (status === "觀察中") return "watch";
-    if (status === "待修" || status === "下線待檢") return "repair";
-    if (status === "送修中") return "ship";
+    if (status === "空位") return "empty";
+    if (status === "待修" || status === "下線待檢" || status === "驗收退回" || status === "逾期") return "danger";
+    if (status === "送修中" || status === "觀察中" || status === "內修中" || status === "外修中") return "process";
+    if (status === "報廢") return "scrap";
     return "empty";
+  }
+
+  function displayStatus(status) {
+    return status === "空位" ? "空坑待補件" : status;
   }
 
   function cellStatusFor(module, trainIndex, slotIndex, slot) {
@@ -47174,6 +47397,7 @@ react-dom/cjs/react-dom-client.production.js:
     for (var i = 0; i < seedText.length; i += 1) seed += seedText.charCodeAt(i) * (i + 3);
     if (module === "M1" && trains[trainIndex] === "101車" && slot && slot.locationId === "50-D-TS101-M1-DCU-L") return "待修";
     if (seed % 31 === 0) return "空位";
+    if (seed % 43 === 0) return "報廢";
     if (seed % 23 === 0) return "送修中";
     if (seed % 17 === 0) return "待修";
     if (seed % 11 === 0) return "觀察中";
@@ -47192,8 +47416,8 @@ react-dom/cjs/react-dom-client.production.js:
     var serial = status === "空位" ? "" : serialSeed + "-" + trainNo + "-" + String(slot.sourceIndex || slotIndex + 1).padStart(3, "0");
     var materialNo = materialNoForSlot(slot);
     var day = String(4 + ((trainIndex + slotIndex) % 24)).padStart(2, "0");
-    var workType = status === "待修" ? "C" : status === "送修中" ? "R" : "P";
-    var workOrder = status === "空位" ? "" : workType + "-11505" + day + "-D-TS-" + String(slotIndex + 1).padStart(3, "0");
+    var workType = status === "空位" || status === "待修" ? "C" : status === "送修中" ? "R" : status === "報廢" ? "S" : "P";
+    var workOrder = workType + "-11505" + day + "-D-TS-" + String(slotIndex + 1).padStart(3, "0");
     return {
       key: module + "|" + train + "|" + slot.locationId,
       module: module,
@@ -47205,8 +47429,8 @@ react-dom/cjs/react-dom-client.production.js:
       materialNo: materialNo,
       materialSerial: materialNo === "待對應物料主檔" ? "待建檔" : materialNo + "-" + trainNo + "-" + String(slot.sourceIndex || slotIndex + 1).padStart(3, "0"),
       workOrder: workOrder,
-      replaceDate: status === "空位" ? "" : "115.05." + day,
-      lastEvent: status === "正常上線" ? "預檢確認正常" : status === "觀察中" ? "列入觀察" : status === "送修中" ? "拆下送修" : status === "待修" ? "下線待修" : "未建檔"
+      replaceDate: "115.05." + day,
+      lastEvent: status === "正常上線" ? "預檢確認正常" : status === "空位" ? "拆下待補件" : status === "觀察中" ? "列入觀察" : status === "送修中" ? "拆下送修" : status === "報廢" ? "報廢結案" : status === "待修" ? "下線待修" : "未建檔"
     };
   }
 
@@ -47216,8 +47440,58 @@ react-dom/cjs/react-dom-client.production.js:
 
   function cellVisible(cell) {
     if (state.status !== "全部" && cell.status !== state.status) return false;
-    if (state.abnormalOnly && cell.status === "正常上線") return false;
     return true;
+  }
+
+  function statusBucket(status) {
+    if (status === "正常上線") return "normal";
+    if (status === "空位") return "empty";
+    if (status === "待修" || status === "下線待檢" || status === "驗收退回" || status === "逾期") return "danger";
+    if (status === "報廢") return "scrap";
+    return "process";
+  }
+
+  function currentVisibleCells() {
+    var slots = slotList();
+    var rows = trainList();
+    var cells = [];
+    rows.forEach(function (train) {
+      slots.forEach(function (slot, slotIndex) {
+        var cell = buildCell(train, slot, slotIndex);
+        if (cellVisible(cell)) cells.push(cell);
+      });
+    });
+    return cells;
+  }
+
+  function renderLegend() {
+    var items = [
+      ["normal", "正常上線"],
+      ["empty", "空坑待補件"],
+      ["danger", "異常 / 急件"],
+      ["process", "處理中"],
+      ["scrap", "報廢"]
+    ];
+    return '<div class="codex-turnaround-pit-legend">' + items.map(function (item) {
+      return '<span class="codex-turnaround-pit-legend-item"><span class="codex-turnaround-pit-swatch" data-tone="' + item[0] + '"></span>' + item[1] + '</span>';
+    }).join("") + '</div>';
+  }
+
+  function renderContextStats() {
+    var cells = currentVisibleCells();
+    var stats = cells.reduce(function (sum, cell) {
+      sum.total += 1;
+      sum[statusBucket(cell.status)] += 1;
+      return sum;
+    }, { total: 0, normal: 0, empty: 0, danger: 0, process: 0, scrap: 0 });
+    var scope = state.train === "全部" ? "18 台車" : state.train;
+    return '<div class="codex-turnaround-pit-context-stats">' +
+      '<div class="codex-turnaround-pit-stat"><span>目前範圍</span><strong>' + escapeHtml(scope + " / " + state.module) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-stat"><span>顯示坑位</span><strong>' + stats.total + '</strong></div>' +
+      '<div class="codex-turnaround-pit-stat"><span>正常上線</span><strong>' + stats.normal + '</strong></div>' +
+      '<div class="codex-turnaround-pit-stat"><span>空坑待補</span><strong>' + stats.empty + '</strong></div>' +
+      '<div class="codex-turnaround-pit-stat"><span>異常/處理中</span><strong>' + (stats.danger + stats.process + stats.scrap) + '</strong></div>' +
+    '</div>';
   }
 
   function selectedCell() {
@@ -47313,13 +47587,13 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function equipmentStatus(item) {
-    if (item.repair > 0 || item.ship > 0) return "異常";
+    if (item.repair > 0 || item.ship > 0 || item.scrap > 0) return "異常";
     if (item.watch > 0) return "觀察";
     return "正常";
   }
 
   function equipmentPriority(item) {
-    return item.repair * 1000 + item.ship * 700 + item.watch * 300 + item.onTrain;
+    return item.repair * 1000 + item.scrap * 900 + item.ship * 700 + item.watch * 300 + item.onTrain;
   }
 
   function equipmentItems() {
@@ -47339,6 +47613,7 @@ react-dom/cjs/react-dom-client.production.js:
           repair: 0,
           ship: 0,
           watch: 0,
+          scrap: 0,
           rOrders: 0,
           cells: []
         };
@@ -47354,6 +47629,7 @@ react-dom/cjs/react-dom-client.production.js:
       }
       if (cell.status === "待修") item.repair += 1;
       if (cell.status === "送修中") item.ship += 1;
+      if (cell.status === "報廢") item.scrap += 1;
       if (isRepairSerial(cell)) item.rOrders += 1;
       item.cells.push(cell);
     });
@@ -47380,6 +47656,36 @@ react-dom/cjs/react-dom-client.production.js:
     var list = equipmentItems();
     if (!state.selectedEquipment && list.length) state.selectedEquipment = list[0].key;
     return list.find(function (item) { return item.key === state.selectedEquipment; }) || list[0] || null;
+  }
+
+  function equipmentItemForCell(cell) {
+    if (!cell || !cell.slot) return null;
+    var key = equipmentKeyForSlot(cell.slot);
+    return equipmentItems().find(function (item) { return item.key === key; }) || null;
+  }
+
+  function renderWarehouseRowsForCell(cell) {
+    var item = equipmentItemForCell(cell);
+    if (!item) return "";
+    var available = item.warehouseRows.reduce(function (sum, row) { return sum + row.qty; }, 0);
+    var processing = item.repair + item.ship;
+    var actionText = available > 0 ? "可安排同型備品換上" : "目前無同型備品，需催修或請購";
+    var rows = item.warehouseRows.map(function (row) {
+      return '<div class="codex-turnaround-equipment-item"><strong>' + escapeHtml(row.warehouse + "｜" + row.location) + '</strong>' +
+        '備品序號：' + escapeHtml(row.serial) + '<br>' +
+        '物料序號：' + escapeHtml(row.materialSerial) + '　數量：' + row.qty + '　狀態：' + escapeHtml(row.status) +
+      '</div>';
+    }).join("");
+    if (!rows) rows = '<div class="codex-turnaround-equipment-item">目前沒有同型備品可用。</div>';
+    return '<div class="codex-turnaround-pit-detail-card is-spare"><h3>同型備品 / 庫房</h3>' +
+      '<div class="codex-turnaround-pit-kv"><span>對應設備</span><strong>' + escapeHtml(item.name) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>可用備品</span><strong>' + available + ' 件</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>待修/送修</span><strong>' + processing + ' 件</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>安全水位</span><strong>2 件</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>換件判斷</span><strong>' + escapeHtml(actionText) + '</strong></div>' +
+      '<div class="codex-turnaround-equipment-list">' + rows + '</div>' +
+      '<div class="codex-turnaround-pit-detail-note">這裡只顯示目前點選坑位所屬設備的同型備品，不再把所有庫房摘要放在矩陣下方。</div>' +
+    '</div>';
   }
 
   function renderEventList(events) {
@@ -47420,20 +47726,20 @@ react-dom/cjs/react-dom-client.production.js:
 
   function renderRWorkTracking(cell) {
     if (!cell.serial) {
-      return '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>R 工單追蹤</h3>' +
+      return '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>目前 C/R 工單摘要</h3>' +
         '<div class="codex-turnaround-pit-kv"><span>目前狀態</span><strong>空位，沒有可追蹤序號</strong></div>' +
-        '<div class="codex-turnaround-pit-detail-note">R 工單會掛在拆下件序號；坑位空著時不建立 R 工單。</div>' +
+        '<div class="codex-turnaround-pit-detail-note">C/R 工單會掛在拆下件序號；坑位空著時不建立追蹤單。</div>' +
       '</div>';
     }
     if (!isRepairSerial(cell)) {
-      return '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>R 工單追蹤</h3>' +
+      return '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>目前 C/R 工單摘要</h3>' +
         '<div class="codex-turnaround-pit-kv"><span>掛鉤依據</span><strong>拆下件序號</strong></div>' +
         '<div class="codex-turnaround-pit-kv"><span>目前 R 單</span><strong>沒有未結 R 工單</strong></div>' +
         '<div class="codex-turnaround-pit-kv"><span>目前序號</span><strong>' + escapeHtml(cell.serial) + '</strong></div>' +
-        '<div class="codex-turnaround-pit-detail-note">階層保留為分類：系統 → 故障零組件 → 故障子件；真正連動 C/R 工單的是序號。</div>' +
+        '<div class="codex-turnaround-pit-detail-note">矩陣只做現況判斷；正式履歷與工單操作請到 R 單清冊或正式履歷頁。</div>' +
       '</div>';
     }
-    return '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>R 工單追蹤</h3>' +
+    return '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>目前 C/R 工單摘要</h3>' +
       '<div class="codex-turnaround-pit-kv"><span>R 工單</span><strong>' + escapeHtml(rWorkOrder(cell)) + '</strong></div>' +
       '<div class="codex-turnaround-pit-kv"><span>來源 C 工單</span><strong>' + escapeHtml(sourceCOrder(cell)) + '</strong></div>' +
       '<div class="codex-turnaround-pit-kv"><span>拆下件序號</span><strong>' + escapeHtml(cell.serial) + '</strong></div>' +
@@ -47442,7 +47748,7 @@ react-dom/cjs/react-dom-client.production.js:
       '<div class="codex-turnaround-pit-kv"><span>故障子件</span><strong>' + escapeHtml(subPartName(cell.slot)) + '</strong></div>' +
       '<div class="codex-turnaround-pit-kv"><span>R 狀態</span><strong>' + escapeHtml(cell.status === "送修中" ? "送修中 / 維修追蹤" : "待判定 / 待建立維修流程") + '</strong></div>' +
       '<div class="codex-turnaround-pit-kv"><span>目前位置</span><strong>' + escapeHtml(cell.status === "送修中" ? "廠商或維修區" : "待修區") + '</strong></div>' +
-      '<div class="codex-turnaround-pit-detail-note">R 工單用序號串 C 工單、拆下、送修、回裝；階層只負責讓同仁分類和統計。</div>' +
+      '<div class="codex-turnaround-pit-detail-note">此處只顯示摘要，不提供正式操作；建立、更新、結案請回 R 單清冊處理。</div>' +
     '</div>';
   }
 
@@ -47462,8 +47768,7 @@ react-dom/cjs/react-dom-client.production.js:
     return '<div class="codex-turnaround-pit-filters">' +
       '<select class="codex-turnaround-pit-select" data-pit-filter="group">' + renderOptions(groups(), state.group) + '</select>' +
       '<select class="codex-turnaround-pit-select" data-pit-filter="train">' + renderOptions(["全部"].concat(trains), state.train) + '</select>' +
-      '<select class="codex-turnaround-pit-select" data-pit-filter="status">' + renderOptions(["全部", "正常上線", "觀察中", "待修", "送修中", "空位"], state.status) + '</select>' +
-      '<button type="button" class="codex-turnaround-pit-check ' + (state.abnormalOnly ? "is-active" : "") + '" data-pit-abnormal>' + (state.abnormalOnly ? "■" : "□") + '只看異常</button>' +
+      '<select class="codex-turnaround-pit-select" data-pit-filter="status">' + renderOptions(["全部", "正常上線", "觀察中", "待修", "送修中", "空位", "報廢"], state.status) + '</select>' +
       '<button type="button" class="codex-turnaround-pit-check ' + (state.showChildren ? "is-active" : "") + '" data-pit-children>' + (state.showChildren ? "■" : "□") + '顯示子件</button>' +
     '</div>';
   }
@@ -47484,43 +47789,69 @@ react-dom/cjs/react-dom-client.production.js:
         var selected = cell.key === state.selectedKey ? " is-selected" : "";
         return '<td><button type="button" class="codex-turnaround-pit-cell' + selected + '" data-pit-cell="' + escapeHtml(cell.key) + '">' +
           '<div class="codex-turnaround-pit-card" data-tone="' + escapeHtml(cell.tone) + '">' +
-            '<strong>' + escapeHtml(cell.serial || "空位") + '</strong>' +
-            '<span class="codex-turnaround-pit-status">' + escapeHtml(cell.status) + '</span>' +
+            '<strong>' + escapeHtml(cell.serial || "空坑待補件") + '</strong>' +
+            '<span class="codex-turnaround-pit-status">' + escapeHtml(displayStatus(cell.status)) + '</span>' +
             '<span class="codex-turnaround-pit-meta"><span>' + escapeHtml(shortWorkOrder(cell.workOrder)) + '</span><span>' + escapeHtml(cell.replaceDate || "未建檔") + '</span></span>' +
           '</div></button></td>';
       }).join("");
       return '<tr><td class="codex-turnaround-pit-train">' + escapeHtml(train) + '</td>' + cells + '</tr>';
     }).join("");
-    return '<div class="codex-turnaround-pit-matrix-wrap"><table class="codex-turnaround-pit-table"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>';
+    return '<div class="codex-turnaround-pit-scroll-help"><span>上方橫條可左右移動矩陣</span><span>車號欄固定</span></div>' +
+      '<div class="codex-turnaround-pit-scroll-top" data-pit-scroll-top><div class="codex-turnaround-pit-scroll-spacer" data-pit-scroll-spacer></div></div>' +
+      '<div class="codex-turnaround-pit-matrix-wrap" data-pit-scroll-body><table class="codex-turnaround-pit-table"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>';
+  }
+
+  function renderDetailCurrent(cell) {
+    return '<div class="codex-turnaround-pit-detail-card"><h3>現況</h3>' +
+      '<div class="codex-turnaround-pit-kv"><span>車號</span><strong>' + escapeHtml(cell.train) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>坑位代碼</span><strong>' + escapeHtml(cell.slot.locationId) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>設備名稱</span><strong>' + escapeHtml(cell.slot.name) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>系統</span><strong>' + escapeHtml(cell.slot.group) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>上層節點</span><strong>' + escapeHtml(cell.slot.parentId || "-") + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>屬性</span><strong>' + escapeHtml(cell.slot.attr) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>設備序號</span><strong>' + escapeHtml(cell.serial || "空坑待補件") + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>物料序號</span><strong>' + escapeHtml(cell.serial ? cell.materialSerial : "待補件") + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>目前狀態</span><strong>' + escapeHtml(displayStatus(cell.status)) + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>來源工單</span><strong>' + escapeHtml(cell.workOrder || "-") + '</strong></div>' +
+      '<div class="codex-turnaround-pit-kv"><span>' + (cell.status === "空位" ? "拆出日期" : "最近更換日") + '</span><strong>' + escapeHtml(cell.replaceDate || "-") + '</strong></div>' +
+      '<div class="codex-turnaround-pit-detail-note">顏色只表示健康狀態；N/A 坑位不建立主檔，所以不會出現在矩陣中。</div>' +
+    '</div>' + renderWarehouseRowsForCell(cell) + renderRWorkTracking(cell);
+  }
+
+  function renderDetailHistory(cell) {
+    // 後續移到正式履歷頁或 R 單清冊詳情；坑位矩陣右側只保留現況快看。
+    return '<div class="codex-turnaround-pit-detail-card"><h3>坑位履歷</h3>' + renderEventList(pitHistoryEvents(cell)) + '</div>' +
+      '<div class="codex-turnaround-pit-detail-card"><h3>設備序號履歷</h3>' + renderEventList(serialHistoryEvents(cell)) + '</div>';
+  }
+
+  function renderDetailWork(cell) {
+    // 後續移到正式 R 單清冊詳情；坑位矩陣右側不做正式工單操作。
+    return renderRWorkTracking(cell) +
+      '<div class="codex-turnaround-pit-detail-card"><h3>工單與動作</h3>' +
+        '<div class="codex-turnaround-pit-kv"><span>資料寫入</span><strong>正式版寫入 asset_event</strong></div>' +
+        '<div class="codex-turnaround-pit-kv"><span>快照更新</span><strong>由資料庫 trigger 更新 asset 現況</strong></div>' +
+        '<div class="codex-turnaround-pit-action-row"><button type="button">拆下送修</button><button type="button">修回入庫</button><button type="button">驗收回裝</button><button type="button">報廢結案</button></div>' +
+        '<div class="codex-turnaround-pit-detail-note">這裡先做操作入口示意；正式串接時每個動作只新增事件，不直接手改坑位快照。</div>' +
+      '</div>';
+  }
+
+  function renderDetailBody(cell) {
+    return renderDetailCurrent(cell);
   }
 
   function renderDetail() {
     var cell = selectedCell();
     if (!cell) {
-      return '<div class="codex-turnaround-pit-detail">' +
-        '<div class="codex-turnaround-pit-detail-card"><h3>坑位履歷</h3><div class="codex-turnaround-pit-kv"><span>目前選取</span><strong>請點選矩陣中的坑位</strong></div></div>' +
-        '<div class="codex-turnaround-pit-detail-card"><h3>設備序號履歷</h3><div class="codex-turnaround-pit-events"><div class="codex-turnaround-pit-event"><time>-</time><div><strong>尚未選取序號</strong>點選坑位後，這裡會展開該顆序號的入庫、裝車、下線與維修生命週期。</div></div></div></div>' +
-        '<div class="codex-turnaround-pit-detail-card is-rwork"><h3>R 工單追蹤</h3><div class="codex-turnaround-pit-kv"><span>掛鉤方式</span><strong>拆下件序號</strong></div><div class="codex-turnaround-pit-detail-note">階層用來分類；C/R 工單真正連動的是序號。</div></div>' +
-      '</div>';
+      return '<aside class="codex-turnaround-pit-drawer">' +
+        '<div class="codex-turnaround-pit-drawer-head"><div><strong>坑位詳情</strong><span>請點選左側矩陣中的坑位，右側會顯示現況、同型備品與目前 C/R 工單摘要。</span></div></div>' +
+        '<div class="codex-turnaround-pit-detail-card"><h3>尚未選取</h3><div class="codex-turnaround-pit-kv"><span>顯示方式</span><strong>右側現況快看</strong></div><div class="codex-turnaround-pit-detail-note">矩陣只做檢視與判斷；正式履歷與工單操作請到 R 單清冊或履歷頁處理。</div></div>' +
+      '</aside>';
     }
-    return '<div class="codex-turnaround-pit-detail">' +
-      '<div class="codex-turnaround-pit-detail-card"><h3>目前坑位</h3>' +
-        '<div class="codex-turnaround-pit-kv"><span>車號</span><strong>' + escapeHtml(cell.train) + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>坑位代碼</span><strong>' + escapeHtml(cell.slot.locationId) + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>設備名稱</span><strong>' + escapeHtml(cell.slot.name) + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>系統</span><strong>' + escapeHtml(cell.slot.group) + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>上層節點</span><strong>' + escapeHtml(cell.slot.parentId || "-") + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>屬性</span><strong>' + escapeHtml(cell.slot.attr) + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>設備序號</span><strong>' + escapeHtml(cell.serial || "空位 / 未建檔") + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>物料序號</span><strong>' + escapeHtml(cell.materialSerial || "-") + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>目前狀態</span><strong>' + escapeHtml(cell.status) + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>最近工單</span><strong>' + escapeHtml(cell.workOrder || "-") + '</strong></div>' +
-        '<div class="codex-turnaround-pit-kv"><span>最近更換日</span><strong>' + escapeHtml(cell.replaceDate || "-") + '</strong></div>' +
-      '</div>' +
-      '<div class="codex-turnaround-pit-detail-card"><h3>坑位履歷</h3>' + renderEventList(pitHistoryEvents(cell)) + '</div>' +
-      '<div class="codex-turnaround-pit-detail-card"><h3>設備序號履歷</h3>' + renderEventList(serialHistoryEvents(cell)) + '</div>' +
-      renderRWorkTracking(cell) +
-    '</div>';
+    var title = cell.serial || "空坑待補件";
+    return '<aside class="codex-turnaround-pit-drawer">' +
+      '<div class="codex-turnaround-pit-drawer-head"><div><strong>' + escapeHtml(title) + '</strong><span>' + escapeHtml(cell.train + "｜" + cell.slot.label + "｜" + cell.slot.name) + '</span></div><span class="codex-turnaround-pit-badge">' + escapeHtml(displayStatus(cell.status)) + '</span></div>' +
+      renderDetailBody(cell) +
+    '</aside>';
   }
 
   function renderSpares() {
@@ -47538,7 +47869,7 @@ react-dom/cjs/react-dom-client.production.js:
       sum.names += 1;
       sum.onTrain += item.onTrain;
       sum.warehouse += item.warehouse;
-      sum.risk += item.repair + item.ship;
+      sum.risk += item.repair + item.ship + item.scrap;
       sum.rOrders += item.rOrders;
       return sum;
     }, { names: 0, onTrain: 0, warehouse: 0, risk: 0, rOrders: 0 });
@@ -47553,7 +47884,7 @@ react-dom/cjs/react-dom-client.production.js:
 
   function equipmentTableHtml(list) {
     return '<div class="codex-turnaround-equipment-table-wrap"><table class="codex-turnaround-equipment-table"><thead><tr>' +
-      '<th>設備名稱</th><th>系統</th><th>物料號</th><th>車上使用</th><th>倉庫/庫房</th><th>待修</th><th>送修中</th><th>觀察中</th><th>R 工單</th><th>狀態</th>' +
+      '<th>設備名稱</th><th>系統</th><th>物料號</th><th>車上使用</th><th>倉庫/庫房</th><th>待修</th><th>送修中</th><th>報廢</th><th>觀察中</th><th>R 工單</th><th>狀態</th>' +
       '</tr></thead><tbody>' + list.map(function (item) {
         var selected = item.key === state.selectedEquipment ? " is-selected" : "";
         var statusClass = item.status === "異常" ? " is-risk" : item.status === "觀察" ? " is-watch" : "";
@@ -47565,6 +47896,7 @@ react-dom/cjs/react-dom-client.production.js:
           '<td><span class="codex-turnaround-equipment-count">' + item.warehouse + '</span></td>' +
           '<td><span class="codex-turnaround-equipment-count">' + item.repair + '</span></td>' +
           '<td><span class="codex-turnaround-equipment-count">' + item.ship + '</span></td>' +
+          '<td><span class="codex-turnaround-equipment-count">' + item.scrap + '</span></td>' +
           '<td><span class="codex-turnaround-equipment-count">' + item.watch + '</span></td>' +
           '<td><span class="codex-turnaround-equipment-count">' + item.rOrders + '</span></td>' +
           '<td><span class="codex-turnaround-equipment-status' + statusClass + '">' + escapeHtml(item.status) + '</span></td>' +
@@ -47573,7 +47905,7 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function equipmentCellSort(cell) {
-    var order = { "待修": 1, "送修中": 2, "觀察中": 3, "正常上線": 4, "空位": 9 };
+    var order = { "待修": 1, "送修中": 2, "報廢": 3, "觀察中": 4, "正常上線": 5, "空位": 9 };
     return order[cell.status] || 8;
   }
 
@@ -47589,7 +47921,7 @@ react-dom/cjs/react-dom-client.production.js:
     var cells = item.cells.slice().sort(function (a, b) {
       return equipmentCellSort(a) - equipmentCellSort(b) || a.train.localeCompare(b.train) || a.slot.locationId.localeCompare(b.slot.locationId);
     });
-    var onTrainRows = cells.filter(function (cell) { return cell.status !== "空位" && cell.status !== "送修中"; }).slice(0, 12).map(function (cell) {
+    var onTrainRows = cells.filter(function (cell) { return cell.status !== "空位" && cell.status !== "送修中" && cell.status !== "報廢"; }).slice(0, 12).map(function (cell) {
       return '<strong>' + escapeHtml(cell.train + "｜" + cell.slot.locationId + "｜" + cell.slot.name) + '</strong>' +
         '設備序號：' + escapeHtml(cell.serial || "未建檔") + '<br>' +
         '物料序號：' + escapeHtml(cell.materialSerial || "待建檔") + '<br>' +
@@ -47600,8 +47932,8 @@ react-dom/cjs/react-dom-client.production.js:
         '設備序號：' + escapeHtml(row.serial) + '<br>' +
         '物料序號：' + escapeHtml(row.materialSerial) + '　數量：' + row.qty + '　狀態：' + escapeHtml(row.status);
     });
-    var repairRows = cells.filter(function (cell) { return isRepairSerial(cell); }).map(function (cell) {
-      return '<strong>' + escapeHtml(rWorkOrder(cell) || "待建立 R 工單") + '</strong>' +
+    var repairRows = cells.filter(function (cell) { return isRepairSerial(cell) || cell.status === "報廢"; }).map(function (cell) {
+      return '<strong>' + escapeHtml(cell.status === "報廢" ? "報廢結案" : (rWorkOrder(cell) || "待建立 R 工單")) + '</strong>' +
         '來源 C：' + escapeHtml(sourceCOrder(cell)) + '<br>' +
         '拆下件：' + escapeHtml(cell.serial) + '　坑位：' + escapeHtml(cell.slot.locationId) + '<br>' +
         '故障子件：' + escapeHtml(subPartName(cell.slot)) + '<br>' +
@@ -47622,7 +47954,7 @@ react-dom/cjs/react-dom-client.production.js:
         '<section class="codex-turnaround-pit-panel">' +
           '<div class="codex-turnaround-pit-head">' +
             '<div><h2 class="codex-turnaround-pit-title">設備名稱總覽</h2><div class="codex-turnaround-pit-subtitle">以 TS101 正式坑位主檔彙整設備名稱、設備序號、坑位、倉庫/庫房與 R 工單狀態。</div></div>' +
-            '<div class="codex-turnaround-pit-tabs"><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="list">回 R 工單清單</button><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="matrix">坑位矩陣</button></div>' +
+            '<div class="codex-turnaround-pit-tabs"><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="list">R 單清冊</button><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="matrix">坑位矩陣</button></div>' +
           '</div>' +
           equipmentSummaryHtml(list) +
           equipmentTableHtml(list) +
@@ -47637,14 +47969,13 @@ react-dom/cjs/react-dom-client.production.js:
       '<div class="codex-turnaround-pit-shell">' +
         '<section class="codex-turnaround-pit-panel">' +
           '<div class="codex-turnaround-pit-head">' +
-            '<div><h2 class="codex-turnaround-pit-title">周轉件坑位視覺化矩陣</h2><div class="codex-turnaround-pit-subtitle">以 TS101 正式坑位主檔延伸 18 台車；預設只看異常並收合子件，需要追細項時再展開。</div></div>' +
-            '<div class="codex-turnaround-pit-tabs"><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="list">回 R 工單清單</button><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="equipment">設備名稱總覽</button>' + renderTabs() + '</div>' +
+            '<div><h2 class="codex-turnaround-pit-title">周轉件坑位視覺化矩陣</h2><div class="codex-turnaround-pit-subtitle">以 TS101 正式坑位主檔延伸 18 台車；顏色只表示健康狀態，點坑位後在右側查看現況、同型備品與目前 C/R 工單摘要。</div></div>' +
+            '<div class="codex-turnaround-pit-tabs"><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="list">R 單清冊</button><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="equipment">設備名稱總覽</button>' + renderTabs() + '</div>' +
           '</div>' +
           '<div class="codex-turnaround-pit-head" style="padding-top:0;">' + renderFilters() + '</div>' +
-          renderMatrix() +
-          renderDetail() +
+          renderLegend() +
+          '<div class="codex-turnaround-pit-workspace"><div class="codex-turnaround-pit-main">' + renderMatrix() + renderContextStats() + '</div>' + renderDetail() + '</div>' +
         '</section>' +
-        '<section class="codex-turnaround-pit-panel"><div class="codex-turnaround-pit-head"><div><h3 class="codex-turnaround-pit-title" style="font-size:18px;">倉庫/庫房</h3><div class="codex-turnaround-pit-subtitle">庫房內周轉件獨立顯示，不混在車上坑位矩陣。</div></div></div>' + renderSpares() + '</section>' +
       '</div>' +
     '</div>';
   }
@@ -47654,6 +47985,7 @@ react-dom/cjs/react-dom-client.production.js:
       button.addEventListener("click", function () {
         state.module = button.getAttribute("data-pit-module") || "M1";
         state.selectedKey = "";
+        state.detailTab = "current";
         draw(root);
       });
     });
@@ -47661,28 +47993,23 @@ react-dom/cjs/react-dom-client.production.js:
       select.addEventListener("change", function () {
         state[select.getAttribute("data-pit-filter")] = select.value;
         state.selectedKey = "";
+        state.detailTab = "current";
         draw(root);
       });
     });
-    var abnormal = root.querySelector("[data-pit-abnormal]");
-    if (abnormal) {
-      abnormal.addEventListener("click", function () {
-        state.abnormalOnly = !state.abnormalOnly;
-        state.selectedKey = "";
-        draw(root);
-      });
-    }
     var children = root.querySelector("[data-pit-children]");
     if (children) {
       children.addEventListener("click", function () {
         state.showChildren = !state.showChildren;
         state.selectedKey = "";
+        state.detailTab = "current";
         draw(root);
       });
     }
     Array.prototype.forEach.call(root.querySelectorAll("[data-pit-cell]"), function (button) {
       button.addEventListener("click", function () {
         state.selectedKey = button.getAttribute("data-pit-cell") || "";
+        state.detailTab = "current";
         draw(root);
       });
     });
@@ -47694,10 +48021,43 @@ react-dom/cjs/react-dom-client.production.js:
     });
   }
 
+  function syncPitMatrixScroll(root) {
+    var top = root.querySelector("[data-pit-scroll-top]");
+    var body = root.querySelector("[data-pit-scroll-body]");
+    var spacer = root.querySelector("[data-pit-scroll-spacer]");
+    var table = root.querySelector(".codex-turnaround-pit-table");
+    if (!top || !body || !spacer || !table) return;
+    var syncing = false;
+    function fit() {
+      spacer.style.width = table.scrollWidth + "px";
+      top.scrollLeft = body.scrollLeft;
+    }
+    top.addEventListener("scroll", function () {
+      if (syncing) return;
+      syncing = true;
+      body.scrollLeft = top.scrollLeft;
+      syncing = false;
+    });
+    body.addEventListener("scroll", function () {
+      if (syncing) return;
+      syncing = true;
+      top.scrollLeft = body.scrollLeft;
+      syncing = false;
+    });
+    if (window.ResizeObserver) {
+      var observer = new ResizeObserver(fit);
+      observer.observe(table);
+      observer.observe(body);
+    }
+    fit();
+    setTimeout(fit, 0);
+  }
+
   function draw(target) {
     var root = target || document.getElementById("codex-turnaround-pit-route-host") || document.getElementById("codex-turnaround-route-host") || document.getElementById("codex-rwork-root") || document.getElementById("codex-turnaround-root");
     if (!root) return;
     root.innerHTML = rootHtml();
+    syncPitMatrixScroll(root);
     bind(root);
   }
 
@@ -47732,6 +48092,33 @@ react-dom/cjs/react-dom-client.production.js:
     return visible || candidates[0] || null;
   }
 
+  function rworkRouteRoots() {
+    return [
+      document.getElementById("codex-turnaround-route-host"),
+      document.getElementById("codex-rwork-root"),
+      document.getElementById("codex-turnaround-root")
+    ].filter(Boolean);
+  }
+
+  function hideRworkRouteRoots() {
+    var pitHost = document.getElementById("codex-turnaround-pit-route-host");
+    rworkRouteRoots().forEach(function (node) {
+      if (pitHost && node.contains(pitHost)) {
+        Array.prototype.forEach.call(node.querySelectorAll("#codex-rwork-root,#codex-turnaround-root"), function (child) {
+          child.hidden = true;
+        });
+        return;
+      }
+      node.hidden = true;
+    });
+  }
+
+  function showRworkRouteRoots() {
+    rworkRouteRoots().forEach(function (node) {
+      node.hidden = false;
+    });
+  }
+
   function removePitHost() {
     var host = document.getElementById("codex-turnaround-pit-route-host");
     if (host) host.remove();
@@ -47752,12 +48139,15 @@ react-dom/cjs/react-dom-client.production.js:
   function keepTurnaroundRouteOnly() {
     var main = routeMain();
     var keepIds = {
-      "codex-turnaround-route-host": true,
       "codex-turnaround-pit-route-host": true,
       "codex-turnaround-view-switch-host": true
     };
+    if (activeRouteView === "list") {
+      keepIds["codex-turnaround-route-host"] = true;
+    }
     Array.prototype.forEach.call(main.children, function (child) {
-      var keep = !!keepIds[child.id] || !!child.querySelector("#codex-rwork-root,#codex-turnaround-root,#codex-turnaround-pit-route-host,#codex-turnaround-pit-matrix-root");
+      var keepListContent = activeRouteView === "list" && !!child.querySelector("#codex-rwork-root,#codex-turnaround-root");
+      var keep = !!keepIds[child.id] || keepListContent || !!child.querySelector("#codex-turnaround-pit-route-host,#codex-turnaround-pit-matrix-root");
       child.hidden = !keep;
     });
   }
@@ -47781,7 +48171,7 @@ react-dom/cjs/react-dom-client.production.js:
       host.setAttribute("data-active-view", activeRouteView);
       host.innerHTML = '<div class="codex-turnaround-view-switch" aria-label="周轉件快捷切換">' +
         '<span>快捷切換</span>' +
-        '<button type="button" class="' + (activeRouteView === "list" ? "is-active" : "") + '" data-turnaround-view="list">R 工單清單（首頁）</button>' +
+        '<button type="button" class="' + (activeRouteView === "list" ? "is-active" : "") + '" data-turnaround-view="list">R 單清冊</button>' +
         '<button type="button" class="' + (activeRouteView === "matrix" ? "is-active" : "") + '" data-turnaround-view="matrix">坑位矩陣</button>' +
         '<button type="button" class="' + (activeRouteView === "equipment" ? "is-active" : "") + '" data-turnaround-view="equipment">設備名稱總覽</button>' +
       '</div>';
@@ -47789,7 +48179,7 @@ react-dom/cjs/react-dom-client.production.js:
         button.addEventListener("click", function (event) {
           event.preventDefault();
           event.stopPropagation();
-          activeRouteView = button.getAttribute("data-turnaround-view") || "list";
+          activeRouteView = button.getAttribute("data-turnaround-view") || "matrix";
           if (activeRouteView === "matrix") {
             showPitMatrix(true);
           } else if (activeRouteView === "equipment") {
@@ -47804,22 +48194,24 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function showListHome(scroll) {
+    activeRouteView = "list";
     removePitHost();
-    removeSwitchHost();
+    showRworkRouteRoots();
     var root = visibleRworkRoot();
-    if (root) root.hidden = false;
     keepTurnaroundRouteOnly();
+    ensureSwitchHost();
     if (scroll && root) root.scrollIntoView({ block: "start" });
   }
 
   function showPitMatrix(scroll) {
+    activeRouteView = "matrix";
     Array.prototype.forEach.call(document.querySelectorAll(".codex-pm-calendar-host"), function (host) {
       host.remove();
     });
     var main = routeMain();
     removeSwitchHost();
     var rworkRoot = visibleRworkRoot();
-    if (rworkRoot) rworkRoot.hidden = true;
+    hideRworkRouteRoots();
     var root = document.getElementById("codex-turnaround-pit-route-host");
     if (!root) {
       root = document.createElement("div");
@@ -47842,17 +48234,19 @@ react-dom/cjs/react-dom-client.production.js:
       }
     }
     keepTurnaroundRouteOnly();
+    hideRworkRouteRoots();
     if (scroll) root.scrollIntoView({ block: "start" });
   }
 
   function showEquipmentOverview(scroll) {
+    activeRouteView = "equipment";
     Array.prototype.forEach.call(document.querySelectorAll(".codex-pm-calendar-host"), function (host) {
       host.remove();
     });
     var main = routeMain();
     removeSwitchHost();
     var rworkRoot = visibleRworkRoot();
-    if (rworkRoot) rworkRoot.hidden = true;
+    hideRworkRouteRoots();
     var root = document.getElementById("codex-turnaround-pit-route-host");
     if (!root) {
       root = document.createElement("div");
@@ -47875,6 +48269,7 @@ react-dom/cjs/react-dom-client.production.js:
       }
     }
     keepTurnaroundRouteOnly();
+    hideRworkRouteRoots();
     if (scroll) root.scrollIntoView({ block: "start" });
   }
 
