@@ -28082,7 +28082,8 @@ react-dom/cjs/react-dom-client.production.js:
     const planningAutoMonths = {};
     const planningAutoPreviousDates = {};
     let planningAutoSummary = null;
-    const planningHolidayOverrides = {};
+    const planningHolidayOverridesStorageKey = "codexPmPlanningHolidayOverrides";
+    const planningHolidayOverrides = planningLoadHolidayOverrides();
     const planningManualHolidayCells = {};
     const planningCompletionRecordsStorageKey = "codexPmPlanningCompletionRecords";
     const planningCompletionRecords = planningLoadCompletionRecords();
@@ -28129,6 +28130,23 @@ react-dom/cjs/react-dom-client.production.js:
       "2026-12-27": "行憲紀念日連假"
     };
     const planningOfficialWorkdayLabels = {};
+
+    function planningLoadHolidayOverrides() {
+      try {
+        const savedHolidays = JSON.parse(window.localStorage?.getItem(planningHolidayOverridesStorageKey) || "{}") || {};
+        return savedHolidays && typeof savedHolidays === "object" && !Array.isArray(savedHolidays) ? savedHolidays : {};
+      } catch (error) {
+        return {};
+      }
+    }
+
+    function planningSaveHolidayOverrides() {
+      try {
+        window.localStorage?.setItem(planningHolidayOverridesStorageKey, JSON.stringify(planningHolidayOverrides));
+      } catch (error) {
+        // localStorage may be unavailable in some embedded previews; in-memory holiday edits still keep the current page correct.
+      }
+    }
 
     function planningLoadCompletionRecords() {
       try {
@@ -30954,7 +30972,10 @@ react-dom/cjs/react-dom-client.production.js:
               <h3>作業包欄位盤點｜${escapeHtml(pack.label)} ${escapeHtml(pack.period)}</h3>
               <p>先把 1M 封面所有欄位固定下來；後續 P2/P3/P4 只換欄位內容，不換欄位架構。</p>
             </div>
-            <span class="codex-pm-level-pill">${escapeHtml(pack.sourceFile)}</span>
+            <div class="codex-pm-actions">
+              <button type="button" class="codex-pm-soft-button" data-work-package-inventory-back>返回月曆總覽</button>
+              <span class="codex-pm-level-pill">${escapeHtml(pack.sourceFile)}</span>
+            </div>
           </div>
           <div class="codex-pm-auto-grid">
             ${renderAutoField(["表單來源", pack.formTitle, "RTF 範本"], true)}
@@ -32288,6 +32309,7 @@ react-dom/cjs/react-dom-client.production.js:
       const holidays = planningHolidayMap();
       if (holidays[day]) delete holidays[day];
       else holidays[day] = true;
+      planningSaveHolidayOverrides();
     }
 
     function isMaintenanceToken(value) {
@@ -34320,6 +34342,15 @@ react-dom/cjs/react-dom-client.production.js:
           if (Number.isFinite(nextYear)) planningYear = nextYear;
           planningSection = "simple";
           activeView = "planning";
+          renderCenter(container);
+        });
+      });
+
+      container.querySelectorAll("[data-work-package-inventory-back]").forEach((button) => {
+        button.addEventListener("click", () => {
+          workPackageReferenceOpen = false;
+          activeManagementSection = "";
+          activeView = "calendar";
           renderCenter(container);
         });
       });
