@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>清單管理原型</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --panel-soft: #f8fafc;
+      --line: #d9e1ec;
+      --line-strong: #b8c4d4;
+      --text: #162033;
+      --muted: #64748b;
+      --accent: #0f8b8d;
+      --accent-dark: #0b6264;
+      --accent-soft: #e6f6f6;
+      --warn: #b7791f;
+      --warn-soft: #fff7df;
+      --danger: #bf3b3b;
+      --danger-soft: #fff0f0;
+      --ok: #1f7a4d;
+      --ok-soft: #eaf8f0;
+      --shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Microsoft JhengHei", "Noto Sans TC", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+      letter-spacing: 0;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-right: 1px solid var(--line);
+      background: #102033;
+      color: #eef6ff;
+      padding: 18px;
+    }
+
+    .brand {
+      display: grid;
+      gap: 4px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .brand strong {
+      font-size: 18px;
+    }
+
+    .brand span {
+      color: #a9bdd4;
+      font-size: 12px;
+    }
+
+    .nav {
+      display: grid;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .nav button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 42px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: #d8e5f5;
+      padding: 0 12px;
+      text-align: left;
+    }
+
+    .nav button:hover,
+    .nav button.is-active {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.09);
+      color: #ffffff;
+    }
+
+    .nav small {
+      color: #9ab0ca;
+      font-size: 11px;
+    }
+
+    .main {
+      min-width: 0;
+      padding: 22px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .title p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .button {
+      min-height: 38px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--text);
+      padding: 0 12px;
+      font-weight: 700;
+    }
+
+    .button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: white;
+    }
+
+    .button.danger {
+      border-color: var(--danger);
+      background: var(--danger);
+      color: white;
+    }
+
+    .button.ghost {
+      border-color: transparent;
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    .toolbar,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) 160px 160px;
+      gap: 10px;
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--text);
+      padding: 8px 10px;
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 78px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(15, 139, 141, 0.12);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 24px;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding: 14px;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .table-wrap {
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 920px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 11px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--panel-soft);
+      color: #415169;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    tr:hover td {
+      background: #fbfdff;
+    }
+
+    .row-title {
+      display: grid;
+      gap: 3px;
+      min-width: 180px;
+    }
+
+    .row-title strong {
+      color: var(--text);
+    }
+
+    .row-title span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border-radius: 999px;
+      padding: 0 9px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .badge.ok {
+      background: var(--ok-soft);
+      color: var(--ok);
+    }
+
+    .badge.warn {
+      background: var(--warn-soft);
+      color: var(--warn);
+    }
+
+    .badge.danger {
+      background: var(--danger-soft);
+      color: var(--danger);
+    }
+
+    .badge.neutral {
+      background: #edf2f7;
+      color: #536276;
+    }
+
+    .row-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-width: 220px;
+    }
+
+    .row-actions button {
+      min-height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--text);
+      padding: 0 9px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .row-actions button:hover {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .empty {
+      display: grid;
+      place-items: center;
+      min-height: 260px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: none;
+    }
+
+    .drawer.is-open {
+      display: block;
+    }
+
+    .drawer-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.42);
+    }
+
+    .drawer-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(560px, 100%);
+      height: 100%;
+      overflow: auto;
+      background: var(--panel);
+      box-shadow: -20px 0 50px rgba(15, 23, 42, 0.18);
+    }
+
+    .drawer-head {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      padding: 16px;
+    }
+
+    .drawer-head h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .drawer-body {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .drawer-foot {
+      position: sticky;
+      bottom: 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      border-top: 1px solid var(--line);
+      background: var(--panel);
+      padding: 14px 16px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .form-grid .wide {
+      grid-column: 1 / -1;
+    }
+
+    .alert {
+      border: 1px solid var(--warn);
+      border-radius: 8px;
+      background: var(--warn-soft);
+      color: #744b00;
+      padding: 10px 12px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      z-index: 50;
+      display: none;
+      min-width: min(460px, calc(100vw - 28px));
+      transform: translateX(-50%);
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: #102033;
+      color: #fff;
+      box-shadow: var(--shadow);
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+
+    .toast.is-open {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toast button {
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 8px;
+      background: transparent;
+      color: #fff;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .confirm {
+      position: fixed;
+      inset: 0;
+      z-index: 45;
+      display: none;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .confirm.is-open {
+      display: grid;
+    }
+
+    .confirm-card {
+      width: min(440px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .confirm-card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .confirm-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .confirm-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .history {
+      display: grid;
+      gap: 8px;
+      max-height: 260px;
+      overflow: auto;
+    }
+
+    .history-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-soft);
+      padding: 10px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .history-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .history-item span {
+      color: var(--muted);
+    }
+
+    @media (max-width: 960px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+      }
+
+      .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+
+      .toolbar,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .main {
+        padding: 14px;
+      }
+
+      .nav {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .drawer-panel {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <strong>資料清單管理</strong>
+        <span>主檔、序號、工單前置資料</span>
+      </div>
+      <nav class="nav" id="nav"></nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="title">
+          <h1 id="pageTitle">物料清單</h1>
+          <p id="pageSubtitle">新增、編輯、停用與還原。</p>
+        </div>
+        <div class="actions">
+          <button class="button" id="historyButton" type="button">異動紀錄</button>
+          <button class="button" id="exportButton" type="button">匯出 JSON</button>
+          <button class="button primary" id="addButton" type="button">新增</button>
+        </div>
+      </div>
+
+      <section class="stats" id="stats"></section>
+
+      <section class="toolbar">
+        <div class="field">
+          <label for="searchInput">搜尋</label>
+          <input id="searchInput" placeholder="輸入料號、名稱、序號、狀態">
+        </div>
+        <div class="field">
+          <label for="statusFilter">狀態</label>
+          <select id="statusFilter">
+            <option value="active">啟用</option>
+            <option value="inactive">停用</option>
+            <option value="all">全部</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sortMode">排序</label>
+          <select id="sortMode">
+            <option value="updated">最近更新</option>
+            <option value="name">名稱</option>
+            <option value="status">狀態</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2 id="tableTitle">資料列表</h2>
+          <span class="badge neutral" id="countBadge">0 筆</span>
+        </div>
+        <div class="table-wrap" id="tableWrap"></div>
+      </section>
+    </main>
+  </div>
+
+  <section class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <div class="drawer-panel">
+      <form id="itemForm">
+        <div class="drawer-head">
+          <h2 id="drawerTitle">新增</h2>
+          <button class="button ghost" type="button" data-close-drawer>關閉</button>
+        </div>
+        <div class="drawer-body">
+          <div class="alert" id="duplicateAlert" hidden></div>
+          <div class="form-grid" id="formFields"></div>
+        </div>
+        <div class="drawer-foot">
+          <button class="button" type="button" data-close-drawer>取消</button>
+          <button class="button primary" type="submit">儲存</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="drawer" id="historyDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close-history></div>
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <h2>異動紀錄</h2>
+        <button class="button ghost" type="button" data-close-history>關閉</button>
+      </div>
+      <div class="drawer-body">
+        <div class="history" id="historyList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="confirm" id="confirmBox" aria-hidden="true">
+    <div class="drawer-backdrop"></div>
+    <div class="confirm-card">
+      <h2 id="confirmTitle">確認</h2>
+      <p id="confirmText"></p>
+      <div class="confirm-actions">
+        <button class="button" type="button" id="cancelConfirm">取消</button>
+        <button class="button danger" type="button" id="okConfirm">確認</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const apiBaseUrl = window.API_BASE_URL || "http://localhost:3001/api";
+    const apiBackedTypes = new Set(["materials", "inventory", "warehouses"]);
+    const nowText = () => new Date().toLocaleString("zh-TW", { hour12: false });
+    const uid = () => "id-" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+
+    const configs = {
+      materials: {
+        label: "物料",
+        title: "物料清單",
+        subtitle: "料號、品名、庫存規則與是否序號管理。",
+        keyLabel: "料號",
+        unique: "partNo",
+        columns: [
+          ["partNo", "料號"],
+          ["name", "物料名稱"],
+          ["system", "系統別"],
+          ["property", "屬性"],
+          ["stock", "可發料"],
+          ["issuedStock", "已領出"],
+          ["reorderPoint", "請購點"],
+          ["status", "狀態"]
+        ],
+        fields: [
+          { key: "partNo", label: "料號", required: true, placeholder: "50.88.0010.LO" },
+          { key: "name", label: "物料名稱", required: true, placeholder: "空調控制器保險絲" },
+          { key: "spec", label: "規格", wide: true, placeholder: "尺寸、容量、材質、適用位置" },
+          { key: "unit", label: "單位", placeholder: "PC / ST / 組" },
+          { key: "system", label: "系統別", type: "select", options: ["共通性物料", "車門系統", "空調系統", "煞車系統", "電聯車系統"] },
+          { key: "property", label: "物料屬性", type: "select", options: ["系統備品", "消耗品", "磨耗件", "機廠設備"] },
+          { key: "stock", label: "目前庫存", type: "number", defaultValue: 0 },
+          { key: "reorderPoint", label: "請購點", type: "number", defaultValue: 0 },
+          { key: "serialized", label: "序號管理", type: "select", options: ["否", "是"] },
+          { key: "safetyLevel", label: "安全等級", type: "select", options: ["4", "3", "2", "1", "未分類"] },
+          { key: "note", label: "備註", type: "textarea", wide: true }
+        ]
+      },
+      inventory: {
+        label: "庫存",
+        title: "庫存摘要",
+        subtitle: "中心倉庫可發料、已領出、使用中與不可用數量。",
+        keyLabel: "料號",
+        unique: "partNo",
+        readOnly: true,
+        columns: [
+          ["partNo", "料號"],
+          ["name", "物料名稱"],
+          ["availableQty", "可發料"],
+          ["issuedQty", "已領出"],
+          ["totalQty", "追蹤總量"],
+          ["stockAdvice", "建議"],
+          ["status", "狀態"]
+        ],
+        fields: []
+      },
+      warehouses: {
+        label: "倉庫/儲位",
+        title: "倉庫與儲位",
+        subtitle: "中心倉庫、分存站、現場位置與儲位數。",
+        keyLabel: "倉庫代碼",
+        unique: "warehouseCode",
+        readOnly: true,
+        columns: [
+          ["warehouseCode", "代碼"],
+          ["name", "名稱"],
+          ["locationType", "位置類型"],
+          ["defaultStockStatus", "預設狀態"],
+          ["binCount", "儲位數"],
+          ["issueDestination", "領出位置"],
+          ["status", "狀態"]
+        ],
+        fields: []
+      },
+      assets: {
+        label: "設備序號",
+        title: "設備序號清單",
+        subtitle: "周轉件、可修件與有履歷需求的設備個體。",
+        keyLabel: "設備序號",
+        unique: "serialNo",
+        columns: [
+          ["serialNo", "設備序號"],
+          ["partNo", "料號"],
+          ["name", "設備名稱"],
+          ["currentStatus", "目前狀態"],
+          ["location", "位置"],
+          ["lastWorkOrder", "最近工單"],
+          ["status", "狀態"]
+        ],
+        fields: [
+          { key: "serialNo", label: "設備序號", required: true, placeholder: "DCU-L-009" },
+          { key: "partNo", label: "料號", required: true, placeholder: "50.88.0005.LO" },
+          { key: "name", label: "設備名稱", required: true, placeholder: "門控器" },
+          { key: "group", label: "設備群組", type: "select", options: ["DCU", "EHU", "AC", "BCU", "MOTOR", "GEAR"] },
+          { key: "currentStatus", label: "目前狀態", type: "select", options: ["備品庫存", "上線使用中", "待修", "送修中", "回庫可用", "已報廢"] },
+          { key: "location", label: "目前位置", placeholder: "淡海倉庫 A-01 / 101車 M1" },
+          { key: "lastWorkOrder", label: "最近工單", placeholder: "P-1150515-D-TS-001" },
+          { key: "note", label: "備註", type: "textarea", wide: true }
+        ]
+      },
+      instruments: {
+        label: "儀器",
+        title: "儀器清單",
+        subtitle: "儀器編號、校驗日期、保管人與使用狀態。",
+        keyLabel: "儀器編號",
+        unique: "instrumentNo",
+        columns: [
+          ["instrumentNo", "儀器編號"],
+          ["name", "儀器名稱"],
+          ["type", "類型"],
+          ["keeper", "保管人"],
+          ["calibration", "校驗到期"],
+          ["useStatus", "使用狀態"],
+          ["status", "狀態"]
+        ],
+        fields: [
+          { key: "instrumentNo", label: "儀器編號", required: true, placeholder: "V123456" },
+          { key: "name", label: "儀器名稱", required: true, placeholder: "紅外線測溫槍" },
+          { key: "type", label: "類型", type: "select", options: ["量測儀器", "手工具", "專用工具"] },
+          { key: "location", label: "放置位置", placeholder: "車輛課儀器櫃" },
+          { key: "keeper", label: "保管人", placeholder: "李孟哲" },
+          { key: "calibration", label: "校驗到期", type: "date" },
+          { key: "useStatus", label: "使用狀態", type: "select", options: ["可使用", "即將到期", "需校驗", "停用"] },
+          { key: "note", label: "備註", type: "textarea", wide: true }
+        ]
+      },
+      wi: {
+        label: "WI",
+        title: "WI 清單",
+        subtitle: "工作說明書編號、版本與適用系統。",
+        keyLabel: "WI 編號",
+        unique: "wiNo",
+        columns: [
+          ["wiNo", "WI 編號"],
+          ["name", "名稱"],
+          ["type", "類型"],
+          ["version", "版本"],
+          ["useStatus", "文件狀態"],
+          ["status", "狀態"]
+        ],
+        fields: [
+          { key: "wiNo", label: "WI 編號", required: true, placeholder: "3-WI-H110-ERS010" },
+          { key: "name", label: "名稱", required: true, placeholder: "空調控制器檢查程序" },
+          { key: "type", label: "類型", type: "select", options: ["車輛系統", "車門系統", "煞車系統", "空調系統", "通用"] },
+          { key: "version", label: "版本", placeholder: "Rev.0" },
+          { key: "useStatus", label: "文件狀態", type: "select", options: ["啟用", "停用", "待修訂"] },
+          { key: "note", label: "備註", type: "textarea", wide: true }
+        ]
+      },
+      users: {
+        label: "人員",
+        title: "人員清單",
+        subtitle: "派工、經手、保管、審核會用到的人員。",
+        keyLabel: "員工代碼",
+        unique: "employeeNo",
+        columns: [
+          ["employeeNo", "員工代碼"],
+          ["name", "姓名"],
+          ["department", "部門"],
+          ["role", "角色"],
+          ["status", "狀態"]
+        ],
+        fields: [
+          { key: "employeeNo", label: "員工代碼", required: true, placeholder: "U011" },
+          { key: "name", label: "姓名", required: true, placeholder: "王志豪" },
+          { key: "department", label: "部門", placeholder: "車輛課" },
+          { key: "role", label: "角色", type: "select", options: ["主管", "承辦", "庫管", "驗收", "外修窗口"] },
+          { key: "note", label: "備註", type: "textarea", wide: true }
+        ]
+      }
+    };
+
+    const seed = {
+      materials: [
+        { id: uid(), partNo: "50.88.0004.LO", name: "R134快速接頭", spec: "適用於填充R134冷媒", unit: "ST", system: "共通性物料", property: "系統備品", stock: 12, reorderPoint: 4, serialized: "是", safetyLevel: "4", status: "active", updatedAt: nowText() },
+        { id: uid(), partNo: "50.94.0054.LO", name: "管束", spec: "不鏽鋼 #410，22mm-32mm", unit: "PC", system: "共通性物料", property: "消耗品", stock: 8, reorderPoint: 16, serialized: "否", safetyLevel: "4", status: "active", updatedAt: nowText() }
+      ],
+      assets: [
+        { id: uid(), serialNo: "DCU-L-003", partNo: "50.88.0005.LO", name: "門控器", group: "DCU", currentStatus: "待修", location: "機廠待修區", lastWorkOrder: "R-1150513-D-TS-002", status: "active", updatedAt: nowText() },
+        { id: uid(), serialNo: "PA-IP-AMP-0008", partNo: "PA-IP-AMP", name: "車載通訊系統", group: "AC", currentStatus: "上線使用中", location: "103車 M2", lastWorkOrder: "P-1150513-D-TS-001", status: "active", updatedAt: nowText() }
+      ],
+      instruments: [
+        { id: uid(), instrumentNo: "15530037", name: "絕緣電阻計", type: "量測儀器", location: "車輛課儀器櫃", keeper: "李孟哲", calibration: "2026-12-31", useStatus: "可使用", status: "active", updatedAt: nowText() },
+        { id: uid(), instrumentNo: "V090166", name: "壓力錶", type: "量測儀器", location: "車輛課儀器櫃", keeper: "蔡佳慶", calibration: "2026-06-30", useStatus: "需校驗", status: "active", updatedAt: nowText() }
+      ],
+      wi: [
+        { id: uid(), wiNo: "3-WI-H110-ERS001", name: "車輛外觀與一般檢查", type: "車輛系統", version: "Rev.0", useStatus: "啟用", status: "active", updatedAt: nowText() },
+        { id: uid(), wiNo: "3-WI-H110-ERS004", name: "空調系統檢查", type: "空調系統", version: "Rev.0", useStatus: "啟用", status: "active", updatedAt: nowText() }
+      ],
+      users: [
+        { id: uid(), employeeNo: "U001", name: "楊文甲", department: "車輛課", role: "主管", status: "active", updatedAt: nowText() },
+        { id: uid(), employeeNo: "U002", name: "李孟哲", department: "車輛課", role: "承辦", status: "active", updatedAt: nowText() }
+      ],
+      inventory: [],
+      warehouses: [],
+      history: []
+    };
+
+    let state = loadState();
+    let currentType = "materials";
+    let editingId = "";
+    let confirmCallback = null;
+    let lastUndo = null;
+    let refreshTimer = null;
+    let materialRequestSeq = 0;
+    const apiStatus = {
+      materials: {
+        loading: false,
+        error: "",
+        total: 0
+      },
+      inventory: {
+        loading: false,
+        error: "",
+        total: 0
+      },
+      warehouses: {
+        loading: false,
+        error: "",
+        total: 0
+      }
+    };
+
+    const nav = document.getElementById("nav");
+    const pageTitle = document.getElementById("pageTitle");
+    const pageSubtitle = document.getElementById("pageSubtitle");
+    const addButton = document.getElementById("addButton");
+    const searchInput = document.getElementById("searchInput");
+    const statusFilter = document.getElementById("statusFilter");
+    const sortMode = document.getElementById("sortMode");
+    const tableWrap = document.getElementById("tableWrap");
+    const countBadge = document.getElementById("countBadge");
+    const tableTitle = document.getElementById("tableTitle");
+    const stats = document.getElementById("stats");
+    const drawer = document.getElementById("drawer");
+    const itemForm = document.getElementById("itemForm");
+    const formFields = document.getElementById("formFields");
+    const drawerTitle = document.getElementById("drawerTitle");
+    const duplicateAlert = document.getElementById("duplicateAlert");
+    const toast = document.getElementById("toast");
+    const confirmBox = document.getElementById("confirmBox");
+    const confirmTitle = document.getElementById("confirmTitle");
+    const confirmText = document.getElementById("confirmText");
+    const cancelConfirm = document.getElementById("cancelConfirm");
+    const okConfirm = document.getElementById("okConfirm");
+    const historyDrawer = document.getElementById("historyDrawer");
+    const historyList = document.getElementById("historyList");
+
+    function loadState() {
+      const initial = structuredClone(seed);
+      initial.materials = [];
+      return initial;
+    }
+
+    function saveState() {
+      // This prototype now reads/writes API-backed data directly.
+      // Non-API lists are kept only in memory until their backend endpoints are added.
+    }
+
+    function addHistory(action, type, item, detail) {
+      const config = configs[type];
+      const key = item && config ? item[config.unique] : "";
+      state.history.unshift({
+        id: uid(),
+        time: nowText(),
+        action,
+        type: config ? config.label : type,
+        key,
+        detail: detail || ""
+      });
+      state.history = state.history.slice(0, 80);
+    }
+
+    function isApiBacked(type = currentType) {
+      return apiBackedTypes.has(type);
+    }
+
+    async function apiRequest(path, options = {}) {
+      const response = await fetch(`${apiBaseUrl}${path}`, {
+        ...options,
+        headers: {
+          "Content-Type": "application/json",
+          ...(options.headers || {})
+        }
+      });
+      if (!response.ok) {
+        let message = `API ${response.status}`;
+        try {
+          const data = await response.json();
+          message = data?.error?.message || message;
+        } catch (error) {
+          message = response.statusText || message;
+        }
+        throw new Error(message);
+      }
+      if (response.status === 204) return null;
+      return response.json();
+    }
+
+    function mapMaterialFromApi(item) {
+      const availableQty = Number(item.stock?.availableQty || 0);
+      const issuedQty = Number(item.stock?.issuedQty || 0);
+      return {
+        id: item.id,
+        partNo: item.partNo,
+        name: item.materialName,
+        spec: item.spec || "",
+        unit: item.unit || "",
+        system: item.systemName || "",
+        property: item.materialProperty || item.materialType || "",
+        stock: availableQty,
+        issuedStock: issuedQty,
+        totalStock: Number(item.stock?.totalTrackedQty || 0),
+        reorderPoint: Number(item.reorderPoint || 0),
+        serialized: item.isSerialized ? "是" : "否",
+        safetyLevel: item.safetyLevel || "未分類",
+        note: item.reviewNote || "",
+        status: item.isActive === false ? "inactive" : "active",
+        stockAdvice: item.stock?.stockAdvice || "",
+        updatedAt: nowText()
+      };
+    }
+
+    function materialPayloadFromForm(data) {
+      return {
+        partNo: String(data.partNo || "").trim().toUpperCase(),
+        materialName: String(data.name || "").trim(),
+        spec: data.spec || null,
+        unit: data.unit || null,
+        systemName: data.system || null,
+        materialProperty: data.property || null,
+        reorderPoint: Number(data.reorderPoint || 0),
+        isSerialized: data.serialized === "是",
+        safetyLevel: data.safetyLevel || null,
+        reviewNote: data.note || null,
+        isActive: true
+      };
+    }
+
+    function mapInventoryFromApi(item) {
+      return {
+        id: item.material_id,
+        partNo: item.part_no,
+        name: item.material_name,
+        unit: item.unit || "",
+        availableQty: Number(item.available_qty || 0),
+        issuedQty: Number(item.issued_qty || 0),
+        inUseQty: Number(item.in_use_qty || 0),
+        unavailableQty: Number(item.unavailable_qty || 0),
+        totalQty: Number(item.total_tracked_qty || 0),
+        reorderPoint: Number(item.reorder_point || 0),
+        stockAdvice: item.stock_advice || "",
+        status: "active",
+        updatedAt: nowText()
+      };
+    }
+
+    function mapWarehouseFromApi(item) {
+      return {
+        id: item.id,
+        warehouseCode: item.warehouse_code,
+        name: item.warehouse_name,
+        locationType: item.location_type,
+        defaultStockStatus: item.default_stock_status,
+        issueDestination: item.is_issue_destination ? "是" : "否",
+        binCount: item.bin_count,
+        note: item.location_note || "",
+        status: item.is_active === false ? "inactive" : "active",
+        updatedAt: nowText()
+      };
+    }
+
+    async function refreshMaterials() {
+      const seq = ++materialRequestSeq;
+      apiStatus.materials.loading = true;
+      apiStatus.materials.error = "";
+      renderTable();
+      try {
+        const pageSize = 200;
+        const allItems = [];
+        let total = 0;
+        let offset = 0;
+        do {
+          const params = new URLSearchParams();
+          params.set("limit", String(pageSize));
+          params.set("offset", String(offset));
+          if (searchInput.value.trim()) params.set("search", searchInput.value.trim());
+          if (statusFilter.value !== "active") params.set("includeInactive", "true");
+          const data = await apiRequest(`/materials?${params.toString()}`);
+          total = data.page?.total || 0;
+          allItems.push(...(data.items || []));
+          offset += pageSize;
+          if (!data.items?.length) break;
+        } while (offset < total);
+        if (seq !== materialRequestSeq) return;
+        state.materials = allItems.map(mapMaterialFromApi);
+        apiStatus.materials.total = total || state.materials.length;
+      } catch (error) {
+        if (seq !== materialRequestSeq) return;
+        apiStatus.materials.error = error.message;
+      } finally {
+        if (seq === materialRequestSeq) {
+          apiStatus.materials.loading = false;
+          renderNav();
+          renderStats();
+          renderTable();
+        }
+      }
+    }
+
+    async function refreshInventory() {
+      apiStatus.inventory.loading = true;
+      apiStatus.inventory.error = "";
+      renderTable();
+      try {
+        const params = new URLSearchParams();
+        params.set("limit", "500");
+        if (searchInput.value.trim()) params.set("search", searchInput.value.trim());
+        const data = await apiRequest(`/inventory/summary?${params.toString()}`);
+        state.inventory = (data.items || []).map(mapInventoryFromApi);
+        apiStatus.inventory.total = state.inventory.length;
+      } catch (error) {
+        apiStatus.inventory.error = error.message;
+      } finally {
+        apiStatus.inventory.loading = false;
+        renderNav();
+        renderStats();
+        renderTable();
+      }
+    }
+
+    async function refreshWarehouses() {
+      apiStatus.warehouses.loading = true;
+      apiStatus.warehouses.error = "";
+      renderTable();
+      try {
+        const data = await apiRequest("/warehouses");
+        state.warehouses = (data.items || []).map(mapWarehouseFromApi);
+        apiStatus.warehouses.total = state.warehouses.length;
+      } catch (error) {
+        apiStatus.warehouses.error = error.message;
+      } finally {
+        apiStatus.warehouses.loading = false;
+        renderNav();
+        renderStats();
+        renderTable();
+      }
+    }
+
+    function refreshCurrentData() {
+      if (currentType === "materials") return refreshMaterials();
+      if (currentType === "inventory") return refreshInventory();
+      if (currentType === "warehouses") return refreshWarehouses();
+      render();
+      return Promise.resolve();
+    }
+
+    function scheduleRefresh() {
+      clearTimeout(refreshTimer);
+      refreshTimer = setTimeout(() => refreshCurrentData(), 250);
+    }
+
+    function renderNav() {
+      nav.innerHTML = Object.keys(configs).map((key) => {
+        const count = apiStatus[key]?.total || state[key].filter((item) => item.status !== "inactive").length;
+        return `<button type="button" class="${key === currentType ? "is-active" : ""}" data-type="${key}">
+          <span>${configs[key].label}</span><small>${count}</small>
+        </button>`;
+      }).join("");
+      nav.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", () => {
+          currentType = button.dataset.type;
+          searchInput.value = "";
+          statusFilter.value = "active";
+          render();
+          refreshCurrentData();
+        });
+      });
+    }
+
+    function visibleItems() {
+      const query = searchInput.value.trim().toLowerCase();
+      const filter = statusFilter.value;
+      const config = configs[currentType];
+      let list = state[currentType].filter((item) => {
+        if (filter !== "all" && item.status !== filter) return false;
+        if (!query) return true;
+        return config.columns.some(([key]) => String(item[key] || "").toLowerCase().includes(query)) ||
+          config.fields.some((field) => String(item[field.key] || "").toLowerCase().includes(query));
+      });
+      list = list.slice().sort((a, b) => {
+        if (sortMode.value === "name") {
+          return String(a.name || a[config.unique] || "").localeCompare(String(b.name || b[config.unique] || ""), "zh-Hant");
+        }
+        if (sortMode.value === "status") {
+          return String(a.status || "").localeCompare(String(b.status || ""));
+        }
+        return String(b.updatedAt || "").localeCompare(String(a.updatedAt || ""));
+      });
+      return list;
+    }
+
+    function renderStats() {
+      const list = state[currentType];
+      const active = list.filter((item) => item.status === "active").length;
+      const inactive = list.filter((item) => item.status === "inactive").length;
+      const warning = currentType === "materials"
+        ? list.filter((item) => Number(item.stock || 0) <= Number(item.reorderPoint || 0)).length
+        : currentType === "inventory"
+          ? list.filter((item) => item.stockAdvice === "需請購").length
+        : currentType === "instruments"
+          ? list.filter((item) => item.useStatus === "需校驗" || item.useStatus === "即將到期").length
+          : list.filter((item) => ["待修", "送修中", "待修訂"].includes(item.currentStatus || item.useStatus || "")).length;
+      stats.innerHTML = [
+        statHtml("全部", apiStatus[currentType]?.total || list.length),
+        statHtml("啟用", active),
+        statHtml("停用", inactive),
+        statHtml(currentType === "materials" || currentType === "inventory" ? "需請購" : "需注意", warning)
+      ].join("");
+    }
+
+    function statHtml(label, value) {
+      return `<div class="stat"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
+    }
+
+    function renderTable() {
+      const config = configs[currentType];
+      const items = visibleItems();
+      countBadge.textContent = currentType === "materials" && apiStatus.materials.total
+        ? `${items.length} / ${apiStatus.materials.total} 筆`
+        : `${items.length} 筆`;
+      tableTitle.textContent = config.title;
+      if (apiStatus[currentType]?.loading) {
+        tableWrap.innerHTML = `<div class="empty"><div>正在從 API 讀取資料...</div></div>`;
+        return;
+      }
+      if (apiStatus[currentType]?.error) {
+        tableWrap.innerHTML = `<div class="empty"><div>API 連線失敗：${escapeHtml(apiStatus[currentType].error)}。請確認 http://localhost:3001 已啟動。</div></div>`;
+        return;
+      }
+      if (!items.length) {
+        tableWrap.innerHTML = `<div class="empty"><div>目前沒有符合條件的資料。</div></div>`;
+        return;
+      }
+      const headers = config.columns.map(([, label]) => `<th>${escapeHtml(label)}</th>`).join("") + "<th>操作</th>";
+      const body = items.map((item) => {
+        const cells = config.columns.map(([key], index) => {
+          if (index === 0) {
+            return `<td><div class="row-title"><strong>${escapeHtml(item[key] || "-")}</strong><span>${escapeHtml(item.name || item.note || "")}</span></div></td>`;
+          }
+          if (key === "status") return `<td>${statusBadge(item.status)}</td>`;
+          if (currentType === "materials" && key === "stock") return `<td>${stockBadge(item)}</td>`;
+          if (currentType === "materials" && key === "issuedStock") return `<td><span class="badge neutral">${escapeHtml(item.issuedStock || 0)}</span></td>`;
+          return `<td>${escapeHtml(item[key] || "-")}</td>`;
+        }).join("");
+        return `<tr>
+          ${cells}
+          <td>
+            ${config.readOnly
+              ? `<span class="badge neutral">唯讀</span>`
+              : `<div class="row-actions">
+                  ${currentType === "materials" ? `<button type="button" data-adjust="${item.id}">庫存</button>` : ""}
+                  <button type="button" data-edit="${item.id}">編輯</button>
+                  ${item.status === "inactive"
+                    ? `<button type="button" data-restore="${item.id}">啟用</button>`
+                    : `<button type="button" data-deactivate="${item.id}">停用</button>`}
+                </div>`}
+          </td>
+        </tr>`;
+      }).join("");
+      tableWrap.innerHTML = `<table><thead><tr>${headers}</tr></thead><tbody>${body}</tbody></table>`;
+      bindTableActions();
+    }
+
+    function stockBadge(item) {
+      const stock = Number(item.stock || 0);
+      const reorderPoint = Number(item.reorderPoint || 0);
+      const low = stock <= reorderPoint;
+      return `<span class="badge ${low ? "warn" : "ok"}">${escapeHtml(stock)}</span>`;
+    }
+
+    function statusBadge(status) {
+      if (status === "active") return `<span class="badge ok">啟用</span>`;
+      if (status === "inactive") return `<span class="badge neutral">停用</span>`;
+      return `<span class="badge neutral">${escapeHtml(status || "-")}</span>`;
+    }
+
+    function bindTableActions() {
+      tableWrap.querySelectorAll("[data-edit]").forEach((button) => {
+        button.addEventListener("click", () => openDrawer(button.dataset.edit));
+      });
+      tableWrap.querySelectorAll("[data-deactivate]").forEach((button) => {
+        button.addEventListener("click", () => askDeactivate(button.dataset.deactivate));
+      });
+      tableWrap.querySelectorAll("[data-restore]").forEach((button) => {
+        button.addEventListener("click", () => restoreItem(button.dataset.restore));
+      });
+      tableWrap.querySelectorAll("[data-adjust]").forEach((button) => {
+        button.addEventListener("click", () => openStockAdjust(button.dataset.adjust));
+      });
+    }
+
+    function render() {
+      const config = configs[currentType];
+      pageTitle.textContent = config.title;
+      pageSubtitle.textContent = isApiBacked()
+        ? `${config.subtitle} 資料來源：${apiBaseUrl}`
+        : `${config.subtitle} 尚未建立後端 API，暫以本頁記憶體示範。`;
+      addButton.textContent = `新增${config.label}`;
+      addButton.disabled = !!config.readOnly;
+      renderNav();
+      renderStats();
+      renderTable();
+    }
+
+    function openDrawer(id) {
+      editingId = id || "";
+      const config = configs[currentType];
+      const item = editingId ? state[currentType].find((row) => row.id === editingId) : null;
+      drawerTitle.textContent = editingId ? `編輯${config.label}` : `新增${config.label}`;
+      duplicateAlert.hidden = true;
+      formFields.innerHTML = config.fields.map((field) => fieldHtml(field, item)).join("");
+      drawer.classList.add("is-open");
+      drawer.setAttribute("aria-hidden", "false");
+      const first = formFields.querySelector("input,select,textarea");
+      setTimeout(() => first && first.focus(), 0);
+    }
+
+    function fieldHtml(field, item) {
+      const value = item ? item[field.key] ?? "" : field.defaultValue ?? "";
+      const required = field.required ? "required" : "";
+      const wide = field.wide ? "wide" : "";
+      const readonly = currentType === "materials" && editingId && field.key === "partNo" ? "readonly" : "";
+      if (field.type === "select") {
+        const options = (field.options || []).slice();
+        if (value !== "" && !options.some((option) => String(option) === String(value))) {
+          options.unshift(value);
+        }
+        return `<div class="field ${wide}">
+          <label for="field-${field.key}">${escapeHtml(field.label)}</label>
+          <select id="field-${field.key}" name="${field.key}" ${required}>
+            ${options.map((option) => `<option value="${escapeHtml(option)}" ${String(value) === String(option) ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}
+          </select>
+        </div>`;
+      }
+      if (field.type === "textarea") {
+        return `<div class="field ${wide}">
+          <label for="field-${field.key}">${escapeHtml(field.label)}</label>
+          <textarea id="field-${field.key}" name="${field.key}" ${required} placeholder="${escapeHtml(field.placeholder || "")}">${escapeHtml(value)}</textarea>
+        </div>`;
+      }
+      return `<div class="field ${wide}">
+        <label for="field-${field.key}">${escapeHtml(field.label)}</label>
+        <input id="field-${field.key}" name="${field.key}" type="${field.type || "text"}" value="${escapeHtml(value)}" ${required} ${readonly} placeholder="${escapeHtml(field.placeholder || "")}">
+      </div>`;
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove("is-open");
+      drawer.setAttribute("aria-hidden", "true");
+      editingId = "";
+    }
+
+    async function saveForm(event) {
+      event.preventDefault();
+      const config = configs[currentType];
+      const data = Object.fromEntries(new FormData(itemForm).entries());
+      config.fields.forEach((field) => {
+        if (field.type === "number") data[field.key] = Number(data[field.key] || 0);
+      });
+      const keyValue = String(data[config.unique] || "").trim();
+      try {
+        if (currentType === "materials") {
+          const payload = materialPayloadFromForm(data);
+          if (editingId) {
+            const item = state.materials.find((row) => row.id === editingId);
+            if (!item) return;
+            const { partNo, ...patchPayload } = payload;
+            const updated = await apiRequest(`/materials/${encodeURIComponent(item.partNo)}`, {
+              method: "PATCH",
+              body: JSON.stringify(patchPayload)
+            });
+            addHistory("編輯", currentType, mapMaterialFromApi(updated.item), "透過 API 更新物料主檔");
+            showToast(`已更新 ${item.partNo}`);
+          } else {
+            const created = await apiRequest("/materials", {
+              method: "POST",
+              body: JSON.stringify(payload)
+            });
+            addHistory("新增", currentType, mapMaterialFromApi(created.item), "透過 API 建立新物料");
+            showToast(`已新增 ${keyValue}`);
+          }
+          closeDrawer();
+          await refreshMaterials();
+          return;
+        }
+
+        const duplicate = state[currentType].find((item) => {
+          return item.id !== editingId && String(item[config.unique] || "").trim().toLowerCase() === keyValue.toLowerCase();
+        });
+        if (duplicate) {
+          duplicateAlert.textContent = `${config.keyLabel}「${keyValue}」已存在，請改用編輯原資料或換一個編號。`;
+          duplicateAlert.hidden = false;
+          return;
+        }
+        if (editingId) {
+          const item = state[currentType].find((row) => row.id === editingId);
+          Object.assign(item, data, { updatedAt: nowText() });
+          addHistory("編輯", currentType, item, "更新清單資料");
+          showToast(`已更新 ${keyValue}`);
+        } else {
+          const item = { id: uid(), ...data, status: "active", updatedAt: nowText() };
+          state[currentType].unshift(item);
+          addHistory("新增", currentType, item, "建立新資料");
+          showToast(`已新增 ${keyValue}`);
+        }
+        closeDrawer();
+        render();
+      } catch (error) {
+        duplicateAlert.textContent = `儲存失敗：${error.message}`;
+        duplicateAlert.hidden = false;
+      }
+    }
+
+    function askDeactivate(id) {
+      const item = state[currentType].find((row) => row.id === id);
+      const config = configs[currentType];
+      if (!item) return;
+      openConfirm("停用資料", `確定要停用「${item[config.unique]}」嗎？停用後不會從履歷消失，也可以再啟用。`, () => {
+        deactivateItem(id);
+      });
+    }
+
+    async function deactivateItem(id) {
+      const item = state[currentType].find((row) => row.id === id);
+      const config = configs[currentType];
+      if (!item) return;
+      try {
+        if (currentType === "materials") {
+          await apiRequest(`/materials/${encodeURIComponent(item.partNo)}`, { method: "DELETE" });
+          addHistory("停用", currentType, item, "透過 API 停用物料主檔");
+          await refreshMaterials();
+        } else {
+          item.status = "inactive";
+          item.updatedAt = nowText();
+          addHistory("停用", currentType, item, "保留資料與歷史，只從日常清單隱藏");
+          render();
+        }
+        lastUndo = { type: currentType, id, previousStatus: "active" };
+        showToast(`已停用 ${item[config.unique]}`, "還原", () => {
+          restoreItem(id, true);
+        });
+      } catch (error) {
+        showToast(`停用失敗：${error.message}`);
+      }
+    }
+
+    async function restoreItem(id, silent) {
+      const item = state[currentType].find((row) => row.id === id);
+      const config = configs[currentType];
+      if (!item) return;
+      try {
+        if (currentType === "materials") {
+          await apiRequest(`/materials/${encodeURIComponent(item.partNo)}`, {
+            method: "PATCH",
+            body: JSON.stringify({ isActive: true })
+          });
+          addHistory("啟用", currentType, item, "透過 API 恢復物料使用");
+          await refreshMaterials();
+        } else {
+          item.status = "active";
+          item.updatedAt = nowText();
+          addHistory("啟用", currentType, item, "恢復日常清單使用");
+          render();
+        }
+        if (!silent) showToast(`已啟用 ${item[config.unique]}`);
+      } catch (error) {
+        showToast(`啟用失敗：${error.message}`);
+      }
+    }
+
+    async function openStockAdjust(id) {
+      const item = state.materials.find((row) => row.id === id);
+      if (!item) return;
+      try {
+        const data = await apiRequest(`/materials/${encodeURIComponent(item.partNo)}`);
+        const lines = (data.locations || []).slice(0, 6).map((row) => {
+          return `${row.warehouse_name || row.warehouseName || "-"} / ${row.bin_code || row.binCode || "-"} / ${row.stock_status || row.stockStatus || "-"}：${row.qty}`;
+        });
+        openConfirm(
+          "庫存與儲位",
+          `可發料 ${item.stock || 0}，已領出 ${item.issuedStock || 0}。${lines.length ? "位置：" + lines.join("；") : "目前沒有儲位明細。"} 領料、退料、調撥會在下一版庫存作業 API 補上。`,
+          () => {}
+        );
+      } catch (error) {
+        showToast(`讀取儲位失敗：${error.message}`);
+      }
+    }
+
+    function openConfirm(title, text, callback) {
+      confirmTitle.textContent = title;
+      confirmText.textContent = text;
+      confirmCallback = callback;
+      confirmBox.classList.add("is-open");
+      confirmBox.setAttribute("aria-hidden", "false");
+    }
+
+    function closeConfirm() {
+      confirmBox.classList.remove("is-open");
+      confirmBox.setAttribute("aria-hidden", "true");
+      confirmCallback = null;
+    }
+
+    function showToast(message, actionLabel, action) {
+      toast.innerHTML = `<span>${escapeHtml(message)}</span>${actionLabel ? `<button type="button">${escapeHtml(actionLabel)}</button>` : ""}`;
+      toast.classList.add("is-open");
+      if (actionLabel) {
+        toast.querySelector("button").addEventListener("click", () => {
+          action && action();
+          toast.classList.remove("is-open");
+        });
+      }
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("is-open"), 3600);
+    }
+
+    function renderHistory() {
+      if (!state.history.length) {
+        historyList.innerHTML = `<div class="empty">目前還沒有異動紀錄。</div>`;
+        return;
+      }
+      historyList.innerHTML = state.history.map((item) => {
+        return `<div class="history-item">
+          <strong>${escapeHtml(item.action)} ${escapeHtml(item.type)}：${escapeHtml(item.key || "-")}</strong>
+          <span>${escapeHtml(item.time)}｜${escapeHtml(item.detail || "")}</span>
+        </div>`;
+      }).join("");
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]);
+    }
+
+    addButton.addEventListener("click", () => openDrawer());
+    searchInput.addEventListener("input", () => {
+      if (isApiBacked()) scheduleRefresh();
+      else renderTable();
+    });
+    statusFilter.addEventListener("change", () => {
+      if (isApiBacked()) refreshCurrentData();
+      else renderTable();
+    });
+    sortMode.addEventListener("change", renderTable);
+    itemForm.addEventListener("submit", saveForm);
+    document.querySelectorAll("[data-close-drawer]").forEach((node) => node.addEventListener("click", closeDrawer));
+    cancelConfirm.addEventListener("click", closeConfirm);
+    okConfirm.addEventListener("click", () => {
+      const callback = confirmCallback;
+      closeConfirm();
+      callback && callback();
+    });
+    document.getElementById("historyButton").addEventListener("click", () => {
+      renderHistory();
+      historyDrawer.classList.add("is-open");
+      historyDrawer.setAttribute("aria-hidden", "false");
+    });
+    document.querySelectorAll("[data-close-history]").forEach((node) => {
+      node.addEventListener("click", () => {
+        historyDrawer.classList.remove("is-open");
+        historyDrawer.setAttribute("aria-hidden", "true");
+      });
+    });
+    document.getElementById("exportButton").addEventListener("click", () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "list-admin-data.json";
+      link.click();
+      URL.revokeObjectURL(url);
+      showToast("已匯出 JSON");
+    });
+
+    render();
+    refreshCurrentData();
+  </script>
+</body>
+</html>
