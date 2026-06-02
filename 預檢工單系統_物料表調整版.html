@@ -46050,8 +46050,16 @@ react-dom/cjs/react-dom-client.production.js:
     return String(node && node.textContent || "").replace(/\s+/g, "").trim();
   }
 
+  function isVisible(node) {
+    return !!(node && !node.hidden && window.getComputedStyle(node).display !== "none");
+  }
+
   function isMaterialText(text) {
     return text === "物料表" || text.indexOf("物料表") !== -1;
+  }
+
+  function isPrecheckText(text) {
+    return text.indexOf("預檢系統管理") !== -1;
   }
 
   function isTurnaroundText(text) {
@@ -46088,7 +46096,8 @@ react-dom/cjs/react-dom-client.production.js:
 
   function clearPrecheckOverlay() {
     Array.prototype.forEach.call(document.querySelectorAll(".codex-pm-calendar-host"), function (host) {
-      host.remove();
+      host.hidden = true;
+      host.style.display = "none";
     });
     Array.prototype.forEach.call(document.querySelectorAll("main > *"), function (child) {
       child.hidden = false;
@@ -46096,12 +46105,11 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function clearStandaloneRoute() {
-    standaloneRouteHostIds.forEach(function (id) {
-      var node = document.getElementById(id);
-      if (node) node.remove();
-    });
+    hideStandaloneRoute();
     Array.prototype.forEach.call(document.querySelectorAll("main > *"), function (child) {
+      if (isStandaloneRouteHost(child)) return;
       child.hidden = false;
+      child.style.display = "";
     });
     window.CodexStandaloneMainRoute = "";
   }
@@ -46131,7 +46139,9 @@ react-dom/cjs/react-dom-client.production.js:
     clearPrecheckOverlay();
     ["codex-material-route-host", "codex-turnaround-pit-route-host", "codex-turnaround-view-switch-host"].forEach(function (id) {
       var node = document.getElementById(id);
-      if (node) node.remove();
+      if (!node) return;
+      node.hidden = true;
+      node.style.display = "none";
     });
     var main = document.querySelector("main.flex-1") || document.querySelector("main") || document.body;
     if (!main) return;
@@ -46159,14 +46169,15 @@ react-dom/cjs/react-dom-client.production.js:
     }
     window.CodexStandaloneMainRoute = "turnaround";
     hideMainSiblings(host);
-    host.scrollIntoView({ block: "start" });
+    jumpToRouteHost(host);
   }
 
   function hasRoutePage(route) {
-    if (route === "material" && document.getElementById("codex-material-api-panel")) return true;
-    if (route === "turnaround" && (document.getElementById("codex-rwork-root") || document.getElementById("codex-turnaround-root"))) return true;
+    if (route === "material" && isVisible(document.getElementById("codex-material-api-panel"))) return true;
+    if (route === "turnaround" && (isVisible(document.getElementById("codex-rwork-root")) || isVisible(document.getElementById("codex-turnaround-root")))) return true;
     return Array.prototype.some.call(document.querySelectorAll("main h1,main h2,main h3"), function (heading) {
       var text = textOf(heading);
+      if (!isVisible(heading)) return false;
       return route === "material" ? text === "物料表" || text.indexOf("物料查詢") !== -1 : isTurnaroundText(text);
     });
   }
@@ -46181,6 +46192,14 @@ react-dom/cjs/react-dom-client.production.js:
     host.style.display = "";
   }
 
+  function jumpToRouteHost(host) {
+    if (!host) return;
+    window.requestAnimationFrame(function () {
+      host.scrollIntoView({ block: "start" });
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
+  }
+
   function ensureRouteHost(route) {
     if (hasRoutePage(route)) return;
     var main = document.querySelector("main.flex-1") || document.querySelector("main") || document.body;
@@ -46188,7 +46207,10 @@ react-dom/cjs/react-dom-client.production.js:
     var id = route === "material" ? "codex-material-route-host" : "codex-turnaround-route-host";
     var otherId = route === "material" ? "codex-turnaround-route-host" : "codex-material-route-host";
     var other = document.getElementById(otherId);
-    if (other) other.remove();
+    if (other) {
+      other.hidden = true;
+      other.style.display = "none";
+    }
     var host = document.getElementById(id);
     if (!host) {
       host = document.createElement("div");
@@ -46209,7 +46231,7 @@ react-dom/cjs/react-dom-client.production.js:
       host.innerHTML = '<section class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5 shadow-xl"><h2 class="text-lg font-bold">周轉件履歷</h2></section>';
     }
     hideMainSiblings(host);
-    host.scrollIntoView({ block: "start" });
+    jumpToRouteHost(host);
   }
 
   function verifyRoute(route, clickedButton) {
@@ -46234,7 +46256,8 @@ react-dom/cjs/react-dom-client.production.js:
     if (!action || isInsideRoutePage(action)) return;
     // React app sidebar: skip route guard entirely, only clear the vanilla-JS injected overlay
     if (action.closest && action.closest("aside") && action.closest("#root")) {
-      var reactRoute = routeFromText(textOf(action));
+      var actionText = textOf(action);
+      var reactRoute = routeFromText(actionText);
       if (reactRoute === "turnaround") {
         event.preventDefault();
         event.stopPropagation();
@@ -46242,6 +46265,28 @@ react-dom/cjs/react-dom-client.production.js:
         showStandaloneTurnaround();
         return;
       }
+      if (isPrecheckText(actionText)) {
+        window.CodexStandaloneMainRoute = "";
+        var restorePrecheckRoute = function () {
+          hideStandaloneRoute();
+          Array.prototype.forEach.call(
+            document.querySelectorAll(".codex-pm-calendar-host[data-codex-precheck-home]"),
+            function (h) {
+              h.hidden = false;
+              h.style.display = "";
+            }
+          );
+          if (typeof window.codexPmShowPrecheckHome === "function" &&
+              !document.querySelector(".codex-pm-calendar-host[data-codex-precheck-home]")) {
+            window.codexPmShowPrecheckHome();
+          }
+        };
+        window.requestAnimationFrame(restorePrecheckRoute);
+        window.setTimeout(restorePrecheckRoute, 180);
+        window.setTimeout(restorePrecheckRoute, 520);
+        return;
+      }
+      window.CodexStandaloneMainRoute = reactRoute || "";
       var cleanupForReactRoute = function () {
         hideStandaloneRoute();
         // Only hide vanilla-JS created precheck hosts during React navigation.
@@ -46254,9 +46299,13 @@ react-dom/cjs/react-dom-client.production.js:
             h.style.display = "none";
           }
         );
+        if (reactRoute === "material" && !hasRoutePage("material")) {
+          ensureRouteHost("material");
+        }
       };
       window.requestAnimationFrame(cleanupForReactRoute);
       window.setTimeout(cleanupForReactRoute, 120);
+      window.setTimeout(cleanupForReactRoute, 520);
       return;
     }
     var route = routeFromText(textOf(action));
@@ -48157,19 +48206,55 @@ react-dom/cjs/react-dom-client.production.js:
 
   function removePitHost() {
     var host = document.getElementById("codex-turnaround-pit-route-host");
-    if (host) host.remove();
+    if (!host) return;
+    host.hidden = true;
+    host.style.display = "none";
+  }
+
+  function hidePitHost() {
+    var host = document.getElementById("codex-turnaround-pit-route-host");
+    if (!host) return;
+    host.hidden = true;
+    host.style.display = "none";
   }
 
   function removeSwitchHost() {
     var host = document.getElementById("codex-turnaround-view-switch-host");
-    if (host) host.remove();
+    if (!host) return;
+    host.hidden = true;
+    host.style.display = "none";
+  }
+
+  function hideSwitchHost() {
+    var host = document.getElementById("codex-turnaround-view-switch-host");
+    if (!host) return;
+    host.hidden = true;
+    host.style.display = "none";
+  }
+
+  function isTurnaroundRouteNode(node) {
+    if (!node) return false;
+    return node.id === "codex-turnaround-pit-route-host" ||
+      node.id === "codex-turnaround-view-switch-host" ||
+      node.id === "codex-turnaround-route-host" ||
+      !!node.querySelector("#codex-rwork-root,#codex-turnaround-root,#codex-turnaround-pit-matrix-root");
   }
 
   function restoreRouteSiblings() {
     var main = routeMain();
     Array.prototype.forEach.call(main.children, function (child) {
+      if (isTurnaroundRouteNode(child)) return;
       child.hidden = false;
+      child.style.display = "";
     });
+  }
+
+  function leaveTurnaroundRoute() {
+    activeRouteView = "list";
+    hidePitHost();
+    hideSwitchHost();
+    hideRworkRouteRoots();
+    restoreRouteSiblings();
   }
 
   function keepTurnaroundRouteOnly() {
@@ -48198,6 +48283,8 @@ react-dom/cjs/react-dom-client.production.js:
       host.id = "codex-turnaround-view-switch-host";
       host.className = "no-print";
     }
+    host.hidden = false;
+    host.style.display = "";
     if (anchor && host.nextElementSibling !== anchor) {
       parent.insertBefore(host, anchor);
     } else if (!host.parentElement) {
@@ -48230,6 +48317,7 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function showListHome(scroll) {
+    window.CodexStandaloneMainRoute = "turnaround";
     activeRouteView = "list";
     removePitHost();
     showRworkRouteRoots();
@@ -48240,9 +48328,11 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function showPitMatrix(scroll) {
+    window.CodexStandaloneMainRoute = "turnaround";
     activeRouteView = "matrix";
     Array.prototype.forEach.call(document.querySelectorAll(".codex-pm-calendar-host"), function (host) {
-      host.remove();
+      host.hidden = true;
+      host.style.display = "none";
     });
     var main = routeMain();
     removeSwitchHost();
@@ -48275,9 +48365,11 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function showEquipmentOverview(scroll) {
+    window.CodexStandaloneMainRoute = "turnaround";
     activeRouteView = "equipment";
     Array.prototype.forEach.call(document.querySelectorAll(".codex-pm-calendar-host"), function (host) {
-      host.remove();
+      host.hidden = true;
+      host.style.display = "none";
     });
     var main = routeMain();
     removeSwitchHost();
@@ -48328,6 +48420,10 @@ react-dom/cjs/react-dom-client.production.js:
   var scheduled = false;
   function applyIfTurnaroundVisible() {
     scheduled = false;
+    if (window.CodexStandaloneMainRoute !== "turnaround") {
+      leaveTurnaroundRoute();
+      return;
+    }
     var root = visibleRworkRoot();
     var pitRoot = document.getElementById("codex-turnaround-pit-route-host");
     if (!root && !pitRoot) {
@@ -48364,7 +48460,12 @@ react-dom/cjs/react-dom-client.production.js:
       return;
     }
     var button = event.target && event.target.closest ? event.target.closest("aside button") : null;
-    if (!button || !isTurnaroundButton(button)) return;
+    if (!button) return;
+    if (!isTurnaroundButton(button)) {
+      window.CodexStandaloneMainRoute = "";
+      leaveTurnaroundRoute();
+      return;
+    }
     activeRouteView = "list";
     window.setTimeout(function () { updateRouteView(true); }, 80);
     window.setTimeout(function () { updateRouteView(false); }, 260);
