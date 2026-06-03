@@ -28,6 +28,11 @@
 - `migration-document-sequence-inventory-document.sql`：建立單號流水表與領料/退料/調撥共用的庫存異動單。
 - `seed-reference-data.sql`：參考種子資料，先放人員、車號、倉庫、設備群組、物料、儀器、WI、P1-P4 模板。
 - `seed-repair-workflow-options.sql`：R 維修流程狀態、處理路線、位置、外修狀態、驗收結果與看板分組。
+- `seed-reference-lists.sql`：系統別、物料屬性、單位、工單類型、專案階段/狀態等下拉選項（補 `workflow_option`，對齊前台清單維護）。
+- `import-master-data.sql`：把 `templates/` 內填好的人員、設備群組、儀器、WI 匯入主檔（冪等，改 CSV 後重跑即覆蓋）。
+- `import-pm-templates.sql`：把 `templates/` 內各等級（P1~P4）的用料、儀器、WI 對應匯入（以 CSV 為準，需先有物料、儀器、WI）。
+- `templates/`：給人手動填寫的主檔 CSV 範本（人員、設備群組、儀器、WI），內含中文說明 `0_怎麼填寫.md`。
+- `0_從這裡開始.md`：資料夾超精簡導覽，先看這個就知道哪些要填、哪些要跑。
 - `add-list-content-guide.md`：說明物料、設備、儀器、WI、P 工單、R 工單要新增到哪張表。
 - `insert-examples.sql`：可直接參考的新增物料、庫存、有序號設備 SQL 範例。
 - `list-admin-prototype.html`：人性化清單管理操作原型，可直接用瀏覽器打開。
@@ -114,7 +119,10 @@ R 工單主狀態固定為 `待處理`、`維修中`、`已入庫結案`、`已�
 \i schema.postgres.sql
 \i seed-reference-data.sql
 \i seed-repair-workflow-options.sql
+\i seed-reference-lists.sql
 \i material-import-tamhai.sql
+\i import-master-data.sql
+\i import-pm-templates.sql
 \i migration-material-master-usage.sql
 \i migration-document-sequence-inventory-document.sql
 ```

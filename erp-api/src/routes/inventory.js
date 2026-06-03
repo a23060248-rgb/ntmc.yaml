@@ -468,6 +468,85 @@ async function createInventoryMovement(body, forcedMovementType) {
   });
 }
 
+// ⑥ 耗用：預設從分存站/現場直接扣帳，不開領料單，但仍寫一筆庫存異動。
+// 主庫房領用必須走 /issue 開立領料單（規則集中在這裡）。
+async function consumeMaterial(body) {
+  const partNo = normalizePartNo(body.partNo);
+  if (!partNo) throw httpError(400, "partNo is required");
+  const qty = requirePositiveQty(body.qty);
+  const warehouseCode = normalizeCode(body.warehouseCode);
+  if (!warehouseCode) {
+    throw httpError(400, "warehouseCode is required (耗用來源，通常為分存站/現場)");
+  }
+  const note = cleanText(body.note);
+  const custodianName = cleanText(body.custodianName);
+  const workOrderNo = cleanText(body.workOrderNo);
+
+  return withTransaction(async (client) => {
+    const material = await findMaterial(client, partNo);
+    const warehouse = await findWarehouse(client, warehouseCode, "source");
+
+    if (warehouse.location_type === "CENTER_WAREHOUSE") {
+      throw httpError(
+        400,
+        "主庫房領用請走 /issue 開立領料單；耗用(/consume)僅適用分存站、現場等已領出位置"
+      );
+    }
+
+    const stockStatus = normalizeStockStatus(
+      body.stockStatus,
+      warehouse.default_stock_status || "ISSUED",
+      "stockStatus"
+    );
+    const bin = await findWarehouseBin(client, {
+      warehouseId: warehouse.id,
+      materialId: material.id,
+      stockStatus,
+      binCode: cleanText(body.binCode),
+      required: false,
+      fieldName: "source"
+    });
+    const workOrderId = await findWorkOrderId(client, workOrderNo);
+
+    await assertEnoughStock(client, { materialId: material.id, warehouse, bin, stockStatus, qty });
+
+    // 不開單：只扣庫存 + 記錄異動
+    await applyWarehouseDelta(client, material.id, warehouse.id, stockStatus, -qty);
+    await applyBinDelta(client, material.id, warehouse.id, bin && bin.id, stockStatus, -qty);
+    await recordTransaction(client, [
+      null,
+      null,
+      material.id,
+      warehouse.id,
+      bin && bin.id,
+      stockStatus,
+      -qty,
+      "CONSUME",
+      workOrderId,
+      custodianName,
+      note
+    ]);
+
+    return {
+      consumed: true,
+      document: null,
+      material: {
+        id: material.id,
+        partNo: material.part_no,
+        materialName: material.material_name,
+        unit: material.unit
+      },
+      source: {
+        warehouseCode: warehouse.warehouse_code,
+        warehouseName: warehouse.warehouse_name,
+        binCode: bin && bin.bin_code,
+        stockStatus
+      },
+      qty
+    };
+  });
+}
+
 async function movementResponse(req, res, movementType) {
   const movement = await createInventoryMovement(req.body || {}, movementType);
   res.status(201).json({ movement });
@@ -601,6 +680,14 @@ router.post(
   "/transfer",
   asyncHandler(async (req, res) => {
     await movementResponse(req, res, "TRANSFER");
+  })
+);
+
+router.post(
+  "/consume",
+  asyncHandler(async (req, res) => {
+    const consumption = await consumeMaterial(req.body || {});
+    res.status(201).json({ consumption });
   })
 );
 

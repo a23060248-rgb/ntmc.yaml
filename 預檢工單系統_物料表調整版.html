@@ -35959,6 +35959,40 @@ react-dom/cjs/react-dom-client.production.js:
     font-weight: 900;
     vertical-align: middle;
   }
+  .codex-pwo-body {
+    padding: 18px 22px 22px;
+    overflow: auto;
+    max-height: calc(85vh - 92px);
+  }
+  .codex-mcloud-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .codex-mcloud-toolbar input {
+    flex: 1;
+    min-height: 34px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    background: rgba(15, 23, 42, 0.6);
+    color: #e2e8f0;
+    font-size: 13px;
+  }
+  .codex-pwo-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .codex-pwo-body .codex-list-admin-panel-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
   #codex-material-command-center {
     margin: 0.9rem 0 1rem;
     border: 1px solid rgba(34, 211, 238, 0.22);
@@ -37223,17 +37257,22 @@ react-dom/cjs/react-dom-client.production.js:
     return {
       material_system: {
         title: "系統別清單",
-        note: "用在物料主檔的系統分類，後續可連動料號系統碼與設備分類。",
+        note: "設備功能系統分類，一個料號對應一個系統別。可隨時在此增刪。",
         items: [
-          referenceItem("common", "共通性物料", "跨系統可用"),
-          referenceItem("lrt", "輕軌電聯車", "車輛設備物料"),
-          referenceItem("door", "車門系統", ""),
-          referenceItem("hvac", "空調系統", ""),
-          referenceItem("bogie", "轉向架系統", ""),
-          referenceItem("brake", "煞車系統", ""),
-          referenceItem("signal", "號誌通訊", ""),
-          referenceItem("tool", "工具類", "95 工具"),
-          referenceItem("instrument", "儀器類", "96 儀器")
+          referenceItem("BODY", "車體/車輛通用", ""),
+          referenceItem("DOOR", "車門系統", ""),
+          referenceItem("BRAKE", "煞車系統", ""),
+          referenceItem("PROP", "推進系統", "牽引馬達、齒輪箱"),
+          referenceItem("BOGIE", "轉向架系統", "轉向架及懸吊"),
+          referenceItem("HVAC", "空調系統", ""),
+          referenceItem("ESS", "儲能系統", "ESS 與冷卻"),
+          referenceItem("AUXP", "輔助電力系統", ""),
+          referenceItem("SIGCOM", "號誌通訊系統", ""),
+          referenceItem("PANTO", "集電系統", "受電弓"),
+          referenceItem("COUPLER", "連結器系統", ""),
+          referenceItem("COMMON", "共通性物料", "跨系統可用"),
+          referenceItem("TOOL", "工具", "95 工具"),
+          referenceItem("INSTR", "儀器", "96 儀器")
         ]
       },
       material_property: {
@@ -37268,16 +37307,18 @@ react-dom/cjs/react-dom-client.production.js:
       },
       warehouse: {
         title: "倉庫清單",
-        note: "中心倉庫代表未領料；分存站、暫存區與橋下倉庫代表現場已領用或備置。",
+        note: "代碼沿用物料表／資料庫(TH-／AK-)。中心倉庫＝主庫房，領料要開單；分存站、現場、暫存、報廢區領用採預設扣帳。",
         items: [
-          referenceItem("D-MAIN", "淡海機廠主庫房", "中心倉庫"),
-          referenceItem("D-MECH", "淡海分存站(機械工廠)", "分存站"),
-          referenceItem("D-14", "淡海14號分存站", "分存站"),
-          referenceItem("D-19", "淡海19號分存站", "分存站"),
-          referenceItem("K-MAIN-B2", "安坑機廠主庫房 B2", "中心倉庫"),
-          referenceItem("K-C215", "安坑暫存區 C215", "暫存區"),
-          referenceItem("K-BRIDGE-01", "安坑橋下倉庫 01", "分存站"),
-          referenceItem("K-BRIDGE-02", "安坑橋下倉庫 02", "分存站")
+          referenceItem("TH-CENTER", "淡海機廠主庫房", "中心倉庫｜主庫房，領料要開單"),
+          referenceItem("TH-SUB", "淡海分存站(機械工廠)", "分存站｜預設扣帳"),
+          referenceItem("TH-SUB-14", "淡海14號分存站", "分存站｜預設扣帳"),
+          referenceItem("TH-SUB-19", "淡海19號分存站", "分存站｜預設扣帳"),
+          referenceItem("AK-CENTER", "安坑機廠主庫房 B2", "中心倉庫｜主庫房，領料要開單"),
+          referenceItem("AK-TEMP-C215", "安坑暫存區 C215", "現場／暫存｜預設扣帳"),
+          referenceItem("AK-BRIDGE-01", "安坑橋下倉庫 01", "分存站｜預設扣帳"),
+          referenceItem("AK-BRIDGE-02", "安坑橋下倉庫 02", "分存站｜預設扣帳"),
+          referenceItem("SHOP-REPAIR", "機廠待修區", "現場｜待修暫存"),
+          referenceItem("SCRAP-HOLD", "報廢暫存區", "報廢區｜報廢暫存")
         ]
       },
       work_order_type: {
@@ -37291,19 +37332,78 @@ react-dom/cjs/react-dom-client.production.js:
         ]
       },
       repair_status: {
-        title: "維修狀態清單",
-        note: "R 維修流程使用，讓設備從下車、維修、待料、測試到入庫都有一致狀態。",
+        title: "R 工單狀態清單",
+        note: "R 維修工單的整體進度，對應 repair_work_order／workflow_option R_STATUS。",
         items: [
-          referenceItem("R-NEW", "待判定", "剛建立 R 工單"),
-          referenceItem("R-DIAG", "檢修判定", ""),
-          referenceItem("R-REPAIR", "維修中", ""),
-          referenceItem("R-WAIT-PART", "待料", ""),
-          referenceItem("R-OUTSOURCE", "委外中", ""),
-          referenceItem("R-TEST", "待測試", ""),
-          referenceItem("R-DONE", "已修復", ""),
-          referenceItem("R-STOCK", "入庫待領用", ""),
-          referenceItem("R-INSTALLED", "已裝回", ""),
-          referenceItem("R-SCRAP", "判定報廢", "")
+          referenceItem("PENDING", "待處理", "已建立、拆下件已登錄，尚未判定路線"),
+          referenceItem("REPAIRING", "維修中", "內修、外修、驗收或報廢判定中的開放案件"),
+          referenceItem("CLOSED_STOCKED", "已入庫結案", "修復或驗收合格，回備品倉並結案"),
+          referenceItem("CLOSED_SCRAPPED", "已報廢結案", "完成報廢判定與結案")
+        ]
+      },
+      repair_method: {
+        title: "處理路線清單",
+        note: "R 工單的維修方式，對應 workflow_option REPAIR_METHOD。",
+        items: [
+          referenceItem("UNDECIDED", "待判定", "尚未決定處理路線"),
+          referenceItem("INHOUSE", "內修", "內部維修或測試處理"),
+          referenceItem("OUTSOURCE", "外修", "送廠商、原廠或採購流程處理"),
+          referenceItem("SCRAP", "報廢", "不再維修，走報廢流程")
+        ]
+      },
+      repair_place: {
+        title: "維修位置清單",
+        note: "拆下件目前所在位置，對應 workflow_option REPAIR_PLACE。",
+        items: [
+          referenceItem("WAITING_AREA", "待修區", "等待判定或維修處理"),
+          referenceItem("INHOUSE_AREA", "內修區", "內部維修或測試位置"),
+          referenceItem("VENDOR_ACCEPTANCE", "廠商／採購驗收中", "外修、廠商回件或採購驗收流程中"),
+          referenceItem("SPARE_WAREHOUSE", "備品倉", "修復合格後回到可用備品庫存"),
+          referenceItem("SCRAP_AREA", "報廢區", "已判定報廢，等待或完成報廢處理")
+        ]
+      },
+      outsourcing_status: {
+        title: "外修進度清單",
+        note: "外修件的送修進度，對應 workflow_option OUTSOURCING_STATUS。內修件通常維持未送修。",
+        items: [
+          referenceItem("NOT_SENT", "未送修", "尚未送外修"),
+          referenceItem("SENT", "已送修", "已送廠商或原廠維修"),
+          referenceItem("RETURNED", "已修回", "廠商已修回，等待驗收或後續判定"),
+          referenceItem("PROCUREMENT_ACCEPTING", "採購驗收中", "採購或驗收單位確認維修結果中"),
+          referenceItem("PROCUREMENT_ACCEPTED", "採購驗收完成", "驗收完成，可入庫結案或後續處置")
+        ]
+      },
+      acceptance_result: {
+        title: "驗收結果清單",
+        note: "維修或採購驗收結果，對應 workflow_option ACCEPTANCE_RESULT。",
+        items: [
+          referenceItem("NOT_PROCESSED", "未處理", "尚未驗收或不需驗收"),
+          referenceItem("PASS", "合格", "驗收合格，可回庫或結案"),
+          referenceItem("RETURN", "退回", "退回廠商或退回上一流程補件"),
+          referenceItem("FAIL", "不合格", "需重新判定維修、退回或報廢")
+        ]
+      },
+      project_phase: {
+        title: "專案階段清單",
+        note: "J 專案工單使用，標示專案目前所處階段。",
+        items: [
+          referenceItem("PLAN", "規劃", ""),
+          referenceItem("DESIGN", "設計", ""),
+          referenceItem("BUILD", "施工", ""),
+          referenceItem("TEST", "測試", ""),
+          referenceItem("ACCEPT", "驗收", ""),
+          referenceItem("CLOSE", "結案", "")
+        ]
+      },
+      project_status: {
+        title: "專案工單狀態清單",
+        note: "J 專案工單的處理狀態，對應單號第一碼 J。",
+        items: [
+          referenceItem("J-DRAFT", "草稿", ""),
+          referenceItem("J-DOING", "進行中", ""),
+          referenceItem("J-ACCEPT", "驗收中", ""),
+          referenceItem("J-CLOSED", "結案", ""),
+          referenceItem("J-CANCEL", "取消", "")
         ]
       }
     };
@@ -37364,6 +37464,69 @@ react-dom/cjs/react-dom-client.production.js:
     }
   }
 
+  // ====== 清單維護接雲端 API（有 API 用 API、沒 API 用內建/localStorage 後備）======
+  var REFERENCE_API_BASE = "/api/reference-options";
+  var referenceApiConnected = false;
+  var REFERENCE_GROUP_BY_KEY = {
+    material_system: "MATERIAL_SYSTEM",
+    material_property: "MATERIAL_PROPERTY",
+    unit: "UNIT",
+    work_order_type: "WORK_ORDER_TYPE",
+    repair_status: "R_STATUS",
+    repair_method: "REPAIR_METHOD",
+    repair_place: "REPAIR_PLACE",
+    outsourcing_status: "OUTSOURCING_STATUS",
+    acceptance_result: "ACCEPTANCE_RESULT",
+    project_phase: "PROJECT_PHASE",
+    project_status: "PROJECT_STATUS"
+  };
+
+  function referenceAutoCode(key) {
+    var prefix = String(key || "OPT").split("_")[0].toUpperCase();
+    return prefix + "-" + Date.now().toString(36).toUpperCase();
+  }
+
+  function referenceApiCreate(group, item) {
+    return fetch(REFERENCE_API_BASE, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ group: group, code: item.code, label: item.name, description: item.note || "" })
+    });
+  }
+
+  function referenceApiUpdate(group, code, patch) {
+    return fetch(REFERENCE_API_BASE + "/" + encodeURIComponent(group) + "/" + encodeURIComponent(code), {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(patch)
+    });
+  }
+
+  function loadReferenceListsFromApi() {
+    if (typeof fetch !== "function") return;
+    fetch(REFERENCE_API_BASE)
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (data) {
+        var groups = (data && data.groups) ? data.groups : {};
+        var merged = cloneReferenceData(referenceDefaultLists());
+        Object.keys(merged).forEach(function (key) {
+          var group = REFERENCE_GROUP_BY_KEY[key];
+          if (group && Array.isArray(groups[group])) {
+            merged[key].items = groups[group].map(function (o) {
+              return { id: String(o.code), code: o.code, name: o.label, note: o.description || "", active: o.isActive !== false };
+            });
+          }
+        });
+        referenceListState = merged;
+        referenceApiConnected = true;
+        try { window.localStorage.setItem(REFERENCE_LIST_STORAGE_KEY, JSON.stringify(merged)); } catch (e) {}
+        var modal = document.getElementById("codex-list-admin-modal");
+        if (modal && !modal.hidden) renderListAdminModal(activeReferenceListKey);
+        refreshMaterialModalSelects(document.getElementById("codex-material-modal"));
+      })
+      .catch(function () { referenceApiConnected = false; });
+  }
+
   function activeReferenceItems(key) {
     var list = referenceLists()[key];
     return list ? list.items.filter(function (item) { return item.active !== false; }) : [];
@@ -37373,9 +37536,24 @@ react-dom/cjs/react-dom-client.production.js:
     var items = activeReferenceItems(key);
     if (!items.length) items = referenceDefaultLists()[key].items;
     return items.map(function (item) {
-      var isSelected = selected && item.name === selected ? ' selected' : '';
-      return '<option value="' + escapeInline(item.name) + '"' + isSelected + '>' + escapeInline(item.name) + '</option>';
+      var optValue = item.code || item.name;
+      var isSelected = selected && (selected === optValue || selected === item.name) ? ' selected' : '';
+      return '<option value="' + escapeInline(optValue) + '"' + isSelected + '>' + escapeInline(item.name) + '</option>';
     }).join("");
+  }
+
+  // 把存下來的 code 轉回顯示名稱；找不到就原樣回傳(相容舊的中文名值)
+  function referenceNameByCode(key, value) {
+    if (!value) return "";
+    var items = activeReferenceItems(key);
+    if (!items.length) {
+      var defs = referenceDefaultLists()[key];
+      items = defs ? defs.items : [];
+    }
+    for (var i = 0; i < items.length; i += 1) {
+      if (items[i].code === value || items[i].name === value) return items[i].name;
+    }
+    return value;
   }
 
   function functionMenuButtonText(button) {
@@ -37446,6 +37624,209 @@ react-dom/cjs/react-dom-client.production.js:
     menu.appendChild(button);
   }
 
+  // ===== J 專案工單 =====
+  var PROJECT_WO_STORAGE_KEY = "codex-project-work-orders-v1";
+  var projectWoState = null;
+  var editingProjectWoId = null;
+  var projectWoView = "list";
+
+  function projectWoSeed() {
+    return [
+      { id: "J-1150410-D-TS-001", title: "月台門感測器改善", projectCode: "PRJ-2026-01", projectName: "月台門感測器改善案", phase: "BUILD", status: "J-DOING", owner: "李孟哲", budgetCode: "CAPEX-26-014", startDate: "2026-04-10", targetDate: "2026-08-30", scope: "全線月台門加裝防夾感測器並整合 TCMS 回報。", acceptance: "未處理" },
+      { id: "J-1150515-D-TS-002", title: "轉向架檢修數位化", projectCode: "PRJ-2026-02", projectName: "轉向架檢修流程數位化", phase: "PLAN", status: "J-DRAFT", owner: "張雍", budgetCode: "OPEX-26-118", startDate: "2026-05-15", targetDate: "2026-12-31", scope: "建立轉向架預檢回填與履歷數位表單。", acceptance: "未處理" }
+    ];
+  }
+
+  function projectWorkOrders() {
+    if (projectWoState) return projectWoState;
+    var saved = null;
+    try { saved = JSON.parse(window.localStorage.getItem(PROJECT_WO_STORAGE_KEY) || "null"); } catch (error) { saved = null; }
+    projectWoState = Array.isArray(saved) ? saved : projectWoSeed();
+    return projectWoState;
+  }
+
+  function saveProjectWorkOrders() {
+    try { window.localStorage.setItem(PROJECT_WO_STORAGE_KEY, JSON.stringify(projectWorkOrders())); } catch (error) {}
+  }
+
+  function nextProjectWoNo() {
+    var d = new Date();
+    var datePart = String(d.getFullYear() - 1911) +
+      ("0" + (d.getMonth() + 1)).slice(-2) +
+      ("0" + d.getDate()).slice(-2);
+    var prefix = "J-" + datePart + "-D-TS-";
+    var max = 0;
+    projectWorkOrders().forEach(function (w) {
+      if ((w.id || "").indexOf(prefix) !== 0) return;
+      var n = parseInt((w.id || "").slice(prefix.length), 10);
+      if (!isNaN(n) && n > max) max = n;
+    });
+    return prefix + ("00" + (max + 1)).slice(-3);
+  }
+
+  function ensureProjectWorkOrderEntry() {
+    if (document.getElementById("codex-global-project-wo-entry")) return;
+    var menu = findFunctionMenuContainer();
+    if (!menu) return;
+    var reference = Array.prototype.find.call(menu.querySelectorAll("button"), function (button) {
+      var text = functionMenuButtonText(button);
+      return text.indexOf("物料表") !== -1 || text.indexOf("周轉件") !== -1;
+    });
+    var button = document.createElement("button");
+    button.id = "codex-global-project-wo-entry";
+    button.type = "button";
+    button.title = "建立與管理 J 專案工單";
+    if (reference && reference.className) button.className = reference.className;
+    button.classList.add("codex-global-project-wo-entry");
+    button.innerHTML = '<span aria-hidden="true" style="font-size:18px;line-height:1;">📋</span> 專案工單';
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      openProjectWoModal();
+    });
+    var listAdmin = document.getElementById("codex-global-list-admin-entry");
+    if (listAdmin && listAdmin.parentElement === menu) {
+      menu.insertBefore(button, listAdmin);
+    } else {
+      menu.appendChild(button);
+    }
+  }
+
+  function openProjectWoModal() {
+    var modal = document.getElementById("codex-project-wo-modal");
+    if (modal) { modal.hidden = false; projectWoView = "list"; editingProjectWoId = null; renderProjectWoModal(); return; }
+    modal = document.createElement("div");
+    modal.id = "codex-project-wo-modal";
+    modal.className = "codex-material-modal";
+    modal.innerHTML = [
+      '<div class="codex-material-backdrop" data-pwo-close></div>',
+      '<section class="codex-material-dialog codex-list-admin-dialog" role="dialog" aria-modal="true">',
+      '  <div class="codex-material-dialog-header">',
+      '    <div>',
+      '      <div class="codex-material-dialog-title">📋 專案工單 (J)</div>',
+      '      <div class="codex-material-dialog-subtitle">改善案、改造案與批次專案。單號 J-民國日期-D-TS-序號，與 P／C／R 共用編號規則。</div>',
+      '    </div>',
+      '    <button type="button" class="codex-material-close" data-pwo-close aria-label="關閉專案工單">×</button>',
+      '  </div>',
+      '  <div class="codex-pwo-body" data-pwo-body></div>',
+      '</section>'
+    ].join("");
+    modal.addEventListener("click", function (event) {
+      var t = event.target;
+      if (!t || !t.closest) return;
+      if (t.closest("[data-pwo-close]")) { modal.hidden = true; return; }
+      if (t.closest("[data-pwo-new]")) { editingProjectWoId = null; projectWoView = "form"; renderProjectWoModal(); return; }
+      var edit = t.closest("[data-pwo-edit]");
+      if (edit) { editingProjectWoId = edit.getAttribute("data-pwo-edit"); projectWoView = "form"; renderProjectWoModal(); return; }
+      if (t.closest("[data-pwo-back]")) { editingProjectWoId = null; projectWoView = "list"; renderProjectWoModal(); return; }
+    });
+    modal.addEventListener("submit", function (event) {
+      if (!event.target || !event.target.matches("[data-pwo-form]")) return;
+      event.preventDefault();
+      saveProjectWo(event.target);
+    });
+    document.body.appendChild(modal);
+    projectWoView = "list";
+    editingProjectWoId = null;
+    renderProjectWoModal();
+  }
+
+  function renderProjectWoModal() {
+    var modal = document.getElementById("codex-project-wo-modal");
+    if (!modal) return;
+    var body = modal.querySelector("[data-pwo-body]");
+    if (!body) return;
+    body.innerHTML = projectWoView === "form" ? projectWoFormHtml() : projectWoListHtml();
+  }
+
+  function projectWoListHtml() {
+    var list = projectWorkOrders();
+    var rows = list.map(function (w) {
+      return [
+        '<tr>',
+        '  <td><strong>' + escapeInline(w.id) + '</strong></td>',
+        '  <td>' + escapeInline(w.projectName || w.title || "-") + '</td>',
+        '  <td>' + escapeInline(referenceNameByCode("project_phase", w.phase) || "-") + '</td>',
+        '  <td>' + escapeInline(w.owner || "-") + '</td>',
+        '  <td>' + escapeInline(w.targetDate || "-") + '</td>',
+        '  <td><span class="codex-list-admin-badge">' + escapeInline(referenceNameByCode("project_status", w.status) || "-") + '</span></td>',
+        '  <td><button type="button" class="codex-list-admin-mini" data-pwo-edit="' + escapeInline(w.id) + '">編輯</button></td>',
+        '</tr>'
+      ].join("");
+    }).join("");
+    return [
+      '<div class="codex-list-admin-panel-head">',
+      '  <div>',
+      '    <div class="codex-list-admin-panel-title">專案工單清冊</div>',
+      '    <div class="codex-list-admin-panel-note">共 ' + list.length + ' 件。對應 work_order(type=J) + project_work_order；目前存於瀏覽器，之後接資料庫。</div>',
+      '  </div>',
+      '  <button type="button" class="codex-material-action codex-material-action-primary" data-pwo-new>＋ 新增專案工單</button>',
+      '</div>',
+      '<table class="codex-list-admin-table">',
+      '  <thead><tr><th>單號</th><th>專案名稱</th><th>階段</th><th>負責人</th><th>目標完成</th><th>狀態</th><th>操作</th></tr></thead>',
+      '  <tbody>' + (rows || '<tr><td colspan="7">目前沒有專案工單，點右上角「新增」。</td></tr>') + '</tbody>',
+      '</table>'
+    ].join("");
+  }
+
+  function projectWoFormHtml() {
+    var list = projectWorkOrders();
+    var editing = null;
+    for (var i = 0; i < list.length; i += 1) { if (list[i].id === editingProjectWoId) { editing = list[i]; break; } }
+    var no = editing ? editing.id : nextProjectWoNo();
+    function v(field) { return escapeInline(editing && editing[field] != null ? editing[field] : ""); }
+    return [
+      '<form class="codex-list-admin-form" data-pwo-form>',
+      '  <div class="codex-list-admin-form-title">' + (editing ? "編輯專案工單" : "新增專案工單") + '</div>',
+      '  <div class="codex-list-admin-form-grid">',
+      '    <div class="codex-list-admin-field"><label>工單號</label><input name="id" value="' + escapeInline(no) + '" readonly></div>',
+      '    <div class="codex-list-admin-field"><label>標題</label><input name="title" value="' + v("title") + '" placeholder="例如 月台門感測器改善" required></div>',
+      '    <div class="codex-list-admin-field"><label>專案碼</label><input name="projectCode" value="' + v("projectCode") + '" placeholder="例如 PRJ-2026-01"></div>',
+      '    <div class="codex-list-admin-field"><label>專案名稱</label><input name="projectName" value="' + v("projectName") + '" placeholder="例如 月台門感測器改善案" required></div>',
+      '    <div class="codex-list-admin-field"><label>階段</label><select name="phase">' + selectOptionsHtml("project_phase", editing ? editing.phase : "") + '</select></div>',
+      '    <div class="codex-list-admin-field"><label>狀態</label><select name="status">' + selectOptionsHtml("project_status", editing ? editing.status : "") + '</select></div>',
+      '    <div class="codex-list-admin-field"><label>負責人</label><input name="owner" value="' + v("owner") + '" placeholder="姓名（暫以文字）"></div>',
+      '    <div class="codex-list-admin-field"><label>預算碼</label><input name="budgetCode" value="' + v("budgetCode") + '" placeholder="例如 CAPEX-26-014"></div>',
+      '    <div class="codex-list-admin-field"><label>起始日</label><input name="startDate" type="date" value="' + v("startDate") + '"></div>',
+      '    <div class="codex-list-admin-field"><label>目標完成日</label><input name="targetDate" type="date" value="' + v("targetDate") + '"></div>',
+      '    <div class="codex-list-admin-field"><label>驗收結果</label><input name="acceptance" value="' + v("acceptance") + '" placeholder="未處理／通過／退回"></div>',
+      '    <div class="codex-list-admin-field"><label>範圍說明</label><input name="scope" value="' + v("scope") + '" placeholder="專案範圍、目標與驗收重點"></div>',
+      '  </div>',
+      '  <div class="codex-pwo-form-actions">',
+      '    <button type="button" class="codex-list-admin-mini" data-pwo-back>← 返回清冊</button>',
+      '    <button type="submit" class="codex-material-action codex-material-action-primary">' + (editing ? "儲存變更" : "建立工單") + '</button>',
+      '  </div>',
+      '</form>'
+    ].join("");
+  }
+
+  function saveProjectWo(form) {
+    var data = {};
+    Array.prototype.forEach.call(form.querySelectorAll("input,select"), function (el) {
+      if (el.name) data[el.name] = (el.value || "").trim();
+    });
+    if (!data.title || !data.projectName) return;
+    var list = projectWorkOrders();
+    if (editingProjectWoId) {
+      for (var i = 0; i < list.length; i += 1) {
+        if (list[i].id === editingProjectWoId) {
+          var keepId = list[i].id;
+          list[i] = Object.assign({}, list[i], data);
+          list[i].id = keepId;
+          break;
+        }
+      }
+    } else {
+      data.id = data.id || nextProjectWoNo();
+      list.push(data);
+    }
+    saveProjectWorkOrders();
+    editingProjectWoId = null;
+    projectWoView = "list";
+    renderProjectWoModal();
+    if (typeof showIaToast === "function") showIaToast("專案工單已儲存（目前存在瀏覽器，之後接資料庫）。");
+  }
+
   function ensureTopActions(title) {
     var titleGroup = title && title.parentElement;
     var header = titleGroup && titleGroup.parentElement;
@@ -37465,6 +37846,7 @@ react-dom/cjs/react-dom-client.production.js:
     actions.setAttribute("data-codex-ia-actions", "ready");
     actions.innerHTML = [
       '<span class="codex-material-chip">物料主控版</span>',
+      '<button type="button" class="codex-material-action" data-codex-cloud-query>☁ 雲端查詢</button>',
       '<button type="button" class="codex-material-action" data-codex-import-material>匯入物料</button>',
       '<button type="button" class="codex-material-action" data-codex-stock-doc>庫存異動單</button>',
       '<button type="button" class="codex-material-action codex-material-action-primary" data-codex-add-material>新增物料</button>'
@@ -37476,6 +37858,172 @@ react-dom/cjs/react-dom-client.production.js:
       showIaToast("庫存異動單使用同一套單號，狀態區分領料、退料與調撥。");
     });
     actions.querySelector("[data-codex-add-material]").addEventListener("click", openIaMaterialModal);
+    var cloudBtn = actions.querySelector("[data-codex-cloud-query]");
+    if (cloudBtn) cloudBtn.addEventListener("click", openMaterialCloudQuery);
+  }
+
+  // ☁ 雲端物料查詢：即時打 /api/materials（連不到就提示，不影響其他功能）
+  var materialCloudState = { search: "", offset: 0, limit: 50, total: 0 };
+
+  function openMaterialCloudQuery() {
+    var modal = document.getElementById("codex-material-cloud-modal");
+    if (modal) { modal.hidden = false; materialCloudState = { search: "", offset: 0, limit: 50, total: 0 }; var s = modal.querySelector("[data-mcloud-search]"); if (s) s.value = ""; materialCloudFetch(); return; }
+    modal = document.createElement("div");
+    modal.id = "codex-material-cloud-modal";
+    modal.className = "codex-material-modal";
+    modal.innerHTML = [
+      '<div class="codex-material-backdrop" data-mcloud-close></div>',
+      '<section class="codex-material-dialog codex-list-admin-dialog" role="dialog" aria-modal="true">',
+      '  <div class="codex-material-dialog-header">',
+      '    <div>',
+      '      <div class="codex-material-dialog-title">☁ 雲端物料查詢</div>',
+      '      <div class="codex-material-dialog-subtitle">即時查詢資料庫物料主檔與庫存（/api/materials），需 erp-api 啟動。</div>',
+      '    </div>',
+      '    <button type="button" class="codex-material-close" data-mcloud-close aria-label="關閉">×</button>',
+      '  </div>',
+      '  <div class="codex-pwo-body">',
+      '    <div class="codex-mcloud-toolbar"><input type="text" data-mcloud-search placeholder="搜尋料號／名稱／規格…"><span class="codex-material-chip" data-mcloud-count>—</span></div>',
+      '    <div data-mcloud-results>載入中…</div>',
+      '    <div class="codex-pwo-form-actions"><button type="button" class="codex-list-admin-mini" data-mcloud-more style="display:none;">載入更多</button></div>',
+      '  </div>',
+      '</section>'
+    ].join("");
+    modal.addEventListener("click", function (e) {
+      var t = e.target; if (!t || !t.closest) return;
+      if (t.closest("[data-mcloud-close]")) { modal.hidden = true; return; }
+      if (t.closest("[data-mcloud-more]")) { materialCloudState.offset += materialCloudState.limit; materialCloudFetch(true); return; }
+      var issueBtn = t.closest("[data-mcloud-issue]");
+      if (issueBtn) { openMaterialIssueForm(issueBtn.getAttribute("data-mcloud-issue")); return; }
+      if (t.closest("[data-mcloud-back-list]")) { materialCloudFetch(); return; }
+      if (t.closest("[data-mcloud-issue-submit]")) { submitMaterialIssue(); return; }
+    });
+    modal.addEventListener("input", function (e) {
+      if (e.target && e.target.matches("[data-mcloud-search]")) {
+        materialCloudState.search = e.target.value;
+        materialCloudState.offset = 0;
+        window.clearTimeout(openMaterialCloudQuery._t);
+        openMaterialCloudQuery._t = window.setTimeout(function () { materialCloudFetch(); }, 300);
+      }
+    });
+    document.body.appendChild(modal);
+    materialCloudState = { search: "", offset: 0, limit: 50, total: 0 };
+    materialCloudFetch();
+  }
+
+  function materialCloudFetch(append) {
+    var modal = document.getElementById("codex-material-cloud-modal");
+    if (!modal) return;
+    var results = modal.querySelector("[data-mcloud-results]");
+    var countEl = modal.querySelector("[data-mcloud-count]");
+    var moreBtn = modal.querySelector("[data-mcloud-more]");
+    if (typeof fetch !== "function") { results.innerHTML = '<div class="codex-turnaround-empty">此環境不支援連線查詢。</div>'; return; }
+    var url = "/api/materials?limit=" + materialCloudState.limit + "&offset=" + materialCloudState.offset +
+      (materialCloudState.search ? ("&search=" + encodeURIComponent(materialCloudState.search)) : "");
+    if (!append) results.innerHTML = '<div class="codex-turnaround-empty">載入中…</div>';
+    fetch(url)
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (data) {
+        materialCloudState.total = (data.page && typeof data.page.total === "number") ? data.page.total : (data.items || []).length;
+        if (countEl) countEl.textContent = "共 " + materialCloudState.total + " 筆";
+        var rowsHtml = (data.items || []).map(materialCloudRowHtml).join("");
+        if (append) {
+          var tbody = results.querySelector("tbody");
+          if (tbody) tbody.insertAdjacentHTML("beforeend", rowsHtml);
+        } else {
+          results.innerHTML = materialCloudTableHtml(rowsHtml);
+        }
+        if (moreBtn) moreBtn.style.display = (materialCloudState.offset + materialCloudState.limit < materialCloudState.total) ? "" : "none";
+      })
+      .catch(function (err) {
+        if (!append) results.innerHTML = '<div class="codex-turnaround-empty">雲端未連線或查詢失敗（' + escapeInline(err.message) + '）。請先啟動 erp-api（npm start）。</div>';
+        if (moreBtn) moreBtn.style.display = "none";
+      });
+  }
+
+  function materialCloudTableHtml(rowsHtml) {
+    return '<table class="codex-list-admin-table"><thead><tr>' +
+      '<th>料號</th><th>名稱</th><th>規格</th><th>單位</th><th>系統/類別</th><th>可用</th><th>在庫合計</th><th>建議</th><th>操作</th>' +
+      '</tr></thead><tbody>' + (rowsHtml || '<tr><td colspan="9">查無資料</td></tr>') + '</tbody></table>';
+  }
+
+  function materialCloudRowHtml(m) {
+    var st = m.stock || {};
+    return '<tr>' +
+      '<td><strong>' + escapeInline(m.partNo || "") + '</strong></td>' +
+      '<td>' + escapeInline(m.materialName || "") + '</td>' +
+      '<td>' + escapeInline(String(m.spec || "").slice(0, 40)) + '</td>' +
+      '<td>' + escapeInline(m.unit || "") + '</td>' +
+      '<td>' + escapeInline(m.systemName || m.categoryName || "") + '</td>' +
+      '<td>' + escapeInline(String(st.availableQty != null ? st.availableQty : "0")) + '</td>' +
+      '<td>' + escapeInline(String(st.totalTrackedQty != null ? st.totalTrackedQty : "0")) + '</td>' +
+      '<td>' + escapeInline(st.stockAdvice || "") + '</td>' +
+      '<td><button type="button" class="codex-list-admin-mini" data-mcloud-issue="' + escapeInline(m.partNo || "") + '">領料</button></td>' +
+      '</tr>';
+  }
+
+  // 領料：先抓該物料各庫位，挑有貨的庫位 + 數量 → 主庫房走 /issue 開單、其餘走 /consume 扣帳
+  var materialIssueCtx = null;
+
+  function openMaterialIssueForm(partNo) {
+    var modal = document.getElementById("codex-material-cloud-modal");
+    if (!modal) return;
+    var results = modal.querySelector("[data-mcloud-results]");
+    results.innerHTML = '<div class="codex-turnaround-empty">載入庫位…</div>';
+    fetch("/api/materials/" + encodeURIComponent(partNo))
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (data) {
+        var item = data.item || {};
+        var locs = (data.locations || []).filter(function (l) { return Number(l.qty) > 0; });
+        materialIssueCtx = { partNo: item.partNo || partNo, name: item.materialName || "", locations: locs };
+        results.innerHTML = materialIssueFormHtml(item, locs);
+      })
+      .catch(function (e) { results.innerHTML = '<div class="codex-turnaround-empty">載入失敗（' + escapeInline(e.message) + '）</div>'; });
+  }
+
+  function materialIssueFormHtml(item, locs) {
+    var head = '<div class="codex-list-admin-panel-head"><div>' +
+      '<div class="codex-list-admin-panel-title">領料：' + escapeInline(item.partNo || "") + '</div>' +
+      '<div class="codex-list-admin-panel-note">' + escapeInline(item.materialName || "") + '（主庫房領用會開領料單；分存站／現場為直接扣帳）</div>' +
+      '</div><button type="button" class="codex-list-admin-mini" data-mcloud-back-list>← 返回清單</button></div>';
+    if (!locs.length) {
+      return head + '<div class="codex-turnaround-empty">此物料目前各庫位都沒有可領庫存。</div>';
+    }
+    var opts = locs.map(function (l, i) {
+      return '<option value="' + i + '">' + escapeInline(l.warehouse_name || l.warehouse_code) +
+        (l.bin_code ? (" / " + escapeInline(l.bin_code)) : "") +
+        "（" + escapeInline(l.location_type) + "，" + escapeInline(l.stock_status) + "，可領 " + escapeInline(String(l.qty)) + "）</option>";
+    }).join("");
+    return head +
+      '<div class="codex-list-admin-form-grid">' +
+      '  <div class="codex-list-admin-field"><label>領料來源庫位</label><select data-mcloud-issue-loc>' + opts + '</select></div>' +
+      '  <div class="codex-list-admin-field"><label>數量</label><input type="number" min="1" step="1" data-mcloud-issue-qty value="1"></div>' +
+      '</div>' +
+      '<div class="codex-pwo-form-actions"><button type="button" class="codex-material-action codex-material-action-primary" data-mcloud-issue-submit>送出領料</button></div>';
+  }
+
+  function submitMaterialIssue() {
+    var modal = document.getElementById("codex-material-cloud-modal");
+    if (!modal || !materialIssueCtx) return;
+    var locSel = modal.querySelector("[data-mcloud-issue-loc]");
+    var qtyEl = modal.querySelector("[data-mcloud-issue-qty]");
+    if (!locSel || !qtyEl) return;
+    var loc = materialIssueCtx.locations[Number(locSel.value)];
+    var qty = Number(qtyEl.value);
+    if (!loc || !(qty > 0)) { showIaToast("請選庫位並輸入正確數量"); return; }
+    var isCenter = loc.location_type === "CENTER_WAREHOUSE";
+    var url = isCenter ? "/api/inventory/issue" : "/api/inventory/consume";
+    var body = isCenter
+      ? { partNo: materialIssueCtx.partNo, qty: qty, sourceWarehouseCode: loc.warehouse_code, sourceBinCode: loc.bin_code }
+      : { partNo: materialIssueCtx.partNo, qty: qty, warehouseCode: loc.warehouse_code, stockStatus: loc.stock_status, binCode: loc.bin_code };
+    fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok) throw new Error((res.j && res.j.error && res.j.error.message) || "領料失敗");
+        showIaToast(isCenter ? ("已開領料單並扣帳：" + materialIssueCtx.partNo) : ("已扣帳（分存站／現場）：" + materialIssueCtx.partNo));
+        materialIssueCtx = null;
+        materialCloudFetch();
+      })
+      .catch(function (e) { showIaToast("領料失敗：" + e.message); });
   }
 
   function openIaMaterialModal() {
@@ -37692,7 +38240,8 @@ react-dom/cjs/react-dom-client.production.js:
     var code = String(data.get("code") || "").trim();
     var note = String(data.get("note") || "").trim();
     if (!name) return;
-    var list = referenceLists()[activeReferenceListKey];
+    var key = activeReferenceListKey;
+    var list = referenceLists()[key];
     var duplicate = list.items.some(function (item) {
       return item.id !== editingReferenceItemId && item.name === name;
     });
@@ -37700,7 +38249,12 @@ react-dom/cjs/react-dom-client.production.js:
       showIaToast("這個名稱已經存在：" + name);
       return;
     }
-    if (editingReferenceItemId) {
+    var isEdit = !!editingReferenceItemId;
+    var originalCode = null;
+    if (isEdit) {
+      var editing = list.items.find(function (it) { return it.id === editingReferenceItemId; });
+      originalCode = editing ? (editing.code || editing.id) : null;
+      if (!code) code = originalCode || "";
       list.items.forEach(function (item) {
         if (item.id === editingReferenceItemId) {
           item.name = name;
@@ -37710,8 +38264,9 @@ react-dom/cjs/react-dom-client.production.js:
       });
       showIaToast("已更新清單選項：" + name);
     } else {
+      if (!code) code = referenceAutoCode(key);
       list.items.push({
-        id: activeReferenceListKey + "-" + Date.now(),
+        id: code,
         code: code,
         name: name,
         note: note,
@@ -37722,18 +38277,36 @@ react-dom/cjs/react-dom-client.production.js:
     editingReferenceItemId = null;
     saveReferenceLists();
     refreshMaterialModalSelects(document.getElementById("codex-material-modal"));
-    renderListAdminModal(activeReferenceListKey);
+    renderListAdminModal(key);
+
+    // 同步雲端（有 API 才打；失敗只提示，不影響本機）
+    var group = REFERENCE_GROUP_BY_KEY[key];
+    if (group && typeof fetch === "function") {
+      var req = isEdit
+        ? referenceApiUpdate(group, originalCode || code, { label: name, description: note })
+        : referenceApiCreate(group, { code: code, name: name, note: note });
+      req.then(function (r) { if (!r.ok) throw new Error("http " + r.status); referenceApiConnected = true; })
+        .catch(function () { showIaToast("雲端未連線，僅暫存本機：" + name); });
+    }
   }
 
   function toggleReferenceItem(id) {
-    var list = referenceLists()[activeReferenceListKey];
+    var key = activeReferenceListKey;
+    var list = referenceLists()[key];
     var target = list.items.find(function (item) { return item.id === id; });
     if (!target) return;
     target.active = target.active === false;
     saveReferenceLists();
     refreshMaterialModalSelects(document.getElementById("codex-material-modal"));
-    renderListAdminModal(activeReferenceListKey);
+    renderListAdminModal(key);
     showIaToast((target.active ? "已啟用：" : "已停用：") + target.name);
+
+    var group = REFERENCE_GROUP_BY_KEY[key];
+    if (group && target.code && typeof fetch === "function") {
+      referenceApiUpdate(group, target.code, { isActive: target.active })
+        .then(function (r) { if (!r.ok) throw new Error("http " + r.status); referenceApiConnected = true; })
+        .catch(function () { showIaToast("雲端未連線，僅暫存本機"); });
+    }
   }
 
   function showIaToast(message) {
@@ -39203,6 +39776,8 @@ react-dom/cjs/react-dom-client.production.js:
     pending = false;
     updateTopQuerySection();
     ensureGlobalListAdminEntry();
+    ensureProjectWorkOrderEntry();
+    if (!window.__refApiLoaded) { window.__refApiLoaded = true; loadReferenceListsFromApi(); }
     hideDuplicateStats();
     updateGovernanceSection();
     integrateMaterialListDetail();
@@ -44722,7 +45297,7 @@ react-dom/cjs/react-dom-client.production.js:
     keepSelection(list);
     list = filtered();
     return '<div class="codex-rwork-v8-shell" data-codex-rwork-structure="v2" data-codex-rwork-structure-v3="true" data-codex-rwork-structure-v4="true" data-codex-rwork-structure-v5="true" data-codex-rwork-structure-v6="true" data-codex-rwork-structure-v7="true" data-codex-rwork-structure-v8="true">' +
-      '<section class="codex-rwork-panel codex-rwork-top"><div class="codex-rwork-title-row"><div><h2 class="codex-rwork-title">周轉件首頁 / R 單清冊</h2><div class="codex-rwork-desc">集中查看 R 單、來源 C 單、拆下件序號、目前位置與處理狀態；坑位矩陣只負責視覺化檢視。</div><div class="codex-rwork-v8-rule"><span>掛鉤：序號</span><span>來源 C 單</span><span>R 單狀態</span><span>目前位置</span></div></div><div class="codex-rwork-actions"><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="matrix">坑位矩陣</button><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="equipment">設備名稱總覽</button><button type="button" class="codex-rwork-btn">匯出清冊</button><button type="button" class="codex-rwork-btn is-primary">+ 新增 R 事件</button></div></div></section>' +
+      '<section class="codex-rwork-panel codex-rwork-top"><div class="codex-rwork-title-row"><div><h2 class="codex-rwork-title">周轉件首頁 / R 單清冊</h2><div class="codex-rwork-desc">集中查看 R 單、來源 C 單、拆下件序號、目前位置與處理狀態；坑位矩陣只負責視覺化檢視。</div><div class="codex-rwork-v8-rule"><span>掛鉤：序號</span><span>來源 C 單</span><span>R 單狀態</span><span>目前位置</span></div></div><div class="codex-rwork-actions"><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="matrix">坑位矩陣</button><button type="button" class="codex-rwork-btn" data-turnaround-shortcut="equipment">設備總覽</button><button type="button" class="codex-rwork-btn">匯出清冊</button><button type="button" class="codex-rwork-btn is-primary">+ 新增 R 事件</button></div></div></section>' +
       statusHtml() +
       filtersHtml() +
       '<section class="codex-rwork-panel codex-rwork-v6-list"><div class="codex-rwork-section-head"><div><h3>R 單清冊</h3><p>主表先看來源 C、拆下件序號與 R 三層分類；點擊列後展開完整追蹤資料。</p></div><div class="codex-rwork-count-pill">目前顯示 ' + list.length + ' 筆</div></div>' + tableHtml(list) + '</section>' +
@@ -47001,7 +47576,110 @@ react-dom/cjs/react-dom-client.production.js:
 
   .codex-turnaround-equipment-table-wrap {
     overflow: auto;
+    max-height: 70vh;
     border-top: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .codex-turnaround-equipment-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px 0;
+  }
+
+  .codex-turnaround-equipment-toolbar .codex-eq-search {
+    flex: 1 1 220px;
+    min-width: 180px;
+    min-height: 34px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 8px;
+    padding: 0 11px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #ecfeff;
+    font-size: 12px;
+  }
+
+  .codex-turnaround-equipment-toolbar .codex-eq-search::placeholder {
+    color: #6f93b6;
+  }
+
+  .codex-turnaround-equipment-toolbar .codex-eq-select {
+    min-height: 34px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 8px;
+    padding: 0 10px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #dbeafe;
+    font-size: 12px;
+  }
+
+  .codex-turnaround-equipment-toolbar .codex-eq-reset {
+    min-height: 34px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 8px;
+    padding: 0 12px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #dbeafe;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .codex-turnaround-equipment-toolbar .codex-eq-count {
+    margin-left: auto;
+    color: #8fb6d8;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-equipment-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+
+  .codex-turnaround-equipment-table th:first-child,
+  .codex-turnaround-equipment-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: #0b1424;
+  }
+
+  .codex-turnaround-equipment-table thead th:first-child {
+    z-index: 4;
+    background: #111827;
+  }
+
+  .codex-turnaround-equipment-table tr.is-selected td:first-child {
+    background: #0e2436;
+  }
+
+  .codex-turnaround-equipment-table th button.codex-eq-sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 900;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .codex-turnaround-equipment-table th button.codex-eq-sort .codex-eq-arrow {
+    color: #22d3ee;
+    font-size: 10px;
+  }
+
+  .codex-turnaround-equipment-empty {
+    padding: 24px 16px;
+    color: #8fb6d8;
+    font-size: 13px;
+    text-align: center;
   }
 
   .codex-turnaround-equipment-table {
@@ -47085,12 +47763,95 @@ react-dom/cjs/react-dom-client.production.js:
     background: rgba(245, 158, 11, 0.26);
   }
 
+  .codex-turnaround-equipment-detail-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 16px 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .codex-turnaround-equipment-detail-name {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-equipment-detail-tabs {
+    display: inline-flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .codex-turnaround-equipment-detail-tabs .codex-eq-detail-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 999px;
+    padding: 5px 12px;
+    background: rgba(15, 23, 42, 0.56);
+    color: #cbd5f5;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .codex-turnaround-equipment-detail-tabs .codex-eq-detail-tab span {
+    min-width: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.2);
+    color: #e2e8f0;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .codex-turnaround-equipment-detail-tabs .codex-eq-detail-tab.is-active {
+    border-color: rgba(34, 211, 238, 0.72);
+    background: rgba(8, 145, 178, 0.25);
+    color: #e0fbff;
+  }
+
+  .codex-turnaround-equipment-detail-tabs .codex-eq-detail-tab.is-active span {
+    background: rgba(34, 211, 238, 0.55);
+    color: #06222b;
+  }
+
+  .codex-turnaround-equipment-detail-tabs .codex-eq-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 999px;
+    padding: 5px 12px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #e2e8f0;
+    font-size: 13px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  .codex-turnaround-equipment-detail-tabs .codex-eq-back:hover {
+    border-color: rgba(34, 211, 238, 0.65);
+    color: #ecfeff;
+  }
+
   .codex-turnaround-equipment-detail {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 14px;
     padding: 16px;
     border-top: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .codex-turnaround-equipment-detail.is-focus {
+    grid-template-columns: 1fr;
+    border-top: 0;
+    padding-top: 12px;
   }
 
   .codex-turnaround-equipment-detail-card {
@@ -47129,6 +47890,138 @@ react-dom/cjs/react-dom-client.production.js:
     font-weight: 900;
   }
 
+  .codex-turnaround-serial-layout {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.9fr) minmax(380px, 1.1fr);
+    gap: 14px;
+    padding: 16px;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .codex-turnaround-serial-panel {
+    min-width: 0;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.56);
+    overflow: hidden;
+  }
+
+  .codex-turnaround-serial-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 13px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-serial-panel-head span {
+    color: #8fb6d8;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .codex-turnaround-serial-list {
+    display: grid;
+    gap: 8px;
+    max-height: 520px;
+    overflow: auto;
+    padding: 12px;
+  }
+
+  .codex-turnaround-serial-row {
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    padding: 10px;
+    background: rgba(2, 6, 23, 0.35);
+    color: #dbeafe;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .codex-turnaround-serial-row:hover,
+  .codex-turnaround-serial-row.is-active {
+    border-color: rgba(34, 211, 238, 0.58);
+    background: rgba(8, 145, 178, 0.16);
+  }
+
+  .codex-turnaround-serial-row-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .codex-turnaround-serial-row strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-serial-row small {
+    display: block;
+    margin-top: 5px;
+    color: #8fb6d8;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .codex-turnaround-serial-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .codex-turnaround-serial-kv {
+    min-width: 0;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 8px;
+    padding: 9px;
+    background: rgba(2, 6, 23, 0.3);
+  }
+
+  .codex-turnaround-serial-kv span,
+  .codex-turnaround-serial-kv strong {
+    display: block;
+  }
+
+  .codex-turnaround-serial-kv span {
+    color: #8fb6d8;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  .codex-turnaround-serial-kv strong {
+    margin-top: 4px;
+    color: #f8fafc;
+    font-size: 13px;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+  }
+
+  .codex-turnaround-serial-history {
+    padding: 0 12px 12px;
+  }
+
+  .codex-turnaround-serial-history h3 {
+    margin: 0 0 10px;
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  @media (max-width: 1100px) {
+    .codex-turnaround-serial-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 1000px) {
     .codex-turnaround-pit-workspace {
       grid-template-columns: 1fr;
@@ -47164,6 +48057,8 @@ react-dom/cjs/react-dom-client.production.js:
     showChildren: false,
     selectedKey: "",
     selectedEquipment: "",
+    selectedEquipmentSerial: "",
+    equipmentFocus: false,
     detailTab: "current"
   };
   var activeRouteView = "list";
@@ -47900,6 +48795,7 @@ react-dom/cjs/react-dom-client.production.js:
       '<div class="codex-turnaround-pit-kv"><span>來源工單</span><strong>' + escapeHtml(cell.workOrder || "-") + '</strong></div>' +
       '<div class="codex-turnaround-pit-kv"><span>' + (cell.status === "空位" ? "拆出日期" : "最近更換日") + '</span><strong>' + escapeHtml(cell.replaceDate || "-") + '</strong></div>' +
       '<div class="codex-turnaround-pit-detail-note">顏色只表示健康狀態；N/A 坑位不建立主檔，所以不會出現在矩陣中。</div>' +
+      '<div class="codex-turnaround-pit-action-row" style="grid-template-columns:1fr;"><button type="button" data-equipment-jump="' + escapeHtml(cell.slot.name) + '" data-equipment-cell-key="' + escapeHtml(cell.key) + '">看設備總覽</button></div>' +
     '</div>' + renderWarehouseRowsForCell(cell) + renderRWorkTracking(cell);
   }
 
@@ -47949,6 +48845,90 @@ react-dom/cjs/react-dom-client.production.js:
     return '<div class="codex-turnaround-pit-spares">' + spares + '</div>';
   }
 
+  function equipmentColumns() {
+    return [
+      { key: "name", label: "設備名稱", type: "text" },
+      { key: "system", label: "系統", type: "text" },
+      { key: "materialNo", label: "物料號", type: "text" },
+      { key: "onTrain", label: "車上使用", type: "num" },
+      { key: "warehouse", label: "倉庫/庫房", type: "num" },
+      { key: "repair", label: "待修", type: "num" },
+      { key: "ship", label: "送修中", type: "num" },
+      { key: "scrap", label: "報廢", type: "num" },
+      { key: "watch", label: "觀察中", type: "num" },
+      { key: "rOrders", label: "R 工單", type: "num" }
+    ];
+  }
+
+  function equipmentStatusRank(status) {
+    if (status === "異常") return 3;
+    if (status === "觀察") return 2;
+    return 1;
+  }
+
+  function equipmentSortValue(item, key) {
+    if (key === "status") return equipmentStatusRank(item.status);
+    var value = item[key];
+    if (typeof value === "number") return value;
+    return String(value || "").toLowerCase();
+  }
+
+  function equipmentSystems(list) {
+    var seen = {};
+    list.forEach(function (item) {
+      String(item.system || "").split(" / ").forEach(function (part) {
+        var name = part.trim();
+        if (name) seen[name] = true;
+      });
+    });
+    return Object.keys(seen).sort(function (a, b) { return a.localeCompare(b, "zh-Hant"); });
+  }
+
+  function equipmentFilteredItems(list) {
+    var rows = list.slice();
+    var query = String(state.equipmentSearch || "").trim().toLowerCase();
+    if (query) {
+      rows = rows.filter(function (item) {
+        return (String(item.name || "") + " " + String(item.materialNo || "") + " " + String(item.system || "")).toLowerCase().indexOf(query) !== -1;
+      });
+    }
+    var sys = state.equipmentSystemFilter || "";
+    if (sys) {
+      rows = rows.filter(function (item) {
+        return String(item.system || "").split(" / ").some(function (part) { return part.trim() === sys; });
+      });
+    }
+    var sort = state.equipmentSort;
+    if (sort && sort.key) {
+      var dir = sort.dir === "asc" ? 1 : -1;
+      rows.sort(function (a, b) {
+        var va = equipmentSortValue(a, sort.key);
+        var vb = equipmentSortValue(b, sort.key);
+        if (va < vb) return -1 * dir;
+        if (va > vb) return 1 * dir;
+        return a.name.localeCompare(b.name, "zh-Hant");
+      });
+    }
+    return rows;
+  }
+
+  function equipmentToolbarHtml(shown, total, list) {
+    var query = escapeHtml(state.equipmentSearch || "");
+    var sys = state.equipmentSystemFilter || "";
+    var options = '<option value="">全部系統</option>' + equipmentSystems(list).map(function (name) {
+      var sel = name === sys ? " selected" : "";
+      return '<option value="' + escapeHtml(name) + '"' + sel + '>' + escapeHtml(name) + '</option>';
+    }).join("");
+    var active = (state.equipmentSearch || "") || (state.equipmentSystemFilter || "") || (state.equipmentSort && state.equipmentSort.key);
+    var resetBtn = active ? '<button type="button" class="codex-eq-reset" data-eq-reset="1">清除篩選</button>' : '';
+    return '<div class="codex-turnaround-equipment-toolbar">' +
+      '<input type="search" class="codex-eq-search" data-eq-search="1" placeholder="搜尋設備名稱 / 物料號 / 系統" value="' + query + '">' +
+      '<select class="codex-eq-select" data-eq-system="1">' + options + '</select>' +
+      resetBtn +
+      '<span class="codex-eq-count">顯示 ' + shown + ' / ' + total + ' 項</span>' +
+    '</div>';
+  }
+
   function equipmentSummaryHtml(list) {
     var totals = list.reduce(function (sum, item) {
       sum.names += 1;
@@ -47959,7 +48939,7 @@ react-dom/cjs/react-dom-client.production.js:
       return sum;
     }, { names: 0, onTrain: 0, warehouse: 0, risk: 0, rOrders: 0 });
     return '<div class="codex-turnaround-equipment-summary">' +
-      '<div class="codex-turnaround-equipment-metric"><span>設備名稱</span><strong>' + totals.names + '</strong></div>' +
+      '<div class="codex-turnaround-equipment-metric"><span>設備品項</span><strong>' + totals.names + '</strong></div>' +
       '<div class="codex-turnaround-equipment-metric"><span>車上使用</span><strong>' + totals.onTrain + '</strong></div>' +
       '<div class="codex-turnaround-equipment-metric"><span>倉庫/庫房</span><strong>' + totals.warehouse + '</strong></div>' +
       '<div class="codex-turnaround-equipment-metric"><span>待修/送修</span><strong>' + totals.risk + '</strong></div>' +
@@ -47968,13 +48948,24 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   function equipmentTableHtml(list) {
-    return '<div class="codex-turnaround-equipment-table-wrap"><table class="codex-turnaround-equipment-table"><thead><tr>' +
-      '<th>設備名稱</th><th>系統</th><th>物料號</th><th>車上使用</th><th>倉庫/庫房</th><th>待修</th><th>送修中</th><th>報廢</th><th>觀察中</th><th>R 工單</th><th>狀態</th>' +
+    var sort = state.equipmentSort || {};
+    var headHtml = equipmentColumns().map(function (col) {
+      var arrow = "";
+      if (sort.key === col.key) {
+        arrow = '<span class="codex-eq-arrow">' + (sort.dir === "asc" ? "▲" : "▼") + '</span>';
+      }
+      return '<th><button type="button" class="codex-eq-sort" data-eq-sort="' + col.key + '">' + escapeHtml(col.label) + arrow + '</button></th>';
+    }).join("");
+    if (!list.length) {
+      return '<div class="codex-turnaround-equipment-table-wrap"><table class="codex-turnaround-equipment-table"><thead><tr>' + headHtml +
+        '</tr></thead><tbody><tr><td colspan="10"><div class="codex-turnaround-equipment-empty">找不到符合條件的設備，請調整搜尋或篩選。</div></td></tr></tbody></table></div>';
+    }
+    return '<div class="codex-turnaround-equipment-table-wrap"><table class="codex-turnaround-equipment-table"><thead><tr>' + headHtml +
       '</tr></thead><tbody>' + list.map(function (item) {
         var selected = item.key === state.selectedEquipment ? " is-selected" : "";
-        var statusClass = item.status === "異常" ? " is-risk" : item.status === "觀察" ? " is-watch" : "";
+        var serialCount = equipmentSerialRows(item).length;
         return '<tr class="' + selected + '">' +
-          '<td><button type="button" class="codex-turnaround-equipment-open" data-equipment-key="' + escapeHtml(item.key) + '"><span class="codex-turnaround-equipment-name">' + escapeHtml(item.name) + '<small>坑位數 ' + item.cells.length + '</small></span></button></td>' +
+          '<td><button type="button" class="codex-turnaround-equipment-open" data-equipment-key="' + escapeHtml(item.key) + '"><span class="codex-turnaround-equipment-name">' + escapeHtml(item.name) + '<small>設備序號 ' + serialCount + '</small></span></button></td>' +
           '<td>' + escapeHtml(item.system) + '</td>' +
           '<td>' + escapeHtml(item.materialNo) + '</td>' +
           '<td><span class="codex-turnaround-equipment-count">' + item.onTrain + '</span></td>' +
@@ -47984,7 +48975,6 @@ react-dom/cjs/react-dom-client.production.js:
           '<td><span class="codex-turnaround-equipment-count">' + item.scrap + '</span></td>' +
           '<td><span class="codex-turnaround-equipment-count">' + item.watch + '</span></td>' +
           '<td><span class="codex-turnaround-equipment-count">' + item.rOrders + '</span></td>' +
-          '<td><span class="codex-turnaround-equipment-status' + statusClass + '">' + escapeHtml(item.status) + '</span></td>' +
         '</tr>';
       }).join("") + '</tbody></table></div>';
   }
@@ -48001,49 +48991,159 @@ react-dom/cjs/react-dom-client.production.js:
     }).join("") + '</div>';
   }
 
-  function equipmentDetailHtml(item) {
-    if (!item) return "";
-    var cells = item.cells.slice().sort(function (a, b) {
+  function equipmentSerialRows(item) {
+    if (!item) return [];
+    var cellRows = item.cells.filter(function (cell) {
+      return !!cell.serial;
+    }).sort(function (a, b) {
       return equipmentCellSort(a) - equipmentCellSort(b) || a.train.localeCompare(b.train) || a.slot.locationId.localeCompare(b.slot.locationId);
-    });
-    var onTrainRows = cells.filter(function (cell) { return cell.status !== "空位" && cell.status !== "送修中" && cell.status !== "報廢"; }).slice(0, 12).map(function (cell) {
-      return '<strong>' + escapeHtml(cell.train + "｜" + cell.slot.locationId + "｜" + cell.slot.name) + '</strong>' +
-        '設備序號：' + escapeHtml(cell.serial || "未建檔") + '<br>' +
-        '物料序號：' + escapeHtml(cell.materialSerial || "待建檔") + '<br>' +
-        '狀態：' + escapeHtml(cell.status) + '　最近工單：' + escapeHtml(shortWorkOrder(cell.workOrder)) + '　更換日：' + escapeHtml(cell.replaceDate || "-");
+    }).map(function (cell) {
+      var locationType = cell.status === "送修中" ? "送修中" : cell.status === "待修" ? "待修區" : cell.status === "報廢" ? "報廢" : "車上坑位";
+      var locationText = locationType === "車上坑位" ? cell.train + "｜" + cell.slot.locationId : locationType;
+      return {
+        key: "cell|" + cell.key,
+        source: "車上坑位",
+        serial: cell.serial,
+        materialSerial: cell.materialSerial,
+        status: displayStatus(cell.status),
+        rawStatus: cell.status,
+        locationType: locationType,
+        locationText: locationText,
+        train: cell.train,
+        slotName: cell.slot.name,
+        slotId: cell.slot.locationId,
+        system: cell.slot.group,
+        workOrder: cell.workOrder,
+        replaceDate: cell.replaceDate,
+        sourceCell: cell
+      };
     });
     var warehouseRows = item.warehouseRows.map(function (row) {
-      return '<strong>' + escapeHtml(row.warehouse + "｜" + row.location) + '</strong>' +
-        '設備序號：' + escapeHtml(row.serial) + '<br>' +
-        '物料序號：' + escapeHtml(row.materialSerial) + '　數量：' + row.qty + '　狀態：' + escapeHtml(row.status);
+      return {
+        key: "warehouse|" + row.serial,
+        source: "倉庫/庫房",
+        serial: row.serial,
+        materialSerial: row.materialSerial,
+        status: row.status,
+        rawStatus: row.status,
+        locationType: "倉庫/庫房",
+        locationText: row.warehouse + "｜" + row.location,
+        train: "",
+        slotName: item.name,
+        slotId: "",
+        system: item.system,
+        workOrder: "",
+        replaceDate: "-",
+        warehouseRow: row
+      };
     });
-    var repairRows = cells.filter(function (cell) { return isRepairSerial(cell) || cell.status === "報廢"; }).map(function (cell) {
-      return '<strong>' + escapeHtml(cell.status === "報廢" ? "報廢結案" : (rWorkOrder(cell) || "待建立 R 工單")) + '</strong>' +
-        '來源 C：' + escapeHtml(sourceCOrder(cell)) + '<br>' +
-        '拆下件：' + escapeHtml(cell.serial) + '　坑位：' + escapeHtml(cell.slot.locationId) + '<br>' +
-        '故障子件：' + escapeHtml(subPartName(cell.slot)) + '<br>' +
-        '目前位置：' + escapeHtml(cell.status === "送修中" ? "廠商或維修區" : "待修區") + '　狀態：' + escapeHtml(cell.status);
-    });
-    return '<div class="codex-turnaround-equipment-detail">' +
-      '<div class="codex-turnaround-equipment-detail-card"><h3>車上坑位排序</h3>' + equipmentDetailList(onTrainRows, "目前沒有車上使用資料。") + '</div>' +
-      '<div class="codex-turnaround-equipment-detail-card"><h3>倉庫/庫房</h3>' + equipmentDetailList(warehouseRows, "目前沒有倉庫/庫房可用件。") + '</div>' +
-      '<div class="codex-turnaround-equipment-detail-card"><h3>待修 / 送修 / R 工單</h3>' + equipmentDetailList(repairRows, "目前沒有待修、送修或未結 R 工單。") + '</div>' +
+    return cellRows.concat(warehouseRows);
+  }
+
+  function equipmentSerialStatusClass(status) {
+    if (status === "待修" || status === "送修中" || status === "報廢" || status === "空坑待補件") return " is-risk";
+    if (status === "觀察中" || status === "備置") return " is-watch";
+    return "";
+  }
+
+  function selectedEquipmentSerialRow(item, rows) {
+    var list = rows || equipmentSerialRows(item);
+    if (!list.length) {
+      state.selectedEquipmentSerial = "";
+      return null;
+    }
+    var selected = list.find(function (row) { return row.key === state.selectedEquipmentSerial; });
+    if (!selected) {
+      selected = list[0];
+      state.selectedEquipmentSerial = selected.key;
+    }
+    return selected;
+  }
+
+  function equipmentSerialEvents(row) {
+    if (!row) {
+      return [{ date: "-", title: "尚未選擇設備序號", body: "請先從左側設備序號清單選擇一筆。" }];
+    }
+    if (row.sourceCell) return serialHistoryEvents(row.sourceCell);
+    return [
+      { date: "115.01.15", title: "序號建檔", body: row.serial + " 建立個體主檔，分類為 " + row.system + " / " + row.slotName + "。" },
+      { date: "115.03.12", title: "倉庫/庫房入庫", body: row.locationText + " 保管，物料序號 " + row.materialSerial + "。" },
+      { date: row.replaceDate || "-", title: "目前狀態", body: "目前位於 " + row.locationText + "，狀態 " + row.status + "。" }
+    ];
+  }
+
+  function equipmentSerialListHtml(rows, selectedRow) {
+    if (!rows.length) {
+      return '<div class="codex-turnaround-serial-panel"><div class="codex-turnaround-serial-panel-head">設備序號清單<span>0 筆</span></div><div class="codex-turnaround-equipment-empty">目前沒有可追蹤的設備序號。</div></div>';
+    }
+    return '<div class="codex-turnaround-serial-panel">' +
+      '<div class="codex-turnaround-serial-panel-head">設備序號清單<span>' + rows.length + ' 筆</span></div>' +
+      '<div class="codex-turnaround-serial-list">' + rows.map(function (row) {
+        var active = selectedRow && selectedRow.key === row.key ? " is-active" : "";
+        return '<button type="button" class="codex-turnaround-serial-row' + active + '" data-eq-serial="' + escapeHtml(row.key) + '">' +
+          '<div class="codex-turnaround-serial-row-main"><div><strong>' + escapeHtml(row.serial) + '</strong><small>' + escapeHtml(row.materialSerial || "-") + '</small></div>' +
+          '<span class="codex-turnaround-equipment-status' + equipmentSerialStatusClass(row.rawStatus) + '">' + escapeHtml(row.status) + '</span></div>' +
+          '<small>' + escapeHtml(row.locationText || "-") + '<br>最近工單：' + escapeHtml(shortWorkOrder(row.workOrder)) + '　異動日：' + escapeHtml(row.replaceDate || "-") + '</small>' +
+        '</button>';
+      }).join("") + '</div>' +
     '</div>';
+  }
+
+  function equipmentSerialKv(label, value) {
+    return '<div class="codex-turnaround-serial-kv"><span>' + escapeHtml(label) + '</span><strong>' + escapeHtml(value || "-") + '</strong></div>';
+  }
+
+  function equipmentSerialDetailHtml(row) {
+    if (!row) {
+      return '<div class="codex-turnaround-serial-panel"><div class="codex-turnaround-serial-panel-head">單顆設備履歷<span>未選擇</span></div><div class="codex-turnaround-equipment-empty">請先選擇設備序號。</div></div>';
+    }
+    var meta = [
+      ["設備序號", row.serial],
+      ["物料序號", row.materialSerial],
+      ["目前狀態", row.status],
+      ["目前位置", row.locationText],
+      ["系統", row.system],
+      ["設備名稱", row.slotName],
+      ["最近工單", row.workOrder ? row.workOrder : "無未結工單"],
+      ["最近異動日", row.replaceDate || "-"]
+    ];
+    if (row.sourceCell) {
+      meta.push(["車號", row.train]);
+      meta.push(["坑位", row.slotId]);
+      meta.push(["故障子件", subPartName(row.sourceCell.slot)]);
+    }
+    return '<div class="codex-turnaround-serial-panel">' +
+      '<div class="codex-turnaround-serial-panel-head">單顆設備履歷<span>以設備序號掛鉤</span></div>' +
+      '<div class="codex-turnaround-serial-meta">' + meta.map(function (item) { return equipmentSerialKv(item[0], item[1]); }).join("") + '</div>' +
+      '<div class="codex-turnaround-serial-history"><h3>序號履歷</h3>' + renderEventList(equipmentSerialEvents(row)) + '</div>' +
+    '</div>';
+  }
+
+  function equipmentDetailHtml(item) {
+    if (!item) return "";
+    var rows = equipmentSerialRows(item);
+    var selectedRow = selectedEquipmentSerialRow(item, rows);
+    var backHtml = state.equipmentFocus ? '<div class="codex-turnaround-equipment-detail-tabs"><button type="button" class="codex-eq-back" data-eq-back="1">← 返回設備清單</button></div>' : "";
+    return '<div class="codex-turnaround-equipment-detail-head"><h3 class="codex-turnaround-equipment-detail-name">' + escapeHtml(item.name) + '</h3>' + backHtml + '</div>' +
+      '<div class="codex-turnaround-serial-layout">' + equipmentSerialListHtml(rows, selectedRow) + equipmentSerialDetailHtml(selectedRow) + '</div>';
   }
 
   function equipmentOverviewHtml() {
     var list = equipmentItems();
+    var filtered = equipmentFilteredItems(list);
     var selected = selectedEquipmentItem();
+    var focused = !!state.equipmentFocus && !!selected;
+    var bodyHtml = focused
+      ? equipmentDetailHtml(selected)
+      : equipmentSummaryHtml(list) + equipmentToolbarHtml(filtered.length, list.length, list) + equipmentTableHtml(filtered);
     return '<div id="codex-turnaround-equipment-root" class="codex-turnaround-pit-root">' +
       '<div class="codex-turnaround-pit-shell">' +
         '<section class="codex-turnaround-pit-panel">' +
           '<div class="codex-turnaround-pit-head">' +
-            '<div><h2 class="codex-turnaround-pit-title">設備名稱總覽</h2><div class="codex-turnaround-pit-subtitle">以 TS101 正式坑位主檔彙整設備名稱、設備序號、坑位、倉庫/庫房與 R 工單狀態。</div></div>' +
+            '<div><h2 class="codex-turnaround-pit-title">設備總覽</h2><div class="codex-turnaround-pit-subtitle">以設備品項切入，追蹤每顆設備序號目前位置、C/R 工單與履歷；坑位分布請回坑位矩陣查看。</div></div>' +
             '<div class="codex-turnaround-pit-tabs"><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="list">R 單清冊</button><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="matrix">坑位矩陣</button></div>' +
           '</div>' +
-          equipmentSummaryHtml(list) +
-          equipmentTableHtml(list) +
-          equipmentDetailHtml(selected) +
+          bodyHtml +
         '</section>' +
       '</div>' +
     '</div>';
@@ -48055,7 +49155,7 @@ react-dom/cjs/react-dom-client.production.js:
         '<section class="codex-turnaround-pit-panel">' +
           '<div class="codex-turnaround-pit-head">' +
             '<div><h2 class="codex-turnaround-pit-title">周轉件坑位視覺化矩陣</h2><div class="codex-turnaround-pit-subtitle">以 TS101 正式坑位主檔延伸 18 台車；顏色只表示健康狀態，點坑位後在右側查看現況、同型備品與目前 C/R 工單摘要。</div></div>' +
-            '<div class="codex-turnaround-pit-tabs"><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="list">R 單清冊</button><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="equipment">設備名稱總覽</button>' + renderTabs() + '</div>' +
+            '<div class="codex-turnaround-pit-tabs"><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="list">R 單清冊</button><button type="button" class="codex-turnaround-pit-tab" data-turnaround-shortcut="equipment">設備總覽</button>' + renderTabs() + '</div>' +
           '</div>' +
           '<div class="codex-turnaround-pit-head" style="padding-top:0;">' + renderFilters() + '</div>' +
           renderLegend() +
@@ -48098,9 +49198,92 @@ react-dom/cjs/react-dom-client.production.js:
         draw(root);
       });
     });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-equipment-jump]"), function (button) {
+      button.addEventListener("click", function () {
+        state.selectedEquipment = button.getAttribute("data-equipment-jump") || "";
+        state.selectedEquipmentSerial = button.getAttribute("data-equipment-cell-key") ? "cell|" + button.getAttribute("data-equipment-cell-key") : "";
+        state.equipmentFocus = true;
+        state.equipmentDetailTab = "all";
+        showEquipmentOverview(true);
+        var host = document.getElementById("codex-turnaround-pit-route-host");
+        if (host) drawEquipment(host);
+      });
+    });
     Array.prototype.forEach.call(root.querySelectorAll("[data-equipment-key]"), function (button) {
       button.addEventListener("click", function () {
         state.selectedEquipment = button.getAttribute("data-equipment-key") || "";
+        state.selectedEquipmentSerial = "";
+        state.equipmentFocus = true;
+        state.equipmentDetailTab = "all";
+        drawEquipment(root);
+        window.requestAnimationFrame(function () {
+          var head = root.querySelector(".codex-turnaround-equipment-detail-head");
+          if (head) head.scrollIntoView({ block: "start" });
+        });
+      });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-eq-back]"), function (button) {
+      button.addEventListener("click", function () {
+        state.equipmentFocus = false;
+        state.selectedEquipmentSerial = "";
+        drawEquipment(root);
+      });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-eq-serial]"), function (button) {
+      button.addEventListener("click", function () {
+        state.selectedEquipmentSerial = button.getAttribute("data-eq-serial") || "";
+        drawEquipment(root);
+      });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-eq-search]"), function (input) {
+      input.addEventListener("input", function () {
+        state.equipmentSearch = input.value;
+        state.equipmentFocus = false;
+        state.selectedEquipmentSerial = "";
+        drawEquipment(root);
+        var next = root.querySelector("[data-eq-search]");
+        if (next) {
+          next.focus();
+          var len = next.value.length;
+          try { next.setSelectionRange(len, len); } catch (e) {}
+        }
+      });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-eq-system]"), function (select) {
+      select.addEventListener("change", function () {
+        state.equipmentSystemFilter = select.value;
+        state.equipmentFocus = false;
+        state.selectedEquipmentSerial = "";
+        drawEquipment(root);
+      });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-eq-sort]"), function (button) {
+      button.addEventListener("click", function () {
+        var key = button.getAttribute("data-eq-sort") || "";
+        var sort = state.equipmentSort || {};
+        if (sort.key === key) {
+          state.equipmentSort = { key: key, dir: sort.dir === "asc" ? "desc" : "asc" };
+        } else {
+          state.equipmentSort = { key: key, dir: "desc" };
+        }
+        state.equipmentFocus = false;
+        state.selectedEquipmentSerial = "";
+        drawEquipment(root);
+      });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-eq-reset]"), function (button) {
+      button.addEventListener("click", function () {
+        state.equipmentSearch = "";
+        state.equipmentSystemFilter = "";
+        state.equipmentSort = null;
+        state.equipmentFocus = false;
+        state.selectedEquipmentSerial = "";
+        drawEquipment(root);
+      });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-eq-detail-tab]"), function (button) {
+      button.addEventListener("click", function () {
+        state.equipmentDetailTab = button.getAttribute("data-eq-detail-tab") || "all";
         drawEquipment(root);
       });
     });
@@ -48296,7 +49479,7 @@ react-dom/cjs/react-dom-client.production.js:
         '<span>快捷切換</span>' +
         '<button type="button" class="' + (activeRouteView === "list" ? "is-active" : "") + '" data-turnaround-view="list">R 單清冊</button>' +
         '<button type="button" class="' + (activeRouteView === "matrix" ? "is-active" : "") + '" data-turnaround-view="matrix">坑位矩陣</button>' +
-        '<button type="button" class="' + (activeRouteView === "equipment" ? "is-active" : "") + '" data-turnaround-view="equipment">設備名稱總覽</button>' +
+        '<button type="button" class="' + (activeRouteView === "equipment" ? "is-active" : "") + '" data-turnaround-view="equipment">設備總覽</button>' +
       '</div>';
       Array.prototype.forEach.call(host.querySelectorAll("[data-turnaround-view]"), function (button) {
         button.addEventListener("click", function (event) {
@@ -48351,6 +49534,7 @@ react-dom/cjs/react-dom-client.production.js:
       }
     }
     root.hidden = false;
+    root.style.display = "";
     if (!root.querySelector("#codex-turnaround-pit-matrix-root")) {
       try {
         draw(root);
@@ -48388,11 +49572,12 @@ react-dom/cjs/react-dom-client.production.js:
       }
     }
     root.hidden = false;
+    root.style.display = "";
     if (!root.querySelector("#codex-turnaround-equipment-root")) {
       try {
         drawEquipment(root);
       } catch (error) {
-        root.innerHTML = '<div class="codex-turnaround-pit-root"><section class="codex-turnaround-pit-panel"><h2 class="codex-turnaround-pit-title">設備名稱總覽載入失敗</h2><div class="codex-turnaround-pit-subtitle">' + escapeHtml(error && error.message || error) + '</div></section></div>';
+        root.innerHTML = '<div class="codex-turnaround-pit-root"><section class="codex-turnaround-pit-panel"><h2 class="codex-turnaround-pit-title">設備總覽載入失敗</h2><div class="codex-turnaround-pit-subtitle">' + escapeHtml(error && error.message || error) + '</div></section></div>';
         if (window.console && console.error) console.error(error);
       }
     }
