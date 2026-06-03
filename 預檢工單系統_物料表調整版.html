@@ -37504,27 +37504,33 @@ react-dom/cjs/react-dom-client.production.js:
 
   function loadReferenceListsFromApi() {
     if (typeof fetch !== "function") return;
-    fetch(REFERENCE_API_BASE)
-      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
-      .then(function (data) {
-        var groups = (data && data.groups) ? data.groups : {};
-        var merged = cloneReferenceData(referenceDefaultLists());
-        Object.keys(merged).forEach(function (key) {
-          var group = REFERENCE_GROUP_BY_KEY[key];
-          if (group && Array.isArray(groups[group])) {
-            merged[key].items = groups[group].map(function (o) {
-              return { id: String(o.code), code: o.code, name: o.label, note: o.description || "", active: o.isActive !== false };
-            });
-          }
+    Promise.all([
+      fetch(REFERENCE_API_BASE).then(function (r) { if (!r.ok) throw new Error("ro " + r.status); return r.json(); }),
+      fetch("/api/warehouses?includeInactive=true").then(function (r) { return r.ok ? r.json() : { items: [] }; }).catch(function () { return { items: [] }; })
+    ]).then(function (arr) {
+      var groups = (arr[0] && arr[0].groups) ? arr[0].groups : {};
+      var warehouses = (arr[1] && arr[1].items) ? arr[1].items : [];
+      var merged = cloneReferenceData(referenceDefaultLists());
+      Object.keys(merged).forEach(function (key) {
+        var group = REFERENCE_GROUP_BY_KEY[key];
+        if (group && Array.isArray(groups[group])) {
+          merged[key].items = groups[group].map(function (o) {
+            return { id: String(o.code), code: o.code, name: o.label, note: o.description || "", active: o.isActive !== false };
+          });
+        }
+      });
+      if (warehouses.length && merged.warehouse) {
+        merged.warehouse.items = warehouses.map(function (w) {
+          return { id: w.warehouse_code, code: w.warehouse_code, name: w.warehouse_name, note: w.location_note || "", active: w.is_active !== false };
         });
-        referenceListState = merged;
-        referenceApiConnected = true;
-        try { window.localStorage.setItem(REFERENCE_LIST_STORAGE_KEY, JSON.stringify(merged)); } catch (e) {}
-        var modal = document.getElementById("codex-list-admin-modal");
-        if (modal && !modal.hidden) renderListAdminModal(activeReferenceListKey);
-        refreshMaterialModalSelects(document.getElementById("codex-material-modal"));
-      })
-      .catch(function () { referenceApiConnected = false; });
+      }
+      referenceListState = merged;
+      referenceApiConnected = true;
+      try { window.localStorage.setItem(REFERENCE_LIST_STORAGE_KEY, JSON.stringify(merged)); } catch (e) {}
+      var modal = document.getElementById("codex-list-admin-modal");
+      if (modal && !modal.hidden) renderListAdminModal(activeReferenceListKey);
+      refreshMaterialModalSelects(document.getElementById("codex-material-modal"));
+    }).catch(function () { referenceApiConnected = false; });
   }
 
   function activeReferenceItems(key) {
@@ -38288,6 +38294,15 @@ react-dom/cjs/react-dom-client.production.js:
       req.then(function (r) { if (!r.ok) throw new Error("http " + r.status); referenceApiConnected = true; })
         .catch(function () { showIaToast("雲端未連線，僅暫存本機：" + name); });
     }
+    if (key === "warehouse" && typeof fetch === "function") {
+      var wUrl = isEdit ? ("/api/warehouses/" + encodeURIComponent(originalCode || code)) : "/api/warehouses";
+      var wBody = isEdit
+        ? { warehouseName: name, locationNote: note }
+        : { warehouseCode: code, warehouseName: name, locationNote: note, locationType: "OTHER" };
+      fetch(wUrl, { method: isEdit ? "PATCH" : "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(wBody) })
+        .then(function (r) { if (!r.ok) throw new Error("http " + r.status); referenceApiConnected = true; })
+        .catch(function () { showIaToast("雲端未連線，僅暫存本機：" + name); });
+    }
   }
 
   function toggleReferenceItem(id) {
@@ -38304,6 +38319,11 @@ react-dom/cjs/react-dom-client.production.js:
     var group = REFERENCE_GROUP_BY_KEY[key];
     if (group && target.code && typeof fetch === "function") {
       referenceApiUpdate(group, target.code, { isActive: target.active })
+        .then(function (r) { if (!r.ok) throw new Error("http " + r.status); referenceApiConnected = true; })
+        .catch(function () { showIaToast("雲端未連線，僅暫存本機"); });
+    }
+    if (key === "warehouse" && target.code && typeof fetch === "function") {
+      fetch("/api/warehouses/" + encodeURIComponent(target.code), { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ isActive: target.active }) })
         .then(function (r) { if (!r.ok) throw new Error("http " + r.status); referenceApiConnected = true; })
         .catch(function () { showIaToast("雲端未連線，僅暫存本機"); });
     }
@@ -38424,6 +38444,109 @@ react-dom/cjs/react-dom-client.production.js:
     }
   }
 
+  // ☁ 物料表主清單：直接內嵌雲端物料（連得到雲端就隱藏 React 示範表；連不到就還原示範表）
+  var materialInlineState = { search: "", offset: 0, limit: 50, total: 0 };
+  var materialInlineOk = false;
+
+  function setMaterialDemoTableHidden(hidden) {
+    var section = sectionFromHeading(heading("物料清單", "物料清單", "h3"));
+    if (!section) return;
+    Array.prototype.forEach.call(section.querySelectorAll("table"), function (t) {
+      if (t.closest("#codex-material-cloud-inline")) return;
+      t.style.display = hidden ? "none" : "";
+    });
+  }
+
+  function materialInlineShellHtml() {
+    return [
+      '<div class="codex-material-command-head" style="margin-top:6px;">',
+      '  <div><div class="codex-material-command-title">☁ 物料清單（雲端）</div>',
+      '  <div class="codex-material-command-subtitle">直接讀資料庫物料主檔與庫存（/api/materials）；需 erp-api 啟動。領料可用上方「☁ 雲端查詢」。</div></div>',
+      '  <span class="codex-material-chip" data-minline-count>—</span>',
+      '</div>',
+      '<div class="codex-mcloud-toolbar"><input type="text" data-minline-search placeholder="搜尋料號／名稱／規格…"></div>',
+      '<div data-minline-results><div class="codex-turnaround-empty">載入中…</div></div>',
+      '<div class="codex-pwo-form-actions" style="justify-content:flex-start;"><button type="button" class="codex-list-admin-mini" data-minline-more style="display:none;">載入更多</button></div>'
+    ].join("");
+  }
+
+  function materialInlineTableHtml(rowsHtml) {
+    return '<table class="codex-list-admin-table"><thead><tr>' +
+      '<th>料號</th><th>名稱</th><th>規格</th><th>單位</th><th>系統/類別</th><th>可用</th><th>在庫合計</th><th>建議</th>' +
+      '</tr></thead><tbody>' + (rowsHtml || '<tr><td colspan="8">查無資料</td></tr>') + '</tbody></table>';
+  }
+
+  function materialInlineRowHtml(m) {
+    var st = m.stock || {};
+    return '<tr>' +
+      '<td><strong>' + escapeInline(m.partNo || "") + '</strong></td>' +
+      '<td>' + escapeInline(m.materialName || "") + '</td>' +
+      '<td>' + escapeInline(String(m.spec || "").slice(0, 40)) + '</td>' +
+      '<td>' + escapeInline(m.unit || "") + '</td>' +
+      '<td>' + escapeInline(m.systemName || m.categoryName || "") + '</td>' +
+      '<td>' + escapeInline(String(st.availableQty != null ? st.availableQty : "0")) + '</td>' +
+      '<td>' + escapeInline(String(st.totalTrackedQty != null ? st.totalTrackedQty : "0")) + '</td>' +
+      '<td>' + escapeInline(st.stockAdvice || "") + '</td>' +
+      '</tr>';
+  }
+
+  function materialInlineFetch(append) {
+    var host = document.getElementById("codex-material-cloud-inline");
+    if (!host) return;
+    var results = host.querySelector("[data-minline-results]");
+    var countEl = host.querySelector("[data-minline-count]");
+    var moreBtn = host.querySelector("[data-minline-more]");
+    var url = "/api/materials?limit=" + materialInlineState.limit + "&offset=" + materialInlineState.offset +
+      (materialInlineState.search ? ("&search=" + encodeURIComponent(materialInlineState.search)) : "");
+    if (!append) results.innerHTML = '<div class="codex-turnaround-empty">載入中…</div>';
+    fetch(url)
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (data) {
+        materialInlineOk = true;
+        materialInlineState.total = (data.page && typeof data.page.total === "number") ? data.page.total : (data.items || []).length;
+        if (countEl) countEl.textContent = "共 " + materialInlineState.total + " 筆";
+        var rowsHtml = (data.items || []).map(materialInlineRowHtml).join("");
+        if (append) { var tb = results.querySelector("tbody"); if (tb) tb.insertAdjacentHTML("beforeend", rowsHtml); }
+        else results.innerHTML = materialInlineTableHtml(rowsHtml);
+        if (moreBtn) moreBtn.style.display = (materialInlineState.offset + materialInlineState.limit < materialInlineState.total) ? "" : "none";
+        setMaterialDemoTableHidden(true);
+      })
+      .catch(function (err) {
+        materialInlineOk = false;
+        if (!append) results.innerHTML = '<div class="codex-turnaround-empty">雲端未連線（' + escapeInline(err.message) + '）；下方顯示原示範資料。請啟動 erp-api（npm start）。</div>';
+        if (moreBtn) moreBtn.style.display = "none";
+        setMaterialDemoTableHidden(false);
+      });
+  }
+
+  function ensureMaterialCloudInline(listSection) {
+    if (!listSection || typeof fetch !== "function") return;
+    var host = document.getElementById("codex-material-cloud-inline");
+    if (host) { setMaterialDemoTableHidden(materialInlineOk); return; }
+    host = document.createElement("div");
+    host.id = "codex-material-cloud-inline";
+    var center = document.getElementById("codex-material-command-center");
+    if (center && center.parentElement === listSection) listSection.insertBefore(host, center.nextSibling);
+    else listSection.insertBefore(host, listSection.firstChild);
+    host.innerHTML = materialInlineShellHtml();
+    host.addEventListener("input", function (e) {
+      if (e.target && e.target.matches("[data-minline-search]")) {
+        materialInlineState.search = e.target.value;
+        materialInlineState.offset = 0;
+        window.clearTimeout(ensureMaterialCloudInline._t);
+        ensureMaterialCloudInline._t = window.setTimeout(function () { materialInlineFetch(); }, 300);
+      }
+    });
+    host.addEventListener("click", function (e) {
+      if (e.target && e.target.closest("[data-minline-more]")) {
+        materialInlineState.offset += materialInlineState.limit;
+        materialInlineFetch(true);
+      }
+    });
+    setMaterialDemoTableHidden(true);
+    materialInlineFetch();
+  }
+
   function integrateMaterialListDetail() {
     var listTitle = heading("物料清單", "物料清單", "h3");
     var listSection = sectionFromHeading(listTitle);
@@ -38439,8 +38562,9 @@ react-dom/cjs/react-dom-client.production.js:
       subtitle.textContent = "保留原本欄位格式；點選料號後進入單筆物料詳情頁。";
     }
     ensureMaterialCommandCenter(listSection);
+    ensureMaterialCloudInline(listSection);
 
-    var table = listSection.querySelector("table");
+    var table = Array.prototype.filter.call(listSection.querySelectorAll("table"), function (t) { return !t.closest("#codex-material-cloud-inline"); })[0];
     if (!table || table.getAttribute("data-codex-inline-bound") === "true") return;
     table.setAttribute("data-codex-inline-bound", "true");
     table.addEventListener("click", function (event) {
