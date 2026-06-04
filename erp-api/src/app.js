@@ -7,6 +7,7 @@ const materialsRouter = require("./routes/materials");
 const inventoryRouter = require("./routes/inventory");
 const warehousesRouter = require("./routes/warehouses");
 const assetsRouter = require("./routes/assets");
+const equipmentAliasRouter = require("./routes/equipmentAlias");
 const referenceOptionsRouter = require("./routes/referenceOptions");
 const databaseViewerRouter = require("./routes/databaseViewer");
 
@@ -42,6 +43,7 @@ app.use("/api/materials", materialsRouter);
 app.use("/api/inventory", inventoryRouter);
 app.use("/api/warehouses", warehousesRouter);
 app.use("/api/assets", assetsRouter);
+app.use("/api/equipment-aliases", equipmentAliasRouter);
 app.use("/api/reference-options", referenceOptionsRouter);
 
 app.use((req, res) => {

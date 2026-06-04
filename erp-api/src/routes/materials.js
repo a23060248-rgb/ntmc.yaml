@@ -161,6 +161,35 @@ router.get(
 );
 
 router.get(
+  "/:partNo/transactions",
+  asyncHandler(async (req, res) => {
+    const partNo = normalizePartNo(req.params.partNo);
+    const r = await query(
+      `
+        SELECT
+          tx.transaction_at,
+          tx.transaction_type,
+          w.warehouse_code,
+          tx.stock_status,
+          tx.qty_change,
+          tx.inventory_document_id,
+          wo.work_order_no,
+          tx.custodian_name
+        FROM inventory_transaction tx
+        JOIN material m ON m.id = tx.material_id
+        LEFT JOIN warehouse w ON w.id = tx.warehouse_id
+        LEFT JOIN work_order wo ON wo.id = tx.work_order_id
+        WHERE m.part_no = $1
+        ORDER BY tx.transaction_at DESC
+        LIMIT 100
+      `,
+      [partNo]
+    );
+    res.json({ items: r.rows });
+  })
+);
+
+router.get(
   "/:partNo",
   asyncHandler(async (req, res) => {
     const partNo = normalizePartNo(req.params.partNo);

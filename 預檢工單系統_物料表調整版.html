@@ -35980,6 +35980,20 @@ react-dom/cjs/react-dom-client.production.js:
     color: #e2e8f0;
     font-size: 13px;
   }
+  .codex-eqalias-results { display: flex; flex-direction: column; gap: 4px; margin: 6px 0; }
+  .codex-eqalias-opt { text-align: left; padding: 7px 10px; border: 1px solid rgba(148, 163, 184, 0.3); border-radius: 8px; background: rgba(15, 23, 42, 0.5); color: #e2e8f0; font-size: 13px; cursor: pointer; }
+  .codex-eqalias-opt span { color: #94a3b8; font-size: 12px; margin-left: 6px; }
+  .codex-eqalias-opt:hover { background: rgba(34, 211, 238, 0.14); border-color: rgba(34, 211, 238, 0.4); }
+  .codex-eqalias-picked { font-size: 13px; color: #a5f3fc; margin: 4px 0 8px; min-height: 18px; }
+  .codex-eqalias-hint { font-size: 12px; color: #94a3b8; padding: 4px 0; }
+  .codex-eqalias-bulk { width: 100%; box-sizing: border-box; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(148, 163, 184, 0.4); background: rgba(15, 23, 42, 0.6); color: #e2e8f0; font-size: 13px; font-family: inherit; resize: vertical; }
+  .codex-eqalias-fail { margin: 4px 0 0; padding-left: 18px; font-size: 12px; color: #fca5a5; }
+  .codex-minline-row { cursor: pointer; }
+  .codex-minline-row:hover { background: rgba(34, 211, 238, 0.08); }
+  .codex-md-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 16px; margin-bottom: 6px; }
+  .codex-md-field { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; border-bottom: 1px solid rgba(148, 163, 184, 0.15); padding: 5px 0; }
+  .codex-md-field span { color: #94a3b8; }
+  .codex-md-field strong { color: #e2e8f0; text-align: right; }
   .codex-pwo-form-actions {
     display: flex;
     justify-content: flex-end;
@@ -37631,6 +37645,184 @@ react-dom/cjs/react-dom-client.production.js:
     menu.appendChild(button);
   }
 
+  // ===== 設備別名對應(後台點選頁,直接搜料號) =====
+  var eqAliasPicked = null;
+
+  function ensureEquipmentAliasEntry() {
+    if (document.getElementById("codex-global-eqalias-entry")) return;
+    var menu = findFunctionMenuContainer();
+    if (!menu) return;
+    var reference = Array.prototype.find.call(menu.querySelectorAll("button"), function (button) {
+      var text = functionMenuButtonText(button);
+      return text.indexOf("物料表") !== -1 || text.indexOf("周轉件") !== -1;
+    });
+    var button = document.createElement("button");
+    button.id = "codex-global-eqalias-entry";
+    button.type = "button";
+    button.title = "把故障C單的設備名稱對到標準設備";
+    if (reference && reference.className) button.className = reference.className;
+    button.innerHTML = '<span aria-hidden="true" style="font-size:18px;line-height:1;">🔗</span> 設備別名';
+    button.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); openEquipmentAliasModal(); });
+    var listAdmin = document.getElementById("codex-global-list-admin-entry");
+    if (listAdmin && listAdmin.parentElement === menu) menu.insertBefore(button, listAdmin);
+    else menu.appendChild(button);
+  }
+
+  function openEquipmentAliasModal() {
+    var modal = document.getElementById("codex-eqalias-modal");
+    if (modal) { modal.hidden = false; eqAliasPicked = null; eqAliasRenderList(); return; }
+    modal = document.createElement("div");
+    modal.id = "codex-eqalias-modal";
+    modal.className = "codex-material-modal";
+    modal.innerHTML = [
+      '<div class="codex-material-backdrop" data-ea-close></div>',
+      '<section class="codex-material-dialog codex-list-admin-dialog" role="dialog" aria-modal="true">',
+      '  <div class="codex-material-dialog-header"><div>',
+      '    <div class="codex-material-dialog-title">🔗 設備別名對應</div>',
+      '    <div class="codex-material-dialog-subtitle">把故障C單的「設備名稱」對到標準設備群組或料號；之後顯示一律用標準名稱，兩邊就一致。</div>',
+      '  </div><button type="button" class="codex-material-close" data-ea-close aria-label="關閉">×</button></div>',
+      '  <div class="codex-pwo-body">',
+      '    <div class="codex-list-admin-form">',
+      '      <div class="codex-list-admin-form-title">新增對應</div>',
+      '      <div class="codex-list-admin-form-grid">',
+      '        <div class="codex-list-admin-field"><label>① 故障C單的設備名稱</label><input data-ea-alias placeholder="照C系統怎麼寫，例如 車輛控制單元"></div>',
+      '        <div class="codex-list-admin-field"><label>② 搜尋對應的料號／品名</label><input data-ea-search placeholder="打關鍵字，例如 控制單元 或 50.89"></div>',
+      '      </div>',
+      '      <div class="codex-eqalias-results" data-ea-results></div>',
+      '      <div class="codex-eqalias-picked" data-ea-picked></div>',
+      '      <div class="codex-pwo-form-actions" style="justify-content:flex-start;"><button type="button" class="codex-material-action codex-material-action-primary" data-ea-add>＋ 新增對應</button></div>',
+      '    </div>',
+      '    <div class="codex-list-admin-form" style="margin-top:12px;">',
+      '      <div class="codex-list-admin-form-title">批次貼上（數量多用這個）</div>',
+      '      <div class="codex-list-admin-panel-note" style="margin:2px 0 6px;">在 Excel 排好兩欄：A=設備名稱、B=料號，整批複製貼到下面。每行一筆，名稱和料號用逗號或 Tab 分開。</div>',
+      '      <textarea data-ea-bulk class="codex-eqalias-bulk" rows="6" placeholder="車輛控制單元,50.89.0002.SE&#10;撒砂控制器,50.89.0001.NO"></textarea>',
+      '      <div class="codex-pwo-form-actions" style="justify-content:flex-start;"><button type="button" class="codex-material-action codex-material-action-primary" data-ea-bulk-add>批次匯入</button></div>',
+      '      <div class="codex-eqalias-bulk-result" data-ea-bulk-result></div>',
+      '    </div>',
+      '    <div data-ea-list style="margin-top:14px;"><div class="codex-turnaround-empty">載入中…</div></div>',
+      '  </div>',
+      '</section>'
+    ].join("");
+    modal.addEventListener("click", function (e) {
+      var t = e.target; if (!t || !t.closest) return;
+      if (t.closest("[data-ea-close]")) { modal.hidden = true; return; }
+      if (t.closest("[data-ea-add]")) { eqAliasAdd(); return; }
+      if (t.closest("[data-ea-bulk-add]")) { eqAliasBulkAdd(); return; }
+      var pick = t.closest("[data-ea-pick]");
+      if (pick) { eqAliasPick(pick.getAttribute("data-ea-pick"), pick.getAttribute("data-ea-pickname")); return; }
+      var del = t.closest("[data-ea-del]");
+      if (del) { eqAliasDelete(del.getAttribute("data-ea-del")); return; }
+    });
+    modal.addEventListener("input", function (e) {
+      if (e.target && e.target.matches("[data-ea-search]")) {
+        window.clearTimeout(openEquipmentAliasModal._t);
+        var q = e.target.value;
+        openEquipmentAliasModal._t = window.setTimeout(function () { eqAliasSearch(q); }, 300);
+      }
+    });
+    document.body.appendChild(modal);
+    eqAliasRenderList();
+  }
+
+  function eqAliasSearch(q) {
+    var modal = document.getElementById("codex-eqalias-modal");
+    if (!modal) return;
+    var box = modal.querySelector("[data-ea-results]");
+    q = String(q || "").trim();
+    if (!q) { box.innerHTML = ""; return; }
+    fetch("/api/materials?limit=8&search=" + encodeURIComponent(q))
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (d) {
+        var items = d.items || [];
+        if (!items.length) { box.innerHTML = '<div class="codex-eqalias-hint">查無料號</div>'; return; }
+        box.innerHTML = items.map(function (m) {
+          return '<button type="button" class="codex-eqalias-opt" data-ea-pick="' + escapeInline(m.partNo) + '" data-ea-pickname="' + escapeInline(m.materialName || "") + '">' + escapeInline(m.materialName || "") + ' <span>' + escapeInline(m.partNo) + '</span></button>';
+        }).join("");
+      })
+      .catch(function (e) { box.innerHTML = '<div class="codex-eqalias-hint">查詢失敗：' + escapeInline(e.message) + '</div>'; });
+  }
+
+  function eqAliasPick(partNo, name) {
+    eqAliasPicked = { partNo: partNo, name: name };
+    var modal = document.getElementById("codex-eqalias-modal");
+    if (!modal) return;
+    var pk = modal.querySelector("[data-ea-picked]");
+    if (pk) pk.innerHTML = '已選料號：<strong>' + escapeInline(name) + '</strong>（' + escapeInline(partNo) + '）';
+    var box = modal.querySelector("[data-ea-results]");
+    if (box) box.innerHTML = "";
+    var s = modal.querySelector("[data-ea-search]");
+    if (s) s.value = name;
+  }
+
+  function eqAliasRenderList() {
+    var modal = document.getElementById("codex-eqalias-modal");
+    if (!modal) return;
+    var box = modal.querySelector("[data-ea-list]");
+    fetch("/api/equipment-aliases").then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); }).then(function (d) {
+      var items = d.items || [];
+      var rows = items.map(function (a) {
+        return '<tr><td>' + escapeInline(a.aliasName) + '</td><td>' + (a.targetKind === "GROUP" ? "設備群組" : "料號") + '：' + escapeInline(a.targetCode || "") + '</td><td><strong>' + escapeInline(a.canonicalName || "") + '</strong></td><td><button type="button" class="codex-list-admin-mini" data-ea-del="' + escapeInline(a.id) + '">刪除</button></td></tr>';
+      }).join("");
+      box.innerHTML = '<div class="codex-list-admin-panel-note" style="margin-bottom:8px;">目前對應 ' + items.length + ' 筆</div>' +
+        '<table class="codex-list-admin-table"><thead><tr><th>C單設備名稱</th><th>對到</th><th>標準名稱</th><th>操作</th></tr></thead><tbody>' + (rows || '<tr><td colspan="4">還沒有對應，從上面新增。</td></tr>') + '</tbody></table>';
+    }).catch(function (e) { box.innerHTML = '<div class="codex-turnaround-empty">雲端未連線（' + escapeInline(e.message) + '）。請先啟動 erp-api。</div>'; });
+  }
+
+  function eqAliasAdd() {
+    var modal = document.getElementById("codex-eqalias-modal");
+    if (!modal) return;
+    var aliasName = (modal.querySelector("[data-ea-alias]").value || "").trim();
+    if (!aliasName) { showIaToast("請填 C 單的設備名稱"); return; }
+    if (!eqAliasPicked) { showIaToast("請先搜尋並點選對應的料號"); return; }
+    fetch("/api/equipment-aliases", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ aliasName: aliasName, targetKind: "MATERIAL", targetCode: eqAliasPicked.partNo }) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok) throw new Error((res.j && res.j.error && res.j.error.message) || "新增失敗");
+        showIaToast("已新增對應：" + aliasName + " → " + eqAliasPicked.name);
+        modal.querySelector("[data-ea-alias]").value = "";
+        modal.querySelector("[data-ea-search]").value = "";
+        modal.querySelector("[data-ea-picked]").textContent = "";
+        eqAliasPicked = null;
+        eqAliasRenderList();
+      })
+      .catch(function (e) { showIaToast("新增失敗：" + e.message); });
+  }
+
+  function eqAliasBulkAdd() {
+    var modal = document.getElementById("codex-eqalias-modal");
+    if (!modal) return;
+    var ta = modal.querySelector("[data-ea-bulk]");
+    var resultBox = modal.querySelector("[data-ea-bulk-result]");
+    var text = (ta.value || "").trim();
+    if (!text) { showIaToast("請先貼上資料"); return; }
+    var items = text.split(/\r?\n/).map(function (line) {
+      var parts = line.split(/\t|,|，/).map(function (s) { return s.trim(); });
+      return { aliasName: parts[0] || "", targetCode: parts[1] || "" };
+    }).filter(function (it) { return it.aliasName && it.targetCode; });
+    if (!items.length) { showIaToast("格式：每行『設備名稱 , 料號』"); return; }
+    resultBox.innerHTML = '<div class="codex-eqalias-hint">匯入中…共 ' + items.length + ' 筆</div>';
+    fetch("/api/equipment-aliases/bulk", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: items }) })
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (d) {
+        var msg = '成功 ' + d.ok + ' 筆' + (d.failedCount ? ('、失敗 ' + d.failedCount + ' 筆') : '');
+        var html = '<div class="codex-eqalias-hint">批次完成：' + msg + '</div>';
+        if (d.failed && d.failed.length) {
+          html += '<div class="codex-eqalias-hint">失敗明細（修正後再貼一次）：</div><ul class="codex-eqalias-fail">' +
+            d.failed.map(function (f) { return '<li>' + escapeInline(f.aliasName) + '：' + escapeInline(f.reason) + '</li>'; }).join("") + '</ul>';
+        }
+        resultBox.innerHTML = html;
+        showIaToast("批次完成：" + msg);
+        eqAliasRenderList();
+      })
+      .catch(function (e) { resultBox.innerHTML = '<div class="codex-eqalias-hint">批次失敗：' + escapeInline(e.message) + '</div>'; });
+  }
+
+  function eqAliasDelete(id) {
+    fetch("/api/equipment-aliases/" + encodeURIComponent(id), { method: "DELETE" })
+      .then(function (r) { if (!r.ok && r.status !== 204) throw new Error("http " + r.status); showIaToast("已刪除"); eqAliasRenderList(); })
+      .catch(function (e) { showIaToast("刪除失敗：" + e.message); });
+  }
+
   // ===== J 專案工單 =====
   var PROJECT_WO_STORAGE_KEY = "codex-project-work-orders-v1";
   var projectWoState = null;
@@ -38479,7 +38671,7 @@ react-dom/cjs/react-dom-client.production.js:
 
   function materialInlineRowHtml(m) {
     var st = m.stock || {};
-    return '<tr>' +
+    return '<tr class="codex-minline-row" data-minline-detail="' + escapeInline(m.partNo || "") + '">' +
       '<td><strong>' + escapeInline(m.partNo || "") + '</strong></td>' +
       '<td>' + escapeInline(m.materialName || "") + '</td>' +
       '<td>' + escapeInline(String(m.spec || "").slice(0, 40)) + '</td>' +
@@ -38520,6 +38712,150 @@ react-dom/cjs/react-dom-client.production.js:
       });
   }
 
+  var matDetailCtx = null;
+
+  function openMaterialDetail(partNo) {
+    if (!partNo || typeof fetch !== "function") return;
+    var modal = document.getElementById("codex-matdetail-modal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "codex-matdetail-modal";
+      modal.className = "codex-material-modal";
+      modal.innerHTML = [
+        '<div class="codex-material-backdrop" data-md-close></div>',
+        '<section class="codex-material-dialog codex-list-admin-dialog" role="dialog" aria-modal="true">',
+        '  <div class="codex-material-dialog-header"><div>',
+        '    <div class="codex-material-dialog-title" data-md-title>物料詳情</div>',
+        '    <div class="codex-material-dialog-subtitle" data-md-sub></div>',
+        '  </div><button type="button" class="codex-material-close" data-md-close aria-label="關閉">×</button></div>',
+        '  <div class="codex-pwo-body" data-md-body><div class="codex-turnaround-empty">載入中…</div></div>',
+        '</section>'
+      ].join("");
+      modal.addEventListener("click", function (e) {
+        var t = e.target; if (!t || !t.closest) return;
+        if (t.closest("[data-md-close]")) { modal.hidden = true; return; }
+        var tab = t.closest("[data-md-tab]");
+        if (tab) { renderMatDetailTab(tab.getAttribute("data-md-tab")); return; }
+        var act = t.closest("[data-md-act]");
+        if (act) { matDetailAction(act.getAttribute("data-md-act")); return; }
+      });
+      document.body.appendChild(modal);
+    } else {
+      modal.hidden = false;
+    }
+    var body = modal.querySelector("[data-md-body]");
+    body.innerHTML = '<div class="codex-turnaround-empty">載入中…</div>';
+    Promise.all([
+      fetch("/api/materials/" + encodeURIComponent(partNo)).then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); }),
+      fetch("/api/equipment-aliases").then(function (r) { return r.ok ? r.json() : { items: [] }; }).catch(function () { return { items: [] }; })
+    ]).then(function (arr) {
+      var item = (arr[0] && arr[0].item) || {};
+      var locs = (arr[0] && arr[0].locations) || [];
+      var aliases = ((arr[1] && arr[1].items) || []).filter(function (a) { return a.targetCode === item.partNo; });
+      matDetailCtx = { partNo: item.partNo || partNo, item: item, locs: locs, aliases: aliases };
+      modal.querySelector("[data-md-title]").textContent = item.materialName || partNo;
+      modal.querySelector("[data-md-sub]").textContent = item.partNo || partNo;
+      body.innerHTML = materialDetailShellHtml();
+      renderMatDetailTab("overview");
+    }).catch(function (e) {
+      body.innerHTML = '<div class="codex-turnaround-empty">載入失敗（' + escapeInline(e.message) + '）。請確認 erp-api 已啟動。</div>';
+    });
+  }
+
+  function materialDetailShellHtml() {
+    return [
+      '<div class="codex-material-detail-actions" style="margin:0 0 10px;">',
+      '  <button type="button" class="codex-material-action codex-material-action-primary" data-md-act="issue">領料</button>',
+      '  <button type="button" class="codex-material-action" data-md-act="alias">設備別名對應</button>',
+      '</div>',
+      '<div class="codex-material-detail-tabs">',
+      '  <button type="button" class="codex-material-detail-tab is-active" data-md-tab="overview">總覽</button>',
+      '  <button type="button" class="codex-material-detail-tab" data-md-tab="movement">異動紀錄</button>',
+      '  <button type="button" class="codex-material-detail-tab" data-md-tab="workorders">工單關聯</button>',
+      '  <button type="button" class="codex-material-detail-tab" data-md-tab="attachments">照片附件</button>',
+      '</div>',
+      '<div data-md-tabbody style="margin-top:10px;"></div>'
+    ].join("");
+  }
+
+  function renderMatDetailTab(key) {
+    var modal = document.getElementById("codex-matdetail-modal");
+    if (!modal || !matDetailCtx) return;
+    Array.prototype.forEach.call(modal.querySelectorAll("[data-md-tab]"), function (b) {
+      b.classList.toggle("is-active", b.getAttribute("data-md-tab") === key);
+    });
+    var bodyEl = modal.querySelector("[data-md-tabbody]");
+    if (!bodyEl) return;
+    if (key === "overview") { bodyEl.innerHTML = matDetailOverviewHtml(); return; }
+    if (key === "workorders") { bodyEl.innerHTML = '<div class="codex-turnaround-empty">工單關聯：等故障 C 單／維修 R 單資料進系統後，這裡會列出引用此物料的工單。</div>'; return; }
+    if (key === "attachments") { bodyEl.innerHTML = '<div class="codex-turnaround-empty">照片附件：附件上傳待做，之後可放實品照、銘牌、規格書、採購單據。</div>'; return; }
+    if (key === "movement") {
+      bodyEl.innerHTML = '<div class="codex-turnaround-empty">載入異動紀錄中…</div>';
+      fetch("/api/materials/" + encodeURIComponent(matDetailCtx.partNo) + "/transactions")
+        .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+        .then(function (d) { bodyEl.innerHTML = matDetailMovementHtml((d && d.items) || []); })
+        .catch(function (e) { bodyEl.innerHTML = '<div class="codex-turnaround-empty">載入失敗（' + escapeInline(e.message) + '）</div>'; });
+    }
+  }
+
+  function matDetailOverviewHtml() {
+    var item = (matDetailCtx && matDetailCtx.item) || {};
+    var locs = (matDetailCtx && matDetailCtx.locs) || [];
+    var aliases = (matDetailCtx && matDetailCtx.aliases) || [];
+    var st = item.stock || {};
+    function yn(v) { return v === true ? "是" : (v === false ? "否" : "—"); }
+    function field(label, val) { return '<div class="codex-md-field"><span>' + label + '</span><strong>' + escapeInline(val == null || val === "" ? "—" : String(val)) + '</strong></div>'; }
+    var basic = '<div class="codex-md-grid">' +
+      field("規格", item.spec) +
+      field("單位", item.unit) +
+      field("系統", item.systemName) +
+      field("類別", item.categoryName) +
+      field("物料屬性", item.materialProperty) +
+      field("安全等級", item.safetyLevel) +
+      field("可修件", yn(item.repairable)) +
+      field("序號管理", yn(item.isSerialized)) +
+      field("預估單價", item.estimatedUnitPrice) +
+      field("交期(天)", item.leadTimeDays) +
+      field("請購點", item.reorderPoint) +
+      field("市售品", yn(item.marketAvailable)) +
+      '</div>';
+    var stockRows = (locs || []).map(function (l) {
+      return '<tr><td>' + escapeInline(l.warehouse_name || l.warehouse_code || "") + '</td><td>' + escapeInline(l.bin_code || "") + '</td><td>' + escapeInline(l.location_type || "") + '</td><td>' + escapeInline(l.stock_status || "") + '</td><td>' + escapeInline(String(l.qty)) + '</td></tr>';
+    }).join("");
+    var stockTable = '<div class="codex-list-admin-form-title" style="margin-top:12px;">庫存（可用 ' + escapeInline(String(st.availableQty || "0")) + '、在庫合計 ' + escapeInline(String(st.totalTrackedQty || "0")) + (st.stockAdvice ? ('、' + escapeInline(st.stockAdvice)) : '') + '）</div>' +
+      '<table class="codex-list-admin-table"><thead><tr><th>倉庫</th><th>儲位</th><th>型態</th><th>狀態</th><th>數量</th></tr></thead><tbody>' + (stockRows || '<tr><td colspan="5">各庫位皆無庫存</td></tr>') + '</tbody></table>';
+    var aliasHtml = '<div class="codex-list-admin-form-title" style="margin-top:12px;">已對應的 C 單設備名稱</div>' +
+      ((aliases && aliases.length) ? ('<div>' + aliases.map(function (a) { return '<span class="codex-material-chip" style="margin:2px;">' + escapeInline(a.aliasName) + '</span>'; }).join("") + '</div>') : '<div class="codex-eqalias-hint">尚未對應任何 C 單名稱</div>');
+    return basic + stockTable + aliasHtml;
+  }
+
+  function matDetailMovementHtml(items) {
+    if (!items || !items.length) return '<div class="codex-turnaround-empty">目前沒有異動紀錄。領料、退料、調撥、過帳後會出現在這裡。</div>';
+    var rows = items.map(function (t) {
+      var d = t.transaction_at ? String(t.transaction_at).slice(0, 10) : "";
+      var src = t.work_order_no || (t.inventory_document_id ? "(領料單)" : "");
+      return '<tr><td>' + escapeInline(d) + '</td><td>' + escapeInline(t.transaction_type || "") + '</td><td>' + escapeInline(t.warehouse_code || "") + '</td><td>' + escapeInline(t.stock_status || "") + '</td><td>' + escapeInline(String(t.qty_change)) + '</td><td>' + escapeInline(src) + '</td></tr>';
+    }).join("");
+    return '<table class="codex-list-admin-table"><thead><tr><th>日期</th><th>類型</th><th>倉庫</th><th>狀態</th><th>數量</th><th>單據/工單</th></tr></thead><tbody>' + rows + '</tbody></table>';
+  }
+
+  function matDetailAction(act) {
+    if (!matDetailCtx) return;
+    var modal = document.getElementById("codex-matdetail-modal");
+    var partNo = matDetailCtx.partNo;
+    if (act === "issue") {
+      if (modal) modal.hidden = true;
+      if (typeof openMaterialCloudQuery === "function") openMaterialCloudQuery();
+      if (typeof openMaterialIssueForm === "function") window.setTimeout(function () { openMaterialIssueForm(partNo); }, 80);
+      return;
+    }
+    if (act === "alias") {
+      if (modal) modal.hidden = true;
+      if (typeof openEquipmentAliasModal === "function") openEquipmentAliasModal();
+      return;
+    }
+  }
+
   function ensureMaterialCloudInline(listSection) {
     if (!listSection || typeof fetch !== "function") return;
     var host = document.getElementById("codex-material-cloud-inline");
@@ -38539,10 +38875,14 @@ react-dom/cjs/react-dom-client.production.js:
       }
     });
     host.addEventListener("click", function (e) {
-      if (e.target && e.target.closest("[data-minline-more]")) {
+      if (!e.target) return;
+      if (e.target.closest("[data-minline-more]")) {
         materialInlineState.offset += materialInlineState.limit;
         materialInlineFetch(true);
+        return;
       }
+      var row = e.target.closest("[data-minline-detail]");
+      if (row) { openMaterialDetail(row.getAttribute("data-minline-detail")); }
     });
     setMaterialDemoTableHidden(true);
     materialInlineFetch();
@@ -39902,7 +40242,13 @@ react-dom/cjs/react-dom-client.production.js:
     updateTopQuerySection();
     ensureGlobalListAdminEntry();
     ensureProjectWorkOrderEntry();
+    ensureEquipmentAliasEntry();
     if (!window.__refApiLoaded) { window.__refApiLoaded = true; loadReferenceListsFromApi(); }
+    if (!window.__codexAutoMaterial && /material/i.test(location.hash)) {
+      var __aside = document.querySelector("aside");
+      var __matBtn = __aside && Array.prototype.filter.call(__aside.querySelectorAll("button"), function (x) { return /物料表/.test(x.textContent || ""); })[0];
+      if (__matBtn) { window.__codexAutoMaterial = true; __matBtn.click(); }
+    }
     hideDuplicateStats();
     updateGovernanceSection();
     integrateMaterialListDetail();
