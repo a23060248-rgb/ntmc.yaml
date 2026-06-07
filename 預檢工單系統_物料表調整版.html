@@ -36874,6 +36874,45 @@ react-dom/cjs/react-dom-client.production.js:
     border-color: rgba(34, 211, 238, 0.38);
     background: rgba(8, 47, 73, 0.3);
   }
+  .codex-usage-headline {
+    border: 1px solid rgba(51, 65, 85, 0.84);
+    border-radius: 0.8rem;
+    background: rgba(2, 6, 23, 0.5);
+    padding: 0.7rem 0.85rem;
+    margin-bottom: 0.7rem;
+  }
+  .codex-usage-headline[data-tone="danger"] { border-color: rgba(244, 63, 94, 0.45); background: rgba(76, 5, 25, 0.28); }
+  .codex-usage-headline[data-tone="ok"] { border-color: rgba(34, 211, 238, 0.32); }
+  .codex-usage-headline-main { font-size: 0.95rem; color: #e2e8f0; }
+  .codex-usage-headline-main strong { color: #f1f5f9; }
+  .codex-usage-headline-sub { margin-top: 0.3rem; font-size: 0.8rem; color: #94a3b8; }
+  .codex-usage-headline-sub strong { color: #cbd5e1; }
+  .codex-usage-legend { display: flex; flex-wrap: wrap; gap: 0.8rem; font-size: 0.72rem; color: #94a3b8; margin: 0.2rem 0 0.55rem; }
+  .codex-usage-legend span { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .codex-usage-legend i { width: 0.7rem; height: 0.7rem; border-radius: 0.2rem; display: inline-block; }
+  .codex-usage-legend i.codex-yb-mark-legend { width: 0; height: 0.8rem; border-left: 2px dashed #fbbf24; border-radius: 0; }
+  .codex-yearbar-wrap { display: flex; flex-direction: column; gap: 0.45rem; }
+  .codex-yearbar-row { display: flex; align-items: center; gap: 0.6rem; }
+  .codex-yearbar-label { width: 3.4rem; font-size: 0.78rem; color: #94a3b8; flex-shrink: 0; }
+  .codex-yearbar-track { position: relative; flex: 1; height: 1.15rem; background: rgba(15, 23, 42, 0.85); border-radius: 0.4rem; overflow: hidden; display: flex; }
+  .codex-yearbar-seg { height: 100%; }
+  .codex-yearbar-total { width: 3rem; text-align: right; font-size: 0.82rem; color: #e2e8f0; flex-shrink: 0; }
+  .codex-yb-mark { position: absolute; top: -2px; bottom: -2px; width: 0; border-left: 2px dashed #fbbf24; z-index: 2; }
+  .codex-usage-month-title { margin: 0.85rem 0 0.4rem; font-size: 0.78rem; color: #94a3b8; }
+  .codex-mcol-row { display: flex; align-items: flex-end; gap: 0.3rem; height: 3.4rem; }
+  .codex-mcol { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+  .codex-mcol-track { width: 100%; flex: 1; display: flex; align-items: flex-end; }
+  .codex-mcol-fill { width: 100%; border-radius: 0.2rem 0.2rem 0 0; min-height: 2px; }
+  .codex-mcol-label { font-size: 0.62rem; color: #64748b; margin-top: 0.2rem; }
+  .codex-usage-empty {
+    border: 1px dashed rgba(71, 85, 105, 0.6);
+    border-radius: 0.8rem;
+    padding: 1.1rem;
+    text-align: center;
+    background: rgba(2, 6, 23, 0.4);
+  }
+  .codex-usage-empty-title { font-size: 0.92rem; color: #cbd5e1; font-weight: 600; }
+  .codex-usage-empty-note { margin-top: 0.4rem; font-size: 0.76rem; color: #64748b; line-height: 1.5; }
   .codex-stock-location-type {
     color: rgb(148, 163, 184);
     font-size: 0.68rem;
@@ -37270,8 +37309,8 @@ react-dom/cjs/react-dom-client.production.js:
   function referenceDefaultLists() {
     return {
       material_system: {
-        title: "系統別清單",
-        note: "設備功能系統分類，一個料號對應一個系統別。可隨時在此增刪。",
+        title: "子系統清單",
+        note: "車輛功能子系統分類，一個料號對應一個子系統。可隨時在此增刪。",
         items: [
           referenceItem("DOOR", "車門系統", ""),
           referenceItem("COUPLER", "車間連結系統", "車輛間連結器"),
@@ -37284,10 +37323,7 @@ react-dom/cjs/react-dom-client.production.js:
           referenceItem("SAFETY", "監控與安全裝置系統", "監視、偵測、安全裝置"),
           referenceItem("BOGIE", "轉向架系統", "轉向架及懸吊"),
           referenceItem("COMM", "車載通訊系統", ""),
-          referenceItem("SIGNAL", "車載號誌系統", ""),
-          referenceItem("COMMON", "共通性物料", "跨系統可用"),
-          referenceItem("TOOL", "工具(95)", "95 工具類"),
-          referenceItem("INSTR", "儀器(96)", "96 儀器類")
+          referenceItem("SIGNAL", "車載號誌系統", "")
         ]
       },
       material_property: {
@@ -38141,8 +38177,8 @@ react-dom/cjs/react-dom-client.production.js:
 
   function materialCloudTableHtml(rowsHtml) {
     return '<table class="codex-list-admin-table"><thead><tr>' +
-      '<th>料號</th><th>名稱</th><th>規格</th><th>單位</th><th>系統/類別</th><th>可用</th><th>在庫合計</th><th>建議</th><th>操作</th>' +
-      '</tr></thead><tbody>' + (rowsHtml || '<tr><td colspan="9">查無資料</td></tr>') + '</tbody></table>';
+      '<th>料號</th><th>名稱</th><th>規格</th><th>單位</th><th>系統別</th><th>細分類</th><th>可用</th><th>在庫合計</th><th>建議</th><th>操作</th>' +
+      '</tr></thead><tbody>' + (rowsHtml || '<tr><td colspan="10">查無資料</td></tr>') + '</tbody></table>';
   }
 
   function materialCloudRowHtml(m) {
@@ -38152,9 +38188,10 @@ react-dom/cjs/react-dom-client.production.js:
       '<td>' + escapeInline(m.materialName || "") + '</td>' +
       '<td>' + escapeInline(String(m.spec || "").slice(0, 40)) + '</td>' +
       '<td>' + escapeInline(m.unit || "") + '</td>' +
-      '<td>' + escapeInline(m.systemName || m.categoryName || "") + '</td>' +
-      '<td>' + escapeInline(String(st.availableQty != null ? st.availableQty : "0")) + '</td>' +
-      '<td>' + escapeInline(String(st.totalTrackedQty != null ? st.totalTrackedQty : "0")) + '</td>' +
+      '<td>' + escapeInline(m.systemName || "") + '</td>' +
+      '<td>' + escapeInline(m.categoryName || "") + '</td>' +
+      '<td>' + usageText(st.availableQty != null ? st.availableQty : 0) + '</td>' +
+      '<td>' + usageText(st.totalTrackedQty != null ? st.totalTrackedQty : 0) + '</td>' +
       '<td>' + escapeInline(st.stockAdvice || "") + '</td>' +
       '<td><button type="button" class="codex-list-admin-mini" data-mcloud-issue="' + escapeInline(m.partNo || "") + '">領料</button></td>' +
       '</tr>';
@@ -38190,7 +38227,7 @@ react-dom/cjs/react-dom-client.production.js:
     var opts = locs.map(function (l, i) {
       return '<option value="' + i + '">' + escapeInline(l.warehouse_name || l.warehouse_code) +
         (l.bin_code ? (" / " + escapeInline(l.bin_code)) : "") +
-        "（" + escapeInline(l.location_type) + "，" + escapeInline(l.stock_status) + "，可領 " + escapeInline(String(l.qty)) + "）</option>";
+        "（" + escapeInline(l.location_type) + "，" + escapeInline(l.stock_status) + "，可領 " + usageText(l.qty) + "）</option>";
     }).join("");
     return head +
       '<div class="codex-list-admin-form-grid">' +
@@ -38665,8 +38702,8 @@ react-dom/cjs/react-dom-client.production.js:
 
   function materialInlineTableHtml(rowsHtml) {
     return '<table class="codex-list-admin-table"><thead><tr>' +
-      '<th>料號</th><th>名稱</th><th>規格</th><th>單位</th><th>系統/類別</th><th>可用</th><th>在庫合計</th><th>建議</th>' +
-      '</tr></thead><tbody>' + (rowsHtml || '<tr><td colspan="8">查無資料</td></tr>') + '</tbody></table>';
+      '<th>料號</th><th>名稱</th><th>規格</th><th>單位</th><th>系統別</th><th>細分類</th><th>可用</th><th>在庫合計</th><th>建議</th>' +
+      '</tr></thead><tbody>' + (rowsHtml || '<tr><td colspan="9">查無資料</td></tr>') + '</tbody></table>';
   }
 
   function materialInlineRowHtml(m) {
@@ -38676,9 +38713,10 @@ react-dom/cjs/react-dom-client.production.js:
       '<td>' + escapeInline(m.materialName || "") + '</td>' +
       '<td>' + escapeInline(String(m.spec || "").slice(0, 40)) + '</td>' +
       '<td>' + escapeInline(m.unit || "") + '</td>' +
-      '<td>' + escapeInline(m.systemName || m.categoryName || "") + '</td>' +
-      '<td>' + escapeInline(String(st.availableQty != null ? st.availableQty : "0")) + '</td>' +
-      '<td>' + escapeInline(String(st.totalTrackedQty != null ? st.totalTrackedQty : "0")) + '</td>' +
+      '<td>' + escapeInline(m.systemName || "") + '</td>' +
+      '<td>' + escapeInline(m.categoryName || "") + '</td>' +
+      '<td>' + usageText(st.availableQty != null ? st.availableQty : 0) + '</td>' +
+      '<td>' + usageText(st.totalTrackedQty != null ? st.totalTrackedQty : 0) + '</td>' +
       '<td>' + escapeInline(st.stockAdvice || "") + '</td>' +
       '</tr>';
   }
@@ -38747,12 +38785,14 @@ react-dom/cjs/react-dom-client.production.js:
     body.innerHTML = '<div class="codex-turnaround-empty">載入中…</div>';
     Promise.all([
       fetch("/api/materials/" + encodeURIComponent(partNo)).then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); }),
-      fetch("/api/equipment-aliases").then(function (r) { return r.ok ? r.json() : { items: [] }; }).catch(function () { return { items: [] }; })
+      fetch("/api/equipment-aliases").then(function (r) { return r.ok ? r.json() : { items: [] }; }).catch(function () { return { items: [] }; }),
+      fetch("/api/materials/" + encodeURIComponent(partNo) + "/usage").then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
     ]).then(function (arr) {
       var item = (arr[0] && arr[0].item) || {};
       var locs = (arr[0] && arr[0].locations) || [];
       var aliases = ((arr[1] && arr[1].items) || []).filter(function (a) { return a.targetCode === item.partNo; });
-      matDetailCtx = { partNo: item.partNo || partNo, item: item, locs: locs, aliases: aliases };
+      var usage = arr[2] || null;
+      matDetailCtx = { partNo: item.partNo || partNo, item: item, locs: locs, aliases: aliases, usage: usage };
       modal.querySelector("[data-md-title]").textContent = item.materialName || partNo;
       modal.querySelector("[data-md-sub]").textContent = item.partNo || partNo;
       body.innerHTML = materialDetailShellHtml();
@@ -38802,14 +38842,20 @@ react-dom/cjs/react-dom-client.production.js:
     var item = (matDetailCtx && matDetailCtx.item) || {};
     var locs = (matDetailCtx && matDetailCtx.locs) || [];
     var aliases = (matDetailCtx && matDetailCtx.aliases) || [];
+    var usage = (matDetailCtx && matDetailCtx.usage) || null;
     var st = item.stock || {};
     function yn(v) { return v === true ? "是" : (v === false ? "否" : "—"); }
     function field(label, val) { return '<div class="codex-md-field"><span>' + label + '</span><strong>' + escapeInline(val == null || val === "" ? "—" : String(val)) + '</strong></div>'; }
-    var basic = '<div class="codex-md-grid">' +
+    var photoBox = '<div class="codex-material-photo"><div class="codex-material-photo-inner"><div><strong>物料照片</strong><span>' + escapeInline(item.partNo || "") + '<br>可上傳實品、包裝或銘牌照片</span></div></div></div>';
+    var basic = '<div class="codex-detail-basic">' +
+      photoBox +
+      '<div class="codex-md-grid">' +
       field("規格", item.spec) +
+      field("廠牌", item.brand) +
+      field("型號", item.model) +
       field("單位", item.unit) +
-      field("系統", item.systemName) +
-      field("類別", item.categoryName) +
+      field("系統別", item.systemName) +
+      field("細分類", item.categoryName) +
       field("物料屬性", item.materialProperty) +
       field("安全等級", item.safetyLevel) +
       field("可修件", yn(item.repairable)) +
@@ -38818,15 +38864,144 @@ react-dom/cjs/react-dom-client.production.js:
       field("交期(天)", item.leadTimeDays) +
       field("請購點", item.reorderPoint) +
       field("市售品", yn(item.marketAvailable)) +
+      '</div>' +
       '</div>';
     var stockRows = (locs || []).map(function (l) {
-      return '<tr><td>' + escapeInline(l.warehouse_name || l.warehouse_code || "") + '</td><td>' + escapeInline(l.bin_code || "") + '</td><td>' + escapeInline(l.location_type || "") + '</td><td>' + escapeInline(l.stock_status || "") + '</td><td>' + escapeInline(String(l.qty)) + '</td></tr>';
+      return '<tr><td>' + escapeInline(l.warehouse_name || l.warehouse_code || "") + '</td><td>' + escapeInline(l.bin_code || "") + '</td><td>' + escapeInline(l.location_type || "") + '</td><td>' + escapeInline(l.stock_status || "") + '</td><td>' + usageText(l.qty) + '</td></tr>';
     }).join("");
-    var stockTable = '<div class="codex-list-admin-form-title" style="margin-top:12px;">庫存（可用 ' + escapeInline(String(st.availableQty || "0")) + '、在庫合計 ' + escapeInline(String(st.totalTrackedQty || "0")) + (st.stockAdvice ? ('、' + escapeInline(st.stockAdvice)) : '') + '）</div>' +
+    var stockParts = ['可發 ' + usageText(st.availableQty)];
+    if (usageNumber(st.issuedQty) > 0) stockParts.push('已領出 ' + usageText(st.issuedQty));
+    if (usageNumber(st.inUseQty) > 0) stockParts.push('使用中 ' + usageText(st.inUseQty));
+    if (usageNumber(st.unavailableQty) > 0) stockParts.push('不可用 ' + usageText(st.unavailableQty));
+    if (usageNumber(st.totalTrackedQty) !== usageNumber(st.availableQty)) stockParts.push('合計 ' + usageText(st.totalTrackedQty));
+    if (st.stockAdvice) stockParts.push(escapeInline(st.stockAdvice));
+    var binTable = '<div class="codex-list-admin-form-title" style="margin-top:12px;">儲位明細（' + stockParts.join('、') + '）</div>' +
       '<table class="codex-list-admin-table"><thead><tr><th>倉庫</th><th>儲位</th><th>型態</th><th>狀態</th><th>數量</th></tr></thead><tbody>' + (stockRows || '<tr><td colspan="5">各庫位皆無庫存</td></tr>') + '</tbody></table>';
-    var aliasHtml = '<div class="codex-list-admin-form-title" style="margin-top:12px;">已對應的 C 單設備名稱</div>' +
-      ((aliases && aliases.length) ? ('<div>' + aliases.map(function (a) { return '<span class="codex-material-chip" style="margin:2px;">' + escapeInline(a.aliasName) + '</span>'; }).join("") + '</div>') : '<div class="codex-eqalias-hint">尚未對應任何 C 單名稱</div>');
-    return basic + stockTable + aliasHtml;
+    var stockHtml = matDetailStockCardsHtml(locs) + binTable;
+    var usageHtml = matDetailUsageDecisionHtml(usage, item);
+    var aliasHtml = (aliases && aliases.length) ? ('<div>' + aliases.map(function (a) { return '<span class="codex-material-chip" style="margin:2px;">' + escapeInline(a.aliasName) + '</span>'; }).join("") + '</div>') : '<div class="codex-eqalias-hint">尚未對應任何 C 單名稱</div>';
+    return detailSection("物料概要", basic) +
+      detailSection("庫存分布", stockHtml) +
+      detailSection("用料履歷", usageHtml) +
+      detailSection("已對應的 C 單設備名稱", aliasHtml);
+  }
+
+  function matDetailStockCardsHtml(locs) {
+    locs = locs || [];
+    var qtyByCode = {}, qtyByName = {}, grand = 0;
+    locs.forEach(function (l) {
+      var q = Number(l.qty) || 0; grand += q;
+      if (l.warehouse_code) qtyByCode[l.warehouse_code] = (qtyByCode[l.warehouse_code] || 0) + q;
+      if (l.warehouse_name) qtyByName[l.warehouse_name] = (qtyByName[l.warehouse_name] || 0) + q;
+    });
+    var warehouses = (typeof activeReferenceItems === "function") ? activeReferenceItems("warehouse") : [];
+    var centerTotal = 0;
+    var cards = warehouses.map(function (w) {
+      var qty = qtyByCode[w.code] != null ? qtyByCode[w.code] : (qtyByName[w.name] != null ? qtyByName[w.name] : 0);
+      var isCenter = /中心|主庫房/.test(String(w.note || "") + String(w.name || ""));
+      if (isCenter) centerTotal += qty;
+      return '<div class="codex-stock-location-card' + (isCenter ? " is-center" : "") + '">' +
+        '<div class="codex-stock-location-type">' + escapeInline(isCenter ? "中心倉庫" : (w.note || "分存站／現場")) + '</div>' +
+        '<div class="codex-stock-location-title">' + escapeInline(w.name || w.code || "") + '</div>' +
+        '<div class="codex-stock-location-value">' + escapeInline(usageText(qty)) + '</div>' +
+        '<div class="codex-stock-location-note">' + escapeInline(isCenter ? "未領料庫存" : "現場已領用／備置") + '</div>' +
+        '</div>';
+    }).join("");
+    var issued = Math.max(0, grand - centerTotal);
+    return '<div class="codex-stock-summary">' +
+      metricHtml("公司庫存量總和", usageText(grand)) +
+      metricHtml("中心倉庫未領料", usageText(centerTotal)) +
+      metricHtml("分存站/現場已領料", usageText(issued)) +
+      '</div>' +
+      '<div class="codex-stock-ledger-grid">' + (cards || '<div class="codex-eqalias-hint">尚無倉位資料</div>') + '</div>';
+  }
+
+  function matDetailUsageDecisionHtml(usage, item) {
+    item = item || {};
+    var stock = item.stock || {};
+    var byYear = (usage && usage.byYear) || {};
+    var years = [111, 112, 113, 114];
+    var data = years.map(function (y) {
+      var d = byYear[y] || {};
+      var issue = usageNumber(d.issue);
+      var fault = usageNumber(d.fault);
+      var total = d.total != null ? usageNumber(d.total) : (issue + fault);
+      return { year: y, issue: issue, fault: fault, total: total };
+    });
+    var totalAll = data.reduce(function (s, d) { return s + d.total; }, 0);
+    var hasData = !!(usage && usage.hasData) && totalAll > 0;
+
+    if (!hasData) {
+      return '<div class="codex-usage-empty">' +
+        '<div class="codex-usage-empty-title">尚無用料履歷</div>' +
+        '<div class="codex-usage-empty-note">匯入 111–114 年發料量，或等庫存異動（領料／退料／報廢）累積後自動產生趨勢。版面與 API 已就緒。</div>' +
+        '</div>';
+    }
+
+    var maxTotal = Math.max.apply(null, data.map(function (d) { return d.total; }).concat([1]));
+    var nonZero = data.filter(function (d) { return d.total > 0; });
+    var recent = nonZero.slice(-3);
+    var avg = recent.length ? recent.reduce(function (s, d) { return s + d.total; }, 0) / recent.length : 0;
+    var latest = nonZero[nonZero.length - 1];
+    var prior = nonZero.slice(0, -1);
+    var priorAvg = prior.length ? prior.reduce(function (s, d) { return s + d.total; }, 0) / prior.length : 0;
+    var trendArrow = "持平", pct = "";
+    if (priorAvg > 0 && latest) {
+      var change = (latest.total - priorAvg) / priorAvg;
+      if (change > 0.1) { trendArrow = "↑"; pct = " +" + Math.round(change * 100) + "%"; }
+      else if (change < -0.1) { trendArrow = "↓"; pct = " " + Math.round(change * 100) + "%"; }
+    }
+    var faultSum = data.reduce(function (s, d) { return s + d.fault; }, 0);
+    var faultShare = totalAll > 0 ? Math.round(faultSum / totalAll * 100) : 0;
+    var predict = faultShare >= 50 ? "以故障為主，較難預測" : (faultShare <= 20 ? "以例行發料為主，較可預測" : "故障與例行並存");
+    var curStock = usageNumber(stock.availableQty != null ? stock.availableQty : stock.totalTrackedQty);
+    var monthsCover = avg > 0 ? (curStock / (avg / 12)) : null;
+    var coverText = monthsCover == null ? "—" : ((monthsCover >= 99 ? "99+" : monthsCover.toFixed(monthsCover < 10 ? 1 : 0)) + " 個月");
+    var reorder = usageNumber(item.reorderPoint);
+    var headlineTone = (faultShare >= 50 || (monthsCover != null && monthsCover < 12)) ? "danger" : "ok";
+
+    var headline = '<div class="codex-usage-headline" data-tone="' + headlineTone + '">' +
+      '<div class="codex-usage-headline-main">近 ' + recent.length + ' 年平均 <strong>' + usageText(avg) + '</strong>/年，趨勢 <strong>' + trendArrow + pct + '</strong></div>' +
+      '<div class="codex-usage-headline-sub">故障佔 <strong>' + faultShare + '%</strong>（' + predict + '）｜目前可發 <strong>' + usageText(curStock) + '</strong> ≈ 可支應 <strong>' + coverText + '</strong></div>' +
+      '</div>';
+
+    var legend = '<div class="codex-usage-legend"><span><i style="background:#38bdf8"></i>例行發料</span><span><i style="background:#fb7185"></i>故障</span>' +
+      (reorder > 0 ? '<span><i class="codex-yb-mark-legend"></i>請購點 ' + usageText(reorder) + '</span>' : '') + '</div>';
+
+    var bars = data.map(function (d) {
+      var issuePct = maxTotal > 0 ? d.issue / maxTotal * 100 : 0;
+      var faultPct = maxTotal > 0 ? d.fault / maxTotal * 100 : 0;
+      var mark = (reorder > 0 && maxTotal > 0) ? '<span class="codex-yb-mark" style="left:' + Math.min(100, reorder / maxTotal * 100) + '%"></span>' : '';
+      return '<div class="codex-yearbar-row">' +
+        '<span class="codex-yearbar-label">' + d.year + ' 年</span>' +
+        '<div class="codex-yearbar-track">' +
+          '<div class="codex-yearbar-seg" style="width:' + issuePct + '%;background:#38bdf8"></div>' +
+          '<div class="codex-yearbar-seg" style="width:' + faultPct + '%;background:#fb7185"></div>' +
+          mark +
+        '</div>' +
+        '<strong class="codex-yearbar-total">' + usageText(d.total) + '</strong>' +
+        '</div>';
+    }).join("");
+
+    var monthlyHtml = "";
+    if (usage.monthly && usage.monthly.issue) {
+      var mi = usage.monthly.issue, mf = usage.monthly.fault || [];
+      var monthTotals = mi.map(function (v, i) { return usageNumber(v) + usageNumber(mf[i]); });
+      var maxM = Math.max.apply(null, monthTotals.concat([1]));
+      var peakVal = Math.max.apply(null, monthTotals);
+      var peakIdx = monthTotals.indexOf(peakVal);
+      var cols = monthTotals.map(function (v, i) {
+        var h = v > 0 ? Math.max(6, v / maxM * 100) : 0;
+        var isPeak = v > 0 && i === peakIdx;
+        return '<div class="codex-mcol"><div class="codex-mcol-track"><div class="codex-mcol-fill" style="height:' + h + '%;background:' + (isPeak ? '#f59e0b' : '#38bdf8') + '"></div></div><span class="codex-mcol-label">' + (i + 1) + '</span></div>';
+      }).join("");
+      monthlyHtml = '<div class="codex-usage-month-title">' + usage.monthly.year + ' 年各月' + (peakVal > 0 ? '（峰值 ' + (peakIdx + 1) + ' 月）' : '') + '</div>' +
+        '<div class="codex-mcol-row">' + cols + '</div>';
+    }
+
+    var note = '<div class="codex-usage-note">用料履歷只回答「過去怎麼被消耗」：年需求、故障佔比、趨勢。要不要補料、先調撥還是採購，移到補料決策判斷。</div>';
+
+    return headline + legend + '<div class="codex-yearbar-wrap">' + bars + '</div>' + monthlyHtml + note;
   }
 
   function matDetailMovementHtml(items) {
@@ -46540,6 +46715,11 @@ react-dom/cjs/react-dom-client.production.js:
       unit: compactText(item.unit),
       systemName: compactText(item.systemName),
       materialType: compactText(item.materialType),
+      systemCode: compactText(item.systemCode),
+      categoryCode: compactText(item.categoryCode),
+      categoryName: compactText(item.categoryName),
+      sequenceNo: compactText(item.sequenceNo),
+      typeCode: compactText(item.typeCode),
       materialProperty: compactText(item.materialProperty),
       repairable: !!item.repairable,
       isSerialized: !!item.isSerialized,
@@ -46582,6 +46762,8 @@ react-dom/cjs/react-dom-client.production.js:
       item.materialName,
       item.spec,
       item.systemName,
+      item.categoryName,
+      item.categoryCode,
       item.materialType,
       item.materialProperty
     ].join(" ").toLowerCase();
@@ -46681,6 +46863,7 @@ react-dom/cjs/react-dom-client.production.js:
       '  <td><div class="codex-api-material-part">' + escapeHtml(item.partNo) + '</div><div class="codex-api-material-muted">' + escapeHtml(item.unit) + '</div></td>',
       '  <td><strong>' + escapeHtml(item.materialName) + '</strong><div class="codex-api-material-muted">' + escapeHtml(item.spec) + '</div></td>',
       '  <td>' + escapeHtml(item.systemName) + '<div class="codex-api-material-muted">' + escapeHtml(item.materialType) + '</div></td>',
+      '  <td>' + escapeHtml(item.categoryName) + '<div class="codex-api-material-muted">' + escapeHtml(item.categoryCode) + '</div></td>',
       '  <td>' + escapeHtml(item.materialProperty) + '<div class="codex-api-material-muted">' + (item.isSerialized ? "序號管理" : "一般管理") + '</div></td>',
       '  <td>' + formatQty(item.stock.availableQty) + '</td>',
       '  <td>' + formatQty(item.stock.issuedQty + item.stock.inUseQty) + '</td>',
@@ -46693,13 +46876,13 @@ react-dom/cjs/react-dom-client.production.js:
 
   function rowsHtml(list) {
     if (state.loading && !state.materials.length) {
-      return '<tr><td colspan="9"><div class="codex-api-material-muted">同步中...</div></td></tr>';
+      return '<tr><td colspan="10"><div class="codex-api-material-muted">同步中...</div></td></tr>';
     }
     if (state.error && !state.materials.length) {
-      return '<tr><td colspan="9"><div class="codex-api-material-muted">' + escapeHtml(state.error) + '</div></td></tr>';
+      return '<tr><td colspan="10"><div class="codex-api-material-muted">' + escapeHtml(state.error) + '</div></td></tr>';
     }
     if (!list.length) {
-      return '<tr><td colspan="9"><div class="codex-api-material-muted">沒有符合條件的物料</div></td></tr>';
+      return '<tr><td colspan="10"><div class="codex-api-material-muted">沒有符合條件的物料</div></td></tr>';
     }
     return list.slice(0, 80).map(rowHtml).join("");
   }
@@ -46738,6 +46921,7 @@ react-dom/cjs/react-dom-client.production.js:
       '  </div>',
       '  <div class="codex-api-material-detail-grid">',
       '    <div class="codex-api-material-mini"><span>系統別</span><strong>' + escapeHtml(item.systemName) + '</strong></div>',
+      '    <div class="codex-api-material-mini"><span>細分類</span><strong>' + escapeHtml(item.categoryName) + '</strong></div>',
       '    <div class="codex-api-material-mini"><span>規格</span><strong>' + escapeHtml(item.spec) + '</strong></div>',
       '    <div class="codex-api-material-mini"><span>可發料</span><strong>' + formatQty(item.stock.availableQty) + '</strong></div>',
       '    <div class="codex-api-material-mini"><span>已領出/使用中</span><strong>' + formatQty(item.stock.issuedQty + item.stock.inUseQty) + '</strong></div>',
@@ -46793,7 +46977,7 @@ react-dom/cjs/react-dom-client.production.js:
       '  </div>',
       '  <div class="codex-api-material-table-wrap">',
       '    <table class="codex-api-material-table">',
-      '      <thead><tr><th>料號</th><th>物料名稱/規格</th><th>系統別</th><th>屬性</th><th>可發料</th><th>已領出</th><th>追蹤總量</th><th>請購點</th><th>建議</th></tr></thead>',
+      '      <thead><tr><th>料號</th><th>物料名稱/規格</th><th>系統別</th><th>細分類</th><th>屬性</th><th>可發料</th><th>已領出</th><th>追蹤總量</th><th>請購點</th><th>建議</th></tr></thead>',
       '      <tbody>' + rowsHtml(list) + '</tbody>',
       '    </table>',
       '  </div>',

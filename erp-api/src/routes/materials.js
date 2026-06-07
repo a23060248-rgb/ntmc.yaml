@@ -82,6 +82,11 @@ function materialFromRow(row) {
     marketAvailable: row.market_available,
     reviewNote: row.review_note,
     isActive: row.is_active,
+    systemCode: row.system_code,
+    categoryCode: row.category_code,
+    categoryName: row.category_name,
+    sequenceNo: row.sequence_no,
+    typeCode: row.type_code,
     stock: {
       availableQty: row.available_qty || "0",
       issuedQty: row.issued_qty || "0",
@@ -107,7 +112,7 @@ router.get(
 
     if (req.query.search) {
       values.push(`%${String(req.query.search).trim()}%`);
-      filters.push(`(m.part_no ILIKE $${values.length} OR m.material_name ILIKE $${values.length} OR COALESCE(m.spec, '') ILIKE $${values.length})`);
+      filters.push(`(m.part_no ILIKE $${values.length} OR m.material_name ILIKE $${values.length} OR COALESCE(m.spec, '') ILIKE $${values.length} OR COALESCE(m.category_name, '') ILIKE $${values.length})`);
     }
 
     if (req.query.systemCode) {
@@ -186,6 +191,75 @@ router.get(
       [partNo]
     );
     res.json({ items: r.rows });
+  })
+);
+
+router.get(
+  "/:partNo/usage",
+  asyncHandler(async (req, res) => {
+    const partNo = normalizePartNo(req.params.partNo);
+    const r = await query(
+      `
+        SELECT h.period_type, h.roc_year, h.usage_month, h.usage_type, h.qty
+        FROM material_usage_history h
+        JOIN material m ON m.id = h.material_id
+        WHERE m.part_no = $1
+      `,
+      [partNo]
+    );
+
+    const TYPE_KEY = {
+      ISSUE: "issue",
+      FAULT: "fault",
+      PM_STANDARD: "pmStandard",
+      OVERHAUL_STANDARD: "overhaulStandard",
+      FORECAST_FAULT: "forecastFault",
+      BOQ: "boq",
+      OTHER: "other"
+    };
+
+    const byYear = {};
+    function bucket(year) {
+      if (!byYear[year]) {
+        byYear[year] = { issue: 0, fault: 0, pmStandard: 0, overhaulStandard: 0, forecastFault: 0, boq: 0, other: 0, total: 0 };
+      }
+      return byYear[year];
+    }
+    const monthlyByYear = {};
+    let fault1y = 0;
+    for (const row of r.rows) {
+      const qty = Number(row.qty) || 0;
+      const key = TYPE_KEY[row.usage_type] || "other";
+      if (row.period_type === "YEAR") {
+        const b = bucket(row.roc_year);
+        b[key] += qty;
+        // 實際消耗 = 發料(ISSUE) + 故障(FAULT)；其餘為標準/基準量，不計入消耗總量
+        if (row.usage_type === "ISSUE" || row.usage_type === "FAULT") b.total += qty;
+      } else if (row.period_type === "MONTH" && row.usage_month) {
+        if (!monthlyByYear[row.roc_year]) monthlyByYear[row.roc_year] = { issue: new Array(12).fill(0), fault: new Array(12).fill(0) };
+        if (row.usage_type === "ISSUE") monthlyByYear[row.roc_year].issue[row.usage_month - 1] += qty;
+        else if (row.usage_type === "FAULT") monthlyByYear[row.roc_year].fault[row.usage_month - 1] += qty;
+      }
+      if (row.period_type === "ROLLING_12M" && row.usage_type === "FAULT") {
+        fault1y += qty;
+      }
+    }
+    const monthlyYears = Object.keys(monthlyByYear).map(Number).sort((a, b) => a - b);
+    const monthlyYear = monthlyYears.length ? monthlyYears[monthlyYears.length - 1] : null;
+    if (!fault1y) {
+      const faultYears = Object.keys(byYear).map(Number).sort((a, b) => a - b);
+      if (faultYears.length) fault1y = byYear[faultYears[faultYears.length - 1]].fault;
+    }
+
+    res.json({
+      partNo,
+      byYear,
+      monthly: monthlyYear
+        ? { year: monthlyYear, issue: monthlyByYear[monthlyYear].issue, fault: monthlyByYear[monthlyYear].fault }
+        : null,
+      fault1y,
+      hasData: r.rowCount > 0
+    });
   })
 );
 

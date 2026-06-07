@@ -1,7 +1,7 @@
--- 系統別清單（MATERIAL_SYSTEM）改版：14 → 15 項，整組重建。
--- MATERIAL_SYSTEM 目前未被任何資料表外鍵引用（material.system_name 存的是設備大類文字，
--- 非此代碼），整組刪除重建安全。退場代碼：ESS / AUXP / SIGCOM / PANTO。
--- 可重複執行（先全刪再插入）。
+-- 子系統清單（MATERIAL_SYSTEM）：12 項，整組重建。
+-- 原為「系統別清單」，依官方物料編碼原則改名為「子系統清單」，並移除
+-- 共通性物料 / 工具(95) / 儀器(96)（後三者在官方編碼屬獨立系統碼 95/96，不屬車輛子系統）。
+-- MATERIAL_SYSTEM 未被任何資料表外鍵引用，整組刪除重建安全。可重複執行。
 BEGIN;
 
 DELETE FROM workflow_option WHERE option_group = 'MATERIAL_SYSTEM';
@@ -20,9 +20,6 @@ VALUES
   ('MATERIAL_SYSTEM', 'SAFETY', '監控與安全裝置系統', 90, false, true, '監視、偵測、安全裝置'),
   ('MATERIAL_SYSTEM', 'BOGIE', '轉向架系統', 100, false, true, '轉向架及懸吊'),
   ('MATERIAL_SYSTEM', 'COMM', '車載通訊系統', 110, false, true, ''),
-  ('MATERIAL_SYSTEM', 'SIGNAL', '車載號誌系統', 120, false, true, ''),
-  ('MATERIAL_SYSTEM', 'COMMON', '共通性物料', 130, false, true, '跨系統可用'),
-  ('MATERIAL_SYSTEM', 'TOOL', '工具(95)', 140, false, true, '95 工具類'),
-  ('MATERIAL_SYSTEM', 'INSTR', '儀器(96)', 150, false, true, '96 儀器類');
+  ('MATERIAL_SYSTEM', 'SIGNAL', '車載號誌系統', 120, false, true, '');
 
 COMMIT;

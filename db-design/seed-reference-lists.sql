@@ -15,7 +15,7 @@ INSERT INTO workflow_option (
   description
 )
 VALUES
-  -- 系統別（功能系統，一個料號對應一個系統別）對應前端 material_system
+  -- 子系統（車輛功能子系統，一個料號對應一個子系統）對應前端 material_system
   ('MATERIAL_SYSTEM', 'DOOR', '車門系統', 10, false, true, ''),
   ('MATERIAL_SYSTEM', 'COUPLER', '車間連結系統', 20, false, true, '車輛間連結器'),
   ('MATERIAL_SYSTEM', 'CONTROL', '車輛操作及控制設備系統', 30, false, true, '司機操作、控制設備'),
@@ -28,9 +28,6 @@ VALUES
   ('MATERIAL_SYSTEM', 'BOGIE', '轉向架系統', 100, false, true, '轉向架及懸吊'),
   ('MATERIAL_SYSTEM', 'COMM', '車載通訊系統', 110, false, true, ''),
   ('MATERIAL_SYSTEM', 'SIGNAL', '車載號誌系統', 120, false, true, ''),
-  ('MATERIAL_SYSTEM', 'COMMON', '共通性物料', 130, false, true, '跨系統可用'),
-  ('MATERIAL_SYSTEM', 'TOOL', '工具(95)', 140, false, true, '95 工具類'),
-  ('MATERIAL_SYSTEM', 'INSTR', '儀器(96)', 150, false, true, '96 儀器類'),
 
   -- 物料屬性 對應前端 material_property
   ('MATERIAL_PROPERTY', 'spare', '系統備品', 10, false, true, ''),
