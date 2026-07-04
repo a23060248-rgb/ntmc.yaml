@@ -449,22 +449,29 @@ let PREMO=[
  {createdate:"2025-12-07 14:12",sname:"電聯車系統",uname:"ADMIN",orderno:"P-20251207141212-D-TS",levelname:"輕軌列車預防檢修(第二級3M)",note:"[電聯車系統] test test test",status:"派工"},
  {createdate:"2025-12-07 14:08",sname:"電聯車系統",uname:"ADMIN",orderno:"P-20251207140852-D-TS",levelname:"輕軌列車預防檢修(第一級1M)",note:"[電聯車系統] 預檢測試 預檢測試 預檢測試 預檢測試",status:"派工"}
 ];
+/* 人員資料(欄位對齊線上 /api/users/list:acc/uno/uname/unitname/status/items/createdate/note) */
+const USTATUS={0:{t:"正常",c:"#2fbf8f"},1:{t:"待確認",c:"#d8a020"},2:{t:"作廢",c:"#e07070"}};
+const PERM_ITEMS=[[0,"可登入管理平台"],[11,"可報修"],[1,"可接單"],[2,"可派工"],[3,"可完工"],[4,"可覆核"],[5,"可結案"],[6,"可併單"],[7,"可轉單"],[8,"可作廢"],[9,"可缺料"],[10,"可觀察"]];
+const SYS_PERMS=["自動收費系統","電聯車系統","供電系統","軌道系統","通訊系統","號誌系統","中央監控系統","建物管理系統","機廠設備系統","電扶梯系統","電梯系統","車載系統","水環系統","廠站設備系統","消防系統","橋梁系統"];
+const FIX_ITEMS=[0,1,2,3,6,7,8,9,10],ALL_ITEMS=[0,1,2,3,4,5,6,7,8,9,10],OP_ITEMS=[0,4,11];
 const USERS=[
- {uno:"1304M0727",uname:"李高賢",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"1112M0403",uname:"羅國榮",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"1012M0215",uname:"陳威吉",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"1207M0686",uname:"張晉銓",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"1012M0224",uname:"葉家辰",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"1012M0227",uname:"王煥廷",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"1012M0217",uname:"蔣孟勳",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"1012M0193",uname:"謝宗凱",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"1304M0729",uname:"吳琮彬",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"0907M0065",uname:"李孟哲",unit:"輕軌維修處",role:"維修處(派工/維修)",rc:"#3fc09f"},
- {uno:"1305W0812",uname:"王筌儀",unit:"輕軌營運處",role:"營運處(報修/覆核)",rc:"#5fa8e0"},
- {uno:"1208W0530",uname:"郭韋妤",unit:"輕軌營運處",role:"營運處(報修/覆核)",rc:"#5fa8e0"},
- {uno:"1101W0288",uname:"鄭先任",unit:"輕軌營運處",role:"營運處(報修/覆核)",rc:"#5fa8e0"},
- {uno:"1099W0021",uname:"王立雄",unit:"輕軌營運處",role:"營運處(報修/覆核)",rc:"#5fa8e0"},
- {uno:"ADMIN",uname:"系統管理員",unit:"系統",role:"系統管理員",rc:"#c07fd0"}
+ {uno:"1304M0727",uname:"李高賢",unit:"輕軌維修處",acc:"1304M0727@ntmetro.com.tw",createdate:"2026-05-23",status:0,note:null,items:[...FIX_ITEMS],sys:["電聯車系統"]},
+ {uno:"1112M0403",uname:"羅國榮",unit:"輕軌維修處",acc:"1112M0403@ntmetro.com.tw",createdate:"2025-10-20",status:0,note:null,items:[...ALL_ITEMS],sys:["電聯車系統","機廠設備系統"]},
+ {uno:"1012M0215",uname:"陳威吉",unit:"輕軌維修處",acc:"1012M0215@ntmetro.com.tw",createdate:"2025-10-20",status:0,note:null,items:[...FIX_ITEMS],sys:["電聯車系統"]},
+ {uno:"1207M0686",uname:"張晉銓",unit:"輕軌維修處",acc:"1207M0686@ntmetro.com.tw",createdate:"2025-10-21",status:0,note:null,items:[...FIX_ITEMS],sys:["電聯車系統"]},
+ {uno:"1012M0224",uname:"葉家辰",unit:"輕軌維修處",acc:"1012M0224@ntmetro.com.tw",createdate:"2025-10-20",status:0,note:null,items:[...ALL_ITEMS],sys:["電聯車系統"]},
+ {uno:"1012M0227",uname:"王煥廷",unit:"輕軌維修處",acc:"1012M0227@ntmetro.com.tw",createdate:"2025-10-20",status:0,note:null,items:[...FIX_ITEMS],sys:["電聯車系統"]},
+ {uno:"1012M0217",uname:"蔣孟勳",unit:"輕軌維修處",acc:"1012M0217@ntmetro.com.tw",createdate:"2025-10-20",status:0,note:null,items:[0,1,2,3,4,6,7,8,9,10],sys:["電聯車系統"]},
+ {uno:"1012M0193",uname:"謝宗凱",unit:"輕軌維修處",acc:"1012M0193@ntmetro.com.tw",createdate:"2025-10-20",status:0,note:null,items:[...FIX_ITEMS],sys:["電聯車系統"]},
+ {uno:"1304M0729",uname:"吳琮彬",unit:"輕軌維修處",acc:"1304M0729@ntmetro.com.tw",createdate:"2026-05-23",status:0,note:null,items:[...FIX_ITEMS],sys:["電聯車系統"]},
+ {uno:"0907M0065",uname:"李孟哲",unit:"輕軌維修處",acc:"0907M0065@ntmetro.com.tw",createdate:"2025-10-08",status:0,note:null,items:[...ALL_ITEMS],sys:["電聯車系統","機廠設備系統"]},
+ {uno:"1111M0390",uname:"李政道",unit:"輕軌維修處",acc:"1111M0390@ntmetro.com.tw",createdate:"2025-10-20",status:0,note:null,items:[...FIX_ITEMS],sys:["電聯車系統"]},
+ {uno:"1305W0812",uname:"王筌儀",unit:"輕軌營運處",acc:"1305W0812@ntmetro.com.tw",createdate:"2025-10-15",status:0,note:null,items:[...OP_ITEMS],sys:["電聯車系統"]},
+ {uno:"1208W0530",uname:"郭韋妤",unit:"輕軌營運處",acc:"1208W0530@ntmetro.com.tw",createdate:"2025-10-15",status:0,note:null,items:[...OP_ITEMS],sys:["電聯車系統"]},
+ {uno:"1101W0288",uname:"鄭先任",unit:"輕軌營運處",acc:"1101W0288@ntmetro.com.tw",createdate:"2025-10-15",status:0,note:null,items:[...OP_ITEMS],sys:["電聯車系統"]},
+ {uno:"1099W0021",uname:"王立雄",unit:"輕軌營運處",acc:"1099W0021@ntmetro.com.tw",createdate:"2025-10-15",status:0,note:null,items:[...OP_ITEMS],sys:["電聯車系統"]},
+ {uno:"1210W0641",uname:"廖威荏",unit:"輕軌營運處",acc:"1210W0641@ntmetro.com.tw",createdate:"2025-11-02",status:1,note:"新進人員,帳號待確認",items:[...OP_ITEMS],sys:["電聯車系統"]},
+ {uno:null,uname:"系統管理員",unit:"系統",acc:"admin@ntmetro.com.tw",createdate:"2025-10-08",status:0,note:"ADMIN",items:[...ALL_ITEMS],sys:[...SYS_PERMS]}
 ];
 
 /* =========================================================
@@ -481,7 +488,7 @@ function doLogout(){document.getElementById("app").classList.add("hidden");docum
 function toggleMenu(){menuOpen=!menuOpen;document.getElementById("sidebar").classList.toggle("hidden",!menuOpen);
   document.getElementById("menuLabel").textContent=menuOpen?"隱藏選單":"顯示選單";
   document.getElementById("menuArrow").innerHTML=menuOpen?"&#10094;":"&#10095;";}
-function nav(p){curPage=p;curOrder=null;
+function nav(p){curPage=p;curOrder=null;curUser=null;
   document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active",n.dataset.page===p));
   document.getElementById("pageHeader").textContent={dashboard:"戰情儀表板",orders:"工單管理",premo:"預檢管理",users:"人員管理"}[p];
   render();window.scrollTo(0,0);}
@@ -1044,24 +1051,98 @@ function createPremo(){
 /* =========================================================
    人員管理
    ========================================================= */
+let curUser=null;
+let UF={dateFrom:"",dateTo:"",unit:"",status:"",q:""};
+function filteredUsers(){
+  return USERS.filter(u=>{
+    if(UF.dateFrom&&u.createdate<UF.dateFrom)return false;
+    if(UF.dateTo&&u.createdate>UF.dateTo)return false;
+    if(UF.unit&&u.unit!==UF.unit)return false;
+    if(UF.status!==""&&u.status!==+UF.status)return false;
+    if(UF.q){const q=UF.q.toLowerCase();
+      if(!(u.acc||"").toLowerCase().includes(q)&&!(u.uname||"").includes(UF.q)&&!(u.uno||"").toLowerCase().includes(q))return false;}
+    return true;
+  });
+}
+function setUF(k,v){UF[k]=v;render();}
 function viewUsers(){
+  if(curUser)return viewUserDetail();
+  const list=filteredUsers();
   return `<div class="page-title">人員管理</div>
-  <p class="page-desc">系統使用者與角色權限(營運處負責報修/覆核;維修處負責派工/維修)。</p>
-  <div class="cards4">
-    <div class="kcard"><div class="k">使用者總數(線上系統)</div><div class="v">70</div></div>
-    <div class="kcard"><div class="k">輕軌維修處</div><div class="v">50</div></div>
-    <div class="kcard"><div class="k">輕軌營運處</div><div class="v">19</div></div>
+  <p class="page-desc">依據建立日期、單位、狀態或關鍵字快速查詢人員資料。</p>
+  <div class="panel"><h3>人員篩選</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px">
+      <div><label>起始日期</label><input type="date" value="${UF.dateFrom}" onchange="setUF('dateFrom',this.value)"/></div>
+      <div><label>結束日期</label><input type="date" value="${UF.dateTo}" onchange="setUF('dateTo',this.value)"/></div>
+      <div><label>單位</label><select onchange="setUF('unit',this.value)"><option value="">全部單位</option>
+        <option ${UF.unit==="輕軌營運處"?"selected":""}>輕軌營運處</option><option ${UF.unit==="輕軌維修處"?"selected":""}>輕軌維修處</option></select></div>
+      <div><label>狀態</label><select onchange="setUF('status',this.value)"><option value="">全部狀態</option>
+        ${Object.keys(USTATUS).map(k=>`<option value="${k}" ${UF.status===k?"selected":""}>${USTATUS[k].t}</option>`).join("")}</select></div>
+    </div>
+    <div style="margin-top:12px"><label>帳號 / 名稱 / 工號搜尋</label>
+      <div class="searchrow"><input placeholder="輸入帳號、姓名或工號以搜尋" value="${esc(UF.q)}" id="uQ"/>
+      <button class="pill-btn" onclick="setUF('q',document.getElementById('uQ').value)">搜尋</button></div></div>
+    <div class="toolbar" style="justify-content:space-between;margin-top:10px">
+      <span class="pageinfo">符合條件的人員：${list.length} 位</span>
+      <button class="pill-btn" onclick="UF={dateFrom:'',dateTo:'',unit:'',status:'',q:''};render()">重新設定</button>
+    </div>
   </div>
-  <div class="panel"><h3>使用者清單(示範子集)</h3>
+  <div class="panel">
     <div style="overflow-x:auto"><table class="wo">
-      <thead><tr><th>工號</th><th>姓名</th><th>單位</th><th>角色</th><th>狀態</th></tr></thead>
-      <tbody>${USERS.map(u=>`<tr>
-        <td>${esc(u.uno)}</td><td>${esc(u.uname)}</td><td>${esc(u.unit)}</td>
-        <td><span class="stpill" style="background:${u.rc}22;color:${u.rc};border:1px solid ${u.rc}77">${esc(u.role)}</span></td>
-        <td><span class="stpill" style="background:#1d9e7522;color:#4fd0a5;border:1px solid #1d9e7577">啟用</span></td>
-      </tr>`).join("")}</tbody>
+      <thead><tr><th>建立日期</th><th>單位</th><th>帳號</th><th>工號</th><th>姓名</th><th>狀態</th><th>備註</th></tr></thead>
+      <tbody>${list.length?list.map((u,i)=>`<tr style="cursor:pointer" onclick="curUser=USERS[${USERS.indexOf(u)}];render();window.scrollTo(0,0)">
+        <td>${esc(u.createdate)}</td><td>${esc(u.unit)}</td>
+        <td><span class="link">${esc(u.acc||"—")}</span></td>
+        <td>${esc(u.uno||"—")}</td><td>${esc(u.uname)}</td>
+        <td><span class="stpill" style="background:${USTATUS[u.status].c}22;color:${USTATUS[u.status].c};border:1px solid ${USTATUS[u.status].c}77">${USTATUS[u.status].t}</span></td>
+        <td>${esc(u.note||"—")}</td>
+      </tr>`).join(""):`<tr><td colspan="7" style="text-align:center;color:var(--mut);padding:30px">目前沒有符合條件的人員。</td></tr>`}</tbody>
     </table></div>
   </div>`;
+}
+function viewUserDetail(){
+  const u=curUser;
+  return `<div class="page-title">人員管理</div>
+  <p class="page-desc">依據建立日期、單位、狀態或關鍵字快速查詢人員資料。</p>
+  <div class="toolbar"><button class="pill-btn" onclick="curUser=null;render()">← 返回列表</button></div>
+  <div class="panel">
+    <h3>人員管理詳細資料</h3>
+    <div class="detail-grid">
+      <div class="dcell"><div class="k">名稱</div><div class="v">${esc(u.uname)}</div></div>
+      <div class="dcell"><div class="k">單位</div><div class="v">${esc(u.unit)}</div></div>
+      <div class="dcell"><div class="k">帳號</div><div class="v" style="font-size:13px">${esc(u.acc||"—")}</div></div>
+      <div class="dcell"><div class="k">工號</div><div class="v">${esc(u.uno||"—")}</div></div>
+      <div class="dcell"><div class="k">狀態</div><div class="v"><span class="stpill" style="background:${USTATUS[u.status].c}22;color:${USTATUS[u.status].c};border:1px solid ${USTATUS[u.status].c}77">${USTATUS[u.status].t}</span></div></div>
+      <div class="dcell"><div class="k">建立日期</div><div class="v">${esc(u.createdate)}</div></div>
+    </div>
+    <div class="section-h">備註</div>
+    <div class="descbox">${esc(u.note||"—")}</div>
+    <div class="section-h">重設密碼</div>
+    <div class="toolbar">
+      <button class="pill-btn" onclick="resetUserPwd()">重設密碼</button>
+      <span class="pageinfo">是否將該帳號的密碼重設為帳號本身？</span>
+    </div>
+    <div class="section-h">功能權限</div>
+    <div class="chkline">${PERM_ITEMS.map(([code,label])=>`<label class="chk"><input type="checkbox" ${u.items.includes(code)?"checked":""} onchange="togglePerm(${code},this.checked)"/>${label}</label>`).join("")}</div>
+    <div class="section-h">設備主系統功能權限</div>
+    <div class="chkline">${SYS_PERMS.map(s=>`<label class="chk"><input type="checkbox" ${u.sys.includes(s)?"checked":""} onchange="toggleSysPerm('${esc(s)}',this.checked)"/>${esc(s)}</label>`).join("")}</div>
+    <div class="toolbar" style="margin-top:14px">
+      <button class="pill-btn primary" onclick="saveUserPerms()">儲存變更</button>
+      <select style="width:auto" onchange="curUser.status=+this.value;toast('設定完成');render()">
+        ${Object.keys(USTATUS).map(k=>`<option value="${k}" ${u.status==k?"selected":""}>${USTATUS[k].t}</option>`).join("")}</select>
+    </div>
+  </div>`;
+}
+function togglePerm(code,on){const u=curUser;
+  if(on&&!u.items.includes(code))u.items.push(code);
+  if(!on)u.items=u.items.filter(x=>x!==code);}
+function toggleSysPerm(s,on){const u=curUser;
+  if(on&&!u.sys.includes(s))u.sys.push(s);
+  if(!on)u.sys=u.sys.filter(x=>x!==s);}
+function saveUserPerms(){toast("確認變更權限完成");}
+function resetUserPwd(){
+  if(!curUser.acc){toast("此帳號沒有可用的帳號名稱，無法重設密碼。");return;}
+  toast("設定完成:密碼已重設為帳號本身");
 }
 </script>
 </body>
