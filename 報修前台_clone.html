@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>app</title>
+<style>
+  :root{--card:#0f2635;--line:rgba(255,255,255,.09);--txt:#eaf2f7;--mut:#8fa9b8;--hint:#5f7d8f;
+    --accent1:#4a63e7;--accent2:#8b3ee0;--radius:16px;}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:"Segoe UI","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;color:var(--txt);min-height:100vh;
+    background:radial-gradient(1200px 700px at 60% -10%, #1a4a5f 0%, #0b2a3a 45%, #071a26 100%);}
+  .hidden{display:none !important}
+  button{font-family:inherit;cursor:pointer}
+  input,textarea,select{width:100%;padding:11px 13px;background:#fff;border:1px solid #c8d4dd;border-radius:10px;color:#15303f;font-size:14px;outline:none}
+  input:focus,textarea:focus,select:focus{border-color:#378add}
+  label{display:block;font-size:14px;font-weight:700;margin:0 0 6px;color:#26424f}
+  /* login */
+  #login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+  .login-card{width:100%;max-width:440px;background:rgba(10,26,38,.72);border:1px solid var(--line);border-radius:22px;padding:40px 36px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+  .login-card h1{text-align:center;font-size:30px;margin:0 0 6px}
+  .login-card .sub{text-align:center;color:var(--mut);margin:0 0 26px;font-size:14px}
+  .login-card label{color:#cfe0ea}
+  .login-card input{background:rgba(6,20,30,.6);border:1px solid var(--line);color:var(--txt)}
+  .field{margin-bottom:16px}
+  .btn-primary{width:100%;padding:13px;border:none;border-radius:999px;color:#fff;font-size:16px;font-weight:600;background:linear-gradient(90deg,var(--accent1),var(--accent2))}
+  .demo-hint{text-align:center;color:var(--hint);font-size:12px;margin-top:14px;line-height:1.6}
+  /* frame */
+  #app{min-height:100vh;padding:16px;max-width:1100px;margin:0 auto}
+  .topbar{display:flex;align-items:flex-start;gap:14px;background:rgba(10,26,38,.8);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin-bottom:18px}
+  .menu-toggle{display:flex;align-items:center;gap:6px;background:#2b3947;border:none;color:#dfe9ef;padding:9px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-top:4px}
+  .tt h2{font-size:26px;margin:0;font-weight:800}
+  .tt .sub{color:var(--mut);font-size:13px;margin-top:4px}
+  .topbar .spacer{flex:1}
+  .who{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border-radius:999px;padding:7px 8px 7px 14px;margin-top:4px}
+  .who .name{font-weight:700;font-size:14px}
+  .btn-logout{background:#ef8f8f;border:none;color:#3a1010;font-weight:700;padding:8px 14px;border-radius:999px;font-size:13px}
+  .layout{display:flex;gap:18px;align-items:flex-start}
+  .sidebar{width:220px;flex:0 0 220px;background:rgba(10,26,38,.55);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+  .nav-item{display:block;width:100%;text-align:left;padding:12px 13px;border-radius:12px;margin-bottom:7px;background:#122e3f;border:1px solid transparent;color:#d6e4ec;font-size:14px}
+  .nav-item.active{background:#1c4a63;border-color:#2f6f8f}
+  .content{flex:1;min-width:0}
+  @media(max-width:860px){.sidebar{display:none}}
+  /* 報修表單(亮色卡片,同真站) */
+  .form-card{background:#eef2f6;border-radius:20px;padding:26px 28px;color:#15303f;box-shadow:0 16px 50px rgba(0,0,0,.35)}
+  .lv-line{font-size:15px;font-weight:800;margin-bottom:18px;color:#26424f}
+  .lv-line .val{font-weight:400;color:#6a8291;margin-left:6px}
+  .lv-line .val.set{color:#b3261e;font-weight:800}
+  .req{display:inline-block;background:#fbdcdc;color:#b3261e;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;margin-left:8px;vertical-align:2px}
+  .fitem{margin-bottom:18px}
+  .tpl-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+  .tpl-btn{background:#dde6ee;border:1px solid #c0cedb;color:#26424f;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px}
+  .photo-row{display:flex;gap:10px;margin:10px 0 4px}
+  .photo-btn{background:#dde6ee;border:1px solid #c0cedb;color:#26424f;font-size:13px;font-weight:600;padding:9px 16px;border-radius:12px;cursor:pointer}
+  .voice-hint{color:#3b6fb3;font-size:12px;margin:8px 0 0}
+  .submit-row{display:flex;justify-content:flex-end;margin-top:22px}
+  .btn-submit{background:linear-gradient(90deg,#3b2fd8,#7a3ee0);border:none;color:#fff;font-size:15px;font-weight:700;padding:13px 26px;border-radius:999px}
+  .thumbs img{width:92px;height:68px;object-fit:cover;border-radius:10px;border:1px solid #c0cedb;margin:6px 6px 0 0}
+  .okbox{background:#e2f4ea;border:1px solid #9fd8b8;color:#12503a;border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:14px;font-weight:600}
+  /* 工單卡片清單 */
+  .list-tools{margin-bottom:14px}
+  .pill-btn{background:#213a4c;border:1px solid var(--line);color:#dfe9ef;padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600}
+  .searchbox{margin-top:10px}
+  .searchbox input{background:rgba(6,20,30,.6);border:1px solid var(--line);color:var(--txt)}
+  .ocard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:14px}
+  .ocard .no{color:#6fc0e6;font-weight:800;font-size:15px}
+  .ocard .row1{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .remain{display:inline-block;background:#fdf3d8;color:#8a6110;font-size:11px;padding:2px 8px;border-radius:6px;font-weight:700}
+  .remain.over{background:#fbdcdc;color:#a32d2d}
+  .stpill{display:inline-block;padding:3px 12px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+  .ocard .meta{color:var(--mut);font-size:13px;margin-top:6px}
+  .ocard .path{color:#cbdae4;font-size:13px;margin-top:8px}
+  .ocard .desc{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:13px;line-height:1.6;color:#dfe9ef}
+  .empty{color:var(--mut);text-align:center;padding:40px 0;font-size:14px}
+  /* 資料設定 */
+  .set-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;max-width:640px}
+  .set-card label{color:#cfe0ea}
+  .set-card input,.set-card select,.set-card textarea{background:rgba(6,20,30,.6);border:1px solid var(--line);color:var(--txt)}
+  .set-card .ro{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:10px 13px;color:var(--mut);font-size:14px}
+  .note{color:var(--hint);font-size:12px;margin-top:4px}
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:#123a2e;border:1px solid #1d9e75;color:#bff0dd;padding:12px 20px;border-radius:12px;font-size:14px;z-index:99;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  .foot{text-align:center;color:var(--hint);font-size:13px;padding:22px 0 6px}
+</style>
+</head>
+<body>
+
+<div id="login">
+  <div class="login-card">
+    <h1>故障報修系統</h1>
+    <p class="sub">請先登入以使用系統功能</p>
+    <div class="field"><label>帳號</label><input id="acc" placeholder="請輸入帳號" value="0907M0065" /></div>
+    <div class="field"><label>密碼</label><input id="pwd" type="password" placeholder="請輸入密碼" value="demo" /></div>
+    <button class="btn-primary" onclick="doLogin()">登入</button>
+    <p class="demo-hint">前台雛形 clone · 任意帳密皆可登入<br/>開單後資料寫入 localStorage,後台 clone 會同步顯示</p>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+  <div class="topbar">
+    <button class="menu-toggle" onclick="toggleMenu()"><span id="menuArrow">&#10095;</span> <span id="menuLabel">顯示選單</span></button>
+    <div class="tt"><h2 id="pageTitle">故障報修系統</h2><div class="sub" id="pageSub">請依步驟選擇系統類別並描述故障內容。</div></div>
+    <div class="spacer"></div>
+    <div class="who"><span>👤</span><span class="name">李孟哲</span><button class="btn-logout" onclick="doLogout()">登出</button></div>
+  </div>
+  <div class="layout">
+    <div class="sidebar hidden" id="sidebar">
+      <button class="nav-item active" data-page="report" onclick="nav('report')">故障報修作業</button>
+      <button class="nav-item" data-page="mine" onclick="nav('mine')">我的報修工單</button>
+      <button class="nav-item" data-page="myDispatch" onclick="nav('myDispatch')">我的派工工單</button>
+      <button class="nav-item" data-page="myDone" onclick="nav('myDone')">我的完工工單</button>
+      <button class="nav-item" data-page="allDispatch" onclick="nav('allDispatch')">全部派工工單</button>
+      <button class="nav-item" data-page="allAccept" onclick="nav('allAccept')">全部收單工單</button>
+      <button class="nav-item" data-page="profile" onclick="nav('profile')">我的資料設定</button>
+    </div>
+    <div class="content" id="content"></div>
+  </div>
+  <div class="foot">誠士資訊股份有限公司 Suros Inc.</div>
+</div>
+
+<script>
+/* =========================================================
+   共用基礎資料 — 與後台 clone 完全一致(同種子生成同一批工單)
+   ========================================================= */
+const NOW=new Date("2026-07-04T00:30:00");
+const T0=Date.now();
+function vnow(){return NOW.getTime()+(Date.now()-T0);}
+const SYSTEMS=["自動收費系統","電聯車系統","供電系統","軌道系統","通訊系統","號誌系統","中央監控系統","建物管理系統","機廠設備系統","電扶梯系統","電梯系統","水環系統","廠站設備系統","消防系統","橋梁系統","電聯車系統(舊版)"];
+const TRAINS=["101車","102車","103車","104車","105車","106車","107車","108車","109車","110車","111車","112車","113車","114車","115車","213車","214車","215車"];
+const LOC2=["1號車廂","1號駕駛室","2號車廂","3號車廂","4號車廂","5號車廂","5號駕駛室","車軸1","車軸2","車軸3","車軸4","車軸5","車軸6","NA"];
+const LOC3=["左側","右側"];
+const CATTREE={
+ "車載通訊系統":[
+  {cat:"閉路電視系統異常（CCTV）",n:746,ph:["顯示異常","設備異常，未影響營運","無作動","設備異常，影響營運"]},
+  {cat:"旅客資訊顯示系統異常(TMDS)",n:622,ph:["其他","無作動","設備異常，未影響營運","顯示異常"]},
+  {cat:"後視鏡異常",n:398,ph:["無作動","設備異常，未影響營運","設備異常，影響營運","顯示異常"]},
+  {cat:"車載網路異常",n:180,ph:["顯示異常","無作動","設備異常，未影響營運"]},
+  {cat:"司機員人機界面(DCI)",n:162,ph:["其他","設備異常，未影響營運","無作動","設備異常，影響營運"]},
+  {cat:"緊急對講機異常",n:151,ph:["顯示異常","其他","設備異常，影響營運","設備異常，未影響營運"]},
+  {cat:"路徑開通功能異常",n:40,ph:["設備異常，影響營運"]},
+  {cat:"廣播喇叭異常",n:20,ph:["其他","無作動"]}],
+ "車輛操作及控制設備系統":[
+  {cat:"撒砂裝置異常",n:1357,ph:["無作動","設備異常，未影響營運","設備異常，影響營運","其他"]},
+  {cat:"GPS輪緣潤滑機異常",n:246,ph:["無作動","設備異常，未影響營運","其他"]},
+  {cat:"遮陽捲簾裝置異常",n:150,ph:["無作動","設備異常，未影響營運"]},
+  {cat:"輪緣潤滑裝置異常",n:146,ph:["無作動","設備異常，未影響營運"]},
+  {cat:"雨刷裝置異常",n:91,ph:["無作動","設備異常，未影響營運","設備異常，影響營運"]},
+  {cat:"控制開關異常",n:43,ph:["設備異常，未影響營運","其他"]},
+  {cat:"警音裝置異常",n:30,ph:["設備異常，未影響營運"]}],
+ "電力與推進系統":[
+  {cat:"儲能裝置異常",n:327,ph:["設備異常，未影響營運","設備異常，影響營運","其他"]},
+  {cat:"集電系統異常",n:124,ph:["設備異常，未影響營運","火花","設備異常，影響營運","其他"]},
+  {cat:"牽引T字燈異常",n:47,ph:["設備異常，未影響營運","其他"]},
+  {cat:"主控制器功能異常",n:17,ph:["設備異常，影響營運","其他","抖動"]},
+  {cat:"牽引推進數值顯示異常",n:12,ph:["設備異常，未影響營運"]},
+  {cat:"冷卻系統異常",n:12,ph:["其他"]},
+  {cat:"輔助電源／24V異常",n:13,ph:["其他","設備異常，未影響營運"]}],
+ "車體系統":[
+  {cat:"駕駛室座椅異常",n:414,ph:["設備異常，未影響營運","設備鬆動，未影響營運"]},
+  {cat:"駕駛室腳踏板異常",n:37,ph:["設備異常，未影響營運"]},
+  {cat:"車體漏水異常",n:37,ph:["漏水 / 滴水","設備異常，未影響營運"]},
+  {cat:"內裝襯板異常",n:29,ph:["設備鬆動，未影響營運"]},
+  {cat:"車身外板異常",n:16,ph:["設備異常，未影響營運","脫漆"]}],
+ "監控與安全裝置系統":[
+  {cat:"列車監控資訊系統異常",n:149,ph:["顯示異常","設備異常，未影響營運"]},
+  {cat:"人機界面觸控螢幕異常(CMS)",n:126,ph:["顯示異常","其他","無作動"]},
+  {cat:"CMS 顯示 E1",n:35,ph:["顯示異常"]},
+  {cat:"總故障燈亮紅燈",n:15,ph:["設備異常，影響營運"]}],
+ "空調與通風系統":[
+  {cat:"駕駛室暖風機異常",n:55,ph:["無作動","設備異常，未影響營運","不暖"]},
+  {cat:"駕駛室空調異常",n:45,ph:["設備異常，未影響營運","不冷"]},
+  {cat:"客室空調異常",n:38,ph:["設備異常，影響營運","不冷"]}],
+ "煞車系統":[
+  {cat:"煞車卡鉗異常",n:52,ph:["設備異常，未影響營運","漏油","其他"]},
+  {cat:"煞車來令片異常",n:20,ph:["設備異常，未影響營運"]},
+  {cat:"轉向架ERR",n:15,ph:["設備異常，影響營運"]}],
+ "轉向架系統":[{cat:"轉向架異常",n:76,ph:["設備異常，未影響營運","異音","其他","設備異常，影響營運"]}],
+ "車門系統":[
+  {cat:"車門作動異常",n:37,ph:["無作動","設備異常，影響營運","設備遺失，未影響營運"]},
+  {cat:"防夾裝置做動",n:9,ph:["設備異常，未影響營運"]},
+  {cat:"車門按鈕異常",n:9,ph:["無作動"]},
+  {cat:"車門隔離裝置異常",n:7,ph:["其他"]}],
+ "車載號誌系統":[
+  {cat:"異常代碼「E3904」",n:18,ph:["顯示異常","設備異常，影響營運"]},
+  {cat:"輔助速限裝置異常",n:17,ph:["設備異常，未影響營運"]},
+  {cat:"BDG顯示「E」",n:13,ph:["顯示異常"]}],
+ "照明系統":[
+  {cat:"客室照明異常",n:18,ph:["設備異常，未影響營運","無作動"]},
+  {cat:"車內照明異常",n:10,ph:["無作動"]}]
+};
+const WPATH_MAP={
+ "閉路電視系統異常（CCTV）":["閉路電視系統異常",["IP客室攝影機","IP後視攝影機","CCTV人機介面"]],
+ "旅客資訊顯示系統異常(TMDS)":["閉路電視系統異常",["列車多媒體資訊顯示器(TMDS)"]],
+ "後視鏡異常":["閉路電視系統異常",["後視鏡顯示器(左)","後視鏡顯示器(右)","IP後視攝影機"]],
+ "司機員人機界面(DCI)":["車載通訊系統異常",["車載控制單元(OBCU)","司機員人機界面(DCI)"]],
+ "緊急對講機異常":["車載通訊系統異常",["旅客緊急對講機(PEI)"]],
+ "車載網路異常":["車載通訊系統異常",["車載控制單元(OBCU)"]],
+ "撒砂裝置異常":["撒砂裝置異常",["電磁閥(蓄壓器)","撒砂裝置空壓機","其他"]],
+ "GPS輪緣潤滑機異常":["GPS輪緣潤滑機異常",["其他"]],
+ "雨刷裝置異常":["雨刷裝置異常",["傳動桿","其他"]],
+ "控制開關異常":["控制開關異常",["方向燈/警示燈轉盤開關","警笛按鈕開關"]],
+ "警音裝置異常":["警音裝置異常",["室內蜂鳴器(聲音控制模組)","警鈴按鈕"]],
+ "儲能裝置異常":["儲能裝置異常",["儲能電池(ESS)總成","乾燥包"]],
+ "集電系統異常":["集電系統異常",["集電弓碳刷片(PanTrac)"]],
+ "牽引T字燈異常":["牽引換流器及輔助電源供應器異常",["TCU卡板"]],
+ "輔助電源／24V異常":["儲能裝置異常",["儲能電池(ESS)總成"]],
+ "牽引推進數值顯示異常":["儲能裝置異常",["儲能電池(ESS)總成"]],
+ "駕駛室空調異常":["駕駛室空調異常",["駕駛室空調總成"]],
+ "客室空調異常":["客室空調異常",["空調F4、F5斷路器"]],
+ "轉向架異常":["齒輪傳動裝置異常",["齒輪油"]],
+ "煞車卡鉗異常":["煞車卡鉗異常",["非動力式金屬護框"]],
+ "車體漏水異常":["車體漏水異常",["膠合處"]],
+ "車門作動異常":["旋轉立柱異常",["加壓輪"]],
+ "車門隔離裝置異常":["門機總成異常",["LED警示燈"]],
+ "客室照明異常":["車內照明異常",["客室照明變壓器","客室LED燈板1(含光源)"]],
+ "車內照明異常":["車內照明異常",["客室LED燈板1(含光源)"]],
+ "人機界面觸控螢幕異常(CMS)":["車輛控制單元異常",["顯示時間異常","人機界面觸控螢幕"]],
+ "異常代碼「E3904」":["輔助速限裝置異常",["應答器天線"]],
+ "轉向架ERR":["煞車控制單元(BCU)異常",["其他"]]
+};
+const REAL_DESCS=[
+ "113車整備完畢後回報，CCTV人機介面CAM11畫面顯示為黑屏",
+ "103車整備時回報，開機後CMS未顯示四顆牽引T字燈",
+ "114車於V28 1月台回報，CMS顯示M1端駕駛室空調實際溫度26度，設定22度，壓縮機未做動",
+ "106車整備完畢後回報，M1端撒砂裝置未做動",
+ "V01運務員回報，旅客反映下車時發現107車L5車門TSDU顯示黑屏",
+ "101車換端時發現M5端CCTV人機介面CAM15顯示黑屏",
+ "107車整備完畢後回報，M1端近駕駛室側TMDS畫面顯示黑屏",
+ "105車於V01 2月台回報，M1/M5端CMS顯示時間皆慢標準時間3秒",
+ "115車整備完畢後回報，M5端撒砂裝置未作動",
+ "111車整備完畢後回報，CCTV人機介面CAM09畫面顯示黑屏",
+ "106車於V09 2月台回報，以無架空線模式通過濱海沙崙路口(V28→V09)時，列車牽引動力不足，僅使用M2端儲能電池，經司機員確認後，雙端電池均無離線，CMS診斷頁面顯示「ESS1放電電流過大」告警",
+ "115車整備完畢後回報，M1端L-Side後視鏡小視窗顯示為黑屏",
+ "103車整備完畢後回報，CCTV人機介面CAM01為黑屏",
+ "104車 M1R 裙板內側脫漆",
+ "214車 M3靠M2 TMDS顯示新北LOGO",
+ "106車整備完畢後回報，M1端撒砂裝置未作動；OCC指示持續留意列車狀況"
+];
+const REPORTERS=["淡海輕軌車務中心","行控中心PSC","王筌儀","鄭先任","郭韋妤","王立雄","廖威荏","林彥睿","OCC","楊淯喆"];
+const FIXERS=[["1304M0729","吳琮彬"],["1304M0727","李高賢"],["1012M0215","陳威吉"],["1207M0686","張晉銓"],["1012M0224","葉家辰"],["1012M0227","王煥廷"],["1012M0217","蔣孟勳"],["1012M0193","謝宗凱"],["1111M0390","李政道"],["0907M0065","李孟哲"]];
+const ACTIONS=["更換","更換(使用廠商保固用料)","重置","重新安裝軟體","車削","添加","互換","修補","調整","鎖固","清潔","檢測正常","合併工單","專案處理(關閉)","待重置","待料更換","不影響營運","潤滑","觀察","賦歸","移除","黏固"];
+const STATUS={0:{t:"報修",f:"已報修",c:"#7fa9e0"},1:{t:"接單",f:"已接單",c:"#6fa0c0"},2:{t:"派工",f:"已派工",c:"#d8a020"},3:{t:"完工",f:"已完工",c:"#2fbf8f"},
+ 4:{t:"覆核",f:"已覆核",c:"#3f9fd8"},5:{t:"結案",f:"已結案",c:"#9fb0bc"},6:{t:"併單",f:"已併單",c:"#9f8ad0"},7:{t:"轉單",f:"已轉單",c:"#b08ad0"},
+ 8:{t:"作廢",f:"已作廢",c:"#e07070"},9:{t:"缺料",f:"缺料",c:"#e8903a"},10:{t:"觀察",f:"觀察",c:"#4fc0c0"}};
+const DEADLINE_DAYS={1:3,2:7,3:30,4:60};
+
+/* ---- 與後台一致的生成器(同種子=同一批工單) ---- */
+let SEED=20260704;
+function rnd(){SEED=(SEED*1103515245+12345)&0x7fffffff;return SEED/0x7fffffff;}
+function pick(a){return a[Math.floor(rnd()*a.length)];}
+function pad(n){return String(n).padStart(2,"0");}
+function weightedSub(){
+  const keys=Object.keys(CATTREE);const w=keys.map(k=>CATTREE[k].reduce((s,x)=>s+x.n,0));
+  const tot=w.reduce((a,b)=>a+b,0);let r=rnd()*tot;
+  for(let i=0;i<keys.length;i++){r-=w[i];if(r<=0)return keys[i];}return keys[0];
+}
+const MONTH_POOL=[];
+(function(){const m={"2025-12":636,"2026-01":1081,"2026-02":1049,"2026-03":1118,"2026-04":914,"2026-05":887,"2026-06":998,"2026-07":132};
+ for(const k in m){const n=Math.round(m[k]/6851*300);for(let i=0;i<n;i++)MONTH_POOL.push(k);}})();
+function rocNo(dateStr,seq){const y=+dateStr.slice(0,4)-1911;return `C-${y}${dateStr.slice(5,7)}${dateStr.slice(8,10)}-D-TS-${pad(seq)}`;}
+function finishReportText(d,names){
+  return `一、故障履歷(兩個月內)：第${1+Math.floor(rnd()*3)}次\n二、檢查內容：\n1.${pick(["檢測功能正常","更換後測試正常","重新啟動後恢復正常","清潔調整後正常"])}，故結單。(${d} ${names})\n三、更換物料名稱/序號：無。\n四、互換物料名稱/序號：無。`;
+}
+function genOrders(){
+  const SC=[[0,31],[2,85],[3,1243],[4,1022],[5,4],[8,97],[9,215],[10,2]];
+  const pool=[];SC.forEach(([st,n])=>{for(let i=0;i<n;i++)pool.push(st);});
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+  const out=[];let overdueGiven=0;const seqByDate={};
+  for(let i=0;i<pool.length;i++){
+    const st=pool[i];
+    const mo=pick(MONTH_POOL);const dmax=mo==="2026-07"?3:28;
+    const dateStr=`${mo}-${pad(1+Math.floor(rnd()*dmax))}`;
+    const hh=pad(4+Math.floor(rnd()*18)),mi=pad(Math.floor(rnd()*60));
+    const create=`${dateStr}T${hh}:${mi}:00`;
+    const level=rnd()<0.15?1:rnd()<0.78?2:rnd()<0.99?3:4;
+    const cd=new Date(create);
+    let deadline=new Date(cd.getTime()+(DEADLINE_DAYS[level]||30)*86400000);
+    if((st===0||st===2)&&overdueGiven<75&&deadline.getTime()<vnow())overdueGiven++;
+    else if((st===0||st===2)&&deadline.getTime()<vnow()){deadline=new Date(NOW.getTime()+(1+Math.floor(rnd()*28))*86400000);}
+    seqByDate[dateStr]=(seqByDate[dateStr]||0)+1;
+    const sub=weightedSub();const catObj=pick(CATTREE[sub]);const cat=catObj.cat;
+    const train=pick(TRAINS);
+    const locR=rnd();
+    const loc=locR<0.6?[train]:locR<0.9?[train,pick(LOC2)]:[train,pick(LOC2),pick(LOC3)];
+    const done=[3,4,5].includes(st);
+    const wm=WPATH_MAP[cat];
+    const wpath=(done||st===9)&&wm&&rnd()<0.8?["電聯車系統",sub,wm[0],pick(wm[1])]:["電聯車系統",sub,cat,pick(catObj.ph)];
+    const fixer=pick(FIXERS);
+    const o={
+      msid:10000+i,orderno:rocNo(dateStr,seqByDate[dateStr]),
+      createdate:create,deadline:deadline.toISOString().slice(0,19),
+      level,status:st,tsname:train,uname:pick(REPORTERS),
+      assignee:st>=2?fixer[1]:null,assigneeNo:st>=2?fixer[0]:null,
+      fdesc:`${hh}:${mi} ${pick(REAL_DESCS)}`,
+      full_path:["電聯車系統",sub,cat,pick(catObj.ph)],loc,wpath,
+      merge_msid:null,note:"NA",imgs:[],
+      observeUntil:st===10?new Date(NOW.getTime()+2*86400000).toISOString().slice(0,19):null,
+      repair:null,logs:[]
+    };
+    const ldate=create.replace("T"," ").slice(0,16);
+    if(st>=2)o.logs.push({date:ldate,actor:"ADMIN ADMIN",act:"設定為派工",note:`${fixer[1]}(${fixer[0]}) 於手機APP進行派工`,tag:"派工"});
+    if(done){
+      const fd=`${dateStr.slice(5,7)}/${dateStr.slice(8,10)}`;
+      o.repair={who:fixer[1],whoNo:fixer[0],time:ldate,report:finishReportText(fd,fixer[1].slice(1)),action:pick(ACTIONS.slice(0,12)),pax:"否",mileage:0,accept:ldate,warranty:null,wpath:o.wpath,loc:o.loc};
+      o.logs.unshift({date:ldate,actor:`${fixer[0]} ${fixer[1]}`,act:"設定為完工",note:"0"});
+    }
+    if(st===9)o.logs.unshift({date:ldate,actor:`${fixer[0]} ${fixer[1]}`,act:"設定為缺料",note:"待料更換"});
+    if(st===10)o.logs.unshift({date:ldate,actor:`${fixer[0]} ${fixer[1]}`,act:"設定為觀察",note:"持續觀察設備狀況"});
+    out.push(o);
+  }
+  out.sort((a,b)=>b.createdate.localeCompare(a.createdate));
+  return out;
+}
+/* ---- localStorage 共享層 ---- */
+const LS_NEW="keeper_new_orders", LS_UPD="keeper_updates", LS_PROFILE="keeper_profile";
+let ORDERS=genOrders();
+function loadShared(){
+  try{
+    const news=JSON.parse(localStorage.getItem(LS_NEW)||"[]");
+    news.forEach(n=>{if(!ORDERS.some(o=>o.orderno===n.orderno))ORDERS.unshift(n);});
+    const ups=JSON.parse(localStorage.getItem(LS_UPD)||"{}");
+    ORDERS.forEach(o=>{const u=ups[o.orderno];if(u)Object.assign(o,u);});
+    ORDERS.sort((a,b)=>b.createdate.localeCompare(a.createdate));
+  }catch(e){}
+}
+loadShared();
+window.addEventListener("storage",()=>{ORDERS=genOrders();loadShared();render();});
+function saveNewOrder(o){
+  const news=JSON.parse(localStorage.getItem(LS_NEW)||"[]");
+  const slim={...o,imgs:(o.imgs||[]).slice(0,2)};
+  news.unshift(slim);
+  try{localStorage.setItem(LS_NEW,JSON.stringify(news));}
+  catch(e){slim.imgs=[];try{localStorage.setItem(LS_NEW,JSON.stringify(news));}catch(e2){}}
+}
+
+/* =========================================================
+   UI
+   ========================================================= */
+let curPage="report",menuOpen=false,searchOpen=false,searchQ="",lastCreated=null;
+let F={sys:"",train:"",sub:"",cat:"",ph:"",loc1:"",desc:"",imgs:[]};
+function esc(s){return (s==null?"":String(s)).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function toast(m){const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2400);}
+function doLogin(){document.getElementById("login").classList.add("hidden");document.getElementById("app").classList.remove("hidden");nav("report");}
+function doLogout(){document.getElementById("app").classList.add("hidden");document.getElementById("login").classList.remove("hidden");}
+function toggleMenu(){menuOpen=!menuOpen;document.getElementById("sidebar").classList.toggle("hidden",!menuOpen);
+  document.getElementById("menuLabel").textContent=menuOpen?"隱藏選單":"顯示選單";
+  document.getElementById("menuArrow").innerHTML=menuOpen?"&#10094;":"&#10095;";}
+const PAGES={report:["故障報修系統","請依步驟選擇系統類別並描述故障內容。"],mine:["我的報修工單","檢視您建立的報修工單。"],
+ myDispatch:["我的派工工單","指派給您的維修工單。"],myDone:["我的完工工單","您完成的維修工單。"],
+ allDispatch:["全部派工工單","目前所有已派工的工單。"],allAccept:["全部收單工單","目前所有已接單的工單。"],
+ profile:["我的資料設定","更新您的帳號資料與密碼。"]};
+function nav(p){curPage=p;searchOpen=false;searchQ="";
+  document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active",n.dataset.page===p));
+  document.getElementById("pageTitle").textContent=PAGES[p][0];
+  document.getElementById("pageSub").textContent=PAGES[p][1];
+  render();window.scrollTo(0,0);}
+function render(){
+  const c=document.getElementById("content");
+  if(curPage==="report")c.innerHTML=viewReport();
+  else if(curPage==="profile")c.innerHTML=viewProfile();
+  else c.innerHTML=viewList(curPage);
+}
+
+/* ---------- 故障等級自動判定 ---------- */
+function autoLevel(){
+  if(!F.sys)return null;
+  if(!F.ph)return F.cat?3:1;
+  if(F.ph.includes("影響營運")&&!F.ph.includes("未影響"))return 1;
+  if(F.ph.includes("未影響"))return 2;
+  return 3;
+}
+const LV_CN={1:"等級 一",2:"等級 二",3:"等級 三"};
+
+/* ---------- 報修表單 ---------- */
+function viewReport(){
+  const lv=autoLevel();
+  const isTS=F.sys==="電聯車系統";
+  const cats=isTS&&F.sub?CATTREE[F.sub]||[]:[];
+  const catObj=cats.find(c=>c.cat===F.cat);
+  const tpls=["整備完畢後回報，設備未作動","整備時回報，畫面顯示黑屏","運務員回報，旅客反映設備異常"];
+  return `${lastCreated?`<div class="okbox">✔ 已建立工單 ${esc(lastCreated)},已送往後台工單管理。</div>`:""}
+  <div class="form-card">
+    <div class="lv-line">故障等級：<span class="val ${lv?"set":""}">${lv?LV_CN[lv]:"尚未選擇"}</span></div>
+    <div class="fitem"><label>主系統<span class="req">必選填</span></label>
+      <select onchange="F={sys:this.value,train:'',sub:'',cat:'',ph:'',loc1:'',desc:F.desc,imgs:F.imgs};render()">
+        <option value="">請選擇主系統</option>${SYSTEMS.map(s=>`<option ${F.sys===s?"selected":""}>${s}</option>`).join("")}</select></div>
+    ${isTS?`
+    <div class="fitem"><label>列車編號</label>
+      <select onchange="F.train=this.value;if(!F.loc1)F.loc1=this.value;render()">
+        <option value="">請選擇列車編號</option>${TRAINS.concat(["測台"]).map(t=>`<option ${F.train===t?"selected":""}>${t}</option>`).join("")}</select></div>
+    <div class="fitem"><label>子系統<span class="req">必選填</span></label>
+      <select onchange="F.sub=this.value;F.cat='';F.ph='';render()">
+        <option value="">請選擇子系統</option>${Object.keys(CATTREE).map(s=>`<option ${F.sub===s?"selected":""}>${s}</option>`).join("")}</select></div>
+    ${F.sub?`<div class="fitem"><label>故障類別<span class="req">必選填</span></label>
+      <select onchange="F.cat=this.value;F.ph='';render()">
+        <option value="">請選擇故障類別</option>${cats.map(c=>`<option ${F.cat===c.cat?"selected":""}>${esc(c.cat)}</option>`).join("")}</select></div>`:""}
+    ${catObj?`<div class="fitem"><label>故障現象<span class="req">必選填</span></label>
+      <select onchange="F.ph=this.value;render()">
+        <option value="">請選擇故障現象</option>${catObj.ph.map(p=>`<option ${F.ph===p?"selected":""}>${p}</option>`).join("")}</select></div>`:""}
+    <div class="fitem"><label>設備位置</label>
+      <div style="font-size:12px;color:#6a8291;margin-bottom:6px">主設備位置<span style="margin-left:8px;color:#b3261e">與列車編號連動</span></div>
+      <select onchange="F.loc1=this.value">
+        <option value="">請選擇</option>${TRAINS.map(t=>`<option ${F.loc1===t?"selected":""}>${t}</option>`).join("")}</select></div>
+    `:""}
+    <div class="fitem"><label>故障描述<span class="req">請勿空白, 請描述故障現象</span></label>
+      ${isTS?`<div class="tpl-row">${tpls.map((t,i)=>`<button class="tpl-btn" onclick="applyTpl(${i})">故障描述範本${["一","二","三"][i]}</button>`).join("")}</div>`:""}
+      <textarea id="fDesc" rows="5" placeholder="請描述故障現象...">${esc(F.desc)}</textarea>
+      <div class="photo-row">
+        <label class="photo-btn">📷 拍攝照片<input type="file" accept="image/*" capture="environment" style="display:none" onchange="addPhoto(this)"></label>
+        <label class="photo-btn">🖼️ 選取照片<input type="file" accept="image/*" style="display:none" onchange="addPhoto(this)"></label>
+      </div>
+      <div class="thumbs">${F.imgs.map(s=>`<img src="${s}">`).join("")}</div>
+      <div class="voice-hint">小提醒：若需要語音輸入，請先點選手機鍵盤上的麥克風再口述內容。</div>
+    </div>
+    <div class="submit-row"><button class="btn-submit" onclick="submitOrder()">確認建立並送出</button></div>
+  </div>`;
+}
+const TPL_TEXT=["{車}整備完畢後回報，{位置}設備未作動","{車}整備時回報，畫面顯示黑屏","V01運務員回報，旅客反映{車}設備異常"];
+function applyTpl(i){
+  F.desc=TPL_TEXT[i].replace("{車}",F.train||"1XX車").replace("{位置}","M1端");
+  render();
+}
+function addPhoto(input){
+  const f=input.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{
+    const img=new Image();
+    img.onload=()=>{
+      const cv=document.createElement("canvas");
+      const sc=Math.min(1,480/img.width);
+      cv.width=img.width*sc;cv.height=img.height*sc;
+      cv.getContext("2d").drawImage(img,0,0,cv.width,cv.height);
+      F.desc=document.getElementById("fDesc").value;
+      F.imgs.push(cv.toDataURL("image/jpeg",0.6));
+      toast("已加入照片");render();
+    };
+    img.src=e.target.result;
+  };
+  r.readAsDataURL(f);
+}
+function localISO(d){const p=n=>String(n).padStart(2,"0");
+  return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())+"T"+p(d.getHours())+":"+p(d.getMinutes())+":"+p(d.getSeconds());}
+function submitOrder(){
+  F.desc=document.getElementById("fDesc").value.trim();
+  if(!F.sys){toast("請選擇主系統");return;}
+  if(F.sys==="電聯車系統"&&(!F.sub||!F.cat||!F.ph)){toast("請完整選擇子系統/故障類別/故障現象");return;}
+  if(!F.desc){toast("故障描述請勿空白");return;}
+  const lv=autoLevel()||3;
+  const d=new Date(vnow());
+  const iso=localISO(d);
+  const dateStr=iso.slice(0,10);
+  const news=JSON.parse(localStorage.getItem(LS_NEW)||"[]");
+  const seq=ORDERS.filter(o=>o.createdate.startsWith(dateStr)).length+news.filter(o=>o.createdate&&o.createdate.startsWith(dateStr)).length+20;
+  const hhmm=iso.slice(11,16);
+  const o={
+    msid:90000+Date.now()%100000,
+    orderno:rocNo(dateStr,seq),
+    createdate:iso,
+    deadline:localISO(new Date(d.getTime()+(DEADLINE_DAYS[lv]||30)*86400000)),
+    level:lv,status:0,tsname:F.train||null,
+    uname:"李孟哲",assignee:null,assigneeNo:null,
+    fdesc:`${hhmm} ${F.desc}`,
+    full_path:F.sys==="電聯車系統"?["電聯車系統",F.sub,F.cat,F.ph]:[F.sys,"其他","其他","其他"],
+    loc:[F.loc1||F.train||F.sys],wpath:F.sys==="電聯車系統"?["電聯車系統",F.sub,F.cat]:[F.sys],
+    merge_msid:null,note:"NA",imgs:F.imgs,observeUntil:null,repair:null,
+    logs:[{date:dateStr+" "+hhmm,actor:"0907M0065 李孟哲",act:"設定為報修",note:"前台故障報修建立"}],
+    fromKeeper:true
+  };
+  saveNewOrder(o);
+  ORDERS.unshift(o);
+  lastCreated=o.orderno;
+  F={sys:"",train:"",sub:"",cat:"",ph:"",loc1:"",desc:"",imgs:[]};
+  toast("已建立工單 "+o.orderno);
+  render();window.scrollTo(0,0);
+}
+
+/* ---------- 工單卡片清單 ---------- */
+function listFilter(page,o){
+  if(page==="mine")return o.uname==="李孟哲";
+  if(page==="myDispatch")return o.assignee==="李孟哲"&&[2,9,10].includes(o.status);
+  if(page==="myDone")return (o.repair&&o.repair.who==="李孟哲")||(o.assignee==="李孟哲"&&[3,4,5].includes(o.status));
+  if(page==="allDispatch")return o.status===2;
+  if(page==="allAccept")return o.status===1;
+  return false;
+}
+function fmtRemain(diff){
+  const a=Math.abs(diff);
+  const d=Math.floor(a/86400000),h=Math.floor(a%86400000/3600000),m=Math.floor(a%3600000/60000),s=Math.floor(a%60000/1000);
+  return diff<0?`逾期 ${d}天 ${h}小時 ${m}分 ${s}秒`:`剩餘 ${d}天 ${h}小時 ${m}分 ${s}秒`;
+}
+function viewList(page){
+  let list=ORDERS.filter(o=>listFilter(page,o));
+  if(searchQ){const q=searchQ.toLowerCase();
+    list=list.filter(o=>o.orderno.toLowerCase().includes(q)||(o.fdesc||"").toLowerCase().includes(q)||(o.tsname||"").includes(q));}
+  const emptyMsg={mine:"尚未建立任何報修工單。",myDispatch:"目前沒有指派給您的工單。",myDone:"目前沒有您的完工工單。",
+    allDispatch:"目前沒有已派工的工單。",allAccept:"目前沒有已接單的工單。"}[page];
+  return `<div class="list-tools">
+    <button class="pill-btn" onclick="searchOpen=!searchOpen;render()">${searchOpen?"隱藏":"顯示"} 搜尋工單功能</button>
+    ${searchOpen?`<div class="searchbox"><input placeholder="輸入工單編號 / 描述 / 車號" value="${esc(searchQ)}"
+      onchange="searchQ=this.value;render()" onkeydown="if(event.key==='Enter'){searchQ=this.value;render()}"/></div>`:""}
+  </div>
+  ${list.length?list.slice(0,120).map(o=>{
+    const open=![3,4,5,6,8].includes(o.status);
+    const diff=new Date(o.deadline).getTime()-vnow();
+    return `<div class="ocard">
+      <div class="row1"><span class="no">${esc(o.orderno)}</span>
+        ${open?`<span class="remain ${diff<0?'over':''}" data-dl="${o.deadline}">${fmtRemain(diff)}</span>`:""}
+        <span class="stpill" style="background:${STATUS[o.status].c}22;color:${STATUS[o.status].c};border:1px solid ${STATUS[o.status].c}77">${STATUS[o.status].f}</span></div>
+      <div class="meta">${o.createdate.replace("T"," ").slice(0,16)}　${esc(o.tsname||"")}</div>
+      <div class="path">${o.full_path.map(esc).join(" / ")}</div>
+      <div class="desc">${esc((o.fdesc||"").replace(/^\d{2}:\d{2} /,""))}</div>
+    </div>`;}).join(""):`<div class="empty">${emptyMsg}</div>`}`;
+}
+setInterval(()=>{document.querySelectorAll("[data-dl]").forEach(el=>{
+  const diff=new Date(el.dataset.dl).getTime()-vnow();
+  el.textContent=fmtRemain(diff);el.classList.toggle("over",diff<0);
+});},1000);
+
+/* ---------- 我的資料設定 ---------- */
+function viewProfile(){
+  const p=JSON.parse(localStorage.getItem(LS_PROFILE)||"{}");
+  return `<div class="set-card">
+    <div class="field"><label>單位<span style="color:#e07070">*</span></label>
+      <select id="pUnit"><option value="">請選擇單位</option>
+        <option ${p.unit==="輕軌營運處"?"selected":""}>輕軌營運處</option>
+        <option ${(p.unit||"輕軌維修處")==="輕軌維修處"?"selected":""}>輕軌維修處</option></select></div>
+    <div class="field"><label>帳號 (Email)</label>
+      <div class="ro">0907M0065@ntmetro.com.tw</div>
+      <div class="note">帳號不可修改，如需調整請聯絡管理員。</div></div>
+    <div class="field"><label>工號</label><input id="pNo" value="${esc(p.uno||"0907M0065")}"/></div>
+    <div class="field"><label>名稱<span style="color:#e07070">*</span></label><input id="pName" value="${esc(p.name||"李孟哲")}"/></div>
+    <div class="field"><label>新密碼<span style="color:#e07070">*</span></label><input id="pPw1" type="password"/></div>
+    <div class="field"><label>再次輸入新密碼<span style="color:#e07070">*</span></label><input id="pPw2" type="password"/></div>
+    <div class="field"><label>備註</label><textarea id="pNote" rows="2">${esc(p.note||"")}</textarea></div>
+    <button class="btn-primary" style="max-width:200px" onclick="saveProfile()">完成設定</button>
+  </div>`;
+}
+function saveProfile(){
+  const pw1=document.getElementById("pPw1").value,pw2=document.getElementById("pPw2").value;
+  if(pw1!==pw2){toast("兩次密碼輸入不一致");return;}
+  localStorage.setItem(LS_PROFILE,JSON.stringify({
+    unit:document.getElementById("pUnit").value,uno:document.getElementById("pNo").value,
+    name:document.getElementById("pName").value,note:document.getElementById("pNote").value}));
+  toast("已儲存資料設定");
+}
+</script>
+</body>
+</html>
