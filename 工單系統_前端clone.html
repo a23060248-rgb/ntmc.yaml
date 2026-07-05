@@ -189,6 +189,7 @@
   <div class="foot">誠士資訊股份有限公司 Suros Inc.</div>
 </div>
 
+<script src="dispatch-catalog.js"></script>
 <script>
 /* =========================================================
    真實參照資料(2026-07-04 擷取自線上系統)
@@ -314,9 +315,10 @@ const REAL_DESCS=[
 ];
 const REPORTERS=["淡海輕軌車務中心","行控中心PSC","王筌儀","鄭先任","郭韋妤","王立雄","廖威荏","林彥睿","OCC","楊淯喆"];
 const FIXERS=[["1304M0729","吳琮彬"],["1304M0727","李高賢"],["1012M0215","陳威吉"],["1207M0686","張晉銓"],["1012M0224","葉家辰"],["1012M0227","王煥廷"],["1012M0217","蔣孟勳"],["1012M0193","謝宗凱"],["1111M0390","李政道"],["0907M0065","李孟哲"]];
-const ACTIONS=["更換","更換(使用廠商保固用料)","重置","重新安裝軟體","車削","添加","互換","修補","調整","鎖固","清潔","檢測正常","合併工單","專案處理(關閉)","待重置","待料更換","不影響營運","潤滑","觀察","賦歸","移除","黏固"];
+const ACTIONS=["更換","更換(使用廠商保固用料)","重置","重新安裝軟體","車削","添加","互換","修補","調整","鎖固","清潔","檢測正常","合併工單","專案處理(關閉)","待重置","待料更換","不影響營運","潤滑","觀察","賦歸","移除","黏固","更換電池"];
 const WARRANTIES=["A. 牽引馬達","B. 齒輪箱","C. 車間走道撓性元件","D. 煞車卡鉗(不含煞車片)","E. 空調機組","F. 車門門機","G. 車門與車窗之密封材料","H. 車體塗裝及/或飾條","I. 轉向架塗裝","J. 集電弓(不含集電接觸片)","K. 彈性車輪之橡膠元件","L. 旅客資訊顯示器","X非保固範圍X","M.兩年保固用料"];
-const DANGERWORK=["一、在活電下進入軌道(第三軌)緊急搶修作業、轉轍器維修及運轉操作等作業","二、AC 16I/22.8KV GIS 及主變壓器檢修","三、PPSS 750V 高速斷路器檢修","四、PPSS GBSS 接地開關(GGBS) 檢修","五、電力設備(22KV 開關盤、整流變壓器、阻環路開關、車站用變壓器)耐壓及功率因數試驗","六、受電室高壓設備保養維修工作","七、低壓高電流(600V以下、100伏特以上)之設備保養維修工作","八、電聯車及軌道養護車推進、低壓供電及空調反向器設備活線檢修作業","九、推進系統推進換流器盤測試","十、靜態換流器(SIV)或電池充電器之靜態試驗","十一、其它簽奉核可之活電作業。","十二、地下車床車輪車削作業","十三、高架作業(一)、挑空區域照明及路燈更換","十三、高架作業(二)、排煙風門、探測器及灑水頭維修保養","十三、高架作業(三)、電聯車頂空調檢修排水孔檢修等車頂作業","十三、高架作業(四)、洗車機更換橫刷馬達作業","十三、高架作業(五)、供電電纜捲揚器、滑動式供電系統檢修作業","十三、高架作業(六)、起重機高空檢修作業","十三、高架作業(七)、站體設備(PIDS、PA、CCTV 等)檢修作業","十三、高架作業(八)、車站屋頂(含屋頂設備)、樑柱結構、建築裝修之檢修作業","十三、高架作業(九)、車站空調送風機維修保養","十三、高架作業(十)、軌道養護車輛車頂設備檢修作業","十三、高架作業(十一)、其他簽奉核可之高空檢修作業","十四、從事電(扶)梯機坑或升降機頂端之檢修作業"];
+/* 官方主檔 16 大項 34 選項(故障工單階層(車輛).xlsx 危險工作項目分頁) */
+const DANGERWORK=["一、在活電下進入軌道(第三軌)緊急搶修作業、轉轍器維修及運轉操作等作業","二、AC 16I/22.8KV GIS 及主變壓器檢修","三、PPSS 750V 高速斷路器檢修","四、PPSS GBSS 接地開關(GGBS) 檢修","五、電力設備(22KV 開關盤、整流變壓器、阻環路開關、車站用變壓器)耐壓及功率因數試驗","六、受電室高壓設備保養維修工作","七、低壓高電流(600V以下、100伏特以上)之設備保養維修工作","八、電聯車及軌道養護車推進、低壓供電及空調反向器設備活線檢修作業","九、推進系統推進換流器盤測試","十、靜態換流器(SIV)或電池充電器之靜態試驗","十一、其它簽奉核可之活電作業。","十二、地下車床車輪車削作業","十三、高架作業(一)挑空區域照明及路燈更換","十三、高架作業(二)排煙風門、探測器及灑水頭維修保養","十三、高架作業(三)電聯車頂空調檢修排水孔檢修等車頂作業","十三、高架作業(四)洗車機更換橫刷馬達作業","十三、高架作業(五)供電電纜捲揚器、滑動式供電系統檢修作業","十三、高架作業(六)起重機高空檢修作業","十三、高架作業(七)站體設備(PIDS、PA、CCTV 等)檢修作業","十三、高架作業(八)車站屋頂(含屋頂設備)、樑柱結構、建築裝修之檢修作業","十三、高架作業(九)車站空調送風機維修保養","十三、高架作業(十)軌道養護車輛車頂設備檢修作業","十三、高架作業(十一)其他簽奉核可之高空檢修作業","十四、從事電(扶)梯機坑或升降機頂端之檢修作業","十五、局限空間/缺氧作業(一)廢水處理廠廢水處理池與儲槽內檢修作業","十五、局限空間/缺氧作業(二)車站月台下方廊道檢修作業","十五、局限空間/缺氧作業(三)豎坑內電纜更換作業","十五、局限空間/缺氧作業(四)機廠涵洞內檢修作業","十五、局限空間/缺氧作業(五)電纜人孔內部從事電纜檢修作業","十五、局限空間/缺氧作業(六)日用水箱、消防水箱、集水坑、列車清洗儲水坑井內清潔及檢修作業","十五、局限空間/缺氧作業(七)其它簽奉核可之局限空間作業","十六、軌道鋁熱焊檢修作業"];
 const CAUSES=["元件老化","接觸不良","軟體異常","外力損傷","鬆脫","其他"];
 const PRELEVELS=["輕軌列車預防檢修(第一級1M)","輕軌列車預防檢修(第二級3M)","輕軌列車預防檢修(第三級6M)","輕軌列車預防檢修(第四級1Y)","輕軌列車預防檢修(第五級5Y)","專案修檢","車輪鏇銷檢修"];
 
@@ -849,6 +851,7 @@ function viewRepair(r){
       <div class="dcell"><div class="k">處理動作</div><div class="v">${esc(r.action)}</div></div>
       <div class="dcell"><div class="k">是否為旅客介面</div><div class="v">${esc(r.pax)}</div></div>
       <div class="dcell"><div class="k">設備運轉/里程/次數</div><div class="v">${r.mileage}</div></div>
+      ${r.cause?`<div class="dcell"><div class="k">故障原因</div><div class="v">${esc(r.cause)}</div></div>`:""}
       ${r.warranty?`<div class="dcell"><div class="k">五年保固用料(廠商)</div><div class="v">${esc(r.warranty)}</div></div>`:""}
     </div>
     <div class="section-h">系統層級</div>
@@ -864,8 +867,17 @@ function viewRepair(r){
    編輯工單 modal(對齊線上完整表單)
    ========================================================= */
 let editTarget=null,finishOpen=false;
+let wSel={sub:"",sym:"",comp:"",cause:""};
+function setWSel(k,v){
+  wSel[k]=v;
+  if(k==="sub"){wSel.sym="";wSel.comp="";wSel.cause="";}
+  if(k==="sym"){wSel.comp="";wSel.cause="";}
+  if(k==="comp"){wSel.cause="";}
+  renderEditModal();
+}
 function openEditModal(msid){
   editTarget=ORDERS.find(o=>o.msid===msid);finishOpen=false;
+  wSel={sub:editTarget.full_path[1]||"",sym:"",comp:"",cause:""};
   renderEditModal();
 }
 function renderEditModal(){
@@ -907,22 +919,25 @@ function renderEditModal(){
   </div>`);
 }
 function finishFormHtml(o){
-  const sub=o.full_path[1];
-  const cats=(CATTREE[sub]||[]).map(c=>c.cat);
-  const wm=WPATH_MAP[o.full_path[2]];
-  const extraCats=wm?[wm[0]]:[];
-  const allCats=[...new Set(cats.concat(extraCats))];
+  /* 四層互鎖:官方主檔 dispatch-catalog.js(子系統→徵狀→零組件→原因) */
+  const CAT=window.DISPATCH_CATALOG||[];
+  const subs=[...new Set(CAT.map(r=>r[0]))];
+  const syms=wSel.sub?[...new Set(CAT.filter(r=>r[0]===wSel.sub).map(r=>r[1]))]:[];
+  const comps=wSel.sym?[...new Set(CAT.filter(r=>r[0]===wSel.sub&&r[1]===wSel.sym).map(r=>r[2]))]:[];
+  const causes=wSel.comp?[...new Set(CAT.filter(r=>r[0]===wSel.sub&&r[1]===wSel.sym&&r[2]===wSel.comp).map(r=>r[3]))]:[];
   return `<div class="subpanel">
     <div class="t">派工系統層設定 (若需修改)</div>
     <div class="fgrid">
       <div class="field"><label>主系統<span class="hintxt">主系統不可變動</span></label>
         <select disabled><option>電聯車系統</option></select></div>
       <div class="field"><label>子系統</label>
-        <select id="wSub">${TS_SUBS.map(s=>`<option ${s===sub?"selected":""}>${s}</option>`).join("")}</select></div>
+        <select onchange="setWSel('sub',this.value)"><option value="">請選擇</option>${subs.map(s=>`<option ${wSel.sub===s?"selected":""}>${esc(s)}</option>`).join("")}</select></div>
       <div class="field"><label>故障徵狀</label>
-        <select id="wCat">${allCats.map(c=>`<option>${esc(c)}</option>`).join("")}</select></div>
+        <select onchange="setWSel('sym',this.value)" ${syms.length?"":"disabled"}><option value="">請選擇</option>${syms.map(s=>`<option ${wSel.sym===s?"selected":""}>${esc(s)}</option>`).join("")}</select></div>
+      <div class="field"><label>故障零組件</label>
+        <select onchange="setWSel('comp',this.value)" ${comps.length?"":"disabled"}><option value="">請選擇</option>${comps.map(s=>`<option ${wSel.comp===s?"selected":""}>${esc(s)}</option>`).join("")}</select></div>
       <div class="field"><label>故障原因</label>
-        <select id="wCause"><option value="">請選擇故障原因</option>${CAUSES.map(c=>`<option>${c}</option>`).join("")}</select></div>
+        <select onchange="wSel.cause=this.value" ${causes.length?"":"disabled"}><option value="">請選擇故障原因</option>${causes.map(s=>`<option ${wSel.cause===s?"selected":""}>${esc(s)}</option>`).join("")}</select></div>
     </div>
     <div class="fgrid">
       <div class="field"><label>處理動作</label>
@@ -959,15 +974,18 @@ function createFinish(){
   const o=editTarget;
   const rep=document.getElementById("wReport").value.trim();
   if(!rep){toast("請輸入完工報告");return;}
-  const sub=document.getElementById("wSub").value,cat=document.getElementById("wCat").value;
   const warr=document.getElementById("wWarr").value;
-  const wm=WPATH_MAP[o.full_path[2]];
-  const comp=wm&&wm[0]===cat?pick(wm[1]):"其他";
-  o.wpath=["電聯車系統",sub,cat,comp];
+  if(wSel.sub&&wSel.sym){
+    o.wpath=["電聯車系統",wSel.sub,wSel.sym,wSel.comp||wSel.sym];
+  }else{
+    const wm=WPATH_MAP[o.full_path[2]];
+    o.wpath=["電聯車系統",o.full_path[1],o.full_path[2],wm?pick(wm[1]):"其他"];
+  }
   const loc1=document.getElementById("wLoc1").value||o.loc[0],loc2=document.getElementById("wLoc2").value;
   const t=nowStr();
   o.repair={who:"李孟哲",whoNo:"0907M0065",time:t,report:rep,
     action:document.getElementById("wAct").value||"檢測正常",
+    cause:wSel.cause||null,
     pax:document.getElementById("wPax").checked?"是":"否",
     mileage:+document.getElementById("wMile").value||0,
     accept:t,warranty:warr||null,wpath:o.wpath,loc:loc2?[loc1,loc2]:[loc1]};

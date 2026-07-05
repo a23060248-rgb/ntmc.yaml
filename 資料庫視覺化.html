@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ntmc_erp 資料庫視覺化</title>
+<style>
+  :root{--card:#0f2635;--card2:#12324a;--line:rgba(255,255,255,.1);--txt:#eaf2f7;--mut:#8fa9b8;--hint:#5f7d8f;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI","Microsoft JhengHei",system-ui,sans-serif;color:var(--txt);min-height:100vh;
+    background:radial-gradient(1200px 700px at 60% -10%, #1a4a5f 0%, #0b2a3a 45%, #071a26 100%);padding:20px}
+  h1{font-size:24px;margin:4px 0 2px}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:16px}
+  .layout{display:flex;gap:16px;align-items:flex-start}
+  .main{flex:1;min-width:0}
+  .side{width:390px;flex:0 0 390px;position:sticky;top:14px;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:16px 18px;max-height:calc(100vh - 40px);overflow:auto}
+  .toolbar{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  input{padding:10px 14px;background:rgba(6,20,30,.6);border:1px solid var(--line);border-radius:10px;color:var(--txt);font-size:14px;outline:none;width:280px}
+  input:focus{border-color:#378add}
+  .stat{color:var(--mut);font-size:13px;align-self:center}
+  .group{margin-bottom:18px}
+  .group h3{font-size:14px;color:#9fc3d8;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+  .group h3 .cnt{color:var(--hint);font-weight:400;font-size:12px}
+  .cards{display:flex;flex-wrap:wrap;gap:8px}
+  .tcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;
+    font-size:13px;display:flex;align-items:center;gap:8px;transition:all .12s}
+  .tcard:hover{border-color:#4fa8d8}
+  .tcard.sel{background:#1c4a63;border-color:#4fa8d8}
+  .tcard.rel-out{border-color:#e8a03a;background:#2a2410}
+  .tcard.rel-in{border-color:#4fc08a;background:#0f2c1d}
+  .tcard.dim{opacity:.35}
+  .tcard .rows{color:var(--hint);font-size:11px}
+  .tcard.isview .rows::after{content:" · view";color:#b08ad0}
+  .side h2{font-size:17px;margin:0 0 4px;word-break:break-all}
+  .side .meta{color:var(--mut);font-size:12px;margin-bottom:12px}
+  .side h4{font-size:13px;color:#9fc3d8;margin:14px 0 6px}
+  table.cols{width:100%;border-collapse:collapse;font-size:12px}
+  table.cols td{padding:4px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cols td.n{font-weight:600;color:#dfe9ef;white-space:nowrap}
+  table.cols td.y{color:var(--mut)}
+  .fkline{font-size:12px;padding:5px 8px;border-radius:8px;margin:3px 0;cursor:pointer;border:1px solid transparent}
+  .fkline:hover{border-color:#4fa8d8}
+  .fkline.out{background:#2a2410;color:#f3c05a}
+  .fkline.in{background:#0f2c1d;color:#7fd8a8}
+  .legend{display:flex;gap:14px;font-size:12px;color:var(--mut);margin:2px 0 14px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+  .empty{color:var(--hint);font-size:13px;text-align:center;padding:60px 10px}
+</style>
+</head>
+<body>
+<h1>ntmc_erp 資料庫視覺化</h1>
+<div class="sub" id="genInfo">載入中…</div>
+<div class="legend">
+  <span><i style="background:#1c4a63;border:1px solid #4fa8d8"></i>選取的表</span>
+  <span><i style="background:#2a2410;border:1px solid #e8a03a"></i>它引用的表(外鍵 →)</span>
+  <span><i style="background:#0f2c1d;border:1px solid #4fc08a"></i>引用它的表(← 被參照)</span>
+</div>
+<div class="toolbar">
+  <input id="q" placeholder="搜尋資料表名稱…" oninput="render()" />
+  <span class="stat" id="stat"></span>
+</div>
+<div class="layout">
+  <div class="main" id="groups"></div>
+  <div class="side" id="side"><div class="empty">點選左側任一資料表<br/>查看欄位與關聯</div></div>
+</div>
+<script>
+const GROUPS=[
+ ["使用者與權限", n=>/^(app_user|user_session)$/.test(n)],
+ ["工單核心", n=>/^(work_order|pm_work_order|fault_work_order|repair_work_order|project_work_order)$/.test(n)],
+ ["工單明細", n=>/^(work_order_|pm_work_order_check|fault_finish_record)/.test(n)],
+ ["故障階層(報修端/派工端)", n=>/^(fault_system_node|fault_phenomenon|fault_dispatch)/.test(n)],
+ ["預檢模板", n=>/^pm_template/.test(n)],
+ ["物料與庫存", n=>/^(material|inventory|warehouse)/.test(n)],
+ ["資產與維修履歷", n=>/^(asset|instrument|wi_document|repair_record|scrap_record)/.test(n)],
+ ["參照與編號", n=>/^(workflow_option|document_sequence|train|vendor|equipment_group|vehicle_position)$/.test(n)],
+ ["匯入暫存", n=>/import/.test(n)],
+ ["其他", ()=>true]
+];
+let DATA=null, sel=null;
+fetch("db-design/schema-snapshot.json").then(r=>r.json()).then(d=>{
+  DATA=d;
+  DATA.viewSet=new Set(d.views||[]);
+  (d.views||[]).forEach(v=>{ if(!(d.tables||[]).some(t=>t.name===v)) d.tables.push({name:v, rows:null}); });
+  DATA.colsByTable={};
+  (d.columns||[]).forEach(c=>{(DATA.colsByTable[c.t]=DATA.colsByTable[c.t]||[]).push(c);});
+  DATA.fkOut={}; DATA.fkIn={};
+  (d.fks||[]).forEach(f=>{
+    (DATA.fkOut[f.src]=DATA.fkOut[f.src]||[]).push(f);
+    (DATA.fkIn[f.dst]=DATA.fkIn[f.dst]||[]).push(f);
+  });
+  document.getElementById("genInfo").textContent="快照時間:"+(d.generated||"—")+" · localhost:5433 / ntmc_erp";
+  render();
+});
+function esc(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function render(){
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  const used=new Set();
+  let shown=0;
+  const html=GROUPS.map(([label,test])=>{
+    const items=(DATA.tables||[]).filter(t=>!used.has(t.name)&&test(t.name)&&(!q||t.name.toLowerCase().includes(q)));
+    items.forEach(t=>used.add(t.name));
+    if(!items.length)return "";
+    shown+=items.length;
+    const rel=sel?relSets():null;
+    return `<div class="group"><h3>${label}<span class="cnt">${items.length} 張</span></h3><div class="cards">`+
+      items.map(t=>{
+        let cls="tcard";
+        if(DATA.viewSet.has(t.name))cls+=" isview";
+        if(sel){
+          if(t.name===sel)cls+=" sel";
+          else if(rel.out.has(t.name))cls+=" rel-out";
+          else if(rel.inn.has(t.name))cls+=" rel-in";
+          else cls+=" dim";
+        }
+        return `<div class="${cls}" onclick="pick('${t.name}')">${esc(t.name)}<span class="rows">${t.rows==null?"":Number(t.rows).toLocaleString()+" 筆"}</span></div>`;
+      }).join("")+`</div></div>`;
+  }).join("");
+  document.getElementById("groups").innerHTML=html||`<div class="empty">找不到符合「${esc(q)}」的資料表</div>`;
+  document.getElementById("stat").textContent=`共 ${(DATA.tables||[]).length} 張(含 view),顯示 ${shown} 張`;
+  renderSide();
+}
+function relSets(){
+  const out=new Set((DATA.fkOut[sel]||[]).map(f=>f.dst));
+  const inn=new Set((DATA.fkIn[sel]||[]).map(f=>f.src));
+  return {out,inn};
+}
+function pick(name){sel=sel===name?null:name;render();}
+function renderSide(){
+  const s=document.getElementById("side");
+  if(!sel){s.innerHTML=`<div class="empty">點選左側任一資料表<br/>查看欄位與關聯</div>`;return;}
+  const cols=DATA.colsByTable[sel]||[];
+  const t=(DATA.tables||[]).find(x=>x.name===sel)||{};
+  const outs=DATA.fkOut[sel]||[], inns=DATA.fkIn[sel]||[];
+  s.innerHTML=`<h2>${esc(sel)}</h2>
+  <div class="meta">${DATA.viewSet.has(sel)?"VIEW":"TABLE"} · ${cols.length} 欄${t.rows!=null?" · "+Number(t.rows).toLocaleString()+" 筆":""}</div>
+  <h4>欄位</h4>
+  <table class="cols">${cols.map(c=>{
+    const fk=outs.find(f=>f.col===c.n);
+    return `<tr><td class="n">${esc(c.n)}${c.nul?"":" *"}</td><td class="y">${esc(c.y)}${fk?` <span style="color:#f3c05a">→ ${esc(fk.dst)}</span>`:""}</td></tr>`;
+  }).join("")}</table>
+  ${outs.length?`<h4>此表引用(外鍵 →)</h4>`+outs.map(f=>`<div class="fkline out" onclick="pick('${f.dst}')">${esc(f.col)} → ${esc(f.dst)}</div>`).join(""):""}
+  ${inns.length?`<h4>被誰引用(←)</h4>`+inns.map(f=>`<div class="fkline in" onclick="pick('${f.src}')">${esc(f.src)}.${esc(f.col)} → 本表</div>`).join(""):""}`;
+}
+</script>
+</body>
+</html>

@@ -10,6 +10,7 @@ const assetsRouter = require("./routes/assets");
 const equipmentAliasRouter = require("./routes/equipmentAlias");
 const referenceOptionsRouter = require("./routes/referenceOptions");
 const databaseViewerRouter = require("./routes/databaseViewer");
+const dataAdminRouter = require("./routes/dataAdmin");
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.use("/api/warehouses", warehousesRouter);
 app.use("/api/assets", assetsRouter);
 app.use("/api/equipment-aliases", equipmentAliasRouter);
 app.use("/api/reference-options", referenceOptionsRouter);
+app.use("/api/db", dataAdminRouter);
 
 app.use((req, res) => {
   res.status(404).json({ error: { message: "Route not found" } });

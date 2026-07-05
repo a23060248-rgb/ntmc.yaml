@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ntmc_erp 資料管理</title>
+<style>
+  :root{--card:#0f2635;--card2:#12324a;--line:rgba(255,255,255,.1);--txt:#eaf2f7;--mut:#8fa9b8;--hint:#5f7d8f;--ok:#2fbf8f;--danger:#e2564b;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI","Microsoft JhengHei",system-ui,sans-serif;color:var(--txt);height:100vh;display:flex;flex-direction:column;
+    background:radial-gradient(1200px 700px at 60% -10%, #1a4a5f 0%, #0b2a3a 45%, #071a26 100%)}
+  header{padding:12px 20px 8px}
+  h1{font-size:19px;margin:0}
+  .sub{color:var(--mut);font-size:12px;margin-top:3px}
+  .apiwarn{background:#3a1414;border:1px solid #a03030;color:#f0b0b0;padding:8px 14px;border-radius:9px;font-size:13px;margin:6px 20px;display:none}
+  .layout{flex:1;display:flex;min-height:0}
+  .sidebar{width:280px;flex:0 0 280px;overflow:auto;padding:0 8px 20px 16px}
+  .sidebar input{width:100%;margin-bottom:10px}
+  input,select{padding:8px 11px;background:rgba(6,20,30,.6);border:1px solid var(--line);border-radius:9px;color:var(--txt);font-size:13px;outline:none}
+  input:focus,select:focus{border-color:#378add}
+  .grp{margin-bottom:6px}
+  .grp>.ghead{font-size:11px;color:var(--hint);padding:8px 8px 4px;letter-spacing:.5px}
+  .tbtn{display:flex;justify-content:space-between;align-items:center;gap:6px;width:100%;text-align:left;background:none;border:1px solid transparent;
+    color:#cbdae4;padding:8px 10px;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit}
+  .tbtn:hover{background:rgba(255,255,255,.05)}
+  .tbtn.sel{background:#1c4a63;border-color:#2f6f8f;color:#fff}
+  .tbtn .zh{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tbtn .en{color:var(--hint);font-size:10px}
+  .tbtn .n{color:var(--hint);font-size:11px;flex:0 0 auto}
+  .tbtn.isview .zh{color:#b08ad0}
+  .main{flex:1;min-width:0;display:flex;flex-direction:column;padding:0 16px 16px 8px}
+  .crumb{font-size:15px;font-weight:600;padding:6px 2px 2px}
+  .crumb .en{color:var(--hint);font-size:12px;font-weight:400;margin-left:8px}
+  .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:6px 0}
+  .btn{background:#213a4c;border:1px solid var(--line);color:#dfe9ef;padding:8px 15px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px}
+  .btn:hover{background:#2a4a60}
+  .btn.primary{background:linear-gradient(90deg,#4a63e7,#8b3ee0);border:none;color:#fff}
+  .btn.ok{background:#15503c;border-color:#2fbf8f;color:#9fe8cc}
+  .btn.danger{background:#4a1a1a;border-color:#8a3a3a;color:#f0a0a0}
+  .btn:disabled{opacity:.4;cursor:default}
+  .info{color:var(--mut);font-size:12px}
+  .gridwrap{flex:1;overflow:auto;border:1px solid var(--line);border-radius:12px;background:rgba(8,22,32,.55)}
+  table{border-collapse:collapse;font-size:12px;min-width:100%}
+  th,td{padding:7px 10px;border-bottom:1px solid var(--line);border-right:1px solid rgba(255,255,255,.04);text-align:left;white-space:nowrap;max-width:340px;overflow:hidden;text-overflow:ellipsis}
+  th{position:sticky;top:0;background:#0e2f42;color:#9fc3d8;font-weight:600;z-index:2}
+  th .ty{color:var(--hint);font-weight:400;font-size:10px;display:block}
+  th.chk,td.chk{position:sticky;left:0;background:#0e2f42;z-index:3;text-align:center;width:36px;max-width:36px}
+  td.chk{background:#0c2534}
+  tr.selrow td{background:#153a2e !important}
+  tr:hover td{background:rgba(255,255,255,.03)}
+  td.pk{color:#f3c05a}
+  td.nullv{color:#4a6272;font-style:italic}
+  td.editable{cursor:cell}
+  td.editing{padding:0}
+  td.editing input{width:100%;min-width:120px;border-radius:0;border:2px solid #378add;background:#0a1e2c;font-size:12px}
+  .empty{color:var(--hint);text-align:center;padding:70px 20px;line-height:1.8}
+  input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:#2fbf8f}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#123a2e;border:1px solid #1d9e75;color:#bff0dd;padding:11px 18px;border-radius:11px;font-size:13px;z-index:99;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+  .toast.err{background:#3a1414;border-color:#a03030;color:#f0b0b0}
+  #modalOv{position:fixed;inset:0;background:rgba(3,12,18,.78);z-index:60;display:flex;align-items:center;justify-content:center;padding:20px}
+  .modal{width:100%;max-width:720px;max-height:90vh;overflow:auto;background:#0f2a3c;border:1px solid #2f6f8f;border-radius:16px;padding:22px 26px}
+  .modal h3{margin:0 0 4px;font-size:17px}
+  .modal .msub{color:var(--mut);font-size:12px;margin-bottom:14px}
+  .modal .field{margin-bottom:10px}
+  .modal label{display:block;font-size:12px;font-weight:600;margin-bottom:4px;color:#cfe0ea}
+  .modal label .ty{color:var(--hint);font-weight:400}
+  .modal .req{color:#f0a0a0}
+  .modal input,.modal select{width:100%}
+  .modal .btns{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+  /* import wizard */
+  .steps{display:flex;gap:6px;margin-bottom:16px}
+  .step{flex:1;text-align:center;font-size:11px;color:var(--hint);padding:6px 4px;border-radius:8px;border:1px solid var(--line)}
+  .step.on{background:#1c4a63;border-color:#4fa8d8;color:#fff}
+  .step.done{color:#9fe8cc;border-color:#2fbf8f}
+  .drop{border:2px dashed #2f6f8f;border-radius:12px;padding:34px;text-align:center;color:var(--mut);cursor:pointer;background:rgba(6,20,30,.4)}
+  .drop.hover{border-color:#4fa8d8;background:rgba(28,74,99,.4);color:#fff}
+  .prevtbl{max-height:300px;overflow:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+  .prevtbl table{font-size:11px}
+  .prevtbl th{background:#123247}
+  .colmatch{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .cchip{font-size:11px;padding:3px 9px;border-radius:999px;border:1px solid var(--line)}
+  .cchip.ok{background:#12402e;border-color:#2fbf8f;color:#9fe8cc}
+  .cchip.miss{background:#3a2410;border-color:#e8a03a;color:#f3c05a}
+  .cchip.req{background:#3a1414;border-color:#a03030;color:#f0a0a0}
+  .result-big{font-size:30px;font-weight:800;text-align:center;margin:10px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>ntmc_erp 資料管理</h1>
+  <div class="sub">localhost:5433 / ntmc_erp · 選左邊資料表 → 勾選可刪除、點「匯入精靈」可批次匯入 · 雙擊儲存格可直接改</div>
+</header>
+<div class="apiwarn" id="apiwarn"></div>
+<div class="layout">
+  <div class="sidebar">
+    <input id="tq" placeholder="搜尋資料表(中文或英文)…" oninput="renderTables()" />
+    <div id="tlist"></div>
+  </div>
+  <div class="main">
+    <div class="crumb" id="crumb"></div>
+    <div class="toolbar" id="tools" style="display:none">
+      <input id="rq" placeholder="搜尋此表資料…" style="width:200px" onkeydown="if(event.key==='Enter'){page=0;loadRows()}" />
+      <button class="btn" onclick="page=0;loadRows()">搜尋</button>
+      <button class="btn primary" id="btnAdd" onclick="openAdd()">＋ 新增一列</button>
+      <button class="btn ok" id="btnImp" onclick="openImport()">⬆ 匯入精靈</button>
+      <button class="btn" onclick="exportCsv()">⬇ 匯出 CSV</button>
+      <button class="btn danger" id="btnDel" style="display:none" onclick="delSelected()">🗑 刪除選取 <span id="selN">0</span> 列</button>
+      <span style="flex:1"></span>
+      <button class="btn" onclick="if(page>0){page--;loadRows()}">‹ 上一頁</button>
+      <span class="info" id="pageinfo"></span>
+      <button class="btn" onclick="if((page+1)*limit<total){page++;loadRows()}">下一頁 ›</button>
+    </div>
+    <div class="gridwrap" id="grid"><div class="empty">← 從左邊選一張資料表開始<br><span style="font-size:12px">找不到中文名稱的表是系統內部表,平常用不到</span></div></div>
+  </div>
+</div>
+<script>
+const API="http://localhost:3001/api/db";
+// 中文名稱 + 分組
+const ZH={
+ app_user:"使用者/帳號",user_session:"登入工作階段",
+ work_order:"工單主表",fault_work_order:"故障工單(C)",pm_work_order:"預檢工單(P)",repair_work_order:"維修工單(R)",project_work_order:"專案工單(J)",
+ work_order_event:"工單操作歷程",fault_finish_record:"完工作業資料",work_order_material:"工單耗用物料",work_order_attachment:"工單附件",work_order_instrument:"工單使用儀器",work_order_wi:"工單作業指導",pm_work_order_check_result:"預檢檢查結果",
+ fault_system_node:"報修故障樹",fault_phenomenon:"影響樣態→等級矩陣",fault_dispatch_node:"派工作業階層樹",fault_dispatch_catalog:"派工目錄(檢視)",
+ pm_template:"預檢模板",pm_template_material:"預檢模板物料",pm_template_instrument:"預檢模板儀器",pm_template_wi:"預檢模板作業指導",pm_template_check_item:"預檢模板檢查項",
+ material:"物料主檔",inventory_balance:"庫存餘額",inventory_bin_balance:"儲位庫存",inventory_document:"庫存單據",inventory_document_line:"庫存單據明細",inventory_transaction:"庫存異動",material_usage_history:"物料使用履歷",material_import_source:"物料匯入來源",
+ warehouse:"倉庫",warehouse_bin:"儲位",
+ asset:"資產/設備",asset_event:"資產事件",asset_task:"資產任務",instrument:"儀器",wi_document:"作業指導文件",repair_record:"維修紀錄",scrap_record:"報廢紀錄",
+ workflow_option:"流程選項清單",document_sequence:"單號流水",train:"車隊/列車",vendor:"廠商",equipment_group:"設備群組",vehicle_position:"車輛位置",
+ asset_installation_import_batch:"設備安裝匯入批次",asset_installation_import_row:"設備安裝匯入列"
+};
+const GROUPS=[
+ ["常用參照資料", n=>/^(workflow_option|train|vendor|equipment_group|document_sequence|vehicle_position)$/.test(n)],
+ ["使用者與權限", n=>/^(app_user|user_session)$/.test(n)],
+ ["故障階層(報修/派工)", n=>/^(fault_system_node|fault_phenomenon|fault_dispatch)/.test(n)],
+ ["工單", n=>/(work_order|fault_finish_record)/.test(n)],
+ ["預檢模板", n=>/^pm_template/.test(n)],
+ ["物料與庫存", n=>/^(material|inventory|warehouse)/.test(n)],
+ ["資產與履歷", n=>/^(asset|instrument|wi_document|repair_record|scrap_record)/.test(n)],
+ ["其他/系統內部", ()=>true]
+];
+let TABLES=[],cur=null,meta=null,rows=[],total=0,page=0,limit=50,selected=new Set();
+function toast(m,err){const t=document.createElement("div");t.className="toast"+(err?" err":"");t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200);}
+function esc(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");}
+function fmt(v){if(v===null||v===undefined)return null;if(typeof v==="object")return JSON.stringify(v);return String(v);}
+async function api(path,opt){
+  const r=await fetch(API+path,{headers:{"Content-Type":"application/json"},...opt});
+  const d=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(d.error?.message||("HTTP "+r.status));
+  return d;
+}
+async function loadTables(){
+  try{TABLES=(await api("/tables")).items;renderTables();document.getElementById("apiwarn").style.display="none";}
+  catch(e){document.getElementById("apiwarn").style.display="block";
+    document.getElementById("apiwarn").innerHTML=`⚠ 連不到 API(localhost:3001)。請先啟動:<code>cd erp-api ; npm start</code> — ${esc(e.message)}`;}
+}
+function renderTables(){
+  const q=document.getElementById("tq").value.trim().toLowerCase();
+  const used=new Set();let html="";
+  for(const [label,test] of GROUPS){
+    const items=TABLES.filter(t=>!used.has(t.name)&&test(t.name)&&(!q||t.name.includes(q)||(ZH[t.name]||"").includes(q)));
+    items.forEach(t=>used.add(t.name));
+    if(!items.length)continue;
+    html+=`<div class="grp"><div class="ghead">${label} · ${items.length}</div>`+
+      items.map(t=>`<button class="tbtn ${cur===t.name?"sel":""} ${t.isView?"isview":""}" onclick="pickTable('${t.name}')">
+        <span class="zh">${esc(ZH[t.name]||t.name)}${ZH[t.name]?`<span class="en"> ${esc(t.name)}</span>`:""}</span>
+        <span class="n">${t.rows==null?"檢視":t.rows.toLocaleString()}</span></button>`).join("")+`</div>`;
+  }
+  document.getElementById("tlist").innerHTML=html||`<div class="empty" style="padding:20px">查無資料表</div>`;
+}
+async function pickTable(name){cur=name;page=0;selected.clear();document.getElementById("rq").value="";renderTables();await loadRows();}
+async function loadRows(){
+  if(!cur)return;
+  const q=encodeURIComponent(document.getElementById("rq").value.trim());
+  try{
+    const d=await api(`/${cur}/rows?limit=${limit}&offset=${page*limit}${q?`&search=${q}`:""}`);
+    meta=d;rows=d.rows;total=d.total;selected.clear();
+    const tinfo=TABLES.find(t=>t.name===cur)||{};
+    document.getElementById("crumb").innerHTML=`${esc(ZH[cur]||cur)}<span class="en">${esc(cur)}${d.isView?" · 檢視(唯讀)":""}</span>`;
+    document.getElementById("tools").style.display="flex";
+    document.getElementById("btnAdd").disabled=d.isView;
+    document.getElementById("btnImp").disabled=d.isView;
+    document.getElementById("pageinfo").textContent=`第 ${page+1} 頁 · 共 ${total.toLocaleString()} 筆`;
+    renderGrid();updateSelUI();
+  }catch(e){toast(e.message,true);}
+}
+function renderGrid(){
+  const pkSet=new Set(meta.pk),cols=meta.columns,canEdit=!meta.isView&&meta.pk.length;
+  document.getElementById("grid").innerHTML=`<table><thead><tr>
+    ${canEdit?`<th class="chk"><input type="checkbox" id="chkAll" onclick="toggleAll(this.checked)"></th>`:""}
+    ${cols.map(c=>`<th>${esc(c.column_name)}${pkSet.has(c.column_name)?" 🔑":""}<span class="ty">${esc(c.data_type)}</span></th>`).join("")}
+  </tr></thead><tbody>
+  ${rows.length?rows.map((r,ri)=>`<tr id="row${ri}">
+    ${canEdit?`<td class="chk"><input type="checkbox" ${selected.has(ri)?"checked":""} onclick="toggleRow(${ri},this.checked)"></td>`:""}
+    ${cols.map(c=>{
+      const v=fmt(r[c.column_name]);
+      const ed=!meta.isView&&!pkSet.has(c.column_name);
+      return `<td class="${pkSet.has(c.column_name)?"pk":""} ${v===null?"nullv":""} ${ed?"editable":""}"
+        ${ed?`ondblclick="editCell(this,${ri},'${c.column_name}')"`:""} title="${esc(v??"")}">${v===null?"NULL":esc(v)}</td>`;
+    }).join("")}
+  </tr>`).join(""):`<tr><td colspan="${cols.length+1}"><div class="empty">此表目前沒有資料<br><span style="font-size:12px">可用上方「新增一列」或「匯入精靈」加入資料</span></div></td></tr>`}
+  </tbody></table>`;
+}
+function toggleRow(ri,on){on?selected.add(ri):selected.delete(ri);document.getElementById("row"+ri).classList.toggle("selrow",on);updateSelUI();}
+function toggleAll(on){selected.clear();if(on)rows.forEach((_,i)=>selected.add(i));renderGrid();updateSelUI();}
+function updateSelUI(){
+  const n=selected.size,btn=document.getElementById("btnDel");
+  document.getElementById("selN").textContent=n;
+  btn.style.display=n?"inline-flex":"none";
+}
+async function delSelected(){
+  if(!selected.size)return;
+  if(!confirm(`確定刪除選取的 ${selected.size} 列?此動作無法復原。`))return;
+  const pks=[...selected].map(ri=>{const pk={};meta.pk.forEach(p=>pk[p]=rows[ri][p]);return pk;});
+  try{const d=await api(`/${cur}/rows/delete`,{method:"POST",body:JSON.stringify({pks})});
+    toast(`已刪除 ${d.deleted} 列`);loadRows();
+  }catch(e){toast("刪除失敗:"+e.message,true);}
+}
+function editCell(td,ri,col){
+  const old=fmt(rows[ri][col])??"";
+  td.classList.add("editing");td.innerHTML=`<input value="${esc(old)}" />`;
+  const inp=td.querySelector("input");inp.focus();inp.select();
+  const done=async(save)=>{
+    if(save){
+      let nv=inp.value;const cm=meta.columns.find(c=>c.column_name===col);
+      if(nv==="NULL"||(nv===""&&cm.nullable))nv=null;
+      if(cm.data_type==="ARRAY"&&typeof nv==="string"&&nv.startsWith("["))try{nv=JSON.parse(nv);}catch(e){}
+      const pk={};meta.pk.forEach(p=>pk[p]=rows[ri][p]);
+      try{const d=await api(`/${cur}/row`,{method:"PATCH",body:JSON.stringify({pk,set:{[col]:nv}})});rows[ri]=d.row;toast("已儲存");}
+      catch(e){toast(e.message,true);}
+    }
+    renderGrid();updateSelUI();
+  };
+  inp.onkeydown=e=>{if(e.key==="Enter")done(true);if(e.key==="Escape")done(false);};
+  inp.onblur=()=>done(false);
+}
+function closeModal(){const m=document.getElementById("modalOv");if(m)m.remove();}
+function openAdd(){
+  const editable=meta.columns.filter(c=>!c.is_identity);
+  const ov=document.createElement("div");ov.id="modalOv";
+  ov.innerHTML=`<div class="modal"><h3>新增一列</h3><div class="msub">→ ${esc(ZH[cur]||cur)}</div>
+    ${editable.map(c=>`<div class="field"><label>${esc(c.column_name)} <span class="ty">${esc(c.data_type)}${c.nullable?"":' <span class="req">· 必填</span>'}${c.has_default?" · 可留空(用預設)":""}</span></label>
+      <input data-col="${esc(c.column_name)}" placeholder="${c.has_default?"留空=預設值":c.nullable?"可留空":"必填"}"/></div>`).join("")}
+    <div class="btns"><button class="btn" onclick="closeModal()">取消</button><button class="btn primary" onclick="submitAdd()">新增</button></div></div>`;
+  ov.onclick=e=>{if(e.target===ov)closeModal();};document.body.appendChild(ov);
+}
+async function submitAdd(){
+  const values={};document.querySelectorAll("#modalOv input[data-col]").forEach(i=>{if(i.value!=="")values[i.dataset.col]=i.value;});
+  try{await api(`/${cur}/row`,{method:"POST",body:JSON.stringify({values})});closeModal();toast("已新增");loadRows();}
+  catch(e){toast(e.message,true);}
+}
+function csvCell(v){const s=fmt(v);return s===null?"":`"${s.replace(/"/g,'""')}"`;}
+async function exportCsv(){
+  try{const q=encodeURIComponent(document.getElementById("rq").value.trim());
+    const d=await api(`/${cur}/rows?limit=500&offset=0${q?`&search=${q}`:""}`);
+    const cols=d.columns.map(c=>c.column_name);
+    const lines=[cols.join(",")].concat(d.rows.map(r=>cols.map(c=>csvCell(r[c])).join(",")));
+    dl(cur+".csv","﻿"+lines.join("\r\n"));toast(`已匯出 ${d.rows.length} 筆(上限500)`);
+  }catch(e){toast(e.message,true);}
+}
+function dl(name,text){const b=new Blob([text],{type:"text/csv"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;a.click();}
+function parseCsv(text){
+  const rows=[];let row=[],cell="",inQ=false;text=text.replace(/^﻿/,"");
+  for(let i=0;i<text.length;i++){const ch=text[i];
+    if(inQ){if(ch==='"'){if(text[i+1]==='"'){cell+='"';i++;}else inQ=false;}else cell+=ch;}
+    else{if(ch==='"')inQ=true;else if(ch===",")row.push(cell),cell="";
+      else if(ch==="\n"||ch==="\r"){if(ch==="\r"&&text[i+1]==="\n")i++;row.push(cell);cell="";if(row.some(c=>c!==""))rows.push(row);row=[];}
+      else cell+=ch;}}
+  if(cell!==""||row.length){row.push(cell);if(row.some(c=>c!==""))rows.push(row);}return rows;
+}
+// ---------- 匯入精靈 ----------
+let impStep=1,impRows=null,impHead=null;
+function openImport(){impStep=1;impRows=null;impHead=null;renderImport();}
+function renderImport(){
+  closeModal();
+  const editable=meta.columns.filter(c=>!c.is_identity);
+  const req=editable.filter(c=>!c.nullable&&!c.has_default).map(c=>c.column_name);
+  const ov=document.createElement("div");ov.id="modalOv";
+  let body="";
+  if(impStep===1){
+    body=`<div class="msub">要匯入到:<b>${esc(ZH[cur]||cur)}</b></div>
+      <p class="info" style="line-height:1.9">
+      1️⃣ 先下載範本(第一列是欄位名稱)<br>
+      2️⃣ 用 Excel 填好資料、另存成 CSV<br>
+      3️⃣ 回來這裡拖曳或選擇檔案上傳</p>
+      <div class="colmatch">${editable.map(c=>`<span class="cchip ${req.includes(c.column_name)?"req":""}">${esc(c.column_name)}${req.includes(c.column_name)?" *":""}</span>`).join("")}</div>
+      <p class="info">＊ 標紅色的是必填欄位;有預設值的欄位可以不放進 CSV。</p>
+      <div class="btns">
+        <button class="btn" onclick="dlTemplate()">⬇ 下載範本 CSV</button>
+        <button class="btn primary" onclick="impStep=2;renderImport()">下一步:上傳檔案 →</button></div>`;
+  }else if(impStep===2){
+    body=`<div class="drop" id="drop" onclick="document.getElementById('impFile').click()">
+        📄 點此選擇 CSV,或把檔案拖曳到這裡<br><span class="info">支援 UTF-8 編碼的 .csv</span></div>
+      <input type="file" id="impFile" accept=".csv,.txt" style="display:none" onchange="prepImport(this.files[0])"/>
+      <div class="btns"><button class="btn" onclick="impStep=1;renderImport()">← 上一步</button></div>`;
+  }else if(impStep===3){
+    const valid=new Set(meta.columns.map(c=>c.column_name));
+    const matched=impHead.filter(h=>valid.has(h)),unknown=impHead.filter(h=>!valid.has(h));
+    body=`<div class="msub">共 <b>${impRows.length}</b> 筆待匯入 · 預覽前 5 筆</div>
+      <div class="colmatch">
+        ${matched.map(h=>`<span class="cchip ok">✓ ${esc(h)}</span>`).join("")}
+        ${unknown.map(h=>`<span class="cchip miss">✗ ${esc(h)}(忽略)</span>`).join("")}</div>
+      <div class="prevtbl"><table><thead><tr>${matched.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead>
+        <tbody>${impRows.slice(0,5).map(r=>`<tr>${matched.map(h=>`<td>${esc(r[h]??"")}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+      <label class="info" style="display:flex;align-items:center;gap:6px;margin-top:8px"><input type="checkbox" id="impSkip" checked style="width:auto"> 遇到主鍵重複的資料就略過(不中斷)</label>
+      <div class="btns"><button class="btn" onclick="impStep=2;renderImport()">← 重選檔案</button>
+        <button class="btn ok" onclick="doImport()">✓ 確認匯入 ${impRows.length} 筆</button></div>`;
+  }else if(impStep===4){
+    body=`<div class="result-big" style="color:var(--ok)">✓ 匯入完成</div>
+      <p class="info" style="text-align:center">新增 <b style="color:#9fe8cc">${impResult.inserted}</b> 筆 · 略過 <b style="color:#f3c05a">${impResult.skipped}</b> 筆(共讀取 ${impResult.received} 筆)</p>
+      <div class="btns"><button class="btn primary" onclick="closeModal();loadRows()">完成</button></div>`;
+  }
+  ov.innerHTML=`<div class="modal"><h3>匯入精靈</h3>
+    <div class="steps">
+      <div class="step ${impStep>=1?(impStep>1?'done':'on'):''}">1 下載範本</div>
+      <div class="step ${impStep>=2?(impStep>2?'done':'on'):''}">2 選擇檔案</div>
+      <div class="step ${impStep>=3?(impStep>3?'done':'on'):''}">3 預覽核對</div>
+      <div class="step ${impStep>=4?'on':''}">4 匯入結果</div>
+    </div>${body}</div>`;
+  ov.onclick=e=>{if(e.target===ov)closeModal();};document.body.appendChild(ov);
+  if(impStep===2)setupDrop();
+}
+function dlTemplate(){
+  const editable=meta.columns.filter(c=>!c.is_identity).map(c=>c.column_name);
+  dl(cur+"_匯入範本.csv","﻿"+editable.map(c=>`"${c}"`).join(",")+"\r\n");
+  toast("已下載範本,用 Excel 填好後存成 CSV");
+}
+function setupDrop(){
+  const d=document.getElementById("drop");if(!d)return;
+  ["dragenter","dragover"].forEach(ev=>d.addEventListener(ev,e=>{e.preventDefault();d.classList.add("hover");}));
+  ["dragleave","drop"].forEach(ev=>d.addEventListener(ev,e=>{e.preventDefault();d.classList.remove("hover");}));
+  d.addEventListener("drop",e=>{if(e.dataTransfer.files[0])prepImport(e.dataTransfer.files[0]);});
+}
+function prepImport(f){
+  if(!f)return;const r=new FileReader();
+  r.onload=e=>{
+    const grid=parseCsv(e.target.result);
+    if(grid.length<2){toast("檔案至少要有標題列+一筆資料",true);return;}
+    impHead=grid[0].map(h=>h.trim());
+    const valid=new Set(meta.columns.map(c=>c.column_name));
+    impRows=grid.slice(1).map(cells=>{const o={};impHead.forEach((h,i)=>{if(valid.has(h)&&cells[i]!==undefined&&cells[i]!=="")o[h]=cells[i];});return o;});
+    impStep=3;renderImport();
+  };
+  r.readAsText(f,"utf-8");
+}
+let impResult=null;
+async function doImport(){
+  const mode=document.getElementById("impSkip").checked?"skip":"error";
+  try{impResult=await api(`/${cur}/import`,{method:"POST",body:JSON.stringify({rows:impRows,mode})});
+    impStep=4;renderImport();
+  }catch(e){toast("匯入失敗:"+e.message,true);}
+}
+loadTables();
+</script>
+</body>
+</html>
