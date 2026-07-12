@@ -5,34 +5,41 @@ import { EmptyState, ErrorState, LoadingState } from "../../shared/components/As
 import { StatusBadge } from "../../shared/ui";
 import { listMaterials } from "../inventory/api";
 import { listMasterData } from "./api";
+import { AttachmentEditor } from "./AttachmentEditor";
 import {
   createTemplateRevision,
   createTemplateVersion,
   createWordTemplate,
   getTemplateVersion,
+  getWordBlockMappings,
   getWordMappings,
   listTemplateVersions,
   publishTemplateVersion,
   publishWordTemplate,
   saveTemplateChecks,
+  saveTemplateAttachments,
   saveTemplateInstruments,
   saveTemplateMaterials,
   saveTemplateWis,
+  saveWordBlockMappings,
   saveWordMappings,
   updateTemplateVersion,
+  type TemplateAttachment,
   type TemplateCheckItem,
   type TemplateInstrument,
   type TemplateMaterial,
   type TemplateWi,
+  type WordBlockMapping,
   type WordFieldMapping,
   type WordTemplateVersion,
 } from "./templateApi";
 
-type StudioSection = "overview" | "checks" | "materials" | "links" | "word";
+type StudioSection = "overview" | "checks" | "attachments" | "materials" | "links" | "word";
 
 const sectionLabels: Array<{ id: StudioSection; label: string }> = [
   { id: "overview", label: "版本資訊" },
   { id: "checks", label: "檢查項目" },
+  { id: "attachments", label: "附件結構" },
   { id: "materials", label: "預設用料" },
   { id: "links", label: "儀器與 WI" },
   { id: "word", label: "Word 對應" },
@@ -194,19 +201,74 @@ function LinkEditor({
   </div>;
 }
 
-function WordEditor({ templateId, pmCode, forms, editable, onChanged }: { templateId: string; pmCode: string; forms: WordTemplateVersion[]; editable: boolean; onChanged(): void }) {
+function blockTypeForAttachment(attachment: TemplateAttachment): WordBlockMapping["block_type"] {
+  if (attachment.attachment_type === "SEAT_MAP") return "SEAT_MAP";
+  if (attachment.attachment_type === "MEASUREMENT_TABLE") return "MEASUREMENT_TABLE";
+  return "OTHER";
+}
+
+function targetTypeForAttachment(attachment: TemplateAttachment): WordBlockMapping["word_target_type"] {
+  if (attachment.render_strategy === "WORD_TABLE") return "TABLE";
+  if (attachment.render_strategy === "WORD_OVERLAY") return attachment.attachment_type === "SEAT_MAP" ? "SHAPE_COORDINATES" : "IMAGE_OVERLAY";
+  return "BOOKMARK_RANGE";
+}
+
+function WordEditor({ templateId, pmCode, forms, attachments, editable, onChanged }: {
+  templateId: string;
+  pmCode: string;
+  forms: WordTemplateVersion[];
+  attachments: TemplateAttachment[];
+  editable: boolean;
+  onChanged(): void;
+}) {
   const queryClient = useQueryClient();
   const [selectedId, setSelectedId] = useState("");
   const [newForm, setNewForm] = useState({ templateCode: `${pmCode}-FORM`, templateName: `${pmCode} 預檢表單`, versionNo: "1", sourceFileName: "", storagePath: "", fileFormat: "DOC" });
   const [mappings, setMappings] = useState<WordFieldMapping[]>([]);
+  const [blockMappings, setBlockMappings] = useState<WordBlockMapping[]>([]);
+
+  useEffect(() => {
+    if (!selectedId && forms[0]) setSelectedId(forms[0].id);
+    if (selectedId && !forms.some((form) => form.id === selectedId)) setSelectedId(forms[0]?.id || "");
+  }, [forms, selectedId]);
+  useEffect(() => {
+    setMappings([]);
+    setBlockMappings([]);
+  }, [selectedId]);
+
   const mappingQuery = useQuery({ queryKey: ["word-mappings", selectedId], queryFn: ({ signal }) => getWordMappings(selectedId, signal), enabled: Boolean(selectedId) });
+  const blockMappingQuery = useQuery({ queryKey: ["word-block-mappings", selectedId], queryFn: ({ signal }) => getWordBlockMappings(selectedId, signal), enabled: Boolean(selectedId) });
   useEffect(() => { if (mappingQuery.data) setMappings(mappingQuery.data.items); }, [mappingQuery.data]);
+  useEffect(() => { if (blockMappingQuery.data) setBlockMappings(blockMappingQuery.data.items); }, [blockMappingQuery.data]);
+
+  const selectedForm = forms.find((form) => form.id === selectedId);
+  const formEditable = Boolean(editable && selectedForm?.lifecycle_status === "DRAFT");
   const createMutation = useMutation({ mutationFn: () => createWordTemplate({ ...newForm, pmTemplateId: templateId }), onSuccess: async (result) => { setSelectedId(result.item.id); onChanged(); } });
   const saveMutation = useMutation({ mutationFn: () => saveWordMappings(selectedId, mappings.map((item, index) => ({ ...item, sortOrder: item.sort_order ?? index + 1, fieldKey: item.field_key, sourcePath: item.source_path, wordTargetType: item.word_target_type, wordTarget: item.word_target, transformCode: item.transform_code, defaultValue: item.default_value, isRequired: item.is_required }))), onSuccess: async () => { await queryClient.invalidateQueries({ queryKey: ["word-mappings", selectedId] }); onChanged(); } });
+  const saveBlocksMutation = useMutation({ mutationFn: () => saveWordBlockMappings(selectedId, blockMappings), onSuccess: async () => { await queryClient.invalidateQueries({ queryKey: ["word-block-mappings", selectedId] }); onChanged(); } });
   const publishMutation = useMutation({ mutationFn: () => publishWordTemplate(selectedId), onSuccess: () => onChanged() });
+
+  function addAttachmentBlocks() {
+    const existing = new Set(blockMappings.map((mapping) => mapping.block_code));
+    const additions = attachments
+      .filter((attachment) => attachment.is_active !== false && attachment.render_strategy !== "DATA_ONLY" && !existing.has(attachment.attachment_code))
+      .map((attachment, index): WordBlockMapping => ({
+        block_code: attachment.attachment_code,
+        source_path: `backfill.attachments.${attachment.attachment_code}`,
+        block_type: blockTypeForAttachment(attachment),
+        word_target_type: targetTypeForAttachment(attachment),
+        word_target: "",
+        config_json: { schemaVersion: attachment.schema_version },
+        is_required: attachment.is_required,
+        is_verified: false,
+        sort_order: blockMappings.length + index + 1,
+      }));
+    setBlockMappings([...blockMappings, ...additions]);
+  }
+
   return <div className="word-studio">
     <section className="word-form-list">
-      <header><h3>Word 範本版本</h3><p>只保存原始 DOC/DOCX 路徑與欄位對應，不在 HTML 重畫表單。</p></header>
+      <header><h3>Word 範本版本</h3><p>正式版面維持原始 DOC/DOCX；此處只設定資料落點。</p></header>
       <div className="word-template-buttons">{forms.map((form) => <button key={form.id} type="button" aria-pressed={selectedId === form.id} onClick={() => setSelectedId(form.id)}><FileText size={15} /><span><strong>{form.template_name}</strong><small>v{form.version_no}｜{form.lifecycle_status}</small></span></button>)}</div>
       {editable ? <form onSubmit={(event) => { event.preventDefault(); createMutation.mutate(); }} className="word-template-create">
         <input required value={newForm.templateCode} onChange={(event) => setNewForm({ ...newForm, templateCode: event.target.value })} placeholder="範本代碼" />
@@ -219,29 +281,45 @@ function WordEditor({ templateId, pmCode, forms, editable, onChanged }: { templa
       </form> : null}
     </section>
     {selectedId ? <section className="word-mapping-editor">
-      <div className="studio-action-row"><div><h3>欄位對應</h3><p>來源路徑對應 Word bookmark 或 placeholder。</p></div>{editable ? <button className="secondary-button" type="button" onClick={() => setMappings([...mappings, { field_key: "", source_path: "", word_target_type: "PLACEHOLDER", word_target: "", is_required: false, sort_order: mappings.length + 1 }])}><Plus size={15} />新增欄位</button> : null}</div>
+      <div className="studio-action-row"><div><h3>固定欄位</h3><p>工單號、車號、日期等單一值。</p></div>{formEditable ? <button className="secondary-button" type="button" onClick={() => setMappings([...mappings, { field_key: "", source_path: "", word_target_type: "PLACEHOLDER", word_target: "", is_required: false, sort_order: mappings.length + 1 }])}><Plus size={15} />新增欄位</button> : null}</div>
       {mappingQuery.isPending ? <LoadingState /> : null}
-      <div className="table-frame studio-table-frame"><table className="studio-edit-table"><thead><tr><th>欄位鍵</th><th>資料來源</th><th>Word 型態</th><th>Word 目標</th><th>轉換</th><th>必填</th>{editable ? <th /> : null}</tr></thead><tbody>{mappings.map((mapping, index) => <tr key={mapping.id || index}>
-        <td><input disabled={!editable} value={mapping.field_key} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, field_key: event.target.value } : row))} /></td>
-        <td><input disabled={!editable} value={mapping.source_path} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, source_path: event.target.value } : row))} /></td>
-        <td><select disabled={!editable} value={mapping.word_target_type} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, word_target_type: event.target.value as WordFieldMapping["word_target_type"] } : row))}><option value="PLACEHOLDER">Placeholder</option><option value="BOOKMARK">Bookmark</option></select></td>
-        <td><input disabled={!editable} value={mapping.word_target} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, word_target: event.target.value } : row))} /></td>
-        <td><input disabled={!editable} value={mapping.transform_code || ""} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, transform_code: event.target.value } : row))} /></td>
-        <td><input disabled={!editable} type="checkbox" checked={mapping.is_required} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, is_required: event.target.checked } : row))} /></td>
-        {editable ? <td><button className="icon-button" type="button" onClick={() => setMappings(mappings.filter((_, rowIndex) => rowIndex !== index))}><Trash2 size={14} /></button></td> : null}
+      <div className="table-frame studio-table-frame"><table className="studio-edit-table"><thead><tr><th>欄位鍵</th><th>資料來源</th><th>Word 型態</th><th>Word 目標</th><th>轉換</th><th>必填</th>{formEditable ? <th /> : null}</tr></thead><tbody>{mappings.map((mapping, index) => <tr key={mapping.id || index}>
+        <td><input disabled={!formEditable} value={mapping.field_key} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, field_key: event.target.value } : row))} /></td>
+        <td><input disabled={!formEditable} value={mapping.source_path} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, source_path: event.target.value } : row))} /></td>
+        <td><select disabled={!formEditable} value={mapping.word_target_type} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, word_target_type: event.target.value as WordFieldMapping["word_target_type"] } : row))}><option value="PLACEHOLDER">Placeholder</option><option value="BOOKMARK">Bookmark</option></select></td>
+        <td><input disabled={!formEditable} value={mapping.word_target} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, word_target: event.target.value } : row))} /></td>
+        <td><input disabled={!formEditable} value={mapping.transform_code || ""} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, transform_code: event.target.value } : row))} /></td>
+        <td><input disabled={!formEditable} type="checkbox" checked={mapping.is_required} onChange={(event) => setMappings(mappings.map((row, rowIndex) => rowIndex === index ? { ...row, is_required: event.target.checked } : row))} /></td>
+        {formEditable ? <td><button className="icon-button" type="button" title="移除欄位" onClick={() => setMappings(mappings.filter((_, rowIndex) => rowIndex !== index))}><Trash2 size={14} /></button></td> : null}
       </tr>)}</tbody></table></div>
-      {editable ? <div className="button-row"><button className="primary-button" type="button" disabled={saveMutation.isPending} onClick={() => saveMutation.mutate()}><Save size={15} />儲存對應</button><button className="secondary-button" type="button" disabled={publishMutation.isPending} onClick={() => publishMutation.mutate()}><Send size={15} />發布 Word 版本</button></div> : null}
+      {formEditable ? <button className="primary-button studio-save" type="button" disabled={saveMutation.isPending} onClick={() => saveMutation.mutate()}><Save size={15} />儲存固定欄位</button> : null}
+
+      <div className="word-block-heading studio-action-row"><div><h3>動態區塊</h3><p>檢查表、附件圖與量測表的 Word 落點。</p></div>{formEditable ? <div className="button-row"><button className="secondary-button" type="button" onClick={addAttachmentBlocks}><CopyPlus size={15} />從附件補齊</button><button className="secondary-button" type="button" onClick={() => setBlockMappings([...blockMappings, { block_code: `BLOCK-${blockMappings.length + 1}`, source_path: "", block_type: "OTHER", word_target_type: "BOOKMARK_RANGE", word_target: "", is_required: false, is_verified: false, sort_order: blockMappings.length + 1 }])}><Plus size={15} />新增區塊</button></div> : null}</div>
+      {blockMappingQuery.isPending ? <LoadingState /> : null}
+      <div className="table-frame studio-table-frame"><table className="studio-edit-table word-block-table"><thead><tr><th>區塊代碼</th><th>資料來源</th><th>內容型態</th><th>Word 落點</th><th>目標</th><th>必填</th><th>驗證</th>{formEditable ? <th /> : null}</tr></thead><tbody>{blockMappings.map((mapping, index) => <tr key={mapping.id || `${mapping.block_code}-${index}`}>
+        <td><input disabled={!formEditable || Boolean(mapping.id)} value={mapping.block_code} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, block_code: event.target.value.toUpperCase() } : row))} /></td>
+        <td><input disabled={!formEditable} value={mapping.source_path} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, source_path: event.target.value } : row))} /></td>
+        <td><select disabled={!formEditable} value={mapping.block_type} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, block_type: event.target.value as WordBlockMapping["block_type"] } : row))}><option value="CHECK_TABLE">檢查表</option><option value="MATERIAL_TABLE">用料表</option><option value="SEAT_MAP">座椅圖</option><option value="MEASUREMENT_TABLE">量測表</option><option value="OTHER">其他</option></select></td>
+        <td><select disabled={!formEditable} value={mapping.word_target_type} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, word_target_type: event.target.value as WordBlockMapping["word_target_type"] } : row))}><option value="BOOKMARK_RANGE">書籤範圍</option><option value="TABLE">表格</option><option value="SHAPE_COORDINATES">圖形座標</option><option value="IMAGE_OVERLAY">圖片覆蓋</option></select></td>
+        <td><input disabled={!formEditable} value={mapping.word_target} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, word_target: event.target.value } : row))} /></td>
+        <td><input disabled={!formEditable} type="checkbox" checked={mapping.is_required} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, is_required: event.target.checked } : row))} /></td>
+        <td><StatusBadge tone={mapping.is_verified ? "success" : "warning"}>{mapping.is_verified ? "已驗證" : "待驗證"}</StatusBadge></td>
+        {formEditable ? <td><button className="icon-button" type="button" title="移除區塊" onClick={() => setBlockMappings(blockMappings.filter((_, rowIndex) => rowIndex !== index))}><Trash2 size={14} /></button></td> : null}
+      </tr>)}</tbody></table></div>
+      {formEditable ? <div className="button-row word-publish-row"><button className="primary-button" type="button" disabled={saveBlocksMutation.isPending} onClick={() => saveBlocksMutation.mutate()}><Save size={15} />儲存動態區塊</button><button className="secondary-button" type="button" disabled={publishMutation.isPending} onClick={() => publishMutation.mutate()}><Send size={15} />發布 Word 版本</button></div> : null}
+      {selectedForm?.lifecycle_status === "DRAFT" && blockMappings.some((mapping) => mapping.is_required && !mapping.is_verified) ? <div className="inline-notice is-warning">必填動態區塊須完成實際 Word 輸出驗證後才能發布。</div> : null}
     </section> : <EmptyState title="請選擇 Word 範本版本" description="選擇後才能查看欄位對應。" />}
   </div>;
 }
 
-export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | "materials" | "word" }) {
+export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | "attachments" | "materials" | "word" }) {
   const queryClient = useQueryClient();
   const [section, setSection] = useState<StudioSection>(focus);
   const [search, setSearch] = useState("");
   const [offset, setOffset] = useState(0);
   const [selectedId, setSelectedId] = useState("");
   const [checks, setChecks] = useState<TemplateCheckItem[]>([]);
+  const [attachments, setAttachments] = useState<TemplateAttachment[]>([]);
   const [materials, setMaterials] = useState<TemplateMaterial[]>([]);
   const [instruments, setInstruments] = useState<TemplateInstrument[]>([]);
   const [wis, setWis] = useState<TemplateWi[]>([]);
@@ -256,6 +334,7 @@ export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | 
     const data = detailQuery.data;
     if (!data) return;
     setChecks(data.checks.filter((item) => item.is_active !== false));
+    setAttachments(data.attachments.filter((item) => item.is_active !== false));
     setMaterials(data.materials.filter((item) => item.is_active !== false));
     setInstruments(data.instruments.filter((item) => item.is_active !== false));
     setWis(data.wiDocuments.filter((item) => item.is_active !== false));
@@ -273,6 +352,7 @@ export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | 
   }
   const saveMeta = useMutation({ mutationFn: () => updateTemplateVersion(selectedId, meta), onSuccess: refresh });
   const saveChecks = useMutation({ mutationFn: () => saveTemplateChecks(selectedId, checks.map((item) => ({ itemNo: item.item_no, itemDescription: item.item_description, section: item.section, checkType: item.check_type, standardValue: item.standard_value, unit: item.unit, defaultStatus: item.default_status, requiresValue: item.requires_value, isRequired: item.is_required, minValue: item.min_value, maxValue: item.max_value, validationRule: item.validation_rule, sectionSortOrder: item.section_sort_order, sortOrder: item.sort_order }))), onSuccess: refresh });
+  const saveAttachments = useMutation({ mutationFn: () => saveTemplateAttachments(selectedId, attachments.map((item) => ({ attachmentCode: item.attachment_code, attachmentName: item.attachment_name, attachmentType: item.attachment_type, schemaJson: item.schema_json, sortOrder: item.sort_order, isRequired: item.is_required, conditionCode: item.condition_code, schemaVersion: item.schema_version, renderStrategy: item.render_strategy }))), onSuccess: refresh });
   const saveMaterials = useMutation({ mutationFn: () => saveTemplateMaterials(selectedId, materials.map((item) => ({ materialId: item.material_id, defaultQty: item.default_qty, defaultUnit: item.default_unit, displayNote: item.display_note, conditionCode: item.condition_code, conditionOptions: item.condition_options, isRequired: item.is_required, sortOrder: item.sort_order }))), onSuccess: refresh });
   const saveInstruments = useMutation({ mutationFn: () => saveTemplateInstruments(selectedId, instruments.map((item) => ({ instrumentId: item.instrument_id, isRequired: item.is_required, sortOrder: item.sort_order }))), onSuccess: refresh });
   const saveWis = useMutation({ mutationFn: () => saveTemplateWis(selectedId, wis.map((item) => ({ wiDocumentId: item.wi_document_id, isRequired: item.is_required, sortOrder: item.sort_order }))), onSuccess: refresh });
@@ -283,7 +363,7 @@ export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | 
   const selected = detailQuery.data?.item;
   const editable = selected?.lifecycle_status === "DRAFT";
   const hasMore = Boolean(listQuery.data && offset + limit < listQuery.data.total);
-  const counts = useMemo(() => selected ? `${detailQuery.data?.checks.filter((item) => item.is_active).length || 0} 項檢查｜${detailQuery.data?.materials.filter((item) => item.is_active).length || 0} 項用料` : "", [detailQuery.data, selected]);
+  const counts = useMemo(() => selected ? `${detailQuery.data?.checks.filter((item) => item.is_active).length || 0} 項檢查｜${detailQuery.data?.attachments.filter((item) => item.is_active).length || 0} 份附件｜${detailQuery.data?.materials.filter((item) => item.is_active).length || 0} 項用料` : "", [detailQuery.data, selected]);
 
   return <div className="template-studio">
     <aside className="template-version-list">
@@ -309,9 +389,10 @@ export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | 
           {editable ? <button className="primary-button" type="button" disabled={saveMeta.isPending} onClick={() => saveMeta.mutate()}><Save size={16} />儲存版本資訊</button> : <div className="inline-notice"><Check size={15} />已發布版本只供工單引用；修改請建立新修訂。</div>}
         </div> : null}
         {section === "checks" ? <CheckEditor items={checks} editable={editable} onChange={setChecks} onSave={() => saveChecks.mutate()} saving={saveChecks.isPending} /> : null}
+        {section === "attachments" ? <AttachmentEditor items={attachments} editable={editable} onChange={setAttachments} onSave={() => saveAttachments.mutate()} saving={saveAttachments.isPending} /> : null}
         {section === "materials" ? <MaterialEditor items={materials} editable={editable} onChange={setMaterials} onSave={() => saveMaterials.mutate()} saving={saveMaterials.isPending} /> : null}
         {section === "links" ? <LinkEditor instruments={instruments} wis={wis} editable={editable} onInstruments={setInstruments} onWis={setWis} onSaveInstruments={() => saveInstruments.mutate()} onSaveWis={() => saveWis.mutate()} /> : null}
-        {section === "word" ? <WordEditor templateId={selected.id} pmCode={selected.pm_code} forms={detailQuery.data?.formTemplates || []} editable={editable} onChanged={() => void refresh()} /> : null}
+        {section === "word" ? <WordEditor templateId={selected.id} pmCode={selected.pm_code} forms={detailQuery.data?.formTemplates || []} attachments={attachments} editable={editable} onChanged={() => void refresh()} /> : null}
       </> : !detailQuery.isPending ? <EmptyState title="尚未選擇模板" description="請從左側選擇模板版本。" /> : null}
     </section>
   </div>;

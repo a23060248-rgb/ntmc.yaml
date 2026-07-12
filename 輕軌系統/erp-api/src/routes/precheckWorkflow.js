@@ -18,11 +18,14 @@ const {
   missingAttachmentResults,
   missingCheckResults,
 } = require("../services/precheckBackfillRules");
+const { buildPmTemplateSnapshot, hashTemplateSnapshot } = require("../services/pmTemplateSnapshot");
 
 const router = express.Router();
 const PACKAGE_ROLES = ROLE_POLICIES.PACKAGE_WRITE;
 const BACKFILL_ROLES = ROLE_POLICIES.BACKFILL_WRITE;
 const PM_CODE_BY_LEVEL = { "1M": "P1", "3M": "P2", "6M": "P3", "1Y": "P4", "5Y/1Y": "P4" };
+const WORD_BLOCK_TYPES = new Set(["CHECK_TABLE", "MATERIAL_TABLE", "SEAT_MAP", "MEASUREMENT_TABLE", "OTHER"]);
+const WORD_BLOCK_TARGET_TYPES = new Set(["BOOKMARK_RANGE", "TABLE", "SHAPE_COORDINATES", "IMAGE_OVERLAY"]);
 
 router.use(resolveAuth);
 
@@ -45,6 +48,32 @@ function numberOrNull(value) {
   const number = Number(value);
   if (!Number.isFinite(number)) throw httpError(400, "數值格式不正確");
   return number;
+}
+
+function normalizedWordBlock(mapping, index) {
+  const blockCode = cleanText(mapping?.blockCode)?.toUpperCase();
+  const sourcePath = cleanText(mapping?.sourcePath);
+  const blockType = String(mapping?.blockType || "OTHER").toUpperCase();
+  const wordTargetType = String(mapping?.wordTargetType || "BOOKMARK_RANGE").toUpperCase();
+  const wordTarget = cleanText(mapping?.wordTarget);
+  if (!blockCode || !/^[A-Z0-9][A-Z0-9_-]{1,79}$/.test(blockCode)) throw httpError(400, `第 ${index + 1} 筆動態區塊代碼不正確`);
+  if (!sourcePath || !wordTarget) throw httpError(400, `第 ${index + 1} 筆動態區塊缺少資料來源或 Word 目標`);
+  if (!WORD_BLOCK_TYPES.has(blockType)) throw httpError(400, `第 ${index + 1} 筆動態區塊類型不支援`);
+  if (!WORD_BLOCK_TARGET_TYPES.has(wordTargetType)) throw httpError(400, `第 ${index + 1} 筆 Word 目標類型不支援`);
+  const configJson = mapping?.configJson && typeof mapping.configJson === "object" && !Array.isArray(mapping.configJson)
+    ? mapping.configJson
+    : {};
+  return {
+    blockCode,
+    sourcePath,
+    blockType,
+    wordTargetType,
+    wordTarget,
+    transformCode: cleanText(mapping?.transformCode),
+    configJson,
+    isRequired: Boolean(mapping?.isRequired),
+    sortOrder: Number(mapping?.sortOrder || index + 1),
+  };
 }
 
 async function getPmWorkOrder(client, workOrderNo, forUpdate = false) {
@@ -133,6 +162,8 @@ function packageDto(row, relations) {
     executionType: row.execution_type,
     formTemplateId: row.form_template_id,
     formSnapshot: row.form_snapshot || {},
+    templateSnapshotHash: row.template_snapshot_hash,
+    templateSnapshotCreatedAt: row.template_snapshot_created_at,
     backfillStatus: row.backfill_status,
     actualWorkDate: row.actual_work_date,
     actualStartAt: row.actual_start_at,
@@ -181,7 +212,7 @@ router.post(
         [workOrderNo, schedule.planned_start_date, schedule.site_code, targetCode, sequence,
           `${schedule.target_name} ${schedule.pm_level} 預防檢修`, schedule.train_id, actorId(req), cleanText(req.body?.remark)]
       );
-      const snapshot = {
+      const formSnapshot = {
         scheduleItemId: schedule.id,
         targetType: schedule.target_type,
         targetKey: schedule.target_key,
@@ -194,15 +225,21 @@ router.post(
         pmTemplateRevision: template.rows[0].revision_no,
         conditions: { airFilterMode: "N/A" },
       };
+      const templateSnapshot = await buildPmTemplateSnapshot(client, template.rows[0].id);
+      if (!templateSnapshot.formTemplate) throw httpError(409, `${pmCode} 尚未設定已發布的 Word 範本版本`);
+      const templateSnapshotHash = hashTemplateSnapshot(templateSnapshot);
       await client.query(
         `INSERT INTO pm_work_order (
            work_order_id, pm_template_id, pm_code, plan_start_date, latest_finish_date,
            system_name, equipment_group_name, maintenance_type, execution_type,
-           form_snapshot, backfill_status
-         ) VALUES ($1,$2,$3,$4,$5,$6,$7,'預防性維修','正常預排',$8::jsonb,'NOT_STARTED')`,
+           form_template_id,form_snapshot,backfill_status,template_snapshot,
+           template_snapshot_hash,template_snapshot_created_at
+         ) VALUES ($1,$2,$3,$4,$5,$6,$7,'預防性維修','正常預排',$8,$9::jsonb,
+                   'NOT_STARTED',$10::jsonb,$11,now())`,
         [workOrder.rows[0].id, template.rows[0].id, pmCode, schedule.planned_start_date,
           schedule.planned_end_date, schedule.target_type === "VEHICLE" ? "輕軌列車" : "機廠設備",
-          schedule.target_name, JSON.stringify(snapshot)]
+          schedule.target_name, templateSnapshot.formTemplate.id, JSON.stringify(formSnapshot),
+          JSON.stringify(templateSnapshot), templateSnapshotHash]
       );
       await client.query(
         `INSERT INTO work_order_material (work_order_id, material_id, planned_qty, unit, note)
@@ -283,11 +320,29 @@ router.patch(
       const row = await getPmWorkOrder(client, req.params.no, true);
       const body = req.body || {};
       const snapshot = { ...(row.form_snapshot || {}), conditions: body.conditions || row.form_snapshot?.conditions || {}, preparationNote: cleanText(body.preparationNote) };
+      const requestedFormTemplateId = cleanText(body.formTemplateId);
+      if (requestedFormTemplateId && requestedFormTemplateId !== row.form_template_id) {
+        const printed = await client.query(
+          `SELECT 1 FROM work_order_print_job WHERE work_order_id=$1 AND job_status='READY' LIMIT 1`,
+          [row.work_order_id]
+        );
+        if (printed.rowCount) throw httpError(409, "首次列印完成後不可更換 Word 範本版本");
+      }
+      const refreshTemplateSnapshot = Boolean(requestedFormTemplateId) || !row.template_snapshot_hash;
+      const templateSnapshot = refreshTemplateSnapshot
+        ? await buildPmTemplateSnapshot(client, row.pm_template_id, requestedFormTemplateId || row.form_template_id)
+        : null;
+      const templateSnapshotHash = templateSnapshot ? hashTemplateSnapshot(templateSnapshot) : null;
       await client.query(
         `UPDATE pm_work_order SET maintenance_type=COALESCE($2,maintenance_type),
            execution_type=COALESCE($3,execution_type), form_template_id=COALESCE($4,form_template_id),
-           form_snapshot=$5::jsonb WHERE work_order_id=$1`,
-        [row.work_order_id, cleanText(body.maintenanceType), cleanText(body.executionType), cleanText(body.formTemplateId), JSON.stringify(snapshot)]
+           form_snapshot=$5::jsonb,
+           template_snapshot=COALESCE($6::jsonb,template_snapshot),
+           template_snapshot_hash=COALESCE($7,template_snapshot_hash),
+           template_snapshot_created_at=CASE WHEN $6::jsonb IS NULL THEN template_snapshot_created_at ELSE now() END
+         WHERE work_order_id=$1`,
+        [row.work_order_id, cleanText(body.maintenanceType), cleanText(body.executionType), requestedFormTemplateId,
+          JSON.stringify(snapshot), templateSnapshot ? JSON.stringify(templateSnapshot) : null, templateSnapshotHash]
       );
       if (Array.isArray(body.instrumentIds)) {
         await client.query(`DELETE FROM work_order_instrument WHERE work_order_id=$1`, [row.work_order_id]);
@@ -691,11 +746,11 @@ router.get("/form-templates", asyncHandler(async (req, res) => {
   const offset = Math.max(Number(req.query.offset) || 0, 0);
   const rows = await query(
     `SELECT ft.*,pt.pm_code,pt.pm_label,
-            count(fm.id)::int AS mapping_count
+            (SELECT count(*)::int FROM form_template_field_mapping fm WHERE fm.form_template_id=ft.id) AS mapping_count,
+            (SELECT count(*)::int FROM form_template_block_mapping bm WHERE bm.form_template_id=ft.id) AS block_mapping_count
        FROM form_template ft LEFT JOIN pm_template pt ON pt.id=ft.pm_template_id
-       LEFT JOIN form_template_field_mapping fm ON fm.form_template_id=ft.id
        ${filters.length ? `WHERE ${filters.join(" AND ")}` : ""}
-       GROUP BY ft.id,pt.pm_code,pt.pm_label ORDER BY pt.pm_code,ft.version_no DESC
+       ORDER BY pt.pm_code,ft.version_no DESC
        LIMIT $${values.length + 1} OFFSET $${values.length + 2}`, [...values, limit, offset]
   );
   const count = await query(
@@ -713,6 +768,17 @@ router.get("/form-templates/:id/mappings", asyncHandler(async (req, res) => {
   const rows = await query(
     `SELECT * FROM form_template_field_mapping
       WHERE form_template_id=$1 ORDER BY sort_order,field_key`,
+    [req.params.id]
+  );
+  res.json({ items: rows.rows, lifecycleStatus: template.rows[0].lifecycle_status });
+}));
+
+router.get("/form-templates/:id/block-mappings", asyncHandler(async (req, res) => {
+  const template = await query(`SELECT id,lifecycle_status FROM form_template WHERE id=$1`, [req.params.id]);
+  if (!template.rowCount) throw httpError(404, "Word 範本不存在");
+  const rows = await query(
+    `SELECT * FROM form_template_block_mapping
+      WHERE form_template_id=$1 ORDER BY sort_order,block_code`,
     [req.params.id]
   );
   res.json({ items: rows.rows, lifecycleStatus: template.rows[0].lifecycle_status });
@@ -752,6 +818,31 @@ router.put("/form-templates/:id/mappings", requireRoles(...ROLE_POLICIES.MASTER_
   res.json({ items: rows.rows, updated: rows.rowCount });
 }));
 
+router.put("/form-templates/:id/block-mappings", requireRoles(...ROLE_POLICIES.MASTER_WRITE), asyncHandler(async (req, res) => {
+  const mappings = Array.isArray(req.body?.mappings) ? req.body.mappings.map(normalizedWordBlock) : [];
+  const codes = new Set();
+  for (const mapping of mappings) {
+    if (codes.has(mapping.blockCode)) throw httpError(400, `動態區塊代碼重複：${mapping.blockCode}`);
+    codes.add(mapping.blockCode);
+  }
+  await withTransaction(async (client) => {
+    const template = await client.query(`SELECT id,lifecycle_status FROM form_template WHERE id=$1 FOR UPDATE`, [req.params.id]);
+    if (!template.rowCount) throw httpError(404, "Word 範本不存在");
+    if (template.rows[0].lifecycle_status !== "DRAFT") throw httpError(409, "已發布的 Word 範本不可修改，請新增版本");
+    await client.query(`DELETE FROM form_template_block_mapping WHERE form_template_id=$1`, [req.params.id]);
+    for (const mapping of mappings) await client.query(
+      `INSERT INTO form_template_block_mapping (
+         form_template_id,block_code,source_path,block_type,word_target_type,word_target,
+         transform_code,config_json,is_required,is_verified,sort_order
+       ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8::jsonb,$9,false,$10)`,
+      [req.params.id,mapping.blockCode,mapping.sourcePath,mapping.blockType,mapping.wordTargetType,
+        mapping.wordTarget,mapping.transformCode,JSON.stringify(mapping.configJson),mapping.isRequired,mapping.sortOrder]
+    );
+  });
+  const rows = await query(`SELECT * FROM form_template_block_mapping WHERE form_template_id=$1 ORDER BY sort_order,block_code`, [req.params.id]);
+  res.json({ items: rows.rows, updated: rows.rowCount });
+}));
+
 router.post("/form-templates/:id/publish", requireRoles(...ROLE_POLICIES.MASTER_WRITE), asyncHandler(async (req, res) => {
   const published = await withTransaction(async (client) => {
     const template = await client.query(`SELECT * FROM form_template WHERE id=$1 FOR UPDATE`, [req.params.id]);
@@ -764,6 +855,28 @@ router.post("/form-templates/:id/publish", requireRoles(...ROLE_POLICIES.MASTER_
       [req.params.id]
     );
     if (!required.rows[0].total) throw httpError(409, "發布前至少需要一筆 Word 欄位對應");
+    const missingAttachmentBlocks = await client.query(
+      `SELECT pta.attachment_code
+         FROM pm_template_attachment pta
+         LEFT JOIN form_template_block_mapping bm
+           ON bm.form_template_id=$1 AND bm.block_code=pta.attachment_code
+        WHERE pta.pm_template_id=$2 AND pta.is_active=true AND pta.is_required=true
+          AND pta.render_strategy<>'DATA_ONLY' AND bm.id IS NULL
+        ORDER BY pta.sort_order,pta.attachment_code`,
+      [req.params.id, template.rows[0].pm_template_id]
+    );
+    if (missingAttachmentBlocks.rowCount) throw httpError(409, "必要附件尚未完成 Word 動態區塊對應", {
+      attachments: missingAttachmentBlocks.rows.map((row) => row.attachment_code),
+    });
+    const unverifiedBlocks = await client.query(
+      `SELECT block_code FROM form_template_block_mapping
+        WHERE form_template_id=$1 AND is_required=true AND is_verified=false
+        ORDER BY sort_order,block_code`,
+      [req.params.id]
+    );
+    if (unverifiedBlocks.rowCount) throw httpError(409, "必要 Word 動態區塊尚未完成實際輸出驗證", {
+      blocks: unverifiedBlocks.rows.map((row) => row.block_code),
+    });
     await client.query(
       `UPDATE form_template SET lifecycle_status='RETIRED',is_active=false,
               effective_to=COALESCE(effective_to,CURRENT_DATE-1),updated_at=now()

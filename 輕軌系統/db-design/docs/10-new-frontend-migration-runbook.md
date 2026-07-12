@@ -1,6 +1,6 @@
 # 輕軌維修系統 Migration 套用與回復手冊
 
-更新日期：2026-07-12
+更新日期：2026-07-13
 
 ## 1. 安全原則
 
@@ -18,7 +18,7 @@
 | --- | --- |
 | `schema.postgres.sql` | 全新資料庫的基礎 schema，不列入既有資料庫升級 ledger |
 | `migration-schema-ledger.sql` | 建立 append-only `schema_migration` 台帳，序號固定為 0 |
-| `migration-manifest.json` | 24 支業務 migration 的唯一順序、ID 與驗證 SQL |
+| `migration-manifest.json` | 25 支業務 migration 的唯一順序、ID 與驗證 SQL |
 | `erp-api/scripts/apply-rehearsal-migrations.js` | 只讀預檢、既有 schema 基準化及缺少 migration 套用工具 |
 
 `migration-manifest.json` 是唯一排序清單。README、人工筆記或檔名排序都不能取代它。
@@ -79,7 +79,7 @@ npm run migrations:rehearsal -- --baseline-existing --apply-missing
 
 ## 5. Seed 與匯入
 
-Seed 不列入業務 migration ledger，必須在 24 支 migration 全部完成後，依用途個別執行：
+Seed 不列入業務 migration ledger，必須在 25 支 migration 全部完成後，依用途個別執行：
 
 1. 正式參考資料 seed。
 2. 主檔、物料與 PM 模板匯入。
@@ -159,7 +159,15 @@ select to_regclass('public.operation_audit_log');
 - health、dashboard、work-orders、precheck、inventory、turnaround、master-data、equipment-alias、reports 與 session login 均回傳 200。
 - 正式資料庫未執行任何 migration。
 
-## 10. 尚待驗證
+## 10. 2026-07-13 預檢模板維護結構
+
+- 新增 `migration-pm-template-maintenance.sql`，manifest 現為 25 支業務 migration。
+- 完整 ledger 應為 26 筆：bootstrap 1 筆、業務 migration 25 筆。
+- 新增附件輸出策略、Word 動態區塊 mapping 與 P 工單完整模板快照。
+- 只允許在 rehearsal 資料庫先行套用與驗證；正式資料庫仍需人工核准。
+- 必填 Word 動態區塊須經實際輸出比對後標記驗證，未驗證版本不可發布。
+
+## 11. 尚待驗證
 
 - 正式 Word 範本路徑與 Word COM 實際輸出仍待驗收。
 - 設備別名正式資料需經主檔確認後再匯入，不使用範例 CSV 直接代替正式資料。

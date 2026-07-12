@@ -1,6 +1,6 @@
 # 輕軌維修系統實作狀態
 
-更新日期：2026-07-10
+更新日期：2026-07-13
 
 ## 已完成
 
@@ -14,21 +14,25 @@
 - P 工單作業包、範本版本快照、列印前確認與 Word COM worker。
 - 待回填、量測判定、P1 座椅附件、六點煞車量測、異常 C 單與實際用料過帳。
 - 六種管理報表、來源回查連結與跨模組 mutation 稽核。
+- 可維護附件結構、Word 動態區塊 mapping 與 P 工單完整模板快照。
 
 ## 已驗證
 
 - API 語法檢查通過。
-- API 單元測試 17/17 通過。
-- 前端單元測試 5/5 通過。
+- API 單元測試 46/46 通過。
+- 前端單元測試 8/8 通過。
 - TypeScript 與前端 build 通過。
 - `frontend/dist/index.html` 為單一 HTML。
 - 新 migration 已在隔離 PostgreSQL 還原庫首跑與重跑成功。
 - Legacy HTML SHA256 保持 `46647B38352C3B543E7A78FE63B801008D237AF49C88F5E0A2557AF7DBFB2E73`。
+- 第 250 號 migration 只在 rehearsal 套用；首跑 APPLY、重跑 25/25 VERIFY，ledger 共 26 筆。
+- P1 附件修訂複製與發布版本隔離已由 API 實測通過。
 
 ## 尚待整合驗收
 
 - 需匯入正式設備序號/坑位測試資料，跑通 C 拆件至 R 回庫完整成功路徑。
 - 需配置官方 Word 範本路徑，在裝有 Microsoft Word 的 API 主機比對實際輸出頁面。
+- P1 POST_COMPLETION 尚未將數位檢查表、座椅 X、六點煞車值與實際用料寫回 Word。
 - 直接 `.xlsx` 解析 adapter 尚未安裝；CSV/正規化列匯入已可用。
 - 正式登入 API、HttpOnly Cookie、Session 過期/撤銷與前端 API/Preview 雙模式已於 2026-07-12 接入；正式 build 預設使用 API 模式。
 - 尚需完成 1440x900、390x844 與鍵盤操作的瀏覽器 QA。

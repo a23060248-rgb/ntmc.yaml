@@ -62,7 +62,7 @@ Set-Location .\erp-api
 npm run migrations:rehearsal
 ```
 
-這個命令預設只讀，會依 `db-design/migration-manifest.json` 檢查 24 支 migration 是否存在。人工確認備份與目標資料庫後，才可依 [`db-design/docs/10-new-frontend-migration-runbook.md`](db-design/docs/10-new-frontend-migration-runbook.md) 的方式建立 ledger 或套用缺少 migration；不得指向正式資料庫。
+這個命令預設只讀，會依 `db-design/migration-manifest.json` 檢查 25 支 migration 是否存在。人工確認備份與目標資料庫後，才可依 [`db-design/docs/10-new-frontend-migration-runbook.md`](db-design/docs/10-new-frontend-migration-runbook.md) 的方式建立 ledger 或套用缺少 migration；不得指向正式資料庫。
 
 ## 固定驗證
 

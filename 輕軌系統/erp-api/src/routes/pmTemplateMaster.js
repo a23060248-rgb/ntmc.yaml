@@ -3,6 +3,7 @@ const { query, withTransaction } = require("../db");
 const { asyncHandler, httpError } = require("../middleware/errorHandler");
 const { resolveAuth, requireRoles } = require("../middleware/auth");
 const { ROLE_POLICIES } = require("../config/rolePolicy");
+const { normalizeAttachmentList } = require("../services/pmTemplateDefinition");
 
 const router = express.Router();
 const EDIT_ROLES = ROLE_POLICIES.MASTER_WRITE;
@@ -82,11 +83,12 @@ async function detail(client, id) {
       [id]
     ),
     client.query(
-      `SELECT ft.*,count(fm.id)::int AS mapping_count
+      `SELECT ft.*,
+              (SELECT count(*)::int FROM form_template_field_mapping fm WHERE fm.form_template_id=ft.id) AS mapping_count,
+              (SELECT count(*)::int FROM form_template_block_mapping bm WHERE bm.form_template_id=ft.id) AS block_mapping_count
          FROM form_template ft
-         LEFT JOIN form_template_field_mapping fm ON fm.form_template_id=ft.id
         WHERE ft.pm_template_id=$1
-        GROUP BY ft.id ORDER BY ft.version_no DESC`,
+        ORDER BY ft.version_no DESC`,
       [id]
     ),
   ]);
@@ -119,7 +121,8 @@ router.get("/", asyncHandler(async (req, res) => {
             count(DISTINCT ci.id) FILTER (WHERE ci.is_active=true)::int AS check_count,
             count(DISTINCT ptm.material_id) FILTER (WHERE ptm.is_active=true)::int AS material_count,
             count(DISTINCT pti.instrument_id) FILTER (WHERE pti.is_active=true)::int AS instrument_count,
-            count(DISTINCT ptw.wi_document_id) FILTER (WHERE ptw.is_active=true)::int AS wi_count
+            count(DISTINCT ptw.wi_document_id) FILTER (WHERE ptw.is_active=true)::int AS wi_count,
+            (SELECT count(*)::int FROM pm_template_attachment pta WHERE pta.pm_template_id=pt.id AND pta.is_active=true) AS attachment_count
        FROM pm_template pt
        LEFT JOIN pm_template_check_item ci ON ci.pm_template_id=pt.id
        LEFT JOIN pm_template_material ptm ON ptm.pm_template_id=pt.id
@@ -211,8 +214,10 @@ router.post("/:id/revisions", requireRoles(...EDIT_ROLES), asyncHandler(async (r
     );
     await client.query(
       `INSERT INTO pm_template_attachment (
-         pm_template_id,attachment_code,attachment_name,attachment_type,schema_json,sort_order,is_active
-       ) SELECT $1,attachment_code,attachment_name,attachment_type,schema_json,sort_order,is_active
+         pm_template_id,attachment_code,attachment_name,attachment_type,schema_json,sort_order,is_active,
+         is_required,condition_code,schema_version,render_strategy
+       ) SELECT $1,attachment_code,attachment_name,attachment_type,schema_json,sort_order,is_active,
+                is_required,condition_code,schema_version,render_strategy
            FROM pm_template_attachment WHERE pm_template_id=$2`,
       [newId, source.id]
     );
@@ -310,6 +315,39 @@ router.put("/:id/materials", requireRoles(...EDIT_ROLES), asyncHandler(async (re
     await client.query(
       `UPDATE pm_template_material SET is_active=false
         WHERE pm_template_id=$1 AND NOT (material_id=ANY($2::uuid[]))`,
+      [req.params.id, kept]
+    );
+  });
+  res.json(await detail({ query }, req.params.id));
+}));
+
+router.put("/:id/attachments", requireRoles(...EDIT_ROLES), asyncHandler(async (req, res) => {
+  const items = normalizeAttachmentList(req.body?.items || []);
+  await withTransaction(async (client) => {
+    await ensureDraft(client, req.params.id, true);
+    const kept = [];
+    for (const item of items) {
+      const result = await client.query(
+        `INSERT INTO pm_template_attachment (
+           pm_template_id,attachment_code,attachment_name,attachment_type,schema_json,sort_order,is_active,
+           is_required,condition_code,schema_version,render_strategy
+         ) VALUES ($1,$2,$3,$4,$5::jsonb,$6,true,$7,$8,$9,$10)
+         ON CONFLICT (pm_template_id,attachment_code) DO UPDATE SET
+           attachment_name=EXCLUDED.attachment_name,attachment_type=EXCLUDED.attachment_type,
+           schema_json=EXCLUDED.schema_json,sort_order=EXCLUDED.sort_order,is_active=true,
+           is_required=EXCLUDED.is_required,condition_code=EXCLUDED.condition_code,
+           schema_version=EXCLUDED.schema_version,render_strategy=EXCLUDED.render_strategy,
+           updated_at=now()
+         RETURNING id`,
+        [req.params.id, item.attachmentCode, item.attachmentName, item.attachmentType,
+          JSON.stringify(item.schemaJson), item.sortOrder, Boolean(item.isRequired), item.conditionCode,
+          item.schemaVersion, item.renderStrategy]
+      );
+      kept.push(result.rows[0].id);
+    }
+    await client.query(
+      `UPDATE pm_template_attachment SET is_active=false,updated_at=now()
+        WHERE pm_template_id=$1 AND NOT (id=ANY($2::uuid[]))`,
       [req.params.id, kept]
     );
   });

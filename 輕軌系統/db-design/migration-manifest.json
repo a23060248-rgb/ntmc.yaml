@@ -145,6 +145,12 @@
       "id": "session-security",
       "file": "migration-session-security.sql",
       "verifySql": "SELECT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='app_user' AND column_name='failed_login_count') AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='user_session' AND column_name='token_hash') AND EXISTS (SELECT 1 FROM pg_indexes WHERE schemaname='public' AND indexname='uq_user_session_token_hash') AS ok"
+    },
+    {
+      "sequence": 250,
+      "id": "pm-template-maintenance",
+      "file": "migration-pm-template-maintenance.sql",
+      "verifySql": "SELECT to_regclass('public.form_template_block_mapping') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='pm_template_attachment' AND column_name='render_strategy') AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='pm_work_order' AND column_name='template_snapshot_hash') AS ok"
     }
   ]
 }

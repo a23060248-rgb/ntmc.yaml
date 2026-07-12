@@ -22,6 +22,7 @@ export interface PmTemplateVersion {
   material_count?: number;
   instrument_count?: number;
   wi_count?: number;
+  attachment_count?: number;
 }
 
 export interface TemplateCheckItem {
@@ -96,6 +97,7 @@ export interface WordTemplateVersion {
   is_active: boolean;
   lifecycle_status: TemplateLifecycle;
   mapping_count: number;
+  block_mapping_count?: number;
 }
 
 export interface WordFieldMapping {
@@ -110,13 +112,70 @@ export interface WordFieldMapping {
   sort_order: number;
 }
 
+export type TemplateAttachmentType = "SEAT_MAP" | "MEASUREMENT_TABLE" | "OTHER";
+export type AttachmentRenderStrategy = "WORD_BLOCK" | "WORD_TABLE" | "WORD_OVERLAY" | "DATA_ONLY";
+
+export interface SeatMapModule {
+  code: string;
+  rows: Array<Array<"S" | "P" | null>>;
+}
+
+export interface MeasurementPoint {
+  key: string;
+  label: string;
+}
+
+export interface AttachmentField {
+  key: string;
+  label: string;
+  type?: string;
+  unit?: string;
+  min?: number | string;
+  max?: number | string;
+  required?: boolean;
+}
+
+export interface TemplateAttachment {
+  id?: string;
+  attachment_code: string;
+  attachment_name: string;
+  attachment_type: TemplateAttachmentType;
+  schema_json: {
+    modules?: SeatMapModule[];
+    points?: MeasurementPoint[];
+    fields?: AttachmentField[];
+    legend?: Record<string, string>;
+    abnormalMark?: string;
+  };
+  sort_order: number;
+  is_required: boolean;
+  condition_code: string;
+  schema_version: number;
+  render_strategy: AttachmentRenderStrategy;
+  is_active: boolean;
+}
+
+export interface WordBlockMapping {
+  id?: string;
+  block_code: string;
+  source_path: string;
+  block_type: "CHECK_TABLE" | "MATERIAL_TABLE" | "SEAT_MAP" | "MEASUREMENT_TABLE" | "OTHER";
+  word_target_type: "BOOKMARK_RANGE" | "TABLE" | "SHAPE_COORDINATES" | "IMAGE_OVERLAY";
+  word_target: string;
+  transform_code?: string;
+  config_json?: Record<string, unknown>;
+  is_required: boolean;
+  is_verified?: boolean;
+  sort_order: number;
+}
+
 export interface TemplateDetail {
   item: PmTemplateVersion;
   checks: TemplateCheckItem[];
   materials: TemplateMaterial[];
   instruments: TemplateInstrument[];
   wiDocuments: TemplateWi[];
-  attachments: Array<Record<string, unknown>>;
+  attachments: TemplateAttachment[];
   formTemplates: WordTemplateVersion[];
 }
 
@@ -148,6 +207,10 @@ export function saveTemplateMaterials(id: string, items: Array<Record<string, un
   return api.put<TemplateDetail>(`master-data/pm-template-studio/${encodeURIComponent(id)}/materials`, { items });
 }
 
+export function saveTemplateAttachments(id: string, items: Array<Record<string, unknown>>) {
+  return api.put<TemplateDetail>(`master-data/pm-template-studio/${encodeURIComponent(id)}/attachments`, { items });
+}
+
 export function saveTemplateInstruments(id: string, items: Array<Record<string, unknown>>) {
   return api.put<TemplateDetail>(`master-data/pm-template-studio/${encodeURIComponent(id)}/instruments`, { items });
 }
@@ -170,6 +233,26 @@ export function getWordMappings(id: string, signal?: AbortSignal) {
 
 export function saveWordMappings(id: string, mappings: WordFieldMapping[]) {
   return api.put<{ items: WordFieldMapping[] }>(`precheck/form-templates/${encodeURIComponent(id)}/mappings`, { mappings });
+}
+
+export function getWordBlockMappings(id: string, signal?: AbortSignal) {
+  return api.get<{ items: WordBlockMapping[]; lifecycleStatus: TemplateLifecycle }>(`precheck/form-templates/${encodeURIComponent(id)}/block-mappings`, undefined, signal);
+}
+
+export function saveWordBlockMappings(id: string, mappings: WordBlockMapping[]) {
+  return api.put<{ items: WordBlockMapping[] }>(`precheck/form-templates/${encodeURIComponent(id)}/block-mappings`, {
+    mappings: mappings.map((mapping, index) => ({
+      blockCode: mapping.block_code,
+      sourcePath: mapping.source_path,
+      blockType: mapping.block_type,
+      wordTargetType: mapping.word_target_type,
+      wordTarget: mapping.word_target,
+      transformCode: mapping.transform_code,
+      configJson: mapping.config_json || {},
+      isRequired: mapping.is_required,
+      sortOrder: mapping.sort_order || index + 1,
+    })),
+  });
 }
 
 export function publishWordTemplate(id: string, effectiveFrom?: string) {
