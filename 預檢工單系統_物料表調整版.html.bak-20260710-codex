@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
@@ -50368,8 +50368,6 @@ react-dom/cjs/react-dom-client.production.js:
   window.requestAnimationFrame(guardAndMount);
 })();
 </script>
-<script src="dispatch-catalog.js"></script>
-<script src="cwo-module.js"></script>
 <script id="codex-cwo-integrated-script">
 (() => {
   if (window.CodexCwoIntegratedReady) return;
@@ -51004,13 +51002,8 @@ react-dom/cjs/react-dom-client.production.js:
   }
 
   wireEvents();
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot, { once: true });
-  } else {
-    window.requestAnimationFrame(boot);
-  }
-  window.setTimeout(boot, 400);
-  window.setTimeout(boot, 1200);
+  new MutationObserver(boot).observe(document.documentElement, { childList: true, subtree: true });
+  window.requestAnimationFrame(boot);
 })();
 </script>
 <script id="codex-lrt-modular-nav-script">
@@ -51030,7 +51023,6 @@ react-dom/cjs/react-dom-client.production.js:
   ];
   let activeModule = "precheck";
   let applying = false;
-  let bootScheduled = false;
 
   function textOf(node) {
     return (node && node.textContent ? node.textContent : "").replace(/\s+/g, " ").trim();
@@ -51056,10 +51048,6 @@ react-dom/cjs/react-dom-client.production.js:
       .codex-lrt-nav-button.is-active{background:rgba(6,182,212,.22);color:#ecfeff;font-weight:800;box-shadow:inset 0 0 0 1px rgba(34,211,238,.38)}
       .codex-lrt-nav-icon{display:inline-flex;height:24px;width:24px;align-items:center;justify-content:center;border-radius:9px;background:rgba(148,163,184,.12);font-size:12px;font-weight:800;color:#a5f3fc}
       .codex-lrt-nav-button.is-active .codex-lrt-nav-icon{background:rgba(34,211,238,.26);color:#ecfeff}
-      html[data-lrt-active-module] main{display:block!important}
-      html[data-lrt-active-module="settings"] main{display:none!important}
-      html[data-lrt-active-module] main > *{display:none!important}
-      html[data-lrt-active-module] main > [data-lrt-content-active="true"]{display:block!important}
     `;
     document.head.appendChild(style);
   }
@@ -51113,22 +51101,6 @@ react-dom/cjs/react-dom-client.production.js:
       host.dataset.lrtActiveModule = activeModule;
       host.innerHTML = nextHtml;
     }
-    observeNav(nav);
-  }
-
-  function scheduleBoot() {
-    if (bootScheduled) return;
-    bootScheduled = true;
-    window.requestAnimationFrame(() => {
-      bootScheduled = false;
-      boot();
-    });
-  }
-
-  function observeNav(nav) {
-    if (!nav || nav.dataset.lrtNavObserved === "true") return;
-    nav.dataset.lrtNavObserved = "true";
-    new MutationObserver(scheduleBoot).observe(nav, { childList: true, subtree: true });
   }
 
   function applySystemName() {
@@ -51145,46 +51117,6 @@ react-dom/cjs/react-dom-client.production.js:
     Array.from(document.querySelectorAll("main h1, main h2")).forEach((node) => {
       const text = textOf(node);
       if (text === "預檢系統管理" || text === "預檢工單系統") node.textContent = "輕軌維修系統";
-    });
-  }
-
-  function isPrecheckContent(child) {
-    if (!child) return false;
-    if (child.matches && child.matches(".codex-pm-calendar-host,[data-codex-precheck-home]")) return true;
-    if (child.querySelector && child.querySelector(".codex-pm-calendar-host,[data-codex-precheck-home]")) return true;
-    const text = textOf(child);
-    return text.indexOf("儀器列表") !== -1 && text.indexOf("工作說明書") !== -1;
-  }
-
-  function isMaterialContent(child) {
-    const text = textOf(child);
-    return text.indexOf("物料查詢與新增") !== -1 || (text.indexOf("物料清單") !== -1 && text.indexOf("待處理物料") !== -1);
-  }
-
-  function isolateModule(moduleKey) {
-    const main = document.querySelector("main.flex-1") || document.querySelector("main");
-    if (!main) return;
-    document.documentElement.dataset.lrtActiveModule = moduleKey;
-    main.hidden = false;
-    main.style.display = "";
-    document.querySelectorAll("body > .codex-pm-calendar-host[data-codex-precheck-home='true']").forEach((host) => {
-      const showStandalone = moduleKey === "settings";
-      host.hidden = !showStandalone;
-      host.style.display = showStandalone ? "" : "none";
-    });
-    Array.from(main.children).forEach((child) => {
-      let show = false;
-      if (moduleKey === "dashboard" || moduleKey === "orders") {
-        show = child.id === "codex-cwo-integrated-host";
-      } else if (moduleKey === "turnaround") {
-        show = child.id === "codex-turnaround-route-host";
-      } else if (moduleKey === "materials") {
-        show = isMaterialContent(child);
-      } else if (moduleKey === "precheck") {
-        show = isPrecheckContent(child);
-      }
-      child.dataset.lrtContentActive = show ? "true" : "false";
-      child.hidden = !show;
     });
   }
 
@@ -51238,25 +51170,21 @@ react-dom/cjs/react-dom-client.production.js:
   function activateSettings() {
     restoreReact();
     clickOriginal("預檢系統管理");
-    const showSettings = () => {
-      if (typeof window.codexPmShowManagementSection === "function") {
-        window.codexPmShowManagementSection("instruments");
-      } else {
-        const instrumentCard = Array.from(document.querySelectorAll("main button")).find((node) => textOf(node).indexOf("儀器列表") !== -1);
-        if (instrumentCard) instrumentCard.click();
-      }
+    window.setTimeout(() => {
+      const managementCards = Array.from(document.querySelectorAll("main button, main [role='button']")).filter((node) => {
+        const text = textOf(node);
+        return text.indexOf("儀器列表") !== -1 || text.indexOf("用料說明") !== -1 || text.indexOf("工作說明書") !== -1;
+      });
+      const instrumentCard = managementCards.find((node) => textOf(node).indexOf("儀器列表") !== -1);
+      if (instrumentCard) instrumentCard.click();
       applySystemName();
       ensureNav();
-      isolateModule("settings");
-    };
-    window.setTimeout(showSettings, 160);
-    window.setTimeout(showSettings, 520);
+    }, 120);
   }
 
   function activateModule(moduleKey) {
     activeModule = moduleKey;
     ensureNav();
-    isolateModule(moduleKey);
     if (moduleKey === "dashboard") activateCwo("dashboard");
     else if (moduleKey === "orders") activateCwo("orders");
     else if (moduleKey === "precheck") activatePrecheck();
@@ -51266,9 +51194,7 @@ react-dom/cjs/react-dom-client.production.js:
     window.setTimeout(() => {
       applySystemName();
       ensureNav();
-      isolateModule(moduleKey);
     }, 180);
-    window.setTimeout(() => isolateModule(moduleKey), 700);
   }
 
   function boot() {
@@ -51277,7 +51203,6 @@ react-dom/cjs/react-dom-client.production.js:
     try {
       ensureNav();
       applySystemName();
-      isolateModule(activeModule);
     } finally {
       applying = false;
     }
@@ -51293,14 +51218,8 @@ react-dom/cjs/react-dom-client.production.js:
   }, true);
 
   window.CodexLrtActivateModule = activateModule;
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", scheduleBoot, { once: true });
-  } else {
-    scheduleBoot();
-  }
-  window.setTimeout(scheduleBoot, 250);
-  window.setTimeout(scheduleBoot, 800);
-  window.setTimeout(scheduleBoot, 1600);
+  new MutationObserver(boot).observe(document.documentElement, { childList: true, subtree: true });
+  window.requestAnimationFrame(boot);
 })();
 </script>
 </body>

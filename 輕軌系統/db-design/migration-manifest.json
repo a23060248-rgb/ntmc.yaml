@@ -1,0 +1,150 @@
+{
+  "manifestVersion": 1,
+  "description": "Dependency-ordered business migrations for the light rail maintenance system.",
+  "migrations": [
+    {
+      "sequence": 10,
+      "id": "auth",
+      "file": "migration-auth.sql",
+      "verifySql": "SELECT to_regclass('public.user_session') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='app_user' AND column_name='account') AS ok"
+    },
+    {
+      "sequence": 20,
+      "id": "system-roles",
+      "file": "migration-system-roles.sql",
+      "verifySql": "SELECT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='app_user' AND column_name='system_role') AS ok"
+    },
+    {
+      "sequence": 30,
+      "id": "train-fleet",
+      "file": "migration-train-fleet.sql",
+      "verifySql": "SELECT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='train' AND column_name='site_code') AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='train' AND column_name='display_order') AS ok"
+    },
+    {
+      "sequence": 40,
+      "id": "inventory-location-status",
+      "file": "migration-inventory-location-status.sql",
+      "verifySql": "SELECT to_regclass('public.warehouse_bin') IS NOT NULL AND to_regclass('public.inventory_bin_balance') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='warehouse' AND column_name='location_type') AS ok"
+    },
+    {
+      "sequence": 50,
+      "id": "work-order-numbering",
+      "file": "migration-work-order-numbering.sql",
+      "verifySql": "SELECT to_regclass('public.project_work_order') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='work_order' AND column_name='daily_sequence') AS ok"
+    },
+    {
+      "sequence": 60,
+      "id": "vehicle-position-slots",
+      "file": "migration-vehicle-position-slots.sql",
+      "verifySql": "SELECT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='vehicle_position' AND column_name='parent_position_id') AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='vehicle_position' AND column_name='source_row_no') AS ok"
+    },
+    {
+      "sequence": 70,
+      "id": "asset-installation-import-staging",
+      "file": "migration-asset-installation-import-staging.sql",
+      "verifySql": "SELECT to_regclass('public.asset_installation_import_batch') IS NOT NULL AND to_regclass('public.asset_installation_import_row') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 80,
+      "id": "repair-workflow-options",
+      "file": "migration-repair-workflow-options.sql",
+      "verifySql": "SELECT to_regclass('public.workflow_option') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 90,
+      "id": "pm-check-items",
+      "file": "migration-pm-check-items.sql",
+      "verifySql": "SELECT to_regclass('public.pm_template_check_item') IS NOT NULL AND to_regclass('public.pm_work_order_check_result') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 100,
+      "id": "document-sequence-inventory-document",
+      "file": "migration-document-sequence-inventory-document.sql",
+      "verifySql": "SELECT to_regclass('public.document_sequence') IS NOT NULL AND to_regclass('public.inventory_document') IS NOT NULL AND to_regclass('public.inventory_document_line') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 110,
+      "id": "material-master-usage",
+      "file": "migration-material-master-usage.sql",
+      "verifySql": "SELECT to_regclass('public.material_usage_history') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='material' AND column_name='system_code') AS ok"
+    },
+    {
+      "sequence": 120,
+      "id": "material-system-2026",
+      "file": "migration-material-system-2026.sql",
+      "verifySql": "SELECT (SELECT count(*) FROM workflow_option WHERE option_group='MATERIAL_SYSTEM' AND is_active=true) = 12 AS ok"
+    },
+    {
+      "sequence": 130,
+      "id": "equipment-alias",
+      "file": "migration-equipment-alias.sql",
+      "verifySql": "SELECT to_regclass('public.equipment_alias') IS NOT NULL AND to_regclass('public.v_equipment_alias') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 140,
+      "id": "fault-keeper-merge",
+      "file": "migration-fault-keeper-merge.sql",
+      "verifySql": "SELECT to_regclass('public.fault_system_node') IS NOT NULL AND to_regclass('public.work_order_event') IS NOT NULL AND to_regclass('public.fault_finish_record') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 150,
+      "id": "fault-report-matrix",
+      "file": "migration-fault-report-matrix.sql",
+      "verifySql": "SELECT to_regclass('public.fault_phenomenon') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 160,
+      "id": "fault-dispatch-catalog",
+      "file": "migration-fault-dispatch-catalog.sql",
+      "verifySql": "SELECT to_regclass('public.fault_dispatch_catalog') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 170,
+      "id": "danger-dispatch-tree",
+      "file": "migration-danger-dispatch-tree.sql",
+      "verifySql": "SELECT to_regclass('public.fault_dispatch_node') IS NOT NULL AND EXISTS (SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname='fault_dispatch_catalog' AND c.relkind='v') AS ok"
+    },
+    {
+      "sequence": 180,
+      "id": "master-data-versioning",
+      "file": "migration-master-data-versioning.sql",
+      "verifySql": "SELECT to_regclass('public.operating_site') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='pm_template' AND column_name='version_no') AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='pm_template' AND column_name='lifecycle_status') AS ok"
+    },
+    {
+      "sequence": 190,
+      "id": "precheck-schedule",
+      "file": "migration-precheck-schedule.sql",
+      "verifySql": "SELECT to_regclass('public.pm_schedule_import_batch') IS NOT NULL AND to_regclass('public.pm_schedule_item') IS NOT NULL AND to_regclass('public.pm_schedule_change_log') IS NOT NULL AND to_regclass('public.pm_calendar_exception') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 200,
+      "id": "precheck-workflow-print",
+      "file": "migration-precheck-workflow-print.sql",
+      "verifySql": "SELECT to_regclass('public.form_template') IS NOT NULL AND to_regclass('public.form_template_field_mapping') IS NOT NULL AND to_regclass('public.work_order_print_job') IS NOT NULL AND to_regclass('public.pm_template_attachment') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 210,
+      "id": "audit-reporting",
+      "file": "migration-audit-reporting.sql",
+      "verifySql": "SELECT to_regclass('public.operation_audit_log') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='operation_audit_log' AND column_name='request_id') AS ok"
+    },
+    {
+      "sequence": 220,
+      "id": "work-order-integrity",
+      "file": "migration-work-order-integrity.sql",
+      "verifySql": "SELECT EXISTS (SELECT 1 FROM pg_indexes WHERE schemaname='public' AND indexname='uq_repair_work_order_source_removed') AS ok"
+    },
+    {
+      "sequence": 230,
+      "id": "inventory-idempotency",
+      "file": "migration-inventory-idempotency.sql",
+      "verifySql": "SELECT to_regclass('public.inventory_posting_request') IS NOT NULL AS ok"
+    },
+    {
+      "sequence": 240,
+      "id": "session-security",
+      "file": "migration-session-security.sql",
+      "verifySql": "SELECT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='app_user' AND column_name='failed_login_count') AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='user_session' AND column_name='token_hash') AND EXISTS (SELECT 1 FROM pg_indexes WHERE schemaname='public' AND indexname='uq_user_session_token_hash') AS ok"
+    }
+  ]
+}

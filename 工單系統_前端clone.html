@@ -432,9 +432,47 @@ function loadShared(){
   }catch(e){}
 }
 loadShared();
-window.addEventListener("storage",()=>{const cur=curOrder?curOrder.orderno:null;ORDERS=genOrders();loadShared();
+window.addEventListener("storage",()=>{if(window.API_MODE)return;const cur=curOrder?curOrder.orderno:null;ORDERS=genOrders();loadShared();
   if(cur)curOrder=ORDERS.find(o=>o.orderno===cur)||null;render();});
+/* ---- API 模式:接 erp-api(PostgreSQL);API 不可用時退回本機假資料 ---- */
+const WO_API="http://localhost:3001/api/work-orders";
+window.API_MODE=false;
+async function initApiOrders(){
+  try{
+    const r=await fetch(WO_API+"?limit=5000");
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    const d=await r.json();
+    ORDERS=d.items.map((o,i)=>({...o,msid:i+1,logs:o.logs||[],logsLoaded:false}));
+    window.API_MODE=true;
+    console.log("API 模式:自資料庫載入 "+ORDERS.length+" 筆工單");
+    const app=document.getElementById("app");
+    if(app&&!app.classList.contains("hidden"))render();
+  }catch(e){console.warn("erp-api 不可用,使用本機示範資料:",e.message);}
+}
+initApiOrders();
+async function loadLogs(o,after){
+  if(!window.API_MODE||o.logsLoaded){if(after)after();return;}
+  try{
+    const r=await fetch(WO_API+"/"+encodeURIComponent(o.orderno)+"/events");
+    const d=await r.json();
+    o.logs=d.items||[];o.logsLoaded=true;
+    if(after)after();
+  }catch(e){o.logsLoaded=true;if(after)after();}
+}
 function persistOrder(o){
+  if(window.API_MODE){
+    fetch(WO_API+"/"+encodeURIComponent(o.orderno),{method:"PATCH",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({status:o.status,level:o.level,tsname:o.tsname,fdesc:o.fdesc,note:o.note})})
+    .then(r=>r.json().then(d=>({ok:r.ok,d})))
+    .then(({ok,d})=>{
+      if(!ok){toast("寫入資料庫失敗:"+(d.error&&d.error.message||""));return;}
+      if(d.row){o.assignee=d.row.assignee||o.assignee;o.observeUntil=d.row.observeUntil||o.observeUntil;}
+      o.logsLoaded=false;o.logs=[];
+      render();
+    })
+    .catch(e=>toast("寫入資料庫失敗:"+e.message));
+    return;
+  }
   try{
     if(o.fromKeeper){
       const news=JSON.parse(localStorage.getItem(LS_NEW)||"[]");
@@ -804,7 +842,8 @@ function exportCsv(){
 /* =========================================================
    工單詳情(對齊線上)
    ========================================================= */
-function openOrder(msid){curOrder=ORDERS.find(o=>o.msid===msid);window.scrollTo(0,0);render();}
+function openOrder(msid){curOrder=ORDERS.find(o=>o.msid===msid);window.scrollTo(0,0);render();
+  if(curOrder)loadLogs(curOrder,()=>{if(curOrder&&curPage==="orders")render();});}
 function viewDetail(){
   const o=curOrder;
   return `<div class="page-title">工單管理</div>
@@ -879,6 +918,7 @@ function openEditModal(msid){
   editTarget=ORDERS.find(o=>o.msid===msid);finishOpen=false;
   wSel={sub:editTarget.full_path[1]||"",sym:"",comp:"",cause:""};
   renderEditModal();
+  loadLogs(editTarget,()=>{if(editTarget&&document.getElementById("modalOverlay"))renderEditModal();});
 }
 function renderEditModal(){
   const o=editTarget;
@@ -974,6 +1014,27 @@ function createFinish(){
   const o=editTarget;
   const rep=document.getElementById("wReport").value.trim();
   if(!rep){toast("請輸入完工報告");return;}
+  if(window.API_MODE){
+    const payload={report:rep,
+      action:document.getElementById("wAct").value||null,
+      warranty:document.getElementById("wWarr").value||null,
+      danger:document.getElementById("wDw").value||null,
+      pax:document.getElementById("wPax").checked,
+      mileage:+document.getElementById("wMile").value||0,
+      removed_serial:document.getElementById("wSN1").value||null,
+      installed_serial:document.getElementById("wSN2").value||null,
+      subsystem:wSel.sub||null,symptom:wSel.sym||null,component:wSel.comp||null,cause:wSel.cause||null};
+    fetch(WO_API+"/"+encodeURIComponent(o.orderno)+"/finish",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+    .then(r=>r.json().then(d=>({ok:r.ok,d})))
+    .then(({ok,d})=>{
+      if(!ok){toast("完工寫入失敗:"+(d.error&&d.error.message||""));return;}
+      Object.assign(o,{status:d.row.status,wpath:d.row.wpath,repair:d.row.repair});
+      o.logsLoaded=false;o.logs=[];
+      toast("已建立完工作業資料(已寫入資料庫)");closeModal();render();
+    })
+    .catch(e=>toast("完工寫入失敗:"+e.message));
+    return;
+  }
   const warr=document.getElementById("wWarr").value;
   if(wSel.sub&&wSel.sym){
     o.wpath=["電聯車系統",wSel.sub,wSel.sym,wSel.comp||wSel.sym];

@@ -5,12 +5,15 @@ node_modules/
 npm-debug.log*
 dist/
 build/
+!輕軌系統/frontend/dist/
+!輕軌系統/frontend/dist/index.html
 .DS_Store
 Thumbs.db
 *.log
 
 # 本機 PostgreSQL 資料夾叢集（不進版控）
-db-design/_pgdata/
+.runtime/
+.local-rehearsal/
 
 # 暫存解析資料夾（xlsx 解析用，Google Drive 可能鎖住，之後可手動刪）
 _xlsxtmp/

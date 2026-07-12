@@ -1,27 +1,13 @@
-# ERP Maintenance System
+# 輕軌維修系統專案
 
-淡海/安坑輕軌維修、物料、庫存與周轉件履歷系統原型。
+正式新系統已整理至 [`輕軌系統/`](./輕軌系統/README.md)。
 
-## 專案內容
+外層的大型 HTML、備份與舊 prototype 只作為 Legacy 參考，不再新增正式功能。
 
-- `預檢工單系統_物料表調整版.html`：目前主要前台操作介面。
-- `db-design/`：資料庫正式文件、PostgreSQL schema、匯入資料與設計紀錄。
-- `erp-api/`：Node.js API 服務，後續供前台呼叫 PostgreSQL 資料。
+## 專案邊界
 
-## 本資料夾已排除
-
-- `erp-api/.env`：內含資料庫密碼，不可上傳 GitHub。
-- `物料/` 原始 Excel：建議只放私人 GitHub，公開庫不建議上傳。
-
-## API 啟動方式
-
-```powershell
-cd .\erp-api
-Copy-Item .env.example .env
-notepad .env
-npm install
-powershell -ExecutionPolicy Bypass -File .\scripts\start-local.ps1
-```
-
-`.env` 裡的 `DATABASE_URL` 請填自己的 Zeabur PostgreSQL 連線資訊。
-
+- `輕軌系統/frontend`：React + Vite + TypeScript 前端。
+- `輕軌系統/erp-api`：Node.js API。
+- `輕軌系統/db-design`：PostgreSQL schema、migration、seed 與設計文件。
+- `輕軌系統/.local-rehearsal`：本機演練備份與驗收紀錄，不納入 Git。
+- `預檢工單系統_物料表調整版.html`：Legacy 參考檔，保持唯讀。
