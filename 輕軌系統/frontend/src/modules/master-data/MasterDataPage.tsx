@@ -9,6 +9,7 @@ import { getMasterResource, masterResources, type MasterField } from "./resource
 import { PmTemplateStudio } from "./PmTemplateStudio";
 import { WorkflowOptionsMaster } from "./WorkflowOptionsMaster";
 import { EquipmentAliasesMaster } from "./EquipmentAliasesMaster";
+import { AttachmentTemplateLibrary } from "./AttachmentTemplateLibrary";
 
 function toInputValue(value: unknown) {
   if (value === null || value === undefined) return "";
@@ -99,7 +100,7 @@ export function MasterDataPage() {
 
       <div className="master-workspace">
         <nav className="master-subnav" aria-label="主檔分類">
-          {masterResources.map((item) => (
+          {masterResources.filter((item) => !item.hidden).map((item) => (
             <NavLink key={item.id} to={`/master-data/${item.id}`} className={({ isActive }) => isActive ? "is-active" : ""}>
               <strong>{item.label}</strong>
               <span>{item.description}</span>
@@ -109,8 +110,9 @@ export function MasterDataPage() {
 
         <Panel title={resource.label} description={resource.description} className="master-content-panel">
           {resource.special === "pm-template" ? <PmTemplateStudio focus="overview" /> : null}
-          {resource.special === "pm-material" ? <PmTemplateStudio focus="materials" /> : null}
+          {resource.special === "pm-material" ? <PmTemplateStudio focus="resources" /> : null}
           {resource.special === "word-template" ? <PmTemplateStudio focus="word" /> : null}
+          {resource.special === "attachment-library" ? <AttachmentTemplateLibrary /> : null}
           {resource.special === "workflow-options" ? <WorkflowOptionsMaster /> : null}
           {resource.special === "equipment-aliases" ? <EquipmentAliasesMaster /> : null}
           {!resource.special ? <>

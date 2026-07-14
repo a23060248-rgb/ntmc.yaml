@@ -2,6 +2,7 @@ const crypto = require("crypto");
 const fs = require("fs/promises");
 const path = require("path");
 const { spawn } = require("child_process");
+const { buildBlockMappings } = require("./wordBlockService");
 
 function resolvePath(object, sourcePath) {
   return String(sourcePath || "").split(".").filter(Boolean).reduce((value, key) => value == null ? undefined : value[key], object);
@@ -79,6 +80,13 @@ function buildMappings(snapshot, mappings) {
   }));
 }
 
+function buildRendererMappings(snapshot, mappings, blockMappings, printStage) {
+  return [
+    ...buildMappings(snapshot, mappings),
+    ...buildBlockMappings(snapshot, blockMappings || [], printStage),
+  ];
+}
+
 function validateRequiredMappings(snapshot, mappings) {
   return mappings
     .filter((mapping) => mapping.is_required)
@@ -112,7 +120,7 @@ function runPowerShell(args) {
   });
 }
 
-async function renderWordTemplate({ template, mappings, snapshot, workOrderNo, printStage, jobId }) {
+async function renderWordTemplate({ template, mappings, blockMappings = [], snapshot, workOrderNo, printStage, jobId }) {
   if (process.platform !== "win32") throw new Error("Word template worker currently requires Windows and Microsoft Word");
   const templateRoot = process.env.WORD_TEMPLATE_ROOT || path.resolve(__dirname, "../../../word-templates");
   const outputRoot = process.env.WORD_OUTPUT_DIR || path.resolve(__dirname, "../../../generated/word");
@@ -132,7 +140,11 @@ async function renderWordTemplate({ template, mappings, snapshot, workOrderNo, p
   const outputFileName = safeName(`${workOrderNo}-${printStage}-${template.version_no}-${jobId}${extension}`);
   const outputPath = path.join(outputRoot, outputFileName);
   const mappingPath = path.join(outputRoot, `${jobId}.mappings.json`);
-  await fs.writeFile(mappingPath, JSON.stringify(buildMappings(snapshot, mappings), null, 2), "utf8");
+  await fs.writeFile(
+    mappingPath,
+    JSON.stringify(buildRendererMappings(snapshot, mappings, blockMappings, printStage), null, 2),
+    "utf8"
+  );
   try {
     await runPowerShell([
       "-File", path.resolve(__dirname, "../../scripts/render-word-template.ps1"),
@@ -149,6 +161,7 @@ async function renderWordTemplate({ template, mappings, snapshot, workOrderNo, p
 module.exports = {
   buildMappings,
   buildPrintSnapshot,
+  buildRendererMappings,
   isInstrumentReadyForDate,
   renderWordTemplate,
   transformValue,

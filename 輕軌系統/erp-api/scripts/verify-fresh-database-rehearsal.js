@@ -127,7 +127,7 @@ async function main() {
     ],
     { cwd: apiRoot, env: runnerEnv },
   );
-  assert.match(firstMigrationRun, /"ledgerRows": 26/);
+  assert.match(firstMigrationRun, /"ledgerRows": 27/);
 
   const seedFiles = [
     "seed-reference-data.sql",
@@ -147,12 +147,12 @@ async function main() {
     [path.join(apiRoot, "scripts", "apply-rehearsal-migrations.js"), "--apply-missing"],
     { cwd: apiRoot, env: runnerEnv },
   );
-  assert.match(secondMigrationRun, /"verified": 25/);
+  assert.match(secondMigrationRun, /"verified": 26/);
   assert.match(secondMigrationRun, /"applied": 0/);
 
   const freshSummary = await querySummary(freshUrl);
-  assert.equal(freshSummary.ledger_rows, 26);
-  assert.equal(freshSummary.applied_rows + freshSummary.baselined_rows, 26);
+  assert.equal(freshSummary.ledger_rows, 27);
+  assert.equal(freshSummary.applied_rows + freshSummary.baselined_rows, 27);
   assert.equal(freshSummary.equipment_alias, "equipment_alias");
   assert.equal(freshSummary.equipment_alias_view, "v_equipment_alias");
   assert.equal(freshSummary.rehearsal_users, 6);
@@ -237,7 +237,7 @@ async function main() {
       applied: freshSummary.applied_rows,
       baselined: freshSummary.baselined_rows,
     },
-    migrationSecondRun: { verified: 25, applied: 0 },
+    migrationSecondRun: { verified: 26, applied: 0 },
     freshSummary,
     restoreMatchesFresh: true,
     backup: { path: backupPath, bytes: backup.size },

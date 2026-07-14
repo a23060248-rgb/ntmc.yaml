@@ -12,7 +12,9 @@ export interface MasterResource {
   label: string;
   description: string;
   readOnly?: boolean;
-  special?: "pm-template" | "pm-material" | "word-template" | "workflow-options" | "equipment-aliases";
+  /** Keep existing deep links working without showing duplicate navigation entries. */
+  hidden?: boolean;
+  special?: "pm-template" | "pm-material" | "word-template" | "attachment-library" | "workflow-options" | "equipment-aliases";
   fields: MasterField[];
 }
 
@@ -139,6 +141,7 @@ export const masterResources: MasterResource[] = [
     id: "wi-documents",
     label: "工作說明書",
     description: "W.I.No、版本、類型與啟用狀態。",
+    hidden: true,
     fields: [
       { key: "wi_no", label: "W.I.No", required: true, list: true },
       { key: "wi_name", label: "名稱", required: true, list: true },
@@ -150,8 +153,8 @@ export const masterResources: MasterResource[] = [
   },
   {
     id: "pm-templates",
-    label: "預檢模板與項目",
-    description: "P1/P2/P3/P4 版本、區段、檢查與量測標準。",
+    label: "預檢表單設計",
+    description: "以 P1/P2/P3/P4 版本集中管理檢查項目、作業資源、附件與 Word 輸出。",
     special: "pm-template",
     fields: [
       { key: "pm_code", label: "模板代碼", required: true, list: true },
@@ -164,9 +167,17 @@ export const masterResources: MasterResource[] = [
     ],
   },
   {
+    id: "attachment-library",
+    label: "附件模板庫",
+    description: "設計座椅圖、量測表與其他附件；發布後供 P1/P2/P3/P4 選用。",
+    special: "attachment-library",
+    fields: [],
+  },
+  {
     id: "pm-materials",
     label: "表單預設用料",
     description: "各檢修級別的用料、數量與列印條件。",
+    hidden: true,
     special: "pm-material",
     fields: [],
   },
@@ -174,6 +185,7 @@ export const masterResources: MasterResource[] = [
     id: "form-templates",
     label: "Word 範本對應",
     description: "原始 Word 版本、欄位來源與 bookmark/placeholder。",
+    hidden: true,
     special: "word-template",
     fields: [],
   },

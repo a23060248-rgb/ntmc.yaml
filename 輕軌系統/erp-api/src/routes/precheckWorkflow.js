@@ -19,6 +19,12 @@ const {
   missingCheckResults,
 } = require("../services/precheckBackfillRules");
 const { buildPmTemplateSnapshot, hashTemplateSnapshot } = require("../services/pmTemplateSnapshot");
+const {
+  appliesToPrintStage,
+  buildCompletionSnapshot,
+  validateCheckMappingCoverage,
+  validateRequiredBlockMappings,
+} = require("../services/wordBlockService");
 
 const router = express.Router();
 const PACKAGE_ROLES = ROLE_POLICIES.PACKAGE_WRITE;
@@ -389,10 +395,22 @@ async function createPrintJob(req, res, printStage) {
   if (!relations.wiDocuments.length) throw httpError(409, "列印前至少需要一份 W.I.No");
   const invalidMaterials = relations.materials.filter((material) => Number(material.planned_qty) < 0);
   if (invalidMaterials.length) throw httpError(409, "預設用料數量不可小於零");
-  const mappingsResult = await query(`SELECT * FROM form_template_field_mapping WHERE form_template_id=$1 ORDER BY sort_order,field_key`, [template.id]);
-  const snapshot = buildPrintSnapshot(packageDto(row, relations), printStage);
+  const [mappingsResult, blockMappingsResult] = await Promise.all([
+    query(`SELECT * FROM form_template_field_mapping WHERE form_template_id=$1 ORDER BY sort_order,field_key`, [template.id]),
+    query(`SELECT * FROM form_template_block_mapping WHERE form_template_id=$1 ORDER BY sort_order,block_code`, [template.id]),
+  ]);
+  const printSource = printStage === "POST_COMPLETION"
+    ? buildCompletionSnapshot(await getBackfillData(client, row.work_order_no))
+    : packageDto(row, relations);
+  const snapshot = buildPrintSnapshot(printSource, printStage);
   const requiredMissing = validateRequiredMappings(snapshot, mappingsResult.rows);
   if (requiredMissing.length) throw httpError(409, "Word 範本必填資料尚未完整", { fields: requiredMissing });
+  const requiredBlockMissing = validateRequiredBlockMappings(snapshot, blockMappingsResult.rows, printStage);
+  if (requiredBlockMissing.length) throw httpError(409, "Word 動態區塊資料尚未完整", { blocks: requiredBlockMissing });
+  const unverifiedBlocks = blockMappingsResult.rows
+    .filter((mapping) => mapping.is_required && appliesToPrintStage(mapping, printStage) && !mapping.is_verified)
+    .map((mapping) => mapping.block_code);
+  if (unverifiedBlocks.length) throw httpError(409, "Word 動態區塊尚未通過輸出驗證", { blocks: unverifiedBlocks });
   const jobResult = await query(
     `INSERT INTO work_order_print_job (work_order_id,form_template_id,print_stage,job_status,copies,input_snapshot,requested_by)
      VALUES ($1,$2,$3,'GENERATING',$4,$5::jsonb,$6) RETURNING id`,
@@ -400,7 +418,15 @@ async function createPrintJob(req, res, printStage) {
   );
   const jobId = jobResult.rows[0].id;
   try {
-    const output = await renderWordTemplate({ template, mappings: mappingsResult.rows, snapshot, workOrderNo: row.work_order_no, printStage, jobId });
+    const output = await renderWordTemplate({
+      template,
+      mappings: mappingsResult.rows,
+      blockMappings: blockMappingsResult.rows,
+      snapshot,
+      workOrderNo: row.work_order_no,
+      printStage,
+      jobId,
+    });
     await query(
       `UPDATE work_order_print_job SET job_status='READY',output_file_name=$2,output_path=$3,
          output_hash=$4,generated_at=now() WHERE id=$1`, [jobId, output.outputFileName, output.outputPath, output.outputHash]
@@ -784,6 +810,39 @@ router.get("/form-templates/:id/block-mappings", asyncHandler(async (req, res) =
   res.json({ items: rows.rows, lifecycleStatus: template.rows[0].lifecycle_status });
 }));
 
+router.get("/form-templates/:id/verification-runs", asyncHandler(async (req, res) => {
+  const template = await query(`SELECT id FROM form_template WHERE id=$1`, [req.params.id]);
+  if (!template.rowCount) throw httpError(404, "Word template not found");
+
+  const rows = await query(
+    `SELECT vr.*,
+            COALESCE(
+              jsonb_agg(
+                jsonb_build_object(
+                  'id', bv.id,
+                  'blockMappingId', bv.block_mapping_id,
+                  'blockCode', bv.block_code,
+                  'verificationStatus', bv.result_status,
+                  'outputFileHash', bv.output_file_hash,
+                  'pageNumbers', bv.page_numbers,
+                  'evidence', bv.evidence_json,
+                  'createdAt', bv.created_at
+                ) ORDER BY bv.block_code
+              ) FILTER (WHERE bv.id IS NOT NULL),
+              '[]'::jsonb
+            ) AS blocks
+       FROM form_template_verification_run vr
+       LEFT JOIN form_template_block_verification bv
+         ON bv.verification_run_id = vr.id
+      WHERE vr.form_template_id = $1
+      GROUP BY vr.id
+      ORDER BY vr.requested_at DESC
+      LIMIT 20`,
+    [req.params.id]
+  );
+  res.json({ items: rows.rows });
+}));
+
 router.post("/form-templates", requireRoles(...ROLE_POLICIES.MASTER_WRITE), asyncHandler(async (req, res) => {
   const body = req.body || {};
   const pm = body.pmTemplateId
@@ -876,6 +935,22 @@ router.post("/form-templates/:id/publish", requireRoles(...ROLE_POLICIES.MASTER_
     );
     if (unverifiedBlocks.rowCount) throw httpError(409, "必要 Word 動態區塊尚未完成實際輸出驗證", {
       blocks: unverifiedBlocks.rows.map((row) => row.block_code),
+    });
+    const [checkItems, checkBlocks] = await Promise.all([
+      client.query(
+        `SELECT item_no,is_active FROM pm_template_check_item
+          WHERE pm_template_id=$1 ORDER BY sort_order,item_no`,
+        [template.rows[0].pm_template_id]
+      ),
+      client.query(
+        `SELECT block_code,block_type,config_json FROM form_template_block_mapping
+          WHERE form_template_id=$1 ORDER BY sort_order,block_code`,
+        [req.params.id]
+      ),
+    ]);
+    const coverageIssues = validateCheckMappingCoverage(checkItems.rows, checkBlocks.rows);
+    if (coverageIssues.length) throw httpError(409, "Word 檢查表對應與目前 P 模板項目不一致", {
+      blocks: coverageIssues,
     });
     await client.query(
       `UPDATE form_template SET lifecycle_status='RETIRED',is_active=false,

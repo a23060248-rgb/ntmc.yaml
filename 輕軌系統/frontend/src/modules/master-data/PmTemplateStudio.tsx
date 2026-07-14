@@ -4,8 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import { EmptyState, ErrorState, LoadingState } from "../../shared/components/AsyncState";
 import { StatusBadge } from "../../shared/ui";
 import { listMaterials } from "../inventory/api";
-import { listMasterData } from "./api";
-import { AttachmentEditor } from "./AttachmentEditor";
+import { createMasterData, listMasterData, updateMasterData, type MasterDataRecord } from "./api";
+import { TemplateAttachmentSelector } from "./TemplateAttachmentSelector";
+import { TemplateImportReview } from "./TemplateImportReview";
 import {
   createTemplateRevision,
   createTemplateVersion,
@@ -13,6 +14,7 @@ import {
   getTemplateVersion,
   getWordBlockMappings,
   getWordMappings,
+  getWordVerificationRuns,
   listTemplateVersions,
   publishTemplateVersion,
   publishWordTemplate,
@@ -34,15 +36,15 @@ import {
   type WordTemplateVersion,
 } from "./templateApi";
 
-type StudioSection = "overview" | "checks" | "attachments" | "materials" | "links" | "word";
+type StudioSection = "overview" | "checks" | "imports" | "attachments" | "resources" | "word";
 
 const sectionLabels: Array<{ id: StudioSection; label: string }> = [
-  { id: "overview", label: "版本資訊" },
+  { id: "overview", label: "版本與發布" },
   { id: "checks", label: "檢查項目" },
-  { id: "attachments", label: "附件結構" },
-  { id: "materials", label: "預設用料" },
-  { id: "links", label: "儀器與 WI" },
-  { id: "word", label: "Word 對應" },
+  { id: "resources", label: "作業資源" },
+  { id: "attachments", label: "附件選用" },
+  { id: "word", label: "Word 輸出" },
+  { id: "imports", label: "匯入審核" },
 ];
 
 function lifecycleTone(status: string) {
@@ -201,6 +203,64 @@ function LinkEditor({
   </div>;
 }
 
+function WorkInstructionLibrary({ editable }: { editable: boolean }) {
+  const queryClient = useQueryClient();
+  const [search, setSearch] = useState("");
+  const [editing, setEditing] = useState<MasterDataRecord | null>(null);
+  const [draft, setDraft] = useState<Record<string, unknown>>({});
+  const wiQuery = useQuery({
+    queryKey: ["master-data", "wi-documents", "form-design-library", search],
+    queryFn: ({ signal }) => listMasterData("wi-documents", { search, limit: 100 }, signal),
+  });
+  const save = useMutation({
+    mutationFn: () => editing
+      ? updateMasterData("wi-documents", editing.id, draft)
+      : createMasterData("wi-documents", draft),
+    onSuccess: async () => {
+      setEditing(null);
+      setDraft({});
+      await queryClient.invalidateQueries({ queryKey: ["master-data", "wi-documents"] });
+    },
+  });
+
+  function beginNew() {
+    setEditing(null);
+    setDraft({ wi_no: "", wi_name: "", wi_type: "", version_no: "", status: "啟用", remark: "", is_active: true });
+  }
+
+  function beginEdit(item: MasterDataRecord) {
+    setEditing(item);
+    setDraft({
+      wi_no: item.wi_no || "", wi_name: item.wi_name || "", wi_type: item.wi_type || "",
+      version_no: item.version_no || "", status: item.status || "", remark: item.remark || "",
+      is_active: item.is_active !== false,
+    });
+  }
+
+  return <div className="wi-library">
+    <div className="studio-action-row">
+      <p>維護可供本模板連結的 W.I.No 與版本。更新既有文件前，請先確認不會影響已列印工單的版本快照。</p>
+      {editable ? <button className="secondary-button" type="button" onClick={beginNew}><Plus size={15} />新增工作說明書</button> : null}
+    </div>
+    <label className="wi-library-search"><span>搜尋文件庫</span><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="W.I.No、名稱或版本" /></label>
+    {wiQuery.isPending ? <LoadingState /> : null}
+    {wiQuery.isError ? <ErrorState error={wiQuery.error} onRetry={() => void wiQuery.refetch()} /> : null}
+    {wiQuery.data ? <div className="table-frame studio-table-frame"><table className="studio-edit-table wi-library-table"><thead><tr><th>W.I.No</th><th>名稱</th><th>版本</th><th>類型</th><th>狀態</th>{editable ? <th>操作</th> : null}</tr></thead><tbody>
+      {wiQuery.data.items.map((item) => <tr key={item.id}><td><strong>{String(item.wi_no || "-")}</strong></td><td>{String(item.wi_name || "-")}</td><td>{String(item.version_no || "-")}</td><td>{String(item.wi_type || "-")}</td><td>{String(item.status || "-")}</td>{editable ? <td><button className="table-action" type="button" onClick={() => beginEdit(item)}>編輯</button></td> : null}</tr>)}
+      {!wiQuery.data.items.length ? <tr><td colSpan={editable ? 6 : 5}>尚無符合條件的工作說明書。</td></tr> : null}
+    </tbody></table></div> : null}
+    {editable && Object.keys(draft).length ? <form className="wi-library-editor" onSubmit={(event) => { event.preventDefault(); save.mutate(); }}>
+      <label><span>W.I.No</span><input required value={String(draft.wi_no || "")} onChange={(event) => setDraft({ ...draft, wi_no: event.target.value })} /></label>
+      <label><span>名稱</span><input required value={String(draft.wi_name || "")} onChange={(event) => setDraft({ ...draft, wi_name: event.target.value })} /></label>
+      <label><span>版本</span><input value={String(draft.version_no || "")} onChange={(event) => setDraft({ ...draft, version_no: event.target.value })} /></label>
+      <label><span>類型</span><input value={String(draft.wi_type || "")} onChange={(event) => setDraft({ ...draft, wi_type: event.target.value })} /></label>
+      <label><span>狀態</span><input value={String(draft.status || "")} onChange={(event) => setDraft({ ...draft, status: event.target.value })} /></label>
+      <label className="span-2"><span>備註</span><input value={String(draft.remark || "")} onChange={(event) => setDraft({ ...draft, remark: event.target.value })} /></label>
+      <div className="button-row"><button className="primary-button" type="submit" disabled={save.isPending}><Save size={15} />儲存工作說明書</button><button className="secondary-button" type="button" onClick={() => { setEditing(null); setDraft({}); }}>取消</button></div>
+    </form> : null}
+  </div>;
+}
+
 function blockTypeForAttachment(attachment: TemplateAttachment): WordBlockMapping["block_type"] {
   if (attachment.attachment_type === "SEAT_MAP") return "SEAT_MAP";
   if (attachment.attachment_type === "MEASUREMENT_TABLE") return "MEASUREMENT_TABLE";
@@ -211,6 +271,63 @@ function targetTypeForAttachment(attachment: TemplateAttachment): WordBlockMappi
   if (attachment.render_strategy === "WORD_TABLE") return "TABLE";
   if (attachment.render_strategy === "WORD_OVERLAY") return attachment.attachment_type === "SEAT_MAP" ? "SHAPE_COORDINATES" : "IMAGE_OVERLAY";
   return "BOOKMARK_RANGE";
+}
+
+function wordBlockConfigSummary(mapping: WordBlockMapping) {
+  const config = mapping.config_json || {};
+  const itemKeys = new Set<string>();
+  const cellMappings = Array.isArray(config.cellMappings) ? config.cellMappings as Array<Record<string, unknown>> : [];
+  const aggregateMappings = Array.isArray(config.aggregateMappings) ? config.aggregateMappings as Array<Record<string, unknown>> : [];
+  const compositeMappings = Array.isArray(config.compositeMappings) ? config.compositeMappings as Array<Record<string, unknown>> : [];
+  cellMappings.forEach((item) => { if (item.itemKey) itemKeys.add(String(item.itemKey)); });
+  aggregateMappings.forEach((item) => {
+    if (Array.isArray(item.itemKeys)) item.itemKeys.forEach((itemKey) => itemKeys.add(String(itemKey)));
+  });
+  compositeMappings.forEach((item) => {
+    if (Array.isArray(item.fields)) (item.fields as Array<Record<string, unknown>>).forEach((field) => {
+      if (field.itemKey) itemKeys.add(String(field.itemKey));
+    });
+  });
+  const coordinates = config.coordinates && typeof config.coordinates === "object" && !Array.isArray(config.coordinates)
+    ? Object.keys(config.coordinates as Record<string, unknown>).length
+    : 0;
+  const labels = [];
+  if (itemKeys.size) labels.push(`${itemKeys.size} 項資料`);
+  if (coordinates) labels.push(`${coordinates} 個座標`);
+  if (mapping.block_type === "MEASUREMENT_TABLE" && cellMappings.length) labels.push(`${cellMappings.length} 個表格落點`);
+  if (config.row && config.column) labels.push(`第 ${String(config.row)} 列／第 ${String(config.column)} 欄`);
+  return labels.join(" · ") || "尚未設定落點";
+}
+
+function WordBlockConfigEditor({ mapping, editable, onChange }: {
+  mapping: WordBlockMapping;
+  editable: boolean;
+  onChange(config: Record<string, unknown>): void;
+}) {
+  const serialized = useMemo(() => JSON.stringify(mapping.config_json || {}, null, 2), [mapping.config_json]);
+  const [draft, setDraft] = useState(serialized);
+  const [error, setError] = useState("");
+  useEffect(() => { setDraft(serialized); setError(""); }, [serialized]);
+
+  function applyConfig() {
+    try {
+      const parsed = JSON.parse(draft) as unknown;
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("最外層必須是 JSON 物件");
+      onChange(parsed as Record<string, unknown>);
+      setError("");
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "JSON 格式不正確");
+    }
+  }
+
+  return <details className="word-block-config">
+    <summary>{wordBlockConfigSummary(mapping)}</summary>
+    <div className="word-block-config-body">
+      <textarea aria-label={`${mapping.block_code} 落點設定`} spellCheck={false} disabled={!editable} value={draft} onChange={(event) => setDraft(event.target.value)} />
+      {error ? <small className="field-error" role="alert">{error}</small> : null}
+      {editable ? <button className="secondary-button" type="button" onClick={applyConfig}><Check size={14} />套用設定</button> : null}
+    </div>
+  </details>;
 }
 
 function WordEditor({ templateId, pmCode, forms, attachments, editable, onChanged }: {
@@ -238,14 +355,16 @@ function WordEditor({ templateId, pmCode, forms, attachments, editable, onChange
 
   const mappingQuery = useQuery({ queryKey: ["word-mappings", selectedId], queryFn: ({ signal }) => getWordMappings(selectedId, signal), enabled: Boolean(selectedId) });
   const blockMappingQuery = useQuery({ queryKey: ["word-block-mappings", selectedId], queryFn: ({ signal }) => getWordBlockMappings(selectedId, signal), enabled: Boolean(selectedId) });
+  const verificationQuery = useQuery({ queryKey: ["word-verification-runs", selectedId], queryFn: ({ signal }) => getWordVerificationRuns(selectedId, signal), enabled: Boolean(selectedId) });
   useEffect(() => { if (mappingQuery.data) setMappings(mappingQuery.data.items); }, [mappingQuery.data]);
   useEffect(() => { if (blockMappingQuery.data) setBlockMappings(blockMappingQuery.data.items); }, [blockMappingQuery.data]);
 
   const selectedForm = forms.find((form) => form.id === selectedId);
+  const latestVerification = verificationQuery.data?.items[0];
   const formEditable = Boolean(editable && selectedForm?.lifecycle_status === "DRAFT");
   const createMutation = useMutation({ mutationFn: () => createWordTemplate({ ...newForm, pmTemplateId: templateId }), onSuccess: async (result) => { setSelectedId(result.item.id); onChanged(); } });
   const saveMutation = useMutation({ mutationFn: () => saveWordMappings(selectedId, mappings.map((item, index) => ({ ...item, sortOrder: item.sort_order ?? index + 1, fieldKey: item.field_key, sourcePath: item.source_path, wordTargetType: item.word_target_type, wordTarget: item.word_target, transformCode: item.transform_code, defaultValue: item.default_value, isRequired: item.is_required }))), onSuccess: async () => { await queryClient.invalidateQueries({ queryKey: ["word-mappings", selectedId] }); onChanged(); } });
-  const saveBlocksMutation = useMutation({ mutationFn: () => saveWordBlockMappings(selectedId, blockMappings), onSuccess: async () => { await queryClient.invalidateQueries({ queryKey: ["word-block-mappings", selectedId] }); onChanged(); } });
+  const saveBlocksMutation = useMutation({ mutationFn: () => saveWordBlockMappings(selectedId, blockMappings), onSuccess: async () => { await Promise.all([queryClient.invalidateQueries({ queryKey: ["word-block-mappings", selectedId] }), queryClient.invalidateQueries({ queryKey: ["word-verification-runs", selectedId] })]); onChanged(); } });
   const publishMutation = useMutation({ mutationFn: () => publishWordTemplate(selectedId), onSuccess: () => onChanged() });
 
   function addAttachmentBlocks() {
@@ -296,14 +415,18 @@ function WordEditor({ templateId, pmCode, forms, attachments, editable, onChange
 
       <div className="word-block-heading studio-action-row"><div><h3>動態區塊</h3><p>檢查表、附件圖與量測表的 Word 落點。</p></div>{formEditable ? <div className="button-row"><button className="secondary-button" type="button" onClick={addAttachmentBlocks}><CopyPlus size={15} />從附件補齊</button><button className="secondary-button" type="button" onClick={() => setBlockMappings([...blockMappings, { block_code: `BLOCK-${blockMappings.length + 1}`, source_path: "", block_type: "OTHER", word_target_type: "BOOKMARK_RANGE", word_target: "", is_required: false, is_verified: false, sort_order: blockMappings.length + 1 }])}><Plus size={15} />新增區塊</button></div> : null}</div>
       {blockMappingQuery.isPending ? <LoadingState /> : null}
-      <div className="table-frame studio-table-frame"><table className="studio-edit-table word-block-table"><thead><tr><th>區塊代碼</th><th>資料來源</th><th>內容型態</th><th>Word 落點</th><th>目標</th><th>必填</th><th>驗證</th>{formEditable ? <th /> : null}</tr></thead><tbody>{blockMappings.map((mapping, index) => <tr key={mapping.id || `${mapping.block_code}-${index}`}>
+      {verificationQuery.isPending ? <LoadingState /> : latestVerification ? <div className={`inline-notice ${latestVerification.run_status === "PASSED" ? "is-success" : "is-warning"}`}>
+        最近驗證：{latestVerification.print_stage === "POST_COMPLETION" ? "完工輸出" : "作業前輸出"} · {latestVerification.run_status} · {latestVerification.page_count} 頁 · {new Date(latestVerification.completed_at || latestVerification.requested_at).toLocaleString("zh-TW")} · 證據 {latestVerification.evidence_path} · SHA256 {latestVerification.output_file_hash.slice(0, 12)}…
+      </div> : blockMappings.length ? <div className="inline-notice is-warning">尚無實際 Word 輸出驗證證據；系統不允許以人工勾選取代驗證。</div> : null}
+      <div className="table-frame studio-table-frame"><table className="studio-edit-table word-block-table"><thead><tr><th>區塊代碼</th><th>資料來源</th><th>內容型態</th><th>Word 落點</th><th>目標</th><th>落點設定</th><th>必填</th><th>驗證</th>{formEditable ? <th /> : null}</tr></thead><tbody>{blockMappings.map((mapping, index) => <tr key={mapping.id || `${mapping.block_code}-${index}`}>
         <td><input disabled={!formEditable || Boolean(mapping.id)} value={mapping.block_code} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, block_code: event.target.value.toUpperCase() } : row))} /></td>
         <td><input disabled={!formEditable} value={mapping.source_path} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, source_path: event.target.value } : row))} /></td>
         <td><select disabled={!formEditable} value={mapping.block_type} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, block_type: event.target.value as WordBlockMapping["block_type"] } : row))}><option value="CHECK_TABLE">檢查表</option><option value="MATERIAL_TABLE">用料表</option><option value="SEAT_MAP">座椅圖</option><option value="MEASUREMENT_TABLE">量測表</option><option value="OTHER">其他</option></select></td>
         <td><select disabled={!formEditable} value={mapping.word_target_type} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, word_target_type: event.target.value as WordBlockMapping["word_target_type"] } : row))}><option value="BOOKMARK_RANGE">書籤範圍</option><option value="TABLE">表格</option><option value="SHAPE_COORDINATES">圖形座標</option><option value="IMAGE_OVERLAY">圖片覆蓋</option></select></td>
         <td><input disabled={!formEditable} value={mapping.word_target} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, word_target: event.target.value } : row))} /></td>
+        <td><WordBlockConfigEditor mapping={mapping} editable={formEditable} onChange={(config) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, config_json: config, is_verified: false } : row))} /></td>
         <td><input disabled={!formEditable} type="checkbox" checked={mapping.is_required} onChange={(event) => setBlockMappings(blockMappings.map((row, rowIndex) => rowIndex === index ? { ...row, is_required: event.target.checked } : row))} /></td>
-        <td><StatusBadge tone={mapping.is_verified ? "success" : "warning"}>{mapping.is_verified ? "已驗證" : "待驗證"}</StatusBadge></td>
+        <td><span title={mapping.is_verified ? `驗證時間：${mapping.verified_at || "-"}\n驗證批次：${mapping.verified_run_id || "-"}` : "需由 rehearsal Word 驗證程式產生通過證據"}><StatusBadge tone={mapping.is_verified ? "success" : "warning"}>{mapping.is_verified ? "已驗證" : "待驗證"}</StatusBadge></span></td>
         {formEditable ? <td><button className="icon-button" type="button" title="移除區塊" onClick={() => setBlockMappings(blockMappings.filter((_, rowIndex) => rowIndex !== index))}><Trash2 size={14} /></button></td> : null}
       </tr>)}</tbody></table></div>
       {formEditable ? <div className="button-row word-publish-row"><button className="primary-button" type="button" disabled={saveBlocksMutation.isPending} onClick={() => saveBlocksMutation.mutate()}><Save size={15} />儲存動態區塊</button><button className="secondary-button" type="button" disabled={publishMutation.isPending} onClick={() => publishMutation.mutate()}><Send size={15} />發布 Word 版本</button></div> : null}
@@ -312,7 +435,7 @@ function WordEditor({ templateId, pmCode, forms, attachments, editable, onChange
   </div>;
 }
 
-export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | "attachments" | "materials" | "word" }) {
+export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | "attachments" | "resources" | "word" }) {
   const queryClient = useQueryClient();
   const [section, setSection] = useState<StudioSection>(focus);
   const [search, setSearch] = useState("");
@@ -352,7 +475,7 @@ export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | 
   }
   const saveMeta = useMutation({ mutationFn: () => updateTemplateVersion(selectedId, meta), onSuccess: refresh });
   const saveChecks = useMutation({ mutationFn: () => saveTemplateChecks(selectedId, checks.map((item) => ({ itemNo: item.item_no, itemDescription: item.item_description, section: item.section, checkType: item.check_type, standardValue: item.standard_value, unit: item.unit, defaultStatus: item.default_status, requiresValue: item.requires_value, isRequired: item.is_required, minValue: item.min_value, maxValue: item.max_value, validationRule: item.validation_rule, sectionSortOrder: item.section_sort_order, sortOrder: item.sort_order }))), onSuccess: refresh });
-  const saveAttachments = useMutation({ mutationFn: () => saveTemplateAttachments(selectedId, attachments.map((item) => ({ attachmentCode: item.attachment_code, attachmentName: item.attachment_name, attachmentType: item.attachment_type, schemaJson: item.schema_json, sortOrder: item.sort_order, isRequired: item.is_required, conditionCode: item.condition_code, schemaVersion: item.schema_version, renderStrategy: item.render_strategy }))), onSuccess: refresh });
+  const saveAttachments = useMutation({ mutationFn: () => saveTemplateAttachments(selectedId, attachments.map((item) => ({ definitionVersionId: item.attachment_definition_version_id, attachmentCode: item.attachment_code, attachmentName: item.attachment_name, attachmentType: item.attachment_type, schemaJson: item.schema_json, sortOrder: item.sort_order, isRequired: item.is_required, conditionCode: item.condition_code, schemaVersion: item.schema_version, renderStrategy: item.render_strategy }))), onSuccess: refresh });
   const saveMaterials = useMutation({ mutationFn: () => saveTemplateMaterials(selectedId, materials.map((item) => ({ materialId: item.material_id, defaultQty: item.default_qty, defaultUnit: item.default_unit, displayNote: item.display_note, conditionCode: item.condition_code, conditionOptions: item.condition_options, isRequired: item.is_required, sortOrder: item.sort_order }))), onSuccess: refresh });
   const saveInstruments = useMutation({ mutationFn: () => saveTemplateInstruments(selectedId, instruments.map((item) => ({ instrumentId: item.instrument_id, isRequired: item.is_required, sortOrder: item.sort_order }))), onSuccess: refresh });
   const saveWis = useMutation({ mutationFn: () => saveTemplateWis(selectedId, wis.map((item) => ({ wiDocumentId: item.wi_document_id, isRequired: item.is_required, sortOrder: item.sort_order }))), onSuccess: refresh });
@@ -364,6 +487,11 @@ export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | 
   const editable = selected?.lifecycle_status === "DRAFT";
   const hasMore = Boolean(listQuery.data && offset + limit < listQuery.data.total);
   const counts = useMemo(() => selected ? `${detailQuery.data?.checks.filter((item) => item.is_active).length || 0} 項檢查｜${detailQuery.data?.attachments.filter((item) => item.is_active).length || 0} 份附件｜${detailQuery.data?.materials.filter((item) => item.is_active).length || 0} 項用料` : "", [detailQuery.data, selected]);
+  const releaseChecks = useMemo(() => ({
+    checks: checks.length > 0,
+    resources: materials.length > 0 || instruments.length > 0 || wis.length > 0,
+    word: (detailQuery.data?.formTemplates || []).some((form) => form.lifecycle_status === "PUBLISHED"),
+  }), [checks.length, detailQuery.data?.formTemplates, instruments.length, materials.length, wis.length]);
 
   return <div className="template-studio">
     <aside className="template-version-list">
@@ -386,12 +514,27 @@ export function PmTemplateStudio({ focus = "overview" }: { focus?: "overview" | 
           <label><span>最晚偏移天數</span><input disabled={!editable} type="number" value={String(meta.latestOffsetDays ?? 0)} onChange={(event) => setMeta({ ...meta, latestOffsetDays: Number(event.target.value) })} /></label>
           <label className="span-2"><span>工作說明</span><textarea disabled={!editable} value={String(meta.jobDescription || "")} onChange={(event) => setMeta({ ...meta, jobDescription: event.target.value })} /></label>
           <label className="span-2"><span>預設處理情形</span><textarea disabled={!editable} value={String(meta.defaultCorrectiveAction || "")} onChange={(event) => setMeta({ ...meta, defaultCorrectiveAction: event.target.value })} /></label>
+          <div className="template-release-checks span-2" aria-label="發布檢查">
+            <strong>發布檢查</strong>
+            <span className={releaseChecks.checks ? "is-ready" : "is-missing"}>{releaseChecks.checks ? "已設定檢查項目" : "尚未設定檢查項目"}</span>
+            <span className={releaseChecks.resources ? "is-ready" : "is-missing"}>{releaseChecks.resources ? "已設定作業資源" : "尚未設定作業資源"}</span>
+            <span className={releaseChecks.word ? "is-ready" : "is-missing"}>{releaseChecks.word ? "已有已發布 Word" : "尚未發布 Word"}</span>
+          </div>
           {editable ? <button className="primary-button" type="button" disabled={saveMeta.isPending} onClick={() => saveMeta.mutate()}><Save size={16} />儲存版本資訊</button> : <div className="inline-notice"><Check size={15} />已發布版本只供工單引用；修改請建立新修訂。</div>}
         </div> : null}
         {section === "checks" ? <CheckEditor items={checks} editable={editable} onChange={setChecks} onSave={() => saveChecks.mutate()} saving={saveChecks.isPending} /> : null}
-        {section === "attachments" ? <AttachmentEditor items={attachments} editable={editable} onChange={setAttachments} onSave={() => saveAttachments.mutate()} saving={saveAttachments.isPending} /> : null}
-        {section === "materials" ? <MaterialEditor items={materials} editable={editable} onChange={setMaterials} onSave={() => saveMaterials.mutate()} saving={saveMaterials.isPending} /> : null}
-        {section === "links" ? <LinkEditor instruments={instruments} wis={wis} editable={editable} onInstruments={setInstruments} onWis={setWis} onSaveInstruments={() => saveInstruments.mutate()} onSaveWis={() => saveWis.mutate()} /> : null}
+        {section === "imports" ? <TemplateImportReview pmCode={selected.pm_code} onApplied={(templateId) => {
+          setSelectedId(templateId);
+          setSection("checks");
+          void refresh();
+        }} /> : null}
+        {section === "attachments" ? <TemplateAttachmentSelector items={attachments} editable={editable} onChange={setAttachments} onSave={() => saveAttachments.mutate()} saving={saveAttachments.isPending} /> : null}
+        {section === "resources" ? <div className="template-resources-workspace">
+          <header className="studio-section-heading"><div><h3>作業資源</h3><p>此版本列印與回填時要帶入的預設用料、儀器與工作說明書都在這裡設定。</p></div></header>
+          <section><h4>預設用料</h4><MaterialEditor items={materials} editable={editable} onChange={setMaterials} onSave={() => saveMaterials.mutate()} saving={saveMaterials.isPending} /></section>
+          <section><h4>儀器與工作說明書</h4><LinkEditor instruments={instruments} wis={wis} editable={editable} onInstruments={setInstruments} onWis={setWis} onSaveInstruments={() => saveInstruments.mutate()} onSaveWis={() => saveWis.mutate()} /></section>
+          <section><h4>工作說明書文件庫</h4><div className="studio-editor-stack"><WorkInstructionLibrary editable={editable} /></div></section>
+        </div> : null}
         {section === "word" ? <WordEditor templateId={selected.id} pmCode={selected.pm_code} forms={detailQuery.data?.formTemplates || []} attachments={attachments} editable={editable} onChanged={() => void refresh()} /> : null}
       </> : !detailQuery.isPending ? <EmptyState title="尚未選擇模板" description="請從左側選擇模板版本。" /> : null}
     </section>

@@ -44,6 +44,57 @@ export interface TemplateCheckItem {
   is_active: boolean;
 }
 
+export interface TemplateSection {
+  id: string;
+  section_code: string;
+  section_name: string;
+  description?: string;
+  sort_order: number;
+  is_active: boolean;
+}
+
+export type ImportBatchStatus = "DRAFT" | "VALIDATED" | "APPROVED" | "APPLIED" | "REJECTED";
+export type ImportRowStatus = "PENDING" | "VALID" | "INVALID" | "APPROVED" | "REJECTED" | "APPLIED";
+
+export interface TemplateImportBatch {
+  id: string;
+  pm_template_id?: string | null;
+  source_file_name: string;
+  source_file_hash?: string;
+  source_profile_code?: string;
+  import_status: ImportBatchStatus;
+  total_rows: number;
+  valid_rows: number;
+  invalid_rows: number;
+  notes?: string;
+  created_at: string;
+  row_count?: number;
+  approved_count?: number;
+  rejected_count?: number;
+  pending_review_count?: number;
+  summary?: Partial<Record<ImportRowStatus, number>>;
+}
+
+export interface TemplateImportRow {
+  id: string;
+  source_row_no: number;
+  source_page_no?: number;
+  section_code?: string;
+  section_name: string;
+  item_no: string;
+  item_description: string;
+  check_type: "checkbox" | "value" | "text";
+  standard_value?: string;
+  unit?: string;
+  requires_value: boolean;
+  is_required: boolean;
+  min_value?: string | number;
+  max_value?: string | number;
+  sort_order: number;
+  validation_status: ImportRowStatus;
+  validation_messages: string[];
+}
+
 export interface TemplateMaterial {
   material_id: string;
   part_no: string;
@@ -137,6 +188,9 @@ export interface AttachmentField {
 
 export interface TemplateAttachment {
   id?: string;
+  attachment_definition_version_id?: string | null;
+  library_version_no?: string;
+  library_lifecycle_status?: TemplateLifecycle;
   attachment_code: string;
   attachment_name: string;
   attachment_type: TemplateAttachmentType;
@@ -155,6 +209,49 @@ export interface TemplateAttachment {
   is_active: boolean;
 }
 
+export interface AttachmentLibraryItem {
+  id: string;
+  attachment_code: string;
+  attachment_name: string;
+  attachment_type: TemplateAttachmentType;
+  description?: string;
+  is_active: boolean;
+  version_count?: number;
+  published_version_id?: string;
+  published_version_no?: string;
+  published_schema_version?: number;
+  published_render_strategy?: AttachmentRenderStrategy;
+}
+
+export interface AttachmentLibraryVersion {
+  id: string;
+  attachment_definition_id: string;
+  version_no: string;
+  schema_version: number;
+  lifecycle_status: TemplateLifecycle;
+  schema_json: TemplateAttachment["schema_json"];
+  render_strategy: AttachmentRenderStrategy;
+  source_asset_path?: string;
+  source_asset_hash?: string;
+  effective_from?: string;
+  effective_to?: string;
+  published_at?: string;
+  is_active: boolean;
+}
+
+export interface PublishedAttachmentVersion {
+  attachment_definition_version_id: string;
+  attachment_definition_id: string;
+  attachment_code: string;
+  attachment_name: string;
+  attachment_type: TemplateAttachmentType;
+  description?: string;
+  version_no: string;
+  schema_version: number;
+  schema_json: TemplateAttachment["schema_json"];
+  render_strategy: AttachmentRenderStrategy;
+}
+
 export interface WordBlockMapping {
   id?: string;
   block_code: string;
@@ -166,11 +263,42 @@ export interface WordBlockMapping {
   config_json?: Record<string, unknown>;
   is_required: boolean;
   is_verified?: boolean;
+  verified_run_id?: string | null;
+  verified_at?: string | null;
   sort_order: number;
+}
+
+export interface WordBlockVerification {
+  id: string;
+  blockMappingId: string;
+  blockCode: string;
+  verificationStatus: "PASSED" | "FAILED";
+  outputFileHash: string;
+  pageNumbers: number[];
+  evidence?: Record<string, unknown>;
+  createdAt: string;
+}
+
+export interface WordVerificationRun {
+  id: string;
+  form_template_id: string;
+  print_job_id?: string | null;
+  run_status: "RUNNING" | "PASSED" | "FAILED";
+  print_stage: "PRE_WORK" | "POST_COMPLETION";
+  output_file_hash: string;
+  output_file_path: string;
+  evidence_hash: string;
+  evidence_path: string;
+  page_count: number;
+  requested_at: string;
+  completed_at?: string | null;
+  completed_by?: string | null;
+  blocks: WordBlockVerification[];
 }
 
 export interface TemplateDetail {
   item: PmTemplateVersion;
+  sections: TemplateSection[];
   checks: TemplateCheckItem[];
   materials: TemplateMaterial[];
   instruments: TemplateInstrument[];
@@ -185,6 +313,30 @@ export function listTemplateVersions(input: { search?: string; limit?: number; o
 
 export function getTemplateVersion(id: string, signal?: AbortSignal) {
   return api.get<TemplateDetail>(`master-data/pm-template-studio/${encodeURIComponent(id)}`, undefined, signal);
+}
+
+export function listTemplateImportBatches(input: { pmCode?: string; status?: string; limit?: number; offset?: number }, signal?: AbortSignal) {
+  return api.get<{ items: TemplateImportBatch[]; total: number; limit: number; offset: number }>("master-data/pm-template-studio/import-batches", input, signal);
+}
+
+export function getTemplateImportBatch(id: string, signal?: AbortSignal) {
+  return api.get<{ item: TemplateImportBatch; rows: TemplateImportRow[]; limit: number; offset: number }>(`master-data/pm-template-studio/import-batches/${encodeURIComponent(id)}`, undefined, signal);
+}
+
+export function reviewTemplateImportRow(batchId: string, rowId: string, input: Record<string, unknown>) {
+  return api.patch<{ item: TemplateImportRow }>(`master-data/pm-template-studio/import-batches/${encodeURIComponent(batchId)}/rows/${encodeURIComponent(rowId)}`, input);
+}
+
+export function approveAllTemplateImportRows(batchId: string) {
+  return api.post<{ approved: number }>(`master-data/pm-template-studio/import-batches/${encodeURIComponent(batchId)}/approve-all`);
+}
+
+export function approveTemplateImportBatch(batchId: string, note?: string) {
+  return api.post<{ item: TemplateImportBatch }>(`master-data/pm-template-studio/import-batches/${encodeURIComponent(batchId)}/approve`, { note });
+}
+
+export function applyTemplateImportBatch(batchId: string, versionNo?: string) {
+  return api.post<{ item: PmTemplateVersion }>(`master-data/pm-template-studio/import-batches/${encodeURIComponent(batchId)}/apply`, { versionNo });
 }
 
 export function createTemplateVersion(input: Record<string, unknown>) {
@@ -209,6 +361,34 @@ export function saveTemplateMaterials(id: string, items: Array<Record<string, un
 
 export function saveTemplateAttachments(id: string, items: Array<Record<string, unknown>>) {
   return api.put<TemplateDetail>(`master-data/pm-template-studio/${encodeURIComponent(id)}/attachments`, { items });
+}
+
+export function listAttachmentLibrary(input: { search?: string; limit?: number; offset?: number }, signal?: AbortSignal) {
+  return api.get<{ items: AttachmentLibraryItem[]; total: number; limit: number; offset: number }>("master-data/pm-template-studio/attachment-library", input, signal);
+}
+
+export function listPublishedAttachmentVersions(signal?: AbortSignal) {
+  return api.get<{ items: PublishedAttachmentVersion[] }>("master-data/pm-template-studio/attachment-library/published", undefined, signal);
+}
+
+export function getAttachmentLibraryItem(id: string, signal?: AbortSignal) {
+  return api.get<{ item: AttachmentLibraryItem; versions: AttachmentLibraryVersion[] }>(`master-data/pm-template-studio/attachment-library/${encodeURIComponent(id)}`, undefined, signal);
+}
+
+export function createAttachmentLibraryItem(input: Record<string, unknown>) {
+  return api.post<{ item: AttachmentLibraryItem; versions: AttachmentLibraryVersion[] }>("master-data/pm-template-studio/attachment-library", input);
+}
+
+export function createAttachmentLibraryRevision(id: string, versionNo: string) {
+  return api.post<{ item: AttachmentLibraryItem; versions: AttachmentLibraryVersion[] }>(`master-data/pm-template-studio/attachment-library/${encodeURIComponent(id)}/revisions`, { versionNo });
+}
+
+export function updateAttachmentLibraryVersion(id: string, input: Record<string, unknown>) {
+  return api.patch<{ item: AttachmentLibraryItem; versions: AttachmentLibraryVersion[] }>(`master-data/pm-template-studio/attachment-library/versions/${encodeURIComponent(id)}`, input);
+}
+
+export function publishAttachmentLibraryVersion(id: string, effectiveFrom?: string) {
+  return api.post<{ item: AttachmentLibraryItem; versions: AttachmentLibraryVersion[] }>(`master-data/pm-template-studio/attachment-library/versions/${encodeURIComponent(id)}/publish`, { effectiveFrom });
 }
 
 export function saveTemplateInstruments(id: string, items: Array<Record<string, unknown>>) {
@@ -237,6 +417,10 @@ export function saveWordMappings(id: string, mappings: WordFieldMapping[]) {
 
 export function getWordBlockMappings(id: string, signal?: AbortSignal) {
   return api.get<{ items: WordBlockMapping[]; lifecycleStatus: TemplateLifecycle }>(`precheck/form-templates/${encodeURIComponent(id)}/block-mappings`, undefined, signal);
+}
+
+export function getWordVerificationRuns(id: string, signal?: AbortSignal) {
+  return api.get<{ items: WordVerificationRun[] }>(`precheck/form-templates/${encodeURIComponent(id)}/verification-runs`, undefined, signal);
 }
 
 export function saveWordBlockMappings(id: string, mappings: WordBlockMapping[]) {

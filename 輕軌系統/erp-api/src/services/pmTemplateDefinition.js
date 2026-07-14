@@ -88,6 +88,7 @@ function normalizeAttachmentInput(item, index = 0) {
   const schemaVersion = Number(item?.schemaVersion ?? item?.schema_version ?? 1);
   if (!Number.isInteger(schemaVersion) || schemaVersion < 1) throw definitionError(`附件 ${code} 的結構版號必須為正整數`);
   return {
+    definitionVersionId: cleanText(item?.definitionVersionId ?? item?.attachment_definition_version_id),
     attachmentCode: code,
     attachmentName: name,
     attachmentType: type,

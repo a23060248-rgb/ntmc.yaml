@@ -5,7 +5,8 @@ loadEnvironment();
 const app = require("./app");
 
 const port = Number(process.env.PORT || 3001);
+const host = process.env.HOST || "127.0.0.1";
 
-app.listen(port, () => {
-  console.log(`ERP API listening on http://localhost:${port}`);
+app.listen(port, host, () => {
+  console.log(`ERP API listening on http://${host}:${port}`);
 });

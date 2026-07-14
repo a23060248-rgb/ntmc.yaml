@@ -189,14 +189,14 @@
 | `/master-data/equipment` | 設備群組、別名、機廠設備與坑位 |
 | `/master-data/warehouses` | 倉庫、位置、儲位 |
 | `/master-data/instruments` | 儀器、類型、校驗效期與適用級別 |
-| `/master-data/pm-templates` | P1/P2/P3/P4 模板與檢查項目 |
-| `/master-data/pm-materials` | 各級別表單預設用料與數量 |
-| `/master-data/wi-documents` | W.I.No、版本與對應模板 |
-| `/master-data/form-templates` | Word 範本、版本、欄位對應與附件 |
+| `/master-data/attachment-library` | 附件模板庫：座椅圖、量測表及其他附件的草稿、發布與修訂 |
+| `/master-data/pm-templates` | 預檢表單設計工作區：P1/P2/P3/P4 版本、檢查項目、作業資源、附件選用、Word 輸出與匯入審核 |
 | `/master-data/workflow-options` | 狀態、分類、選項、顏色與排序 |
 | `/master-data/document-sequences` | P/C/R/J/I 單號流水設定 |
 
-主檔設定採左側次導覽 + 清冊 + 編輯區。被作業引用過的資料只能停用，不直接刪除。
+主檔設定採左側次導覽 + 清冊 + 編輯區。預設用料、儀器、WI 與 Word 對應都在 P 模板主檔預設；預檢管理建立 P 工單時只自動帶入版本快照，不提供第二套設定。
+
+附件結構獨立由附件模板庫管理，P1/P2/P3/P4 的「附件選用」只綁定已發布附件版本、帶入條件、必填與排序。後續新增附件時先發布附件版本，再建立 P 模板新修訂選用；已建立工單仍保留舊附件快照。舊的用料、WI 與 Word 深連結保留相容，但不在導覽中重複出現。被作業引用過的資料只能停用，不直接刪除。
 
 ## 8. API 現況與缺口
 

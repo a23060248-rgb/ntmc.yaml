@@ -15,8 +15,8 @@ SELECT p1.id, 'P1-SEAT', '附件一：座椅確認圖', 'SEAT_MAP',
         jsonb_build_array('P','S',null,'S','S'), jsonb_build_array('P','S',null,'S','S'),
         jsonb_build_array('P','S',null,'S','S'), jsonb_build_array('P','S',null,'S','S'))),
       jsonb_build_object('code','M4','rows',jsonb_build_array(
-        jsonb_build_array('S','S',null,null), jsonb_build_array(null,null,null,null),
-        jsonb_build_array('S','S','P','P'))),
+        jsonb_build_array('S','S',null,null,null), jsonb_build_array(null,null,null,null,null),
+        jsonb_build_array('S','S','S','P','P'))),
       jsonb_build_object('code','M3','rows',jsonb_build_array(
         jsonb_build_array('S','S',null,'S','S'), jsonb_build_array('S','S',null,'S','S'),
         jsonb_build_array('S','S',null,'S','S'), jsonb_build_array('S','S',null,'S','S'))),

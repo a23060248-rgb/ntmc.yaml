@@ -18,6 +18,13 @@ async function main() {
   );
   assert.equal(ledger.rowCount, 1, "template maintenance migration is missing from the ledger");
 
+  const structureLedger = await query(
+    `SELECT migration_status
+       FROM schema_migration
+      WHERE sequence_no=270 AND migration_id='pm-template-structure'`,
+  );
+  assert.equal(structureLedger.rowCount, 1, "template structure migration is missing from the ledger");
+
   const template = await query(
     `SELECT id,pm_code,version_no,revision_no
        FROM pm_template
@@ -33,6 +40,13 @@ async function main() {
   const secondHash = hashTemplateSnapshot(second);
   assert.equal(firstHash, secondHash, "template snapshot hash is not deterministic");
   assert.equal(first.template.id, template.rows[0].id);
+  const sectionCodes = new Set(first.checks.map((item) => item.section_code));
+  assert.ok(sectionCodes.size > 0, "P1 template sections are missing");
+  assert.ok(first.checks.length > 0, "P1 template check items are missing");
+  assert.ok(
+    first.checks.every((item) => item.section_id && item.section_code),
+    "P1 template check items must be assigned to a section",
+  );
   assert.ok(first.attachments.length >= 2, "P1 attachment definitions are missing");
   assert.ok(first.attachments.every((item) => item.schema_version >= 1));
   assert.ok(first.attachments.every((item) => item.render_strategy));
@@ -49,9 +63,14 @@ async function main() {
   console.log(JSON.stringify({
     ok: true,
     database: database.rows[0].name,
-    ledger: { sequence: 250, status: ledger.rows[0].migration_status },
+    ledger: {
+      maintenance: { sequence: 250, status: ledger.rows[0].migration_status },
+      structure: { sequence: 270, status: structureLedger.rows[0].migration_status },
+    },
     template: template.rows[0],
     snapshotHash: firstHash,
+    sections: sectionCodes.size,
+    checkItems: first.checks.length,
     attachments: first.attachments.length,
     fieldMappings: first.fieldMappings.length,
     blockMappings: first.blockMappings.length,

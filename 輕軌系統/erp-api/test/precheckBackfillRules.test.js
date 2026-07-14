@@ -31,6 +31,26 @@ test("seat attachment keys follow the official M5 to M1 layout", () => {
   assert.deepEqual(keys, ["M5-R1-C1", "M5-R1-C2", "M5-R2-C1", "M5-R2-C2"]);
 });
 
+test("official M4 lower row keeps three standard and two priority seats", () => {
+  const keys = expectedAttachmentKeys({
+    attachment_type: "SEAT_MAP",
+    schema_json: {
+      modules: [{
+        code: "M4",
+        rows: [
+          ["S", "S", null, null, null],
+          [null, null, null, null, null],
+          ["S", "S", "S", "P", "P"],
+        ],
+      }],
+    },
+  });
+  assert.deepEqual(keys, [
+    "M4-R1-C1", "M4-R1-C2",
+    "M4-R3-C1", "M4-R3-C2", "M4-R3-C3", "M4-R3-C4", "M4-R3-C5",
+  ]);
+});
+
 test("measurement attachments require every configured field", () => {
   const attachment = {
     id: "a1",

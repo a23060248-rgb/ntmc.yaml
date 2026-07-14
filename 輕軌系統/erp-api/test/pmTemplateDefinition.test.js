@@ -14,6 +14,17 @@ test("seat map attachment keeps stable codes and structured rows", () => {
   assert.deepEqual(attachment.schemaJson.modules[0].rows[0], ["S", "P", null]);
 });
 
+test("template attachment keeps its published library version reference", () => {
+  const [attachment] = normalizeAttachmentList([{
+    definitionVersionId: "attachment-version-1",
+    attachmentCode: "P1-SEAT",
+    attachmentName: "座椅確認圖",
+    attachmentType: "SEAT_MAP",
+    schemaJson: { modules: [{ code: "M1", rows: [["S"]] }] },
+  }]);
+  assert.equal(attachment.definitionVersionId, "attachment-version-1");
+});
+
 test("measurement attachment rejects an inverted numeric range", () => {
   assert.throws(() => normalizeAttachmentList([{
     attachmentCode: "P1-BRAKE",

@@ -151,6 +151,24 @@
       "id": "pm-template-maintenance",
       "file": "migration-pm-template-maintenance.sql",
       "verifySql": "SELECT to_regclass('public.form_template_block_mapping') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='pm_template_attachment' AND column_name='render_strategy') AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='pm_work_order' AND column_name='template_snapshot_hash') AS ok"
+    },
+    {
+      "sequence": 260,
+      "id": "word-block-verification",
+      "file": "migration-word-block-verification.sql",
+      "verifySql": "SELECT to_regclass('public.form_template_verification_run') IS NOT NULL AND to_regclass('public.form_template_block_verification') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='form_template_block_mapping' AND column_name='verified_run_id') AS ok"
+    },
+    {
+      "sequence": 270,
+      "id": "pm-template-structure",
+      "file": "migration-pm-template-structure.sql",
+      "verifySql": "SELECT to_regclass('public.pm_template_section') IS NOT NULL AND to_regclass('public.pm_template_check_item_import_batch') IS NOT NULL AND to_regclass('public.pm_template_check_item_import_row') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='pm_template_check_item' AND column_name='section_id') AS ok"
+    },
+    {
+      "sequence": 280,
+      "id": "pm-attachment-library",
+      "file": "migration-pm-attachment-library.sql",
+      "verifySql": "SELECT to_regclass('public.pm_attachment_definition') IS NOT NULL AND to_regclass('public.pm_attachment_definition_version') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='pm_template_attachment' AND column_name='attachment_definition_version_id') AS ok"
     }
   ]
 }

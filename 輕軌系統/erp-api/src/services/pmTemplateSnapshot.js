@@ -34,10 +34,15 @@ async function buildPmTemplateSnapshot(client, templateId, requestedFormTemplate
   }
   const [checks, materials, instruments, wis, attachments] = await Promise.all([
     client.query(
-      `SELECT id,section,item_no,item_description,check_type,standard_value,unit,default_status,
-              requires_value,is_required,min_value,max_value,validation_rule,section_sort_order,sort_order
-         FROM pm_template_check_item WHERE pm_template_id=$1 AND is_active=true
-        ORDER BY section_sort_order,section,sort_order,item_no`, [templateId]
+      `SELECT item.id,item.section_id,COALESCE(section.section_code,'LEGACY') AS section_code,
+              COALESCE(section.section_name,item.section) AS section,item.item_no,item.item_description,
+              item.check_type,item.standard_value,item.unit,item.default_status,item.requires_value,
+              item.is_required,item.min_value,item.max_value,item.validation_rule,
+              COALESCE(section.sort_order,item.section_sort_order) AS section_sort_order,item.sort_order
+         FROM pm_template_check_item item
+         LEFT JOIN pm_template_section section ON section.id=item.section_id
+        WHERE item.pm_template_id=$1 AND item.is_active=true
+        ORDER BY COALESCE(section.sort_order,item.section_sort_order),COALESCE(section.section_name,item.section),item.sort_order,item.item_no`, [templateId]
     ),
     client.query(
       `SELECT ptm.material_id,m.part_no,m.material_name,m.spec,ptm.default_qty,
