@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "suite_id": "GOV-REFERENCED-EVIDENCE-MUTATIONS-8",
+  "operator_count": 8,
+  "killed": 8,
+  "survived": 0,
+  "mutation_definition": "A mutant is killed when the fixed rejection oracle fails under the mutated production implementation.",
+  "operators": [
+    {
+      "operator": "MUT-REF-EVIDENCE-SKIP-NESTED",
+      "production_entrypoint": "validateTask CLI",
+      "fixed_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "mutant_observed": {
+        "exit_code": 0,
+        "accepted": true
+      },
+      "killed": true
+    },
+    {
+      "operator": "MUT-REF-EVIDENCE-TRUST-HASH-ONLY",
+      "production_entrypoint": "validateTask CLI",
+      "fixed_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "mutant_observed": {
+        "exit_code": 0,
+        "accepted": true
+      },
+      "killed": true
+    },
+    {
+      "operator": "MUT-REF-EVIDENCE-IGNORE-UNKNOWN-TYPE",
+      "production_entrypoint": "validateTask CLI",
+      "fixed_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "mutant_observed": {
+        "exit_code": 0,
+        "accepted": true
+      },
+      "killed": true
+    },
+    {
+      "operator": "MUT-REF-EVIDENCE-ALLOW-SCHEMA-MISMATCH",
+      "production_entrypoint": "validateTask CLI",
+      "fixed_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "mutant_observed": {
+        "exit_code": 0,
+        "accepted": true
+      },
+      "killed": true
+    },
+    {
+      "operator": "MUT-REF-EVIDENCE-FIRST-MATCH-ONLY",
+      "production_entrypoint": "validateTask CLI",
+      "fixed_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "mutant_observed": {
+        "exit_code": 0,
+        "accepted": true
+      },
+      "killed": true
+    },
+    {
+      "operator": "MUT-REF-EVIDENCE-DROP-DUPLICATE-CHECK",
+      "production_entrypoint": "validateTask CLI",
+      "fixed_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "mutant_observed": {
+        "exit_code": 0,
+        "accepted": true
+      },
+      "killed": true
+    },
+    {
+      "operator": "MUT-REF-EVIDENCE-DROP-MANIFEST-BACKREF",
+      "production_entrypoint": "validateTask CLI",
+      "fixed_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "mutant_observed": {
+        "exit_code": 0,
+        "accepted": true
+      },
+      "killed": true
+    },
+    {
+      "operator": "MUT-REF-EVIDENCE-DROP-GATE-COMPLETENESS",
+      "production_entrypoint": "validateTask CLI",
+      "fixed_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "mutant_observed": {
+        "exit_code": 0,
+        "accepted": true
+      },
+      "killed": true
+    }
+  ]
+}

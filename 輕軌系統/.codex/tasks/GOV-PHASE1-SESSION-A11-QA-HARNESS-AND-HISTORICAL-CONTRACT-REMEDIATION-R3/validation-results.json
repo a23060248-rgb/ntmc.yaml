@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3",
+  "validated_at": "2026-07-22T10:25:38+08:00",
+  "overall_status": "HARD_STOP",
+  "hard_stop_code": "A11_R3_TRIAGE_SOURCE_CONFLICT",
+  "checks": [
+    {
+      "check_id": "TRIAGE_AUTHORITY_REQUIRED_ARTIFACTS",
+      "status": "FAIL",
+      "expected": "9/9 present",
+      "actual": "6/9 present",
+      "missing": [
+        "qa-failure-source-manifest.json",
+        "qa-contract-impact-assessment.json",
+        "historical-compatibility-assessment.json"
+      ]
+    },
+    {
+      "check_id": "TASK_LOCAL_MACHINE_READABLE_EVIDENCE_PARSE",
+      "status": "PASS",
+      "files_checked": [
+        "classification.yaml",
+        "task-intent.yaml",
+        "triage-source-verification.json",
+        "a11-aggregator-r3-launch-readiness.json"
+      ]
+    },
+    {
+      "check_id": "AGGREGATOR_R3_REVIEW_PACKAGE_NOT_CREATED",
+      "status": "PASS"
+    },
+    {
+      "check_id": "AGGREGATOR_R3_RUNTIME_NOT_STARTED",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FRESH_QA_NOT_EXECUTED",
+      "status": "PASS"
+    },
+    {
+      "check_id": "GIT_NOT_USED",
+      "status": "PASS"
+    }
+  ],
+  "not_run_due_to_hard_stop": [
+    "Candidate before/during/after binding",
+    "Reviewer payload R3 reuse verification",
+    "Transport v2 reuse verification",
+    "Six-suite R3 remediation mapping",
+    "Historical oracle construction",
+    "18-command manifest construction",
+    "Canonical writer construction and tests",
+    "24 remediation contract tests",
+    "Aggregator R3 package and launch envelope integrity"
+  ]
+}

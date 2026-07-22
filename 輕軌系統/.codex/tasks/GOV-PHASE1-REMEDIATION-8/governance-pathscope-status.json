@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "authorized_write_roots": ["AGENTS.md", ".agents/**", ".codex/**"],
+  "actual_governance_source_after_count": 115,
+  "governance_source_added": 5,
+  "governance_source_modified": 37,
+  "governance_source_deleted": 0,
+  "remediation_task_self_excluded_from_baseline": true,
+  "candidate_manifest_exact_file_count": 97,
+  "candidate_manifest_is_git_pathspec": false,
+  "git_inspection_performed": false,
+  "git_mutation_performed": false,
+  "staging_state_verified": false,
+  "reason": "Git inspection and mutation were prohibited; scope evidence is the exact manifest plus before/after byte-size and SHA256 inventories, not a Git pathspec claim.",
+  "env_files_read": false,
+  "product_code_read": false,
+  "product_code_modified": false,
+  "database_or_migration_operation": false,
+  "service_or_product_test_started": false,
+  "sibling_directory_read": false
+}

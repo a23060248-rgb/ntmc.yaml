@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-L3-REVIEW-A5",
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "risk": {"level":"L3","reasons":["Independent review may change only the Candidate Governance Review Gate."]},
+  "scope": {
+    "include": ["Exact 97-file Phase 1.5 candidate", "Remediation 5 workspace proof", "A4 finding baseline", "frozen history", "Migration 320 evidence integrity"],
+    "exclude": ["product code", "database operations", "Git mutation", "Session B", "commit preparation or execution approval"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "write": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/**"]
+  },
+  "agent_assignments": [
+    {"role":"code-reviewer","allowed_read_paths":["AGENTS.md", ".agents/**", ".codex/agents/**", ".codex/blueprints/**", ".codex/checklists/**", ".codex/domain/**", ".codex/environment/**", ".codex/governance/**", ".codex/meta-rules/**", ".codex/scripts/**", ".codex/tests/**", ".codex/templates/**", ".codex/workflows/**", ".codex/tasks/GOV-M320-DRYRUN/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/**", ".codex/tasks/GOV-PHASE1-A4-FINDING-CONSOLIDATION/**", ".codex/tasks/GOV-PHASE1-REMEDIATION-5/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/**"],"allowed_write_paths":[]},
+    {"role":"security-reviewer","allowed_read_paths":["AGENTS.md", ".agents/**", ".codex/agents/**", ".codex/blueprints/**", ".codex/checklists/**", ".codex/domain/**", ".codex/environment/**", ".codex/governance/**", ".codex/meta-rules/**", ".codex/scripts/**", ".codex/tests/**", ".codex/templates/**", ".codex/workflows/**", ".codex/tasks/GOV-M320-DRYRUN/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/**", ".codex/tasks/GOV-PHASE1-A4-FINDING-CONSOLIDATION/**", ".codex/tasks/GOV-PHASE1-REMEDIATION-5/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/**"],"allowed_write_paths":[]},
+    {"role":"railway-domain-reviewer","allowed_read_paths":["AGENTS.md", ".agents/**", ".codex/agents/**", ".codex/blueprints/**", ".codex/checklists/**", ".codex/domain/**", ".codex/environment/**", ".codex/governance/**", ".codex/meta-rules/**", ".codex/scripts/**", ".codex/tests/**", ".codex/templates/**", ".codex/workflows/**", ".codex/tasks/GOV-M320-DRYRUN/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/**", ".codex/tasks/GOV-PHASE1-A4-FINDING-CONSOLIDATION/**", ".codex/tasks/GOV-PHASE1-REMEDIATION-5/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/**"],"allowed_write_paths":[]}
+  ],
+  "applicable_rules": ["GOV-SCOPE-001", "REV-INDEP-001", "REV-L3-001", "EVD-HASH-001"],
+  "candidate_rules": [],
+  "required_agents": ["code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "execution": {
+    "parallel_groups": [["code-reviewer", "security-reviewer", "railway-domain-reviewer"]],
+    "sequential_steps": ["Freeze before baseline.", "Dispatch three fresh read-only Reviewers.", "Collect raw outcomes.", "Recompute candidate baseline and gate.", "Stop before Session B."]
+  },
+  "evidence_required": [
+    "ART-A5-CODE-REVIEW",
+    "ART-A5-SECURITY-REVIEW",
+    "ART-A5-DOMAIN-REVIEW",
+    "ART-A5-CLOSURE-MATRIX"
+  ],
+  "rollback_restore": {"required":false,"evidence_or_reason":"Not applicable: read-only governance review with writes limited to the A5 Task workspace."},
+  "human_approval": {"required":true,"approver_roles":["human-governance-owner"]},
+  "stop_conditions": ["Any reviewed source changes.", "Any Reviewer identity collision.", "Any later gate is represented as GO.", "Any Git mutation occurs."]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "contract_id": "R12-REVIEWER-COMPLETION",
+  "version": 1,
+  "required": [
+    "completed=true",
+    "mandatory_exit_requested=true",
+    "payload_self_hash valid",
+    "payload schema valid",
+    "exactly one payload",
+    "thread closed"
+  ],
+  "next_dispatch_requires_all": true,
+  "incomplete_effect": "REVIEWER_DISPATCH_BLOCKER"
+}

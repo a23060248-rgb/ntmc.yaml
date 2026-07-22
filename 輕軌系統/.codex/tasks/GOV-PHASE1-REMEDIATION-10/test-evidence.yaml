@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "evidence_mode": "candidate-immutable-security-chain-remediation",
+  "commands": ["classify-root-cause.mjs", "build-security-chain.mjs", "run-security-chain-tests.mjs", "verify-protected-state.mjs", "capture-protected-baseline.mjs before/after", "compare-baselines.mjs", "build-readiness.mjs"],
+  "checks": [
+    {"check_id": "R10-CHECK-ROOT", "requirement_id": "R10-ROOT-CAUSE", "result": "PASS", "note": "Both findings are Task-local evidence/scope defects and candidate_change_required is false."},
+    {"check_id": "R10-CHECK-CONTRACT", "requirement_id": "R10-CONTRACT", "result": "PASS", "note": "The frozen chain uniquely resolves GOV-DETERMINISTIC-SCAN version 5 and its exact SHA256."},
+    {"check_id": "R10-CHECK-CHAIN", "requirement_id": "R10-CHAIN", "result": "PASS", "note": "Manifest, record, report, contract, components and schema bindings were directly recomputed for 103 files."},
+    {"check_id": "R10-CHECK-ALLOWLIST", "requirement_id": "R10-ALLOWLIST", "result": "PASS", "note": "All eight required nodes are exact, present, required and byte-hash matched; forbidden roots are excluded."},
+    {"check_id": "R10-CHECK-NEGATIVE", "requirement_id": "R10-NEGATIVE", "result": "PASS", "note": "All 20 contract-version, allowlist and candidate-chain cases produced the expected PASS or fail-closed exit 1 result."},
+    {"check_id": "R10-CHECK-BASELINE", "requirement_id": "R10-BASELINE", "result": "PASS", "note": "836 protected files show zero added, removed or changed records."},
+    {"check_id": "R10-CHECK-HISTORY", "requirement_id": "R10-HISTORY", "result": "PASS", "note": "A10 remains ARCHIVED/PASS/GO and Session B remains ARCHIVED/BLOCKER/NO-GO."},
+    {"check_id": "R10-CHECK-M320", "requirement_id": "R10-M320", "result": "PASS", "note": "Migration 320 remains structurally VALID, NEEDS_HUMAN_DECISION, NO-GO and reported exit 2 with 13+5 records unchanged."},
+    {"check_id": "R10-CHECK-READINESS", "requirement_id": "R10-READINESS", "result": "PASS", "note": "The package is READY_FOR_HUMAN_TO_CONSIDER_SESSION_B2 only; it grants no B2, finding-closure or commit authority."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": ["No product, service, database, seed, migration or Git operation was authorized or executed.", "The deterministic scanner is not DLP and the clean-context model remains procedural."]
+}

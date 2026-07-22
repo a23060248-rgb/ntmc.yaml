@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "scan_scope": {
+    "governance_artifacts": "DETERMINISTIC_CONTRACT",
+    "external_referenced_evidence": "LIMITED"
+  },
+  "scan_contract": {
+    "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scan_contract_version": 4,
+    "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "scanned_file_count": 103,
+    "scanned_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB"
+  },
+  "claims": {
+    "declared_scan_contract_executed": true,
+    "no_findings_within_declared_contract": true
+  },
+  "external_evidence": [],
+  "limitations": [
+    "The clean result is limited to the exact governance manifest and does not make the draft eligible for GO."
+  ]
+}

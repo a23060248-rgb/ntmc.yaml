@@ -1,0 +1,64 @@
+{
+  "payload_core": {
+    "schema_version": 1,
+    "aggregation_package_id": "A11-R1-AGGREGATION-QA-PKG-20260721-05",
+    "aggregation_package_core_sha256": "A830AD323F36057E2EFB0467AF384B6E7AC965755C714D84A1F82DF6392580EE",
+    "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+    "assignment_id": "A11-R1-AGGREGATION-QA-ASSIGN-20260721-05",
+    "aggregator_run_id": "A11-R1-AGGREGATION-QA-RUN-20260721-05",
+    "aggregator_session_nonce": "1BC14CB8E8D31BFB1F8003FC8E1FD4DB039E9215C146455B81A0FBA23A28D18B",
+    "candidate_binding": {
+      "candidate_file_count": 108,
+      "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+      "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+      "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+      "scanner_contract_version": 5,
+      "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+    },
+    "imported_payload_count": 0,
+    "formal_payloads_accepted": 0,
+    "reviewer_outcomes": [
+      {
+        "status": "MISSING"
+      },
+      {
+        "status": "MISSING"
+      },
+      {
+        "status": "MISSING"
+      },
+      {
+        "status": "MISSING"
+      }
+    ],
+    "finding_closure_matrix": [
+      {
+        "finding_id": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+        "disposition": "NOT_CLOSED",
+        "owner_valid": false
+      }
+    ],
+    "deterministic_qa": {
+      "status": "NOT_STARTED",
+      "reason": "<ACTUAL_REASON>"
+    },
+    "calculated_gate": "NO-GO",
+    "completed": true,
+    "mandatory_exit_requested": true,
+    "execution_attestation": {
+      "top_level_chat": true,
+      "subagents_created": false,
+      "conversation_memory_used": false,
+      "reviewer_role_assumed": false,
+      "reviewer_outcome_modified": false,
+      "task_local_writes_performed": true,
+      "writes_outside_allowed_scope": false,
+      "candidate_write_performed": false,
+      "package_write_performed": false,
+      "historical_artifact_write_performed": false,
+      "git_used": false,
+      "assurance": "procedural"
+    }
+  },
+  "payload_core_sha256": "48CC0E7FD122883D7A13B447F5A40B4118AD83D6F15766586605B3E708746249"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "status": "ARCHIVED",
+  "reviewer_set_outcome": "PASS",
+  "reviewer_outcomes": [
+    {"reviewer":"code-reviewer","outcome":"PASS","reviewer_run_id":"A10-CODE-RUN-1F69FAA9-92B3-48C9-8D80-95463B5A1336","session_id":"A10-CODE-SESSION-0C9FD58E-5258-4BE9-B0C3-69AD36A1D3AE","closure_refs":["A9-CODE-PRODUCTION-MUTATION-RERUN-001"]},
+    {"reviewer":"security-reviewer","outcome":"PASS","reviewer_run_id":"A10-SEC-RUN-085B8070-F7D7-4A30-B7B3-66D54FE2492F","session_id":"A10-SEC-SESSION-DD0A4AA4-A697-444D-BD0C-CC8AACF99C92","closure_refs":["A9-SEC-EXECUTION-HIGH-001"]},
+    {"reviewer":"railway-domain-reviewer","outcome":"PASS","governance_mechanism_outcome":"PASS","migration_320_domain_decision":"NEEDS_HUMAN_DECISION","reviewer_run_id":"A10-DOMAIN-RUN-E0486A9D-394A-4568-8257-CDB23E78159D","session_id":"A10-DOMAIN-SESSION-994938BC-6E74-4AA3-A226-2B2A29BB87D0","closure_refs":["A9-DOMAIN-PASS"]}
+  ],
+  "formal_metadata_fields_present": true,
+  "reviewer_independence_result": "PASS_PROCEDURAL",
+  "severity_counts": {"BLOCKER":0,"HIGH":0,"MEDIUM":0,"LOW":0},
+  "a9_finding_closure_counts": {"CLOSED":2,"INDEPENDENTLY_REVALIDATED":1,"OPEN":0},
+  "candidate_integrity": {"file_count":103,"manifest_sha256":"29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D","file_set_sha256":"739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB","scanner_findings":0,"result":"PASS"},
+  "fresh_regressions": {"fixtures":"68/68 PASS","production_integration":"48/48 PASS","production_mutations":"31/31 KILLED","reviewer_binding":"14/14 PASS","official_schema_loader":"11/11 PASS","schema_loader_mutations":"6/6 KILLED","production_scanner":"72/72 PASS","binary_magic_mutations":"45/45 KILLED","concurrency":"PASS"},
+  "authoritative_validator": {"structural":"VALID","bootstrap_candidate_review":{"status":"GO","exit":0},"bootstrap_human_commit":{"status":"NO-GO"},"steady_state_preparation":{"status":"DISABLED"},"steady_state_execution":{"status":"DISABLED"},"migration_320_execution":{"status":"NO-GO"},"proof_assurance":"INTERNAL_CONSISTENCY_ONLY"},
+  "reviewed_source_baseline": {"total":741,"identical":true,"git_diff_used":false},
+  "bootstrap_candidate_review_gate": "GO",
+  "eligible_to_start_session_b": true,
+  "session_b_state": "NOT_STARTED_NOT_AUTHORIZED_BY_A10",
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "migration_320_domain_decision": "NEEDS_HUMAN_DECISION",
+  "session_b_started": false,
+  "git_mutation_performed": false,
+  "candidate_source_modified": false,
+  "root_modified_reviewer_outcomes": false,
+  "conclusion": "A10 is archived PASS. The unchanged bootstrap candidate has Candidate Review GO and is eligible for a separately authorized Session B. Human Commit, steady state and Migration 320 execution remain blocked or disabled."
+}

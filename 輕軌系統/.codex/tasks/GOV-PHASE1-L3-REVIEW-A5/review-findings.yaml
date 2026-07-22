@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "review_context": "Three fresh independent formal read-only A5 Reviews of the exact Phase 1.5 97-file candidate; the root orchestrator preserved each outcome without rewriting it.",
+  "reviews": [
+    {
+      "type": "code",
+      "reviewer": "code-reviewer",
+      "formal": true,
+      "outcome": "BLOCKER",
+      "reviewer_run_id": "A5-CODE-RUN-6b9b3a59-1473-4ce9-96ef-c060a428d61f",
+      "session_id": "A5-CODE-SESSION-3e82748a-b10f-49a7-a4f8-b88845b70a7a",
+      "finding_refs": ["A5-CODE-BLOCKER-001", "A5-CODE-BLOCKER-002", "A5-CODE-HIGH-003", "A5-CODE-MEDIUM-004"],
+      "conditions": [],
+      "decisions_required": []
+    },
+    {
+      "type": "security",
+      "reviewer": "security-reviewer",
+      "formal": true,
+      "outcome": "BLOCKER",
+      "reviewer_run_id": "A5-SEC-RUN-49ae83dc-0583-44df-b5ad-328e80a9d0ac",
+      "session_id": "A5-SEC-SESSION-a68b137b-4478-4be1-a0cf-8741a617c857",
+      "finding_refs": ["A5-SEC-HIGH-001", "A5-SEC-HIGH-002"],
+      "conditions": [],
+      "decisions_required": []
+    },
+    {
+      "type": "railway-domain",
+      "reviewer": "railway-domain-reviewer",
+      "formal": true,
+      "outcome": "BLOCKER",
+      "reviewer_run_id": "A5-DOMAIN-RUN-ea7f3928-32e0-45bb-beaa-0f247c860901",
+      "session_id": "A5-DOMAIN-SESSION-82760979-0753-4e74-a93a-c16d8e271197",
+      "finding_refs": ["A5-DOMAIN-META-REGISTRY-BYPASS-001"],
+      "conditions": [],
+      "decisions_required": []
+    }
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "blockers": [
+    "A5-CODE-BLOCKER-001",
+    "A5-CODE-BLOCKER-002",
+    "A5-CODE-HIGH-003",
+    "A5-SEC-HIGH-001",
+    "A5-SEC-HIGH-002",
+    "A5-DOMAIN-META-REGISTRY-BYPASS-001"
+  ],
+  "conditions": [
+    {
+      "condition_id": "A5-REVIEWER-SET-BLOCKED",
+      "condition": "All six blocking A5 findings require an independently frozen replacement candidate and fresh formal review; this A5 outcome is immutable.",
+      "status": "open",
+      "owner": "human-governance-owner",
+      "deadline_or_trigger": "Before any new Candidate Governance Review GO decision or Session B authorization.",
+      "completion_criterion": "A later authorized independent review closes the affected controls without rewriting A5 Reviewer outcomes.",
+      "resolution_evidence": [],
+      "reviewer_revalidation": false
+    }
+  ]
+}

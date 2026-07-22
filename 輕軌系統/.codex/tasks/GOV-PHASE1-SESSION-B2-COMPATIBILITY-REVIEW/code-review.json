@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "reviewer": "code-reviewer",
+  "formal": true,
+  "did_not_participate_in_implementation": true,
+  "reviewer_run_id": "B2-CODE-RUN-624ECDBF-A202-4E3D-A602-43B1FF933F25",
+  "session_id": "B2-CODE-SESSION-E598BCDD-D27C-47F0-8805-FCAF38A2C7CB",
+  "assignment_id": "ASSIGN-B2-CODE-1E812B14-C43A-4594-867D-71826A2E50F4",
+  "agent_profile_reference": ".codex/agents/code-reviewer.toml",
+  "agent_profile_sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9",
+  "reviewer_identity_assurance": "procedural_role_and_assignment_binding",
+  "reviewed_candidate_baseline": "phase-1.9-bootstrap",
+  "candidate_manifest_file_count": 103,
+  "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+  "candidate_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+  "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9",
+  "review_scope": "bootstrap_code_and_gate_compatibility",
+  "execution_mode": "read-only",
+  "implementation_participation": false,
+  "outcome": "BLOCKER",
+  "summary": "The technical evidence supports the unchanged candidate and production-path compatibility, but this Reviewer opened one B2 artifact outside its expressly constrained frozen-input and deterministic-evidence set. The formal review therefore fails closed as BLOCKER.",
+  "reviewer_binding": {
+    "result": "PASS",
+    "canonical_role_id": "code-reviewer",
+    "task_assignment_id": "ASSIGN-B2-CODE-1E812B14-C43A-4594-867D-71826A2E50F4",
+    "assignment_profile_hash_match": true,
+    "candidate_manifest_profile_hash_match": true,
+    "required_review_scope_match": true,
+    "execution_mode_match": true,
+    "implementation_participation_match": true,
+    "allowed_write_paths": [],
+    "formal_review_valid_after_scope_check": false,
+    "limitation": "Identity assurance is procedural, not cryptographic or unforgeable."
+  },
+  "pre_review_freeze_assessment": {
+    "result": "PASS",
+    "input_manifest_sha256": "6062D856BCCB2FFDD506EB6B3215D25A66FDD15A4DEF546702B5E04856AB3D17",
+    "freeze_bound_manifest_sha256": "6062D856BCCB2FFDD506EB6B3215D25A66FDD15A4DEF546702B5E04856AB3D17",
+    "frozen_file_count": 9,
+    "independently_recomputed_matching_files": 9,
+    "hash_or_byte_size_failures": []
+  },
+  "candidate_binding_assessment": {
+    "result": "PASS",
+    "verification_mode": "independent byte and SHA256 recomputation",
+    "manifest_hash_match": true,
+    "manifest_artifact_count": 103,
+    "verified_file_count": 103,
+    "unique_path_count": 103,
+    "missing_files": [],
+    "hash_mismatches": [],
+    "included_file_set_sha256_recomputed": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "included_file_set_hash_match": true,
+    "candidate_changed": false,
+    "assurance": "INTERNAL_CONSISTENCY_ONLY"
+  },
+  "production_path_assessment": {
+    "result": "PASS",
+    "official_schema_loader": "loadAndCompileGovernanceSchemas",
+    "declared_schema_count": 15,
+    "compiled_schema_count": 15,
+    "schema_set_hash_match": true,
+    "inline_or_fallback_schema_path_observed": false,
+    "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scan_contract_version": 5,
+    "required_security_chain_node_count": 8,
+    "manifest_record_report_contract_binding_complete": true,
+    "authoritative_gate_router": "computeAuthoritativeGateMap",
+    "candidate_gate_forbidden_dependencies_absent": true,
+    "removed_capabilities_non_executable": true,
+    "deterministic_reruns": {
+      "syntax": "18/18",
+      "fixtures": "68/68",
+      "scanner": "72/72",
+      "integration": "48/48",
+      "production_mutations": "31/31 killed",
+      "reviewer_binding": "14/14",
+      "official_loader": "11/11",
+      "loader_mutations": "6/6 killed",
+      "binary_mutations": "45/45 killed",
+      "remediation_10_chain": "20/20",
+      "concurrency": "PASS"
+    }
+  },
+  "a8_closure_dispositions": [
+    {
+      "finding_id": "A7-CODE-BLOCKER-001",
+      "status": "CLOSED",
+      "current_disposition": "REMAINS_CLOSED",
+      "independently_revalidated": true
+    },
+    {
+      "finding_id": "A7-CODE-BLOCKER-002",
+      "status": "CLOSED",
+      "current_disposition": "REMAINS_CLOSED",
+      "independently_revalidated": true
+    }
+  ],
+  "a9_closure_dispositions": [
+    {
+      "finding_id": "A9-CODE-PRODUCTION-MUTATION-RERUN-001",
+      "status": "CLOSED",
+      "current_disposition": "REMAINS_CLOSED",
+      "candidate_source_changed": false,
+      "fresh_b2_mutations": {"actual_total": 31, "killed": 31, "survived": 0, "timeouts": 0, "duplicate_mutation_ids": []}
+    }
+  ],
+  "gate_separation": {
+    "bootstrap_candidate_review": "GO",
+    "bootstrap_human_commit": "NO-GO",
+    "steady_state_preparation": "DISABLED",
+    "steady_state_execution": "DISABLED",
+    "migration_320_domain_decision": "NEEDS_HUMAN_DECISION",
+    "migration_320_execution": "NO-GO",
+    "candidate_gate_independent_of_session_b2": true,
+    "candidate_gate_independent_of_final_commit": true,
+    "candidate_gate_independent_of_migration_320": true,
+    "this_review_grants_human_commit": false,
+    "this_review_approves_migration_320": false
+  },
+  "findings": [
+    {
+      "finding_id": "B2-CODE-FORBIDDEN-READ-001",
+      "severity": "BLOCKER",
+      "category": "review_scope_violation",
+      "exact_location": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/human-approval.yaml",
+      "failure": "The Reviewer opened this B2 artifact even though its permitted B2 evidence was restricted to the frozen nine inputs and deterministic evidence.",
+      "impact": "The clean-context read boundary was violated and the formal outcome must fail closed.",
+      "minimum_remediation": "Discard this review as a passing input and, only under a separately authorized remediation, dispatch a new clean code Reviewer with newly frozen exact scope and unique identifiers.",
+      "blocks_outcome": true
+    }
+  ],
+  "conditions": [],
+  "residual_risks": [
+    "This formal Code review is procedurally invalid because of the self-reported forbidden read.",
+    "Candidate assurance remains INTERNAL_CONSISTENCY_ONLY.",
+    "Reviewer identity is procedural rather than cryptographically authenticated.",
+    "Migration 320 remains a separate unresolved human decision."
+  ],
+  "prohibited_actions_confirmed": {
+    "workspace_files_written": false,
+    "git_commands_run": false,
+    "services_started": false,
+    "product_tests_run": false,
+    "database_accessed": false,
+    "seed_run": false,
+    "migration_run": false,
+    "env_files_read": false,
+    "frontend_contents_read": false,
+    "erp_api_contents_read": false,
+    "db_design_contents_read": false,
+    "migration_product_contents_read": false,
+    "parent_or_sibling_contents_read": false,
+    "collab_contents_read": false,
+    "implementation_conversation_or_memory_used": false,
+    "human_commit_go_declared": false,
+    "steady_state_declared": false,
+    "migration_320_approved": false,
+    "business_rules_approved": false,
+    "forbidden_read_occurred": true,
+    "forbidden_read_paths": [".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/human-approval.yaml"]
+  }
+}

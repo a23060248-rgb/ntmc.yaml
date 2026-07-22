@@ -1,0 +1,8 @@
+{
+  "schema_version": 2,
+  "registry_role": "bootstrap_typed_controls",
+  "rules": [
+    {"rule_id": "DB-SAFE-001", "version": 2, "category": "database", "rule_class": "technical_constraint", "authority_effect": "technical_constraint", "status": "confirmed", "statement": "Agent database profiles allow only loopback, port 5433, ntmc_erp_rehearsal_* and rehearsal safety mode, without loading .env.", "verification": {"automated": ["validate-agent-environment.mjs"], "manual": []}, "enforcement": {"mechanisms": ["safe profile", "environment validator"], "residual_risk": "This validates a profile document and is not runtime or OS isolation."}, "sources": [{"type": "human-approval", "ref": "user approval 2026-07-17"}], "owner": "human-database-owner", "approved_at": "2026-07-17T00:00:00+08:00", "open_questions": []},
+    {"rule_id": "DB-OPS-001", "version": 2, "category": "database", "rule_class": "governance_control", "authority_effect": "procedural_governance", "status": "confirmed", "statement": "API, product tests, seed, migration and database connections require an authorized Task and a passing safe-environment gate.", "verification": {"automated": ["environment evidence presence"], "manual": ["human Task approval"]}, "enforcement": {"mechanisms": ["AGENTS.md", "Task human approval"], "residual_risk": "No OS-level credential removal or process sandbox has been evidenced."}, "sources": [{"type": "human-approval", "ref": "user approval 2026-07-17"}], "owner": "human-database-owner", "approved_at": "2026-07-17T00:00:00+08:00", "open_questions": []}
+  ]
+}

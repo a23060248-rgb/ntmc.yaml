@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "a10": {
+    "files_checked": 45,
+    "hash_mismatches": [],
+    "status": "ARCHIVED",
+    "reviewer_set_outcome": "PASS",
+    "bootstrap_candidate_review_gate": "GO",
+    "unchanged": true
+  },
+  "session_b": {
+    "files_checked": 50,
+    "hash_mismatches": [],
+    "status": "ARCHIVED",
+    "outcome": "BLOCKER",
+    "compatibility_gate": "NO-GO",
+    "findings_remain_open": true,
+    "unchanged": true
+  },
+  "remediation_closes_session_b_findings": false,
+  "session_b2_started": false,
+  "result": "PASS"
+}

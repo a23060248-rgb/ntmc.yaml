@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-A5-BOOTSTRAP-TRUST-ANALYSIS",
+  "level": "L3",
+  "reasons": [
+    "The analysis concerns six unresolved blocking controls from a formal L3 review and one non-gating lifecycle limitation.",
+    "It defines release, commit, proof-provenance, scope-authority, scanner, and Railway Domain authority boundaries.",
+    "Its outputs can inform a future bootstrap commit model but cannot authorize implementation, A6, Session B, or Git mutation."
+  ],
+  "triggers": ["unresolved-reviewer-blocker", "release-gate", "security", "domain-rule-authority", "backward-compatibility"],
+  "execution_categories": ["read-only-review", "governance-validation", "security", "domain-rule", "backward-compatibility"],
+  "required_agents": ["architect", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain", "compatibility"],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "consolidated-a5-findings.md",
+    "bootstrap-trust-boundary.md",
+    "phase1-minimum-control-decision.md",
+    "meta-rule-domain-boundary.md",
+    "test-oracle-remediation.md",
+    "remediation-6-options.md"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]
+  },
+  "stop_conditions": [
+    "Any write is required outside this analysis Task directory.",
+    "Any source, A5 Reviewer outcome, candidate manifest, snapshot, or lifecycle artifact would be changed.",
+    "Any proposal is represented as an implemented or reviewed control.",
+    "Any action would create Remediation 6, A6, Session B, or perform a Git mutation.",
+    "Any product, database, migration, environment-secret, or sibling-directory access would be required."
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-5/**",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/**",
+      ".codex/tasks/GOV-PHASE1-A4-FINDING-CONSOLIDATION/**",
+      "A5 finding-referenced governance sources",
+      "governance commit manifest, candidate snapshot, phase policy, scanner contract, meta-rules, Domain registry, formal validators and fixture runners"
+    ],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories"]
+  },
+  "classified_by": "root-orchestrator-using-task-classification-skill",
+  "classification_status": "human-approved-scope"
+}

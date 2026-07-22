@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-M320-DRYRUN",
+  "level": "L3",
+  "reasons": ["The subject is a database migration and backward compatibility.", "Existing evidence contains three production-readiness blockers.", "Formal clone provenance and confirmed Domain Rules are absent."],
+  "triggers": ["migration", "backward compatibility", "formal data provenance", "P-to-C domain integrity", "shortage-to-inventory closure"],
+  "required_agents": ["architect", "qa-engineer", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain", "compatibility"],
+  "parallel_allowed": false,
+  "evidence_required": ["ART-M320-COMPAT-REPORT", "ART-M320-BEFORE-AFTER", "ART-M320-ANOMALIES", "ART-M320-CLOSURE", "ART-M320-NO-GO", "M320-BLOCKERS", "M320-DECISION"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["evidence file missing", "SHA256 mismatch", "NO-GO changed", "blocker removed without new evidence", "product or database operation requested", "scope escapes light-rail root"],
+  "scope": {"include": [".codex/tasks/GOV-M320-DRYRUN/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"], "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "sibling directories"]},
+  "classified_by": "root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

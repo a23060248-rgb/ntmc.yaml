@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "rules": [
+    "Missing command result => QA FAIL",
+    "Unexpected exit code => QA FAIL",
+    "Case count mismatch => QA FAIL",
+    "Mutation survivor => QA FAIL",
+    "Raw report missing => QA INVALID",
+    "Candidate write => A11 NO-GO",
+    "Scope-external write => A11 NO-GO",
+    "Historical expected failures must exactly match the supersession ledger"
+  ]
+}

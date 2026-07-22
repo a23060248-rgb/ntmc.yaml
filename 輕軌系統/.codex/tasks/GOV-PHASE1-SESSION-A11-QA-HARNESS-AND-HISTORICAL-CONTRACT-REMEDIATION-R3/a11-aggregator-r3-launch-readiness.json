@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3",
+  "status": "NOT_READY",
+  "hard_stop_code": "A11_R3_TRIAGE_SOURCE_CONFLICT",
+  "blocking_condition": "MASTER BATCH 2D authoritative triage source is missing 3 of 9 mandatory artifacts.",
+  "triage_mapping_complete": false,
+  "candidate_binding_check_status": "NOT_RUN_DUE_TO_EARLIER_HARD_STOP",
+  "reviewer_payload_reuse_check_status": "NOT_RUN_DUE_TO_EARLIER_HARD_STOP",
+  "transport_v2_reuse_check_status": "NOT_RUN_DUE_TO_EARLIER_HARD_STOP",
+  "qa_harness_r3_status": "NOT_PREPARED",
+  "historical_contract_oracle_r3_status": "NOT_PREPARED",
+  "canonical_aggregator_artifact_contract_status": "NOT_PREPARED",
+  "aggregator_r3_package_status": "NOT_CREATED",
+  "aggregator_r3_started": false,
+  "active_candidate_review_gate": "NO-GO",
+  "human_exact_manifest_eligibility": "NO",
+  "git": "NOT_USED"
+}

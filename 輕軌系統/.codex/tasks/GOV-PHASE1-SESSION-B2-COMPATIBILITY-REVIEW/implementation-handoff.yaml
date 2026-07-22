@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "producer": "root-orchestrator",
+  "agent_session_ref": "session-b2-read-only-orchestration",
+  "started_at": "2026-07-20T10:48:00+08:00",
+  "changed_files": [
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/**"
+  ],
+  "commands": [
+    "B2 governance-only deterministic suites",
+    "B2 independent read-only reviewer dispatch",
+    "B2 protected baseline capture and comparison",
+    "B2 authoritative validator"
+  ],
+  "evidence_refs": [
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-findings.yaml",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/baseline-comparison.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/deterministic-readback-summary.json"
+  ],
+  "unverified": [
+    "Fresh QA deterministic readback review was not executed because agent thread capacity was exhausted."
+  ],
+  "residual_risks": [
+    "Frozen B2 Security evidence is not valid under the registered production Security evidence schema.",
+    "Frozen Security allowlist contains two required paths incompatible with the Reviewer forbidden-read boundary.",
+    "The Code review is invalidated by its self-reported forbidden read.",
+    "Candidate assurance remains INTERNAL_CONSISTENCY_ONLY.",
+    "Migration 320 remains NEEDS_HUMAN_DECISION and NO-GO."
+  ],
+  "next_role": "governance-owner"
+}

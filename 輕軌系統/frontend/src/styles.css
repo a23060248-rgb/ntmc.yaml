@@ -3067,6 +3067,146 @@ td small {
   font-size: 12px;
 }
 
+.original-report,
+.c-workflow-summary,
+.c-workflow-actions {
+  display: grid;
+  gap: 12px;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 14px;
+}
+
+.original-report > p,
+.c-workflow-actions header p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.c-workflow-actions > header,
+.removal-editor > header,
+.c-action-form > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.c-workflow-actions > header > span {
+  color: var(--muted-2);
+  font-size: 12px;
+}
+
+.c-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.c-action-form {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--line);
+  padding: 14px;
+  background: #0b131c;
+}
+
+.c-action-form label,
+.removal-row label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.c-action-form input,
+.c-action-form select,
+.c-action-form textarea {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 8px 10px;
+  color: var(--text);
+  background: #0d141c;
+}
+
+.c-action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.c-action-grid .is-wide {
+  grid-column: 1 / -1;
+}
+
+.removal-editor {
+  display: grid;
+  gap: 10px;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 12px;
+}
+
+.removal-editor small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted-2);
+}
+
+.removal-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 38px;
+  gap: 8px;
+  align-items: end;
+}
+
+.workflow-alert {
+  display: grid;
+  gap: 4px;
+  border-left: 3px solid var(--yellow);
+  padding: 10px 12px;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.workflow-alert.is-info {
+  border-left-color: var(--cyan);
+  background: rgba(34, 211, 238, 0.07);
+}
+
+.workflow-alert span,
+.workflow-alert small {
+  color: var(--muted);
+}
+
+.c-workflow-summary h4 {
+  margin: 10px 0 7px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.workflow-list {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--line-soft);
+}
+
+.workflow-list li {
+  display: grid;
+  grid-template-columns: minmax(145px, auto) 1fr auto;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #0d141c;
+}
+
+.workflow-list span,
+.workflow-list small {
+  color: var(--muted-2);
+}
+
 .repair-link-fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3148,6 +3288,19 @@ td small {
 
 @media (max-width: 1100px) {
   .work-order-split {
+    grid-template-columns: 1fr;
+  }
+
+  .c-action-grid,
+  .removal-row {
+    grid-template-columns: 1fr;
+  }
+
+  .removal-row .icon-button {
+    justify-self: end;
+  }
+
+  .workflow-list li {
     grid-template-columns: 1fr;
   }
 }

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "command": "node .codex/tests/run-governance-fixtures-concurrency.mjs",
+  "reports_valid": true,
+  "unique_run_roots": true,
+  "caller_ids_ignored": true,
+  "unique_case_roots": true,
+  "case_roots_owned": true,
+  "child_count": 2,
+  "cases_per_child": [
+    50,
+    50
+  ],
+  "cleanup_results": [
+    "PASS",
+    "PASS"
+  ],
+  "result": "PASS"
+}

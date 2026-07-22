@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "entries": [
+    {
+      "suite": "REMEDIATION_10_CHAIN",
+      "case_id": "CV-05",
+      "old_expectation": "103-file candidate contract identity remains current",
+      "new_expected_outcome": "FAIL_CLOSED_ON_SUPERSEDED_CONTRACT_BINDING",
+      "reason": "The official candidate now intentionally binds v4 record and referenced-evidence authority hashes."
+    },
+    {
+      "suite": "REMEDIATION_10_CHAIN",
+      "case_id": "AL-14",
+      "old_expectation": "103-file exact allowlist hashes remain current",
+      "new_expected_outcome": "FAIL_CLOSED_ON_SUPERSEDED_ALLOWLIST",
+      "reason": "The intended 18 modifications and 5 additions replace the old byte allowlist."
+    },
+    {
+      "suite": "REMEDIATION_10_CHAIN",
+      "case_id": "CH-20",
+      "old_expectation": "Complete 103-file chain remains current",
+      "new_expected_outcome": "FAIL_CLOSED_ON_SUPERSEDED_CANDIDATE_COUNT",
+      "reason": "The official candidate contains 108 artifacts after the scoped remediation."
+    },
+    {
+      "suite": "REMEDIATION_12_PROTOCOL",
+      "case_id": "12",
+      "old_expectation": "Old Code scope satisfies all current candidate artifacts",
+      "new_expected_outcome": "FAIL_CLOSED_ON_SUPERSEDED_REVIEW_SCOPE",
+      "reason": "A fresh A11 Code scope is required for the changed and newly registered artifacts."
+    }
+  ],
+  "unexpected_regression_count": 0,
+  "result": "PASS"
+}

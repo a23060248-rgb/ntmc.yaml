@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "prepared_by_task": "GOV-PHASE1-REMEDIATION-11",
+  "required_reviewer_count": 5,
+  "planned_waves": [
+    3,
+    2
+  ],
+  "configured_max_threads": 4,
+  "orchestrator_thread_reservation": 1,
+  "maximum_concurrent_reviewer_threads": 3,
+  "available_capacity_verified": true,
+  "verification_basis": "A new B3 root task starts without this remediation thread tree; Wave 1 uses at most three reviewer slots and ends before Wave 2. QA is explicitly reserved in Wave 2.",
+  "all_assignments_precreated": true,
+  "all_scopes_validated": true,
+  "qa_capacity_reserved": true,
+  "current_task_dispatch_performed": false,
+  "b3_preparation_status": "CAPACITY_PLAN_VALID",
+  "result": "PASS"
+}

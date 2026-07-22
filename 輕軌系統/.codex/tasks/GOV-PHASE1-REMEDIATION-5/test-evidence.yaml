@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "evidence_mode": "production-path-minimum-core-self-validation",
+  "commands": [
+    "node .codex/tests/run-governance-fixtures.mjs",
+    "node .codex/tests/run-phase15-mutation-tests.mjs",
+    "node .codex/tests/run-phase15-production-integration.mjs",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-5/verify-create-task-draft.mjs",
+    "node .codex/tests/run-governance-fixtures-concurrency.mjs",
+    "node .codex/scripts/validate-phase-status.mjs",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-5/verify-governance-candidate.mjs",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-5/verify-migration-320.mjs",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-5/compare-baselines.mjs"
+  ],
+  "requirements": [
+    {"requirement_id":"scope-lattice-invariants","semantic_category":"SCOPE_AUTHORITY","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-validation"]},
+    {"requirement_id":"identity-collision-invariants","semantic_category":"REFERENCE_IDENTITY","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-validation"]},
+    {"requirement_id":"typed-proof-role-invariants","semantic_category":"PROOF_PROVENANCE","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["candidate-snapshot"]},
+    {"requirement_id":"scanner-canonicalization-differentials","semantic_category":"SCANNER_CONTRACT","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["security"]},
+    {"requirement_id":"mutation-and-property-results","semantic_category":"FIXTURE_ORACLE","criticality":"HIGH","required_for_levels":["L3"],"required_execution_categories":["governance-fixture"]},
+    {"requirement_id":"production-path-integration","semantic_category":"PRODUCTION_INTEGRATION","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-validation"]},
+    {"requirement_id":"proposed-only-domain-rule-results","semantic_category":"DOMAIN_AUTHORITY","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["domain-rule"]},
+    {"requirement_id":"lifecycle-projection-results","semantic_category":"LIFECYCLE_PROJECTION","criticality":"HIGH","required_for_levels":["L3"],"required_execution_categories":["governance-validation"]},
+    {"requirement_id":"candidate-manifest-and-snapshot","semantic_category":"CANDIDATE_INTEGRITY","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["candidate-snapshot"]},
+    {"requirement_id":"migration-320-no-go-integrity","semantic_category":"MIGRATION_GATE","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-validation"]},
+    {"requirement_id":"frozen-history-integrity","semantic_category":"ARTIFACT_INTEGRITY","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-validation"]}
+  ],
+  "checks": [
+    {"check_id":"CHECK-SCOPE-LATTICE","requirement_id":"scope-lattice-invariants","result":"PASS","note":"Table and property cases reject every Phase-allowed but downstream-disallowed write."},
+    {"check_id":"CHECK-IDENTITY","requirement_id":"identity-collision-invariants","result":"PASS","note":"Complete-set resolution rejects duplicate artifact, requirement and verdict identities under permutations."},
+    {"check_id":"CHECK-TYPED-PROOF","requirement_id":"typed-proof-role-invariants","result":"PASS","note":"WORKSPACE_CANDIDATE and STAGED_EXACT roles, producers, fields and payload hashes are non-interchangeable."},
+    {"check_id":"CHECK-SCANNER","requirement_id":"scanner-canonicalization-differentials","result":"PASS","note":"Unicode, bounded URL decoding, declared header, URL-safe entropy and binary type differentials pass through the production scanner pipeline."},
+    {"check_id":"CHECK-MUTATION","requirement_id":"mutation-and-property-results","result":"PASS","note":"Seven of seven authority mutations were killed and all property cases passed."},
+    {"check_id":"CHECK-PRODUCTION","requirement_id":"production-path-integration","result":"PASS","note":"Five validator cases cover schema loading, identity and typed-proof rejection plus exits zero, one and two; isolated create-task verification additionally produces structural VALID, DRAFT, NO-GO and exit two."},
+    {"check_id":"CHECK-DOMAIN","requirement_id":"proposed-only-domain-rule-results","result":"PASS","note":"Registry is incomplete, confirmation unsupported, confirmed count zero and Domain applicable Rules empty."},
+    {"check_id":"CHECK-LIFECYCLE","requirement_id":"lifecycle-projection-results","result":"PASS","note":"Generic event projection records Remediation 5 completion and remains informational with all gates NO-GO."},
+    {"check_id":"CHECK-CANDIDATE","requirement_id":"candidate-manifest-and-snapshot","result":"PASS","note":"The exact 97-file source manifest has matching hashes, zero declared-contract findings and a validator-produced workspace proof."},
+    {"check_id":"CHECK-M320","requirement_id":"migration-320-no-go-integrity","result":"PASS","note":"The read-only wrapper verifies five unchanged external evidence hashes and structural VALID with calculated NO-GO and expected exit two."},
+    {"check_id":"CHECK-HISTORY","requirement_id":"frozen-history-integrity","result":"PASS","note":"Before and after SHA256 comparison reports zero changes across 167 frozen history and 13 Migration 320 Task artifacts."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": [
+    "These are implementation self-validations and do not replace independent A5 Review.",
+    "No product test, service, seed, migration, database operation or Git mutation was executed.",
+    "No STAGED_EXACT proof exists because staging remains prohibited."
+  ]
+}

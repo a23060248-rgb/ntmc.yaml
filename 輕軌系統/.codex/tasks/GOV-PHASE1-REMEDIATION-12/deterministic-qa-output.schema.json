@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/task-local/r12/deterministic-qa-output.schema.json",
+  "x-governance-schema-version": 1,
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "producer",
+    "result",
+    "input_sha256",
+    "reasons",
+    "root_filled",
+    "output_self_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "producer": {
+      "const": "task-local-production-runner"
+    },
+    "result": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "INVALID"
+      ]
+    },
+    "input_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "root_filled": {
+      "const": false
+    },
+    "output_self_hash": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  }
+}

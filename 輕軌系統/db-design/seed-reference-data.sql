@@ -180,13 +180,14 @@ INSERT INTO pm_template (
   default_corrective_action,
   default_danger_start,
   default_danger_end,
-  default_danger_total_hours
+  default_danger_total_hours,
+  lifecycle_status
 )
 VALUES
-  ('P1', '第一級 1M / 月檢', '第一級(1M)', '月檢', 0, '已完成1M預檢作業。', '13:00', '15:00', 2),
-  ('P2', '第二級 3M / 季檢', '第二級(3M)', '季檢', 3, '已完成3M預檢作業。', '13:00', '15:00', 2),
-  ('P3', '第三級 6M / 半年檢', '第三級(6M)', '半年檢', 1, '已完成6M預檢作業。', '13:00', '17:00', 4),
-  ('P4', '第四級 1Y / 年檢', '第四級(1Y)', '年檢', 2, '已完成1Y預檢作業。', '09:30', '16:00', 4)
+  ('P1', '第一級 1M / 月檢', '第一級(1M)', '月檢', 0, '已完成1M預檢作業。', '13:00', '15:00', 2, 'DRAFT'),
+  ('P2', '第二級 3M / 季檢', '第二級(3M)', '季檢', 3, '已完成3M預檢作業。', '13:00', '15:00', 2, 'DRAFT'),
+  ('P3', '第三級 6M / 半年檢', '第三級(6M)', '半年檢', 1, '已完成6M預檢作業。', '13:00', '17:00', 4, 'DRAFT'),
+  ('P4', '第四級 1Y / 年檢', '第四級(1Y)', '年檢', 2, '已完成1Y預檢作業。', '09:30', '16:00', 4, 'DRAFT')
 ON CONFLICT DO NOTHING;
 
 INSERT INTO pm_template_material (pm_template_id, material_id, default_qty, default_unit, sort_order)

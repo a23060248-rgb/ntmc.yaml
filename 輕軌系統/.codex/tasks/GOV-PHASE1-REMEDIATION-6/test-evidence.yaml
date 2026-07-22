@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-6",
+  "evidence_mode": "bootstrap-production-path-internal-consistency",
+  "commands": [
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-6/run-validation.mjs",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-6/capture-baseline.mjs baseline-after.json",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-6/compare-baselines.mjs",
+    "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN"
+  ],
+  "requirements": [
+    {"requirement_id":"bootstrap-trust-policy-validation","semantic_category":"bootstrap-trust","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["bootstrap-candidate"]},
+    {"requirement_id":"four-gate-no-go-invariants","semantic_category":"gate-calculation","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-validation"]},
+    {"requirement_id":"six-operand-scope-lattice-invariants","semantic_category":"scope-authority","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-source-edit"]},
+    {"requirement_id":"bootstrap-candidate-proof-binding","semantic_category":"proof-binding","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["bootstrap-candidate"]},
+    {"requirement_id":"scanner-contract-production-path-results","semantic_category":"security-scanner","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["security"]},
+    {"requirement_id":"rule-class-authority-results","semantic_category":"domain-authority","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["domain-rule"]},
+    {"requirement_id":"production-path-property-and-mutation-results","semantic_category":"production-test-oracle","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-fixture"]},
+    {"requirement_id":"candidate-manifest-rebuild-and-content-scan","semantic_category":"candidate-integrity","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["bootstrap-candidate"]},
+    {"requirement_id":"migration-320-no-go-integrity","semantic_category":"backward-compatibility","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["backward-compatibility"]},
+    {"requirement_id":"frozen-history-integrity","semantic_category":"artifact-integrity","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-validation"]}
+  ],
+  "checks": [
+    {"check_id":"CHECK-R6-TRUST","requirement_id":"bootstrap-trust-policy-validation","result":"PASS","note":"Bootstrap policy identifies the validator as untrusted workspace code, limits proof to internal consistency, and requires a future human-attested commit trust anchor."},
+    {"check_id":"CHECK-R6-GATES","requirement_id":"four-gate-no-go-invariants","result":"PASS","note":"Production integration proves candidate review cannot make human commit or either steady-state Gate GO; actual Task state keeps all four NO-GO."},
+    {"check_id":"CHECK-R6-SCOPE","requirement_id":"six-operand-scope-lattice-invariants","result":"PASS","note":"Fixtures, production integration, property cases, and mutations cover all six operands, exact actor binding, empty authority, and intersection semantics."},
+    {"check_id":"CHECK-R6-PROOF","requirement_id":"bootstrap-candidate-proof-binding","result":"PASS","note":"The candidate record binds the exact Task, manifest, file set, count, scanner report, time, version, and canonical payload hash with internal-consistency assurance only."},
+    {"check_id":"CHECK-R6-SCANNER","requirement_id":"scanner-contract-production-path-results","result":"PASS","note":"Contract v4 production pipeline, canonicalization cases, header cases, URL-safe entropy, nine binary signatures, and scanner mutations passed."},
+    {"check_id":"CHECK-R6-RULES","requirement_id":"rule-class-authority-results","result":"PASS","note":"Production validation rejects generic meta business authority, duplicate Rule identity, missing Rule class, and Domain candidates in applicable rules."},
+    {"check_id":"CHECK-R6-PRODUCTION","requirement_id":"production-path-property-and-mutation-results","result":"PASS","note":"Syntax 13/13, fixtures 68/68, production integration 20/20, mutations 10/10 killed, and adversarial concurrent reports rejected."},
+    {"check_id":"CHECK-R6-CANDIDATE","requirement_id":"candidate-manifest-rebuild-and-content-scan","result":"PASS","note":"All 81 manifest hashes match; deterministic scanner reports zero findings within contract v4; candidate and scanner bindings match."},
+    {"check_id":"CHECK-R6-M320","requirement_id":"migration-320-no-go-integrity","result":"PASS","note":"Migration 320 is structural VALID, calculated NO-GO, exit 2, with five of five external evidence hashes unchanged."},
+    {"check_id":"CHECK-R6-HISTORY","requirement_id":"frozen-history-integrity","result":"PASS","note":"SHA256 and byte-size comparison proves 256 frozen-history files and 13 Migration 320 files are identical before and after R6."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": [
+    "Evidence is produced by mutable bootstrap workspace code and establishes internal consistency only.",
+    "No Git state, service, product test, migration, seed, or database operation was inspected or executed.",
+    "Independent A6 review and human commit approval remain pending."
+  ]
+}

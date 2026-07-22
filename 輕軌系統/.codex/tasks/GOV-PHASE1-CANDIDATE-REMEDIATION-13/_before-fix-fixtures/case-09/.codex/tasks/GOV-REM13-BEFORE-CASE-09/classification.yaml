@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-REM13-BEFORE-CASE-09",
+  "level": "L3",
+  "reasons": [
+    "Production Gate validator verification."
+  ],
+  "triggers": [
+    "unresolved Reviewer blocker"
+  ],
+  "execution_categories": [
+    "governance-validation",
+    "bootstrap-candidate"
+  ],
+  "required_agents": [
+    "qa-engineer",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer"
+  ],
+  "required_reviews": [
+    "code",
+    "security",
+    "railway-domain"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "EV-PRODUCTION",
+    "EV-NESTED-SECURITY"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "execution_approval",
+      "review_completion",
+      "final_commit_approval"
+    ]
+  },
+  "stop_conditions": [
+    "Any production validation layer is bypassed."
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-REM13-BEFORE-CASE-09/**"
+    ],
+    "exclude": [
+      ".env*",
+      "sibling directories"
+    ]
+  },
+  "classified_by": "remediation-orchestrator",
+  "classification_status": "human-approved-scope"
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+  "expected_task_evidence_count": 13,
+  "expected_external_evidence_count": 5,
+  "recorded_count": 18,
+  "records": [
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/artifact-manifest.yaml",
+      "sha256": "59FE7DA1A947A0A21B006EDD88A7E6DC641F5E0A15C50F531268CD08C904F069",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml",
+      "sha256": "736B1CD6DE102E19AD7109347E01BA069B383166E670EEA7A1A1E2618AFBD5C9",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/classification.yaml",
+      "sha256": "8DA9E864B1AAA57BEF406389736B478031AF3099554965B07014E099A3C2B75B",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/final-summary.md",
+      "sha256": "B4DE6A56F13ED66E1E6BEEAE50C3C43755D06F2A714D5C2A035C24ADABDBC35F",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/human-approval.yaml",
+      "sha256": "8DDB2DF4C11AAC48B544B547D9597C9328C2BE0DA3AFE883897BD4E609775A5A",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/implementation-handoff.yaml",
+      "sha256": "9F95FF2EAFEA7D10A0CEBA65473AA1EFB24123B796BAD1D98DE2D489F124AF3D",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "INHERITED_HASH_NOT_FRESHLY_READ_DUE_EXACT_PROHIBITION"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/implementation-plan.md",
+      "sha256": "E49CCE877E6FE3D4993E6A98560C3B7F0EA9B7F3F598108FA0007A433BFE0AB5",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "INHERITED_HASH_NOT_FRESHLY_READ_DUE_EXACT_PROHIBITION"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/review-findings.yaml",
+      "sha256": "4D88093B9716B363209E3C21E9BB521730E84F6D83ECCCE58E7597D339413350",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/security-evidence.yaml",
+      "sha256": "3ACA52E4754F610251A54988A7494DF2A2C22B4156F6562BCB59926AEB3321C7",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/task-graph.json",
+      "sha256": "1792CF13FB52D872833633F2D57FDF7718C86A84C82C0C347374FB270101F0BC",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/task-intent.yaml",
+      "sha256": "3BF933C1E9B6CA075A60D81C1E612C0CC2E724AE5E31DDABB0503456B42B557F",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/test-evidence.yaml",
+      "sha256": "B8EA29C1E2BB932F58CC5FABDEBA0C43029AE7BCB91314470EED166610BF8C8D",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/traceability.yaml",
+      "sha256": "66D98323653D65D97B326708502119275F814D53242ECCBECFD04371938A82BC",
+      "artifact_type": "migration-320-task",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": "docs/cross-module-closure-report.md",
+      "sha256": "1AAA1E6D7C9BDEBF4762E6EDEC0EE4A9A6C7800B47ECEB3239F31231321594F4",
+      "artifact_type": "migration-320-external-evidence",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": "docs/go-no-go-report.md",
+      "sha256": "743E1B4473B67298228CFB047C0EA6043A97F3F29EBF71083A7A96F76367BBDA",
+      "artifact_type": "migration-320-external-evidence",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": "docs/migration-320-before-after.json",
+      "sha256": "2C751A478FCE04C03E61CE909215498D4D378B767AFE3A726855D7890F12B988",
+      "artifact_type": "migration-320-external-evidence",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": "docs/migration-320-compatibility-report.md",
+      "sha256": "3F78871002ECD422EBA1EF05D63BE7A54940B12ED020E2423667D036A7091BC1",
+      "artifact_type": "migration-320-external-evidence",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    },
+    {
+      "path": "docs/migration-320-data-anomalies.csv",
+      "sha256": "8E552DFA9524995E05B918EC8B87810E1889CDFC8E1694E79C0FA41863700B4D",
+      "artifact_type": "migration-320-external-evidence",
+      "verification_mode": "UNCHANGED_B5_FROZEN_RECORD_ONLY"
+    }
+  ],
+  "direct_read_performed": false,
+  "forbidden_implementation_plan_or_handoff_read": false,
+  "verification_mode": "B5 frozen records only; prohibited M320 implementation plan and handoff bytes were not read.",
+  "frozen_record_set_unchanged_before_after": true,
+  "migration_320_status": "NEEDS_HUMAN_DECISION / NO-GO",
+  "result": "PASS_WITH_EXPLICIT_READ_BOUNDARY"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "contract_id": "GOV-EXTERNAL-MANUAL-TRANSPORT-001",
+  "flow": [
+    "Reviewer Chat returns exactly one canonical JSON object.",
+    "Human copies the complete JSON without edits.",
+    "Aggregator parses the original JSON and recalculates SHA256(JCS(payload_core)).",
+    "Aggregator compares package, assignment, role and candidate bindings."
+  ],
+  "required_attestation_schema": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/schemas/manual-transport-attestation.schema.json",
+  "allowed_transport_method": "manual_copy",
+  "assurance": "procedural",
+  "human_may": [
+    "copy the complete JSON",
+    "return to the same Reviewer chat if transport damage prevents parsing"
+  ],
+  "human_may_not": [
+    "edit Reviewer outcome",
+    "delete a finding",
+    "repair JSON content",
+    "change BLOCKER to PASS",
+    "merge two Reviewer payloads"
+  ],
+  "damaged_json_effect": "INVALID_RETURN_TO_ORIGINAL_REVIEWER_CHAT_FOR_THE_SAME_FINAL_PAYLOAD",
+  "aggregator_may_repair": false
+}

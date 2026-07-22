@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "reviewer_role": "EXTERNAL_SECURITY_REVIEWER",
+  "source_thread_id": "019f8293-6c17-7d30-bbf1-81808ccdf836",
+  "review_package_id": "A11-R1-SECURITY-REVIEWER-PKG-20260721-02",
+  "startup_status": "STARTUP_BLOCKER",
+  "technical_review_started": false,
+  "candidate_content_reviewed": false,
+  "formal_payload_preserved": true,
+  "candidate_change_required": false,
+  "security_package_change_required": true,
+  "root_cause": "ABSOLUTE_PATH_BINDING_MISMATCH",
+  "reviewer_reason": "absolute-launch-envelope.json binds repository_root, repository_root_binding_absolute_path, package_directory_absolute_path, launch_paths, and launch_file_hashes to paths that do not exactly match the required C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統 launch paths",
+  "superseded_by_task_id": "GOV-PHASE1-SESSION-A11-R2-SECURITY-REVIEW",
+  "eligible_as_successful_security_review": false
+}

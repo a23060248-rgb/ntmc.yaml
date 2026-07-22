@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "hard_stops": [],
+  "master_batch_2c_preparation": "COMPLETE",
+  "candidate": "108/108 UNCHANGED",
+  "preserved_reviewer_payloads": {
+    "code": "FORMALLY_REUSABLE_FOR_AGGREGATOR_R2",
+    "railway": "FORMALLY_REUSABLE_FOR_AGGREGATOR_R2",
+    "compatibility": "FORMALLY_REUSABLE_FOR_AGGREGATOR_R2"
+  },
+  "security_r1": "SUPERSEDED STARTUP BLOCKER",
+  "security_r2_package": "READY",
+  "security_r2_path_binding": "PASS",
+  "aggregator_r2_package": "READY",
+  "transport_contract_r2": "VALID",
+  "mixed_generation_input_manifest": "CONTRACT_VALID / PENDING_SECURITY_R2",
+  "fresh_qa_contract": "READY",
+  "r2_contract_tests": "24/24 PASS",
+  "package_hashes": "2/2 PASS",
+  "envelope_hashes": "2/2 PASS",
+  "path_bijections": "2/2 PASS",
+  "identity_collision_count": 0,
+  "historical_artifacts": "UNCHANGED",
+  "launch_readiness": "READY_FOR_HUMAN_TO_LAUNCH_SECURITY_R2",
+  "security_r2": "NOT STARTED",
+  "aggregator_r2": "NOT STARTED",
+  "active_candidate_review_gate": "NO-GO / PENDING SECURITY R2 AND AGGREGATION",
+  "human_exact_manifest": "NO",
+  "bootstrap_human_commit_gate": "NO-GO",
+  "migration_320_gate": "NEEDS_HUMAN_DECISION / NO-GO",
+  "git": "NOT USED"
+}

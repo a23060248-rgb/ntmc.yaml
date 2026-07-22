@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "authorization": "NOT AUTHORIZED; prepared input only",
+  "dispatch_mode": "strict_sequential_payload_only",
+  "sequence": [
+    {
+      "sequence": 1,
+      "reviewer_role": "code-reviewer",
+      "assignment_id": "ASSIGN-B6-CODE-97D32003-5E19-4C75-A05C-04B510C66601",
+      "scope_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/code-reviewer-scope.json",
+      "scope_sha256": "EFACC0A9AA4CB73B5C4A6D77BDEB39ACAA484C69F54CB21C9F8FD92A4440475C"
+    },
+    {
+      "sequence": 2,
+      "reviewer_role": "security-reviewer",
+      "assignment_id": "ASSIGN-B6-SEC-2D536A79-EDEB-4A24-9665-2321D8086602",
+      "scope_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/security-reviewer-scope.json",
+      "scope_sha256": "8BCEFB6EAD7BA8DFD3DB380DD82CE4917B80A3E8ED13A1320F13E508DDCB32D3"
+    },
+    {
+      "sequence": 3,
+      "reviewer_role": "railway-domain-reviewer",
+      "assignment_id": "ASSIGN-B6-DOMAIN-862EB933-6E20-4CEB-A88E-AB2571C76603",
+      "scope_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/railway-domain-reviewer-scope.json",
+      "scope_sha256": "BEF2750E710E85C8FE2F86E0601C0638DA9E6853255510E5E8B73A9CE5C84897"
+    },
+    {
+      "sequence": 4,
+      "reviewer_role": "compatibility-reviewer",
+      "assignment_id": "ASSIGN-B6-COMPAT-76D7B8C6-FAFB-4338-977A-C63F1F326604",
+      "scope_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/compatibility-reviewer-scope.json",
+      "scope_sha256": "6815E93D81AD9902097B0F5E92936C0C3E4A445625350A70B0E0049F9F10DDC6"
+    }
+  ],
+  "maximum_concurrent_reviewers": 1,
+  "scope_satisfiability_report": {
+    "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scope-satisfiability-report.json",
+    "sha256": "3191809DAD11FD2DCCB35098C4DD671F6F32C54FD58C41BA96577DC0E671C1D2",
+    "byte_size": 2673
+  },
+  "pre_review_freeze": {
+    "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/pre-review-freeze.json",
+    "sha256": "014044BB1E2A2883B5213E487436788368A9833C29623B4A814F0184C31DF9B7",
+    "byte_size": 713
+  },
+  "payload_schema": {
+    "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-return-payload.schema.json",
+    "sha256": "3B01532F75CB7DA8D0E179A60B49E21B878DC4FCDBDBF7331343A64DEEC41854",
+    "byte_size": 3068
+  },
+  "timeout_policy": {
+    "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-timeout-policy.json",
+    "sha256": "4954F49B5BB30ED0BA6709B80C7635D317D6C73F367AA8211E891E52EA7B34DF",
+    "wait_snapshot_timeout_ms": 30000,
+    "maximum_consecutive_snapshots": 4,
+    "total_response_deadline_ms": 120000
+  },
+  "rules": {
+    "reviewer_writes_files": false,
+    "return_payload_only": true,
+    "root_persists_raw_bytes_without_modification": true,
+    "one_payload_only": true,
+    "next_dispatch_requires_thread_closed": true,
+    "compatibility_requires_second_stage_payload_transport_satisfiability": true,
+    "replacement_reviewer_allowed": false,
+    "partial_set_can_pass": false
+  },
+  "result": "PASS"
+}

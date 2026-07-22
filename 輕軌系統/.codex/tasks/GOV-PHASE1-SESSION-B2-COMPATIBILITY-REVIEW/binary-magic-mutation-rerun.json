@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "command": "node .codex/tests/run-binary-magic-registry-mutations.mjs",
+  "production_path": true,
+  "total": 45,
+  "killed": 45,
+  "survived": 0,
+  "mutation_families": [
+    "remove-registry-entry",
+    "remove-positive-oracle",
+    "remove-safe-negative-oracle",
+    "modify-signature",
+    "wrong-finding-class"
+  ],
+  "exit_code": 0,
+  "isolated_system_temp_copies": true,
+  "candidate_modified": false,
+  "result": "PASS",
+  "completed_at": "2026-07-20T02:59:37.372Z"
+}

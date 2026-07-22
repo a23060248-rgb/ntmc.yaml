@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-M320-DRYRUN",
+  "generated_at": "2026-07-16T16:00:00.000Z",
+  "generated_by": ".codex/scripts/validate-task.mjs",
+  "source_digest_sha256": "1965F2C687115B85D72B26D9CFCC7C7790651513806E640ADDF813DE2B6EA2AC",
+  "nodes": [
+    {
+      "id": "APPROVAL:PENDING",
+      "type": "HumanApproval",
+      "label": "Formal L3 approval pending",
+      "source_ref": ".codex/tasks/GOV-M320-DRYRUN/human-approval.yaml"
+    },
+    {
+      "id": "BLUEPRINT:BP-GOV-M320-DRYRUN",
+      "type": "Blueprint",
+      "label": "L3 evidence-only Blueprint",
+      "source_ref": ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml"
+    },
+    {
+      "id": "DECISION:NO-GO",
+      "type": "Decision",
+      "label": "Migration 320 remains NO-GO",
+      "source_ref": "docs/go-no-go-report.md:3"
+    },
+    {
+      "id": "EVIDENCE:ANOMALIES",
+      "type": "Evidence",
+      "label": "Data anomaly list",
+      "source_ref": "docs/migration-320-data-anomalies.csv"
+    },
+    {
+      "id": "EVIDENCE:BEFORE-AFTER",
+      "type": "Evidence",
+      "label": "Before and after evidence",
+      "source_ref": "docs/migration-320-before-after.json"
+    },
+    {
+      "id": "EVIDENCE:CLOSURE",
+      "type": "Evidence",
+      "label": "Cross-module closure report",
+      "source_ref": "docs/cross-module-closure-report.md"
+    },
+    {
+      "id": "EVIDENCE:COMPAT-REPORT",
+      "type": "Evidence",
+      "label": "Compatibility report",
+      "source_ref": "docs/migration-320-compatibility-report.md"
+    },
+    {
+      "id": "EVIDENCE:NO-GO",
+      "type": "Evidence",
+      "label": "NO-GO report",
+      "source_ref": "docs/go-no-go-report.md"
+    },
+    {
+      "id": "FINDING:FORMAL-CLONE",
+      "type": "Finding",
+      "label": "Formal clone provenance absent",
+      "source_ref": "docs/go-no-go-report.md:23"
+    },
+    {
+      "id": "FINDING:P-TO-C",
+      "type": "Finding",
+      "label": "P-to-C value and attachment incomplete",
+      "source_ref": "docs/go-no-go-report.md:24"
+    },
+    {
+      "id": "FINDING:SHORTAGE-INVENTORY",
+      "type": "Finding",
+      "label": "Shortage/inventory direct link absent",
+      "source_ref": "docs/go-no-go-report.md:25"
+    },
+    {
+      "id": "RULE:COMPAT-M320-001",
+      "type": "Rule",
+      "label": "Migration 320 rollout gate (proposed)",
+      "source_ref": ".codex/domain/index.yaml"
+    },
+    {
+      "id": "RULE:WO-C-SHORTAGE-001",
+      "type": "Rule",
+      "label": "Shortage/inventory closure (proposed)",
+      "source_ref": ".codex/domain/index.yaml"
+    },
+    {
+      "id": "RULE:WO-P-C-LINK-001",
+      "type": "Rule",
+      "label": "P-to-C source preservation (proposed)",
+      "source_ref": ".codex/domain/index.yaml"
+    },
+    {
+      "id": "TASK:GOV-M320-DRYRUN",
+      "type": "Task",
+      "label": "Migration 320 governance dry run",
+      "source_ref": ".codex/tasks/GOV-M320-DRYRUN/task-intent.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BLUEPRINT:BP-GOV-M320-DRYRUN",
+      "relation": "CONSIDERS_CANDIDATE",
+      "to": "RULE:COMPAT-M320-001",
+      "source_ref": ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml"
+    },
+    {
+      "from": "BLUEPRINT:BP-GOV-M320-DRYRUN",
+      "relation": "CONSIDERS_CANDIDATE",
+      "to": "RULE:WO-C-SHORTAGE-001",
+      "source_ref": ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml"
+    },
+    {
+      "from": "BLUEPRINT:BP-GOV-M320-DRYRUN",
+      "relation": "CONSIDERS_CANDIDATE",
+      "to": "RULE:WO-P-C-LINK-001",
+      "source_ref": ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml"
+    },
+    {
+      "from": "DECISION:NO-GO",
+      "relation": "REQUIRES",
+      "to": "APPROVAL:PENDING",
+      "source_ref": ".codex/tasks/GOV-M320-DRYRUN/human-approval.yaml"
+    },
+    {
+      "from": "EVIDENCE:ANOMALIES",
+      "relation": "INFORMS",
+      "to": "DECISION:NO-GO",
+      "source_ref": "docs/migration-320-data-anomalies.csv"
+    },
+    {
+      "from": "EVIDENCE:BEFORE-AFTER",
+      "relation": "CORROBORATES",
+      "to": "DECISION:NO-GO",
+      "source_ref": "docs/migration-320-before-after.json:2109"
+    },
+    {
+      "from": "EVIDENCE:CLOSURE",
+      "relation": "SUPPORTS",
+      "to": "FINDING:P-TO-C",
+      "source_ref": "docs/cross-module-closure-report.md"
+    },
+    {
+      "from": "EVIDENCE:CLOSURE",
+      "relation": "SUPPORTS",
+      "to": "FINDING:SHORTAGE-INVENTORY",
+      "source_ref": "docs/cross-module-closure-report.md"
+    },
+    {
+      "from": "EVIDENCE:COMPAT-REPORT",
+      "relation": "SUPPORTS",
+      "to": "FINDING:FORMAL-CLONE",
+      "source_ref": "docs/migration-320-compatibility-report.md"
+    },
+    {
+      "from": "EVIDENCE:NO-GO",
+      "relation": "DECLARES",
+      "to": "DECISION:NO-GO",
+      "source_ref": "docs/go-no-go-report.md:3"
+    },
+    {
+      "from": "FINDING:FORMAL-CLONE",
+      "relation": "BLOCKS",
+      "to": "DECISION:NO-GO",
+      "source_ref": "docs/go-no-go-report.md:23"
+    },
+    {
+      "from": "FINDING:P-TO-C",
+      "relation": "BLOCKS",
+      "to": "DECISION:NO-GO",
+      "source_ref": "docs/go-no-go-report.md:24"
+    },
+    {
+      "from": "FINDING:SHORTAGE-INVENTORY",
+      "relation": "BLOCKS",
+      "to": "DECISION:NO-GO",
+      "source_ref": "docs/go-no-go-report.md:25"
+    },
+    {
+      "from": "TASK:GOV-M320-DRYRUN",
+      "relation": "USES",
+      "to": "BLUEPRINT:BP-GOV-M320-DRYRUN",
+      "source_ref": ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml"
+    }
+  ]
+}

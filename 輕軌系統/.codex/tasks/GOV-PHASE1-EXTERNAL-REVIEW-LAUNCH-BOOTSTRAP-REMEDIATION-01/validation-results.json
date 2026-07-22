@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "repository_root_verified": true,
+  "launch_envelopes": [
+    {
+      "launch_envelope_id": "ENVELOPE-AC31D79B7ECD57FB2BDA59C8",
+      "digest_matches": true,
+      "startup_file_count": 7
+    },
+    {
+      "launch_envelope_id": "ENVELOPE-0B778D6CBF4BA5EBC8047B87",
+      "digest_matches": true,
+      "startup_file_count": 7
+    },
+    {
+      "launch_envelope_id": "ENVELOPE-6928EEB47F98CFFCFA694C9B",
+      "digest_matches": true,
+      "startup_file_count": 7
+    },
+    {
+      "launch_envelope_id": "ENVELOPE-DE322876528B0B8B67B71B89",
+      "digest_matches": true,
+      "startup_file_count": 7
+    }
+  ],
+  "all_launch_envelopes_valid": true,
+  "startup_failure_template_missing_required_fields": [],
+  "startup_failure_template_forbidden_fields": [],
+  "startup_failure_templates": [
+    {
+      "role": "code_review",
+      "missing_required_fields": [],
+      "forbidden_fields": [],
+      "self_hash_valid": true
+    },
+    {
+      "role": "security_review",
+      "missing_required_fields": [],
+      "forbidden_fields": [],
+      "self_hash_valid": true
+    },
+    {
+      "role": "railway_review",
+      "missing_required_fields": [],
+      "forbidden_fields": [],
+      "self_hash_valid": true
+    },
+    {
+      "role": "compatibility_review",
+      "missing_required_fields": [],
+      "forbidden_fields": [],
+      "self_hash_valid": true
+    }
+  ],
+  "startup_failure_template_self_hash_valid": true,
+  "working_directory_tests": "20/20 PASS",
+  "candidate_binding_unchanged": true,
+  "preparation_artifacts_unchanged": true,
+  "reviewers_launched": false,
+  "aggregator_launched": false,
+  "git_used": false,
+  "result": "PASS"
+}

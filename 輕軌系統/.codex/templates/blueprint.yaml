@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-<TASK-ID>",
+  "task_id": "<TASK-ID>",
+  "risk": {"level": "L1", "reasons": ["<RISK-REASON>"]},
+  "scope": {"include": [".codex/tasks/<TASK-ID>/**"], "exclude": [".env*"], "product_changes_allowed": false, "database_operations_allowed": false},
+  "allowed_paths": {"read": [".codex/tasks/<TASK-ID>/**"], "write": [".codex/tasks/<TASK-ID>/**"]},
+  "agent_assignments": [{"role": "qa-engineer", "allowed_read_paths": [".codex/tasks/<TASK-ID>/**"], "allowed_write_paths": [".codex/tasks/<TASK-ID>/**"]}],
+  "applicable_rules": ["GOV-SCOPE-001"],
+  "candidate_rules": [],
+  "required_agents": ["qa-engineer"],
+  "execution": {"parallel_groups": [], "sequential_steps": ["<ORDERED-STEP>"]},
+  "evidence_required": ["<EVIDENCE-ID>"],
+  "rollback_restore": {"required": false, "evidence_or_reason": "Not applicable to governance-only work."},
+  "human_approval": {"required": false, "approver_roles": []},
+  "stop_conditions": ["<STOP-CONDITION>"]
+}

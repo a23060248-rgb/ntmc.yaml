@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "production_schema_loader": "loadAndCompileGovernanceSchemas",
+  "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9",
+  "schema_count": 15,
+  "declared_schema_count": 15,
+  "fixture_case_count": 0,
+  "railway_review_schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+  "relationships": [
+    {
+      "producer": "templates",
+      "consumer": "official schema loader and validate-task",
+      "artifact_count": 0,
+      "outcome": "PASS"
+    },
+    {
+      "producer": "workflows",
+      "consumer": "role profiles, findings classes and Gate Router",
+      "artifact_count": 3,
+      "outcome": "PASS"
+    },
+    {
+      "producer": "blueprints",
+      "consumer": "identity resolver and scope lattice",
+      "artifact_count": 15,
+      "outcome": "PASS"
+    },
+    {
+      "producer": "review artifacts",
+      "consumer": "reviewer identity binding and dedicated Railway schema",
+      "artifact_count": 5,
+      "outcome": "PASS"
+    },
+    {
+      "producer": "scanner contracts",
+      "consumer": "production scanner and candidate record",
+      "artifact_count": 16,
+      "outcome": "PASS"
+    }
+  ],
+  "counts": {
+    "schemas": 15,
+    "templates": 0,
+    "workflows": 3,
+    "checklists": 4,
+    "role_profiles": 10,
+    "gate_policy": 3,
+    "evidence_contract": 16
+  },
+  "inline_schema_observed": false,
+  "fallback_schema_observed": false,
+  "duplicate_schema_ids": [],
+  "first_match_schema_resolution": false,
+  "result": "PASS"
+}

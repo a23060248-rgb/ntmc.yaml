@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "classification_performed_before_remediation_artifact_generation": true,
+  "candidate_chain_directly_recomputed": true,
+  "candidate_governance_source": {
+    "manifest_valid": true,
+    "chain_valid": true,
+    "candidate_change_required": false,
+    "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "file_count": 103,
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB"
+  },
+  "findings": [
+    {
+      "finding_id": "SB-SEC-EVIDENCE-CONTRACT-VERSION-001",
+      "affected_layer": "session_b_task_local_artifact",
+      "root_cause": "The non-overwriting Session B scaffold copied a legacy scan_contract_version=4 field instead of deriving contract identity, version and hash from the frozen production candidate chain.",
+      "candidate_change_required": false,
+      "evidence": {
+        "session_b_security_evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-evidence.yaml",
+        "session_b_security_evidence_sha256": "B091663A0637BCA96D62DF35577021020975C00581F441C960DF6FEE88A06F16",
+        "session_b_declared_version": 4,
+        "production_contract_ref": ".codex/governance/scan-contract.yaml",
+        "production_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C",
+        "production_contract_version": 5,
+        "candidate_record_bound_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C",
+        "scanner_report_bound_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+      }
+    },
+    {
+      "finding_id": "SB-SEC-ALLOWLIST-EVIDENCE-GAP-001",
+      "affected_layer": "session_b_review_scope",
+      "root_cause": "The Session B formal Security read scope enumerated candidate files and derived summaries but omitted the three direct source nodes needed to independently verify the manifest-record-report binding chain.",
+      "candidate_change_required": false,
+      "evidence": {
+        "session_b_security_scope_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-review-read-scope.json",
+        "session_b_security_scope_sha256": "07B879D6E538035E2C860CC54DDAE6C01F65A87D7219A223DAB1C49C729050FB",
+        "missing_required_paths": [
+          ".codex/governance/governance-commit-manifest.yaml",
+          ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+          ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json"
+        ],
+        "formal_security_review_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-integrity-review.json",
+        "formal_security_review_sha256": "1763F3CF03F73E4625162325C2812E95E6F53985A08D339377B02DDA6997FAD2"
+      }
+    }
+  ],
+  "stop_condition": "NOT_TRIGGERED",
+  "result": "CONTINUE_REMEDIATION"
+}

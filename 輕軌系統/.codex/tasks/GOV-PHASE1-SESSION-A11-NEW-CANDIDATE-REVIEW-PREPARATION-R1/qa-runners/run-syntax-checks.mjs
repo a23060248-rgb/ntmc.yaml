@@ -1,0 +1,10 @@
+import { spawnSync } from "node:child_process";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../../../..");
+const manifest=JSON.parse(await readFile(path.join(root,".codex/tasks/GOV-PHASE1-CANDIDATE-REMEDIATION-13/implementation-change-manifest.json"),"utf8"));
+const scripts=manifest.candidate_changes.map(x=>x.path).filter(x=>x.endsWith(".mjs"));
+const results=scripts.map(script=>{const child=spawnSync(process.execPath,["--check",script],{cwd:root,encoding:"utf8",windowsHide:true});return{path:script,exit_code:child.status,pass:child.status===0,stderr:child.stderr};});
+console.log(JSON.stringify({suite:"Syntax checks",total:results.length,passed:results.filter(x=>x.pass).length,failed:results.filter(x=>!x.pass).length,results}));
+process.exit(results.every(x=>x.pass)?0:1);

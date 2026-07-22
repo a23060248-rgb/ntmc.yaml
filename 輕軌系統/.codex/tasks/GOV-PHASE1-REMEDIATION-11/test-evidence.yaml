@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "evidence_mode": "deterministic-preparation",
+  "commands": [
+    "prepare-remediation-11.mjs",
+    "run-preparation-tests.mjs",
+    "finalize-remediation-11.mjs"
+  ],
+  "checks": [
+    {
+      "check_id": "R11-CANDIDATE-VERDICT",
+      "requirement_id": "R11-CANDIDATE",
+      "result": "PASS",
+      "note": "Required Remediation 11 preparation evidence passed."
+    },
+    {
+      "check_id": "R11-SCHEMA-VERDICT",
+      "requirement_id": "R11-SCHEMA",
+      "result": "PASS",
+      "note": "Required Remediation 11 preparation evidence passed."
+    },
+    {
+      "check_id": "R11-SCOPES-VERDICT",
+      "requirement_id": "R11-SCOPES",
+      "result": "PASS",
+      "note": "Required Remediation 11 preparation evidence passed."
+    },
+    {
+      "check_id": "R11-CAPACITY-VERDICT",
+      "requirement_id": "R11-CAPACITY",
+      "result": "PASS",
+      "note": "Required Remediation 11 preparation evidence passed."
+    },
+    {
+      "check_id": "R11-TESTS-VERDICT",
+      "requirement_id": "R11-TESTS",
+      "result": "PASS",
+      "note": "30/30 preparation cases passed."
+    },
+    {
+      "check_id": "R11-PACKAGE-VERDICT",
+      "requirement_id": "R11-PACKAGE",
+      "result": "PASS",
+      "note": "Required Remediation 11 preparation evidence passed."
+    },
+    {
+      "check_id": "R11-BASELINE-VERDICT",
+      "requirement_id": "R11-BASELINE",
+      "result": "PASS",
+      "note": "Required Remediation 11 preparation evidence passed."
+    },
+    {
+      "check_id": "R11-READINESS-VERDICT",
+      "requirement_id": "R11-READINESS",
+      "result": "PASS",
+      "note": "Required Remediation 11 preparation evidence passed."
+    }
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": [
+    "Existing candidate regression results are readback only and do not replace future B3 fresh reruns.",
+    "No Reviewer or B3 task was started."
+  ]
+}

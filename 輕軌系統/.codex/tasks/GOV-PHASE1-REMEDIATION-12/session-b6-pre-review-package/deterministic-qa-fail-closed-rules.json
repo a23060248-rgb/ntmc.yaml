@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "contract_id": "R12-DETERMINISTIC-QA-FAIL-CLOSED",
+  "version": 1,
+  "rules": [
+    {
+      "when": "missing Reviewer payload",
+      "result": "INVALID"
+    },
+    {
+      "when": "payload or envelope hash mismatch",
+      "result": "INVALID"
+    },
+    {
+      "when": "schema or self-hash invalid",
+      "result": "INVALID"
+    },
+    {
+      "when": "thread not closed",
+      "result": "INVALID"
+    },
+    {
+      "when": "raw evidence incomplete",
+      "result": "INVALID"
+    },
+    {
+      "when": "Reviewer BLOCKER",
+      "result": "FAIL"
+    },
+    {
+      "when": "Root asserts QA PASS",
+      "result": "INVALID"
+    }
+  ],
+  "production_entrypoint": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/b6-review-protocol.mjs#evaluateDeterministicQa"
+}

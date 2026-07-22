@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "required": true,
+  "status": "pending",
+  "approvals": [
+    {"stage": "scope_approval", "status": "approved", "by": "human-governance-owner", "at": "2026-07-20T02:00:00+08:00", "reason": "Session B compatibility-review scope was explicitly authorized after A10 archived PASS."},
+    {"stage": "execution_approval", "status": "not-required", "by": "human-governance-owner", "at": "2026-07-20T02:00:00+08:00", "reason": "Session B used only read-only governance validation and isolated temporary test copies."},
+    {"stage": "review_completion", "status": "pending", "by": "human-governance-owner", "at": "2026-07-20T02:00:00+08:00", "reason": "Security Review returned two open BLOCKER findings; review completion cannot be approved."},
+    {"stage": "final_commit_approval", "status": "pending", "by": "human-governance-owner", "at": "2026-07-20T02:00:00+08:00", "reason": "Session B is BLOCKER; human exact-manifest confirmation and explicit first-commit authorization remain absent."}
+  ],
+  "bootstrap_candidate_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+  "bootstrap_scanner_report_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json",
+  "bootstrap_candidate_subject_task_id": "GOV-PHASE1-REMEDIATION-9",
+  "session_b_outcome": "BLOCKER",
+  "human_exact_manifest_approved": false,
+  "post_review_baseline_unchanged": true,
+  "prohibited_until_approved": ["Human Commit GO", "Git stage", "Git commit", "Git push", "merge", "release", "STAGED_EXACT", "steady-state activation", "confirmed Railway Domain Rule promotion", "Migration 320 execution or business GO"]
+}

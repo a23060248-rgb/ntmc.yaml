@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "reviewer": "security-reviewer",
+  "formal": true,
+  "did_not_participate_in_implementation": true,
+  "reviewer_run_id": "A8-SEC-RUN-0ecb32f9-2578-45ef-ad3d-2c46227c316f",
+  "session_id": "A8-SEC-SESSION-9b964674-361a-462c-b25d-ca362a7a278a",
+  "implementer_session_id": "R8-IMPLEMENTER-SESSION-7D6E38EA-6B4C-41EF-96CC-5E3AF96768FA",
+  "reviewer_session_distinct_from_implementer": true,
+  "reviewed_candidate_baseline": "phase-1.8-bootstrap",
+  "reviewed_manifest_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9",
+  "reviewed_manifest_file_count": 97,
+  "reviewed_binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+  "reviewed_schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+  "review_scope": {
+    "included": [
+      "AGENTS.md, .agents/** and .codex/** within the product root",
+      "A8 review-baseline-before.json and reviewer-assignments.json",
+      "A5, A6 and A7 filed Security findings and closure dispositions",
+      "Current 97-file governance manifest and manifested candidate files",
+      "Scanner contract, finding registry, canonicalization configuration, binary-oracle configuration, exact binary-magic registry and compiled governance Schema set",
+      "Current bootstrap scanner report, candidate record, security evidence and checklist",
+      "Four approved standard governance test entrypoints"
+    ],
+    "excluded": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration source or execution", "sibling directories", "implementation conversations and unfiled explanations", "product tests, services, seeds and databases", "Git state and Git commands"],
+    "assessment_targets": ["Scanner report and candidate binding completeness", "Exact nine-magic production-oracle irreducibility", "Binary mutation resistance", "Declared candidate binary finding set", "Removal of extension-magic-mismatch claims", "A7-SEC-HIGH-001, A6-SEC-HIGH-002 and A5-SEC-HIGH-002 closure"]
+  },
+  "outcome": "PASS",
+  "summary": "The phase-1.8 candidate matches the exact 97-file baseline and all candidate hashes. Scanner report, candidate record, manifest, included/scanned file sets and counts, contract, finding registry, canonicalization configuration, binary-oracle configuration, exact nine-entry binary registry and compiled Schema set are consistently bound. Independent standard reruns passed 72/72 scanner cases and 34/34 production integration cases; 23/23 bootstrap mutations and 45/45 binary-magic mutations were killed. Every declared magic has one unique production positive and one unique safe-negative oracle. A7-SEC-HIGH-001, A6-SEC-HIGH-002 and A5-SEC-HIGH-002 are CLOSED. No Human Commit, Session B, steady-state or Migration 320 authorization is asserted.",
+  "commands_run": [
+    {"command": "Read-only A8 baseline, candidate manifest and SHA256/file-set comparison", "result": "PASS", "details": "The manifest and A8 baseline contained the same 97 paths; all current hashes and baseline byte sizes matched."},
+    {"command": "node .codex/tests/run-bootstrap-scanner-production.mjs", "result": "PASS", "exit_code": 0, "details": "72/72 passed through .codex/scripts/generate-bootstrap-scan-report.mjs."},
+    {"command": "node .codex/tests/run-bootstrap-production-integration.mjs", "result": "PASS", "exit_code": 0, "details": "34/34 passed."},
+    {"command": "node .codex/tests/run-bootstrap-mutation-tests.mjs", "result": "PASS", "exit_code": 0, "details": "23/23 killed; survived=0."},
+    {"command": "node .codex/tests/run-binary-magic-registry-mutations.mjs", "result": "PASS", "exit_code": 0, "details": "45/45 killed; survived=0."},
+    {"command": "Read-only report, candidate record, bundle SHA256 and prohibited extension claim cross-check", "result": "PASS", "details": "All bindings agreed and no active extension-magic-mismatch claim was found."}
+  ],
+  "rerun_results": {
+    "production_scanner": {"total": 72, "passed": 72, "failed": 0, "exit_code": 0, "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs", "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D", "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836"},
+    "production_integration": {"total": 34, "passed": 34, "failed": 0, "exit_code": 0},
+    "bootstrap_mutations": {"total": 23, "killed": 23, "survived": 0, "exit_code": 0},
+    "binary_magic_mutations": {"total": 45, "killed": 45, "survived": 0, "exit_code": 0}
+  },
+  "exact_binary_oracle_assessment": {
+    "status": "PASS",
+    "registry_id": "GOV-BOOTSTRAP-BINARY-MAGIC",
+    "registry_version": 1,
+    "registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+    "exact_ordered_magic_ids": ["MZ", "ELF", "ZIP", "PDF", "SQLite", "PGDMP", "OLE", "PNG", "JPEG"],
+    "oracle_pairs": {
+      "MZ": ["SCAN-MAGIC-MZ-P", "SCAN-MAGIC-MZ-N"],
+      "ELF": ["SCAN-MAGIC-ELF-P", "SCAN-MAGIC-ELF-N"],
+      "ZIP": ["SCAN-MAGIC-ZIP-P", "SCAN-MAGIC-ZIP-N"],
+      "PDF": ["SCAN-MAGIC-PDF-P", "SCAN-MAGIC-PDF-N"],
+      "SQLite": ["SCAN-MAGIC-SQLITE-P", "SCAN-MAGIC-SQLITE-N"],
+      "PGDMP": ["SCAN-MAGIC-PGDMP-P", "SCAN-MAGIC-PGDMP-N"],
+      "OLE": ["SCAN-MAGIC-OLE-P", "SCAN-MAGIC-OLE-N"],
+      "PNG": ["SCAN-MAGIC-PNG-P", "SCAN-MAGIC-PNG-N"],
+      "JPEG": ["SCAN-MAGIC-JPEG-P", "SCAN-MAGIC-JPEG-N"]
+    },
+    "all_positive_oracles_passed": true,
+    "all_safe_negative_oracles_passed": true,
+    "all_18_fixture_ids_unique": true,
+    "mutation_families": {"remove-registry-entry": "9/9 killed", "remove-positive-oracle": "9/9 killed", "remove-safe-negative-oracle": "9/9 killed", "modify-signature": "9/9 killed", "wrong-finding-class": "9/9 killed"},
+    "additional_coverage": {
+      "offset_mismatch": "Covered by the production path at .codex/scripts/lib/governance/scanner-pipeline.mjs:135. All declared offsets are zero and every required positive presents its signature at byte zero, so offset drift fails the corresponding production positive.",
+      "contract_registry_mismatch": "The pinned registry SHA is checked at .codex/scripts/lib/governance/scanner-report.mjs:32.",
+      "registry_report_candidate_binding_mismatch": "Report bundle fields are checked at .codex/scripts/lib/governance/scanner-report.mjs:94; report bytes are bound at .codex/scripts/validate-task.mjs:203; all six bundle fields are compared at .codex/scripts/validate-task.mjs:214."
+    }
+  },
+  "scanner_binding_assessment": {
+    "status": "PASS",
+    "manifest_sha256_match": true,
+    "manifest_file_count": 97,
+    "manifest_candidate_set_equals_a8_baseline": true,
+    "candidate_hash_mismatches": 0,
+    "candidate_size_mismatches": 0,
+    "candidate_duplicate_paths": 0,
+    "report_sha256_bound_to_candidate_record": true,
+    "included_file_set_equals_scanned_file_set": true,
+    "expected_file_count_equals_scanned_file_count": true,
+    "contract_hash_match": true,
+    "finding_registry_hash_match": true,
+    "canonicalization_config_hash_match": true,
+    "binary_oracle_config_hash_match": true,
+    "binary_magic_registry_hash_match": true,
+    "schema_set_hash_match": true,
+    "report_payload_validation_control_present": true,
+    "candidate_payload_validation_control_present": true,
+    "candidate_report_result": "PASS",
+    "candidate_report_finding_count": 0,
+    "candidate_report_findings": [],
+    "declared_binary_finding_classes": ["DISALLOWED_FILE_EXTENSION", "NUL_BYTE_DETECTED", "KNOWN_BINARY_MAGIC_DETECTED", "NON_UTF8_TEXT", "BINARY_CONTENT_RATIO_EXCEEDED"],
+    "candidate_findings_outside_declared_set": [],
+    "extension_magic_mismatch_present_in_candidate": false,
+    "extension_magic_mismatch_present_in_checklist": false,
+    "extension_magic_mismatch_present_in_evidence_claims": false,
+    "assurance": "INTERNAL_CONSISTENCY_ONLY",
+    "claim_boundary": "The artifacts claim only exact manifest-bound execution of the declared contract. They do not claim DLP, global sensitive-data absence, trusted producer identity, Git authority or operating-system isolation.",
+    "evidence_locations": [".codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-scanner-report.json:12", ".codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-scanner-report.json:17", ".codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-scanner-report.json:29", ".codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-candidate-record.json:8", ".codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-candidate-record.json:15", ".codex/scripts/lib/governance/scanner-report.mjs:94", ".codex/scripts/lib/governance/scanner-report.mjs:98", ".codex/scripts/lib/governance/scanner-report.mjs:101", ".codex/scripts/lib/governance/scanner-report.mjs:112", ".codex/scripts/validate-task.mjs:203", ".codex/scripts/validate-task.mjs:214"]
+  },
+  "closure_dispositions": [
+    {
+      "finding_id": "A7-SEC-HIGH-001",
+      "disposition": "CLOSED",
+      "original_location": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/security-review.json:164",
+      "closure_locations": [".codex/governance/bootstrap-binary-magic-registry.yaml:7", ".codex/governance/bootstrap-binary-magic-registry.yaml:15", ".codex/scripts/lib/governance/scanner-pipeline.mjs:189", ".codex/scripts/lib/governance/scanner-pipeline.mjs:195", ".codex/scripts/lib/governance/scanner-pipeline.mjs:200", ".codex/tests/scanner-production-case-manifest.json:27", ".codex/tests/scanner-production-case-manifest.json:35", ".codex/tests/scanner-production-case-manifest.json:42", ".codex/tests/run-binary-magic-registry-mutations.mjs:18"],
+      "reproducible_read_only_check": "Run node .codex/tests/run-bootstrap-scanner-production.mjs and node .codex/tests/run-binary-magic-registry-mutations.mjs; require 72/72, every magic positive/safe-negative true, 45/45 killed and survived=0.",
+      "reason": "Every exact ordered registry entry now requires a unique production positive and safe-negative. Removal of any entry or either oracle is rejected."
+    },
+    {
+      "finding_id": "A6-SEC-HIGH-002",
+      "disposition": "CLOSED",
+      "original_locations": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/security-review.json:207", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/security-review.json:210"],
+      "closure_locations": [".codex/governance/scan-contract.yaml:1", ".codex/governance/scanner-binary-oracle.yaml:1", ".codex/governance/bootstrap-binary-magic-registry.yaml:1", ".codex/scripts/lib/governance/scanner-pipeline.mjs:169", ".codex/scripts/lib/governance/scanner-pipeline.mjs:194", ".codex/tests/run-bootstrap-scanner-production.mjs:85", ".codex/tests/run-binary-magic-registry-mutations.mjs:45"],
+      "reproducible_read_only_check": "Run the four approved standard entrypoints; require 72/72, 34/34, 23/23 killed and 45/45 killed, then verify the candidate and checklist contain no extension-magic-mismatch claim.",
+      "reason": "Material scanner policy is production-checked, the exact nine signatures are registry-bound and oracle-backed, and extension-versus-magic inference is no longer declared."
+    },
+    {
+      "finding_id": "A5-SEC-HIGH-002",
+      "disposition": "CLOSED",
+      "original_locations": [".codex/tasks/GOV-PHASE1-A5-BOOTSTRAP-TRUST-ANALYSIS/consolidated-a5-findings.md:174", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/security-review.json:226"],
+      "closure_locations": [".codex/tests/scanner-production-case-manifest.json:1", ".codex/tests/run-bootstrap-scanner-production.mjs:76", ".codex/tests/run-bootstrap-scanner-production.mjs:88", ".codex/scripts/lib/governance/scanner-pipeline.mjs:189", ".codex/scripts/lib/governance/scanner-pipeline.mjs:200", ".codex/tests/run-bootstrap-mutation-tests.mjs:26", ".codex/tests/run-binary-magic-registry-mutations.mjs:18"],
+      "reproducible_read_only_check": "Run the four approved standard entrypoints and require the recorded exact totals with zero failed cases and zero surviving mutations.",
+      "reason": "The formal oracle executes every declared scanner class through the production manifest scanner, includes every exact magic pair and contains mutation enforcement against coverage removal."
+    }
+  ],
+  "findings": [],
+  "conditions": [],
+  "residual_risks": [
+    {"risk_id": "RR-BOOTSTRAP-PROVENANCE", "status": "OPEN", "statement": "Mutable workspace hashes establish internal consistency, not producer identity, external attestation, Git index state or commit authority."},
+    {"risk_id": "RR-OS-ISOLATION", "status": "OPEN", "statement": "The environment profile is configuration evidence, not operating-system runtime isolation or a filesystem sandbox."},
+    {"risk_id": "RR-CHILD-PROCESS", "status": "OPEN", "statement": "Node child_process can execute commands outside the environment-profile contract."},
+    {"risk_id": "RR-SHELL-BYPASS", "status": "OPEN", "statement": "PowerShell and cmd.exe are not intercepted or restricted by an executable allowlist."},
+    {"risk_id": "RR-EXTERNAL-EXECUTABLE", "status": "OPEN", "statement": "Arbitrary external executables can bypass profile validation."},
+    {"risk_id": "RR-PARENT-OVERRIDE", "status": "OPEN", "statement": "A Parent Task permission override may broaden an Agent TOML sandbox."},
+    {"risk_id": "RR-TOCTOU", "status": "OPEN", "statement": "Canonical-path and reparse-point checks reduce path escape risk but cannot eliminate filesystem TOCTOU races."},
+    {"risk_id": "RR-SCANNER-BOUNDARY", "status": "OPEN", "statement": "The exact-manifest scanner is not DLP or proof that all secrets, encrypted content, archives, polyglots, fragments or novel binary formats are absent."},
+    {"risk_id": "RR-REVIEW-INDEPENDENCE", "status": "OPEN", "statement": "Distinct session identifiers support auditability but are not cryptographic proof of clean-context isolation."}
+  ],
+  "prohibited_actions_confirmed": {
+    "workspace_files_written": false,
+    "a8_output_file_written": false,
+    "env_files_read": false,
+    "git_commands_run": false,
+    "git_mutations_performed": false,
+    "product_code_read": false,
+    "product_tests_run": false,
+    "services_started": false,
+    "database_operations_run": false,
+    "seed_operations_run": false,
+    "migration_operations_run": false,
+    "sibling_directories_read": false,
+    "custom_security_probes_run": false,
+    "arbitrary_external_executables_run": false,
+    "approved_node_governance_tests_only": true,
+    "session_b_started": false,
+    "human_commit_go_declared": false,
+    "migration_320_go_declared": false,
+    "handoff_file_updated": false
+  }
+}

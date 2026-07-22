@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "task_id": "GOV-PHASE1-A4-FINDING-CONSOLIDATION",
+  "source_review_task": "GOV-PHASE1-L3-REVIEW-A4",
+  "analysis_mode": "read_only_consolidation",
+  "formal_finding_count": 12,
+  "formal_root_cause_count": 11,
+  "additional_control_gap_count": 1,
+  "reviewer_outcomes_preserved": {
+    "code_reviewer": "BLOCKER",
+    "security_reviewer": "BLOCKER",
+    "railway_domain_reviewer": "BLOCKER"
+  },
+  "gate_state_preserved": {
+    "candidate_governance_review_gate": "NO-GO",
+    "governance_commit_preparation_gate": "NO-GO",
+    "governance_commit_execution_gate": "NO-GO",
+    "migration_320_execution_gate": "NO-GO"
+  },
+  "clusters": [
+    {
+      "cluster_id": "RC-A4-01-SCOPE-LATTICE",
+      "common_root": "Effective write authority is reconstructed by separate callers instead of one intersection of Phase Policy, Intent, Classification, Blueprint, Role Policy, and Agent Assignment.",
+      "formal_finding_ids": ["A4-CODE-BLOCKER-001"],
+      "primary_strategy": "IMPLEMENT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "Implement computeEffectiveScope() and remove caller-local scope derivation.",
+      "must_remain_separate_from": ["RC-A4-02-TYPED-PROOF"],
+      "reason": "Scope authorization and proof provenance are both gate inputs, but one cannot substitute for the other."
+    },
+    {
+      "cluster_id": "RC-A4-02-TYPED-PROOF",
+      "common_root": "Candidate Snapshot, STAGED_EXACT, scope validation, and preapproval are accepted as Task-authored labels and hashes rather than validator-issued, non-interchangeable proof types.",
+      "formal_finding_ids": ["A4-CODE-BLOCKER-002"],
+      "primary_strategy": "IMPLEMENT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "Define proof producers, proof-type discriminators, subject binding, file-set/hash verification, and consumer-side validation in validateTypedProof().",
+      "must_remain_separate_from": ["RC-A4-06-EXECUTION-SENSITIVITY"],
+      "reason": "A correctly typed proof can still be insufficient for execution approval unless the approval requirement is derived structurally."
+    },
+    {
+      "cluster_id": "RC-A4-03-REQUIREMENT-IDENTITY-AND-WAIVER",
+      "common_root": "Requirement IDs are not globally unique within the Task authority model, duplicate map entries overwrite one another, and waiver semantics are not resolved against exactly one required requirement.",
+      "formal_finding_ids": ["A4-CODE-BLOCKER-003"],
+      "primary_strategy": "IMPLEMENT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "Implement resolveUniqueRequirement(); reject duplicates before any Map projection; fail closed on waiver-like evidence until waiver support is either fully integrated or removed.",
+      "scope_decision": "The identity invariant is mandatory. Phase 1 waiver capability should be removed unless its full authority and chronology contract is implemented in the same remediation.",
+      "must_remain_separate_from": ["RC-A4-04-UNIQUE-ARTIFACT-RESOLUTION"],
+      "reason": "Both require unique resolution, but requirement semantics and artifact provenance have different schemas and consumers."
+    },
+    {
+      "cluster_id": "RC-A4-04-UNIQUE-ARTIFACT-RESOLUTION",
+      "common_root": "Cross-Task artifact and Domain approval lookups use first-match resolution, so a duplicate ID can redirect authority to an attacker-controlled artifact.",
+      "formal_finding_ids": [
+        "A4-CODE-BLOCKER-004",
+        "A4-DOMAIN-APPROVAL-UNIQUENESS-002"
+      ],
+      "primary_strategy": "IMPLEMENT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "Implement resolveUniqueArtifact() for every manifest, evidence, approval, Rule, and Source reference; zero or multiple matches must fail closed.",
+      "deduplication": "These two formal findings are different consumers of the same unsafe resolver root and form one deduplicated root cause.",
+      "must_remain_separate_from": ["RC-A4-05-DOMAIN-AUTHORITY-BINDING"],
+      "reason": "Unique lookup is necessary for Domain authority binding, but uniqueness alone does not prove the Rule/Approval/Source relationship."
+    },
+    {
+      "cluster_id": "RC-A4-05-DOMAIN-AUTHORITY-BINDING",
+      "common_root": "Dedicated Domain schemas exist but the production schema loader does not load them, and the production validator performs only partial hand-written checks instead of one Rule/Approval/Source authority binding.",
+      "formal_finding_ids": ["A4-DOMAIN-AUTHORITY-BINDING-001"],
+      "primary_strategy": "REMOVE_FROM_PHASE1",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "For the first commit, retain only proposed/unverified registry behavior and remove any claim that Phase 1 can confirm a Rule. Re-entry requires schema-loader integration and validateDomainApprovalBinding().",
+      "migration_320_effect": "None toward execution: Migration 320 remains NO-GO because its Rule remains candidate/unverified.",
+      "alternative": "IMPLEMENT is acceptable only if the complete three-party binding and production-path tests are delivered before A5."
+    },
+    {
+      "cluster_id": "RC-A4-06-EXECUTION-SENSITIVITY",
+      "common_root": "Whether execution approval is required is inferred from free-text trigger regexes rather than structured Task effect categories.",
+      "formal_finding_ids": ["A4-CODE-HIGH-005"],
+      "primary_strategy": "IMPLEMENT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "Derive approval sensitivity from validated structured effect fields; free text may add sensitivity but must never remove it.",
+      "must_remain_separate_from": ["RC-A4-02-TYPED-PROOF"],
+      "reason": "This cluster decides that a proof is required; typed proof validation decides whether submitted proof is authoritative."
+    },
+    {
+      "cluster_id": "RC-A4-07-FIXTURE-ORACLE",
+      "common_root": "The 50-case suite encodes self-authored proof as a valid GO, while the 54-case suite predominantly tests isolated helpers and report shape instead of production integration and semantic outputs.",
+      "formal_finding_ids": ["A4-CODE-HIGH-006"],
+      "primary_strategy": "IMPLEMENT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "Replace fixture-count trust with production-path invariants, exact finding-class assertions, typed-proof provenance checks, resolver collision tests, and mutation resistance.",
+      "must_remain_separate_from": ["RC-A4-02-TYPED-PROOF"],
+      "reason": "Correct production enforcement and an oracle capable of detecting its removal are separate deliverables."
+    },
+    {
+      "cluster_id": "RC-A4-08-SCANNER-CANONICALIZATION",
+      "common_root": "Scanner matching is applied to non-canonical representations, allowing JSON Unicode escapes to hide content declared detectable by policy.",
+      "formal_finding_ids": ["SEC-A4-001"],
+      "primary_strategy": "IMPLEMENT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "Implement canonicalizeScannerInput() with bounded decoding and retain raw-to-canonical provenance in findings.",
+      "must_remain_separate_from": ["RC-A4-09-SCANNER-HEADERS", "RC-A4-10-SCANNER-ENTROPY", "RC-A4-11-SCANNER-MAGIC-CLAIM"],
+      "reason": "The scanner findings share one pipeline architecture but enforce distinct declared classes and require separate invariants."
+    },
+    {
+      "cluster_id": "RC-A4-09-SCANNER-HEADERS",
+      "common_root": "Credential/header parsing does not cover declared Basic authorization and quoted cookie representations after canonicalization.",
+      "formal_finding_ids": ["SEC-A4-002"],
+      "primary_strategy": "IMPLEMENT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "Parse normalized header name/value pairs and emit stable classes for Basic credentials and sensitive quoted cookie values.",
+      "mergeable_work_package": "RC-A4-08-SCANNER-CANONICALIZATION"
+    },
+    {
+      "cluster_id": "RC-A4-10-SCANNER-ENTROPY",
+      "common_root": "The policy implies opaque-token detection more broadly than the implemented entropy alphabet, so URL-safe tokens bypass the declared class.",
+      "formal_finding_ids": ["SEC-A4-003"],
+      "primary_strategy": "NARROW_CONTRACT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "For Phase 1, state the exact supported entropy alphabets and boundaries, remove broader claims, and fail closed for declared credential-bearing fields. Broader URL-safe entropy may be implemented later.",
+      "alternative": "IMPLEMENT the URL-safe alphabet in the unified pipeline if false-positive bounds and tests can be specified before A5."
+    },
+    {
+      "cluster_id": "RC-A4-11-SCANNER-MAGIC-CLAIM",
+      "common_root": "Policy declares an extension-versus-magic mismatch finding class that the scanner never emits.",
+      "formal_finding_ids": ["SEC-A4-004"],
+      "primary_strategy": "NARROW_CONTRACT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": true,
+      "work_package": "Remove the unimplemented mismatch claim from Phase 1 while retaining the simpler fail-closed prohibition on unapproved binary artifacts.",
+      "reason": "Binary prohibition is the enforceable Phase 1 control; an unused forensic claim adds false assurance without strengthening that gate."
+    },
+    {
+      "cluster_id": "RC-A4-12-LIFECYCLE-PROJECTION",
+      "common_root": "Lifecycle state is projected from fixed A3/Remediation 4 sources and hard-coded booleans, so an active or completed A4 can still project a4_started=false.",
+      "formal_finding_ids": [],
+      "status": "additional_control_gap_not_one_of_the_12_formal_findings",
+      "primary_strategy": "IMPLEMENT",
+      "blocks_candidate_review_gate": true,
+      "incorrect_go_possible": false,
+      "work_package": "Implement projectLifecycleState() over validated transition records and include the current review Task; reject missing, duplicate, contradictory, or regressive transitions.",
+      "reason": "The present value is stale and misleading. It does not erase a filed BLOCKER because the gate is already NO-GO, but it must be fixed before lifecycle status can be authoritative."
+    }
+  ],
+  "requested_a_to_g_assessment": {
+    "A_scope_lattice": {
+      "is_common_root": true,
+      "cluster_ids": ["RC-A4-01-SCOPE-LATTICE"],
+      "conclusion": "The six authority layers are not passed through one common intersection function."
+    },
+    "B_typed_proof_provenance": {
+      "is_common_root": true,
+      "cluster_ids": ["RC-A4-02-TYPED-PROOF"],
+      "conclusion": "Proof type, issuer, subject, file set, and digest are not jointly verified by the consuming production validator."
+    },
+    "C_requirement_identity": {
+      "is_common_root": true,
+      "cluster_ids": ["RC-A4-03-REQUIREMENT-IDENTITY-AND-WAIVER"],
+      "conclusion": "Duplicate IDs and waiver target resolution share a missing global uniqueness invariant."
+    },
+    "D_artifact_authority_resolution": {
+      "is_common_root": true,
+      "cluster_ids": ["RC-A4-04-UNIQUE-ARTIFACT-RESOLUTION", "RC-A4-05-DOMAIN-AUTHORITY-BINDING"],
+      "conclusion": "Code and Domain findings share first-match artifact resolution; complete Domain binding remains an additional independent obligation."
+    },
+    "E_scanner_pipeline": {
+      "is_common_root": true,
+      "cluster_ids": ["RC-A4-08-SCANNER-CANONICALIZATION", "RC-A4-09-SCANNER-HEADERS", "RC-A4-10-SCANNER-ENTROPY", "RC-A4-11-SCANNER-MAGIC-CLAIM"],
+      "conclusion": "There is no single raw-to-canonical-to-classification pipeline whose emitted classes are mechanically checked against policy; one declared class is not implemented at all."
+    },
+    "F_domain_authority_application": {
+      "is_common_root": true,
+      "cluster_ids": ["RC-A4-04-UNIQUE-ARTIFACT-RESOLUTION", "RC-A4-05-DOMAIN-AUTHORITY-BINDING"],
+      "conclusion": "The dedicated schemas are absent from the production loader and the Rule/Approval/Source triple is not validated end to end."
+    },
+    "G_lifecycle_projection": {
+      "is_common_root": true,
+      "cluster_ids": ["RC-A4-12-LIFECYCLE-PROJECTION"],
+      "conclusion": "The projection uses fixed known sources and hard-coded state, which excludes the current A4 lifecycle. This is an observed control gap, not an added formal A4 finding."
+    }
+  },
+  "deduplication_summary": {
+    "formal_findings": 12,
+    "formal_roots": 11,
+    "merged_formal_findings": [
+      {
+        "root": "RC-A4-04-UNIQUE-ARTIFACT-RESOLUTION",
+        "finding_ids": ["A4-CODE-BLOCKER-004", "A4-DOMAIN-APPROVAL-UNIQUENESS-002"]
+      }
+    ],
+    "additional_gap": "RC-A4-12-LIFECYCLE-PROJECTION is tracked separately and does not change the formal finding count."
+  },
+  "disposition": {
+    "remediation_5_created": false,
+    "session_b_authorized": false,
+    "finding_fixed_claimed": false,
+    "git_mutation_performed": false
+  }
+}

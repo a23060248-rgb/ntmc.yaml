@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "level": "L3",
+  "reasons": [
+    "A5 contains unresolved formal BLOCKER and HIGH findings.",
+    "The review determines a release-like Bootstrap Candidate Review Gate and eligibility for a later Compatibility Review.",
+    "The candidate changes trust, evidence, scanner, scope, and Railway Domain authority boundaries."
+  ],
+  "triggers": ["unresolved-reviewer-blocker", "release-gate", "security", "domain-rule-authority"],
+  "execution_categories": ["read-only-review", "governance-validation", "governance-fixture", "bootstrap-candidate", "security", "domain-rule"],
+  "required_agents": ["architect", "code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain"],
+  "parallel_allowed": true,
+  "evidence_required": [
+    "A6-CANDIDATE-BASELINE",
+    "A6-CODE-REVIEW",
+    "A6-SECURITY-REVIEW",
+    "A6-RAILWAY-DOMAIN-REVIEW",
+    "A6-A5-CLOSURE",
+    "A6-FIXTURE-RERUN",
+    "A6-PRODUCTION-RERUN",
+    "A6-MUTATION-RERUN",
+    "A6-CONCURRENCY-RERUN",
+    "A6-SCANNER-VERIFICATION",
+    "A6-RULE-CLASS-VERIFICATION",
+    "A6-HISTORY-INTEGRITY",
+    "A6-M320-INTEGRITY"
+  ],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": [
+    "Any reviewed candidate, R6, A5, frozen history, Migration 320, or external evidence artifact changes.",
+    "Any Reviewer is asked to alter another Reviewer outcome or depend on implementation conversation.",
+    "Any product, service, database, seed, migration, Git mutation, Session B, or commit action is attempted.",
+    "Any .env file or sibling directory is read.",
+    "Any Gate other than the Bootstrap Candidate Review Gate is represented as GO."
+  ],
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories"]
+  },
+  "classified_by": "human-authorized-a6-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

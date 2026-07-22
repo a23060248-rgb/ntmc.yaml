@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gov:phase1:external-aggregation-input:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "reviewer_payloads",
+    "transport_attestations",
+    "raw_deterministic_reports",
+    "before_baseline",
+    "gate_dependency_matrix"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "reviewer_payloads": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true
+    },
+    "transport_attestations": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "raw_deterministic_reports": {
+      "type": "array",
+      "minItems": 12
+    },
+    "before_baseline": {
+      "type": "object"
+    },
+    "gate_dependency_matrix": {
+      "type": "object"
+    }
+  }
+}

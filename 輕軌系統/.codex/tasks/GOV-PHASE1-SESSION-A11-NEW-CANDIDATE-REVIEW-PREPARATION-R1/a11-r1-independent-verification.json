@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "check_count": 50,
+  "passed": 50,
+  "failed": 0,
+  "checks": [
+    {
+      "check_id": "ROOT_BINDING",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_CODE_REVIEWER:PACKAGE_CORE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_CODE_REVIEWER:COMPONENT_HASHES",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_CODE_REVIEWER:ENVELOPE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_CODE_REVIEWER:LAUNCH_BIJECTION",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_CODE_REVIEWER:TWO_FIELD_WRAPPER",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_CODE_REVIEWER:STARTUP_BLOCKER_SCHEMA",
+      "pass": true,
+      "evidence": []
+    },
+    {
+      "check_id": "EXTERNAL_CODE_REVIEWER:NOT_STARTED",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_SECURITY_REVIEWER:PACKAGE_CORE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_SECURITY_REVIEWER:COMPONENT_HASHES",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_SECURITY_REVIEWER:ENVELOPE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_SECURITY_REVIEWER:LAUNCH_BIJECTION",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_SECURITY_REVIEWER:TWO_FIELD_WRAPPER",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_SECURITY_REVIEWER:STARTUP_BLOCKER_SCHEMA",
+      "pass": true,
+      "evidence": []
+    },
+    {
+      "check_id": "EXTERNAL_SECURITY_REVIEWER:NOT_STARTED",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER:PACKAGE_CORE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER:COMPONENT_HASHES",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER:ENVELOPE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER:LAUNCH_BIJECTION",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER:TWO_FIELD_WRAPPER",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER:STARTUP_BLOCKER_SCHEMA",
+      "pass": true,
+      "evidence": []
+    },
+    {
+      "check_id": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER:NOT_STARTED",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_COMPATIBILITY_REVIEWER:PACKAGE_CORE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_COMPATIBILITY_REVIEWER:COMPONENT_HASHES",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_COMPATIBILITY_REVIEWER:ENVELOPE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_COMPATIBILITY_REVIEWER:LAUNCH_BIJECTION",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_COMPATIBILITY_REVIEWER:TWO_FIELD_WRAPPER",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "EXTERNAL_COMPATIBILITY_REVIEWER:STARTUP_BLOCKER_SCHEMA",
+      "pass": true,
+      "evidence": []
+    },
+    {
+      "check_id": "EXTERNAL_COMPATIBILITY_REVIEWER:NOT_STARTED",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER:PACKAGE_CORE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER:COMPONENT_HASHES",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER:ENVELOPE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER:LAUNCH_BIJECTION",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER:TWO_FIELD_WRAPPER",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER:STARTUP_BLOCKER_SCHEMA",
+      "pass": true,
+      "evidence": []
+    },
+    {
+      "check_id": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER:NOT_STARTED",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "IDENTITY_UNIQUENESS",
+      "pass": true,
+      "evidence": [
+        {
+          "package": "EXTERNAL_CODE_REVIEWER",
+          "kind": "review_package_id",
+          "value": "A11-R1-CODE-REVIEWER-PKG-20260721-01"
+        },
+        {
+          "package": "EXTERNAL_CODE_REVIEWER",
+          "kind": "assignment_id",
+          "value": "A11-R1-CODE-REVIEWER-ASSIGN-20260721-01"
+        },
+        {
+          "package": "EXTERNAL_CODE_REVIEWER",
+          "kind": "reviewer_run_id",
+          "value": "A11-R1-CODE-REVIEWER-RUN-20260721-01"
+        },
+        {
+          "package": "EXTERNAL_CODE_REVIEWER",
+          "kind": "reviewer_session_nonce",
+          "value": "33CE69E4ADF73DBD84A11A4A39E8B8861EF73A210C155EE909289950C640CA55"
+        },
+        {
+          "package": "EXTERNAL_SECURITY_REVIEWER",
+          "kind": "review_package_id",
+          "value": "A11-R1-SECURITY-REVIEWER-PKG-20260721-02"
+        },
+        {
+          "package": "EXTERNAL_SECURITY_REVIEWER",
+          "kind": "assignment_id",
+          "value": "A11-R1-SECURITY-REVIEWER-ASSIGN-20260721-02"
+        },
+        {
+          "package": "EXTERNAL_SECURITY_REVIEWER",
+          "kind": "reviewer_run_id",
+          "value": "A11-R1-SECURITY-REVIEWER-RUN-20260721-02"
+        },
+        {
+          "package": "EXTERNAL_SECURITY_REVIEWER",
+          "kind": "reviewer_session_nonce",
+          "value": "4FFB4FD99A27DDF18CFD94DEF926FCA15C890124C809705AB2C18A73AD2414CB"
+        },
+        {
+          "package": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+          "kind": "review_package_id",
+          "value": "A11-R1-RAILWAY-DOMAIN-REVIEWER-PKG-20260721-03"
+        },
+        {
+          "package": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+          "kind": "assignment_id",
+          "value": "A11-R1-RAILWAY-DOMAIN-REVIEWER-ASSIGN-20260721-03"
+        },
+        {
+          "package": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+          "kind": "reviewer_run_id",
+          "value": "A11-R1-RAILWAY-DOMAIN-REVIEWER-RUN-20260721-03"
+        },
+        {
+          "package": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+          "kind": "reviewer_session_nonce",
+          "value": "F0C1CD5A8F2510E67234C754A4CC17291411FA759A19B040981363AA42828FC5"
+        },
+        {
+          "package": "EXTERNAL_COMPATIBILITY_REVIEWER",
+          "kind": "review_package_id",
+          "value": "A11-R1-COMPATIBILITY-REVIEWER-PKG-20260721-04"
+        },
+        {
+          "package": "EXTERNAL_COMPATIBILITY_REVIEWER",
+          "kind": "assignment_id",
+          "value": "A11-R1-COMPATIBILITY-REVIEWER-ASSIGN-20260721-04"
+        },
+        {
+          "package": "EXTERNAL_COMPATIBILITY_REVIEWER",
+          "kind": "reviewer_run_id",
+          "value": "A11-R1-COMPATIBILITY-REVIEWER-RUN-20260721-04"
+        },
+        {
+          "package": "EXTERNAL_COMPATIBILITY_REVIEWER",
+          "kind": "reviewer_session_nonce",
+          "value": "9665AE1D01000BCB4E427C52B6ED570A74247A74D6070BCDEB76955A44148B2D"
+        },
+        {
+          "package": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+          "kind": "aggregation_package_id",
+          "value": "A11-R1-AGGREGATION-QA-PKG-20260721-05"
+        },
+        {
+          "package": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+          "kind": "assignment_id",
+          "value": "A11-R1-AGGREGATION-QA-ASSIGN-20260721-05"
+        },
+        {
+          "package": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+          "kind": "aggregator_run_id",
+          "value": "A11-R1-AGGREGATION-QA-RUN-20260721-05"
+        },
+        {
+          "package": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+          "kind": "aggregator_session_nonce",
+          "value": "1BC14CB8E8D31BFB1F8003FC8E1FD4DB039E9215C146455B81A0FBA23A28D18B"
+        }
+      ]
+    },
+    {
+      "check_id": "CODE_CLOSURE_AUTHORITY",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "security-review:NO_CLOSURE_AUTHORITY",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "railway-domain-review:NO_CLOSURE_AUTHORITY",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "compatibility-review:NO_CLOSURE_AUTHORITY",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "AGGREGATOR_ROLE_BOUNDARY",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "AGGREGATOR_WRITE_SCOPE",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "AGGREGATOR_PROMPT_NAME",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "QA_COMMAND_MANIFEST",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "RAW_EVIDENCE_CONTRACT",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "PACKAGE_CONTRACT_TESTS",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "CANDIDATE_BEFORE_AFTER",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "HISTORY_BEFORE_AFTER",
+      "pass": true,
+      "evidence": null
+    },
+    {
+      "check_id": "OLD_PREPARATION_SUPERSESSION",
+      "pass": true,
+      "evidence": null
+    }
+  ],
+  "reviewers_started": 0,
+  "aggregator_started": 0,
+  "git_used": false,
+  "result": "PASS"
+}

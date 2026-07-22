@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "review_package_id": "PKG-F299CB520B1813B6D1F5AECF",
+  "package_manifest_path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/package-manifest.json",
+  "package_manifest_sha256": "7BF871F4D67D5F9673D9B7654120A28546B79A02DFC9A5D807579D90EDA70469",
+  "declared_package_core_sha256": "11D7DC83A41BFA554B6399E6729145C542DE94535AA343560D8D43C802F79DFF",
+  "recomputed_package_core_sha256": "11D7DC83A41BFA554B6399E6729145C542DE94535AA343560D8D43C802F79DFF",
+  "verified_core_file_count": 10,
+  "core_files": [
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/assignment.json",
+      "expected_sha256": "1A52B480295E3E223767D8BF0358DB04B4206ABD52AEFA593C0C3174E6A844AE",
+      "actual_sha256": "1A52B480295E3E223767D8BF0358DB04B4206ABD52AEFA593C0C3174E6A844AE",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/exact-read-scope.json",
+      "expected_sha256": "00A939D13F44A281509FB0F1B4CF6586E1534424F68556E48FEE281AA746CA49",
+      "actual_sha256": "00A939D13F44A281509FB0F1B4CF6586E1534424F68556E48FEE281AA746CA49",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/aggregation-input.schema.json",
+      "expected_sha256": "BAD71B670A5FA8C3667B0AB4A6E8EC195E2A4973E58E25A3310B0C3460012518",
+      "actual_sha256": "BAD71B670A5FA8C3667B0AB4A6E8EC195E2A4973E58E25A3310B0C3460012518",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/aggregation-output.schema.json",
+      "expected_sha256": "8438BE776CCD7950B32957728ED3827F6F4E6CE9F8EBB15F8666E80242031D4C",
+      "actual_sha256": "8438BE776CCD7950B32957728ED3827F6F4E6CE9F8EBB15F8666E80242031D4C",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/payload-import-contract.json",
+      "expected_sha256": "8D45AA0C45CEFACFBE9EA1319C8E6DBB4FBC522133BF8AC1F247EDBE8942A3A1",
+      "actual_sha256": "8D45AA0C45CEFACFBE9EA1319C8E6DBB4FBC522133BF8AC1F247EDBE8942A3A1",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/manual-transport-attestation.schema.json",
+      "expected_sha256": "78B58C4041382D193DC0C04F5F1C80E4898185123304A6C05CF70E62DADD87DD",
+      "actual_sha256": "78B58C4041382D193DC0C04F5F1C80E4898185123304A6C05CF70E62DADD87DD",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/deterministic-qa-input-contract.json",
+      "expected_sha256": "466BE92124BC1EF0EBE388C4F1105F65EDE7761CFC0CDC00EA8894645712F531",
+      "actual_sha256": "466BE92124BC1EF0EBE388C4F1105F65EDE7761CFC0CDC00EA8894645712F531",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/deterministic-qa-fail-closed-rules.json",
+      "expected_sha256": "3D63436577D4D1EDF9F926FB862587B2275F6682FE5E606C9592207E67CEA609",
+      "actual_sha256": "3D63436577D4D1EDF9F926FB862587B2275F6682FE5E606C9592207E67CEA609",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/gate-dependency-matrix.json",
+      "expected_sha256": "30ACF6F2353259799B4F81E65C7088FED9545DF44125E69BCB0669B1C1A9793A",
+      "actual_sha256": "30ACF6F2353259799B4F81E65C7088FED9545DF44125E69BCB0669B1C1A9793A",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/aggregator-prompt.md",
+      "expected_sha256": "0FA4E72F8752675B5E10DB3BF43AC3DEA8228E95B381DC378F518DA8D7A049F0",
+      "actual_sha256": "0FA4E72F8752675B5E10DB3BF43AC3DEA8228E95B381DC378F518DA8D7A049F0",
+      "match": true
+    }
+  ],
+  "all_core_file_hashes_match": true,
+  "result": "PASS"
+}

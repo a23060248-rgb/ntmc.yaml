@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer": "code-reviewer",
+    "reviewer_run_id": "A3-CODE-RUN-20260717-001",
+    "session_id": "A3-CODE-SESSION-20260717-001",
+    "did_not_participate_in_implementation": true,
+    "reviewed_candidate_baseline": "phase-1.3",
+    "mode": "read-only"
+  },
+  "scope": {
+    "product_root": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+    "included": [
+      "AGENTS.md",
+      "A3 task intent and baseline-before",
+      "governance schemas, scripts, policies and exact commit manifest",
+      "Phase 1.3 remediation artifacts",
+      "A2 formal review artifacts",
+      "Migration 320 governance artifacts"
+    ],
+    "excluded": [
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "migrations/**",
+      ".env*",
+      "sibling directories",
+      "implementer conversations and unfiled context"
+    ],
+    "manifest_verification": {
+      "expected_files": 87,
+      "actual_files": 87,
+      "unique_paths": 87,
+      "hash_mismatches": 0,
+      "manifest_sha256": "BDBA5FF324C98DBF05CABC71E77DF18C459A0E88537ED8BC293EFDA3642BD9AE",
+      "baseline_match": true
+    },
+    "git_worktree_scope_validation": "NOT_EXECUTED because repository-wide Git enumeration could disclose prohibited sibling paths; implementation was statically reviewed."
+  },
+  "outcome": "BLOCKER",
+  "findings": [
+    {
+      "finding_id": "A3-CODE-BLOCKER-001",
+      "severity": "BLOCKER",
+      "location": ".codex/scripts/validate-task.mjs:255-273; .codex/scripts/validate-change-scope.mjs:66-88",
+      "evidence": "The Phase 1 lock is checked only against task-intent scope. Blueprint product/database flags and write paths are not bound to phase-status.authorized_paths or the intent/classification scope. Change-scope subsequently trusts those Blueprint paths.",
+      "reproduction": "A structurally complete L3 fixture can retain intent product_changes_allowed=false while assigning frontend-engineer and setting Blueprint writes to frontend/**. Role policy permits that path, so validateTask and validateChangedPaths have no Phase 1 rejection.",
+      "impact": "A crafted Task can bypass the Phase 1 governance-only product lock and authorize product changes."
+    },
+    {
+      "finding_id": "A3-CODE-BLOCKER-002",
+      "severity": "BLOCKER",
+      "location": ".codex/blueprints/schemas/test-evidence.schema.json:7; .codex/scripts/validate-task.mjs:332-345",
+      "evidence": "NOT_APPLICABLE requires only a truthy waiver object. No alternative control is required, approved_by and approver_role are unbound strings, approval timing is not compared with scope approval, and L3 non-waivability is inferred only from requirement_id text.",
+      "reproduction": "Mark an opaque required integrity ID NOT_APPLICABLE, provide a waiver attributed to an agent with an approval time after final approval and no alternative control, and use another PASS artifact for final prerequisites. The non-waivable regex does not match the opaque ID and no gate reason is added.",
+      "impact": "Required or non-waivable L3 evidence can be waived without prior scoped human authority or compensating control."
+    },
+    {
+      "finding_id": "A3-CODE-BLOCKER-003",
+      "severity": "BLOCKER",
+      "location": ".codex/scripts/validate-task.mjs:438-446; .codex/scripts/validate-change-scope.mjs:89-98; .codex/tests/run-governance-fixtures.mjs:96-99",
+      "evidence": "scope_validation and preapproval_gate accept any PASS check or artifact ID. They are not bound to a validate-change-scope result, staged file set, manifest hash or distinct preapproval execution. Change-scope itself exits successfully as NOT_A_COMMIT_CANDIDATE when no product file is staged.",
+      "reproduction": "Observed serial case 01 returned GO while both prerequisites referenced generic EV-FIXTURE; no Git scope validation or exact staged 87-file proof existed.",
+      "impact": "Final commit approval can pass without an exact staged manifest candidate or deterministic preapproval gate."
+    },
+    {
+      "finding_id": "A3-CODE-BLOCKER-004",
+      "severity": "BLOCKER",
+      "location": ".codex/scripts/validate-task.mjs:423-449",
+      "evidence": "Chronology is calculated only from stages with status=approved. execution_approval=not-required is accepted for non-sensitive work but filtered out of the ordered timestamps and is not checked against implementation start.",
+      "reproduction": "Move the complete GO fixture's not-required execution decision to a timestamp after review_completion or final_commit_approval. Existing checks still accept the Task.",
+      "impact": "The fixed scope, execution decision, review completion and final approval ordering can be bypassed."
+    },
+    {
+      "finding_id": "A3-CODE-BLOCKER-005",
+      "severity": "BLOCKER",
+      "location": ".codex/blueprints/schemas/artifact-manifest.schema.json:6; .codex/scripts/validate-task.mjs:295-346",
+      "evidence": "Distinct test checks sharing a requirement_id are rejected, but duplicate artifact_id values are not. validArtifactEvidence is a Set, so multiple artifacts with the same required ID collapse to one accepted verdict.",
+      "reproduction": "Add two valid, different artifact records sharing ART-FIXTURE. Both scan successfully, the Set retains one ID, and required verdict count remains one.",
+      "impact": "Evidence identity uniqueness and conflict traceability can be bypassed."
+    },
+    {
+      "finding_id": "A3-CODE-BLOCKER-006",
+      "severity": "BLOCKER",
+      "location": ".codex/tests/run-governance-fixtures-concurrency.mjs:26-34",
+      "evidence": "The parent harness accepts at least 25 cases rather than exactly 50, and artifact_hashes_structured passes vacuously when no case supplies a hash.",
+      "reproduction": "A child report containing 25 passing cases and no artifact hashes satisfies the current reportsValid and deterministicArtifacts expressions.",
+      "impact": "The harness can claim complete structured concurrency proof from a partial or hash-free child report, although this A3 execution did produce two real 50-case reports."
+    },
+    {
+      "finding_id": "A3-CODE-HIGH-007",
+      "severity": "HIGH",
+      "location": ".codex/governance/phase-status.json:15-18",
+      "evidence": "The 87-file candidate still records active_remediation_task=GOV-PHASE1-REMEDIATION-2 and session_a2_started=false despite completed A2, Remediation 3 and the A3 scaffold.",
+      "reproduction": "Compare phase-status.json with the filed GOV-PHASE1-L3-REVIEW-A2, GOV-PHASE1-REMEDIATION-3 and GOV-PHASE1-L3-REVIEW-A3 task directories.",
+      "impact": "The committed lifecycle status would be stale, although both governance and Migration 320 gates correctly remain NO-GO."
+    }
+  ],
+  "conditions": [
+    "Bind all Blueprint scope and write paths to the active Phase 1 lock and add a product-write rejection fixture.",
+    "Require waiver alternative controls, prior scoped human approval, authority binding and semantic non-waivable categories.",
+    "Bind scope and preapproval prerequisites to structured, hash-bound executions proving staged_manifest_mode=EXACT.",
+    "Include not-required execution decisions in chronological ordering and require them before implementation start.",
+    "Reject duplicate artifact IDs and add artifact/check conflict fixtures.",
+    "Require exactly 50 concurrency cases and at least one expected structured artifact hash per child.",
+    "Refresh phase-status and rerun an independent baseline-bound review."
+  ],
+  "decisions_required": [
+    {
+      "decision_owner": "human-governance-owner",
+      "decision": "Keep the Phase 1 Governance Commit Gate at NO-GO and authorize remediation plus a fresh independent review."
+    },
+    {
+      "decision_owner": "human-governance-owner",
+      "decision": "Keep the separate Migration 320 Gate at NO-GO; this review does not approve migration, product, database, commit, merge or release activity."
+    }
+  ],
+  "fixture_results": {
+    "serial": {
+      "command": "node .codex/tests/run-governance-fixtures.mjs",
+      "fixture_run_id": "gov-fixture-c92a5a",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "exit_code": 0,
+      "cleanup_result": "PASS",
+      "migration_320_case": "structural VALID, calculated NO-GO, exit 2"
+    },
+    "parent_concurrency": {
+      "command": "node .codex/tests/run-governance-fixtures-concurrency.mjs",
+      "exit_code": 0,
+      "passed": true,
+      "reports_valid": true,
+      "unique_run_roots": true,
+      "unique_case_roots": true,
+      "case_roots_owned": true,
+      "children": [
+        {
+          "fixture_run_id": "gov-fixture-PswF36",
+          "case_count": 50,
+          "exit_code": 0,
+          "cleanup_result": "PASS"
+        },
+        {
+          "fixture_run_id": "gov-fixture-2MJbqy",
+          "case_count": 50,
+          "exit_code": 0,
+          "cleanup_result": "PASS"
+        }
+      ]
+    },
+    "cleanup_confirmation": {
+      "temporary_entries_before": 0,
+      "temporary_entries_after": 0,
+      "files_left_by_review": 0
+    }
+  },
+  "residual_risks": [
+    "Passing fixtures do not cover the reproduced fail-closed bypasses.",
+    "Reviewer context isolation and human identity remain procedural rather than cryptographically proven.",
+    "The deterministic scanner cannot establish global secret absence.",
+    "Actual repository-wide staged scope was not enumerated because sibling path disclosure was prohibited.",
+    "No product test, service, database, seed, migration or Git mutation was performed."
+  ]
+}

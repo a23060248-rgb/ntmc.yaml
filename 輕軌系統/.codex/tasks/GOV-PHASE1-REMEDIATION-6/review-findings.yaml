@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-6",
+  "review_context": "Implementation evidence is complete, but fresh independent Session A6 review is not authorized or started in this Task.",
+  "reviews": [
+    {
+      "type": "code",
+      "reviewer": "unassigned-independent-a6-code-reviewer",
+      "formal": false,
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "finding_refs": ["A6-NOT-STARTED-CODE"],
+      "conditions": [],
+      "decisions_required": [{"decision_required":"authorize-fresh-a6-code-review","decision_owner_role":"human-governance-owner","decision_question":"Authorize a distinct read-only Code Reviewer to revalidate the A5 exploit families against the R6 candidate?","decision_deadline_or_trigger":"Before Bootstrap Candidate Review Gate can be reconsidered."}]
+    },
+    {
+      "type": "security",
+      "reviewer": "unassigned-independent-a6-security-reviewer",
+      "formal": false,
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "finding_refs": ["A6-NOT-STARTED-SECURITY"],
+      "conditions": [],
+      "decisions_required": [{"decision_required":"authorize-fresh-a6-security-review","decision_owner_role":"human-governance-owner","decision_question":"Authorize a distinct read-only Security Reviewer to revalidate canonicalization, content, binary, path, and bootstrap trust boundaries?","decision_deadline_or_trigger":"Before Bootstrap Candidate Review Gate can be reconsidered."}]
+    },
+    {
+      "type": "railway-domain",
+      "reviewer": "unassigned-independent-a6-railway-domain-reviewer",
+      "formal": false,
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "finding_refs": ["A6-NOT-STARTED-RAILWAY-DOMAIN"],
+      "conditions": [],
+      "decisions_required": [{"decision_required":"authorize-fresh-a6-railway-domain-review","decision_owner_role":"human-governance-owner","decision_question":"Authorize a distinct read-only Railway Domain Reviewer to verify that candidate Rules cannot become business authority?","decision_deadline_or_trigger":"Before Bootstrap Candidate Review Gate can be reconsidered."}]
+    },
+    {
+      "type": "compatibility",
+      "reviewer": "unassigned-independent-a6-compatibility-reviewer",
+      "formal": false,
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "finding_refs": ["A6-NOT-STARTED-COMPATIBILITY"],
+      "conditions": [],
+      "decisions_required": [{"decision_required":"authorize-fresh-a6-compatibility-review","decision_owner_role":"human-governance-owner","decision_question":"Authorize compatibility revalidation of historical Tasks and Migration 320 deterministic NO-GO?","decision_deadline_or_trigger":"Before Bootstrap Candidate Review Gate can be reconsidered."}]
+    }
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "blockers": [
+    "A5 remains ARCHIVED / BLOCKER.",
+    "A6 is not authorized or started, so no formal R6 Reviewer outcome exists.",
+    "Bootstrap Human Commit Gate and both steady-state Gates are human-controlled and remain NO-GO."
+  ],
+  "conditions": []
+}

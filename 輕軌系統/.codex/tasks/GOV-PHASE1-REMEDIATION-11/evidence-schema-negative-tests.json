@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "suite": "registered-security-evidence",
+  "total": 6,
+  "passed": 6,
+  "failed": 0,
+  "cases": [
+    {
+      "case_id": "01",
+      "description": "Evidence missing registered-schema field.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "02",
+      "description": "Unregistered task-local schema or wrong schema $id.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "03",
+      "description": "Scanner version v4.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "04",
+      "description": "Scanner v5 with wrong hash.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "05",
+      "description": "Candidate manifest mismatch or claim exceeds declared contract.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "26",
+      "description": "Official B3 evidence validates registered schema and binding.",
+      "expected": "PASS",
+      "actual": "PASS",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

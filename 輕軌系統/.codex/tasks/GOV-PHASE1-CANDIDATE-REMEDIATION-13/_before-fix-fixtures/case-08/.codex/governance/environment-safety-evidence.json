@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "evidence_id": "ENV-SAFETY-PHASE1-001",
+  "profile_ref": ".codex/environment/agent-safe-profile.json",
+  "result": "PROFILE_SCHEMA_PASS",
+  "checks": [
+    {
+      "id": "ENV-NO-DOTENV",
+      "result": "PASS"
+    },
+    {
+      "id": "ENV-EXPLICIT-SOURCE",
+      "result": "PASS"
+    },
+    {
+      "id": "DB-LOOPBACK",
+      "result": "PASS"
+    },
+    {
+      "id": "DB-PORT-5433",
+      "result": "PASS"
+    },
+    {
+      "id": "DB-REHEARSAL-NAME",
+      "result": "PASS"
+    },
+    {
+      "id": "DB-SAFETY-MODE",
+      "result": "PASS"
+    },
+    {
+      "id": "DB-NO-OPERATIONS",
+      "result": "PASS"
+    },
+    {
+      "id": "ENV-NO-SECRET-KEYS",
+      "result": "PASS"
+    }
+  ],
+  "profile_schema_validated": true,
+  "runtime_command_isolation_verified": false,
+  "os_env_access_denied": false,
+  "product_script_integration_verified": false,
+  "database_connection_attempted": false,
+  "secrets_recorded": false,
+  "limitation": "This validates a credential-free JSON profile only. child_process, PowerShell, cmd.exe, external executables, parent permission overrides, OS .env access, and product package scripts are not isolated or enforced."
+}

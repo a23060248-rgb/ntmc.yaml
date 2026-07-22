@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-REM13-BEFORE-CASE-04",
+  "generated_at": "2026-07-21T00:00:00Z",
+  "generated_by": ".codex/scripts/validate-task.mjs",
+  "source_digest_sha256": "D55995676ECCB3718A812C13F65F9DDAB1E7B9988D3AC5813BA6E6C9B737D278",
+  "nodes": [
+    {
+      "id": "EVIDENCE:GOV-REM13-BEFORE-CASE-04",
+      "type": "Evidence",
+      "label": "Fixture Evidence",
+      "source_ref": ".codex/tasks/GOV-REM13-BEFORE-CASE-04/evidence.md"
+    },
+    {
+      "id": "TASK:GOV-REM13-BEFORE-CASE-04",
+      "type": "Task",
+      "label": "Fixture Task",
+      "source_ref": ".codex/tasks/GOV-REM13-BEFORE-CASE-04/task-intent.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "TASK:GOV-REM13-BEFORE-CASE-04",
+      "relation": "VERIFIED_BY",
+      "to": "EVIDENCE:GOV-REM13-BEFORE-CASE-04",
+      "source_ref": ".codex/tasks/GOV-REM13-BEFORE-CASE-04/test-evidence.yaml"
+    }
+  ]
+}

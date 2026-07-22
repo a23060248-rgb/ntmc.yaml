@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "objective": "Remediate only the A11 package contracts and prepare a fail-closed R1 relaunch without starting reviewers or aggregator.",
+  "only_write_scope": [
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/**"
+  ],
+  "forbidden": [
+    "108-file Candidate writes",
+    "old A11 writes",
+    "historical Task writes",
+    "Git",
+    "services",
+    "databases",
+    "seeds",
+    "migrations",
+    "child agents",
+    "Reviewer launch",
+    "Aggregator launch"
+  ]
+}

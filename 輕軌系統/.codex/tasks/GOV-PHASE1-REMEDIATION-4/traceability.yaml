@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-4",
+  "generated_at": "2026-07-17T16:00:00+08:00",
+  "nodes": [
+    {
+      "id": "TASK:GOV-PHASE1-REMEDIATION-4",
+      "type": "Task",
+      "label": "Phase 1.4 Semantic Authority and Commit-Binding Remediation",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-4/task-intent.yaml"
+    },
+    {
+      "id": "BLUEPRINT:BP-GOV-PHASE1-REMEDIATION-4",
+      "type": "Blueprint",
+      "label": "L3 draft Blueprint",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-4/blueprint.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "TASK:GOV-PHASE1-REMEDIATION-4",
+      "relation": "USES",
+      "to": "BLUEPRINT:BP-GOV-PHASE1-REMEDIATION-4",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-4/blueprint.yaml"
+    }
+  ]
+}

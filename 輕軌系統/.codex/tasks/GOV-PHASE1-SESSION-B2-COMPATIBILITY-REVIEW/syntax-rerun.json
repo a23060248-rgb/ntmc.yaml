@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "command": "node --check against 18 candidate production and test modules",
+  "total": 18,
+  "passed": 18,
+  "failed": 0,
+  "files": [
+    {
+      "ref": ".codex/scripts/build-phase-status.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/generate-bootstrap-candidate.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/validate-task.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/lib/schema-validator.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/lib/governance-commit-manifest.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/domain-review-routing.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/gate-router.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/lifecycle-projection.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/scanner-report.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/typed-proof.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/tests/run-bootstrap-scanner-production.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/tests/run-bootstrap-mutation-tests.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/tests/run-governance-fixtures.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/tests/run-governance-fixtures-concurrency.mjs",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "ref": ".codex/tests/run-reviewer-binding-regressions.mjs",
+      "exit_code": 0,
+      "pass": true
+    }
+  ],
+  "result": "PASS",
+  "completed_at": "2026-07-20T02:56:58.428Z"
+}

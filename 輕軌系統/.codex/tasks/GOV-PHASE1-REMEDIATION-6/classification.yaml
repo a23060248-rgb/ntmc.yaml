@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-6",
+  "level": "L3",
+  "reasons": [
+    "Session A5 remains archived with unresolved formal Code, Security, and Railway Domain Reviewer blockers.",
+    "The remediation changes the bootstrap trust boundary, Gate semantics, effective scope, proof assurance, scanner contract, and Rule authority model.",
+    "An incorrect implementation could create an incorrect-GO, scope, evidence, scanner, or railway authority bypass."
+  ],
+  "triggers": [
+    "unresolved-reviewer-blocker",
+    "bootstrap-trust-boundary",
+    "release-gate",
+    "credential-and-sensitive-content-scanning",
+    "domain-rule-authority",
+    "backward-compatibility"
+  ],
+  "execution_categories": [
+    "governance-source-edit",
+    "governance-validation",
+    "governance-fixture",
+    "bootstrap-candidate",
+    "security",
+    "domain-rule",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "architect",
+    "qa-engineer",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "required_reviews": [
+    "code",
+    "security",
+    "railway-domain",
+    "compatibility"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "bootstrap-trust-policy-validation",
+    "four-gate-no-go-invariants",
+    "six-operand-scope-lattice-invariants",
+    "bootstrap-candidate-proof-binding",
+    "scanner-contract-production-path-results",
+    "rule-class-authority-results",
+    "production-path-property-and-mutation-results",
+    "candidate-manifest-rebuild-and-content-scan",
+    "migration-320-no-go-integrity",
+    "frozen-history-integrity"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]
+  },
+  "stop_conditions": [
+    "Any A5 Reviewer outcome or frozen historical artifact changes.",
+    "Any product, database, migration, original Migration 320 evidence, sibling directory, or .env file is read or modified.",
+    "Any Git mutation, service, product test, seed, migration, or database operation occurs.",
+    "Any STAGED_EXACT executable path, dynamic meta-rule business authority, waiver execution, or railway confirmed-rule promotion remains in the bootstrap candidate.",
+    "Any governance or Migration 320 Gate is represented as GO.",
+    "Session A6 or Session B is created or started."
+  ],
+  "scope": {
+    "include": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/**"
+    ],
+    "exclude": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/**",
+      ".codex/tasks/GOV-PHASE1-A5-BOOTSTRAP-TRUST-ANALYSIS/**",
+      ".codex/tasks/GOV-M320-DRYRUN/external-evidence/**"
+    ]
+  },
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

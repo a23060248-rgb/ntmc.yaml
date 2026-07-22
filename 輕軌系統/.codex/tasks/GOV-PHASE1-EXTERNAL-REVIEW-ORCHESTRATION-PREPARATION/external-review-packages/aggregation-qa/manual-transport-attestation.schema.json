@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gov:phase1:manual-review-transport-attestation:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "transport_method",
+    "source_task_id",
+    "source_reviewer_role",
+    "review_package_id",
+    "review_package_core_sha256",
+    "declared_payload_core_sha256",
+    "content_intentionally_modified",
+    "transported_by_human",
+    "assurance"
+  ],
+  "properties": {
+    "transport_method": {
+      "const": "manual_copy"
+    },
+    "source_task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_reviewer_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_package_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_package_core_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    },
+    "declared_payload_core_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    },
+    "content_intentionally_modified": {
+      "const": false
+    },
+    "transported_by_human": {
+      "const": true
+    },
+    "assurance": {
+      "const": "procedural"
+    }
+  }
+}

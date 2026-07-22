@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "review_package_id": "PKG-3950B1480D885E8819698093",
+  "package_manifest_path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/package-manifest.json",
+  "package_manifest_sha256": "4B2AD883F919003375B68F9C672CE3D692E2A559FF63ED4EC185D2D8281DCD02",
+  "declared_package_core_sha256": "F6263E096EE0287E6B5D49111983D3AA9EA87A0E61B5075FC7F11FBAE9277C2A",
+  "recomputed_package_core_sha256": "F6263E096EE0287E6B5D49111983D3AA9EA87A0E61B5075FC7F11FBAE9277C2A",
+  "verified_core_file_count": 9,
+  "core_files": [
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/assignment.json",
+      "expected_sha256": "CC0E8EAE2CA2103F3991F62A515F49BA0C2EA0C9C5B29352602C2B2E19F89F70",
+      "actual_sha256": "CC0E8EAE2CA2103F3991F62A515F49BA0C2EA0C9C5B29352602C2B2E19F89F70",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/exact-read-scope.json",
+      "expected_sha256": "CC2E1F39571613834D55019CBC1194934D485BFB12665054AE0E78ADDB737EBA",
+      "actual_sha256": "CC2E1F39571613834D55019CBC1194934D485BFB12665054AE0E78ADDB737EBA",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/capability-artifact-matrix.json",
+      "expected_sha256": "13FA3604BCD03AC84DAB78B03B7244DD23E84F7DCC15C78AEB81C9E952654201",
+      "actual_sha256": "13FA3604BCD03AC84DAB78B03B7244DD23E84F7DCC15C78AEB81C9E952654201",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/startup-contract.json",
+      "expected_sha256": "B68629AF274E1D8B136BE5544A50052FAB9F90B780DF96C4D94F6E6583A0FC0B",
+      "actual_sha256": "B68629AF274E1D8B136BE5544A50052FAB9F90B780DF96C4D94F6E6583A0FC0B",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/review-requirements.json",
+      "expected_sha256": "00819BC30834A3B261A45D0807181A8FC167D9AE2C93E26DF66852642AB34F20",
+      "actual_sha256": "00819BC30834A3B261A45D0807181A8FC167D9AE2C93E26DF66852642AB34F20",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/finding-ownership.json",
+      "expected_sha256": "E48356CC8879DAA9B86BD51B7949E0BA2B784899980A814D38935880084D8D62",
+      "actual_sha256": "E48356CC8879DAA9B86BD51B7949E0BA2B784899980A814D38935880084D8D62",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/return-payload.schema.json",
+      "expected_sha256": "03129A6A000EBC0393D1FF82672D8F277BA77BE33E37D5EB413130AFF9AA99D1",
+      "actual_sha256": "03129A6A000EBC0393D1FF82672D8F277BA77BE33E37D5EB413130AFF9AA99D1",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/transport-contract.json",
+      "expected_sha256": "8DF3490621C7CD39E2E708E8ED503AEEAAF675E5CA0DFF54B3B0D1960BC99802",
+      "actual_sha256": "8DF3490621C7CD39E2E708E8ED503AEEAAF675E5CA0DFF54B3B0D1960BC99802",
+      "match": true
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/reviewer-prompt.md",
+      "expected_sha256": "551842BAB4E03684DAE9777F0866872CDD80A112379D38C2B2FD657E20DE759E",
+      "actual_sha256": "551842BAB4E03684DAE9777F0866872CDD80A112379D38C2B2FD657E20DE759E",
+      "match": true
+    }
+  ],
+  "all_core_file_hashes_match": true,
+  "result": "PASS"
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/schemas/bootstrap-scan-report.schema.json",
+  "x-governance-schema-version": 1,
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "report_type", "assurance", "scan_contract", "candidate_binding", "execution", "results", "report_payload_sha256"],
+  "properties": {
+    "schema_version": {"const": 2},
+    "report_type": {"const": "bootstrap-manifest-scan"},
+    "assurance": {"const": "INTERNAL_CONSISTENCY_ONLY"},
+    "scan_contract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contract_id", "contract_version", "contract_sha256", "finding_registry_sha256", "canonicalization_config_sha256", "binary_oracle_config_sha256", "binary_magic_registry_sha256", "schema_set_sha256"],
+      "properties": {"contract_id": {"const": "GOV-DETERMINISTIC-SCAN"}, "contract_version": {"const": 5}, "contract_sha256": {"$ref": "#/$defs/sha"}, "finding_registry_sha256": {"$ref": "#/$defs/sha"}, "canonicalization_config_sha256": {"$ref": "#/$defs/sha"}, "binary_oracle_config_sha256": {"$ref": "#/$defs/sha"}, "binary_magic_registry_sha256": {"$ref": "#/$defs/sha"}, "schema_set_sha256": {"$ref": "#/$defs/sha"}}
+    },
+    "candidate_binding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["manifest_sha256", "included_file_set_sha256", "scanned_file_set_sha256", "expected_file_count", "scanned_file_count"],
+      "properties": {"manifest_sha256": {"$ref": "#/$defs/sha"}, "included_file_set_sha256": {"$ref": "#/$defs/sha"}, "scanned_file_set_sha256": {"$ref": "#/$defs/sha"}, "expected_file_count": {"type": "integer", "minimum": 1}, "scanned_file_count": {"type": "integer", "minimum": 0}}
+    },
+    "execution": {"type": "object", "additionalProperties": false, "required": ["execution_id", "started_at", "completed_at"], "properties": {"execution_id": {"type": "string", "minLength": 1}, "started_at": {"type": "string", "format": "date-time"}, "completed_at": {"type": "string", "format": "date-time"}}},
+    "results": {
+      "type": "object", "additionalProperties": false,
+      "required": ["result", "finding_count", "findings", "declared_contract_executed", "no_findings_within_declared_contract"],
+      "properties": {
+        "result": {"enum": ["PASS", "FAIL"]}, "finding_count": {"type": "integer", "minimum": 0},
+        "findings": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["finding_class", "ref", "transformations", "location"], "properties": {"finding_class": {"type": "string", "minLength": 1}, "ref": {"type": "string", "minLength": 1}, "transformations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "location": {"oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["canonical_offset"], "properties": {"canonical_offset": {"type": "integer", "minimum": 0}}}]}, "detail": {"type": "string", "minLength": 1}}}},
+        "declared_contract_executed": {"type": "boolean"}, "no_findings_within_declared_contract": {"type": "boolean"}
+      }
+    },
+    "report_payload_sha256": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {"sha": {"type": "string", "pattern": "^[A-F0-9]{64}$"}}
+}

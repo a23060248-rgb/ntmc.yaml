@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "dispatch_mode": "three_stage_fresh_sessions",
+  "waves": [
+    {
+      "wave": "1",
+      "roles": [
+        "code-reviewer",
+        "security-reviewer",
+        "railway-domain-reviewer"
+      ],
+      "maximum_concurrent": 3,
+      "start_condition": "PRE_REVIEW_FREEZE_PASS",
+      "completion_required_before_next_wave": true
+    },
+    {
+      "wave": "2A",
+      "roles": [
+        "compatibility-reviewer"
+      ],
+      "maximum_concurrent": 1,
+      "start_condition": "WAVE_1_OUTPUT_FREEZE_PASS",
+      "completion_required_before_next_wave": true
+    },
+    {
+      "wave": "2B",
+      "roles": [
+        "qa-engineer"
+      ],
+      "maximum_concurrent": 1,
+      "start_condition": "FOUR_FORMAL_REVIEW_OUTPUTS_FROZEN",
+      "completion_required_before_finalization": true
+    }
+  ],
+  "rules": {
+    "reviewer_reuse": false,
+    "root_may_substitute_qa": false,
+    "qa_capacity_reserved": true,
+    "missing_reviewer_is_pass": false,
+    "pre_review_input_mutation_invalidates_session": true
+  },
+  "result": "PASS"
+}

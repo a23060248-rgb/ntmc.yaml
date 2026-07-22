@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "evidence_type": "independent_qa_deterministic_readback_input",
+  "raw_evidence_count": 20,
+  "raw_evidence_checks": [
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/syntax-rerun.json",
+      "evidence_sha256": "CA4FFFB714BFA79CF9961597A83C31E8FA6EB7F5DC77A7452A5866958084BFC9",
+      "byte_size": 2408,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/fixture-rerun.json",
+      "evidence_sha256": "13C7FEEC884E87A73B20D337A3E8D4BF78E778F9E8FF8E8D0F7EC90EEE69E596",
+      "byte_size": 406,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/concurrency-regression.json",
+      "evidence_sha256": "BF38C9ADAF81EF614CAC1E55837C109DA831BBFEDC55450A34E53CB6C01AC8BA",
+      "byte_size": 429,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/production-scanner-rerun.json",
+      "evidence_sha256": "24AAC070D71E39D43EF4450A59B3AFC172CC90E44733425A03FEE315A0A56247",
+      "byte_size": 506,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/production-integration-rerun.json",
+      "evidence_sha256": "A89A86BDDABF7BD15ACF55811C6852742E3863BE40290E89AF4E65EAFC026198",
+      "byte_size": 604,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/production-mutation-rerun.json",
+      "evidence_sha256": "6871ABD1BCCD60CE6B324A5FE6E94FD2FBB8A7448CD182B46BEE66EA7794139C",
+      "byte_size": 67403,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/reviewer-binding-rerun.json",
+      "evidence_sha256": "F5600758E95A15FB11EDBCC7CCD2009F96E14950F0108D25E5F688E15EBFA445",
+      "byte_size": 354,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/official-schema-loader-rerun.json",
+      "evidence_sha256": "445E5898A0E528F7979B12364588337F9C38824FB12F1EB0433B58BE219EA95F",
+      "byte_size": 419,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/schema-loader-mutation-rerun.json",
+      "evidence_sha256": "E3BF57D6EAA55C144651053B0FC97ADBEA68D18D2052D7E4AD97508521C068E4",
+      "byte_size": 357,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/binary-magic-mutation-rerun.json",
+      "evidence_sha256": "7A5414B9BDE15365336EADABC7964422538DA7BDFAD06EFCD9266946DB880F59",
+      "byte_size": 562,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/remediation-10-chain-test-rerun.json",
+      "evidence_sha256": "8F82819CDDB063E52B9E9F0CF904CD6B0C4E4F993DAD2055D9DCF9F69FA93F90",
+      "byte_size": 8227,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/pre-review-freeze-verification.json",
+      "evidence_sha256": "E80CE8ED661AC8E48D1E20C477D0202B3918FFEBBEC70D28182FBD8FD0D05A19",
+      "byte_size": 53435,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/reviewer-assignment-verification.json",
+      "evidence_sha256": "5EC4ACD34739B441975B83F3DE07CC39BBADACA2EE4DA5F9843DF0CE0E772BB7",
+      "byte_size": 3191,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/gate-replay-verification.json",
+      "evidence_sha256": "9E41E6105855B457DD9FD6146BC92A1A3463DFF477C40FB16C04A9199E57CAB6",
+      "byte_size": 982,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/schema-template-workflow-matrix.json",
+      "evidence_sha256": "8CF8419C84F6939F2779277143790735A416B0AD53DBC39374B4384354901BA1",
+      "byte_size": 1604,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/removed-capability-executable-scan.json",
+      "evidence_sha256": "F5B8C31138DB510D6EE919811D87DBEA1A29B30C5D9C5CC8ACC0F852AF75F3F1",
+      "byte_size": 1068,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/historical-task-compatibility.json",
+      "evidence_sha256": "7F622D54A6F9059C871C6DD1BF13E80E294E507016CFDAA92C316A185954C77E",
+      "byte_size": 1291,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/migration-320-compatibility.json",
+      "evidence_sha256": "EBB67B7683D3DE08397945F666DC2CD3FF62C59EE55DBAC98FD0D74254486A84",
+      "byte_size": 740,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/historical-artifact-integrity.json",
+      "evidence_sha256": "13645908219D5EE1663F22BBAC22106DD9FEE120007D703ABC1D077B039EA3D1",
+      "byte_size": 751,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "evidence_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/candidate-manifest-verification.json",
+      "evidence_sha256": "5F883AAF78AE27CFFACA0A29101A123B94F92B318B123239DA7889AFE636421C",
+      "byte_size": 1118,
+      "result": "PASS",
+      "error": null
+    }
+  ],
+  "all_raw_evidence_pass": true,
+  "candidate_manifest_file_count": 103,
+  "protected_baseline_file_count": 874,
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "git_commands_run": false,
+  "result": "PASS",
+  "completed_at": "2026-07-20T03:16:09.678Z"
+}

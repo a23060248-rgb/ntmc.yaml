@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "title": "Phase 1 Bootstrap Compatibility and Commit-Readiness Review",
+  "task_type": "review",
+  "objective": "Independently verify that the unchanged exact 103-file Phase 1.9 bootstrap candidate, its production-path schemas, workflows, templates, validators, scanners, Gate Router and retained historical Task semantics remain compatible before any human exact-manifest confirmation.",
+  "business_reason": "A10 archived PASS and the authoritative validator returned Bootstrap Candidate Review GO. Session B is separately authorized to assess compatibility and commit-readiness without granting commit, Git, steady-state, Railway business Rule or Migration 320 execution authority.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "exclude": [".env*", "collab/**", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "parent directories", "sibling directories", "STAGED_EXACT", "Git mutation", "database operations", "confirmed Railway Domain authority", "steady-state activation"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "The exact 103-file candidate remains byte-identical to manifest SHA256 29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D and included-file-set SHA256 739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB.",
+    "Three fresh formal read-only task-specific Reviewers plus the supplemental Code Reviewer required by the L3 validator independently return outcomes with unique assignment, run and session IDs.",
+    "Schema, template, workflow, role, evidence contract, scanner and Gate Router relationships execute through production paths without inline or fallback Schema authority.",
+    "Removed Phase 1 capabilities remain non-executable in the bootstrap production path.",
+    "Historical Tasks retain their prior outcome semantics and are not reinterpreted as candidate approval.",
+    "Fresh deterministic suites pass: syntax 18/18, fixtures 68/68, production scanner 72/72, production integration 48/48, production mutations 31/31 killed, reviewer binding 14/14, official loader 11/11, loader mutations 6/6 killed, binary magic mutations 45/45 killed and concurrency isolation PASS.",
+    "Migration 320 remains structurally VALID with Domain NEEDS_HUMAN_DECISION, execution NO-GO and validator exit 2.",
+    "Before and after SHA256 baselines prove the candidate, frozen history, R8, A8, R9, A9, A10 and Migration 320 records are unchanged.",
+    "Session B artifacts remain outside the 103-file candidate manifest and do not alter candidate scan claims.",
+    "Bootstrap Human Commit remains NO-GO pending explicit human exact-manifest confirmation and first-commit authorization."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Human explicitly authorized Session B after A10 archived PASS; Git mutation, Human Commit GO, steady-state activation and Migration 320 execution remain prohibited."
+}

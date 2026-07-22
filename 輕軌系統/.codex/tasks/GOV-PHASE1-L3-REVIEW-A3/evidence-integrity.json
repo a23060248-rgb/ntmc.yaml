@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A3",
+  "candidate_manifest": {"included_artifacts": 87, "manifest_sha256": "BDBA5FF324C98DBF05CABC71E77DF18C459A0E88537ED8BC293EFDA3642BD9AE", "verification_result": "PASS"},
+  "migration_320": {"structural": "VALID", "calculated_gate": "NO-GO", "internal_exit_code": 2, "blockers_preserved": true},
+  "migration_320_external_evidence": {
+    "ART-M320-COMPAT-REPORT": "3F78871002ECD422EBA1EF05D63BE7A54940B12ED020E2423667D036A7091BC1",
+    "ART-M320-BEFORE-AFTER": "2C751A478FCE04C03E61CE909215498D4D378B767AFE3A726855D7890F12B988",
+    "ART-M320-ANOMALIES": "8E552DFA9524995E05B918EC8B87810E1889CDFC8E1694E79C0FA41863700B4D",
+    "ART-M320-CLOSURE": "1AAA1E6D7C9BDEBF4762E6EDEC0EE4A9A6C7800B47ECEB3239F31231321594F4",
+    "ART-M320-NO-GO": "743E1B4473B67298228CFB047C0EA6043A97F3F29EBF71083A7A96F76367BBDA"
+  },
+  "domain_registry": {"registry_type": "proposed_rule_registry", "is_complete_domain_knowledge_base": false, "declared_confirmed_rule_count": 0, "actual_confirmed_rule_count": 0, "migration_320_candidate_rules_remain_proposed": true},
+  "prohibited_operations": {"git_mutation_performed": false, "service_started": false, "product_test_run": false, "database_operation_run": false, "seed_run": false, "migration_run": false, "domain_rule_confirmed": false},
+  "result": "PASS"
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "session_status": "ARCHIVED",
+  "overall_outcome": "BLOCKER",
+  "reviewers": [
+    {"reviewer":"code-reviewer","outcome":"BLOCKER","reviewer_run_id":"A5-CODE-RUN-6b9b3a59-1473-4ce9-96ef-c060a428d61f","session_id":"A5-CODE-SESSION-3e82748a-b10f-49a7-a4f8-b88845b70a7a"},
+    {"reviewer":"security-reviewer","outcome":"BLOCKER","reviewer_run_id":"A5-SEC-RUN-49ae83dc-0583-44df-b5ad-328e80a9d0ac","session_id":"A5-SEC-SESSION-a68b137b-4478-4be1-a0cf-8741a617c857"},
+    {"reviewer":"railway-domain-reviewer","outcome":"BLOCKER","reviewer_run_id":"A5-DOMAIN-RUN-ea7f3928-32e0-45bb-beaa-0f247c860901","session_id":"A5-DOMAIN-SESSION-82760979-0753-4e74-a93a-c16d8e271197"}
+  ],
+  "formal_finding_counts": {"total":7,"BLOCKER":2,"HIGH":4,"MEDIUM":1,"LOW":0,"critical_count":0,"blocking_high_or_blocker":6},
+  "a4_closure_counts": {"total":12,"CLOSED":4,"REPLACED_BY_NARROWER_CONTRACT":2,"NOT_CLOSED":6},
+  "candidate": {
+    "file_count": 97,
+    "manifest_sha256": "DECF50261FEEC670EF18258556D1490D9B8C6FCA96CE8EC49A705C4DB4BEA969",
+    "file_set_sha256": "5C51D5C7C62FC5577A31306520E82466D025B7255813F1CEDC1E22DDE0EE079A",
+    "snapshot_execution_id": "WORKSPACE-6fd1de75-48d6-4a31-a039-7a73301eb839"
+  },
+  "automated_evidence": {
+    "manifest": "PASS",
+    "snapshot": "PASS",
+    "fixture_50": "PASS",
+    "phase15_regression": "PASS",
+    "mutation_7": "PASS",
+    "production_integration_5": "PASS",
+    "concurrency": "PASS",
+    "forged_report_rejection": "PASS",
+    "scanner_contract": "PASS_WITH_REVIEWER_BLOCKER",
+    "proposed_domain_rule": "PASS_WITH_REVIEWER_BLOCKER",
+    "lifecycle": "PASS_INFORMATIONAL",
+    "historical_integrity": "PASS",
+    "migration_320_integrity": "PASS"
+  },
+  "gates": {
+    "candidate_governance_review_gate": "NO-GO",
+    "session_b_authorized": false,
+    "governance_commit_preparation_gate": "NO-GO",
+    "governance_commit_execution_gate": "NO-GO",
+    "migration_320_execution_gate": "NO-GO"
+  },
+  "root_rewrote_reviewer_outcome": false,
+  "git_mutation_performed": false,
+  "business_rule_approval_performed": false,
+  "conclusion": "Green machine evidence does not override the three formal BLOCKER outcomes or the six unresolved A4 closure entries."
+}

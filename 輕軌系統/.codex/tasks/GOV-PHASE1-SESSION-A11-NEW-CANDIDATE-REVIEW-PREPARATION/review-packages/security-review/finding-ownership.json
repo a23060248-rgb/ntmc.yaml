@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "assignment_id": "A11-SECURITY-REVIEW-ASSIGNMENT-20260721-02",
+  "review_type": "security_review",
+  "owned_findings": [
+    "Evidence path containment and duplicate defenses",
+    "Schema registry authority and fail-closed behavior",
+    "Security evidence integrity and scanner separation",
+    "Bypass and ambiguity resistance"
+  ],
+  "excluded_findings": [
+    "General code style",
+    "Railway business-rule approval",
+    "Compatibility disposition",
+    "Finding closure"
+  ],
+  "closure_authority": "NONE",
+  "result_rule": "Report only findings owned by this role; do not close pre-existing findings."
+}

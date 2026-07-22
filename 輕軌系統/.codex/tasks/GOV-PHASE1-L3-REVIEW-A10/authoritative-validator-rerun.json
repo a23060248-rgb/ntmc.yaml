@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "command": "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-L3-REVIEW-A10 --target-gate bootstrap-candidate-review",
+  "production_validator": ".codex/scripts/validate-task.mjs",
+  "structural": "VALID",
+  "calculated_gate": "GO",
+  "target_gate": "bootstrap_candidate_review",
+  "target_gate_status": "GO",
+  "emitted_exit": 0,
+  "gate_results": {
+    "bootstrap_candidate_review": {"status":"GO","reason_codes":[]},
+    "bootstrap_human_commit": {"status":"NO-GO","reason_codes":["FIRST_COMMIT_AUTHORIZATION_ABSENT","HUMAN_EXACT_MANIFEST_NOT_APPROVED","SESSION_B_NOT_PASS"]},
+    "steady_state_preparation": {"status":"DISABLED","reason_codes":["BOOTSTRAP_COMMIT_SHA_ABSENT","BOOTSTRAP_MANIFEST_SHA256_ABSENT","HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"]},
+    "steady_state_execution": {"status":"DISABLED","reason_codes":["BOOTSTRAP_COMMIT_SHA_ABSENT","BOOTSTRAP_MANIFEST_SHA256_ABSENT","HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"]},
+    "migration_320_execution": {"status":"NO-GO","reason_codes":["Migration 320 Domain decision is NEEDS_HUMAN_DECISION.","Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.","Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.","Migration 320 blocker remains: shortage/inventory linkedRows zero.","Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.","Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.","Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.","Migration 320 compatibility decision is BLOCKER.","Migration 320 database or compatibility evidence is not fully PASS.","Migration 320 human execution approval is pending."]}
+  },
+  "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "task_graph_generated_by_validator": true,
+  "task_graph_verified_on_second_run": true,
+  "result": "PASS"
+}

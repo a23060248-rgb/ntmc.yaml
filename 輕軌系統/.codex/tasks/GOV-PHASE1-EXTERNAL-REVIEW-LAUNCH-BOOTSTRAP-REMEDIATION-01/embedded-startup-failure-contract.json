@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "applies_to": "ALL_FOUR_EXTERNAL_REVIEWER_LAUNCH_ENVELOPES",
+  "rule": "Use this template when startup cannot reach or validate the package schema. Replace only <ACTUAL_REASON>, then recompute payload_core_sha256.",
+  "prohibited_fields": [
+    "outcome",
+    "run_id",
+    "forbidden_or_out_of_scope_paths"
+  ],
+  "payload_templates": {
+    "code_review": {
+      "payload_core": {
+        "schema_version": 1,
+        "review_package_id": "PKG-7B92159005BED99CD0EBC9C7",
+        "review_package_core_sha256": "D0CE723975EA6FD1AD51E33A3A323A305387D83B8DB6719545ABC9FFAE6519C3",
+        "task_id": "GOV-PHASE1-B6EXT-CODE-REVIEW-R1",
+        "reviewer_role": "EXTERNAL_CODE_REVIEWER",
+        "assignment_id": "ASSIGN-4720ACAC40E9AD7A86D28079",
+        "reviewer_run_id": "RUN-337247C73EBB03149D5DAEB4",
+        "reviewer_session_nonce": "NONCE-5533A5BDA8564E9CDB5D552614B21002ADA421CC",
+        "candidate_binding": {
+          "candidate_file_count": 103,
+          "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+          "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+          "scanner_contract_id": "GOV-DETERMINISTIC-SCAN",
+          "scanner_contract_version": 5,
+          "scanner_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+        },
+        "startup": {
+          "status": "STARTUP_BLOCKER",
+          "scope_sha256": "BE5F1B50265AF859C7A4703EAD8636CAE904C5C338D1744BC3D243BF68736051",
+          "package_verified": false,
+          "candidate_binding_verified": false
+        },
+        "review_status": "BLOCKER",
+        "review_started": false,
+        "candidate_content_reviewed": false,
+        "completed": true,
+        "mandatory_exit_requested": true,
+        "findings": [
+          {
+            "finding_id": "STARTUP-PACKAGE-NOT-FOUND",
+            "severity": "HIGH",
+            "status": "OPEN",
+            "summary": "<ACTUAL_REASON>",
+            "evidence_paths": []
+          }
+        ],
+        "closure_dispositions": [],
+        "access_log": {
+          "allowed_paths_read": [],
+          "forbidden_paths_read": [],
+          "out_of_scope_access_detected": false
+        },
+        "clean_context_attestation": {
+          "top_level_chat": true,
+          "subagents_created": false,
+          "implementation_conversation_received": false,
+          "conversation_memory_used": false,
+          "repository_write_performed": false,
+          "assurance": "procedural"
+        }
+      },
+      "payload_core_sha256": "1EBF5852F4FD081DDF7D9FF471FF22D2FD959C4B7A25253E5B950F9DEB579509"
+    },
+    "security_review": {
+      "payload_core": {
+        "schema_version": 1,
+        "review_package_id": "PKG-80147D05BF0731E544649885",
+        "review_package_core_sha256": "A1813289A6BF51F6150B73F845D351E77B7BB33FDEB86787217073AC6E6ABC8F",
+        "task_id": "GOV-PHASE1-B6EXT-SECURITY-REVIEW",
+        "reviewer_role": "EXTERNAL_SECURITY_INTEGRITY_REVIEWER",
+        "assignment_id": "ASSIGN-93D26137B2AF0E20DD82E67F",
+        "reviewer_run_id": "RUN-B6F0A5A84371A5C19FC2E7FE",
+        "reviewer_session_nonce": "NONCE-FFF5D11E45B6113587ADF756A26E6DC75D0F4459",
+        "candidate_binding": {
+          "candidate_file_count": 103,
+          "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+          "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+          "scanner_contract_id": "GOV-DETERMINISTIC-SCAN",
+          "scanner_contract_version": 5,
+          "scanner_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+        },
+        "startup": {
+          "status": "STARTUP_BLOCKER",
+          "scope_sha256": "EFA001FFEE21F690059AC94465D9D9C63D933F79CFBF9E9B946F1E6536FF15E6",
+          "package_verified": false,
+          "candidate_binding_verified": false
+        },
+        "review_status": "BLOCKER",
+        "review_started": false,
+        "candidate_content_reviewed": false,
+        "completed": true,
+        "mandatory_exit_requested": true,
+        "findings": [
+          {
+            "finding_id": "STARTUP-PACKAGE-NOT-FOUND",
+            "severity": "HIGH",
+            "status": "OPEN",
+            "summary": "<ACTUAL_REASON>",
+            "evidence_paths": []
+          }
+        ],
+        "closure_dispositions": [],
+        "access_log": {
+          "allowed_paths_read": [],
+          "forbidden_paths_read": [],
+          "out_of_scope_access_detected": false
+        },
+        "clean_context_attestation": {
+          "top_level_chat": true,
+          "subagents_created": false,
+          "implementation_conversation_received": false,
+          "conversation_memory_used": false,
+          "repository_write_performed": false,
+          "assurance": "procedural"
+        }
+      },
+      "payload_core_sha256": "C8371FEFA479774F8EF40F571BDF944B0F572F9229B5DECF7F75DC1F7E0A13C1"
+    },
+    "railway_review": {
+      "payload_core": {
+        "schema_version": 1,
+        "review_package_id": "PKG-082719421A6B04661EDA399F",
+        "review_package_core_sha256": "F55481920E35E0A9A8ECCCD3110698A5E2C5461D19538D8C6900374A6E98C1B4",
+        "task_id": "GOV-PHASE1-B6EXT-RAILWAY-REVIEW",
+        "reviewer_role": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+        "assignment_id": "ASSIGN-A52AB42D6BCA8031F9FFC3E1",
+        "reviewer_run_id": "RUN-FC4ADFA1831F2178CB77C893",
+        "reviewer_session_nonce": "NONCE-8B2E7535B5D184AF5611B04504799E2A8EDB2B57",
+        "candidate_binding": {
+          "candidate_file_count": 103,
+          "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+          "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+          "scanner_contract_id": "GOV-DETERMINISTIC-SCAN",
+          "scanner_contract_version": 5,
+          "scanner_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+        },
+        "startup": {
+          "status": "STARTUP_BLOCKER",
+          "scope_sha256": "1730E326BE205FC193834FD53A495E67A865F46BA633701D29E16F893FAEDE5C",
+          "package_verified": false,
+          "candidate_binding_verified": false
+        },
+        "review_status": "BLOCKER",
+        "review_started": false,
+        "candidate_content_reviewed": false,
+        "completed": true,
+        "mandatory_exit_requested": true,
+        "findings": [
+          {
+            "finding_id": "STARTUP-PACKAGE-NOT-FOUND",
+            "severity": "HIGH",
+            "status": "OPEN",
+            "summary": "<ACTUAL_REASON>",
+            "evidence_paths": []
+          }
+        ],
+        "closure_dispositions": [],
+        "access_log": {
+          "allowed_paths_read": [],
+          "forbidden_paths_read": [],
+          "out_of_scope_access_detected": false
+        },
+        "clean_context_attestation": {
+          "top_level_chat": true,
+          "subagents_created": false,
+          "implementation_conversation_received": false,
+          "conversation_memory_used": false,
+          "repository_write_performed": false,
+          "assurance": "procedural"
+        }
+      },
+      "payload_core_sha256": "26253DAB9CE883DED311238F69F14EB9D805F7FAAA753A45D926B32E034A3D88"
+    },
+    "compatibility_review": {
+      "payload_core": {
+        "schema_version": 1,
+        "review_package_id": "PKG-3950B1480D885E8819698093",
+        "review_package_core_sha256": "F6263E096EE0287E6B5D49111983D3AA9EA87A0E61B5075FC7F11FBAE9277C2A",
+        "task_id": "GOV-PHASE1-B6EXT-COMPATIBILITY-REVIEW",
+        "reviewer_role": "EXTERNAL_GOVERNANCE_COMPATIBILITY_REVIEWER",
+        "assignment_id": "ASSIGN-7302E57A3699889BF7722F47",
+        "reviewer_run_id": "RUN-825A1ACA11A9E8F5A9D77AE5",
+        "reviewer_session_nonce": "NONCE-6567770D86FE46EDDC2215C897976E049E80FA23",
+        "candidate_binding": {
+          "candidate_file_count": 103,
+          "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+          "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+          "scanner_contract_id": "GOV-DETERMINISTIC-SCAN",
+          "scanner_contract_version": 5,
+          "scanner_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+        },
+        "startup": {
+          "status": "STARTUP_BLOCKER",
+          "scope_sha256": "CC2E1F39571613834D55019CBC1194934D485BFB12665054AE0E78ADDB737EBA",
+          "package_verified": false,
+          "candidate_binding_verified": false
+        },
+        "review_status": "BLOCKER",
+        "review_started": false,
+        "candidate_content_reviewed": false,
+        "completed": true,
+        "mandatory_exit_requested": true,
+        "findings": [
+          {
+            "finding_id": "STARTUP-PACKAGE-NOT-FOUND",
+            "severity": "HIGH",
+            "status": "OPEN",
+            "summary": "<ACTUAL_REASON>",
+            "evidence_paths": []
+          }
+        ],
+        "closure_dispositions": [],
+        "access_log": {
+          "allowed_paths_read": [],
+          "forbidden_paths_read": [],
+          "out_of_scope_access_detected": false
+        },
+        "clean_context_attestation": {
+          "top_level_chat": true,
+          "subagents_created": false,
+          "implementation_conversation_received": false,
+          "conversation_memory_used": false,
+          "repository_write_performed": false,
+          "assurance": "procedural"
+        }
+      },
+      "payload_core_sha256": "D73059CD91833954427FC960A86D89126AE49DA29DA1B34B9BE379EBDE8AA8BA"
+    }
+  }
+}

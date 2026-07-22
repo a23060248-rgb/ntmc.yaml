@@ -27,6 +27,10 @@ function errorHandler(error, req, res, next) {
     body.error.details = error.details;
   }
 
+  if (error.code && status < 500) {
+    body.error.code = error.code;
+  }
+
   if (process.env.NODE_ENV !== "production" && status === 500) {
     body.error.debug = error.message;
   }

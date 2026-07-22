@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION",
+  "title": "External Top-Level Review Orchestration Preparation",
+  "task_type": "governance-review-preparation",
+  "objective": "Prepare four standalone read-only top-level Reviewer packages and one independent Aggregation/Deterministic QA package without starting any review or changing the 103-file candidate.",
+  "business_reason": "The in-root subagent model is environment-incompatible; human governance approved a procedural external top-level review model.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/**",
+      "Exact read-only candidate and frozen governance evidence"
+    ],
+    "exclude": [
+      "Reviewer or Aggregator launch",
+      "candidate/history mutation",
+      "B2 closure",
+      "Git/product/DB/migration operations"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Four exact Reviewer packages are complete and satisfiable.",
+    "One Aggregation/Deterministic QA package is complete.",
+    "JCS payload and manual transport contracts are valid.",
+    "At least 20 fail-closed protocol tests pass.",
+    "Candidate and protected anchors remain unchanged."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "User explicitly authorized GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION preparation only."
+}

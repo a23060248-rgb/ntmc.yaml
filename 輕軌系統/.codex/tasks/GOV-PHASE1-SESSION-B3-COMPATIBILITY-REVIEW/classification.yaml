@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "level": "L3",
+  "reasons": [
+    "Final backward-compatibility review with unresolved historical Reviewer blockers.",
+    "Formal Security, Railway Domain and candidate gate evidence must remain fail-closed."
+  ],
+  "triggers": [
+    "unresolved Reviewer blocker",
+    "backward compatibility",
+    "release gate",
+    "formal security evidence",
+    "railway domain authority boundary"
+  ],
+  "execution_categories": [
+    "read-only-review",
+    "governance-validation",
+    "security",
+    "domain-rule",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "architect",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer",
+    "qa-engineer"
+  ],
+  "required_reviews": [
+    "code",
+    "security",
+    "railway-domain",
+    "compatibility",
+    "qa-readback"
+  ],
+  "parallel_allowed": true,
+  "evidence_required": [
+    "B3-CANDIDATE-BASELINE",
+    "B3-R11-PACKAGE",
+    "B3-SECURITY-SCHEMA",
+    "B3-EXACT-SCOPES",
+    "B3-WAVE1-FREEZE",
+    "B3-COMPATIBILITY",
+    "B3-QA-READBACK",
+    "B3-FRESH-RERUN",
+    "B3-AFTER-BASELINE",
+    "B3-GATES"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "execution_approval",
+      "review_completion",
+      "final_commit_approval"
+    ]
+  },
+  "stop_conditions": [
+    "Candidate hash or count changes.",
+    "A protected frozen artifact changes.",
+    "QA reviewer capacity cannot be reserved.",
+    "Any Reviewer reports a forbidden read.",
+    "Any pre-review input changes after freeze.",
+    "Any Git, product, service, database, seed or migration operation is attempted."
+  ],
+  "scope": {
+    "include": [
+      "AGENTS.md",
+      ".agents/skills/task-classification/**",
+      ".codex/agents/**",
+      ".codex/blueprints/schemas/**",
+      ".codex/governance/**",
+      ".codex/scripts/**",
+      ".codex/tests/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-9/**",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/**",
+      ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-10/**",
+      ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**",
+      ".codex/tasks/GOV-M320-DRYRUN/**",
+      "docs/migration-320-*",
+      "docs/cross-module-closure-report.md",
+      "docs/go-no-go-report.md",
+      ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/**"
+    ],
+    "exclude": [
+      ".env*",
+      "collab/**",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "parent directories",
+      "sibling directories",
+      "unapproved HANDOFF",
+      "unapproved implementation plan",
+      "implementation conversation",
+      "conversation memory"
+    ]
+  },
+  "classified_by": "root-orchestrator-using-task-classification-skill",
+  "classification_status": "human-approved-scope"
+}

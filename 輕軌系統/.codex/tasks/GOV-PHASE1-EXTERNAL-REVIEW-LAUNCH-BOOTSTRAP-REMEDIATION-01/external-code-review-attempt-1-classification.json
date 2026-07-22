@@ -1,0 +1,30 @@
+{
+  "attempt_id": "GOV-PHASE1-B6EXT-CODE-REVIEW-ATTEMPT-1",
+  "declared_startup_status": "STARTUP_BLOCKER",
+  "technical_review_started": false,
+  "candidate_content_reviewed": false,
+  "payload_core_hash": {
+    "declared": "C7AF7F49107EE82C7C177DF54A7720316B9F36E2BD584AAA1D85688DCF170908",
+    "recalculated": "C7AF7F49107EE82C7C177DF54A7720316B9F36E2BD584AAA1D85688DCF170908",
+    "result": "PASS"
+  },
+  "formal_schema_validation": "INVALID",
+  "accepted_formal_reviewer_outcome": false,
+  "missing_required_fields": [
+    "review_package_id",
+    "review_package_core_sha256",
+    "assignment_id",
+    "reviewer_run_id",
+    "reviewer_session_nonce",
+    "candidate_binding",
+    "review_status"
+  ],
+  "unexpected_fields": [
+    "outcome",
+    "run_id"
+  ],
+  "finding_effect": {
+    "B2-CODE-FORBIDDEN-READ-001": "NOT_CLOSED"
+  },
+  "candidate_change_required": false
+}

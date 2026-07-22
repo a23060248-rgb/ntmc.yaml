@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "result": "PASS",
+  "formal_reviewer_count": 3,
+  "unique_reviewer_run_ids": true,
+  "unique_session_ids": true,
+  "implementer_session_reuse": false,
+  "assignments": [
+    {"reviewer":"code-reviewer","assignment_id":"ASSIGN-A10-CODE-AF1B77B9-F155-4EF1-8AAE-D1E7B2392BF4","reviewer_run_id":"A10-CODE-RUN-1F69FAA9-92B3-48C9-8D80-95463B5A1336","session_id":"A10-CODE-SESSION-0C9FD58E-5258-4BE9-B0C3-69AD36A1D3AE","profile_sha256":"A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9","scope":"phase1_9_bootstrap_candidate_correctness","mode":"read-only","result":"PASS"},
+    {"reviewer":"security-reviewer","assignment_id":"ASSIGN-A10-SEC-2DC2224C-7A39-40EA-A8E3-D85563BDFD14","reviewer_run_id":"A10-SEC-RUN-085B8070-F7D7-4A30-B7B3-66D54FE2492F","session_id":"A10-SEC-SESSION-DD0A4AA4-A697-444D-BD0C-CC8AACF99C92","profile_sha256":"242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E","scope":"phase1_9_bootstrap_candidate_security_boundary","mode":"read-only","result":"PASS"},
+    {"reviewer":"railway-domain-reviewer","assignment_id":"ASSIGN-A10-DOMAIN-4F88F054-3EA6-4CA9-BA3B-55DD4E9FC3C3","reviewer_run_id":"A10-DOMAIN-RUN-E0486A9D-394A-4568-8257-CDB23E78159D","session_id":"A10-DOMAIN-SESSION-994938BC-6E74-4AA3-A226-2B2A29BB87D0","profile_sha256":"E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D","scope":"bootstrap_rule_governance_mechanism","mode":"read-only","result":"PASS"}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-M320-DRYRUN",
+  "scan_scope": {"governance_artifacts": "DETERMINISTIC_CONTRACT", "external_referenced_evidence": "LIMITED"},
+  "scan_contract": {"scan_contract_id":"GOV-DETERMINISTIC-SCAN","scan_contract_version":2,"manifest_sha256":"BDBA5FF324C98DBF05CABC71E77DF18C459A0E88537ED8BC293EFDA3642BD9AE","scanned_file_count":87,"scanned_file_set_sha256":"BDBA5FF324C98DBF05CABC71E77DF18C459A0E88537ED8BC293EFDA3642BD9AE","deterministic_pattern_scan_completed":true},
+  "claims": {"no_findings_within_declared_contract": true, "external_evidence_globally_clean": false, "global_sensitive_data_absence_verified": false},
+  "external_evidence": [
+    {"artifact_id": "ART-M320-COMPAT-REPORT", "path": "docs/migration-320-compatibility-report.md", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REDACTED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-M320-BEFORE-AFTER", "path": "docs/migration-320-before-after.json", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": true, "contains_dump_reference": true, "credential_scan_status": "PASS", "redaction_status": "NOT_REDACTED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-M320-ANOMALIES", "path": "docs/migration-320-data-anomalies.csv", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REQUIRED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-M320-CLOSURE", "path": "docs/cross-module-closure-report.md", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REDACTED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-M320-NO-GO", "path": "docs/go-no-go-report.md", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REQUIRED", "source_verification_status": "VERIFIED"}
+  ],
+  "limitations": ["External evidence contains operational paths and a dump reference but no dump binary is included in the governance commit.", "Pattern scanning does not prove global sensitive-data absence.", "The external evidence store, retention and redaction workflow remain uncontrolled."]
+}

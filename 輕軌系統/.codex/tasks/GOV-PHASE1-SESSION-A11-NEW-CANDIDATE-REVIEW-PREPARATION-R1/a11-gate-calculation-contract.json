@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "gate": "A11_CANDIDATE_REVIEW",
+  "go_requires": [
+    "Reviewer payloads 4/4 present",
+    "Formal payloads accepted 4/4",
+    "Reviewer outcomes 4/4 PASS",
+    "Reviewer identities and nonces unique",
+    "Forbidden and out-of-scope reads 0",
+    "Reviewer repository writes 0",
+    "Reviewer subagents 0",
+    "Candidate binding and byte identity unchanged",
+    "Code Reviewer legally CLOSED the owned finding",
+    "Fresh Deterministic QA all PASS",
+    "All mutations killed",
+    "Aggregator writes only in its task-local evidence root",
+    "Historical artifacts unchanged"
+  ],
+  "b2_findings": [
+    {
+      "finding_id": "B2-CODE-FORBIDDEN-READ-001",
+      "status": "NOT_CLOSED",
+      "scope": "OUTSIDE_A11_SCOPE"
+    },
+    {
+      "finding_id": "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001",
+      "status": "NOT_CLOSED",
+      "scope": "OUTSIDE_A11_SCOPE"
+    },
+    {
+      "finding_id": "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001",
+      "status": "NOT_CLOSED",
+      "scope": "OUTSIDE_A11_SCOPE"
+    },
+    {
+      "finding_id": "B2-QA-THREAD-LIMIT-001",
+      "status": "NOT_CLOSED",
+      "scope": "OUTSIDE_A11_SCOPE"
+    }
+  ],
+  "human_exact_manifest_eligibility_on_go": true,
+  "bootstrap_human_commit_gate_on_go": "NO-GO / PENDING HUMAN CONFIRMATION",
+  "fail_closed": true
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "suite_id": "fixture-concurrency",
+  "production_path": true,
+  "command": "node .codex/tests/run-governance-fixtures-concurrency.mjs",
+  "expected_exit": 0,
+  "actual_exit": 0,
+  "parsed_summary": {
+    "reports_valid": true,
+    "report_errors": [
+      [],
+      []
+    ],
+    "unique_run_roots": true,
+    "caller_ids_ignored": true,
+    "unique_case_roots": true,
+    "case_roots_owned": true,
+    "adversarial_reports_rejected": true,
+    "adversarial_results": [
+      {
+        "adversary": "TRUNCATED_CHILD_REPORT",
+        "violations": [
+          "FIXTURE_REPORT case count mismatch.",
+          "FIXTURE_REPORT missing case CASE-68.",
+          "FIXTURE_REPORT required hash invalid for CASE-68."
+        ]
+      },
+      {
+        "adversary": "DUPLICATE_CASE_ID",
+        "violations": [
+          "FIXTURE_REPORT duplicate case ID.",
+          "FIXTURE_REPORT missing case CASE-02.",
+          "FIXTURE_REPORT required hash invalid for CASE-02."
+        ]
+      },
+      {
+        "adversary": "FORGED_PASS_WITHOUT_PROVENANCE",
+        "violations": [
+          "FIXTURE_REPORT case CASE-01 lacks invariant or production entrypoint provenance.",
+          "FIXTURE_REPORT case CASE-01 does not match the trusted invariant contract.",
+          "FIXTURE_REPORT case CASE-01 artifact hash mismatch."
+        ]
+      },
+      {
+        "adversary": "TAMPERED_SUITE_HASH",
+        "violations": [
+          "FIXTURE_REPORT case manifest hash mismatch."
+        ]
+      }
+    ],
+    "suite_id": "PHASE1-BOOTSTRAP-CORE",
+    "suite_version": 7,
+    "case_manifest_sha256": "6454720742D0BE4DD76D6B2F37251B906A8E8679B496A2E99ACBF176221E048E",
+    "results": [
+      {
+        "requested_run_id": "CONC-A-683723ef-ed3f-4b43-aadc-6a6261e35115",
+        "exit_code": 0,
+        "fixture_run_id": "FIXTURE-2d694335-4ea2-4003-95e2-aa85089dfb1b",
+        "run_root_realpath": "C:\\Users\\a2306\\AppData\\Local\\Temp\\a8-root-rerun-ir6QFP\\ntmc-bootstrap-fixtures-WkCsQE",
+        "case_count": 68,
+        "cleanup_result": "PASS"
+      },
+      {
+        "requested_run_id": "CONC-B-826b596f-4d9f-4f4a-a796-ff9fc27fca58",
+        "exit_code": 0,
+        "fixture_run_id": "FIXTURE-fc3619f3-12ea-457c-a71a-f230608f2106",
+        "run_root_realpath": "C:\\Users\\a2306\\AppData\\Local\\Temp\\a8-root-rerun-ir6QFP\\ntmc-bootstrap-fixtures-4M4qeG",
+        "case_count": 68,
+        "cleanup_result": "PASS"
+      }
+    ],
+    "passed": true
+  },
+  "stderr_tail": "",
+  "pass": true
+}

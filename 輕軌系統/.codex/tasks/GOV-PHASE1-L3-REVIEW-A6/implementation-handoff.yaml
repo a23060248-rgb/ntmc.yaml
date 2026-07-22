@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "producer": "a6-root-review-orchestrator",
+  "actor_role": "architect",
+  "agent_session_ref": "A6-ROOT-ORCHESTRATOR-SESSION",
+  "started_at": "2026-07-19T00:01:00+08:00",
+  "changed_files": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/**"],
+  "commands": [
+    "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/capture-review-baseline.mjs review-baseline-before.json",
+    "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/run-a6-authoritative-reruns.mjs",
+    "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/capture-review-baseline.mjs review-baseline-after.json",
+    "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/compare-review-baselines.mjs",
+    "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/aggregate-a6-reviews.mjs",
+    "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/verify-reviewer-independence.mjs"
+  ],
+  "evidence_refs": [
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/code-review.json",
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/security-review.json",
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/railway-domain-review.json",
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/a5-finding-closure-matrix.yaml",
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/authoritative-rerun-summary.json",
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/baseline-comparison.json",
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/session-a6-summary.json"
+  ],
+  "unverified": [
+    "No Session B Compatibility Review was authorized or started.",
+    "No Git trust anchor, index, staged blob, commit, branch, remote, or branch-protection state was inspected.",
+    "No actual Railway Domain Rule was approved.",
+    "No product runtime, service, database, seed, migration, or product test was executed."
+  ],
+  "residual_risks": [
+    "A6 Code Reviewer recorded one BLOCKER in Gate sequencing.",
+    "A6 Security Reviewer recorded two HIGH blocking findings in scanner report validation and oracle equality.",
+    "A6 Railway Domain Reviewer retained NEEDS_HUMAN_DECISION for proposed Migration 320 business Rules.",
+    "Bootstrap validator and evidence remain INTERNAL_CONSISTENCY_ONLY."
+  ],
+  "next_role": "human-governance-owner evaluates the archived A6 BLOCKER outcome; Session B is not eligible or authorized"
+}

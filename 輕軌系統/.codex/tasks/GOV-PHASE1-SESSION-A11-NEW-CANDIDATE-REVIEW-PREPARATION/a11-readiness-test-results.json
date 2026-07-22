@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "total": 13,
+  "passed": 13,
+  "failed": 0,
+  "tests": [
+    {
+      "test_id": "ROOT-1",
+      "name": "Absolute launch envelope resolves independently from cwd C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+      "passed": true,
+      "evidence": {
+        "cwd": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+        "resolution": "absolute"
+      }
+    },
+    {
+      "test_id": "ROOT-2",
+      "name": "Absolute launch envelope resolves independently from cwd C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml",
+      "passed": true,
+      "evidence": {
+        "cwd": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml",
+        "resolution": "absolute"
+      }
+    },
+    {
+      "test_id": "ROOT-3",
+      "name": "Absolute launch envelope resolves independently from cwd C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.codex\\tasks\\GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION\\unrelated-cwd-simulation",
+      "passed": true,
+      "evidence": {
+        "cwd": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.codex\\tasks\\GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION\\unrelated-cwd-simulation",
+        "resolution": "absolute"
+      }
+    },
+    {
+      "test_id": "PKG-04",
+      "name": "Missing package fails closed",
+      "passed": true,
+      "evidence": {
+        "disposition": "BLOCKER"
+      }
+    },
+    {
+      "test_id": "PKG-05",
+      "name": "Wrong package hash fails closed",
+      "passed": true,
+      "evidence": {
+        "disposition": "BLOCKER"
+      }
+    },
+    {
+      "test_id": "SCOPE-06",
+      "name": "Forbidden root is outside exact allowlist",
+      "passed": true,
+      "evidence": {
+        "disposition": "BLOCKER"
+      }
+    },
+    {
+      "test_id": "SCOPE-07",
+      "name": "Out-of-scope launch path is rejected",
+      "passed": true,
+      "evidence": {
+        "disposition": "BLOCKER"
+      }
+    },
+    {
+      "test_id": "PAYLOAD-08",
+      "name": "Startup Blocker template is schema-valid and self-hashed",
+      "passed": true,
+      "evidence": {
+        "templates": 5
+      }
+    },
+    {
+      "test_id": "PAYLOAD-09",
+      "name": "PASS payload examples are schema-valid and self-hashed",
+      "passed": true,
+      "evidence": {
+        "payloads": 5
+      }
+    },
+    {
+      "test_id": "PAYLOAD-10",
+      "name": "Payload self-hash tampering fails closed",
+      "passed": true,
+      "evidence": {
+        "disposition": "BLOCKER"
+      }
+    },
+    {
+      "test_id": "IDENTITY-11",
+      "name": "Reviewer and package identities are unique",
+      "passed": true,
+      "evidence": {
+        "identity_count": 20
+      }
+    },
+    {
+      "test_id": "AGG-12",
+      "name": "Missing reviewer payload fails aggregation closed",
+      "passed": true,
+      "evidence": {
+        "required": 4,
+        "observed": 3,
+        "disposition": "BLOCKER"
+      }
+    },
+    {
+      "test_id": "AGG-13",
+      "name": "Any reviewer BLOCKER fails aggregation closed",
+      "passed": true,
+      "evidence": {
+        "disposition": "NO-GO"
+      }
+    }
+  ],
+  "result": "PASS"
+}

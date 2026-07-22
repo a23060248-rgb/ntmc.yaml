@@ -1,0 +1,25 @@
+# A11 R1 Security Reviewer — Standalone Top-Level Prompt
+
+Execute only in a brand-new top-level Codex chat. Act only as EXTERNAL_SECURITY_REVIEWER. Do not use conversation memory or implementation context. Do not create subagents. Do not write to the repository or use Git.
+
+Read first and only from this exact absolute launch envelope: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/absolute-launch-envelope.json
+Recompute its RFC 8785 JCS SHA-256, then verify every required launch path, hash, identity, scope, package binding and candidate binding before reviewing candidate content. Never search the repository or resolve paths from the chat cwd. Read only the exact allowlist.
+
+Required launch paths:
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/repository-root-binding.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/absolute-launch-envelope.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/embedded-startup-blocker-template.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/assignment.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/package-manifest.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/package-verification.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/exact-read-scope.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/capability-artifact-matrix.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/startup-contract.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/review-requirements.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/finding-ownership.json
+REQUIRED_PATH: C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/return-payload.schema.json
+
+Embedded schema-valid Startup Blocker template:
+{"payload_core":{"schema_version":1,"review_package_id":"A11-R1-SECURITY-REVIEWER-PKG-20260721-02","review_package_core_sha256":"4EFDFA31AD2378396DD5C4D0413DED652AA75AB53B7DDA3861A231EA9EEC24EE","task_id":"GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1","reviewer_role":"EXTERNAL_SECURITY_REVIEWER","assignment_id":"A11-R1-SECURITY-REVIEWER-ASSIGN-20260721-02","reviewer_run_id":"A11-R1-SECURITY-REVIEWER-RUN-20260721-02","reviewer_session_nonce":"4FFB4FD99A27DDF18CFD94DEF926FCA15C890124C809705AB2C18A73AD2414CB","candidate_binding":{"candidate_file_count":108,"candidate_manifest_sha256":"5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A","included_file_set_sha256":"0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B","schema_set_sha256":"3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE","scanner_contract_version":5,"scanner_contract_sha256":"E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"},"startup":{"status":"STARTUP_BLOCKER","reason":"<ACTUAL_REASON>"},"review_status":"BLOCKER","review_started":false,"candidate_content_reviewed":false,"completed":true,"mandatory_exit_requested":true,"findings":[],"closure_dispositions":[],"access_log":{"read_paths":[],"forbidden_read_count":0,"out_of_scope_read_count":0},"clean_context_attestation":{"top_level_chat":true,"subagents_created":false,"implementation_conversation_received":false,"other_reviewer_conversation_received":false,"other_reviewer_payload_received":false,"conversation_memory_used":false,"repository_write_performed":false,"git_used":false,"assurance":"procedural"}},"payload_core_sha256":"D8A3BB4A81E9EF2EA651B35FF7BF02F4CBDF7F8A0DA2CED9CE0D6181DE050050"}
+
+If startup fails, replace only <ACTUAL_REASON>, recompute payload_core_sha256, output exactly that two-field JSON wrapper, and stop. If startup is valid, perform only the assigned technical review and finding ownership. Output exactly one two-field canonical JSON wrapper conforming to return-payload.schema.json, without Markdown or natural-language text, then stop.

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "suite_id": "PHASE15-MINIMUM-CORE",
+  "suite_version": 5,
+  "case_contract_hash": "7356E94EDD6C4EE682CB5A3EACA98AE93F12773C8D5E23C710CC7DF258452E2F",
+  "production_entrypoints": [
+    "canonicalizeScannerInput",
+    "canonicalizeScannerInput/scanCanonicalContent",
+    "classifyOperationalContent",
+    "computeEffectiveScope",
+    "projectLifecycleState",
+    "resolveRequirementVerdict",
+    "resolveUniqueArtifact",
+    "resolveUniqueRequirement",
+    "scanBinaryContent",
+    "scanCanonicalContent",
+    "validateDeclaredScanContract",
+    "validateProposedDomainRegistry",
+    "validateTypedProof"
+  ],
+  "exact_contract_count": 50,
+  "note": "The trusted version-5 50-case suite is the Phase 1.5 production-module regression contract; mutation and end-to-end validators are recorded separately.",
+  "result": "PASS"
+}

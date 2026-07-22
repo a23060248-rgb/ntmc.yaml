@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "finding_id": "A5-SEC-HIGH-002",
+  "reviewer": "security-reviewer",
+  "closure_status": "NOT_CLOSED",
+  "evidence": ["A7-SEC-HIGH-001", "security-review.json#closure_dispositions", "production-scanner-rerun.json"],
+  "production_exploit_retest": "REPRODUCED: the exact 72 cases pass, but removal of eight declared magic pairs is not rejected by the contract matrix oracle.",
+  "remaining_risk": "A later regression can remove advertised binary coverage while all remaining cases remain green.",
+  "blocks_bootstrap_candidate_gate": true
+}

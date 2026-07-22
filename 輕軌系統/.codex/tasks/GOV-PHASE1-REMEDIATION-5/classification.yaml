@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "level": "L3",
+  "reasons": [
+    "Session A4 has unresolved formal Code, Security, and Railway Domain Reviewer blockers.",
+    "The change affects governance authority, proof roles, scanner claims, lifecycle projection, and future commit eligibility.",
+    "Incorrect implementation can create a scope, authority, evidence, or incorrect-GO bypass."
+  ],
+  "triggers": [
+    "unresolved-reviewer-blocker",
+    "governance-authority-model",
+    "release-gate",
+    "credential-and-sensitive-content-scanning",
+    "domain-rule-authority"
+  ],
+  "execution_categories": [
+    "governance-source-edit",
+    "governance-validation",
+    "governance-fixture",
+    "candidate-snapshot",
+    "security",
+    "domain-rule"
+  ],
+  "required_agents": [
+    "qa-engineer",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "required_reviews": [
+    "code",
+    "security",
+    "railway-domain",
+    "compatibility"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "scope-lattice-invariants",
+    "identity-collision-invariants",
+    "typed-proof-role-invariants",
+    "scanner-canonicalization-differentials",
+    "mutation-and-property-results",
+    "production-path-integration",
+    "proposed-only-domain-rule-results",
+    "lifecycle-projection-results",
+    "candidate-manifest-and-snapshot",
+    "migration-320-no-go-integrity",
+    "frozen-history-integrity"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]
+  },
+  "stop_conditions": [
+    "Any frozen historical artifact changes.",
+    "Any product, database, Migration 320 original evidence, sibling directory, or .env file is read or modified.",
+    "Any Git mutation, service, product test, seed, migration, or database operation occurs.",
+    "Any Domain Rule is promoted to confirmed.",
+    "Any governance or Migration 320 gate is represented as GO.",
+    "A5 or Session B is created or started."
+  ],
+  "scope": {
+    "include": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/**"
+    ],
+    "exclude": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-2/**",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A2/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-3/**",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-4/**",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/**",
+      ".codex/tasks/GOV-PHASE1-A4-FINDING-CONSOLIDATION/**",
+      ".codex/tasks/GOV-M320-DRYRUN/external-evidence/**"
+    ]
+  },
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

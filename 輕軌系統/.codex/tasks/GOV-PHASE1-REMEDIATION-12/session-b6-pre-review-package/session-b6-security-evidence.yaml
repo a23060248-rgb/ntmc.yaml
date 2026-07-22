@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "scan_scope": {
+    "governance_artifacts": "DETERMINISTIC_CONTRACT",
+    "external_referenced_evidence": "LIMITED"
+  },
+  "scan_contract": {
+    "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scan_contract_version": 5,
+    "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "scanned_file_count": 103,
+    "scanned_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C",
+    "finding_registry_sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B",
+    "canonicalization_config_sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6",
+    "binary_oracle_config_sha256": "B25F552BC2379EDEB741862682277B5BA7B435A389ED162E0F297E96C066733F",
+    "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+    "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9"
+  },
+  "claims": {
+    "declared_scan_contract_executed": true,
+    "no_findings_within_declared_contract": true,
+    "external_evidence_globally_clean": false,
+    "global_sensitive_data_absence_verified": false
+  },
+  "external_evidence": [],
+  "limitations": [
+    "Exact deterministic contract and 103-file candidate only.",
+    "No global DLP, secret absence, identity, business-rule or commit authority claim."
+  ]
+}

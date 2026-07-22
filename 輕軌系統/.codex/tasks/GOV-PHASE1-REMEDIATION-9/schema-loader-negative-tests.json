@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "runner": ".codex/tests/run-official-schema-loader-integration.mjs",
+  "transient_copied_roots_only": true,
+  "cases": [
+    {"case_id": "LOADER-INTEGRATION-02", "failure": "malformed official Railway Schema", "expected_exit": 1, "result": "PASS"},
+    {"case_id": "LOADER-INTEGRATION-03", "failure": "missing official Railway Schema", "expected_exit": 1, "result": "PASS"},
+    {"case_id": "LOADER-INTEGRATION-04", "failure": "duplicate Schema identity", "expected_exit": 1, "result": "PASS"},
+    {"case_id": "LOADER-INTEGRATION-05", "failure": "Railway Schema id mismatch", "expected_exit": 1, "result": "PASS"},
+    {"case_id": "LOADER-INTEGRATION-06", "failure": "Railway Schema version mismatch", "expected_exit": 1, "result": "PASS"},
+    {"case_id": "LOADER-INTEGRATION-07", "failure": "duplicate Schema registry reference", "expected_exit": 1, "result": "PASS"},
+    {"case_id": "LOADER-INTEGRATION-08", "failure": "manifest and Schema registry set disagreement", "expected_exit": 1, "result": "PASS"},
+    {"case_id": "LOADER-INTEGRATION-09", "failure": "compiled Schema-set hash mismatch", "expected_exit": 1, "result": "PASS"},
+    {"case_id": "LOADER-INTEGRATION-10", "failure": "invalid typed Railway artifact", "expected_exit": 1, "result": "PASS"}
+  ],
+  "partial_fixture_success_permitted": false,
+  "result": "PASS"
+}

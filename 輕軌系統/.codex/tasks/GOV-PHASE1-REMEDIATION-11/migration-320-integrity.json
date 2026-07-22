@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "domain_decision": "NEEDS_HUMAN_DECISION",
+  "execution_gate": "NO-GO",
+  "approved_wrapper_count": 5,
+  "approved_wrappers": [
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/migration-320-integrity.json",
+      "sha256": "3EEACC83A9B3D82DAC0862260107597FA696AE388C3E75F670163C632874A535",
+      "byte_size": 875,
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/migration-320-compatibility.json",
+      "sha256": "EBB67B7683D3DE08397945F666DC2CD3FF62C59EE55DBAC98FD0D74254486A84",
+      "byte_size": 740,
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/review-findings.yaml",
+      "sha256": "4D88093B9716B363209E3C21E9BB521730E84F6D83ECCCE58E7597D339413350",
+      "byte_size": 3224,
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/artifact-manifest.yaml",
+      "sha256": "59FE7DA1A947A0A21B006EDD88A7E6DC641F5E0A15C50F531268CD08C904F069",
+      "byte_size": 2698,
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/test-evidence.yaml",
+      "sha256": "B8EA29C1E2BB932F58CC5FABDEBA0C43029AE7BCB91314470EED166610BF8C8D",
+      "byte_size": 2451,
+      "result": "PASS"
+    }
+  ],
+  "forbidden_implementation_paths_read": false,
+  "candidate_gate_affected": false,
+  "actual_maintenance_rule_approved": false,
+  "result": "PASS"
+}

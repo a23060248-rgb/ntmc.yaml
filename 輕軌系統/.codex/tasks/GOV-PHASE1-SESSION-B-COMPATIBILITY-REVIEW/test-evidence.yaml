@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "evidence_mode": "read-only-bootstrap-compatibility",
+  "commands": ["node --check against 18 candidate modules", "node .codex/tests/run-governance-fixtures.mjs", "node .codex/tests/run-governance-fixtures-concurrency.mjs", "node .codex/tests/run-bootstrap-scanner-production.mjs", "node .codex/tests/run-bootstrap-production-integration.mjs", "node .codex/tests/run-bootstrap-mutation-tests.mjs", "node .codex/tests/run-reviewer-binding-regressions.mjs", "node .codex/tests/run-official-schema-loader-integration.mjs", "node .codex/tests/run-official-schema-loader-mutations.mjs", "node .codex/tests/run-binary-magic-registry-mutations.mjs", "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN --target-gate migration-320-execution", "before/after SHA256 baseline comparison"],
+  "checks": [
+    {"check_id": "SB-CANDIDATE", "requirement_id": "ART-SB-CANDIDATE", "result": "PASS", "note": "Exact 103-file candidate, manifest, record, scanner and schema-set bindings match."},
+    {"check_id": "SB-GATE-REPLAY", "requirement_id": "ART-SB-GATE-REPLAY", "result": "PASS", "note": "A10 Candidate Review is VALID/GO/exit0; other Gates remain separated and blocked or disabled."},
+    {"check_id": "SB-SCHEMA-WORKFLOW", "requirement_id": "ART-SB-SCHEMA-WORKFLOW", "result": "PASS", "note": "Official loader, schemas, workflows, roles, evidence contracts and production wiring pass."},
+    {"check_id": "SB-REMOVED-CAPABILITIES", "requirement_id": "ART-SB-REMOVED-CAPABILITIES", "result": "PASS", "note": "Removed Phase 1 capabilities remain non-executable; rejection checks are not promotion paths."},
+    {"check_id": "SB-HISTORY", "requirement_id": "ART-SB-HISTORY", "result": "PASS", "note": "Historical Task semantics remain unchanged and historical artifacts remain outside the candidate."},
+    {"check_id": "SB-SECURITY", "requirement_id": "ART-SB-SECURITY", "result": "FAIL", "note": "Formal Security Review returned BLOCKER: stale v4 security-evidence declaration and three required source artifacts omitted from the allowlist."},
+    {"check_id": "SB-DOMAIN", "requirement_id": "ART-SB-DOMAIN", "result": "PASS", "note": "Railway governance mechanism compatibility passes while Migration 320 remains externally unresolved and NO-GO."},
+    {"check_id": "SB-RERUNS", "requirement_id": "ART-SB-RERUNS", "result": "PASS", "note": "18/18 syntax, 68/68 fixtures, 72/72 scanner, 48/48 integration, 31/31 production mutants, 14/14 binding, 11/11 loader, 6/6 loader mutants, 45/45 binary mutants and concurrency PASS."},
+    {"check_id": "SB-BASELINE", "requirement_id": "ART-SB-BASELINE", "result": "PASS", "note": "All 786 protected source records are byte-identical before and after Session B."},
+    {"check_id": "SB-M320", "requirement_id": "ART-SB-M320", "result": "PASS", "note": "Migration 320 remains structural VALID, Domain NEEDS_HUMAN_DECISION, execution NO-GO and exit2."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": ["Session B is BLOCKER because formal Security evidence integrity is incomplete.", "No product, service, database, migration or Git operation was run.", "Candidate assurance remains INTERNAL_CONSISTENCY_ONLY."]
+}

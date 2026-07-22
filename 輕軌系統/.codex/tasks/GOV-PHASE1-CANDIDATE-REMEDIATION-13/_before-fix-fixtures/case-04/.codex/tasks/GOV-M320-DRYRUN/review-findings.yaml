@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-M320-DRYRUN",
+  "review_context": "evidence-replay-only; formal clean-session reviews not yet executed",
+  "reviews": [
+    {"type": "code", "reviewer": "not-yet-assigned-clean-context", "formal": false, "outcome": "PASS_WITH_CONDITIONS", "finding_refs": ["Governance structure evidence exists; formal independent code review remains pending."], "conditions": [{"condition_id": "M320-CODE-REVIEW", "condition": "Run formal clean-session Code Review.", "status": "open", "owner": "independent-code-reviewer", "deadline_or_trigger": "Before review completion approval.", "completion_criterion": "Formal Code Review artifact is recorded.", "resolution_evidence": [], "reviewer_revalidation": false}], "decisions_required": []},
+    {"type": "security", "reviewer": "not-yet-assigned-clean-context", "formal": false, "outcome": "PASS_WITH_CONDITIONS", "finding_refs": ["Credential-free safe profile exists; runtime and OS isolation do not."], "conditions": [{"condition_id": "M320-SECURITY-REVIEW", "condition": "Run formal clean-session Security Review.", "status": "open", "owner": "independent-security-reviewer", "deadline_or_trigger": "Before review completion approval.", "completion_criterion": "Formal Security Review artifact is recorded.", "resolution_evidence": [], "reviewer_revalidation": false}], "decisions_required": []},
+    {"type": "railway-domain", "reviewer": "not-yet-assigned-clean-context", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["All applicable extracted Domain Rules are candidate proposed Rules; confirmed_rule_count=0."], "conditions": [], "decisions_required": [{"decision_required": "M320-DOMAIN-AUTHORITY", "decision_owner_role": "human-domain-owner", "decision_question": "Confirm, reject, or retain each proposed Migration 320 Rule as unverified.", "decision_deadline_or_trigger": "Before any business approval or execution."}]},
+    {"type": "compatibility", "reviewer": "existing-evidence-replay", "formal": false, "outcome": "BLOCKER", "finding_refs": ["No formal-clone provenance/read-only proof.", "P-to-C abnormal value and attachment snapshot incomplete.", "Shortage-to-inventory direct link absent."], "conditions": [], "decisions_required": []}
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "blockers": ["formal-clone provenance/read-only evidence absent", "P-to-C result_value NULL and C attachment snapshot zero", "shortage/inventory linkedRows zero"],
+  "conditions": [
+    {"condition_id": "M320-FORMAL-L3-REVIEWS", "condition": "Use clean sessions for all formal L3 reviews.", "status": "open", "owner": "review-orchestrator", "deadline_or_trigger": "Before review completion approval.", "completion_criterion": "All required formal Review artifacts exist.", "resolution_evidence": [], "reviewer_revalidation": false},
+    {"condition_id": "M320-HUMAN-APPROVALS", "condition": "Obtain Domain, Database, Security and Release approvals.", "status": "open", "owner": "human-governance-owner", "deadline_or_trigger": "Before final commit approval.", "completion_criterion": "All required human approval artifacts are recorded.", "resolution_evidence": [], "reviewer_revalidation": false}
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "removed": [
+    {"capability":"evidence waiver execution","reason":"no trustworthy unique authority, semantic or chronology binding existed","deleted_sources":[".codex/blueprints/schemas/human-evidence-waiver.schema.json"],"replacement":"PASS-only required evidence; NOT_APPLICABLE rejected"},
+    {"capability":"confirmed Domain Rule promotion and approval","reason":"Phase 1 does not have a trustworthy human authority binding implementation","deleted_sources":[".codex/blueprints/schemas/domain-rule-approval.schema.json"],"replacement":"proposed, candidate or unverified Rule status only; applicable Domain Rules empty"},
+    {"capability":"generic PASS proof","reason":"self-declared evidence could masquerade as candidate or staged proof","deleted_sources":[],"replacement":"typed validator-produced proof contracts"},
+    {"capability":"broad scanner and isolation claims","reason":"claims must equal the deterministic implementation boundary","deleted_sources":[],"replacement":"exact declared finding inventory and explicit procedural residual risks"}
+  ],
+  "deferred_not_removed": [
+    "cryptographic human identity",
+    "OS or container sandbox enforcement",
+    "DLP and global repository scanning",
+    "runtime Domain Rule confirmation workflow"
+  ]
+}

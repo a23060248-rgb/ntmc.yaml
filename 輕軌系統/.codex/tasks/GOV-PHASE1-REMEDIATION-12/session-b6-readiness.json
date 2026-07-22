@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-12",
+  "subject_task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "status": "READY_FOR_HUMAN_TO_CONSIDER_SESSION_B6",
+  "conditions": {
+    "candidate_change_required_false": true,
+    "four_reviewer_scopes_satisfiable": true,
+    "all_required_capabilities_exact": true,
+    "gate_dependency_matrix_valid": true,
+    "registered_task_artifact_schema_issues_zero": true,
+    "reviewers_read_only_payload_only": true,
+    "startup_early_failure_timeout_completion_exit_contracts_present": true,
+    "root_byte_identical_protocol_tested": true,
+    "preparation_tests_30_of_30": true,
+    "deterministic_qa_fail_closed_contract_valid": true,
+    "candidate_103_byte_identical": true,
+    "b5_and_incident_analysis_unchanged": true,
+    "no_git_mutation": true,
+    "no_reviewer_or_b6_started": true,
+    "no_human_approval": true
+  },
+  "session_b6_authorized": false,
+  "session_b6_started": false,
+  "reviewer_threads_created": false,
+  "b2_findings_closed": false,
+  "b2_findings": [
+    "B2-CODE-FORBIDDEN-READ-001:NOT_CLOSED",
+    "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001:NOT_CLOSED",
+    "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001:NOT_CLOSED",
+    "B2-QA-THREAD-LIMIT-001:NOT_CLOSED"
+  ],
+  "session_b_compatibility_gate": "NO-GO",
+  "human_exact_manifest_eligible": false,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state": "DISABLED",
+  "migration_320": "NEEDS_HUMAN_DECISION / NO-GO",
+  "result": "PASS"
+}

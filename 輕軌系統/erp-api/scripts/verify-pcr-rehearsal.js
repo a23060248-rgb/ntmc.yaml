@@ -25,6 +25,13 @@ async function request(path, options = {}) {
   return result.body;
 }
 
+async function cAction(workOrderNo, action, expectedVersion, body = {}) {
+  return request(`/work-orders/${encodeURIComponent(workOrderNo)}/actions/${action}`, {
+    method: "POST",
+    body: JSON.stringify({ expectedVersion, ...body }),
+  });
+}
+
 function priorMonthDate(year, month) {
   return new Date(Date.UTC(year, month - 2, 10)).toISOString().slice(0, 10);
 }
@@ -78,11 +85,13 @@ async function createPrintedPackage() {
 }
 
 function validValue(item) {
-  if (item.check_type !== "value") return "";
-  if (item.min_value !== null && item.max_value !== null) return String((Number(item.min_value) + Number(item.max_value)) / 2);
-  if (item.min_value !== null) return String(Number(item.min_value));
-  if (item.max_value !== null) return String(Number(item.max_value));
-  return "1";
+  if (item.check_type === "value") {
+    if (item.min_value !== null && item.max_value !== null) return String((Number(item.min_value) + Number(item.max_value)) / 2);
+    if (item.min_value !== null) return String(Number(item.min_value));
+    if (item.max_value !== null) return String(Number(item.max_value));
+    return "1";
+  }
+  return item.requires_value ? "Phase 6 required text" : "";
 }
 
 function attachmentResults(attachments) {
@@ -143,7 +152,7 @@ async function main() {
   const cOrderNo = completed.linkedFaultOrders[0].workOrderNo;
 
   const sourceLink = await query(
-    `SELECT c.id,c.work_order_no,c.source_work_order_id,f.source_pm_work_order_id,
+    `SELECT c.id,c.work_order_no,c.source_work_order_id,c.version,f.source_pm_work_order_id,
             f.source_check_section,f.source_check_item,cr.linked_fault_work_order_id
        FROM work_order c JOIN fault_work_order f ON f.work_order_id=c.id
        JOIN work_order p ON p.id=f.source_pm_work_order_id
@@ -155,22 +164,33 @@ async function main() {
   assert.ok(sourceLink.rows[0].source_check_section);
   assert.ok(sourceLink.rows[0].source_check_item);
 
-  const finished = await request(`/work-orders/${encodeURIComponent(cOrderNo)}/finish`, {
-    method: "POST",
-    body: JSON.stringify({
+  const technician = await query(`SELECT id FROM app_user WHERE employee_no='REH-TECHNICIAN' AND is_active=true`);
+  assert.equal(technician.rowCount, 1, "rehearsal technician fixture is missing");
+
+  await cAction(cOrderNo, "accept", Number(sourceLink.rows[0].version));
+  await cAction(cOrderNo, "dispatch", Number(sourceLink.rows[0].version) + 1, {
+    toUserId: technician.rows[0].id,
+    toSystem: "REHEARSAL",
+    reason: "Phase 6 P-C-R dispatch",
+  });
+  const finished = await cAction(cOrderNo, "finish", Number(sourceLink.rows[0].version) + 2, {
       report: "Removed failed rehearsal unit and installed spare",
-      removed_serial: "REH-ASSET-ONLINE-001",
-      installed_serial: "REH-ASSET-SPARE-001",
+      removedSerial: "REH-ASSET-ONLINE-001",
+      installedSerial: "REH-ASSET-SPARE-001",
       mileage: 123500,
       actor: "Rehearsal Admin",
-    }),
   });
-  assert.ok(finished.repairWorkOrder?.workOrderNo, "C completion did not create R order");
-  const rOrderNo = finished.repairWorkOrder.workOrderNo;
+  assert.equal(finished.repairOrders.length, 1, "C completion did not create exactly one R order");
+  const rOrderNo = finished.repairOrders[0].workOrderNo;
 
-  const duplicate = await requestResult(`/work-orders/${encodeURIComponent(cOrderNo)}/finish`, {
+  const duplicate = await requestResult(`/work-orders/${encodeURIComponent(cOrderNo)}/actions/finish`, {
     method: "POST",
-    body: JSON.stringify({ report: "Duplicate submit", removed_serial: "REH-ASSET-ONLINE-001", installed_serial: "REH-ASSET-SPARE-001" }),
+    body: JSON.stringify({
+      expectedVersion: Number(sourceLink.rows[0].version) + 3,
+      report: "Duplicate submit",
+      removedSerial: "REH-ASSET-ONLINE-001",
+      installedSerial: "REH-ASSET-SPARE-001",
+    }),
   });
   assert.equal(duplicate.status, 409, "duplicate C completion should be rejected");
   const repairCount = await query(

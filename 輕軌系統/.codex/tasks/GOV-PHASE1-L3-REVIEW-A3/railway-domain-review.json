@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "task_id": "GOV-PHASE1-L3-REVIEW-A3",
+    "review_type": "domain-rule-authority-enforcement",
+    "reviewer_role": "Railway Domain Reviewer",
+    "formal": true,
+    "reviewer_run_id": "A3-DOMAIN-RUN-20260717-001",
+    "session_id": "A3-DOMAIN-SESSION-20260717-001",
+    "did_not_participate_in_implementation": true,
+    "reviewed_candidate_baseline": "phase-1.3",
+    "mode": "read-only",
+    "business_rule_approval_performed": false
+  },
+  "scope": {
+    "product_root": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+    "included": ["AGENTS.md", ".codex/domain/index.yaml", ".codex/blueprints/schemas/rule.schema.json", ".codex/scripts/validate-task.mjs", ".codex/scripts/lib/schema-validator.mjs", ".codex/meta-rules/**", ".codex/governance/agent-path-policy.yaml", ".codex/governance/evidence-scope-policy.yaml", ".codex/agents/railway-domain-reviewer.toml", ".codex/checklists/railway-domain-review.md", ".codex/tasks/GOV-PHASE1-REMEDIATION-3/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A2/railway-domain-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/review-baseline-before.json", ".codex/tasks/GOV-M320-DRYRUN/**"],
+    "excluded": ["frontend/**", "erp-api/**", "db-design/**", "migration/**", "migrations/**", ".env*", "product-root siblings", "implementer conversation", "actual railway maintenance Rule approval"],
+    "actions_performed": ["read-only file inspection", "SHA256 baseline comparison", "in-memory Node probes"],
+    "actions_not_performed": ["file modification", "Git mutation", "service startup", "product test execution", "database, seed, or migration operation"],
+    "baseline_integrity": {"result": "PASS", "artifact_count": 87, "mismatch_count": 0, "manifest_expected_sha256": "BDBA5FF324C98DBF05CABC71E77DF18C459A0E88537ED8BC293EFDA3642BD9AE", "manifest_actual_sha256": "BDBA5FF324C98DBF05CABC71E77DF18C459A0E88537ED8BC293EFDA3642BD9AE"}
+  },
+  "outcome": "BLOCKER",
+  "findings": [
+    {
+      "finding_id": "A3-DOMAIN-AUTHORITY-001",
+      "severity": "HIGH",
+      "location": [".codex/scripts/validate-task.mjs:143-169", ".codex/blueprints/schemas/rule.schema.json:19-22", ".codex/tests/run-governance-fixtures.mjs:82-100", ".codex/tests/run-governance-fixtures.mjs:138-140", ".codex/tests/run-governance-fixtures.mjs:215"],
+      "evidence": ["validateConfirmedDomainRule verifies that source_type is the literal human-approval, the status is VERIFIED, source bytes match source_hash, and a manifest artifact has the same path and hash.", "It does not require the referenced artifact to be authoritative, to have a human-approval artifact type, or to contain authenticated human-owner provenance.", "A read-only in-memory probe used A3 artifact ART-DRAFT-INTENT, whose manifest authority is evidence-only and type is task-intent. The Rule schema returned zero errors and every check implemented at validate-task.mjs:155-169 passed.", "Fixture 50 treats an automatically generated evidence.txt artifact with authority evidence-only as sufficient confirmation authority and expects the complete Task gate to be GO."],
+      "reproduction": {"commands": ["rg -n \"findManifestArtifact|artifact.path !== sourceRef|artifact.sha256|artifact.authority|artifact.type\" .codex/scripts/validate-task.mjs", "rg -n \"confirmRule|50 verified human authority\" .codex/tests/run-governance-fixtures.mjs"], "memory_probe_observed": {"schema_error_count": 0, "current_checks_all_pass": true, "artifact_authority": "evidence-only", "artifact_type": "task-intent", "human_provenance_verified": false}},
+      "impact": "An Agent-created evidence-only artifact can be relabeled inside a Rule as VERIFIED human approval without authenticated evidence that the named human Domain Owner approved it. Agent approval is therefore not fail-closed, so a non-human promotion to confirmed can enter applicable_rules."
+    },
+    {
+      "finding_id": "A3-DOMAIN-CONTENT-BINDING-002",
+      "severity": "HIGH",
+      "location": [".codex/blueprints/schemas/rule.schema.json:19-22", ".codex/scripts/validate-task.mjs:155-169", ".codex/tests/run-governance-fixtures.mjs:138-140", ".codex/tests/run-governance-fixtures.mjs:215"],
+      "evidence": ["The approval object contains approval_artifact_id, approved_at, and approval_scope, but no canonical Rule-content hash.", "authority.source_hash binds only the external source artifact bytes; it is not a hash of rule_id, version, statement, conditions, prohibitions, verification, or enforcement content.", "The positive fixture's approval artifact is generic evidence.txt and contains no binding to the approved Rule ID, version, or content hash.", "A read-only in-memory mutation changed the Rule core-content hash while leaving version=1, status=confirmed, approval present, and the authority source hash valid."],
+      "reproduction": {"commands": ["rg -n \"rule_content_sha256|rule_hash|content_hash|approval.*hash\" .codex/blueprints/schemas/rule.schema.json .codex/scripts/validate-task.mjs .codex/tests/run-governance-fixtures.mjs", "rg -n \"source_hash|approval_artifact_id\" .codex/blueprints/schemas/rule.schema.json .codex/scripts/validate-task.mjs"], "observed": {"rule_content_hash_fields_found": 0, "core_hash_changed": true, "version_after_mutation": 1, "status_after_mutation": "confirmed", "approval_still_present": true, "authority_source_hash_still_matches": true}},
+      "impact": "A confirmed Rule's statement or other core semantics can be changed without incrementing its version, clearing approval, or returning it to proposed. The old approval remains valid because it is bound only to unrelated source bytes, allowing stale approval to authorize new Rule content."
+    },
+    {
+      "finding_id": "A3-DOMAIN-APPROVAL-TIME-003",
+      "severity": "HIGH",
+      "location": [".codex/blueprints/schemas/rule.schema.json:20-22", ".codex/scripts/validate-task.mjs:155-169", ".codex/tests/run-governance-fixtures.mjs:138-140"],
+      "evidence": ["The Rule schema contains approved_at and effective_from but no source_verified_at or equivalent authority-verification timestamp.", "validateConfirmedDomainRule performs no Date.parse comparison between approval time and source-verification time.", "The positive fixture assigns an arbitrary approved_at while its source artifact has only source_verification_status=VERIFIED and no verification time."],
+      "reproduction": {"command": "rg -n \"verified_at|verification_time|Date.parse|approved_at\" .codex/blueprints/schemas/rule.schema.json .codex/scripts/validate-task.mjs .codex/tests/run-governance-fixtures.mjs", "observed": "No source-verification timestamp or approved_at-later-than-verification check exists in the Domain Rule path."},
+      "impact": "The mechanism cannot prove that human approval occurred after source verification. A backdated, equal-time, or otherwise temporally invalid approval can satisfy the validator."
+    }
+  ],
+  "conditions": [
+    {"condition_id": "A3-DOMAIN-COND-001", "status": "open", "condition": "Require a dedicated human Domain approval artifact with authenticated human-owner identity, authoritative artifact classification, Rule ID, Rule version, canonical current Rule-content SHA256, approval scope, and verification timestamp; reject evidence-only or Agent-produced artifacts as confirmation authority.", "completion_criterion": "A negative in-memory or isolated fixture using an evidence-only task-intent or generic Agent-created artifact is rejected, while a correctly bound human approval is accepted."},
+    {"condition_id": "A3-DOMAIN-COND-002", "status": "open", "condition": "Require approved_at to be strictly later than the recorded source-verification timestamp and validate effective_from against the approved authority record.", "completion_criterion": "Missing, invalid, equal, or earlier approval timestamps are rejected deterministically."},
+    {"condition_id": "A3-DOMAIN-COND-003", "status": "open", "condition": "Define canonical Rule core content and enforce change control: any core-content change must increment version, clear owner and approval authority, and return status to proposed until a new content-hash-bound human approval is supplied.", "completion_criterion": "Mutation of statement, applicability, prohibitions, verification, or enforcement while retaining version or approval is rejected."},
+    {"condition_id": "A3-DOMAIN-COND-004", "status": "open", "condition": "After remediation, obtain a fresh independent read-only Railway Domain Review against a newly frozen baseline.", "completion_criterion": "All Domain authority checks pass without approving any actual maintenance Rule."}
+  ],
+  "decisions_required": [{"decision_id": "M320-DOMAIN-AUTHORITY", "decision_owner_role": "human-domain-owner", "decision_question": "Confirm, reject, or retain as proposed each Migration 320 candidate Rule only after the authority mechanism blockers are remediated.", "decision_deadline_or_trigger": "Before any Migration 320 business approval or execution.", "current_state": "NEEDS_HUMAN_DECISION"}],
+  "domain_checks": [
+    {"check_id": "A3-BASELINE-INTEGRITY", "result": "PASS", "evidence": "All 87 baseline artifacts and the governance commit manifest match review-baseline-before SHA256 values."},
+    {"check_id": "A3-CONFIRMED-REQUIRED-FIELDS", "result": "PASS", "evidence": "validate-task.mjs:155-161 rejects confirmed Rules missing human_owner role/id, approval artifact/id/time/scope, authority, effective_from, legacy owner, approved_at, or version/schema requirements."},
+    {"check_id": "A3-NONAUTHORITATIVE-ONLY-SOURCES", "result": "PASS", "evidence": "validate-task.mjs:160-162 and fixtures 47-49 reject UNVERIFIED authority, report-only authority, hash mismatch, and by the same logic implementation-, migration-, or test-only sources without a VERIFIED human-approval source."},
+    {"check_id": "A3-HUMAN-PROVENANCE", "result": "FAIL", "evidence": "An evidence-only task-intent or generic Agent-created artifact can satisfy every implemented confirmation check when relabeled as human-approval in the Rule."},
+    {"check_id": "A3-RULE-CONTENT-HASH", "result": "FAIL", "evidence": "Approval binds source artifact bytes, not the canonical current Rule content."},
+    {"check_id": "A3-APPROVAL-CHRONOLOGY", "result": "FAIL", "evidence": "No source-verification timestamp or approved_at ordering check exists."},
+    {"check_id": "A3-CORE-CHANGE-INVALIDATION", "result": "FAIL", "evidence": "Core content can change while version, confirmed status, approval, and authority remain unchanged and valid."},
+    {"check_id": "A3-CONFIRMED-COUNT", "result": "PASS", "evidence": "validate-task.mjs:186-187 programmatically recomputes confirmed Rule count and rejects a declared mismatch."},
+    {"check_id": "A3-CURRENT-REGISTRY-STATE", "result": "PASS", "evidence": "Declared confirmed_rule_count=0, recomputed count=0, and all six current entries are proposed. Zero confirmed Rules is a legal current state and no Rule is approved by this review."},
+    {"check_id": "A3-REVIEWER-PROMOTION-POLICY", "result": "PASS_WITH_LIMITATION", "evidence": "agent-path-policy.yaml:62-67 gives Railway Domain Reviewer no write paths and prohibits confirm-domain-rule; validate-task.mjs:277 preserves that policy. The policy is not runtime isolation and the validator cannot attribute a registry promotion or approval artifact to the actual actor."},
+    {"check_id": "A3-M320-PRESERVATION", "result": "PASS", "evidence": "M320 blueprint retains WO-P-C-LINK-001, WO-C-SHORTAGE-001, and COMPAT-M320-001 as candidate Rules; all remain proposed. review-findings records exactly three blockers, Railway Domain NEEDS_HUMAN_DECISION, and calculated/overall NO-GO."}
+  ],
+  "residual_risks": [
+    {"risk_id": "A3-DOMAIN-RISK-001", "status": "open", "statement": "The current registry is safe only because all entries remain proposed; the latent confirmation bypass becomes authoritative as soon as a crafted confirmed entry is introduced."},
+    {"risk_id": "A3-DOMAIN-RISK-002", "status": "open", "statement": "Role policy is a commit-time governance check rather than OS/runtime isolation, so it cannot independently prove that an Agent or Reviewer did not author a claimed human approval."},
+    {"risk_id": "A3-DOMAIN-RISK-003", "status": "open", "statement": "findManifestArtifact accepts the first matching artifact ID across Task manifests without proving global artifact-ID uniqueness or approval ownership."},
+    {"risk_id": "A3-GATE-SEPARATION", "status": "open", "statement": "The Phase 1 Governance Commit Gate remains NO-GO because of this Domain authority enforcement blocker. Separately, Migration 320 remains NO-GO because its three blockers and human Domain decision remain unresolved."}
+  ]
+}

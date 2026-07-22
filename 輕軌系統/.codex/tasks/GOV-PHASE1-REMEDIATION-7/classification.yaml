@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-7",
+  "level": "L3",
+  "reasons": [
+    "Session A6 is archived with one Code BLOCKER and two blocking Security HIGH findings.",
+    "The remediation changes release-gate routing, formal review semantics, scanner proof binding, and the binary evidence contract.",
+    "An incorrect implementation could create an incorrect Candidate Review GO, scanner-report replay, or Domain authority routing bypass."
+  ],
+  "triggers": [
+    "unresolved-reviewer-blocker",
+    "release-gate",
+    "credential-and-sensitive-content-scanning",
+    "domain-rule-authority",
+    "backward-compatibility"
+  ],
+  "execution_categories": [
+    "governance-source-edit",
+    "governance-validation",
+    "governance-fixture",
+    "bootstrap-candidate",
+    "security",
+    "domain-rule",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "architect",
+    "qa-engineer",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "required_reviews": ["code", "security", "railway-domain", "compatibility"],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "a6-finding-remediation-matrix",
+    "five-gate-routing-invariants",
+    "typed-domain-review-routing",
+    "authoritative-scanner-report-binding",
+    "scanner-contract-implementation-matrix",
+    "production-path-scanner-results",
+    "gate-routing-production-results",
+    "production-module-mutation-results",
+    "candidate-manifest-rebuild-and-content-scan",
+    "migration-320-no-go-integrity",
+    "frozen-history-integrity"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]
+  },
+  "stop_conditions": [
+    "Any A6 Reviewer outcome or frozen historical Task artifact changes.",
+    "Any product, database, migration, sibling, or .env file is read or modified.",
+    "Any Git operation, service, product test, seed, migration, or database operation occurs.",
+    "Any unsupported STAGED_EXACT, evidence waiver, confirmed Domain authority, dynamic business meta-rule authority, OS sandbox, DLP, cryptographic identity, or remote Git control is enabled.",
+    "Bootstrap Candidate Review is declared GO before A7 formal review evidence exists.",
+    "Session A7 or Session B is created or started."
+  ],
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md", "docs/migration-320-before-after.json", "docs/migration-320-compatibility-report.md", "docs/migration-320-data-anomalies.csv"],
+    "exclude": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories",
+      "frozen historical Task artifacts",
+      "Migration 320 original evidence"
+    ]
+  },
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A3",
+  "generated_at": "2026-07-17T13:00:00+08:00",
+  "generated_by": ".codex/scripts/validate-task.mjs",
+  "source_digest_sha256": "109C47FE7EBA22FC321D3C8183531A2937A14D92916AF3153FF4DEC3D8FEA70B",
+  "nodes": [
+    {
+      "id": "DECISION:A3-NO-GO",
+      "type": "Decision",
+      "label": "A3 not eligible for Session B",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/session-a3-summary.json"
+    },
+    {
+      "id": "REVIEW:CODE-A3",
+      "type": "Review",
+      "label": "Code A3 BLOCKER",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/code-review.json"
+    },
+    {
+      "id": "REVIEW:DOMAIN-A3",
+      "type": "Review",
+      "label": "Railway Domain A3 BLOCKER",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/railway-domain-review.json"
+    },
+    {
+      "id": "REVIEW:SECURITY-A3",
+      "type": "Review",
+      "label": "Security A3 BLOCKER",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/security-review.json"
+    },
+    {
+      "id": "TASK:GOV-PHASE1-L3-REVIEW-A3",
+      "type": "Task",
+      "label": "Phase 1.3 Independent L3 Review A3",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/task-intent.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "REVIEW:CODE-A3",
+      "relation": "BLOCKS",
+      "to": "DECISION:A3-NO-GO",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/code-review.json"
+    },
+    {
+      "from": "REVIEW:DOMAIN-A3",
+      "relation": "BLOCKS",
+      "to": "DECISION:A3-NO-GO",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/railway-domain-review.json"
+    },
+    {
+      "from": "REVIEW:SECURITY-A3",
+      "relation": "BLOCKS",
+      "to": "DECISION:A3-NO-GO",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/security-review.json"
+    },
+    {
+      "from": "TASK:GOV-PHASE1-L3-REVIEW-A3",
+      "relation": "REQUIRES",
+      "to": "REVIEW:CODE-A3",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/classification.yaml"
+    },
+    {
+      "from": "TASK:GOV-PHASE1-L3-REVIEW-A3",
+      "relation": "REQUIRES",
+      "to": "REVIEW:DOMAIN-A3",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/classification.yaml"
+    },
+    {
+      "from": "TASK:GOV-PHASE1-L3-REVIEW-A3",
+      "relation": "REQUIRES",
+      "to": "REVIEW:SECURITY-A3",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/classification.yaml"
+    }
+  ]
+}

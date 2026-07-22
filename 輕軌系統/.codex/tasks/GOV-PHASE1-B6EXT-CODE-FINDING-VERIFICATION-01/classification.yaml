@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "level": "L3",
+  "reasons": [
+    "Unresolved High Reviewer blocker affects a formal Candidate Gate validation path."
+  ],
+  "triggers": [
+    "unresolved Reviewer blocker",
+    "release and compatibility gate"
+  ],
+  "required_agents": [
+    "verification-orchestrator"
+  ],
+  "required_reviews": [
+    "future clean-context code",
+    "future security",
+    "future compatibility"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "payload verification",
+    "10-case production-path matrix",
+    "historical compatibility replay",
+    "candidate integrity"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "execution_approval",
+      "review_completion",
+      "final_commit_approval"
+    ]
+  },
+  "stop_conditions": [
+    "Any candidate/history write",
+    "Any Git/product/DB/service operation",
+    "Any child Reviewer dispatch"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01/**"
+    ],
+    "exclude": [
+      "all other paths for write",
+      ".env*",
+      "collab/**",
+      "product paths",
+      "Migration 320 plan/handoff"
+    ]
+  },
+  "classified_by": "task-classification skill plus verification orchestrator",
+  "classification_status": "human-approved-scope"
+}

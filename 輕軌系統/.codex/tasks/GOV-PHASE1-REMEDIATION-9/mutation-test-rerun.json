@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "command": "node .codex/tests/run-bootstrap-mutation-tests.mjs",
+  "total": 31,
+  "killed": 31,
+  "survived": 0,
+  "existing_control_mutants": {"total": 23, "killed": 23, "survived": 0},
+  "reviewer_binding_mutants": {"total": 8, "killed": 8, "survived": 0, "ids": ["MUT-REVIEWER-01-ALLOW-SUBSTITUTED-ROLE", "MUT-REVIEWER-02-SYNTHESIZE-MISSING-ASSIGNMENT", "MUT-REVIEWER-03-SKIP-ASSIGNMENT-PROFILE-HASH", "MUT-REVIEWER-04-ALLOW-WRITE-PATH", "MUT-REVIEWER-05-SKIP-SCOPE-BINDING", "MUT-REVIEWER-06-SKIP-RUN-BINDING", "MUT-REVIEWER-07-SKIP-SESSION-BINDING", "MUT-REVIEWER-08-SKIP-PROFILE-CANONICAL-ROLE"]},
+  "result": "PASS"
+}

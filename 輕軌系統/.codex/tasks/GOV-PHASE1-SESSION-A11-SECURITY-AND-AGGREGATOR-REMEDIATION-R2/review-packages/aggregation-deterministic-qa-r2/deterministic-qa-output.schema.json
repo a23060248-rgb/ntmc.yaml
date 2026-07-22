@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/a11-r2/deterministic-qa-output.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "suite",
+    "command_id",
+    "expected_count",
+    "actual_count",
+    "passed",
+    "failed",
+    "expected_exit_code",
+    "actual_exit_code",
+    "mutation_total",
+    "mutation_killed",
+    "raw_report_path"
+  ],
+  "properties": {
+    "suite": {
+      "type": "string"
+    },
+    "command_id": {
+      "type": "string"
+    },
+    "expected_count": {
+      "type": "integer"
+    },
+    "actual_count": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "integer"
+    },
+    "failed": {
+      "type": "integer"
+    },
+    "expected_exit_code": {
+      "type": "integer"
+    },
+    "actual_exit_code": {
+      "type": "integer"
+    },
+    "mutation_total": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "mutation_killed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "raw_report_path": {
+      "type": "string"
+    }
+  }
+}

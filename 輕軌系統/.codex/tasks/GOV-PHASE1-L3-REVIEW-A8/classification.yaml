@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "level": "L3",
+  "reasons": [
+    "A7 contains four unresolved formal blocking findings.",
+    "The review determines a release-like Bootstrap Candidate Review Gate.",
+    "The candidate changes authoritative gate derivation, scanner proof binding, binary evidence, and Railway Domain review schema routing."
+  ],
+  "triggers": ["unresolved-reviewer-blocker", "release-gate", "security", "domain-rule-authority"],
+  "execution_categories": ["read-only-review", "governance-validation", "governance-fixture", "bootstrap-candidate", "security", "domain-rule"],
+  "required_agents": ["architect", "code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain"],
+  "parallel_allowed": true,
+  "evidence_required": [
+    "A8-CANDIDATE-BASELINE", "A8-CODE-REVIEW", "A8-SECURITY-REVIEW", "A8-RAILWAY-DOMAIN-REVIEW",
+    "A8-A7-CLOSURE", "A8-A6-CLOSURE", "A8-A5-SECURITY-CLOSURE", "A8-FIXTURE-RERUN",
+    "A8-SCANNER-RERUN", "A8-PRODUCTION-RERUN", "A8-MUTATION-RERUN", "A8-BINARY-MUTATION-RERUN",
+    "A8-CONCURRENCY-RERUN", "A8-SCANNER-BINDING", "A8-BINARY-ORACLE", "A8-SCHEMA-LOADER",
+    "A8-RULE-ROUTING", "A8-HISTORY-INTEGRITY", "A8-M320-INTEGRITY"
+  ],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": [
+    "Any reviewed candidate, Remediation 8, frozen history, Migration 320, or external evidence artifact changes.",
+    "Any Reviewer is asked to alter another Reviewer outcome or depend on implementation conversation.",
+    "Any product, service, database, seed, migration, Git mutation, Session B, or commit action is attempted.",
+    "Any .env file or sibling directory is read.",
+    "Bootstrap Human Commit or Migration 320 is represented as GO, or steady-state is represented as enabled during A8."
+  ],
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories"]
+  },
+  "classified_by": "human-authorized-a8-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

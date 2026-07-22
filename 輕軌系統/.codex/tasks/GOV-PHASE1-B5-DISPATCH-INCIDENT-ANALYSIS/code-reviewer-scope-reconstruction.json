@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+  "assignment": {
+    "assignment_id": "ASSIGN-B5-CODE-6C602EC0-59B9-4D80-A41C-9DD3B94FD501",
+    "reviewer_role": "code-reviewer",
+    "required_review_scope": "bootstrap_code_and_gate_compatibility"
+  },
+  "scope_sources": {
+    "base_scope_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/code-reviewer-scope.json",
+    "base_scope_file_sha256": "9B8C0C701DBCDA66FD18D9F9D65E241EC82AA96A29217C2FD71BFA142DDB4466",
+    "final_scope_path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-scopes/code-reviewer-scope.json",
+    "final_scope_file_sha256": "BBDD307127DFDC903FC76B3EA0CC61FFECEB59860713D670080BF0BBACD4EDFE",
+    "pre_review_manifest_path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-input-manifest.json",
+    "pre_review_manifest_scope_file_sha256": "BBDD307127DFDC903FC76B3EA0CC61FFECEB59860713D670080BF0BBACD4EDFE",
+    "scope_sha256": "1CE71794CF6682C6751288A24A8EAD4CCDEBD11922A7D3889FD199C48AEEBF4E",
+    "recomputed_scope_sha256": "1CE71794CF6682C6751288A24A8EAD4CCDEBD11922A7D3889FD199C48AEEBF4E",
+    "scope_payload_hash_match": true,
+    "scope_file_manifest_hash_match": true,
+    "transformation_result": "MECHANICAL_R11_TO_B5_PATH_REWRITE_WITHOUT_CAPABILITY_SATISFIABILITY_RECONSTRUCTION"
+  },
+  "base_allowed_path_count": 114,
+  "allowed_paths": [
+    ".agents/skills/task-classification/SKILL.md",
+    ".agents/skills/task-classification/agents/openai.yaml",
+    ".codex/agents/architect.toml",
+    ".codex/agents/backend-engineer.toml",
+    ".codex/agents/code-reviewer.toml",
+    ".codex/agents/compatibility-reviewer.toml",
+    ".codex/agents/database-engineer.toml",
+    ".codex/agents/documentation-engineer.toml",
+    ".codex/agents/frontend-engineer.toml",
+    ".codex/agents/qa-engineer.toml",
+    ".codex/agents/railway-domain-reviewer.toml",
+    ".codex/agents/security-reviewer.toml",
+    ".codex/blueprints/schemas/artifact-manifest.schema.json",
+    ".codex/blueprints/schemas/blueprint.schema.json",
+    ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+    ".codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+    ".codex/blueprints/schemas/classification.schema.json",
+    ".codex/blueprints/schemas/governance-commit-manifest.schema.json",
+    ".codex/blueprints/schemas/human-approval.schema.json",
+    ".codex/blueprints/schemas/implementation-handoff.schema.json",
+    ".codex/blueprints/schemas/railway-domain-review.schema.json",
+    ".codex/blueprints/schemas/review-findings.schema.json",
+    ".codex/blueprints/schemas/rule.schema.json",
+    ".codex/blueprints/schemas/security-evidence.schema.json",
+    ".codex/blueprints/schemas/task-intent.schema.json",
+    ".codex/blueprints/schemas/test-evidence.schema.json",
+    ".codex/blueprints/schemas/traceability.schema.json",
+    ".codex/checklists/code-review.md",
+    ".codex/checklists/compatibility-review.md",
+    ".codex/checklists/railway-domain-review.md",
+    ".codex/checklists/security-review.md",
+    ".codex/config.toml",
+    ".codex/domain/index.yaml",
+    ".codex/environment/agent-safe-profile.json",
+    ".codex/governance/agent-path-policy.yaml",
+    ".codex/governance/bootstrap-binary-magic-registry.yaml",
+    ".codex/governance/bootstrap-trust-policy.yaml",
+    ".codex/governance/environment-safety-evidence.json",
+    ".codex/governance/evidence-requirement-policy.yaml",
+    ".codex/governance/evidence-scope-policy.yaml",
+    ".codex/governance/gate-dependency-matrix.yaml",
+    ".codex/governance/gate-policy.yaml",
+    ".codex/governance/governance-schema-set.yaml",
+    ".codex/governance/lifecycle-events.json",
+    ".codex/governance/phase-policy.yaml",
+    ".codex/governance/phase-status.json",
+    ".codex/governance/residual-risks.yaml",
+    ".codex/governance/scan-contract.yaml",
+    ".codex/governance/scanner-binary-oracle.yaml",
+    ".codex/governance/scanner-canonicalization-config.yaml",
+    ".codex/governance/scanner-contract-matrix.yaml",
+    ".codex/governance/scanner-finding-registry.yaml",
+    ".codex/meta-rules/confidentiality.yaml",
+    ".codex/meta-rules/database.yaml",
+    ".codex/meta-rules/evidence.yaml",
+    ".codex/meta-rules/global.yaml",
+    ".codex/meta-rules/review-independence.yaml",
+    ".codex/meta-rules/security.yaml",
+    ".codex/scripts/build-phase-status.mjs",
+    ".codex/scripts/create-task.mjs",
+    ".codex/scripts/generate-bootstrap-candidate.mjs",
+    ".codex/scripts/generate-bootstrap-scan-report.mjs",
+    ".codex/scripts/generate-governance-commit-manifest.mjs",
+    ".codex/scripts/lib/governance-commit-manifest.mjs",
+    ".codex/scripts/lib/governance-controls.mjs",
+    ".codex/scripts/lib/governance/domain-review-routing.mjs",
+    ".codex/scripts/lib/governance/fixture-report.mjs",
+    ".codex/scripts/lib/governance/fixture-schema-loader-contract.mjs",
+    ".codex/scripts/lib/governance/gate-router.mjs",
+    ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+    ".codex/scripts/lib/governance/identity-resolver.mjs",
+    ".codex/scripts/lib/governance/lifecycle-projection.mjs",
+    ".codex/scripts/lib/governance/proposed-domain-rules.mjs",
+    ".codex/scripts/lib/governance/reviewer-identity-binding.mjs",
+    ".codex/scripts/lib/governance/rule-class.mjs",
+    ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+    ".codex/scripts/lib/governance/scanner-report.mjs",
+    ".codex/scripts/lib/governance/scope-lattice.mjs",
+    ".codex/scripts/lib/governance/typed-proof.mjs",
+    ".codex/scripts/lib/lifecycle-projection.mjs",
+    ".codex/scripts/lib/path-safety.mjs",
+    ".codex/scripts/lib/schema-validator.mjs",
+    ".codex/scripts/lib/secret-scanner.mjs",
+    ".codex/scripts/validate-agent-environment.mjs",
+    ".codex/scripts/validate-change-scope.mjs",
+    ".codex/scripts/validate-phase-status.mjs",
+    ".codex/scripts/validate-task.mjs",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/baseline-comparison.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/code-review.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/deterministic-readback-summary.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/classification.yaml",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-assignments.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-capacity-preflight.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-dispatch-plan.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-binding-chain.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-evidence.yaml",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/task-intent.yaml",
+    ".codex/tests/fixture-suite-manifest.json",
+    ".codex/tests/fixtures/valid-railway-domain-review.json",
+    ".codex/tests/run-binary-magic-registry-mutations.mjs",
+    ".codex/tests/run-bootstrap-mutation-tests.mjs",
+    ".codex/tests/run-bootstrap-production-integration.mjs",
+    ".codex/tests/run-bootstrap-scanner-production.mjs",
+    ".codex/tests/run-governance-fixtures-concurrency.mjs",
+    ".codex/tests/run-governance-fixtures.mjs",
+    ".codex/tests/run-official-schema-loader-integration.mjs",
+    ".codex/tests/run-official-schema-loader-mutations.mjs",
+    ".codex/tests/run-reviewer-binding-regressions.mjs",
+    ".codex/tests/scanner-production-case-manifest.json",
+    ".codex/workflows/l1-lightweight.md",
+    ".codex/workflows/l2-standard.md",
+    ".codex/workflows/l3-high-risk.md",
+    "AGENTS.md"
+  ],
+  "forbidden_paths": [
+    ".codex/tasks/GOV-M320-DRYRUN/implementation-handoff.yaml",
+    ".codex/tasks/GOV-M320-DRYRUN/implementation-plan.md",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/human-approval.yaml",
+    ".env*",
+    "collab/**",
+    "conversation memory",
+    "db-design/**",
+    "erp-api/**",
+    "frontend/**",
+    "migration/**",
+    "other Reviewer private access log",
+    "parent directories",
+    "sibling directories",
+    "unapproved HANDOFF",
+    "unapproved implementation plan"
+  ],
+  "required_nodes": [],
+  "actual_requested_paths": [
+    {
+      "capability": "registered_security_evidence_schema",
+      "paths": [
+        ".codex/blueprints/schemas/security-evidence.schema.json"
+      ],
+      "status": "SATISFIED",
+      "path_checks": [
+        {
+          "path": ".codex/blueprints/schemas/security-evidence.schema.json",
+          "allowed": true,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "production_schema_loader",
+      "paths": [
+        ".codex/scripts/lib/governance/governance-schema-loader.mjs"
+      ],
+      "status": "SATISFIED",
+      "path_checks": [
+        {
+          "path": ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+          "allowed": true,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "b5_security_evidence",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-evidence.yaml"
+      ],
+      "status": "SATISFIED",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-evidence.yaml",
+          "allowed": true,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "scanner_contract",
+      "paths": [
+        ".codex/governance/scan-contract.yaml"
+      ],
+      "status": "SATISFIED",
+      "path_checks": [
+        {
+          "path": ".codex/governance/scan-contract.yaml",
+          "allowed": true,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "binding_chain_summary",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-binding-chain.json"
+      ],
+      "status": "SATISFIED",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-binding-chain.json",
+          "allowed": true,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "binding_chain_direct_candidate_nodes",
+      "paths": [
+        ".codex/governance/governance-commit-manifest.yaml",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json"
+      ],
+      "status": "MISSING_FROM_ALLOWLIST",
+      "path_checks": [
+        {
+          "path": ".codex/governance/governance-commit-manifest.yaml",
+          "allowed": false,
+          "forbidden": false,
+          "exists": true
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+          "allowed": false,
+          "forbidden": false,
+          "exists": true
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json",
+          "allowed": false,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "exact_scope_path_validator",
+      "paths": [
+        ".codex/scripts/lib/governance/scope-lattice.mjs"
+      ],
+      "status": "SATISFIED_BUT_NOT_A_CAPABILITY_SATISFIABILITY_VALIDATOR",
+      "path_checks": [
+        {
+          "path": ".codex/scripts/lib/governance/scope-lattice.mjs",
+          "allowed": true,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "gate_dependency_matrix",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/gate-dependency-matrix.json"
+      ],
+      "status": "ARTIFACT_NOT_PRESENT",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/gate-dependency-matrix.json",
+          "allowed": false,
+          "forbidden": false,
+          "exists": false
+        }
+      ]
+    },
+    {
+      "capability": "b2_code_finding_authoritative_registry",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-findings.yaml"
+      ],
+      "status": "MISSING_FROM_ALLOWLIST",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-findings.yaml",
+          "allowed": false,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "b2_code_reviewer_record",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/code-review.json"
+      ],
+      "status": "SATISFIED",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/code-review.json",
+          "allowed": true,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "pre_review_manifest_and_freeze",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-input-manifest.json",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-freeze.json"
+      ],
+      "status": "MISSING_FROM_ALLOWLIST",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-input-manifest.json",
+          "allowed": false,
+          "forbidden": false,
+          "exists": true
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-freeze.json",
+          "allowed": false,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "security_exact_allowlist",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-read-scope.json"
+      ],
+      "status": "MISSING_FROM_ALLOWLIST",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-read-scope.json",
+          "allowed": false,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "required_chain_node_verification",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/required-chain-node-verification.json"
+      ],
+      "status": "MISSING_FROM_ALLOWLIST",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/required-chain-node-verification.json",
+          "allowed": false,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "fresh_root_preflight",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/fresh-root-preflight.json"
+      ],
+      "status": "MISSING_FROM_ALLOWLIST",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/fresh-root-preflight.json",
+          "allowed": false,
+          "forbidden": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "capability": "stale_capacity_preflight_reference",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-capacity-preflight.json"
+      ],
+      "status": "ALLOWED_BUT_NOT_PRESENT",
+      "path_checks": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-capacity-preflight.json",
+          "allowed": true,
+          "forbidden": false,
+          "exists": false
+        }
+      ]
+    }
+  ],
+  "missing_required_paths": [
+    ".codex/governance/governance-commit-manifest.yaml",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/gate-dependency-matrix.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-findings.yaml",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-input-manifest.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-freeze.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-read-scope.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/required-chain-node-verification.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/fresh-root-preflight.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-capacity-preflight.json"
+  ],
+  "unexpected_forbidden_paths": [],
+  "unresolved_paths": [
+    ".codex/governance/governance-commit-manifest.yaml",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/gate-dependency-matrix.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-findings.yaml",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-input-manifest.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-freeze.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-read-scope.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/required-chain-node-verification.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/fresh-root-preflight.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-capacity-preflight.json"
+  ],
+  "future_output_dependencies": [],
+  "hash_mismatches": [],
+  "glob_or_directory_expansion": {
+    "allowed_glob_count": 0,
+    "directory_suffix_count": 0,
+    "directory_globs_allowed": false,
+    "result": "PASS"
+  },
+  "path_resolution": {
+    "repository_relative_forward_slash_paths": true,
+    "windows_absolute_paths": 0,
+    "backslash_paths": 0,
+    "case_or_separator_mismatches_observed": 0,
+    "stale_r11_package_paths": 0,
+    "stale_b3_task_paths": 0,
+    "b5_root_resolution_error": false
+  },
+  "non_existing_allowed_paths": [
+    ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-capacity-preflight.json"
+  ],
+  "scope_conflicts": [
+    "The allowed path reviewer-capacity-preflight.json does not exist; B5 created fresh-root-preflight.json instead and did not allow it.",
+    "The binding-chain summary is allowed, but its candidate manifest, candidate record, and scanner report nodes are not allowed for direct recomputation.",
+    "The pre-review manifest and freeze exist but are not allowed, so the Reviewer cannot verify the input freeze or its own scope-file binding.",
+    "The B5 Security exact allowlist and required-chain verification exist but are not allowed, although Code review requirements include exact allowlist and binding verification.",
+    "The formal Code profile is read-only and forbids file modification, while the task-local assignment requires four Reviewer-written output files.",
+    "The B5 pre-review task-intent, classification, and blueprint were frozen without validation against their registered production schemas."
+  ],
+  "registered_task_artifact_schema_checks": [
+    {
+      "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/task-intent.yaml",
+      "schema_path": ".codex/blueprints/schemas/task-intent.schema.json",
+      "issue_count": 5,
+      "issues": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/task-intent.yaml: missing required property business_reason",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/task-intent.yaml: missing required property acceptance_criteria",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/task-intent.yaml: missing required property requested_by",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/task-intent.yaml: unknown property review_model",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/task-intent.yaml.status: value is not in the allowed enum"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/classification.yaml",
+      "schema_path": ".codex/blueprints/schemas/classification.schema.json",
+      "issue_count": 4,
+      "issues": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/classification.yaml: missing required property human_approval",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/classification.yaml: missing required property stop_conditions",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/classification.yaml: missing required property classified_by",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/classification.yaml.classification_status: value is not in the allowed enum"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml",
+      "schema_path": ".codex/blueprints/schemas/blueprint.schema.json",
+      "issue_count": 12,
+      "issues": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml: missing required property agent_assignments",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml: missing required property applicable_rules",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml: missing required property candidate_rules",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml: missing required property required_agents",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml: missing required property evidence_required",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml: missing required property rollback_restore",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml: missing required property stop_conditions",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml.scope: missing required property product_changes_allowed",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml.scope: missing required property database_operations_allowed",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml.human_approval: missing required property approver_roles",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml.human_approval: unknown property create_only_after_all_reviews_and_qa",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/blueprint.yaml.human_approval: unknown property initial_status"
+      ],
+      "result": "FAIL"
+    }
+  ],
+  "result": "UNSATISFIABLE"
+}

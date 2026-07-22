@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-MASTER-BATCH-2D-A11-QA-FAILURE-TRIAGE",
+  "recommended_next_task": "GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3",
+  "remediation_required": true,
+  "candidate_change_required": false,
+  "allowed_remediation_scope": [
+    "Create a new R3 QA execution package and task-local output root.",
+    "Correct the QA-PROD-INTEGRATION case-count binding after explicitly deciding whether 48 or 49 is authoritative.",
+    "Replace direct execution of non-idempotent historical REM10 and R11 writers with immutable-input, task-local-output wrappers or equivalent read-only compatibility checks.",
+    "Make command-result capture sequential or lifecycle-aware so long-running suites return their final exit code and raw report.",
+    "Re-run only the remediated fresh-QA manifest after package verification."
+  ],
+  "forbidden_remediation_scope": [
+    "Modify the frozen 108-file Candidate.",
+    "Modify existing test files in place.",
+    "Modify existing Reviewer packages, Reviewer payloads or transport attestations.",
+    "Overwrite or delete historical REM10 or R11 evidence.",
+    "Change Reviewer outcomes.",
+    "Advance A11, Human Exact-Manifest, Bootstrap Human Commit or Migration 320 gates without a new complete deterministic QA result.",
+    "Use Git, network, services, databases, seeds or migrations."
+  ],
+  "decision_note": "If a human determines that a new forty-ninth production-integration case is mandatory, that would be a new Candidate and would invalidate Reviewer-payload reuse. The no-Candidate-change branch therefore treats the current 48/48 suite as the frozen subject and remediates the execution binding only.",
+  "result": "QA_HARNESS_AND_HISTORICAL_CONTRACT_ONLY"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "risk": {"level": "L3", "reasons": ["Authoritative validation and Candidate Gate change."]},
+  "authority_order": ["versioned authoritative manifest", "registered evidence schema registry", "referenced-evidence resolver", "production schema result", "Gate eligibility", "derived freeze/record/report attestations"],
+  "write_scope_source": "implementation-change-manifest.json",
+  "implementation_sequence": ["contract-first artifacts", "resolver and registry loader", "validateTask and Gate wiring", "generator bindings", "24 production cases", "eight mutations", "regressions", "formal generator re-baseline"],
+  "review_execution": "DEFERRED_TO_A11",
+  "candidate_rules": [],
+  "applicable_rules": ["GOV-SCOPE-001", "EVD-HASH-001"],
+  "stop_conditions": ["Any additional candidate file is required", "Any authority cycle", "Any fail-open compatibility fallback", "Case 4 remains GO", "Any mutant survives", "Any unexplained regression"]
+}

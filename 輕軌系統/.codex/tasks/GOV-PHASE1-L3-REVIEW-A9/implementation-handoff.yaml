@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A9",
+  "producer": "codex-root-review-orchestrator",
+  "actor_role": "architect",
+  "agent_session_ref": "A9-ROOT-SESSION-66207984-BF64-4406-B0FA-62A86BADA6BA",
+  "started_at": "2026-07-20T00:16:18+08:00",
+  "changed_files": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/**"],
+  "commands": ["node .codex/tasks/GOV-PHASE1-L3-REVIEW-A9/capture-review-baseline.mjs review-baseline-before.json", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A9/verify-a9-candidate.mjs", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A9/capture-review-baseline.mjs review-baseline-after.json", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A9/compare-review-baselines.mjs", "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN --target-gate migration-320-execution", "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-L3-REVIEW-A9 --target-gate bootstrap-candidate-review"],
+  "evidence_refs": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/review-baseline-before.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/code-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/security-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/railway-domain-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/baseline-comparison.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/migration-320-integrity.json"],
+  "unverified": ["Fresh completion of the 31-mutant aggregate suite.", "A clean-context replacement Security Review."],
+  "residual_risks": ["A9 has two formal Reviewer blockers and Candidate Review remains NO-GO.", "Bootstrap workspace evidence remains INTERNAL_CONSISTENCY_ONLY."],
+  "next_role": "human-governance-owner"
+}

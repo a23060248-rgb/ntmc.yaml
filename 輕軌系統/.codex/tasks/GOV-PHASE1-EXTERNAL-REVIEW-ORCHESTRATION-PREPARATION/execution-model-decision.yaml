@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "decision_id": "GOV-EXTERNAL-REVIEW-MODEL-001",
+  "retired_model": {
+    "name": "IN_ROOT_SUBAGENT_REVIEW",
+    "status": "RETIRED_ENVIRONMENT_INCOMPATIBLE",
+    "reasons": [
+      "repeated_clean_root_precheck_failure",
+      "persistent_interrupted_child_thread",
+      "unobservable_lifetime_child_allocation_capacity",
+      "reviewer_dispatch_protocol_failure"
+    ]
+  },
+  "clean_root_retry_model": {
+    "status": "RETIRED_NO_FURTHER_RETRY"
+  },
+  "replacement_model": {
+    "name": "EXTERNAL_TOP_LEVEL_REVIEW",
+    "status": "HUMAN_APPROVED",
+    "reviewer_count": 4,
+    "aggregator_count": 1,
+    "reviewer_child_agents_allowed": false,
+    "aggregator_child_agents_allowed": false
+  },
+  "superseded_task": {
+    "task_id": "GOV-PHASE1-SESSION-B6R2-COMPATIBILITY-REVIEW",
+    "status": "SUPERSEDED / MUST NOT START"
+  },
+  "prohibited_future_retries": [
+    "B6R3",
+    "B6R4",
+    "other clean-root retries"
+  ],
+  "candidate_change_required": false,
+  "governance_contract_change_required": false,
+  "assurance_boundary": [
+    "reviewer_independence_is_procedural",
+    "manual_transport_is_not_cryptographic_identity_proof",
+    "payload_integrity_is_sha256_and_canonicalization_bound"
+  ]
+}

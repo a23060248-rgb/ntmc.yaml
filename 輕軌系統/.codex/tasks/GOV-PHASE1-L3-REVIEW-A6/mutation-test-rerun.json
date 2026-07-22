@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "production_entrypoint": ".codex/tests/run-bootstrap-production-integration.mjs -> validateTask",
+  "exit_code": 0,
+  "total": 10,
+  "killed": 10,
+  "survived": 0,
+  "results": [
+    {
+      "mutation_id": "MUT-01-ROLE-OPERAND-BYPASS",
+      "expected_failed_case": "PROD-02",
+      "targets": [
+        ".codex/scripts/lib/governance/scope-lattice.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "able_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":1,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[\"SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md\"],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-02-INTERSECTION-TO-UNION",
+      "expected_failed_case": "PROD-03",
+      "targets": [
+        ".codex/scripts/lib/governance/scope-lattice.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "able_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":1,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[\"SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md\"],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-03-REQUIREMENT-FIRST-MATCH",
+      "expected_failed_case": "PROD-04",
+      "targets": [
+        ".codex/scripts/lib/governance/identity-resolver.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "able_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":1,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[\"SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md\"],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-04-SELF-DECLARED-PRODUCER",
+      "expected_failed_case": "PROD-05",
+      "targets": [
+        ".codex/scripts/lib/governance/typed-proof.mjs",
+        ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "able_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":1,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[\"SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md\"],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-05-SKIP-UNICODE",
+      "expected_failed_case": "PROD-20",
+      "targets": [
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "plicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":2,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-06-SKIP-BASIC",
+      "expected_failed_case": "PROD-08",
+      "targets": [
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "plicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":2,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-07-SKIP-QUOTED-COOKIE",
+      "expected_failed_case": "PROD-09",
+      "targets": [
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "able_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":1,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[\"SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md\"],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-08-SKIP-URLSAFE-ENTROPY",
+      "expected_failed_case": "PROD-10",
+      "targets": [
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "able_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":1,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[\"SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md\"],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-09-GENERIC-META-BUSINESS",
+      "expected_failed_case": "PROD-12",
+      "targets": [
+        ".codex/scripts/lib/governance/rule-class.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "able_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":1,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[\"SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md\"],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-10-RULE-FIRST-MATCH",
+      "expected_failed_case": "PROD-13",
+      "targets": [
+        ".codex/scripts/lib/governance/rule-class.mjs",
+        ".codex/scripts/validate-task.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "able_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[],\"gate_reasons\":[]},{\"case_id\":\"PROD-20\",\"invariant\":\"JSON Unicode canonicalization reaches the production Basic detector.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1,\"finding_class\":\"BASIC_AUTH\"},\"exit_code\":1,\"calculated_gate\":\"NO-GO\",\"gate_results\":{\"bootstrap_candidate_review\":\"NO-GO\",\"bootstrap_human_commit\":\"NO-GO\",\"steady_state_governance_preparation\":\"NO-GO\",\"steady_state_governance_execution\":\"NO-GO\",\"migration_320_execution\":\"NO-GO\"},\"actor_role\":\"qa-engineer\",\"actor_binding\":\"explicit\",\"proof_assurance\":\"INTERNAL_CONSISTENCY_ONLY\",\"resolved_applicable_rules\":[{\"rule_id\":\"GOV-SCOPE-001\",\"rule_class\":\"governance_control\",\"authority_effect\":\"procedural_governance\"},{\"rule_id\":\"EVD-HASH-001\",\"rule_class\":\"technical_constraint\",\"authority_effect\":\"technical_constraint\"}],\"errors\":[\"SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md\"],\"gate_reasons\":[\"L3 final commit approval is not approved.\"]}]}\n\n"
+    }
+  ]
+}

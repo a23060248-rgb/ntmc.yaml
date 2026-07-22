@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/a11-r1/aggregator-input.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reviewer_payloads",
+    "manual_transport_attestations",
+    "package_bindings",
+    "candidate_binding",
+    "fresh_qa_command_manifest"
+  ],
+  "properties": {
+    "reviewer_payloads": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "manual_transport_attestations": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "https://ntmc.local/codex/a11-r1/manual-transport-attestation.schema.json",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reviewer_role",
+          "source_thread_id",
+          "payload_sha256",
+          "payload_modified",
+          "transported_by_human"
+        ],
+        "properties": {
+          "reviewer_role": {
+            "enum": [
+              "EXTERNAL_CODE_REVIEWER",
+              "EXTERNAL_SECURITY_REVIEWER",
+              "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+              "EXTERNAL_COMPATIBILITY_REVIEWER"
+            ]
+          },
+          "source_thread_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "payload_sha256": {
+            "type": "string",
+            "pattern": "^[A-F0-9]{64}$"
+          },
+          "payload_modified": {
+            "const": false
+          },
+          "transported_by_human": {
+            "const": true
+          }
+        }
+      }
+    },
+    "package_bindings": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "candidate_binding": {
+      "const": {
+        "candidate_file_count": 108,
+        "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+        "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+        "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+        "scanner_contract_version": 5,
+        "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+      }
+    },
+    "fresh_qa_command_manifest": {
+      "type": "object"
+    }
+  }
+}

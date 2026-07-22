@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "title": "Phase 1.5 Independent L3 Review Session A5",
+  "task_type": "review",
+  "objective": "Independently review only the declared Phase 1.5 minimum trustworthy governance core and determine the Candidate Governance Review Gate without changing the candidate.",
+  "business_reason": "The human governance owner authorized A5 after Remediation 5 produced an exact 97-file candidate and stopped before independent review.",
+  "scope": {
+    "include": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/agents/**",
+      ".codex/blueprints/**",
+      ".codex/checklists/**",
+      ".codex/domain/**",
+      ".codex/environment/**",
+      ".codex/governance/**",
+      ".codex/meta-rules/**",
+      ".codex/scripts/**",
+      ".codex/tests/**",
+      ".codex/templates/**",
+      ".codex/workflows/**",
+      ".codex/tasks/GOV-M320-DRYRUN/**",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/**",
+      ".codex/tasks/GOV-PHASE1-A4-FINDING-CONSOLIDATION/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-5/**",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/**"
+    ],
+    "exclude": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Three fresh independent formal Reviewer outcomes are preserved without root rewriting.",
+    "The exact 97-file candidate and workspace proof are identical before and after review.",
+    "All twelve A4 findings receive an evidence-backed closure status.",
+    "Frozen history, Migration 320 Task artifacts and five external evidence hashes remain unchanged.",
+    "Candidate Review Gate is recomputed separately from preparation, execution and Migration 320 gates.",
+    "A5 stops before Session B or any Git mutation."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Session A5 authorized to start; Session B and Git mutation remain prohibited"
+}

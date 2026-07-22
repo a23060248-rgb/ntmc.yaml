@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "assignment_id": "A11-CODE-REVIEW-ASSIGNMENT-20260721-01",
+  "review_type": "code_review",
+  "owned_findings": [
+    "Referenced-evidence resolver correctness",
+    "validateTask and Gate Router fail-closed behavior",
+    "Candidate generator and binding integrity",
+    "Production and mutation test adequacy"
+  ],
+  "excluded_findings": [
+    "Security risk acceptance",
+    "Railway business-rule approval",
+    "Historical compatibility final aggregation",
+    "Finding closure"
+  ],
+  "closure_authority": "NONE",
+  "result_rule": "Report only findings owned by this role; do not close pre-existing findings."
+}

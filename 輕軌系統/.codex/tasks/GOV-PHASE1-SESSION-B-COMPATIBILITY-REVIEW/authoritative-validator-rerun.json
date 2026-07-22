@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "command": "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW --target-gate bootstrap-candidate-review --write-graph",
+  "validator_result": {
+    "structural": "VALID",
+    "calculated_gate": "NO-GO",
+    "target_gate": "bootstrap_candidate_review:NO-GO",
+    "reported_exit": 2,
+    "proof_assurance": "INTERNAL_CONSISTENCY_ONLY"
+  },
+  "gate_map": {
+    "bootstrap_candidate_review": "NO-GO",
+    "bootstrap_human_commit": "NO-GO",
+    "steady_state_preparation": "DISABLED",
+    "steady_state_execution": "DISABLED",
+    "migration_320_execution": "NO-GO"
+  },
+  "bootstrap_candidate_review_reason_codes": [
+    "Evidence ART-SB-SECURITY is FAIL.",
+    "Legacy scanner evidence cannot satisfy the bootstrap candidate Gate.",
+    "Required evidence ART-SB-SECURITY is not PASS.",
+    "Top-level unresolved candidate blockers remain recorded.",
+    "security review returned BLOCKER."
+  ],
+  "security_finding_refs": [
+    "SB-SEC-EVIDENCE-CONTRACT-VERSION-001",
+    "SB-SEC-ALLOWLIST-EVIDENCE-GAP-001"
+  ],
+  "migration_320_domain_decision": "NEEDS_HUMAN_DECISION",
+  "human_exact_manifest_approved": false,
+  "first_commit_authorization_present": false,
+  "candidate_source_modified": false,
+  "reviewer_outcomes_rewritten": false,
+  "result": "PASS_WITH_EXPECTED_NO_GO"
+}

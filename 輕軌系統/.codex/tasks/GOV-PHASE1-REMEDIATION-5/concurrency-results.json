@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "command": "node .codex/tests/run-governance-fixtures-concurrency.mjs",
+  "reports_valid": true,
+  "unique_run_roots": true,
+  "caller_ids_ignored": true,
+  "unique_case_roots": true,
+  "case_roots_owned": true,
+  "adversarial_reports_rejected": true,
+  "adversarial_results": [
+    {
+      "adversary": "TRUNCATED_CHILD_REPORT",
+      "violations": [
+        "FIXTURE_REPORT case count mismatch.",
+        "FIXTURE_REPORT missing case CASE-50.",
+        "FIXTURE_REPORT required hash invalid for CASE-50."
+      ]
+    },
+    {
+      "adversary": "DUPLICATE_CASE_ID",
+      "violations": [
+        "FIXTURE_REPORT duplicate case ID.",
+        "FIXTURE_REPORT missing case CASE-02."
+      ]
+    },
+    {
+      "adversary": "FORGED_PASS_WITHOUT_PROVENANCE",
+      "violations": [
+        "FIXTURE_REPORT case CASE-01 lacks invariant or production entrypoint provenance."
+      ]
+    },
+    {
+      "adversary": "TAMPERED_SUITE_HASH",
+      "violations": [
+        "FIXTURE_REPORT case manifest hash mismatch."
+      ]
+    }
+  ],
+  "suite_id": "PHASE15-MINIMUM-CORE",
+  "suite_version": 5,
+  "case_manifest_sha256": "7356E94EDD6C4EE682CB5A3EACA98AE93F12773C8D5E23C710CC7DF258452E2F",
+  "child_count": 2,
+  "cases_per_child": [
+    50,
+    50
+  ],
+  "cleanup_results": [
+    "PASS",
+    "PASS"
+  ],
+  "result": "PASS"
+}

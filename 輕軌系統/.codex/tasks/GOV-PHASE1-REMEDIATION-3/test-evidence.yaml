@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-3",
+  "evidence_mode": "governance-remediation-local-validation",
+  "commands": ["node --check for eight governance scripts", "node .codex/tests/run-governance-fixtures.mjs", "node .codex/tests/run-governance-fixtures-concurrency.mjs", "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN", "SHA256 verification for frozen Review snapshots and five Migration 320 external references"],
+  "checks": [
+    {"check_id": "REM3-FIXTURE-RESULT", "requirement_id": "REM3-FIXTURE-RESULT", "result": "PASS", "note": "The fresh serial fixture suite passed 50 of 50 and cleaned only its owned run root."},
+    {"check_id": "REM3-CONCURRENCY", "requirement_id": "REM3-CONCURRENCY", "result": "PASS", "note": "Two concurrent 50-case child runs passed structured root, ownership, hash, and cleanup assertions."},
+    {"check_id": "REM3-M320-GATE", "requirement_id": "REM3-M320-GATE", "result": "PASS", "note": "Migration 320 remains structural VALID, calculated NO-GO, exit 2 with unchanged external evidence hashes."},
+    {"check_id": "REM3-SYNTAX", "requirement_id": "REM3-SYNTAX", "result": "PASS", "note": "Eight governance scripts passed Node syntax checks."},
+    {"check_id": "REM3-POST-REVIEW", "requirement_id": "REM3-POST-REVIEW", "result": "NOT_VERIFIED", "note": "No post-remediation independent Session A3 was authorized or run; Session A2 BLOCKER outcomes remain unchanged."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": ["This is implementation evidence, not an independent Review or governance commit approval.", "No service, product test, database, seed, migration, or external evidence operation was run."]
+}

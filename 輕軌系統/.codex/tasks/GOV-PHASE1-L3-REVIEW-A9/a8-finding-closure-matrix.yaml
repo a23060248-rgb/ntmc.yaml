@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A9",
+  "closure_owner": "railway-domain-reviewer",
+  "reviewer_run_id": "A9-DOMAIN-RUN-697099E4-0A0F-4CEC-BBFF-5D58B3A82710",
+  "entries": [
+    {
+      "finding_id": "A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001",
+      "original_severity": "BLOCKER",
+      "closure_status": "CLOSED",
+      "evidence": [".codex/scripts/lib/governance/reviewer-identity-binding.mjs:50-107", ".codex/scripts/validate-task.mjs:402-439", ".codex/blueprints/schemas/railway-domain-review.schema.json:7-29", ".codex/agents/railway-domain-reviewer.toml:1-11", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/blueprint.yaml", "Fresh PROD-REVIEWER-01 through PROD-REVIEWER-14: 14/14 PASS"],
+      "production_exploit_retest": {"mutation":"Change only formal Railway reviewer to fixture-implementer.","expected":"REJECTED","actual":"REJECTED","validator_exit":1,"error_classes":["REVIEWER_BINDING","REVIEW_ROLE"],"result":"PASS"},
+      "mutation_oracle": {"filed_r9_reviewer_binding_mutants":8,"filed_r9_killed":8,"filed_r9_survived":0,"fresh_aggregate_31_mutant_run_completed":false,"fresh_focused_production_negative_cases":14,"fresh_focused_production_negative_cases_passed":14},
+      "remaining_risk": "Binding proves consistency among mutable metadata, profile bytes, manifest and production validation; it cannot prove unforgeable runtime identity.",
+      "blocks_bootstrap_candidate_gate": false
+    },
+    {
+      "finding_id": "A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001",
+      "original_severity": "BLOCKER",
+      "closure_status": "CLOSED",
+      "evidence": [".codex/tests/run-governance-fixtures.mjs:16-29", ".codex/scripts/lib/governance/governance-schema-loader.mjs:26-58", ".codex/scripts/lib/governance/fixture-schema-loader-contract.mjs:7-20", ".codex/tests/run-official-schema-loader-integration.mjs:17-59", ".codex/tests/run-official-schema-loader-mutations.mjs:9-26", "Fresh fixtures 68/68", "Fresh loader integration 11/11", "Fresh loader mutations 6/6 killed"],
+      "production_exploit_retest": {"mutation":"Replace official Railway schema with malformed JSON in an isolated temp copy.","expected":"SUITE_STARTUP_INVALID_EXIT_1_WITHOUT_68_OF_68_PASS","actual":"SUITE_STARTUP_INVALID_EXIT_1_WITHOUT_FIXTURE_REPORT","validator_exit":1,"reported_68_of_68_pass":false,"candidate_modified":false,"result":"PASS"},
+      "mutation_oracle": {"total":6,"killed":6,"survived":0,"mutation_ids":["LOADER-MUT-01-ALTERNATE-IMPORT","LOADER-MUT-02-DISABLE-MANIFEST-BINDING","LOADER-MUT-03-FALLBACK-SCHEMA","LOADER-MUT-04-SKIP-TYPED-VALIDATION","LOADER-MUT-05-SKIP-SET-HASH","LOADER-MUT-06-FALSE-EXECUTION-REPORT"]},
+      "remaining_risk": "The official loader and source-contract oracle remain mutable bootstrap code without an external trust anchor.",
+      "blocks_bootstrap_candidate_gate": false
+    }
+  ],
+  "closure_counts": {"CLOSED":2,"NOT_CLOSED":0},
+  "all_a8_domain_findings_closed": true,
+  "aggregate_a9_gate_note": "The Railway closure disposition does not override independent Code or Security Reviewer blockers."
+}

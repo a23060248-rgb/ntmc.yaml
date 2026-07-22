@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "level": "L3",
+  "reasons": ["The Task owns formal closure disposition for unresolved Security Reviewer blockers.", "It determines compatibility-gate eligibility before a possible Human Exact-Manifest decision.", "It crosses code, security, Railway Domain, compatibility and deterministic evidence controls."],
+  "triggers": ["unresolved Reviewer blocker", "bootstrap compatibility gate", "security integrity", "domain-rule separation", "backward compatibility", "formal data provenance"],
+  "execution_categories": ["read-only-review", "bootstrap-candidate", "governance-validation", "governance-fixture", "security", "domain-rule", "backward-compatibility"],
+  "required_agents": ["architect", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer", "qa-engineer"],
+  "required_reviews": ["code", "security", "railway-domain", "compatibility", "qa-readback"],
+  "parallel_allowed": true,
+  "evidence_required": ["B2-CANDIDATE", "B2-FREEZE", "B2-SECURITY-CHAIN", "B2-DETERMINISTIC", "B2-REVIEWS", "B2-CLOSURE", "B2-BASELINE", "B2-M320", "B2-GATE"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["Any candidate, pre-review input, A10, Session B, Remediation 10, history or Migration 320 byte changes.", "Any Reviewer reads outside its approved scope or writes workspace files.", "Any Reviewer identity, assignment, run or session is missing, duplicated or reused.", "Any deterministic suite is incomplete, fails, times out or contains unknown/extra mutants.", "Any Session B finding remains NOT_CLOSED or any formal Reviewer returns BLOCKER.", "Any Human Commit, Git, steady-state or Migration 320 authority is asserted."],
+  "scope": {"include": ["AGENTS.md", ".agents/**", ".codex/**"], "exclude": [".env*", "collab/**", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "parent directories", "sibling directories"]},
+  "classified_by": "root-orchestrator-using-task-classification-skill",
+  "classification_status": "human-approved-scope"
+}

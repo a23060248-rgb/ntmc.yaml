@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-L3-REVIEW-A6",
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "risk": {"level":"L3","reasons":["Fresh formal review of unresolved A5 blockers and the Bootstrap Candidate Review Gate."]},
+  "scope": {
+    "include": ["Exact 81-file bootstrap candidate", "Remediation 6 evidence", "A5 formal findings", "frozen governance history", "Migration 320 evidence-only artifacts"],
+    "exclude": ["product code", "database and migration operations", "Git mutation", "Session B", "commit and steady-state execution"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"],
+    "write": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/**"]
+  },
+  "agent_assignments": [
+    {"role":"architect","allowed_read_paths":["AGENTS.md",".agents/**",".codex/**","docs/migration-320-*","docs/cross-module-closure-report.md","docs/go-no-go-report.md"],"allowed_write_paths":[".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/**"]},
+    {"role":"code-reviewer","allowed_read_paths":["AGENTS.md",".agents/**",".codex/**"],"allowed_write_paths":[]},
+    {"role":"security-reviewer","allowed_read_paths":["AGENTS.md",".agents/**",".codex/**"],"allowed_write_paths":[]},
+    {"role":"railway-domain-reviewer","allowed_read_paths":["AGENTS.md",".agents/**",".codex/**","docs/migration-320-*","docs/cross-module-closure-report.md","docs/go-no-go-report.md"],"allowed_write_paths":[]}
+  ],
+  "applicable_rules": ["GOV-SCOPE-001", "REV-INDEP-001", "REV-L3-001", "EVD-HASH-001", "SEC-SECRET-001"],
+  "candidate_rules": [],
+  "required_agents": ["architect", "code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "execution": {
+    "parallel_groups": [["code-reviewer", "security-reviewer", "railway-domain-reviewer"]],
+    "sequential_steps": ["Capture before baseline.", "Run three independent read-only reviews and root authoritative reruns.", "Capture after baseline.", "Mechanically aggregate outcomes and stop before Session B."]
+  },
+  "evidence_required": ["ART-A6-CODE", "ART-A6-SECURITY", "ART-A6-DOMAIN", "ART-A6-CLOSURE", "ART-A6-BASELINE", "ART-A6-RERUN", "ART-A6-M320"],
+  "rollback_restore": {"required":false,"evidence_or_reason":"Not applicable: A6 is read-only for reviewed sources and writes only its own governance review artifacts."},
+  "human_approval": {"required":true,"approver_roles":["human-governance-owner"]},
+  "stop_conditions": ["A6 artifacts only may be written.", "Reviewer outcomes remain immutable after submission.", "Session B and Git mutation remain unauthorized."]
+}

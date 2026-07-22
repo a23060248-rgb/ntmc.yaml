@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "authoritative_function": ".codex/scripts/lib/governance/gate-router.mjs#computeAuthoritativeGateMap",
+  "dependency_matrix_ref": ".codex/governance/gate-dependency-matrix.yaml",
+  "authoritative_input_keys": ["candidate_gate_blockers", "human_commit", "steady_state_anchor", "migration_320_gate_blockers"],
+  "candidate_input_excludes": ["calculated_gate", "overall_gate", "candidate_gate", "eligible_to_start_session_b", "final_summary", "final_commit_approval", "session_b_outcome", "steady_state_trust_anchor", "migration_320_domain_decision"],
+  "output_only_projection_fields": ["calculated_gate", "overall_gate", "bootstrap_candidate_review_gate", "eligible_to_start_session_b", "bootstrap_human_commit_gate", "steady_state_preparation_gate", "steady_state_execution_gate", "migration_320_execution_gate"],
+  "projection_mismatch_behavior": {"structural": "INVALID", "exit": 1, "authoritative_gate_map_replaced": false},
+  "legal_combination_proved": {"bootstrap_candidate_review": "GO", "bootstrap_human_commit": "NO-GO", "steady_state_preparation": "DISABLED", "steady_state_execution": "DISABLED", "migration_320_execution": "NO-GO"},
+  "production_integration": {"total": 34, "passed": 34, "failed": 0, "gate_cases": ["PROD-GATE-01", "PROD-GATE-02", "PROD-GATE-03", "PROD-GATE-04", "PROD-GATE-05", "PROD-GATE-06", "PROD-GATE-07", "PROD-GATE-08"]},
+  "gate_mutations": {"total": 8, "killed": 8, "survived": 0, "mutation_ids": ["MUT-GATE-01-CANDIDATE-REQUIRES-FINAL", "MUT-GATE-02-CANDIDATE-REQUIRES-SESSION-B", "MUT-GATE-03-CANDIDATE-REQUIRES-STEADY-ANCHOR", "MUT-GATE-04-M320-INTO-CANDIDATE", "MUT-GATE-05-CALCULATED-GATE-AS-INPUT", "MUT-GATE-06-ELIGIBILITY-AS-INPUT", "MUT-GATE-07-MISSING-ANCHOR-ENABLES-PREPARATION", "MUT-GATE-08-MISSING-ANCHOR-ENABLES-EXECUTION"]},
+  "filed_candidate_status": "NO-GO",
+  "reason": "A8 is not started and no fresh independent formal Reviewer outcome exists."
+}

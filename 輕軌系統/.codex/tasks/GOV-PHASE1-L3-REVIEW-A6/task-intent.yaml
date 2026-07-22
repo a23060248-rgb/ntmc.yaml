@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "title": "Phase 1.6 Bootstrap Governance Core Independent Review Session A6",
+  "task_type": "review",
+  "objective": "Independently determine whether Remediation 6 closes the seven A5 findings under the approved bootstrap contract and whether the exact candidate is eligible for a separately authorized Session B.",
+  "business_reason": "Green implementer evidence cannot close formal A5 findings without a fresh independent Reviewer set reproducing the production-path invariants and exploit families.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Three fresh formal independent Reviewers issue unmodified outcomes with unique run and session identities.",
+    "The exact 81-file candidate, bootstrap record, scanner report, frozen history, Remediation 6, and Migration 320 baselines remain unchanged.",
+    "Every A5 finding is independently classified as CLOSED, REPLACED_BY_BOOTSTRAP_BOUNDARY, or NOT_CLOSED with reproducible evidence.",
+    "The authoritative fixture, production integration, mutation, concurrency, scanner, Rule-class, lifecycle, and Migration 320 checks are rerun.",
+    "The root Task derives the Bootstrap Candidate Review Gate only from Reviewer outcomes and verified artifacts, without changing any outcome.",
+    "Session B and every commit, steady-state, and Migration 320 execution Gate remain unstarted and NO-GO."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Session A6 start and its exact read-only independent review scope were explicitly authorized on 2026-07-19; Session B and all Git mutation remain unauthorized."
+}

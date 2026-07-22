@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-M320-DRYRUN",
+  "title": "Migration 320 L3 read-only governance dry run",
+  "task_type": "migration",
+  "objective": "Replay existing Migration 320 evidence through the Phase 1 governance artifacts without changing product code, migration files, or any database.",
+  "business_reason": "Verify that the governance system preserves blockers and traceability instead of manufacturing a GO decision.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-M320-DRYRUN/**",
+      "docs/migration-320-compatibility-report.md",
+      "docs/migration-320-before-after.json",
+      "docs/migration-320-data-anomalies.csv",
+      "docs/cross-module-closure-report.md",
+      "docs/go-no-go-report.md"
+    ],
+    "exclude": [".env*", "sibling directories", "frontend/**", "erp-api/**", "db-design/**", "formal database", "migration execution"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "acceptance_criteria": [
+    "All five existing evidence files match their recorded SHA256.",
+    "The existing NO-GO decision and all three blocking gates remain unchanged.",
+    "No product test, API, seed, migration, database connection, or product write occurs.",
+    "The absence of confirmed Domain Rules produces NEEDS_HUMAN_DECISION.",
+    "traceability.yaml deterministically projects one current task-graph.json."
+  ],
+  "requested_by": "human approval 2026-07-17"
+}

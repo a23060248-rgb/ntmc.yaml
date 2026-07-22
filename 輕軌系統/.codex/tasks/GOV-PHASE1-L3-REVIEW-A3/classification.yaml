@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A3",
+  "level": "L3",
+  "reasons": ["Formal independent review of authoritative governance gates and security controls.", "The candidate remains NO-GO until Session B and final human approval even if the A3 Reviewer Set passes."],
+  "triggers": ["governance", "security", "railway domain authority"],
+  "required_agents": ["code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain"],
+  "parallel_allowed": true,
+  "evidence_required": ["ART-A3-BASELINE-BEFORE", "ART-A3-FIXTURE", "ART-A3-CONCURRENCY", "ART-A3-MANIFEST", "ART-A3-HISTORICAL", "ART-A3-BASELINE-AFTER"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["Any Reviewer returns BLOCKER or NEEDS_HUMAN_DECISION.", "Any candidate or historical hash changes.", "Any fixture, manifest, or integrity check fails.", "Any prohibited write or Git mutation occurs."],
+  "scope": {"include": ["AGENTS.md", ".agents/**", ".codex/agents/**", ".codex/blueprints/**", ".codex/checklists/**", ".codex/domain/**", ".codex/environment/**", ".codex/governance/**", ".codex/meta-rules/**", ".codex/scripts/**", ".codex/tests/**", ".codex/templates/**", ".codex/workflows/**", ".codex/tasks/GOV-M320-DRYRUN/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A/**", ".codex/tasks/GOV-PHASE1-REMEDIATION-2/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A2/**", ".codex/tasks/GOV-PHASE1-REMEDIATION-3/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/**"], "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "migrations/**", "sibling directories"]},
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

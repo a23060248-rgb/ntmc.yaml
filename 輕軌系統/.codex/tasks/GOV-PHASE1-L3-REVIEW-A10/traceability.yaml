@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "generated_at": "2026-07-20T01:30:00+08:00",
+  "nodes": [
+    {"id":"TASK:A10","type":"Task","label":"Independent Phase 1.9 review A10","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/task-intent.yaml"},
+    {"id":"REVIEW:CODE","type":"FormalReview","label":"Code Reviewer PASS","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/code-review.json"},
+    {"id":"REVIEW:SECURITY","type":"FormalReview","label":"Security Reviewer PASS","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review.json"},
+    {"id":"REVIEW:DOMAIN","type":"FormalReview","label":"Railway Domain Reviewer PASS","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/railway-domain-review.json"},
+    {"id":"EVIDENCE:CANDIDATE","type":"Evidence","label":"Exact 103-file candidate PASS","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/candidate-manifest-verification.json"},
+    {"id":"EVIDENCE:MUTATIONS","type":"Evidence","label":"Production mutations 31 of 31 killed","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/mutation-suite-completion-report.json"},
+    {"id":"EVIDENCE:BASELINE","type":"Evidence","label":"741 reviewed sources unchanged","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/baseline-comparison.json"},
+    {"id":"GATE:CANDIDATE","type":"Gate","label":"Bootstrap Candidate Review GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/review-findings.yaml"},
+    {"id":"GATE:M320","type":"Gate","label":"Migration 320 NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/migration-320-integrity.json"}
+  ],
+  "edges": [
+    {"from":"TASK:A10","relation":"collects","to":"REVIEW:CODE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/code-review.json"},
+    {"from":"TASK:A10","relation":"collects","to":"REVIEW:SECURITY","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review.json"},
+    {"from":"TASK:A10","relation":"collects","to":"REVIEW:DOMAIN","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/railway-domain-review.json"},
+    {"from":"EVIDENCE:CANDIDATE","relation":"supports","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/bootstrap-candidate-verification.json"},
+    {"from":"EVIDENCE:MUTATIONS","relation":"supports","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/code-review.json"},
+    {"from":"EVIDENCE:BASELINE","relation":"supports","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/baseline-comparison.json"},
+    {"from":"REVIEW:CODE","relation":"supports","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/code-review.json"},
+    {"from":"REVIEW:SECURITY","relation":"supports","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review.json"},
+    {"from":"REVIEW:DOMAIN","relation":"supports","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/railway-domain-review.json"},
+    {"from":"REVIEW:DOMAIN","relation":"keeps-external-decision-separate","to":"GATE:M320","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/railway-domain-review.json"}
+  ]
+}

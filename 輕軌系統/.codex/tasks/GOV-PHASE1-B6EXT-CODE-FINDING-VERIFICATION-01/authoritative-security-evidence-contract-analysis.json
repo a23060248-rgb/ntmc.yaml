@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "answers": [
+    {
+      "question": 1,
+      "answer": "The current production validator hard-codes <task-root>/security-evidence.yaml in requiredFiles and schemaFiles."
+    },
+    {
+      "question": 2,
+      "answer": "No machine-readable resolver maps every manifest/freeze/scope/binding-chain Security-evidence reference to the registered Security Evidence Schema. Referenced artifacts receive hash, text, binary and metadata checks only."
+    },
+    {
+      "question": 3,
+      "answer": "validate-task.mjs#validateTask is the authoritative Task and Candidate Gate entrypoint; governance-schema-loader.mjs supplies the registered schemas. b6-review-protocol.mjs is task-local review orchestration logic and does not validate Session B Security evidence."
+    },
+    {
+      "question": 4,
+      "answer": "No candidate production code directly loads session-b6-security-evidence.yaml through the registered schema. Candidate references to that exact path occur only in frozen input/read-scope records."
+    },
+    {
+      "question": 5,
+      "answer": "Yes. Hash and freeze checks prove byte identity/integrity only, not schema validity or semantic authority."
+    },
+    {
+      "question": 6,
+      "answer": "The production implementation guarantees registered-schema validation for the fixed task-root file. The reviewed candidate does not implement an equivalent guarantee for every referenced Security evidence artifact."
+    }
+  ],
+  "evidence": [
+    ".codex/scripts/validate-task.mjs",
+    ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+    ".codex/blueprints/schemas/security-evidence.schema.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-12/b6-review-protocol.mjs",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/pre-review-input-manifest.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/session-b6-security-evidence.yaml"
+  ],
+  "conclusion": "A required manifest-referenced Security evidence artifact can affect the Candidate Gate as valid evidence without registered-schema validation."
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A",
+  "session": "A",
+  "root_role": "dispatch, artifact collection, authoritative validator and integrity comparison only",
+  "reviews": [
+    {
+      "type": "code",
+      "reviewer_run_id": "CR-A-019F6BCD-0001",
+      "session_id": "CRS-A-019F6BCD-1001",
+      "formal": true,
+      "mode": "read-only",
+      "outcome": "BLOCKER",
+      "artifact": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A/code-review.json"
+    },
+    {
+      "type": "security",
+      "reviewer_run_id": "SR-A-019F6BCD-0002",
+      "session_id": "SRS-A-019F6BCD-1002",
+      "formal": true,
+      "mode": "read-only",
+      "outcome": "BLOCKER",
+      "artifact": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A/security-review.json"
+    },
+    {
+      "type": "railway-domain",
+      "reviewer_run_id": "DR-A-019F6BCD-0003",
+      "session_id": "DRS-A-019F6BCD-1003",
+      "formal": true,
+      "mode": "read-only",
+      "outcome": "PASS",
+      "artifact": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A/railway-domain-review.json"
+    }
+  ],
+  "fixture_result": "PASS 21/21 on authoritative serialized rerun",
+  "baseline_integrity": "PASS: 79/79 reviewed governance sources unchanged",
+  "calculated_gate": "NO-GO",
+  "governance_commit_blocked": true,
+  "blocking_reasons": [
+    "Formal Code Review outcome is BLOCKER.",
+    "Formal Security Review outcome is BLOCKER.",
+    "Security review found absolute local and dump paths in hash-bound governance evidence.",
+    "Security review found governance-wide content scanning coverage insufficient for a no-secret/no-local-path claim."
+  ],
+  "human_handoff": "Human decision and remediation are required. This Session does not declare Governance Commit GO.",
+  "session_b_started": false
+}

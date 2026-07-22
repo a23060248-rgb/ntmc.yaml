@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "review_context": "Session B3 terminated before Wave 1 because fresh Reviewer capacity was unavailable.",
+  "reviews": [
+    {
+      "type": "qa-readback",
+      "reviewer": "capacity-preflight",
+      "formal": false,
+      "outcome": "BLOCKER",
+      "finding_refs": [
+        "B3-PRECHECK-THREAD-CAPACITY-001"
+      ],
+      "conditions": [],
+      "decisions_required": []
+    }
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "bootstrap_candidate_review_gate": "NO-GO",
+  "eligible_to_start_session_b": false,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "blockers": [
+    "B3-PRECHECK-THREAD-CAPACITY-001: no fresh Reviewer slot was available and fifth-reviewer QA capacity could not be proven.",
+    "All four Session B2 findings remain NOT_CLOSED because no designated B3 formal Reviewer executed."
+  ],
+  "conditions": []
+}

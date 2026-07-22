@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "level": "L3",
+  "reasons": ["A9 has unresolved formal Code and Security Reviewer blockers.", "This review determines a bootstrap candidate release gate and Reviewer trust boundary.", "Migration 320 Domain authority must remain separately NEEDS_HUMAN_DECISION and NO-GO."],
+  "triggers": ["unresolved-reviewer-blocker", "reviewer-independence", "release-gate", "domain-rule-authority"],
+  "execution_categories": ["read-only-review", "bootstrap-candidate", "security", "domain-rule"],
+  "required_agents": ["architect", "code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain"],
+  "parallel_allowed": true,
+  "evidence_required": ["candidate-manifest-integrity", "complete-production-mutation-suite", "security-read-scope-integrity", "security-clean-context", "retained-code-regressions", "retained-security-regressions", "domain-mechanism-regression", "a9-finding-closure", "before-after-integrity", "migration-320-no-go", "authoritative-gate-rerun"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["Any candidate, frozen history, R8, A8, R9, A9, Migration 320 Task or external evidence file changes.", "Any .env, product, database, migration, collab, parent or sibling path is read or modified.", "Any Git mutation, service, product test, seed, migration or database operation occurs.", "Any root action would alter a Reviewer outcome.", "Session B, Human Commit, steady-state activation, confirmed Domain authority or Migration 320 execution is started or declared."],
+  "scope": {"include": ["AGENTS.md", ".agents/**", ".codex/**"], "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "collab/**", "parent directories", "sibling directories"]},
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

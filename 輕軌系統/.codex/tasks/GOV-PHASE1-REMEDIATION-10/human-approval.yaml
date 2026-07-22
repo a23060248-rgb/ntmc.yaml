@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "required": true,
+  "status": "pending",
+  "approvals": [
+    {"stage": "scope_approval", "status": "approved", "by": "human-governance-owner", "at": "2026-07-20T09:30:00+08:00", "reason": "The human explicitly authorized the narrow GOV-PHASE1-REMEDIATION-10 scope."},
+    {"stage": "execution_approval", "status": "approved", "by": "human-governance-owner", "at": "2026-07-20T09:30:00+08:00", "reason": "Execution was limited to Task-local governance artifacts and read-only source verification without Git, product or database operations."},
+    {"stage": "review_completion", "status": "pending", "by": "human-governance-owner", "at": "2026-07-20T09:30:00+08:00", "reason": "The future Session B2 Reviewer Set is not authorized or complete."},
+    {"stage": "final_commit_approval", "status": "pending", "by": "human-governance-owner", "at": "2026-07-20T09:30:00+08:00", "reason": "Human Exact-Manifest Confirmation and first-commit authorization remain absent."}
+  ],
+  "bootstrap_candidate_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+  "bootstrap_scanner_report_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json",
+  "bootstrap_candidate_subject_task_id": "GOV-PHASE1-REMEDIATION-9",
+  "session_b_outcome": "BLOCKER",
+  "human_exact_manifest_approved": false,
+  "post_review_baseline_unchanged": true,
+  "prohibited_until_approved": ["Session B2 startup", "Session B finding closure", "Human Commit GO", "Git stage", "Git commit", "Git push", "merge", "release", "STAGED_EXACT", "steady-state activation", "confirmed Railway Domain Rule promotion", "Migration 320 execution or business GO"]
+}

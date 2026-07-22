@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "role": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+  "required_values": {
+    "top_level_chat": true,
+    "subagents_created": false,
+    "conversation_memory_used": false,
+    "reviewer_role_assumed": false,
+    "reviewer_outcome_modified": false,
+    "task_local_writes_performed": true,
+    "writes_outside_allowed_scope": false,
+    "candidate_write_performed": false,
+    "package_write_performed": false,
+    "historical_artifact_write_performed": false,
+    "git_used": false,
+    "assurance": "procedural"
+  },
+  "allowed_write_paths": [
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R1/**"
+  ],
+  "all_other_repository_writes_forbidden": true
+}

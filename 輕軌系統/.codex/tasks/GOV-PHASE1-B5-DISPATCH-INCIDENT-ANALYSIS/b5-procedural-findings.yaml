@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+  "findings": [
+    {
+      "finding_id": "B5-DISPATCH-SCOPE-SATISFIABILITY-001",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "evidence": [
+        "code-reviewer-scope-reconstruction.json",
+        "reviewer-scope-satisfiability-result.json"
+      ],
+      "candidate_change_required": false
+    },
+    {
+      "finding_id": "B5-REVIEWER-EARLY-FAILURE-OUTPUT-001",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "evidence": [
+        "reviewer-startup-exit-incident.md",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-dispatch-blocker.json"
+      ],
+      "candidate_change_required": false
+    },
+    {
+      "finding_id": "B5-REVIEWER-THREAD-TERMINATION-001",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "evidence": [
+        "thread-termination-root-cause.json",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-allocation-ledger.json"
+      ],
+      "candidate_change_required": false
+    }
+  ],
+  "b2_findings": [
+    {
+      "finding_id": "B2-CODE-FORBIDDEN-READ-001",
+      "status": "NOT_CLOSED"
+    },
+    {
+      "finding_id": "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001",
+      "status": "NOT_CLOSED"
+    },
+    {
+      "finding_id": "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001",
+      "status": "NOT_CLOSED"
+    },
+    {
+      "finding_id": "B2-QA-THREAD-LIMIT-001",
+      "status": "NOT_CLOSED"
+    }
+  ],
+  "b2_closed_count": 0,
+  "result": "INCIDENT_CONFIRMED_NO_B2_CLOSURE"
+}

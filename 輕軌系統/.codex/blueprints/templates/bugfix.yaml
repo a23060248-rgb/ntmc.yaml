@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "template": "bugfix",
+  "task_type": "bugfix",
+  "required_sections": ["reproduction", "expected_behavior", "scope", "allowed_paths", "agent_assignments", "regression_evidence", "risk", "applicable_rules", "candidate_rules", "stop_conditions"],
+  "default_exclusions": ["unrelated refactor", "rule invention", "formal database", "automatic merge or release"]
+}

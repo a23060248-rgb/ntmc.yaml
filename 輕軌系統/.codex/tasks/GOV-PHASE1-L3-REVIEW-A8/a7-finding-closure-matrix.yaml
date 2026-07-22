@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "source_reviews": ["code-review.json", "security-review.json", "railway-domain-review.json"],
+  "entries": [
+    {"finding_id": "A7-CODE-BLOCKER-001", "reviewer": "code-reviewer", "closure_status": "CLOSED", "evidence": ["code-review.json#closure_dispositions", "PROD-GATE-07", "PROD-GATE-08", "MUT-GATE-05", "MUT-GATE-06"], "production_retest": "PASS", "blocks_bootstrap_candidate_gate": false},
+    {"finding_id": "A7-CODE-BLOCKER-002", "reviewer": "code-reviewer", "closure_status": "CLOSED", "evidence": ["code-review.json#closure_dispositions", "MUT-GATE-02", "MUT-GATE-03", "MUT-GATE-07", "MUT-GATE-08"], "production_retest": "PASS", "blocks_bootstrap_candidate_gate": false},
+    {"finding_id": "A7-SEC-HIGH-001", "reviewer": "security-reviewer", "closure_status": "CLOSED", "evidence": ["security-review.json#closure_dispositions", "72/72 scanner cases", "45/45 binary magic mutations"], "production_retest": "PASS", "blocks_bootstrap_candidate_gate": false},
+    {"finding_id": "A7-DOMAIN-TYPED-SCHEMA-PARSE-001", "reviewer": "railway-domain-reviewer", "closure_status": "CLOSED", "evidence": ["railway-domain-review.json#closure_dispositions", "compiled schema set B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836", "PROD-SCHEMA-01 through PROD-SCHEMA-06", "MUT-SCHEMA-01"], "production_retest": "PASS", "blocks_bootstrap_candidate_gate": false}
+  ],
+  "closure_counts": {"CLOSED": 4, "NOT_CLOSED": 0},
+  "all_a7_findings_closed": true,
+  "new_a8_blockers": ["A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001", "A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001"]
+}

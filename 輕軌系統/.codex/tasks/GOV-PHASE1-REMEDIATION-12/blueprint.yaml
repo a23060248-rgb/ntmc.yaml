@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-REMEDIATION-12",
+  "task_id": "GOV-PHASE1-REMEDIATION-12",
+  "risk": {
+    "level": "L3",
+    "reasons": [
+      "Prepares formal future review transport and fail-closed gates."
+    ]
+  },
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-12/**"
+    ],
+    "exclude": [
+      "candidate/history mutation",
+      "Reviewer dispatch",
+      "Git/product/DB/migration operations"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": [
+      ".codex/**",
+      "AGENTS.md"
+    ],
+    "write": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-12/**"
+    ]
+  },
+  "agent_assignments": [
+    {
+      "role": "architect",
+      "allowed_read_paths": [
+        ".codex/**",
+        "AGENTS.md"
+      ],
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-12/**"
+      ]
+    }
+  ],
+  "review_assignments": [],
+  "applicable_rules": [
+    "GOV-SCOPE-001",
+    "REV-INDEP-001",
+    "REV-L3-001",
+    "EVD-HASH-001"
+  ],
+  "candidate_rules": [],
+  "required_agents": [
+    "architect",
+    "qa-engineer"
+  ],
+  "execution": {
+    "parallel_groups": [],
+    "sequential_steps": [
+      "Freeze before baseline.",
+      "Build B6 protocol package.",
+      "Run 30 fail-closed tests.",
+      "Freeze after baseline and stop."
+    ]
+  },
+  "evidence_required": [
+    "R12-SCOPE",
+    "R12-SCHEMA",
+    "R12-PAYLOAD",
+    "R12-QA",
+    "R12-TESTS",
+    "R12-BASELINE",
+    "R12-READINESS"
+  ],
+  "rollback_restore": {
+    "required": false,
+    "evidence_or_reason": "Task-local additive artifacts only."
+  },
+  "human_approval": {
+    "required": true,
+    "approver_roles": [
+      "human-governance-owner"
+    ]
+  },
+  "stop_conditions": [
+    "Any candidate or history change.",
+    "Any Reviewer or B6 thread starts.",
+    "Any Git/product/DB/migration operation occurs."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/a11-r1/manual-transport-attestation.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reviewer_role",
+    "source_thread_id",
+    "payload_sha256",
+    "payload_modified",
+    "transported_by_human"
+  ],
+  "properties": {
+    "reviewer_role": {
+      "enum": [
+        "EXTERNAL_CODE_REVIEWER",
+        "EXTERNAL_SECURITY_REVIEWER",
+        "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+        "EXTERNAL_COMPATIBILITY_REVIEWER"
+      ]
+    },
+    "source_thread_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payload_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    },
+    "payload_modified": {
+      "const": false
+    },
+    "transported_by_human": {
+      "const": true
+    }
+  }
+}

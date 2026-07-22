@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-3",
+  "serial_run": {
+    "fixture_run_id": "gov-fixture-an03fN",
+    "case_count": 50,
+    "passed": 50,
+    "failed": 0,
+    "cleanup_result": "PASS",
+    "execution_mode": "deterministic-serial-isolated-run-root"
+  },
+  "concurrency_run": {
+    "child_runs": [
+      {"fixture_run_id": "gov-fixture-TCCsN3", "case_count": 50, "exit_code": 0, "cleanup_result": "PASS"},
+      {"fixture_run_id": "gov-fixture-zdMWks", "case_count": 50, "exit_code": 0, "cleanup_result": "PASS"}
+    ],
+    "reports_valid": true,
+    "unique_run_roots": true,
+    "caller_ids_ignored": true,
+    "unique_case_roots": true,
+    "case_roots_owned": true,
+    "artifact_hashes_structured": true,
+    "passed": true
+  },
+  "migration_320_fixture": {"structural": "VALID", "calculated_gate": "NO-GO", "exit_code": 2},
+  "result": "PASS"
+}

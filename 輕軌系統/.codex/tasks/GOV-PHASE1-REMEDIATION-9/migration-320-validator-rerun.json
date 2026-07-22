@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "validated_task_id": "GOV-M320-DRYRUN",
+  "command": "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN --target-gate migration-320-execution",
+  "structural": "VALID",
+  "calculated_gate": "NO-GO",
+  "target_gate": "migration_320_execution:NO-GO",
+  "emitted_exit": 2,
+  "migration_320_execution": "NO-GO",
+  "domain_decision": "NEEDS_HUMAN_DECISION",
+  "compatibility_decision": "BLOCKER",
+  "original_task_and_external_evidence_identical": true,
+  "proof_assurance": "INTERNAL_CONSISTENCY_ONLY"
+}

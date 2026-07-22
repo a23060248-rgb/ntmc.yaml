@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "matrix_id": "GOV-AUTHORITATIVE-GATE-DEPENDENCIES",
+  "gates": {
+    "bootstrap_candidate_review": ["candidate_gate_blockers", "referenced_evidence_validation"],
+    "bootstrap_human_commit": ["bootstrap_candidate_review", "session_b_pass", "human_exact_manifest_approved", "post_review_baseline_unchanged", "explicit_first_commit_authorization"],
+    "steady_state_preparation": ["bootstrap_commit_sha", "bootstrap_manifest_sha256", "human_bootstrap_attestation"],
+    "steady_state_execution": ["steady_state_preparation", "bootstrap_commit_sha", "bootstrap_manifest_sha256", "human_bootstrap_attestation"],
+    "migration_320_execution": ["migration_320_gate_blockers"]
+  },
+  "forbidden_edges": [
+    ["final_commit_approval", "bootstrap_candidate_review"],
+    ["session_b_outcome", "bootstrap_candidate_review"],
+    ["steady_state_trust_anchor", "bootstrap_candidate_review"],
+    ["migration_320_domain_decision", "bootstrap_candidate_review"],
+    ["calculated_gate", "bootstrap_candidate_review"],
+    ["overall_gate", "bootstrap_candidate_review"],
+    ["eligible_to_start_session_b", "bootstrap_candidate_review"]
+  ]
+}

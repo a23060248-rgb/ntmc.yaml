@@ -1,0 +1,21 @@
+task_id: GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01
+objective: Bind Reviewer launch to an absolute verified repository root and provide schema-valid fail-closed startup payloads.
+inputs:
+  preparation_task: .codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION
+  candidate_file_count: 103
+  candidate_manifest_sha256: 29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D
+outputs:
+  - repository root binding and verification
+  - four launch envelopes
+  - four v2 Reviewer prompts
+  - embedded startup failure contract
+  - working-directory independence tests
+  - protocol tests
+  - readiness for human Code R1 relaunch only
+non_goals:
+  - candidate remediation
+  - reviewer execution
+  - aggregation
+  - finding closure
+  - git mutation
+  - migration 320 execution

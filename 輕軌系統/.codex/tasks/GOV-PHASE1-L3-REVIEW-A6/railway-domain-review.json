@@ -1,0 +1,345 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "formal": true,
+  "reviewer": "railway-domain-reviewer",
+  "reviewer_run_id": "A6-DOMAIN-RUN-fb5170c7-ec05-4457-8605-c84875d005b8",
+  "session_id": "A6-DOMAIN-SESSION-524d2bcf-f699-431f-be71-d1bad8088626",
+  "did_not_participate_in_implementation": true,
+  "reviewed_candidate_baseline": "phase-1.6-bootstrap",
+  "candidate_manifest_file_count": 81,
+  "candidate_manifest_sha256": "52CE2A476C2D29BBE1AA1461D8D62B41502381FF776007580F23B2ED0D77AA33",
+  "bootstrap_candidate_record_id": "30A21CDB600B2738B0F8BD38F0E1A3AEB748F8B6F79368E8599ACE31ACFB8D01",
+  "mode": "read-only-reviewed-sources",
+  "relied_on_implementation_conversation": false,
+  "business_rule_approval_performed": false,
+  "reviewed_sources_modified": 0,
+  "git_commands_run": false,
+  "services_started": false,
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "migration_operations_run": false,
+  "review_scope": {
+    "included": [
+      "Phase 1.6 bootstrap Rule classification, loading, registry and selection mechanism",
+      "exact 81-file bootstrap candidate and A6 review-baseline-before SHA256 inventory",
+      "Remediation 6 on-disk artifacts and independent governance-test reruns",
+      "A5 Railway Domain finding A5-DOMAIN-META-REGISTRY-BYPASS-001",
+      "approved Migration 320 governance artifacts and five hash-bound external evidence references"
+    ],
+    "excluded": [
+      "approval or confirmation of any actual railway maintenance, permission, inventory, compatibility or audit Rule",
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration source",
+      "sibling directories",
+      "Git state and mutation",
+      "services, product tests, database, seed and migration execution",
+      "implementation conversations and unfiled explanations"
+    ],
+    "boundary": "This review assesses the bootstrap Rule governance mechanism. It does not approve any railway business Rule.",
+    "baseline_verification": {
+      "manifest_hash_match": true,
+      "candidate_count": 81,
+      "candidate_mismatches": 0,
+      "frozen_history_count": 256,
+      "frozen_history_mismatches": 0,
+      "remediation_6_count": 38,
+      "remediation_6_mismatches": 0,
+      "migration_320_task_count": 13,
+      "migration_320_task_mismatches": 0,
+      "migration_320_external_count": 5,
+      "migration_320_external_mismatches": 0,
+      "evidence": [
+        ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/review-baseline-before.json:8-19",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-6/bootstrap-candidate-record.json:3-13"
+      ]
+    }
+  },
+  "methods_and_commands": [
+    {
+      "method_id": "A6-DOMAIN-METHOD-BASELINE",
+      "command": "PowerShell Get-FileHash -Algorithm SHA256 and byte-size comparison for each review-baseline-before candidate, frozen_history, remediation_6, migration_320_task and migration_320_external entry",
+      "result": "PASS",
+      "observed": "81/81 candidate, 256/256 frozen history, 38/38 R6, 13/13 M320 Task and 5/5 external evidence entries matched; governance-commit-manifest SHA256 matched."
+    },
+    {
+      "method_id": "A6-DOMAIN-METHOD-STATIC",
+      "command": "Read-only inspection of rule.schema.json, domain/index.yaml, all six meta registries, proposed-domain-rules.mjs, rule-class.mjs and validate-task.mjs Rule loader/selector paths",
+      "result": "PASS",
+      "observed": "The production loader reads only fixed meta and Domain registries; source reports are not dereferenced as Rules. All 11 meta Rules are typed procedural or technical controls and no meta Rule has a domain or compatibility category."
+    },
+    {
+      "method_id": "A6-DOMAIN-METHOD-FIXTURES",
+      "command": "TEMP/TMP=<PRODUCT_ROOT>/.codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-temp/domain/fixtures node .codex/tests/run-governance-fixtures.mjs",
+      "result": "PASS",
+      "observed": "68/68 passed; Rule cases 57-63 covered proposed-only registry, confirmed Domain rejection, candidate/applicable separation, generic meta business rejection, unsupported railway authority, allowed governance/technical controls and duplicate identity rejection."
+    },
+    {
+      "method_id": "A6-DOMAIN-METHOD-PRODUCTION",
+      "command": "TEMP/TMP=<PRODUCT_ROOT>/.codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-temp/domain/production node .codex/tests/run-bootstrap-production-integration.mjs",
+      "result": "PASS",
+      "observed": "20/20 passed; PROD-11 rejected a Domain candidate in applicable_rules, PROD-12 rejected generic meta business authority, and PROD-13 rejected duplicate/first-match authority."
+    },
+    {
+      "method_id": "A6-DOMAIN-METHOD-MUTATION",
+      "command": "TEMP/TMP=<absolute approved reviewer-temp/domain/mutation> node .codex/tests/run-bootstrap-mutation-tests.mjs",
+      "result": "PASS_AFTER_COMMAND_ENV_RETRY",
+      "observed": "10/10 mutations killed; MUT-09-GENERIC-META-BUSINESS and MUT-10-RULE-FIRST-MATCH were killed. An earlier reviewer command used a relative TEMP, causing only duplicated temp-root module resolution; it was discarded and the absolute-path rerun exited 0."
+    },
+    {
+      "method_id": "A6-DOMAIN-METHOD-CONCURRENCY",
+      "command": "TEMP/TMP=<PRODUCT_ROOT>/.codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-temp/domain/concurrency node .codex/tests/run-governance-fixtures-concurrency.mjs",
+      "result": "PASS",
+      "observed": "Two isolated 68-case reports were valid, run/case roots were unique, caller IDs were ignored, and four forged report families were rejected."
+    },
+    {
+      "method_id": "A6-DOMAIN-METHOD-BOUNDARY-PROBES",
+      "command": "Temporary in-memory Node probe under reviewer-temp/domain importing the exact production schema and Rule modules; probe file removed after execution",
+      "result": "PASS_AFTER_COMMAND_FORMAT_RETRY",
+      "observed": "Missing rule_class produced schema and class errors; agent-filled authority fields and confirmed Domain status were rejected; railway_domain_authority and generic meta business category were rejected; a Domain candidate resolved only in candidate_rules; governance and technical controls resolved only with their matching effects. Two initial node -e quoting attempts failed before imports and were replaced by the scoped temporary probe."
+    },
+    {
+      "method_id": "A6-DOMAIN-METHOD-M320",
+      "command": "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN",
+      "result": "PASS_AS_FAIL_CLOSED_NO_GO",
+      "observed": "VALIDATE_TASK_RESULT structural=VALID calculated_gate=NO-GO exit=2; candidate Rule human-decision reason and all original blockers remained. No --write-graph flag was used."
+    }
+  ],
+  "control_results": {
+    "independent_formal_review": {
+      "result": "PASS",
+      "reason": "Reviewer identities are unique, do not match the R6 implementer session, and no implementation conversation was used.",
+      "evidence": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-assignments.json:8-12"]
+    },
+    "explicit_rule_class_required": {
+      "result": "PASS",
+      "reason": "rule_class and authority_effect are required by schema and missing/unsupported class is rejected again by the production classifier.",
+      "evidence": [
+        ".codex/blueprints/schemas/rule.schema.json:5-12",
+        ".codex/scripts/lib/governance/rule-class.mjs:12-17"
+      ]
+    },
+    "governance_control_procedural_only": {
+      "result": "PASS",
+      "reason": "The only accepted effect is procedural_governance; the exact candidate contains nine such meta controls.",
+      "evidence": [".codex/scripts/lib/governance/rule-class.mjs:5-16", ".codex/tests/run-governance-fixtures.mjs:117-123"]
+    },
+    "technical_constraint_technical_only": {
+      "result": "PASS",
+      "reason": "The only accepted effect is technical_constraint; the exact candidate contains two such meta controls.",
+      "evidence": [".codex/scripts/lib/governance/rule-class.mjs:5-16", ".codex/tests/run-governance-fixtures.mjs:117-123"]
+    },
+    "railway_domain_candidate_candidate_only": {
+      "result": "PASS",
+      "reason": "All six Domain entries are proposed railway_domain_candidate/candidate_only records; selection accepts them only through candidate_rules.",
+      "evidence": [
+        ".codex/domain/index.yaml:3-13",
+        ".codex/scripts/lib/governance/rule-class.mjs:38-58",
+        ".codex/tests/run-governance-fixtures.mjs:113-122"
+      ]
+    },
+    "railway_domain_authority_unsupported": {
+      "result": "PASS",
+      "reason": "railway_domain_authority maps only to unsupported and is always rejected in bootstrap mode.",
+      "evidence": [".codex/scripts/lib/governance/rule-class.mjs:3-19", ".codex/tests/run-governance-fixtures.mjs:120-120"]
+    },
+    "generic_meta_business_authority_rejected": {
+      "result": "PASS",
+      "reason": "Business categories cannot use governance/technical classes and meta registries cannot carry railway classes; the production and mutation paths independently detect the A5 exploit family.",
+      "evidence": [
+        ".codex/scripts/lib/governance/rule-class.mjs:18-25",
+        ".codex/tests/run-bootstrap-production-integration.mjs:198-207",
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:54-65"
+      ]
+    },
+    "missing_class_rejected": {
+      "result": "PASS",
+      "reason": "Independent exact-module probe produced one schema error and three fail-closed class/registry violations.",
+      "evidence": [".codex/blueprints/schemas/rule.schema.json:5-12", ".codex/scripts/lib/governance/rule-class.mjs:12-25"]
+    },
+    "inferred_authority_rejected": {
+      "result": "PASS",
+      "reason": "Owner, approved_at, human_owner, approval or authority fields on a proposed Domain entry are rejected and cannot create authority.",
+      "evidence": [".codex/scripts/lib/governance/proposed-domain-rules.mjs:10-17", ".codex/domain/index.yaml:13-18"]
+    },
+    "status_based_promotion_rejected": {
+      "result": "PASS",
+      "reason": "Domain status is limited to proposed/candidate/unverified; confirmed is rejected and does not trigger any approval lookup.",
+      "evidence": ["AGENTS.md:55-59", ".codex/scripts/lib/governance/proposed-domain-rules.mjs:1-15", ".codex/tests/run-governance-fixtures.mjs:113-118"]
+    },
+    "confirmed_domain_schema_resolver_positive_fixture_unloaded": {
+      "result": "PASS",
+      "reason": "Phase 1 loads no dedicated Domain approval schema or approval resolver and exposes no proposed-to-confirmed function. Optional future-shaped fields in the generic Rule schema are inert for Domain entries because the registry validator rejects them. The fixture suite contains confirmed Domain rejection, not a positive authority fixture.",
+      "evidence": [
+        "AGENTS.md:95-97",
+        ".codex/blueprints/schemas/rule.schema.json:23-27",
+        ".codex/scripts/lib/governance/proposed-domain-rules.mjs:1-30",
+        ".codex/tests/fixture-suite-manifest.json:14-16"
+      ]
+    },
+    "indirect_business_claims_unloaded": {
+      "result": "PASS",
+      "reason": "The Rule loader reads only .codex/meta-rules/*.yaml and .codex/domain/index.yaml; report, implementation, migration and test source references are not dereferenced or promoted. Exact-candidate meta statements were inspected and contain no domain or compatibility category.",
+      "evidence": ["AGENTS.md:55-60", ".codex/scripts/validate-task.mjs:124-146", ".codex/domain/index.yaml:13-18"]
+    },
+    "registry_type_proposed_rule_registry": {
+      "result": "PASS",
+      "actual": "proposed_rule_registry",
+      "evidence": [".codex/domain/index.yaml:3-10"]
+    },
+    "incomplete_domain_knowledge_base": {
+      "result": "PASS",
+      "actual": false,
+      "evidence": [".codex/domain/index.yaml:4-8"]
+    },
+    "confirmed_rule_count_zero": {
+      "result": "PASS",
+      "actual": 0,
+      "evidence": [".codex/domain/index.yaml:7-10"]
+    },
+    "business_applicable_rules_empty": {
+      "result": "PASS",
+      "actual_count": 0,
+      "evidence": [".codex/domain/index.yaml:7-10"]
+    },
+    "absence_of_confirmed_authority": {
+      "result": "APPROVED_NON_BLOCKING",
+      "reason": "The approved bootstrap contract intentionally contains no confirmed railway authority. Its absence is a safety boundary, not a defect or additional blocker.",
+      "evidence": ["AGENTS.md:55-60", ".codex/domain/index.yaml:3-10"]
+    },
+    "no_actual_railway_rule_approved": {
+      "result": "PASS",
+      "reason": "This review closes a mechanism defect only and grants no business authority."
+    }
+  },
+  "rule_class_matrix": [
+    {
+      "rule_class": "governance_control",
+      "required_authority_effect": "procedural_governance",
+      "bootstrap_applicable_rules_allowed": true,
+      "candidate_rules_allowed": false,
+      "exact_candidate_count": 9,
+      "result": "PASS"
+    },
+    {
+      "rule_class": "technical_constraint",
+      "required_authority_effect": "technical_constraint",
+      "bootstrap_applicable_rules_allowed": true,
+      "candidate_rules_allowed": false,
+      "exact_candidate_count": 2,
+      "result": "PASS"
+    },
+    {
+      "rule_class": "railway_domain_candidate",
+      "required_authority_effect": "candidate_only",
+      "bootstrap_applicable_rules_allowed": false,
+      "candidate_rules_allowed": true,
+      "exact_candidate_count": 6,
+      "decision_impact": "NEEDS_HUMAN_DECISION",
+      "gate_impact": "NO-GO",
+      "result": "PASS_FAIL_CLOSED"
+    },
+    {
+      "rule_class": "railway_domain_authority",
+      "required_authority_effect": "unsupported",
+      "bootstrap_applicable_rules_allowed": false,
+      "candidate_rules_allowed": false,
+      "exact_candidate_count": 0,
+      "result": "REJECTED_AS_REQUIRED"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "A6-DOMAIN-HUMAN-DECISION-001",
+      "finding_type": "HUMAN_DECISION_REQUIRED",
+      "severity": "NONE",
+      "blocks_bootstrap_rule_mechanism_acceptance": false,
+      "blocks_railway_business_decision": true,
+      "title": "Migration 320 candidate Rules remain proposed and require human Domain decision",
+      "locations": [
+        ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml:19-20",
+        ".codex/tasks/GOV-M320-DRYRUN/review-findings.yaml:8-13",
+        ".codex/domain/index.yaml:3-10"
+      ],
+      "reproducible_read_only_check": "Run node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN without --write-graph; observe Candidate Domain Rules require human decision and VALID/NO-GO/exit 2.",
+      "observed": "WO-P-C-LINK-001, WO-C-SHORTAGE-001 and COMPAT-M320-001 are candidate_rules only; no confirmed authority exists and Migration 320 remains NO-GO.",
+      "decision_owner_role": "human-domain-owner",
+      "decision_required": "Confirm, reject, or retain each proposed Migration 320 Rule as unverified before any business approval or execution.",
+      "disposition": "Preserve NEEDS_HUMAN_DECISION and NO-GO. This is the approved fail-closed state and is not a mechanism defect."
+    }
+  ],
+  "a5_closure": {
+    "finding_id": "A5-DOMAIN-META-REGISTRY-BYPASS-001",
+    "closure_status": "CLOSED",
+    "original_failure_condition": "A category=domain confirmed Rule in the generic meta registry could previously become applicable without Domain human authority.",
+    "evidence": [
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/railway-domain-review.json:94-115",
+      ".codex/scripts/lib/governance/rule-class.mjs:12-30",
+      ".codex/scripts/validate-task.mjs:124-146",
+      ".codex/tests/run-bootstrap-production-integration.mjs:191-207",
+      ".codex/tests/run-bootstrap-mutation-tests.mjs:54-65"
+    ],
+    "reproducible_read_only_checks": [
+      "Production integration PROD-12 rejects the exact generic confirmed meta business-category exploit.",
+      "Mutation MUT-09 removes the business-category guard and is killed by PROD-12.",
+      "Independent in-memory exact-module probe rejects category=domain plus governance_control/procedural_governance in registry=meta."
+    ],
+    "reason": "Classification is now namespace-independent for business categories, meta registries are restricted to procedural/technical classes, Domain records are proposed-only candidates, and selection resolves unique typed records. The A5 exploit no longer reaches business applicable_rules.",
+    "actual_railway_rule_approval_granted": false
+  },
+  "migration_320_verification": {
+    "review_mode": "governance-and-fixed-evidence-only",
+    "applicable_rule_types": ["governance_control", "technical_constraint"],
+    "business_applicable_rules": [],
+    "candidate_rules": ["WO-P-C-LINK-001", "WO-C-SHORTAGE-001", "COMPAT-M320-001"],
+    "candidate_rule_status": "proposed",
+    "domain_decision": "NEEDS_HUMAN_DECISION",
+    "structural_status": "VALID",
+    "calculated_gate": "NO-GO",
+    "validator_exit_code": 2,
+    "result_line": "VALIDATE_TASK_RESULT task_id=GOV-M320-DRYRUN calculated_gate=NO-GO structural=VALID exit=2 bootstrap_candidate_review=NO-GO bootstrap_human_commit=NO-GO steady_state_preparation=NO-GO steady_state_execution=NO-GO proof_assurance=INTERNAL_CONSISTENCY_ONLY",
+    "original_blocker_count": 3,
+    "original_blockers": [
+      "formal-clone provenance/read-only evidence absent",
+      "P-to-C result_value NULL and C attachment snapshot zero",
+      "shortage/inventory linkedRows zero"
+    ],
+    "blocker_evidence": [
+      ".codex/tasks/GOV-M320-DRYRUN/review-findings.yaml:8-13",
+      "docs/go-no-go-report.md:22-25",
+      "docs/migration-320-before-after.json:2062-2081",
+      "docs/migration-320-before-after.json:2093-2097",
+      "docs/migration-320-before-after.json:2108-2109"
+    ],
+    "migration_task_hashes": "13/13 match",
+    "approved_external_evidence_hashes": "5/5 match",
+    "confirmed_authority_absence_is_additional_blocker": false,
+    "business_rule_approval_granted": false,
+    "migration_execution_authorized": false
+  },
+  "limitations": [
+    "Bootstrap evidence is produced by mutable workspace code and establishes INTERNAL_CONSISTENCY_ONLY, not trusted producer, Git, commit or release authority.",
+    "No Git state, service, product code, product test, database, seed, migration source or migration execution was inspected or run.",
+    "The deterministic loader and classifier operate on explicit typed Rule records. Indirect report, implementation, migration and test claims remain unloaded source metadata; any future candidate manifest or typed Rule change requires a new review.",
+    "No actual railway maintenance, permission, inventory, audit or compatibility Rule was approved.",
+    "One relative-TEMP mutation command and two node -e quoting probes were reviewer command errors; all were retried within the approved absolute reviewer temp boundary, and only the successful corrected results were used."
+  ],
+  "outcome": "NEEDS_HUMAN_DECISION",
+  "severity_counts": {
+    "BLOCKER": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "DECISION_REQUIRED": 1
+  },
+  "conclusion": {
+    "bootstrap_rule_mechanism": "PASS: A5-DOMAIN-META-REGISTRY-BYPASS-001 is CLOSED for the exact Phase 1.6 bootstrap candidate.",
+    "railway_business_authority": "NOT_GRANTED: the confirmed authority count remains zero by approved design, and that absence is not a blocker.",
+    "migration_320": "NEEDS_HUMAN_DECISION / NO-GO: three proposed candidate Rules and all three original blockers remain.",
+    "reviewer_outcome": "NEEDS_HUMAN_DECISION",
+    "actual_railway_rules_approved": []
+  }
+}

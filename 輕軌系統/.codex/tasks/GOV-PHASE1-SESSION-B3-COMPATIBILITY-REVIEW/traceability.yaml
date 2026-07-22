@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "generated_at": "2026-07-20T00:00:00+08:00",
+  "nodes": [
+    {
+      "id": "TASK:B3",
+      "type": "Task",
+      "label": "Session B3 compatibility review",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/task-intent.yaml"
+    },
+    {
+      "id": "EVIDENCE:B3-R11-PACKAGE",
+      "type": "Evidence",
+      "label": "R11 source package verification",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/r11-source-package-verification.json"
+    },
+    {
+      "id": "EVIDENCE:B3-FREEZE",
+      "type": "Evidence",
+      "label": "B3 actual pre-review freeze",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/pre-review-freeze.json"
+    },
+    {
+      "id": "EVIDENCE:B3-CAPACITY",
+      "type": "Evidence",
+      "label": "Live capacity precheck blocker",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/reviewer-capacity-preflight-runtime.json"
+    },
+    {
+      "id": "EVIDENCE:B3-DISPATCH",
+      "type": "Evidence",
+      "label": "Rejected fresh Reviewer dispatch",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/reviewer-dispatch-failure.json"
+    },
+    {
+      "id": "EVIDENCE:B3-CLOSURE",
+      "type": "Evidence",
+      "label": "Four B2 findings remain not closed",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/b2-finding-closure-matrix.yaml"
+    },
+    {
+      "id": "GATE:B3-COMPATIBILITY",
+      "type": "Gate",
+      "label": "Session B Compatibility Gate NO-GO",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/review-findings.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "TASK:B3",
+      "relation": "USES",
+      "to": "EVIDENCE:B3-R11-PACKAGE",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/r11-source-package-verification.json"
+    },
+    {
+      "from": "EVIDENCE:B3-R11-PACKAGE",
+      "relation": "SUPPORTS",
+      "to": "EVIDENCE:B3-FREEZE",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/pre-review-freeze.json"
+    },
+    {
+      "from": "EVIDENCE:B3-FREEZE",
+      "relation": "PRECEDES",
+      "to": "EVIDENCE:B3-CAPACITY",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/reviewer-capacity-preflight-runtime.json"
+    },
+    {
+      "from": "EVIDENCE:B3-CAPACITY",
+      "relation": "BLOCKS",
+      "to": "EVIDENCE:B3-DISPATCH",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/reviewer-dispatch-failure.json"
+    },
+    {
+      "from": "EVIDENCE:B3-DISPATCH",
+      "relation": "LEAVES_OPEN",
+      "to": "EVIDENCE:B3-CLOSURE",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/b2-finding-closure-matrix.yaml"
+    },
+    {
+      "from": "EVIDENCE:B3-CLOSURE",
+      "relation": "BLOCKS",
+      "to": "GATE:B3-COMPATIBILITY",
+      "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/review-findings.yaml"
+    }
+  ]
+}

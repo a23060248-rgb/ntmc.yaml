@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW",
+  "review_context": "Session B5 stopped fail-closed after the first Reviewer allocation failed to complete formal outputs.",
+  "reviews": [
+    {
+      "type": "code",
+      "reviewer": "fresh-code-reviewer-allocation-incomplete",
+      "formal": false,
+      "outcome": "BLOCKER",
+      "finding_refs": [
+        "B5-CODE-REVIEWER-OUTPUTS-MISSING"
+      ],
+      "conditions": [],
+      "decisions_required": []
+    },
+    {
+      "type": "security",
+      "reviewer": "not-dispatched",
+      "formal": false,
+      "outcome": "BLOCKER",
+      "finding_refs": [
+        "B5-SEQUENTIAL-STOP"
+      ],
+      "conditions": [],
+      "decisions_required": []
+    },
+    {
+      "type": "railway-domain",
+      "reviewer": "not-dispatched",
+      "formal": false,
+      "outcome": "BLOCKER",
+      "finding_refs": [
+        "B5-SEQUENTIAL-STOP"
+      ],
+      "conditions": [],
+      "decisions_required": []
+    },
+    {
+      "type": "compatibility",
+      "reviewer": "not-dispatched",
+      "formal": false,
+      "outcome": "BLOCKER",
+      "finding_refs": [
+        "B5-SEQUENTIAL-STOP"
+      ],
+      "conditions": [],
+      "decisions_required": []
+    }
+  ],
+  "deterministic_qa_gate": {
+    "executed": false,
+    "result": "NOT_EXECUTED",
+    "reason": "Four formal Reviewer outcomes were not completed and frozen."
+  },
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "blockers": [
+    "REVIEWER_DISPATCH_BLOCKER",
+    "FOUR_FORMAL_REVIEWER_SET_INCOMPLETE",
+    "DETERMINISTIC_QA_NOT_EXECUTED"
+  ]
+}

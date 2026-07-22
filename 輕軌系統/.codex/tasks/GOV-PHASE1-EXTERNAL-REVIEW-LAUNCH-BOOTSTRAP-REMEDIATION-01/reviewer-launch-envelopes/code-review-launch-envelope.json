@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "launch_envelope_id": "ENVELOPE-AC31D79B7ECD57FB2BDA59C8",
+  "repository_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統",
+  "repository_root_binding_sha256": "C733493985F0D360558C3EC51ADFB239E6AA2DBE2451E62EEDF0136F4E66EA9C",
+  "package_directory_absolute": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review",
+  "package_directory_relative": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review",
+  "task_id": "GOV-PHASE1-B6EXT-CODE-REVIEW-R1",
+  "reviewer_role": "EXTERNAL_CODE_REVIEWER",
+  "assignment_id": "ASSIGN-4720ACAC40E9AD7A86D28079",
+  "reviewer_run_id": "RUN-337247C73EBB03149D5DAEB4",
+  "reviewer_session_nonce": "NONCE-5533A5BDA8564E9CDB5D552614B21002ADA421CC",
+  "source_package_assignment": {
+    "task_id": "GOV-PHASE1-B6EXT-CODE-REVIEW",
+    "reviewer_role": "EXTERNAL_CODE_REVIEWER",
+    "assignment_id": "ASSIGN-2B8CB3FA65F04259115C4B4A",
+    "reviewer_run_id": "RUN-2E9D732C37F2A1373FD374C7",
+    "reviewer_session_nonce": "NONCE-272769863A944628550B922423090BFB2028F1EE"
+  },
+  "review_package_id": "PKG-7B92159005BED99CD0EBC9C7",
+  "review_package_core_sha256": "D0CE723975EA6FD1AD51E33A3A323A305387D83B8DB6719545ABC9FFAE6519C3",
+  "scope_sha256": "BE5F1B50265AF859C7A4703EAD8636CAE904C5C338D1744BC3D243BF68736051",
+  "candidate_binding": {
+    "candidate_file_count": 103,
+    "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "scanner_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scanner_contract_version": 5,
+    "scanner_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+  },
+  "startup_files": {
+    "assignment": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/assignment.json",
+      "expected_sha256": "02E28DDFEC2343BE8A608EFB43017926E0703A21C9A9B77D8D284519947B676C"
+    },
+    "package_manifest": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/package-manifest.json",
+      "expected_sha256": "2D8E58EEA50F30D170DF58FAA13EAE35D70A6C16159E8FCCEF3086AE0AE201EC"
+    },
+    "package_verification": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/package-verification.json",
+      "expected_sha256": "DA970CF7527127E168A14105CC4FC41362C2C6AE2C0378F803ECCC8890DDB080"
+    },
+    "exact_read_scope": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/exact-read-scope.json",
+      "expected_sha256": "BE5F1B50265AF859C7A4703EAD8636CAE904C5C338D1744BC3D243BF68736051"
+    },
+    "capability_matrix": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/capability-artifact-matrix.json",
+      "expected_sha256": "581B25F1E773EF3AB0FF690F81FAD46EFEF26601002C45B378107A9D13D8B72E"
+    },
+    "startup_contract": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/startup-contract.json",
+      "expected_sha256": "BB84EC8D881BE07BB37EF9AECE774E68EBDB384783F312DC3DF3EA86194E8BD3"
+    },
+    "return_payload_schema": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/return-payload.schema.json",
+      "expected_sha256": "03129A6A000EBC0393D1FF82672D8F277BA77BE33E37D5EB413130AFF9AA99D1"
+    }
+  },
+  "launch_state": "READY_FOR_HUMAN_RELAUNCH",
+  "launch_envelope_core_sha256": "671264B4E5C56BE464B76E7AB3D82B17C4A06B5625C41955B1B2AC7E3BCE9586"
+}

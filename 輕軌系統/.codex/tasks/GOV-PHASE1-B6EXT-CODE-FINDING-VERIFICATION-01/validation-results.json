@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "formal_payload_result": "FORMAL_PAYLOAD_REJECTED",
+  "payload_schema_validation": "PASS",
+  "payload_jcs_sha256_validation": "PASS",
+  "payload_binding_validation": "PASS",
+  "payload_access_scope_validation": "FAIL",
+  "production_matrix_case_count": 10,
+  "case_4_observed": "PASS",
+  "case_4_exit_code": 0,
+  "case_4_gate": "GO",
+  "candidate_integrity": "PASS",
+  "protected_history_integrity": "PASS",
+  "migration_320_integrity": "PASS_WITH_EXACT_READ_BOUNDARY",
+  "git_used": false,
+  "repository_writes_outside_task": false,
+  "final_result": "VERIFIED_CANDIDATE_PRODUCTION_PATH_DEFECT"
+}

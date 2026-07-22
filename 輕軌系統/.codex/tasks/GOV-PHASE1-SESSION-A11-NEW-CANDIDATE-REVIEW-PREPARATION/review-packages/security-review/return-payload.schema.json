@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/a11/security-review-return-payload.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "review_type",
+    "task_id",
+    "assignment_id",
+    "reviewer_run_id",
+    "reviewer_session_nonce",
+    "payload_core",
+    "payload_core_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "review_type": {
+      "const": "security_review"
+    },
+    "task_id": {
+      "const": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION"
+    },
+    "assignment_id": {
+      "type": "string",
+      "minLength": 12
+    },
+    "reviewer_run_id": {
+      "type": "string",
+      "minLength": 12
+    },
+    "reviewer_session_nonce": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    },
+    "payload_core": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verdict",
+        "candidate_manifest_sha256",
+        "findings",
+        "startup_blocker_reason"
+      ],
+      "properties": {
+        "verdict": {
+          "enum": [
+            "PASS",
+            "BLOCKER"
+          ]
+        },
+        "candidate_manifest_sha256": {
+          "const": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "finding_id",
+              "severity",
+              "summary",
+              "owned_by_role"
+            ],
+            "properties": {
+              "finding_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "severity": {
+                "enum": [
+                  "CRITICAL",
+                  "HIGH",
+                  "MEDIUM",
+                  "LOW"
+                ]
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owned_by_role": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "startup_blocker_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "payload_core_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  }
+}

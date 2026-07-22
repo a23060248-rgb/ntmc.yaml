@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-MASTER-BATCH-2D-A11-QA-FAILURE-TRIAGE",
+  "candidate_binding_before": {
+    "candidate_file_count": 108,
+    "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "all_hashes_match": true
+  },
+  "candidate_binding_after": {
+    "candidate_file_count": 108,
+    "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "all_hashes_match": true
+  },
+  "candidate_unchanged": true,
+  "candidate_production_defects": 0,
+  "candidate_change_required": false,
+  "tests_modified": false,
+  "review_packages_modified": false,
+  "reviewer_payloads_modified": false,
+  "historical_evidence_modified": false,
+  "reviewer_payloads_reusable": true,
+  "reuse_conditions": [
+    "The 108-file Candidate binding remains byte-identical.",
+    "No Reviewer payload, package, assignment, run, session or transport binding is changed.",
+    "Remediation remains outside the frozen Candidate and uses a new QA execution package or task-local wrappers."
+  ],
+  "result": "NO_CANDIDATE_IMPACT"
+}

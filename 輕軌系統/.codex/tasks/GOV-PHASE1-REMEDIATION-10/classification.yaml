@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "level": "L3",
+  "reasons": ["The Task addresses unresolved formal Security Reviewer blockers.", "It defines a security evidence and backward-compatibility input contract for a possible later Session B2.", "Fail-closed identity, scope and hash behavior must be demonstrated through negative tests."],
+  "triggers": ["unresolved Reviewer blocker", "security evidence contract", "backward compatibility", "formal data provenance"],
+  "execution_categories": ["governance-source-edit", "governance-validation", "governance-fixture", "security", "backward-compatibility"],
+  "required_agents": ["qa-engineer", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain", "compatibility"],
+  "parallel_allowed": false,
+  "evidence_required": ["R10-ROOT-CAUSE", "R10-CONTRACT", "R10-CHAIN", "R10-ALLOWLIST", "R10-NEGATIVE", "R10-BASELINE", "R10-HISTORY", "R10-M320", "R10-READINESS"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["Any candidate source or frozen A10, Session B or Migration 320 record changes.", "Root cause classification reports candidate_change_required=true.", "Contract source cannot be resolved exactly once from the frozen chain.", "Any required allowlist node is missing, overbroad, forbidden or hash-mismatched.", "Any negative test does not fail closed.", "Session B2, Git, product, database, seed or migration execution is attempted."],
+  "scope": {"include": ["AGENTS.md", ".agents/**", ".codex/**"], "exclude": [".env*", "collab/**", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "parent directories", "sibling directories"]},
+  "classified_by": "root-orchestrator-using-task-classification-skill",
+  "classification_status": "human-approved-scope"
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-REMEDIATION-11",
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "risk": {
+    "level": "L3",
+    "reasons": [
+      "Prepares formal future Session B3 evidence and Reviewer isolation."
+    ]
+  },
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**",
+      "read-only frozen governance evidence"
+    ],
+    "exclude": [
+      "candidate mutation",
+      "B3 launch",
+      "Reviewer dispatch",
+      "B3 human approval",
+      "Git/product/DB/migration operations"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/**"
+    ],
+    "write": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**"
+    ]
+  },
+  "agent_assignments": [
+    {
+      "role": "architect",
+      "allowed_read_paths": [
+        "AGENTS.md",
+        ".agents/**",
+        ".codex/**"
+      ],
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**"
+      ]
+    }
+  ],
+  "review_assignments": [],
+  "applicable_rules": [
+    "GOV-SCOPE-001",
+    "REV-INDEP-001",
+    "REV-L3-001",
+    "EVD-HASH-001",
+    "EVD-CLAIM-001"
+  ],
+  "candidate_rules": [],
+  "required_agents": [
+    "architect",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer",
+    "qa-engineer"
+  ],
+  "execution": {
+    "parallel_groups": [],
+    "sequential_steps": [
+      "Freeze before baseline.",
+      "Build registered-schema evidence.",
+      "Build exact scopes and capacity plan.",
+      "Freeze future B3 inputs.",
+      "Run 30 preparation cases.",
+      "Capture after baseline and stop."
+    ]
+  },
+  "evidence_required": [
+    "R11-CANDIDATE",
+    "R11-SCHEMA",
+    "R11-SCOPES",
+    "R11-CAPACITY",
+    "R11-TESTS",
+    "R11-PACKAGE",
+    "R11-BASELINE",
+    "R11-READINESS"
+  ],
+  "rollback_restore": {
+    "required": false,
+    "evidence_or_reason": "Not applicable: task-local additive governance artifacts only; protected sources remain immutable."
+  },
+  "human_approval": {
+    "required": true,
+    "approver_roles": [
+      "human-governance-owner"
+    ]
+  },
+  "stop_conditions": [
+    "Any candidate or protected source changes.",
+    "Any registered-schema validation fails.",
+    "Any forbidden path enters a Reviewer scope.",
+    "Capacity cannot reserve QA.",
+    "Any B3 Reviewer or B3 human approval is created."
+  ]
+}

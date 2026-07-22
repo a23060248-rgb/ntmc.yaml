@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "policy_type": "machine-readable-phase-policy",
+  "phase_id": "phase1_governance_only",
+  "governance_mode": "bootstrap",
+  "bootstrap_trust_policy_ref": ".codex/governance/bootstrap-trust-policy.yaml",
+  "steady_state_enabled": false,
+  "product_write_allowed": false,
+  "database_write_allowed": false,
+  "authorized_read_paths": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"],
+  "authorized_write_paths": ["AGENTS.md", ".agents/**", ".codex/**"],
+  "authorized_agent_roles": ["architect", "documentation-engineer", "qa-engineer", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer"],
+  "required_review_roles": ["code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "allowed_execution_categories": ["governance-source-edit", "governance-validation", "governance-fixture", "read-only-review", "bootstrap-candidate", "security", "domain-rule", "backward-compatibility"],
+  "prohibited_git_actions": ["stage", "commit", "push", "branch", "worktree", "merge", "stash", "reset", "restore", "clean"]
+}

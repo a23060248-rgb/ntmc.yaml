@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "required_output_count": 32,
+  "missing_required_outputs": [],
+  "reviewers": [
+    {
+      "file": "code-review.json",
+      "sha256": "1015D731ABA0DB3FAD465D892178D83A9C7E7EA53696E720A2A711684539E69D",
+      "reviewer": "code-reviewer",
+      "formal": true,
+      "reviewer_run_id": "A6-CODE-RUN-8e66b074-6f26-4031-a995-b9a383f5121b",
+      "session_id": "A6-CODE-SESSION-2cfc7043-ac58-45ca-97bd-46d507814558",
+      "outcome": "BLOCKER"
+    },
+    {
+      "file": "security-review.json",
+      "sha256": "714CEAC12138AD431ECB6601487A6832B562F60093C51CFA89F04FB64E06507D",
+      "reviewer": "security-reviewer",
+      "formal": true,
+      "reviewer_run_id": "A6-SEC-RUN-aef79a44-3c80-44dd-aae8-b9f77498fddb",
+      "session_id": "A6-SEC-SESSION-c85f23f3-65e8-423e-b95f-93e8ed8a379c",
+      "outcome": "BLOCKER"
+    },
+    {
+      "file": "railway-domain-review.json",
+      "sha256": "290BAB92A40FEE8358A67681E3B185DBBC355566D1D7D614D998966A0BEA121F",
+      "reviewer": "railway-domain-reviewer",
+      "formal": true,
+      "reviewer_run_id": "A6-DOMAIN-RUN-fb5170c7-ec05-4457-8605-c84875d005b8",
+      "session_id": "A6-DOMAIN-SESSION-524d2bcf-f699-431f-be71-d1bad8088626",
+      "outcome": "NEEDS_HUMAN_DECISION"
+    }
+  ],
+  "reviewer_independence": "PASS",
+  "baseline_all_reviewed_sources_identical": true,
+  "authoritative_rerun_pass": true,
+  "a6_validator_exit_code": 2,
+  "a6_validator_result_line": "VALIDATE_TASK_RESULT task_id=GOV-PHASE1-L3-REVIEW-A6 calculated_gate=NO-GO structural=VALID exit=2 bootstrap_candidate_review=NO-GO bootstrap_human_commit=NO-GO steady_state_preparation=NO-GO steady_state_execution=NO-GO proof_assurance=INTERNAL_CONSISTENCY_ONLY",
+  "migration_320_validator_exit_code": 2,
+  "migration_320_result_line": "VALIDATE_TASK_RESULT task_id=GOV-M320-DRYRUN calculated_gate=NO-GO structural=VALID exit=2 bootstrap_candidate_review=NO-GO bootstrap_human_commit=NO-GO steady_state_preparation=NO-GO steady_state_execution=NO-GO proof_assurance=INTERNAL_CONSISTENCY_ONLY",
+  "reviewer_set_outcome": "BLOCKER",
+  "bootstrap_candidate_review_gate": "NO-GO",
+  "session_b_eligible": false,
+  "later_gates": {
+    "bootstrap_human_commit": "NO-GO",
+    "steady_state_preparation": "NO-GO",
+    "steady_state_execution": "NO-GO",
+    "migration_320_execution": "NO-GO"
+  },
+  "git_commands_run": false,
+  "git_mutations_performed": false,
+  "session_b_started": false,
+  "audit_pass": true
+}

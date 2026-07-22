@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "source_reviews": ["code-review.json", "security-review.json", "railway-domain-review.json"],
+  "entries": [
+    {"finding_id":"A6-CODE-BLOCKER-001","reviewer":"code-reviewer","closure_status":"CLOSED","evidence":["PROD-GATE-01 and PROD-GATE-05 keep Candidate GO with final approval pending or rejected.","MUT-01-CANDIDATE-REQUIRES-FINAL was killed.","code-review.json#a6_closure"],"production_exploit_retest":"PASS_EXPLOIT_REJECTED","remaining_risk":"Separate new Code findings remain blocking.","blocks_bootstrap_candidate_gate":false},
+    {"finding_id":"A6-SEC-HIGH-001","reviewer":"security-reviewer","closure_status":"CLOSED","evidence":["Scanner report version, four bundle hashes, manifest, sets, counts, claims, registered findings and payload are recomputed.","security-review.json#closure_dispositions"],"production_exploit_retest":"REJECTED","remaining_risk":"Workspace producer provenance remains a declared bootstrap limitation.","blocks_bootstrap_candidate_gate":false},
+    {"finding_id":"A6-SEC-HIGH-002","reviewer":"security-reviewer","closure_status":"NOT_CLOSED","evidence":["A7-SEC-HIGH-001","security-review.json#closure_dispositions"],"production_exploit_retest":"REPRODUCED: removing non-MZ per-magic production pairs does not invalidate the formal matrix and the reduced suite remains green.","remaining_risk":"The declared nine-magic regression boundary is not mandatory in the formal oracle.","blocks_bootstrap_candidate_gate":true}
+  ],
+  "external_decision_record": {"finding_id":"A6-DOMAIN-HUMAN-DECISION-001","status":"PRESERVED_AS_EXTERNAL_DECISION","affects_gate":"migration_320_execution","outcome":"NEEDS_HUMAN_DECISION","blocks_bootstrap_rule_governance_mechanism":false},
+  "all_a6_remediation_findings_closed": false
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "contract_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scope-satisfiability-contract.json",
+  "capability_matrix_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-capability-artifact-matrix.json",
+  "capability_matrix_sha256": "A115AF0E7AE6032FDF34ABCBA3C60CBE0656DFDF2C761362749E8FAA56F23B8E",
+  "roles": [
+    {
+      "reviewer_role": "code-reviewer",
+      "scope_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/code-reviewer-scope.json",
+      "scope_sha256": "EFACC0A9AA4CB73B5C4A6D77BDEB39ACAA484C69F54CB21C9F8FD92A4440475C",
+      "scope_satisfiable": true,
+      "dispatch_authorized": true,
+      "issue_count": 0,
+      "issues": [],
+      "capability_checks_passed": 137,
+      "capability_checks_total": 137,
+      "dynamic_runtime_revalidation_required": false
+    },
+    {
+      "reviewer_role": "security-reviewer",
+      "scope_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/security-reviewer-scope.json",
+      "scope_sha256": "8BCEFB6EAD7BA8DFD3DB380DD82CE4917B80A3E8ED13A1320F13E508DDCB32D3",
+      "scope_satisfiable": true,
+      "dispatch_authorized": true,
+      "issue_count": 0,
+      "issues": [],
+      "capability_checks_passed": 143,
+      "capability_checks_total": 143,
+      "dynamic_runtime_revalidation_required": false
+    },
+    {
+      "reviewer_role": "railway-domain-reviewer",
+      "scope_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/railway-domain-reviewer-scope.json",
+      "scope_sha256": "BEF2750E710E85C8FE2F86E0601C0638DA9E6853255510E5E8B73A9CE5C84897",
+      "scope_satisfiable": true,
+      "dispatch_authorized": true,
+      "issue_count": 0,
+      "issues": [],
+      "capability_checks_passed": 115,
+      "capability_checks_total": 115,
+      "dynamic_runtime_revalidation_required": false
+    },
+    {
+      "reviewer_role": "compatibility-reviewer",
+      "scope_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/compatibility-reviewer-scope.json",
+      "scope_sha256": "6815E93D81AD9902097B0F5E92936C0C3E4A445625350A70B0E0049F9F10DDC6",
+      "scope_satisfiable": true,
+      "dispatch_authorized": true,
+      "issue_count": 0,
+      "issues": [],
+      "capability_checks_passed": 133,
+      "capability_checks_total": 133,
+      "dynamic_runtime_revalidation_required": true
+    }
+  ],
+  "scope_satisfiable": true,
+  "dispatch_authorized": true,
+  "result": "PASS"
+}

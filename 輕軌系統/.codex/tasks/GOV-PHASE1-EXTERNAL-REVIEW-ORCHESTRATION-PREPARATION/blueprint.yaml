@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-EXTERNAL-REVIEW-PREPARATION",
+  "task_id": "GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION",
+  "risk": {
+    "level": "L3",
+    "reasons": [
+      "Prepares formal independent review inputs and a future compatibility gate runner."
+    ]
+  },
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/**"
+    ],
+    "exclude": [
+      "candidate/history mutation",
+      "Reviewer or Aggregator launch",
+      "Git/product/DB/migration operations"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": [
+      "Exact candidate and frozen governance paths only"
+    ],
+    "write": [
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/**"
+    ]
+  },
+  "agent_assignments": [],
+  "review_assignments": [],
+  "applicable_rules": [
+    "GOV-SCOPE-001",
+    "REV-INDEP-001",
+    "REV-L3-001",
+    "EVD-HASH-001"
+  ],
+  "candidate_rules": [],
+  "required_agents": [],
+  "execution": {
+    "parallel_groups": [],
+    "sequential_steps": [
+      "Capture before baseline.",
+      "Build common schemas and five packages.",
+      "Verify scopes and package integrity.",
+      "Run fail-closed protocol tests.",
+      "Capture after baseline and publish readiness."
+    ]
+  },
+  "evidence_required": [
+    "EXTERNAL-MODEL-DECISION",
+    "EXTERNAL-PACKAGES",
+    "EXTERNAL-SCOPES",
+    "EXTERNAL-JCS",
+    "EXTERNAL-TRANSPORT",
+    "EXTERNAL-QA",
+    "EXTERNAL-TESTS",
+    "EXTERNAL-BASELINE",
+    "EXTERNAL-READINESS"
+  ],
+  "rollback_restore": {
+    "required": false,
+    "evidence_or_reason": "Task-local additive preparation artifacts only."
+  },
+  "human_approval": {
+    "required": true,
+    "approver_roles": [
+      "human-governance-owner"
+    ]
+  },
+  "stop_conditions": [
+    "Any candidate or history change.",
+    "Any Reviewer or Aggregator chat starts.",
+    "Any Git/product/DB/migration operation occurs."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://ntmc.local/codex/schemas/implementation-handoff.schema.json", "x-governance-schema-version": 1, "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "task_id", "producer", "agent_session_ref", "started_at", "changed_files", "commands", "evidence_refs", "unverified", "residual_risks", "next_role"],
+  "properties": {
+    "schema_version": {"const": 1}, "task_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,63}$"}, "producer": {"type": "string", "minLength": 1}, "actor_role": {"type": "string", "minLength": 1}, "agent_session_ref": {"type": "string", "minLength": 1}, "started_at": {"type": "string", "format": "date-time"},
+    "changed_files": {"type": "array", "items": {"type": "string"}}, "commands": {"type": "array", "items": {"type": "string"}}, "evidence_refs": {"type": "array", "items": {"type": "string"}}, "unverified": {"type": "array", "items": {"type": "string"}}, "residual_risks": {"type": "array", "items": {"type": "string"}}, "next_role": {"type": "string", "minLength": 1}
+  }
+}

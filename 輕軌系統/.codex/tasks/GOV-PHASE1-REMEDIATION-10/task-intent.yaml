@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "title": "Phase 1.10 Session B Security Evidence Chain Remediation",
+  "task_type": "governance",
+  "objective": "Build a candidate-immutable, production-derived Scanner Contract v5 security evidence chain and exact future Session B2 Security review input scope without closing Session B findings or starting Session B2.",
+  "business_reason": "Session B was blocked by a Task-local legacy contract version and an incomplete Security Reviewer allowlist, while direct byte and hash evidence continues to show that the exact 103-file Phase 1.9 candidate is unchanged.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "exclude": [".env*", "collab/**", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "parent directories", "sibling directories", "Git mutation", "Session B2 execution", "Human Exact-Manifest Confirmation", "steady-state activation"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Both Session B Security findings are classified before remediation and neither requires a candidate change.",
+    "The production Scanner Contract identity, version and SHA256 are uniquely derived from the frozen manifest-record-report chain rather than a handwritten version field.",
+    "The manifest, candidate record, scanner report, contract, scanner components and schema bindings form a directly recomputed machine-readable chain for exactly 103 candidate files.",
+    "The future Session B2 Security read scope contains exact existing paths and hashes for all required nodes, excludes forbidden roots and does not use broad repository globs.",
+    "All 20 specified positive and negative cases produce the expected PASS or fail-closed exit 1 result.",
+    "The 836-file protected before and after baselines are byte-identical, including A10, Session B and Migration 320 records.",
+    "Readiness is limited to READY_FOR_HUMAN_TO_CONSIDER_SESSION_B2 and does not authorize Session B2, close findings or make Human Commit eligible."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "The human explicitly authorized GOV-PHASE1-REMEDIATION-10 only; candidate changes, Session B artifact changes, Session B2 startup and Git mutation remain prohibited."
+}

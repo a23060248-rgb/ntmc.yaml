@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B6R1-COMPATIBILITY-REVIEW",
+  "evaluated_at_utc": "2026-07-20T15:02:52.365Z",
+  "initial_agent_listing": [
+    {
+      "agent_name": "/root",
+      "status": "running"
+    },
+    {
+      "agent_name": "/root/b5_code_reviewer",
+      "status": "interrupted"
+    }
+  ],
+  "top_level_root": true,
+  "parent_agent": null,
+  "existing_child_threads": 1,
+  "interrupted_child_threads": 1,
+  "completed_child_threads": 0,
+  "inherited_child_allocations": 1,
+  "fresh_root_confirmed": false,
+  "dispatch_authorized": false,
+  "result": "B6R1_PRECHECK_BLOCKER",
+  "dispatch_result": "NO_REVIEWER_DISPATCHED",
+  "stop_reason": "The initial agent listing was not exactly /root. An interrupted historical B5 reviewer child remains present.",
+  "candidate_read": false,
+  "r12_package_validation_started": false,
+  "existing_child_cleared_or_ignored": false
+}

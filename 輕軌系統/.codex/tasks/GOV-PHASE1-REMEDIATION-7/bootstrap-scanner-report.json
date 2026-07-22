@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "report_type": "bootstrap-manifest-scan",
+  "assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "scan_contract": {
+    "contract_id": "GOV-DETERMINISTIC-SCAN",
+    "contract_version": 5,
+    "contract_sha256": "8CB9425631FD0D3CB50F8F0AFF6E5F9204D5F25FDD437A12712892DFC83C9463",
+    "finding_registry_sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B",
+    "canonicalization_config_sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6",
+    "binary_oracle_config_sha256": "02E0C444F550EAC538C46D61ADFEE7C2C89B3DC3D0DF3A0B57223491D3EF2B16"
+  },
+  "candidate_binding": {
+    "manifest_sha256": "8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51",
+    "included_file_set_sha256": "C8C4CD2DC1457B68436E1973DB3163D7DE4D168FB6E1244F1C06EAA749297F84",
+    "scanned_file_set_sha256": "C8C4CD2DC1457B68436E1973DB3163D7DE4D168FB6E1244F1C06EAA749297F84",
+    "expected_file_count": 92,
+    "scanned_file_count": 92
+  },
+  "execution": {
+    "execution_id": "SCAN-b9a89cb9-879b-4039-b743-5e69900dbd26",
+    "started_at": "2026-07-19T08:11:00+08:00",
+    "completed_at": "2026-07-19T08:11:00+08:00"
+  },
+  "results": {
+    "result": "PASS",
+    "finding_count": 0,
+    "findings": [],
+    "declared_contract_executed": true,
+    "no_findings_within_declared_contract": true
+  },
+  "report_payload_sha256": "DE80C5C2F492CFDBE827A0480A9F775D191749CE509708D0238CEDD5E6DFB6B4"
+}

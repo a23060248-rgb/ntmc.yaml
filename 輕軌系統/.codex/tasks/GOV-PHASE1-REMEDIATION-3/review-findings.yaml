@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-3",
+  "review_context": "No post-remediation independent Review was launched; these are non-formal pending records and do not replace Session A2 outcomes.",
+  "reviews": [
+    {"type": "code", "reviewer": "unassigned-post-remediation-reviewer", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["Session A2 Code Review BLOCKER remains the latest formal outcome."], "conditions": [], "decisions_required": [{"decision_required": "REM3-LAUNCH-A3-CODE", "decision_owner_role": "human-governance-owner", "decision_question": "Launch a fresh independent post-remediation Code Review?", "decision_deadline_or_trigger": "Before any governance commit approval."}]},
+    {"type": "security", "reviewer": "unassigned-post-remediation-reviewer", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["Session A2 Security Review BLOCKER remains the latest formal outcome."], "conditions": [], "decisions_required": [{"decision_required": "REM3-LAUNCH-A3-SECURITY", "decision_owner_role": "human-governance-owner", "decision_question": "Launch a fresh independent post-remediation Security Review?", "decision_deadline_or_trigger": "Before any governance commit approval."}]},
+    {"type": "railway-domain", "reviewer": "unassigned-post-remediation-reviewer", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["Session A2 Railway Domain Review BLOCKER remains the latest formal outcome; current confirmed Rule count is zero."], "conditions": [], "decisions_required": [{"decision_required": "REM3-LAUNCH-A3-DOMAIN", "decision_owner_role": "human-governance-owner", "decision_question": "Launch a fresh independent post-remediation Railway Domain governance Review?", "decision_deadline_or_trigger": "Before any governance commit approval."}]},
+    {"type": "compatibility", "reviewer": "unassigned-post-remediation-reviewer", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["Migration 320 remains independently blocked and NO-GO."], "conditions": [], "decisions_required": [{"decision_required": "REM3-LAUNCH-A3-COMPAT", "decision_owner_role": "human-governance-owner", "decision_question": "Launch a fresh compatibility Review while preserving the separate Migration 320 gate?", "decision_deadline_or_trigger": "Before any governance commit approval."}]}
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "blockers": ["Formal post-remediation independent Review has not been run.", "Session A2 BLOCKER outcomes remain authoritative until superseded by a separately authorized independent Review."],
+  "conditions": [{"condition_id": "REM3-INDEPENDENT-A3", "condition": "Complete a separately authorized independent post-remediation Review before governance commit consideration.", "status": "open", "owner": "human-governance-owner", "deadline_or_trigger": "Before review_completion or final_commit_approval.", "completion_criterion": "All required formal Review artifacts are independently produced and validated.", "resolution_evidence": [], "reviewer_revalidation": false}]
+}

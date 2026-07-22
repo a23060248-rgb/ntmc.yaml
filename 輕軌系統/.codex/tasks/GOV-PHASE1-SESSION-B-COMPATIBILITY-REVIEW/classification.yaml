@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "level": "L3",
+  "reasons": ["Session B determines compatibility and readiness for a later human exact-manifest decision.", "The review crosses governance schemas, workflows, scanner and Gate Router contracts.", "Historical blockers and Migration 320 NO-GO semantics must remain fail-closed."],
+  "triggers": ["bootstrap-compatibility", "commit-readiness", "historical-semantics", "security-integrity", "railway-workflow"],
+  "execution_categories": ["read-only-review", "bootstrap-candidate", "governance-validation", "security", "domain-rule", "backward-compatibility"],
+  "required_agents": ["qa-engineer", "code-reviewer", "compatibility-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "required_reviews": ["code", "compatibility", "security", "railway-domain"],
+  "parallel_allowed": true,
+  "evidence_required": ["ART-SB-CANDIDATE", "ART-SB-GATE-REPLAY", "ART-SB-SCHEMA-WORKFLOW", "ART-SB-REMOVED-CAPABILITIES", "ART-SB-HISTORY", "ART-SB-SECURITY", "ART-SB-DOMAIN", "ART-SB-RERUNS", "ART-SB-BASELINE", "ART-SB-M320"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["Any candidate, frozen history, A10 or Migration 320 source changes.", "Any forbidden path is read or written.", "Any Git, service, product test, database, seed or migration command occurs.", "Any Reviewer outcome is rewritten by the orchestrator.", "Any removed bootstrap capability becomes production-executable.", "Any historical BLOCKER or NO-GO is reinterpreted as PASS or GO.", "Human Commit, steady-state or Migration 320 execution is declared or started."],
+  "scope": {"include": ["AGENTS.md", ".agents/**", ".codex/**"], "exclude": [".env*", "collab/**", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "parent directories", "sibling directories"]},
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

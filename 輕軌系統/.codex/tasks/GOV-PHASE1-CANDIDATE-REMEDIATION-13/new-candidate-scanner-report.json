@@ -1,0 +1,42 @@
+{
+  "schema_version": 3,
+  "report_type": "bootstrap-manifest-scan",
+  "assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "scan_contract": {
+    "contract_id": "GOV-DETERMINISTIC-SCAN",
+    "contract_version": 5,
+    "contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9",
+    "finding_registry_sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B",
+    "canonicalization_config_sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6",
+    "binary_oracle_config_sha256": "B25F552BC2379EDEB741862682277B5BA7B435A389ED162E0F297E96C066733F",
+    "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+    "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+    "evidence_schema_registry_sha256": "2744036D841174BE94BF1D05F6EA38C2B2C410E0EB5520D3D3723135E674E142",
+    "referenced_evidence_policy_sha256": "D9406A5663164027FAA0FC762C8B2DBBAB29B0F27AEAB7310F79ED9A88F30ED5"
+  },
+  "candidate_binding": {
+    "manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "scanned_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "expected_file_count": 108,
+    "scanned_file_count": 108
+  },
+  "validation_capabilities": {
+    "static_scan_clean": true,
+    "referenced_evidence_validation_contract_present": true,
+    "candidate_binding_complete": true
+  },
+  "execution": {
+    "execution_id": "SCAN-7e6950a1-94c4-4c39-8ead-5730fa8fb0a2",
+    "started_at": "2026-07-21T06:11:00+08:00",
+    "completed_at": "2026-07-21T06:11:00+08:00"
+  },
+  "results": {
+    "result": "PASS",
+    "finding_count": 0,
+    "findings": [],
+    "declared_contract_executed": true,
+    "no_findings_within_declared_contract": true
+  },
+  "report_payload_sha256": "12EDB232FDE8CFD3A31D43EB24936806331E28E60A9088742867ECDB7072CB03"
+}

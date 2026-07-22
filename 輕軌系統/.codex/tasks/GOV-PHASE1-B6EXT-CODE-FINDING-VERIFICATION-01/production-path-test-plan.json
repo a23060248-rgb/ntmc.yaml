@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "entrypoint": "validateTask",
+  "isolation": "Candidate files are copied byte-for-byte under the authorized Task directory; only fixture copies are mutated.",
+  "cases": [
+    {
+      "case_id": "CASE-01",
+      "title": "Task-root valid Security evidence with regenerated bindings",
+      "expected": "PASS"
+    },
+    {
+      "case_id": "CASE-02",
+      "title": "Task-root invalid Security evidence with regenerated bindings",
+      "expected": "FAIL"
+    },
+    {
+      "case_id": "CASE-03",
+      "title": "Nested arbitrary-name valid Security evidence is required by manifest",
+      "expected": "PASS"
+    },
+    {
+      "case_id": "CASE-04",
+      "title": "Nested arbitrary-name schema-invalid Security evidence is required by manifest",
+      "expected": "FAIL"
+    },
+    {
+      "case_id": "CASE-05",
+      "title": "Nested Security evidence is missing while manifest still references it",
+      "expected": "FAIL"
+    },
+    {
+      "case_id": "CASE-06",
+      "title": "Nested Security evidence declares an unregistered schema version",
+      "expected": "FAIL"
+    },
+    {
+      "case_id": "CASE-07",
+      "title": "Referenced Security evidence path escapes Task root",
+      "expected": "FAIL"
+    },
+    {
+      "case_id": "CASE-08",
+      "title": "Two Security evidence files exist and the required nested one is invalid",
+      "expected": "FAIL"
+    },
+    {
+      "case_id": "CASE-09",
+      "title": "Manifest marks required nested Security evidence VERIFIED although schema-invalid",
+      "expected": "FAIL"
+    },
+    {
+      "case_id": "CASE-10",
+      "title": "Task omits standard Security evidence",
+      "expected": "FAIL"
+    }
+  ],
+  "prohibited_operations_confirmed": [
+    "Git",
+    "service",
+    "database",
+    "seed",
+    "migration",
+    "product operation"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "required_reviewer_count": 5,
+  "configured_max_threads": 4,
+  "root_thread_accounted_for": true,
+  "active_root_threads": 1,
+  "completed_prior_child_threads_observed": 3,
+  "active_reviewer_child_threads_before_dispatch": 0,
+  "allocated_prior_child_threads": 3,
+  "available_new_child_thread_slots": 0,
+  "maximum_concurrent_reviewer_threads": 3,
+  "wave_1_capacity_available": false,
+  "wave_2a_capacity_available": false,
+  "qa_capacity_reserved": false,
+  "all_assignments_unique": true,
+  "all_base_scopes_valid": true,
+  "dispatch_probe": {
+    "requested_role": "code-reviewer",
+    "result": "REJECTED",
+    "error": "collab spawn failed: agent thread limit reached",
+    "reviewer_thread_started": false
+  },
+  "verification_basis": "The live dispatch probe proved that three completed prior child threads still consume this root thread's allocation. No fresh reviewer slot is available, so fifth-reviewer QA capacity cannot be proven.",
+  "preflight_status": "B3_PRECHECK_BLOCKER"
+}

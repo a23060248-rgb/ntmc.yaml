@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "producer": "codex-root-bootstrap-remediation-implementer",
+  "actor_role": "architect",
+  "agent_session_ref": "R8-IMPLEMENTER-SESSION-7D6E38EA-6B4C-41EF-96CC-5E3AF96768FA",
+  "started_at": "2026-07-19T12:00:00+08:00",
+  "changed_files": [".codex/blueprints/schemas/**", ".codex/governance/**", ".codex/scripts/**", ".codex/tests/**", ".codex/tasks/GOV-PHASE1-REMEDIATION-8/**"],
+  "commands": [
+    "node .codex/scripts/build-phase-status.mjs 2026-07-19T19:01:00+08:00",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-8/run-validation.mjs",
+    "node .codex/scripts/generate-governance-commit-manifest.mjs 2026-07-19T19:10:00+08:00",
+    "node .codex/scripts/generate-bootstrap-scan-report.mjs 2026-07-19T19:11:00+08:00 .codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-scanner-report.json",
+    "node .codex/scripts/generate-bootstrap-candidate.mjs GOV-PHASE1-REMEDIATION-8 2026-07-19T19:12:00+08:00 .codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-scanner-report.json .codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-candidate-record.json",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-8/run-validation.mjs --m320-only",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-8/capture-baseline.mjs baseline-after.json",
+    "node .codex/tasks/GOV-PHASE1-REMEDIATION-8/compare-baselines.mjs"
+  ],
+  "evidence_refs": [
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-8/validation-run-summary.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-candidate-record.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-scanner-report.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-8/baseline-comparison.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-8/a7-finding-remediation-matrix.md"
+  ],
+  "unverified": ["Fresh independent A8 findings and outcomes.", "Git tree, index, staged blobs, commit, branch, remote, and branch-protection state.", "Trusted validator provenance or an established bootstrap commit trust anchor.", "Product runtime, service, database, seed, migration, and product-test behavior."],
+  "residual_risks": ["Bootstrap evidence proves internal consistency only.", "A7 remains archived BLOCKER and the Candidate and Human Commit Gates remain NO-GO.", "Both steady-state Gates remain DISABLED.", "Migration 320 remains NO-GO.", "Scanner and Schema claims are limited to their declared Phase 1 contracts."],
+  "next_role": "human-governance-owner decides whether to authorize a fresh independent read-only Session A8"
+}

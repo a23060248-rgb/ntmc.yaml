@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "artifact_type": "review-dispatch-failure",
+  "required_role": "qa-engineer",
+  "assignment_id": "ASSIGN-B2-QA-C66AE772-52D8-4430-9AFE-6D7E73A6382E",
+  "planned_reviewer_run_id": "B2-QA-RUN-5D1DA222-64EE-40F1-BE33-1D42F86E3F89",
+  "planned_session_id": "B2-QA-SESSION-1FEB12CA-254C-4EFC-8BE5-28E530239556",
+  "review_scope": "bootstrap_deterministic_readback",
+  "formal_review_executed": false,
+  "review_output_present": false,
+  "dispatch_attempts": 2,
+  "failure": "collab spawn failed: agent thread limit reached",
+  "fallback_reviewer_used": false,
+  "root_orchestrator_self_reviewed": false,
+  "existing_reviewer_context_reused": false,
+  "impact": "The required five-role formal Reviewer Set is incomplete and must fail closed.",
+  "outcome": "BLOCKER",
+  "minimum_remediation": "In a separately authorized fresh task, dispatch a clean QA Reviewer after resetting the available reviewer-thread capacity and freeze all corrected inputs before review.",
+  "prohibited_actions_confirmed": {
+    "qa_outcome_fabricated": false,
+    "reviewer_independence_waived": false,
+    "human_commit_go_declared": false,
+    "steady_state_started": false,
+    "migration_320_approved": false
+  }
+}

@@ -23,7 +23,13 @@ const scenarios = [
   { name: "schedule", method: "POST", path: "/api/precheck/imports/preview", body: {}, roles: ROLE_POLICIES.SCHEDULE_WRITE },
   { name: "package", method: "PATCH", path: "/api/precheck/packages/PHASE8-NOT-FOUND", body: {}, roles: ROLE_POLICIES.PACKAGE_WRITE },
   { name: "backfill", method: "PATCH", path: "/api/precheck/backfills/PHASE8-NOT-FOUND", body: {}, roles: ROLE_POLICIES.BACKFILL_WRITE },
-  { name: "work-order", method: "POST", path: "/api/work-orders", body: { password: "phase8-secret" }, roles: ROLE_POLICIES.WORK_ORDER_WRITE },
+  {
+    name: "work-order",
+    method: "POST",
+    path: "/api/work-orders/C-2690711-D-TS-981/actions/accept",
+    body: { expectedVersion: 1, password: "phase8-secret" },
+    roles: ROLE_POLICIES.WORK_ORDER_WRITE,
+  },
   { name: "inventory-post", method: "POST", path: "/api/inventory/transfer", body: {}, roles: ROLE_POLICIES.INVENTORY_POST, idempotencyKey: "PHASE8-INVENTORY-POST" },
   { name: "inventory-consume", method: "POST", path: "/api/inventory/consume", body: {}, roles: ROLE_POLICIES.INVENTORY_CONSUME, idempotencyKey: "PHASE8-INVENTORY-CONSUME" },
   { name: "turnaround", method: "POST", path: "/api/turnaround/r-orders/PHASE8-NOT-FOUND/actions", body: { action: "START_INTERNAL" }, roles: ROLE_POLICIES.TURNAROUND_WRITE },
@@ -47,9 +53,11 @@ async function request({ method = "GET", path, role, body, requestId, idempotenc
   return { status: response.status, body: parsed, requestId: response.headers.get("x-request-id") };
 }
 
-async function resetFixture() {
+async function resetFixture({ clearAudits = false } = {}) {
   await withTransaction(async (client) => {
-    await client.query(`DELETE FROM operation_audit_log WHERE request_id LIKE 'PHASE8-%'`);
+    if (clearAudits) {
+      await client.query(`DELETE FROM operation_audit_log WHERE request_id LIKE 'PHASE8-%'`);
+    }
     const old = await client.query(`SELECT id FROM work_order WHERE work_order_no='C-2690711-D-TS-981'`);
     if (old.rowCount) {
       await client.query(`DELETE FROM work_order_event WHERE work_order_id=$1`, [old.rows[0].id]);
@@ -87,7 +95,7 @@ async function waitForAudit(requestId) {
 }
 
 async function main() {
-  await resetFixture();
+  await resetFixture({ clearAudits: true });
   const sessionCount = await query(
     `SELECT count(*)::int AS count FROM user_session s
       JOIN app_user u ON u.id=s.user_id
@@ -113,6 +121,7 @@ async function main() {
     const matrix = [];
     for (const scenario of scenarios) {
       for (const role of ALL_ROLES) {
+        if (scenario.name === "work-order") await resetFixture();
         const requestId = `PHASE8-MATRIX-${scenario.name}-${role}`;
         const result = await request({ ...scenario, role, requestId, idempotencyKey: scenario.idempotencyKey ? `${scenario.idempotencyKey}-${role}` : undefined });
         const allowed = scenario.roles.includes(role);
@@ -127,20 +136,21 @@ async function main() {
       }
     }
 
+    await resetFixture();
     const successId = "PHASE8-AUDIT-SUCCESS";
     const success = await request({
       method: "PATCH",
       path: "/api/work-orders/C-2690711-D-TS-981",
       role: "maintenance_supervisor",
       requestId: successId,
-      body: { note: "PHASE8-AFTER" },
+      body: { note: "PHASE8-AFTER", expectedVersion: 1 },
     });
     assert.equal(success.status, 200);
     assert.equal(success.body.row.note, "PHASE8-AFTER");
     const successAudit = await waitForAudit(successId);
     assert.equal(successAudit.actor_role, "maintenance_supervisor");
     assert.equal(successAudit.response_status, 200);
-    assert.equal(successAudit.action_code, "WORK_ORDER_UPDATE");
+    assert.equal(successAudit.action_code, "C_WORK_ORDER_CONTENT_UPDATE");
     assert.equal(successAudit.before_summary.note, "PHASE8-BEFORE");
     assert.equal(successAudit.after_summary.note, "PHASE8-AFTER");
     assert.equal(successAudit.metadata.adapter, "api");
@@ -155,7 +165,12 @@ async function main() {
     assert.ok(deniedAudit.after_summary.error);
 
     const anonymousMutationId = "PHASE8-ANON-MUTATION";
-    const anonymousMutation = await request({ method: "POST", path: "/api/work-orders", requestId: anonymousMutationId, body: {} });
+    const anonymousMutation = await request({
+      method: "POST",
+      path: "/api/work-orders/C-PHASE8-NOT-FOUND/actions/accept",
+      requestId: anonymousMutationId,
+      body: { expectedVersion: 1 },
+    });
     assert.equal(anonymousMutation.status, 401);
     const anonymousAudit = await waitForAudit(anonymousMutationId);
     assert.equal(anonymousAudit.actor_id, null);

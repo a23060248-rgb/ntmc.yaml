@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3",
+  "verified_at": "2026-07-22T10:23:15+08:00",
+  "authority_task_id": "GOV-PHASE1-MASTER-BATCH-2D-A11-QA-FAILURE-TRIAGE",
+  "authority_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-MASTER-BATCH-2D-A11-QA-FAILURE-TRIAGE",
+  "verification_status": "HARD_STOP",
+  "hard_stop_code": "A11_R3_TRIAGE_SOURCE_CONFLICT",
+  "required_artifact_count": 9,
+  "present_artifact_count": 6,
+  "missing_artifact_count": 3,
+  "required_artifacts": [
+    {
+      "name": "six-suite-classification.json",
+      "exists": true,
+      "sha256": "865E403E908220D14FFAD1E861BA42CEFCBA87B325AC8136B61D2CEA405AB580"
+    },
+    {
+      "name": "candidate-impact-assessment.json",
+      "exists": true,
+      "sha256": "E44981F1292576A4A322E438DDA2B36EA32C739C95C69B9EE250CCD0C6BC0391"
+    },
+    {
+      "name": "recommended-remediation-boundary.json",
+      "exists": true,
+      "sha256": "87E4C985439B9B65F12C668AFD0AF82EA41C78AE44B2BB0EE6C2515757079CCD"
+    },
+    {
+      "name": "aggregator-r2-output-status.json",
+      "exists": true,
+      "sha256": "EEB9929CB23DF3E46E213E4515DD3D6D8F961E226E634284E6A34A2A7157810F"
+    },
+    {
+      "name": "qa-failure-source-manifest.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "name": "qa-contract-impact-assessment.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "name": "historical-compatibility-assessment.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "name": "final-summary.md",
+      "exists": true,
+      "sha256": "414215E61D601EA7BDDAD0345B11E24B3887A49B991C6A3C5A8C79D5DAEF7883"
+    },
+    {
+      "name": "HANDOFF.md",
+      "exists": true,
+      "sha256": "7FDA5E74AD4E4841EEC01BB24541EC97DB1DC573897A1BC71D19DC4F324CFC98"
+    }
+  ],
+  "missing_artifacts": [
+    "qa-failure-source-manifest.json",
+    "qa-contract-impact-assessment.json",
+    "historical-compatibility-assessment.json"
+  ],
+  "fail_closed_reason": "The user-designated MASTER BATCH 2D authority is incomplete, so the required six-suite source mapping, QA contract impacts, and historical compatibility decisions cannot be imported without inference.",
+  "inference_or_reconstruction_performed": false,
+  "triage_task_modified": false,
+  "downstream_checks_performed": {
+    "candidate_binding": false,
+    "reviewer_payload_reuse": false,
+    "transport_v2_reuse": false,
+    "remediation_contract_generation": false,
+    "aggregator_r3_package_generation": false
+  }
+}

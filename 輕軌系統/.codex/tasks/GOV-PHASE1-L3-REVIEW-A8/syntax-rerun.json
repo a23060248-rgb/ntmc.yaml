@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "total": 18,
+  "passed": 18,
+  "failed": 0,
+  "results": [
+    {
+      "ref": ".codex/scripts/build-phase-status.mjs",
+      "command": "node --check .codex/scripts/build-phase-status.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/generate-bootstrap-candidate.mjs",
+      "command": "node --check .codex/scripts/generate-bootstrap-candidate.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+      "command": "node --check .codex/scripts/generate-bootstrap-scan-report.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/validate-task.mjs",
+      "command": "node --check .codex/scripts/validate-task.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/lib/schema-validator.mjs",
+      "command": "node --check .codex/scripts/lib/schema-validator.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/lib/governance-commit-manifest.mjs",
+      "command": "node --check .codex/scripts/lib/governance-commit-manifest.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/domain-review-routing.mjs",
+      "command": "node --check .codex/scripts/lib/governance/domain-review-routing.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/gate-router.mjs",
+      "command": "node --check .codex/scripts/lib/governance/gate-router.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+      "command": "node --check .codex/scripts/lib/governance/governance-schema-loader.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+      "command": "node --check .codex/scripts/lib/governance/scanner-pipeline.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/scanner-report.mjs",
+      "command": "node --check .codex/scripts/lib/governance/scanner-report.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/scripts/lib/governance/typed-proof.mjs",
+      "command": "node --check .codex/scripts/lib/governance/typed-proof.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/tests/run-governance-fixtures.mjs",
+      "command": "node --check .codex/tests/run-governance-fixtures.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/tests/run-governance-fixtures-concurrency.mjs",
+      "command": "node --check .codex/tests/run-governance-fixtures-concurrency.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/tests/run-bootstrap-scanner-production.mjs",
+      "command": "node --check .codex/tests/run-bootstrap-scanner-production.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "command": "node --check .codex/tests/run-bootstrap-production-integration.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/tests/run-bootstrap-mutation-tests.mjs",
+      "command": "node --check .codex/tests/run-bootstrap-mutation-tests.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    },
+    {
+      "ref": ".codex/tests/run-binary-magic-registry-mutations.mjs",
+      "command": "node --check .codex/tests/run-binary-magic-registry-mutations.mjs",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stderr_tail": ""
+    }
+  ]
+}

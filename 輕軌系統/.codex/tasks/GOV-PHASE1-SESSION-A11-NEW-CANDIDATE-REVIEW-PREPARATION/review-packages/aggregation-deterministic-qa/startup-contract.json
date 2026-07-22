@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "review_package_id": "A11-AGGREGATION-QA-PKG-20260721-05",
+  "assignment_id": "A11-AGGREGATION-QA-ASSIGNMENT-20260721-05",
+  "reviewer_run_id": "A11-AGGREGATION-QA-RUN-20260721-05",
+  "reviewer_session_nonce": "99E8475CC3D7E10055F6906056830C0D2F0D123B3D71B335EE9F80B7642FC0C5",
+  "review_type": "aggregation_qa",
+  "startup_order": [
+    "launch_envelope",
+    "repository_root_binding",
+    "embedded_startup_failure_contract",
+    "assignment",
+    "package_manifest",
+    "package_verification",
+    "exact_read_scope",
+    "startup_contract",
+    "return_payload_schema"
+  ],
+  "fail_closed_on_any_mismatch": true,
+  "exact_paths_only": true,
+  "candidate_content_review_forbidden_until_startup_valid": true,
+  "output_rule": "Return exactly one schema-valid JSON wrapper and stop."
+}

@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION",
+  "total": 20,
+  "passed": 20,
+  "failed": 0,
+  "negative_cases": 19,
+  "negative_cases_fail_closed": true,
+  "positive_case_accepted": true,
+  "tests": [
+    {
+      "test_id": "EXT-01",
+      "name": "Reviewer package missing manifest",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "PACKAGE_MANIFEST_MISSING"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-02",
+      "name": "Package core file hash mismatch",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "PACKAGE_FILE_HASH_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-03",
+      "name": "Package core digest mismatch",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "PACKAGE_CORE_SHA256_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-04",
+      "name": "Scope contains recursive glob",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "RECURSIVE_GLOB_FORBIDDEN",
+        "FORBIDDEN_SCOPE_PATH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-05",
+      "name": "Scope contains forbidden path",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "FORBIDDEN_SCOPE_PATH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-06",
+      "name": "Scope omits required artifact",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "REQUIRED_ARTIFACT_MISSING:.codex/governance/governance-commit-manifest.yaml"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-07",
+      "name": "Reviewer scope references future output",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "FUTURE_OUTPUT_IN_REVIEWER_SCOPE:.codex/tasks/GOV-PHASE1-B6EXT-AGGREGATION-QA/imported-reviewer-payloads/code-review-payload.json"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-08",
+      "name": "Reviewer assignment permits workspace write",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "REVIEWER_WRITE_PERMISSION_FORBIDDEN"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-09",
+      "name": "Reviewer assignment permits subagent",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "REVIEWER_SUBAGENT_PERMISSION_FORBIDDEN"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-10",
+      "name": "Reviewer prompt depends on prior conversation",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "PROMPT_NOT_STANDALONE:brand-new top-level Codex chat",
+        "PROMPT_NOT_STANDALONE:do not attach or rely on any prior conversation",
+        "PROMPT_NOT_STANDALONE:Do not create child agents or subagents",
+        "PROMPT_NOT_STANDALONE:Do not write to the repository",
+        "PROMPT_NOT_STANDALONE:Return exactly one JSON object",
+        "PROMPT_NOT_STANDALONE:stop immediately"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-11",
+      "name": "Payload package ID mismatch",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "PACKAGE_ID_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-12",
+      "name": "Payload role differs from assignment",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "ROLE_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-13",
+      "name": "Payload self-hash mismatch",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "PAYLOAD_SELF_HASH_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-14",
+      "name": "Payload lacks mandatory exit",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "INCOMPLETE_OR_NO_MANDATORY_EXIT"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-15",
+      "name": "Manual transport declares intentional modification",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "TRANSPORT_ATTESTATION_INVALID"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-16",
+      "name": "Aggregator missing one Reviewer payload",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "REVIEWER_PAYLOAD_COUNT_INVALID",
+        "TRANSPORT_ATTESTATION_INVALID"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-17",
+      "name": "Aggregator receives duplicate Reviewer run ID",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "DUPLICATE_REVIEWER_RUN_ID"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-18",
+      "name": "Aggregator attempts to modify Reviewer outcome",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "AGGREGATOR_OUTCOME_MUTATION_FORBIDDEN"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-19",
+      "name": "QA input lacks one raw deterministic report",
+      "expected_accept": false,
+      "actual_accept": false,
+      "violations": [
+        "RAW_DETERMINISTIC_REPORTS_INCOMPLETE"
+      ],
+      "result": "PASS"
+    },
+    {
+      "test_id": "EXT-20",
+      "name": "Four complete PASS payloads and complete raw evidence enter QA",
+      "expected_accept": true,
+      "actual_accept": true,
+      "violations": [],
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

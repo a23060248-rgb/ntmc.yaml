@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "task_id": "<TASK-ID>",
+  "review_context": "clean-thread-required",
+  "reviews": [{"type": "qa-readback", "reviewer": "unassigned", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["Formal review is pending."], "conditions": [], "decisions_required": [{"decision_required": "<DECISION-ID>", "decision_owner_role": "<HUMAN-OWNER-ROLE>", "decision_question": "Assign a formal reviewer?", "decision_deadline_or_trigger": "Before review completion."}]}],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "blockers": ["Task is DRAFT."],
+  "conditions": [{"condition_id": "<CONDITION-ID>", "condition": "Complete formal review.", "status": "open", "owner": "<OWNER>", "deadline_or_trigger": "Before review completion.", "completion_criterion": "Formal review evidence exists.", "resolution_evidence": [], "reviewer_revalidation": false}]
+}

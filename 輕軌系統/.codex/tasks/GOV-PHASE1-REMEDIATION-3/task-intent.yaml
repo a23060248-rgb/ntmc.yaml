@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-REMEDIATION-3",
+  "title": "Phase 1.3 Evidence Review Domain Authority Hardening",
+  "task_type": "governance",
+  "objective": "Remediate the fail-closed governance gaps identified by Session A2 without modifying Reviewer outcomes or launching a new Review session.",
+  "business_reason": "Session A2 identified evidence-verdict, review-semantics, approval-order, manifest, scanner, Domain-authority, and fixture-isolation blockers.",
+  "scope": {"include": ["AGENTS.md", ".codex/blueprints/schemas/**", ".codex/governance/**", ".codex/scripts/**", ".codex/tests/**", ".codex/templates/**", ".codex/workflows/l3-high-risk.md", ".codex/tasks/GOV-M320-DRYRUN/**", ".codex/tasks/GOV-PHASE1-REMEDIATION-3/**"], "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "migrations/**", "docs/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A/**", ".codex/tasks/GOV-PHASE1-REMEDIATION-2/**", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A2/**"], "product_changes_allowed": false, "database_operations_allowed": false},
+  "acceptance_criteria": ["At least 25 fail-closed fixtures pass in a runner-owned isolated run.", "Concurrent fixture runs prove distinct owned roots and cleanup boundaries from structured child reports.", "Migration 320 remains structural VALID, calculated NO-GO, exit 2 with unchanged external evidence hashes.", "Formal Session A and Session A2 outcomes remain unchanged and no Session B or Session A3 is launched."],
+  "requested_by": "human"
+}

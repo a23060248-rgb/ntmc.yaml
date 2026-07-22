@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "owner": "formal-a10-reviewer-set",
+  "candidate_source_changed": false,
+  "closures": [
+    {"finding_id":"A9-CODE-PRODUCTION-MUTATION-RERUN-001","prior_reviewer":"code-reviewer","prior_severity":"BLOCKER","a10_reviewer":"code-reviewer","status":"CLOSED","closure_evidence":[".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/mutation-suite-manifest.json",".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/mutation-suite-completion-report.json",".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/code-review.json"],"fresh_result":"31/31 killed; exit 0; no timeout; no duplicate or missing mutation IDs","candidate_defect":false},
+    {"finding_id":"A9-SEC-EXECUTION-HIGH-001","prior_reviewer":"security-reviewer","prior_severity":"HIGH","a10_reviewer":"security-reviewer","status":"CLOSED","closure_evidence":[".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review-read-scope.json",".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review-access-log.json",".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/clean-context-attestation.yaml",".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review.json"],"fresh_result":"Fresh Security context remained within the exact 133-file allowlist and passed 72/72 scanner plus 45/45 binary mutations.","candidate_defect":false},
+    {"finding_id":"A9-DOMAIN-PASS","prior_reviewer":"railway-domain-reviewer","prior_severity":"NONE","a10_reviewer":"railway-domain-reviewer","status":"INDEPENDENTLY_REVALIDATED","closure_evidence":[".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/railway-domain-review.json"],"fresh_result":"Governance mechanism PASS; Migration 320 remains NEEDS_HUMAN_DECISION and NO-GO.","candidate_defect":false}
+  ],
+  "open_a9_findings": [],
+  "result": "PASS"
+}

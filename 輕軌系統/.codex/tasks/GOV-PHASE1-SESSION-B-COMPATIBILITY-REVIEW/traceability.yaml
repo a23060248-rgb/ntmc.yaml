@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "generated_at": "2026-07-20T02:30:00+08:00",
+  "nodes": [
+    {"id": "TASK:SESSION-B", "type": "Task", "label": "Session B compatibility review", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/task-intent.yaml"},
+    {"id": "CANDIDATE:PHASE-1-9", "type": "Candidate", "label": "Exact 103-file Phase 1.9 bootstrap candidate", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/candidate-manifest-verification.json"},
+    {"id": "REVIEW:COMPAT", "type": "Review", "label": "Governance Compatibility PASS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/governance-compatibility-review.json"},
+    {"id": "REVIEW:SECURITY", "type": "Review", "label": "Security Integrity BLOCKER", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-integrity-review.json"},
+    {"id": "REVIEW:DOMAIN", "type": "Review", "label": "Railway Workflow PASS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/railway-workflow-review.json"},
+    {"id": "FINDING:SEC-VERSION", "type": "Finding", "label": "Session B security evidence contract version stale", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-integrity-review.json"},
+    {"id": "FINDING:SEC-ALLOWLIST", "type": "Finding", "label": "Security allowlist omits three direct source artifacts", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-integrity-review.json"},
+    {"id": "DECISION:SESSION-B-BLOCKER", "type": "Decision", "label": "Session B archived BLOCKER", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/session-b-summary.json"},
+    {"id": "DECISION:M320-NO-GO", "type": "Decision", "label": "Migration 320 remains NO-GO", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/migration-320-compatibility.json"}
+  ],
+  "edges": [
+    {"from": "TASK:SESSION-B", "relation": "REVIEWS", "to": "CANDIDATE:PHASE-1-9", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/blueprint.yaml"},
+    {"from": "REVIEW:COMPAT", "relation": "ASSESSES", "to": "CANDIDATE:PHASE-1-9", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/governance-compatibility-review.json"},
+    {"from": "REVIEW:SECURITY", "relation": "ASSESSES", "to": "CANDIDATE:PHASE-1-9", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-integrity-review.json"},
+    {"from": "REVIEW:DOMAIN", "relation": "ASSESSES", "to": "CANDIDATE:PHASE-1-9", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/railway-workflow-review.json"},
+    {"from": "REVIEW:SECURITY", "relation": "REPORTS", "to": "FINDING:SEC-VERSION", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-integrity-review.json"},
+    {"from": "REVIEW:SECURITY", "relation": "REPORTS", "to": "FINDING:SEC-ALLOWLIST", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-integrity-review.json"},
+    {"from": "FINDING:SEC-VERSION", "relation": "BLOCKS", "to": "DECISION:SESSION-B-BLOCKER", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/review-findings.yaml"},
+    {"from": "FINDING:SEC-ALLOWLIST", "relation": "BLOCKS", "to": "DECISION:SESSION-B-BLOCKER", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/review-findings.yaml"},
+    {"from": "REVIEW:DOMAIN", "relation": "PRESERVES", "to": "DECISION:M320-NO-GO", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/railway-workflow-review.json"}
+  ]
+}

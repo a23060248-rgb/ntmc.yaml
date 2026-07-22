@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "source_task_id": "GOV-PHASE1-B6EXT-CODE-REVIEW-R1",
+  "declared_payload_core_sha256": "B5FACA5E31B42DF1DB664008A9148CBB1386495CFF8EA33EF1534D56C0E91B46",
+  "recomputed_payload_core_sha256": "B5FACA5E31B42DF1DB664008A9148CBB1386495CFF8EA33EF1534D56C0E91B46",
+  "schema_validation": "PASS",
+  "schema_issues": [],
+  "jcs_sha256_validation": "PASS",
+  "binding_checks": {
+    "review_package_id": true,
+    "review_package_core_sha256": true,
+    "assignment_id": true,
+    "reviewer_run_id": true,
+    "reviewer_session_nonce": true,
+    "scope_sha256": true,
+    "candidate_binding": true
+  },
+  "binding_validation": "PASS",
+  "access_scope": {
+    "exact_scope_path_count": 148,
+    "actual_unique_path_count": 152,
+    "duplicate_paths": [],
+    "out_of_exact_scope_paths": [
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/embedded-startup-failure-contract.json",
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/repository-root-binding.json",
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-launch-envelopes/code-review-launch-envelope.json",
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-readiness.json"
+    ],
+    "launch_required_but_not_package_exact_scope_paths": [
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/embedded-startup-failure-contract.json",
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/repository-root-binding.json",
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-launch-envelopes/code-review-launch-envelope.json",
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-readiness.json"
+    ],
+    "forbidden_paths_read": [],
+    "out_of_scope_access_declared": false
+  },
+  "formal_result": "FORMAL_PAYLOAD_REJECTED",
+  "finding_independent_reproduction_required": true
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "contract_id": "R12-REVIEWER-SCOPE-SATISFIABILITY",
+  "version": 1,
+  "subject_task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "algorithm": [
+    "Resolve each required capability to exactly one artifact identity.",
+    "Normalize to one repository-relative exact path.",
+    "Require file existence and expected SHA256 match.",
+    "Require membership in allowed_paths and absence from forbidden_paths.",
+    "Reject future outputs, recursive globs, task-directory globs, absolute paths and rule conflicts.",
+    "Recompute scope_sha256 from the actual scope payload."
+  ],
+  "fail_closed": {
+    "any_issue": {
+      "scope_satisfiable": false,
+      "dispatch_authorized": false
+    },
+    "zero_identity_matches": "FAIL",
+    "multiple_identity_matches": "FAIL"
+  },
+  "production_entrypoint": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/b6-review-protocol.mjs#validateScopeSatisfiability",
+  "inline_schema_used": false,
+  "fallback_schema_used": false
+}

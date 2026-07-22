@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/schemas/review-findings.schema.json",
+  "x-governance-schema-version": 1,
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "task_id", "review_context", "reviews", "calculated_gate", "overall_gate", "blockers", "conditions"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "task_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,63}$"},
+    "review_context": {"type": "string", "minLength": 1},
+    "reviews": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "reviewer", "formal", "outcome", "finding_refs", "conditions", "decisions_required"],
+        "properties": {
+          "type": {"enum": ["qa-readback", "code", "security", "railway-domain", "compatibility"]},
+          "reviewer": {"type": "string", "minLength": 1},
+          "formal": {"type": "boolean"},
+          "outcome": {"enum": ["PASS", "PASS_WITH_CONDITIONS", "BLOCKER", "NEEDS_HUMAN_DECISION"]},
+          "reviewer_run_id": {"type": "string", "minLength": 1},
+          "session_id": {"type": "string", "minLength": 1},
+          "did_not_participate_in_implementation": {"type": "boolean"},
+          "reviewer_binding": {"$ref": "#/$defs/reviewer_binding"},
+          "review_scope": {"type": "string", "minLength": 1},
+          "governance_mechanism_outcome": {"type": "object"},
+          "external_decisions": {"type": "array"},
+          "finding_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "conditions": {"type": "array", "items": {"$ref": "#/$defs/condition"}},
+          "decisions_required": {"type": "array", "items": {"$ref": "#/$defs/decision"}}
+        }
+      }
+    },
+    "calculated_gate": {"enum": ["GO", "NO-GO"]},
+    "overall_gate": {"enum": ["GO", "NO-GO"]},
+    "bootstrap_candidate_review_gate": {"enum": ["GO", "NO-GO"]},
+    "eligible_to_start_session_b": {"type": "boolean"},
+    "bootstrap_human_commit_gate": {"enum": ["GO", "NO-GO"]},
+    "steady_state_preparation_gate": {"enum": ["GO", "NO-GO", "DISABLED"]},
+    "steady_state_execution_gate": {"enum": ["GO", "NO-GO", "DISABLED"]},
+    "migration_320_execution_gate": {"enum": ["GO", "NO-GO"]},
+    "blockers": {"type": "array", "items": {"type": "string"}},
+    "conditions": {"type": "array", "items": {"$ref": "#/$defs/condition"}}
+  },
+  "$defs": {
+    "reviewer_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical_role_id", "agent_profile_reference", "agent_profile_sha256", "task_assignment_id", "reviewer_run_id", "session_id", "formal", "execution_mode", "implementation_participation", "reviewer_identity_assurance"],
+      "properties": {
+        "canonical_role_id": {"type": "string", "minLength": 1},
+        "agent_profile_reference": {"type": "string", "minLength": 1},
+        "agent_profile_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "task_assignment_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,127}$"},
+        "reviewer_run_id": {"type": "string", "minLength": 1},
+        "session_id": {"type": "string", "minLength": 1},
+        "formal": {"const": true},
+        "execution_mode": {"const": "read-only"},
+        "implementation_participation": {"const": false},
+        "reviewer_identity_assurance": {"const": "procedural_role_and_assignment_binding"}
+      }
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition_id", "condition", "status", "owner", "deadline_or_trigger", "completion_criterion", "resolution_evidence", "reviewer_revalidation"],
+      "properties": {
+        "condition_id": {"type": "string", "minLength": 1},
+        "condition": {"type": "string", "minLength": 1},
+        "status": {"enum": ["open", "resolved"]},
+        "owner": {"type": "string", "minLength": 1},
+        "deadline_or_trigger": {"type": "string", "minLength": 1},
+        "completion_criterion": {"type": "string", "minLength": 1},
+        "resolution_evidence": {"type": "array", "items": {"type": "string"}},
+        "reviewer_revalidation": {"type": "boolean"}
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_required", "decision_owner_role", "decision_question", "decision_deadline_or_trigger"],
+      "properties": {
+        "decision_required": {"type": "string", "minLength": 1},
+        "decision_owner_role": {"type": "string", "minLength": 1},
+        "decision_question": {"type": "string", "minLength": 1},
+        "decision_deadline_or_trigger": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

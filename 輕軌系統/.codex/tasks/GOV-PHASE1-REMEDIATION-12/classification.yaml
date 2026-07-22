@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-12",
+  "level": "L3",
+  "reasons": [
+    "Formal review dispatch protocol remediation",
+    "Scope satisfiability and payload integrity"
+  ],
+  "triggers": [
+    "unresolved Reviewer blocker",
+    "backward compatibility",
+    "formal schema contract"
+  ],
+  "execution_categories": [
+    "governance-validation",
+    "security",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "architect",
+    "qa-engineer"
+  ],
+  "required_reviews": [
+    "qa-readback"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "R12-SCOPE",
+    "R12-SCHEMA",
+    "R12-PAYLOAD",
+    "R12-QA",
+    "R12-TESTS",
+    "R12-BASELINE",
+    "R12-READINESS"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "execution_approval"
+    ]
+  },
+  "stop_conditions": [
+    "Any candidate or history change.",
+    "Any Reviewer or B6 thread starts.",
+    "Any Git/product/DB/migration operation occurs."
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-12/**"
+    ],
+    "exclude": [
+      ".env*",
+      "collab/**",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "parent directories",
+      "sibling directories",
+      "conversation memory"
+    ]
+  },
+  "classified_by": "root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

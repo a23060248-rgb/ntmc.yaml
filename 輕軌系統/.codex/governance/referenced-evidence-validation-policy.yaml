@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "policy_id": "GOV-REFERENCED-EVIDENCE-VALIDATION",
+  "policy_version": 1,
+  "active_manifest_contract_version": 2,
+  "legacy_active_gate_disposition": "HISTORICAL_FORMAT_UNSUPPORTED_FOR_ACTIVE_GATE",
+  "discovery": "manifest_declared_typed_evidence_only",
+  "magic_filenames_allowed": false,
+  "path_rules": {
+    "repository_relative_forward_slash": true,
+    "exact_task_root_containment": true,
+    "absolute_drive_unc_backslash_traversal_empty_segments_forbidden": true,
+    "symlink_junction_reparse_escape_forbidden": true,
+    "case_collision_forbidden": true,
+    "duplicate_physical_path_forbidden": true
+  },
+  "validation_order": ["manifest_contract", "path", "bytes_sha256", "registry_binding", "schema_validation", "task_binding", "gate_completeness"],
+  "required_active_evidence_types": ["security_evidence", "test_evidence", "review_findings"],
+  "optional_absent_allowed": true,
+  "optional_present_invalid_disposition": "STRUCTURAL_INVALID",
+  "gate_incomplete_disposition": "NO-GO",
+  "structural_invalid_exit_code": 1
+}

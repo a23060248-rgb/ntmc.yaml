@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "profile_id": "agent-safe-rehearsal-v1",
+  "source": "explicit-json-no-dotenv",
+  "load_dotenv": false,
+  "database": {
+    "host": "127.0.0.1",
+    "port": 5433,
+    "name": "ntmc_erp_rehearsal_governance",
+    "safety_mode": "rehearsal"
+  },
+  "allowed_operations": [],
+  "notes": "This profile contains no credential and does not authorize a connection. Task approval is still required."
+}

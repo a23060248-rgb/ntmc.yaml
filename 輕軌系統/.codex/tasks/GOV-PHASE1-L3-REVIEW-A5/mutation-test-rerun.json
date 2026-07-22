@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "command": "node .codex/tests/run-phase15-mutation-tests.mjs",
+  "total": 7,
+  "killed": 7,
+  "failed": 0,
+  "results": [
+    {
+      "mutation_id": "MUT-01-SCOPE-REMOVE-INTENT",
+      "target": ".codex/scripts/lib/governance/scope-lattice.mjs",
+      "killed": true,
+      "mutant_loaded": true,
+      "load_error": null
+    },
+    {
+      "mutation_id": "MUT-02-IDENTITY-FIRST-MATCH",
+      "target": ".codex/scripts/lib/governance/identity-resolver.mjs",
+      "killed": true,
+      "mutant_loaded": true,
+      "load_error": null
+    },
+    {
+      "mutation_id": "MUT-03-GENERIC-PASS-AS-PROOF",
+      "target": ".codex/scripts/lib/governance/typed-proof.mjs",
+      "killed": true,
+      "mutant_loaded": true,
+      "load_error": null
+    },
+    {
+      "mutation_id": "MUT-04-SKIP-UNICODE-CANONICALIZATION",
+      "target": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+      "killed": true,
+      "mutant_loaded": true,
+      "load_error": null
+    },
+    {
+      "mutation_id": "MUT-05-SKIP-BASIC-AUTH",
+      "target": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+      "killed": true,
+      "mutant_loaded": true,
+      "load_error": null
+    },
+    {
+      "mutation_id": "MUT-06-ALLOW-CONFIRMED-DOMAIN-RULE",
+      "target": ".codex/scripts/lib/governance/proposed-domain-rules.mjs",
+      "killed": true,
+      "mutant_loaded": true,
+      "load_error": null
+    },
+    {
+      "mutation_id": "MUT-07-DROP-ACTIVE-LIFECYCLE",
+      "target": ".codex/scripts/lib/governance/lifecycle-projection.mjs",
+      "killed": true,
+      "mutant_loaded": true,
+      "load_error": null
+    }
+  ],
+  "result": "PASS"
+}

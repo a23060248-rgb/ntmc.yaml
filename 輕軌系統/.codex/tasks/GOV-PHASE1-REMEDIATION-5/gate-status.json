@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "implementation_status": "READY_FOR_REVIEW",
+  "authoritative_task_validator": {"structural":"VALID","calculated_gate":"NO-GO","exit_code":2},
+  "authoritative_change_scope_validator": {"result":"FAIL_CLOSED","exit_code":1,"reason":"The pre-existing untracked governance inventory is not an exact staged candidate and includes records outside this Task effective write scope."},
+  "candidate_file_count": 97,
+  "candidate_manifest_result": "PASS",
+  "workspace_candidate_proof_result": "PASS",
+  "staged_exact_proof_exists": false,
+  "a4_formal_outcome_preserved": "BLOCKER",
+  "a5_status": "NOT_AUTHORIZED",
+  "session_b_status": "NOT_AUTHORIZED",
+  "candidate_governance_review_gate": "NO-GO",
+  "governance_commit_preparation_gate": "NO-GO",
+  "governance_commit_execution_gate": "NO-GO",
+  "migration_320_execution_gate": "NO-GO",
+  "git_mutation_performed": false
+}

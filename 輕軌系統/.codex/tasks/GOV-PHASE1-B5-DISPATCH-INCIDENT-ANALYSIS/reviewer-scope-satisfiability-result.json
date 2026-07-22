@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+  "finding_class": "ROOT_PREFLIGHT_DEFECT",
+  "scope_satisfiable": false,
+  "missing_capabilities": [
+    {
+      "capability": "binding_chain_direct_candidate_nodes",
+      "status": "MISSING_FROM_ALLOWLIST",
+      "paths": [
+        ".codex/governance/governance-commit-manifest.yaml",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json"
+      ]
+    },
+    {
+      "capability": "gate_dependency_matrix",
+      "status": "ARTIFACT_NOT_PRESENT",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/gate-dependency-matrix.json"
+      ]
+    },
+    {
+      "capability": "b2_code_finding_authoritative_registry",
+      "status": "MISSING_FROM_ALLOWLIST",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-findings.yaml"
+      ]
+    },
+    {
+      "capability": "pre_review_manifest_and_freeze",
+      "status": "MISSING_FROM_ALLOWLIST",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-input-manifest.json",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/pre-review-freeze.json"
+      ]
+    },
+    {
+      "capability": "security_exact_allowlist",
+      "status": "MISSING_FROM_ALLOWLIST",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/session-b5-security-read-scope.json"
+      ]
+    },
+    {
+      "capability": "required_chain_node_verification",
+      "status": "MISSING_FROM_ALLOWLIST",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/required-chain-node-verification.json"
+      ]
+    },
+    {
+      "capability": "fresh_root_preflight",
+      "status": "MISSING_FROM_ALLOWLIST",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/fresh-root-preflight.json"
+      ]
+    },
+    {
+      "capability": "stale_capacity_preflight_reference",
+      "status": "ALLOWED_BUT_NOT_PRESENT",
+      "paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-capacity-preflight.json"
+      ]
+    }
+  ],
+  "conflicting_rules": [
+    "The allowed path reviewer-capacity-preflight.json does not exist; B5 created fresh-root-preflight.json instead and did not allow it.",
+    "The binding-chain summary is allowed, but its candidate manifest, candidate record, and scanner report nodes are not allowed for direct recomputation.",
+    "The pre-review manifest and freeze exist but are not allowed, so the Reviewer cannot verify the input freeze or its own scope-file binding.",
+    "The B5 Security exact allowlist and required-chain verification exist but are not allowed, although Code review requirements include exact allowlist and binding verification.",
+    "The formal Code profile is read-only and forbids file modification, while the task-local assignment requires four Reviewer-written output files.",
+    "The B5 pre-review task-intent, classification, and blueprint were frozen without validation against their registered production schemas."
+  ],
+  "future_dependencies": [],
+  "preflight_checks_that_would_detect_incident": [
+    "Every allowed path exists before freeze.",
+    "Every required capability maps to at least one existing allowed artifact.",
+    "Every binding-chain required node is directly readable when direct recomputation is required.",
+    "Every pre-review manifest entry required by a Reviewer is visible to that Reviewer.",
+    "Registered task-intent, classification and blueprint schemas validate.",
+    "Reviewer output transport agrees with the formal read-only role profile and registered assignment schema.",
+    "No future Reviewer output is a pre-dispatch read dependency."
+  ],
+  "dispatch_should_have_been_blocked": true,
+  "expected_preflight_result": "ROOT_PREFLIGHT_DEFECT",
+  "existing_r11_negative_test_boundary": "R11 codeValid rejects forbidden paths, private access logs, globs and directory forms, but does not prove artifact existence, capability coverage, freeze visibility, binding-node readability, or output-channel compatibility.",
+  "result": "FAIL"
+}

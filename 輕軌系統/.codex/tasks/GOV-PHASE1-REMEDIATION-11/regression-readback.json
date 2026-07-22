@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "evidence_use": "read_only_regression_confirmation_not_future_b3_rerun",
+  "candidate": "103/103",
+  "production_scanner": "72/72",
+  "production_integration": "48/48",
+  "production_mutation": "31/31 killed",
+  "reviewer_binding": "14/14",
+  "official_loader": "11/11",
+  "loader_mutations": "6/6 killed",
+  "binary_mutations": "45/45 killed",
+  "r10_chain": "20/20",
+  "evidence": {
+    "syntax": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/syntax-rerun.json",
+      "sha256": "CA4FFFB714BFA79CF9961597A83C31E8FA6EB7F5DC77A7452A5866958084BFC9",
+      "result": "PASS"
+    },
+    "fixtures": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/fixture-rerun.json",
+      "sha256": "13C7FEEC884E87A73B20D337A3E8D4BF78E778F9E8FF8E8D0F7EC90EEE69E596",
+      "result": "PASS"
+    },
+    "scanner": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/production-scanner-rerun.json",
+      "sha256": "24AAC070D71E39D43EF4450A59B3AFC172CC90E44733425A03FEE315A0A56247",
+      "result": "PASS"
+    },
+    "integration": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/production-integration-rerun.json",
+      "sha256": "A89A86BDDABF7BD15ACF55811C6852742E3863BE40290E89AF4E65EAFC026198",
+      "result": "PASS"
+    },
+    "mutations": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/production-mutation-rerun.json",
+      "sha256": "6871ABD1BCCD60CE6B324A5FE6E94FD2FBB8A7448CD182B46BEE66EA7794139C",
+      "result": "PASS"
+    },
+    "binding": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/reviewer-binding-rerun.json",
+      "sha256": "F5600758E95A15FB11EDBCC7CCD2009F96E14950F0108D25E5F688E15EBFA445",
+      "result": "PASS"
+    },
+    "loader": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/official-schema-loader-rerun.json",
+      "sha256": "445E5898A0E528F7979B12364588337F9C38824FB12F1EB0433B58BE219EA95F",
+      "result": "PASS"
+    },
+    "loader_mutations": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/schema-loader-mutation-rerun.json",
+      "sha256": "E3BF57D6EAA55C144651053B0FC97ADBEA68D18D2052D7E4AD97508521C068E4",
+      "result": "PASS"
+    },
+    "binary": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/binary-magic-mutation-rerun.json",
+      "sha256": "7A5414B9BDE15365336EADABC7964422538DA7BDFAD06EFCD9266946DB880F59",
+      "result": "PASS"
+    },
+    "r10_chain": {
+      "ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/remediation-10-chain-test-rerun.json",
+      "sha256": "8F82819CDDB063E52B9E9F0CF904CD6B0C4E4F993DAD2055D9DCF9F69FA93F90",
+      "result": "PASS"
+    }
+  },
+  "all_existing_results_pass": true,
+  "future_b3_fresh_rerun_still_required": true,
+  "result": "PASS"
+}

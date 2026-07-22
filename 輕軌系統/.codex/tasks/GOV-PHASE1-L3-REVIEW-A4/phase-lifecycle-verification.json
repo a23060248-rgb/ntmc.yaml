@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A4",
+  "deterministic_projection_match": true,
+  "lifecycle_source_artifacts": [
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/session-a3-summary.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-4/task-intent.yaml"
+  ],
+  "lifecycle_source_hashes": {
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/session-a3-summary.json": "C512D9273EE073F332A497C27659D827017F17D10CC49AD03257D66DED2A1E8F",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-4/task-intent.yaml": "5C87D6237A1BD9C2CBF2BDC9727053E6AD4F55820DD3DA1DD7B71F9C9CB77A61"
+  },
+  "last_completed_remediation": "GOV-PHASE1-REMEDIATION-4",
+  "last_completed_review": "GOV-PHASE1-L3-REVIEW-A3",
+  "last_review_outcome": "BLOCKER",
+  "a4_started_recorded": false,
+  "required_a4_state": "in-progress-or-complete",
+  "a4_transition_match": false,
+  "session_b_authorized": false,
+  "governance_gates": {
+    "candidate_review": "NO-GO",
+    "commit_preparation": "NO-GO",
+    "commit_execution": "NO-GO",
+    "migration_320_execution": "NO-GO"
+  },
+  "result": "FAIL"
+}

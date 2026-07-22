@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "suite": "candidate-security-binding-chain",
+  "total": 6,
+  "passed": 6,
+  "failed": 0,
+  "cases": [
+    {
+      "case_id": "CH-15",
+      "description": "Scanner report binds an old manifest.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "SCANNER_REPORT_MANIFEST_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "CH-16",
+      "description": "Scanned file set is missing one file.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "INCLUDED_SCANNED_FILE_SET_MISMATCH",
+        "SCANNED_FILE_COUNT_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "CH-17",
+      "description": "Scanned file set contains one extra file.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "INCLUDED_SCANNED_FILE_SET_MISMATCH",
+        "SCANNED_FILE_COUNT_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "CH-18",
+      "description": "Candidate record manifest hash disagrees.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "CANDIDATE_RECORD_MANIFEST_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "CH-19",
+      "description": "Report claims the chain while findings are non-empty.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "REPORT_CLEAN_CLAIM_FINDINGS_NONZERO"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "CH-20",
+      "description": "Complete 103-file chain is internally consistent.",
+      "expected_valid": true,
+      "expected_exit": 0,
+      "actual_valid": true,
+      "actual_exit": 0,
+      "violations": [],
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "wrapper_top_level_fields": [
+    "payload_core",
+    "payload_core_sha256"
+  ],
+  "additional_properties": false,
+  "hash_rule": "SHA256(UTF8(RFC8785_JCS(payload_core)))",
+  "prohibited_aliases": [
+    "outcome",
+    "run_id",
+    "result",
+    "decision"
+  ],
+  "role_specific_schemas": [
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/code-review/return-payload.schema.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/return-payload.schema.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/railway-domain-review/return-payload.schema.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/compatibility-review/return-payload.schema.json"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "assignment_count": 3,
+  "unique_assignment_ids": true,
+  "assignment_checks": [
+    {
+      "assignment_id": "ASSIGN-SB-COMPAT-D7AE1613-9CEE-495E-BDCB-A8CAD9166BC5",
+      "required_role_id": "compatibility-reviewer",
+      "profile_ref": ".codex/agents/compatibility-reviewer.toml",
+      "profile_sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    },
+    {
+      "assignment_id": "ASSIGN-SB-SEC-D99338C3-CC86-4ABF-A605-D71C7F832509",
+      "required_role_id": "security-reviewer",
+      "profile_ref": ".codex/agents/security-reviewer.toml",
+      "profile_sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    },
+    {
+      "assignment_id": "ASSIGN-SB-DOMAIN-6DACC3E1-6780-4424-88C7-88AFA164E705",
+      "required_role_id": "railway-domain-reviewer",
+      "profile_ref": ".codex/agents/railway-domain-reviewer.toml",
+      "profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

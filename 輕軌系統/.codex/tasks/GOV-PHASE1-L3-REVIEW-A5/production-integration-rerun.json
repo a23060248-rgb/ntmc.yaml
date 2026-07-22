@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "command": "node .codex/tests/run-phase15-production-integration.mjs",
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "layers": [
+    "schema-loader",
+    "scope-lattice",
+    "identity-resolution",
+    "evidence-validation",
+    "typed-proof-validation",
+    "scanner",
+    "gate-calculation"
+  ],
+  "cases": [
+    {
+      "case_id": "PROD-01",
+      "invariant": "Complete L3 production path is structurally valid and remains NO-GO without final approval/staged validation.",
+      "pass": true,
+      "exit_code": 2,
+      "calculated_gate": "NO-GO"
+    },
+    {
+      "case_id": "PROD-02",
+      "invariant": "Production schema loader rejects an unknown field.",
+      "pass": true,
+      "exit_code": 1,
+      "calculated_gate": "NO-GO"
+    },
+    {
+      "case_id": "PROD-03",
+      "invariant": "Production path rejects duplicate requirement definitions before verdict lookup.",
+      "pass": true,
+      "exit_code": 1,
+      "calculated_gate": "NO-GO"
+    },
+    {
+      "case_id": "PROD-04",
+      "invariant": "Task-authored generic PASS cannot become candidate or staged proof.",
+      "pass": true,
+      "exit_code": 1,
+      "calculated_gate": "NO-GO"
+    },
+    {
+      "case_id": "PROD-05",
+      "invariant": "A non-draft L1 Task with exact evidence and review returns exit 0/GO through the same production path.",
+      "pass": true,
+      "exit_code": 0,
+      "calculated_gate": "GO"
+    }
+  ],
+  "result": "PASS"
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-REM13-BEFORE-CASE-04",
+  "review_context": "Synthetic isolated production-path verification.",
+  "reviews": [
+    {
+      "type": "code",
+      "reviewer": "code-reviewer",
+      "formal": true,
+      "outcome": "PASS",
+      "reviewer_run_id": "RUN-GOV-REM13-BEFORE-CASE-04-CODE",
+      "session_id": "SESSION-GOV-REM13-BEFORE-CASE-04-CODE",
+      "finding_refs": [
+        "NONE"
+      ],
+      "conditions": [],
+      "decisions_required": []
+    },
+    {
+      "type": "security",
+      "reviewer": "security-reviewer",
+      "formal": true,
+      "outcome": "PASS",
+      "reviewer_run_id": "RUN-GOV-REM13-BEFORE-CASE-04-SEC",
+      "session_id": "SESSION-GOV-REM13-BEFORE-CASE-04-SEC",
+      "finding_refs": [
+        "NONE"
+      ],
+      "conditions": [],
+      "decisions_required": []
+    },
+    {
+      "type": "railway-domain",
+      "reviewer": "railway-domain-reviewer",
+      "formal": true,
+      "did_not_participate_in_implementation": true,
+      "outcome": "PASS",
+      "reviewer_run_id": "RUN-GOV-REM13-BEFORE-CASE-04-DOMAIN",
+      "session_id": "SESSION-GOV-REM13-BEFORE-CASE-04-DOMAIN",
+      "reviewer_binding": {
+        "canonical_role_id": "railway-domain-reviewer",
+        "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml",
+        "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+        "task_assignment_id": "ASSIGN-GOV-REM13-BEFORE-CASE-04-DOMAIN",
+        "reviewer_run_id": "RUN-GOV-REM13-BEFORE-CASE-04-DOMAIN",
+        "session_id": "SESSION-GOV-REM13-BEFORE-CASE-04-DOMAIN",
+        "formal": true,
+        "execution_mode": "read-only",
+        "implementation_participation": false,
+        "reviewer_identity_assurance": "procedural_role_and_assignment_binding"
+      },
+      "review_scope": "bootstrap_rule_governance_mechanism",
+      "governance_mechanism_outcome": {
+        "outcome": "PASS",
+        "findings": []
+      },
+      "external_decisions": [
+        {
+          "decision_scope": "migration_320",
+          "outcome": "NEEDS_HUMAN_DECISION",
+          "affects_gate": "migration_320_execution",
+          "decision_owner_role": "human-domain-owner",
+          "decision_question": "Retain Migration 320 NO-GO."
+        }
+      ],
+      "finding_refs": [
+        "NONE"
+      ],
+      "conditions": [],
+      "decisions_required": []
+    }
+  ],
+  "calculated_gate": "GO",
+  "overall_gate": "GO",
+  "bootstrap_candidate_review_gate": "GO",
+  "eligible_to_start_session_b": true,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "blockers": [],
+  "conditions": []
+}

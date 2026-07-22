@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "review_package_id": "A11-RAILWAY-DOMAIN-REVIEW-PKG-20260721-03",
+  "assignment_id": "A11-RAILWAY-DOMAIN-REVIEW-ASSIGNMENT-20260721-03",
+  "reviewer_run_id": "A11-RAILWAY-DOMAIN-REVIEW-RUN-20260721-03",
+  "reviewer_session_nonce": "FC7C925E831AD642AC19059FC47B3ADD2323A8935D685A2DD250136A8081C9E4",
+  "review_type": "railway_domain_review",
+  "startup_order": [
+    "launch_envelope",
+    "repository_root_binding",
+    "embedded_startup_failure_contract",
+    "assignment",
+    "package_manifest",
+    "package_verification",
+    "exact_read_scope",
+    "startup_contract",
+    "return_payload_schema"
+  ],
+  "fail_closed_on_any_mismatch": true,
+  "exact_paths_only": true,
+  "candidate_content_review_forbidden_until_startup_valid": true,
+  "output_rule": "Return exactly one schema-valid JSON wrapper and stop."
+}

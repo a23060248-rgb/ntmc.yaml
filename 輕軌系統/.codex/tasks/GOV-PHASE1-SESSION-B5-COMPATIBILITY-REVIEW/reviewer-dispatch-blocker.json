@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW",
+  "blocker_type": "REVIEWER_DISPATCH_BLOCKER",
+  "failed_sequence": 1,
+  "failed_reviewer_role": "code-reviewer",
+  "reason": "The allocated fresh Code Reviewer identified fail-closed scope defects but did not produce any required formal artifact, access log, clean-context attestation, or output manifest and did not terminate after repeated completion requests. The root interrupted the still-running thread; no formal Reviewer outcome exists.",
+  "informal_diagnostic_not_formal_outcome": [
+    "The exact Code scope references a non-existent reviewer-capacity-preflight.json.",
+    "The exact Code scope does not authorize direct reads of candidate manifest, candidate record, or scanner report required to recompute the binding chain."
+  ],
+  "reviewer_outputs_present": 0,
+  "expected_reviewer_outputs": 4,
+  "root_may_rewrite_reviewer_outcome": false,
+  "subsequent_reviewer_dispatch_prohibited": true,
+  "deterministic_qa_executed": false,
+  "result": "BLOCKER"
+}

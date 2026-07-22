@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "title": "Phase 1.11 B3 Evidence Schema, Reviewer Scope and Dispatch Capacity Preparation",
+  "task_type": "governance",
+  "objective": "Prepare registered-schema-valid, exact-scope and capacity-safe pre-review inputs for a separately authorized future Session B3 without changing the 103-file candidate or starting B3.",
+  "business_reason": "Session B2 failed on task-local evidence, read-scope, Reviewer execution and capacity planning rather than candidate source.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**",
+      "Exact read-only candidate and frozen governance evidence"
+    ],
+    "exclude": [
+      "candidate mutation",
+      "A10/Session B/R10/Session B2 mutation",
+      "B3 execution",
+      "Reviewer dispatch",
+      "B3 human-approval.yaml",
+      "Git mutation",
+      "product/database/migration operations"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Candidate remains exact 103 files.",
+    "B3 Security evidence validates through the registered production schema.",
+    "Security scope excludes both M320 implementation plan/handoff paths.",
+    "Five exact Reviewer scopes and unique assignments exist.",
+    "Two-wave capacity plan reserves QA.",
+    "Thirty preparation cases pass fail-closed.",
+    "Pre-review package binds only existing inputs.",
+    "Session B3 is not started."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "User explicitly authorized GOV-PHASE1-REMEDIATION-11 only."
+}

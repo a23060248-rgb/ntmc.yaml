@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "generated_at": "2026-07-20T09:33:53.4462417+08:00",
+  "generated_by": ".codex/scripts/validate-task.mjs",
+  "source_digest_sha256": "6276BBEF0B648CC0BE4ADCCB48D62E5B030AAF35858339128DB119C8844DC792",
+  "nodes": [
+    {
+      "id": "BLUEPRINT:BP-GOV-PHASE1-REMEDIATION-10",
+      "type": "Blueprint",
+      "label": "L3 candidate-immutable remediation",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/blueprint.yaml"
+    },
+    {
+      "id": "EVIDENCE:R10-CHAIN",
+      "type": "Evidence",
+      "label": "Session B2 Security binding chain",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/session-b2-security-binding-chain.json"
+    },
+    {
+      "id": "EVIDENCE:R10-READINESS",
+      "type": "Evidence",
+      "label": "Readiness for human consideration only",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/session-b2-readiness.json"
+    },
+    {
+      "id": "EVIDENCE:R10-ROOT-CAUSE",
+      "type": "Evidence",
+      "label": "Root cause classification",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/root-cause-classification.json"
+    },
+    {
+      "id": "TASK:GOV-PHASE1-REMEDIATION-10",
+      "type": "Task",
+      "label": "Session B Security Evidence Chain Remediation",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/task-intent.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "EVIDENCE:R10-CHAIN",
+      "relation": "SUPPORTS",
+      "to": "EVIDENCE:R10-READINESS",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/session-b2-readiness.json"
+    },
+    {
+      "from": "EVIDENCE:R10-ROOT-CAUSE",
+      "relation": "SUPPORTS",
+      "to": "EVIDENCE:R10-CHAIN",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/session-b2-security-binding-chain.json"
+    },
+    {
+      "from": "TASK:GOV-PHASE1-REMEDIATION-10",
+      "relation": "PRODUCES",
+      "to": "EVIDENCE:R10-ROOT-CAUSE",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/root-cause-classification.json"
+    },
+    {
+      "from": "TASK:GOV-PHASE1-REMEDIATION-10",
+      "relation": "USES",
+      "to": "BLUEPRINT:BP-GOV-PHASE1-REMEDIATION-10",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/blueprint.yaml"
+    }
+  ]
+}

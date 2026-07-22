@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-6",
+  "scan_scope": {
+    "governance_artifacts": "DETERMINISTIC_CONTRACT",
+    "external_referenced_evidence": "LIMITED"
+  },
+  "scan_contract": {
+    "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scan_contract_version": 4,
+    "manifest_sha256": "52CE2A476C2D29BBE1AA1461D8D62B41502381FF776007580F23B2ED0D77AA33",
+    "scanned_file_count": 81,
+    "scanned_file_set_sha256": "E7D1186203D6909AEE7CEFBE829E8D2C22CA6FAA025DB4C46186ED70B57FAB11"
+  },
+  "claims": {
+    "declared_scan_contract_executed": true,
+    "no_findings_within_declared_contract": true,
+    "external_evidence_globally_clean": false,
+    "global_sensitive_data_absence_verified": false,
+    "trusted_producer_identity_verified": false,
+    "os_runtime_isolation_verified": false
+  },
+  "external_evidence": [],
+  "limitations": [
+    "The scanner covers only the 81 exact manifest entries and declared contract v4 classes.",
+    "The scanner report and validator are mutable bootstrap workspace artifacts with internal-consistency assurance only.",
+    "External Migration 320 evidence was hash-verified but was not globally rescanned or reinterpreted.",
+    "No OS sandbox, DLP, Git index, remote control, or repository-wide sensitive-data absence claim is made."
+  ]
+}

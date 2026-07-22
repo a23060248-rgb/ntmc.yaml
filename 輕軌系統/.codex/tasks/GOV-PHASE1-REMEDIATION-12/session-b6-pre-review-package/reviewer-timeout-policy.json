@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "contract_id": "R12-REVIEWER-TIMEOUT",
+  "version": 1,
+  "wait_snapshot_timeout_ms": 30000,
+  "maximum_consecutive_snapshots": 4,
+  "total_response_deadline_ms": 120000,
+  "tool_supported_range_ms": {
+    "minimum": 10000,
+    "maximum": 3600000
+  },
+  "reviewer_timeout_payload_if_returned": {
+    "review_status": "BLOCKER",
+    "failure_stage": "REVIEWER_RUNTIME_TIMEOUT",
+    "formal_review_completed": false
+  },
+  "no_payload_effect": {
+    "root_creates_dispatch_failure_record_only": true,
+    "root_creates_reviewer_outcome": false,
+    "replacement_reviewer_allowed": false,
+    "partial_set_can_pass": false
+  }
+}

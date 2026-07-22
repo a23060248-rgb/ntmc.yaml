@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "candidate_text_extensions": [
+    ".md",
+    ".yaml",
+    ".yml",
+    ".json",
+    ".toml",
+    ".mjs",
+    ".js"
+  ],
+  "finding_classes": [
+    "DISALLOWED_FILE_EXTENSION",
+    "NUL_BYTE_DETECTED",
+    "KNOWN_BINARY_MAGIC_DETECTED",
+    "NON_UTF8_TEXT",
+    "BINARY_CONTENT_RATIO_EXCEEDED"
+  ],
+  "expected_finding_classes": [
+    "DISALLOWED_FILE_EXTENSION",
+    "NUL_BYTE_DETECTED",
+    "KNOWN_BINARY_MAGIC_DETECTED",
+    "NON_UTF8_TEXT",
+    "BINARY_CONTENT_RATIO_EXCEEDED"
+  ],
+  "known_magic_signatures": [
+    {
+      "id": "MZ",
+      "hex_prefix": "4D5A"
+    },
+    {
+      "id": "ELF",
+      "hex_prefix": "7F454C46"
+    },
+    {
+      "id": "ZIP",
+      "hex_prefix": "504B0304"
+    },
+    {
+      "id": "PDF",
+      "hex_prefix": "255044462D"
+    },
+    {
+      "id": "SQLITE",
+      "hex_prefix": "53514C69746520666F726D6174203300"
+    },
+    {
+      "id": "PGDMP",
+      "hex_prefix": "5047444D50"
+    },
+    {
+      "id": "OLE",
+      "hex_prefix": "D0CF11E0"
+    },
+    {
+      "id": "PNG",
+      "hex_prefix": "89504E47"
+    },
+    {
+      "id": "JPEG",
+      "hex_prefix": "FFD8FF"
+    }
+  ],
+  "exact_five_classes": true,
+  "exact_nine_magics": true,
+  "extension_magic_mismatch_claim_absent": true,
+  "each_binary_class_has_matrix_entry": true,
+  "each_binary_class_has_positive_and_safe_negative": true,
+  "magic_positive_count": 9,
+  "magic_safe_negative_count": 9,
+  "formal_production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+  "production_case_total": 72,
+  "production_case_passed": 72
+}

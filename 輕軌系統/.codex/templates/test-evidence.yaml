@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "task_id": "<TASK-ID>",
+  "evidence_mode": "static-governance",
+  "commands": ["<READ-ONLY-COMMAND>"],
+  "requirements": [{"requirement_id": "<REQUIREMENT-ID>", "semantic_category": "EVIDENCE_INTEGRITY", "criticality": "HIGH", "required_for_levels": ["L3"], "required_execution_categories": ["governance-validation"]}],
+  "checks": [{"check_id": "<EVIDENCE-ID>", "requirement_id": "<REQUIREMENT-ID>", "result": "NOT_VERIFIED", "note": "Required evidence must become PASS; Phase 1 has no waiver path."}],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": ["<LIMITATION>"]
+}

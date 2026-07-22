@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "command": "node .codex/tests/run-reviewer-binding-regressions.mjs",
+  "production_entrypoint": "validateTask",
+  "total": 14,
+  "passed": 14,
+  "failed": 0,
+  "case_ids": ["PROD-REVIEWER-01", "PROD-REVIEWER-02", "PROD-REVIEWER-03", "PROD-REVIEWER-04", "PROD-REVIEWER-05", "PROD-REVIEWER-06", "PROD-REVIEWER-07", "PROD-REVIEWER-08", "PROD-REVIEWER-09", "PROD-REVIEWER-10", "PROD-REVIEWER-11", "PROD-REVIEWER-12", "PROD-REVIEWER-13", "PROD-REVIEWER-14"],
+  "assurance": "procedural_role_and_assignment_binding",
+  "result": "PASS"
+}

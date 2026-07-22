@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "contract_id": "GOV-REFERENCED-EVIDENCE-VALIDATION",
+  "contract_version": 1,
+  "active_manifest_contract_version": 2,
+  "authority_order": ["manifest evidence declaration", "evidence schema registry", "resolver", "registered schema validation", "Gate completeness", "derived attestations"],
+  "historical_policy": "Manifest contract versions below 2 are HISTORICAL_FORMAT_UNSUPPORTED_FOR_ACTIVE_GATE.",
+  "magic_filename_inference_allowed": false,
+  "optional_evidence_policy": {"absent": "ALLOWED", "present_invalid": "INVALID"},
+  "multiple_security_evidence": "FORBIDDEN_IN_BOOTSTRAP",
+  "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001"
+}

@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "source_review_task_id": "GOV-PHASE1-L3-REVIEW-A4",
+  "formal_finding_count": 12,
+  "closure_policy": "Only an independent A5 Reviewer may close or narrow an A4 finding. Any NOT_CLOSED entry blocks the Candidate Governance Review Gate.",
+  "findings": [
+    {
+      "finding_id": "A4-CODE-BLOCKER-001",
+      "original_severity": "BLOCKER",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["code-review.json#A5-CODE-BLOCKER-001", ".codex/scripts/validate-change-scope.mjs:45-52"],
+      "remaining_risk": "Role Policy and Agent Assignment remain optional in the public default write-validation path.",
+      "blocks_candidate_review_gate": true
+    },
+    {
+      "finding_id": "A4-CODE-BLOCKER-002",
+      "original_severity": "BLOCKER",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["code-review.json#A5-CODE-BLOCKER-002", ".codex/scripts/validate-task.mjs:380-391"],
+      "remaining_risk": "Live staged validation remains a caller boolean and scope/preapproval prerequisites remain generic PASS records.",
+      "blocks_candidate_review_gate": true
+    },
+    {
+      "finding_id": "A4-CODE-BLOCKER-003",
+      "original_severity": "BLOCKER",
+      "closure_status": "CLOSED",
+      "evidence": ["code-review.json#a4_closure_entries", ".codex/scripts/lib/governance/identity-resolver.mjs:33-63"],
+      "remaining_risk": "No A4 requirement-identity or Phase 1 waiver bypass reproduced on the exact candidate.",
+      "blocks_candidate_review_gate": false
+    },
+    {
+      "finding_id": "A4-CODE-BLOCKER-004",
+      "original_severity": "BLOCKER",
+      "closure_status": "CLOSED",
+      "evidence": ["code-review.json#a4_closure_entries", ".codex/scripts/lib/governance/identity-resolver.mjs:9-30"],
+      "remaining_risk": "The dedicated confirmed-Domain approval lookup was removed; the separate generic meta-rule authority bypass is tracked by the Domain Reviewer.",
+      "blocks_candidate_review_gate": false
+    },
+    {
+      "finding_id": "A4-CODE-HIGH-005",
+      "original_severity": "HIGH",
+      "closure_status": "REPLACED_BY_NARROWER_CONTRACT",
+      "evidence": ["code-review.json#a4_closure_entries", ".codex/blueprints/schemas/classification.schema.json:7-11"],
+      "remaining_risk": "Cross-document free-text semantic sensitivity inference is not a retained Phase 1 capability.",
+      "blocks_candidate_review_gate": false
+    },
+    {
+      "finding_id": "A4-CODE-HIGH-006",
+      "original_severity": "HIGH",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["code-review.json#A5-CODE-HIGH-003", ".codex/tests/run-phase15-production-integration.mjs:91-102"],
+      "remaining_risk": "The declared fixture and mutation suites remain green while independently reproduced authorization and incorrect-GO paths survive.",
+      "blocks_candidate_review_gate": true
+    },
+    {
+      "finding_id": "SEC-A4-001",
+      "original_severity": "HIGH",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["security-review.json#A5-SEC-HIGH-001", ".codex/scripts/lib/governance/scanner-pipeline.mjs:73-75"],
+      "remaining_risk": "A malformed percent sequence suppresses a valid decoded scanner finding.",
+      "blocks_candidate_review_gate": true
+    },
+    {
+      "finding_id": "SEC-A4-002",
+      "original_severity": "HIGH",
+      "closure_status": "CLOSED",
+      "evidence": ["security-review.json#a4_closure_entries", ".codex/scripts/lib/governance/scanner-pipeline.mjs:123-153"],
+      "remaining_risk": "No direct A4 declared-header implementation bypass was reproduced, subject to the separate fixture-oracle finding.",
+      "blocks_candidate_review_gate": false
+    },
+    {
+      "finding_id": "SEC-A4-003",
+      "original_severity": "HIGH",
+      "closure_status": "CLOSED",
+      "evidence": ["security-review.json#a4_closure_entries", ".codex/governance/security-scan-contract.json"],
+      "remaining_risk": "The retained bounded entropy and scanner contract does not claim DLP or global secret absence.",
+      "blocks_candidate_review_gate": false
+    },
+    {
+      "finding_id": "SEC-A4-004",
+      "original_severity": "HIGH",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["security-review.json#A5-SEC-HIGH-002", ".codex/tests/fixture-suite-manifest.json:39-50"],
+      "remaining_risk": "The formal fixture oracle does not lock every declared binary, mismatch, header, cookie and token class.",
+      "blocks_candidate_review_gate": true
+    },
+    {
+      "finding_id": "A4-DOMAIN-AUTHORITY-BINDING-001",
+      "original_severity": "HIGH",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["railway-domain-review.json#A5-DOMAIN-META-REGISTRY-BYPASS-001", ".codex/scripts/lib/governance/proposed-domain-rules.mjs:26-30"],
+      "remaining_risk": "A confirmed category=domain Rule can reach authority through the generic meta-rule namespace without Domain human approval provenance.",
+      "blocks_candidate_review_gate": true
+    },
+    {
+      "finding_id": "A4-DOMAIN-APPROVAL-UNIQUENESS-002",
+      "original_severity": "HIGH",
+      "closure_status": "REPLACED_BY_NARROWER_CONTRACT",
+      "evidence": ["railway-domain-review.json#a4_closure_entries", ".codex/domain/index.yaml"],
+      "remaining_risk": "Confirmed Domain approval lookup is not a retained Phase 1 capability; generic Domain-category authority remains separately blocked.",
+      "blocks_candidate_review_gate": false
+    }
+  ],
+  "counts": {
+    "CLOSED": 4,
+    "REPLACED_BY_NARROWER_CONTRACT": 2,
+    "NOT_CLOSED": 6
+  },
+  "candidate_review_gate": "NO-GO"
+}

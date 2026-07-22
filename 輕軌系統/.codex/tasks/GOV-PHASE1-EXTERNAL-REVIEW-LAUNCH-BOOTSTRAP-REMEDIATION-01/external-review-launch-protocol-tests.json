@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "case_count": 20,
+  "passed": 20,
+  "failed": 0,
+  "cases": [
+    {
+      "test_id": "ROOT-01",
+      "scenario": "chat cwd is repository root",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-02",
+      "scenario": "chat cwd is repository parent",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-03",
+      "scenario": "chat cwd is nested below repository",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-04",
+      "scenario": "wrong root",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-05",
+      "scenario": "root identity hash mismatch",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-06",
+      "scenario": "package directory missing",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-07",
+      "scenario": "startup file missing",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-08",
+      "scenario": "package file hash mismatch",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-09",
+      "scenario": "recursive package search prohibited",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "PAYLOAD-10",
+      "scenario": "missing review_package_id rejected",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "PAYLOAD-11",
+      "scenario": "outcome substituted for review_status rejected",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "PAYLOAD-12",
+      "scenario": "run_id substituted for required IDs rejected",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "PAYLOAD-13",
+      "scenario": "self-hash valid but schema invalid rejected",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "PAYLOAD-14",
+      "scenario": "schema valid but self-hash mismatch rejected",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "PAYLOAD-15",
+      "scenario": "valid Startup Blocker accepted as procedural blocker",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "PAYLOAD-16",
+      "scenario": "valid technical PASS payload accepted",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "SCOPE-17",
+      "scenario": "absolute envelope path inside exact scope accepted",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "SCOPE-18",
+      "scenario": "parent directory read blocked",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "SCOPE-19",
+      "scenario": "other Reviewer package read blocked",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "SCOPE-20",
+      "scenario": "repository-wide read blocked",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

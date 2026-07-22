@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "command": "node .codex/tests/run-governance-fixtures.mjs",
+  "suite_id": "PHASE1-BOOTSTRAP-CORE",
+  "suite_version": 7,
+  "case_manifest_sha256": "6454720742D0BE4DD76D6B2F37251B906A8E8679B496A2E99ACBF176221E048E",
+  "total": 68,
+  "passed": 68,
+  "failed": 0,
+  "schema_execution": {"production_loader_used": true, "loader_export": "loadAndCompileGovernanceSchemas", "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9", "railway_review_schema_id": "https://ntmc.local/codex/schemas/railway-domain-review.schema.json", "railway_review_schema_version": 1, "railway_review_schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D", "schema_compile_status": "PASS", "scan_contract_schema_set_hash_match": true, "typed_railway_fixture_validated": true},
+  "result": "PASS"
+}

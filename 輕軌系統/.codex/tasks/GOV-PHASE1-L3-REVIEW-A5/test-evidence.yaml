@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "evidence_mode": "independent-read-only-review",
+  "commands": [
+    "capture A5 candidate and frozen-history baseline before and after review",
+    "verify exact 97-file candidate manifest and workspace candidate proof",
+    "run the formal 50-case governance fixture suite",
+    "run Phase 1.5 regression, mutation, production integration and concurrency suites",
+    "verify forged child report rejection, scanner contract, proposed Domain registry and lifecycle projection",
+    "validate historical and Migration 320 evidence integrity",
+    "collect three independent formal Reviewer outcomes"
+  ],
+  "checks": [
+    {"check_id":"CHECK-A5-BASELINE-BEFORE","requirement_id":"ART-A5-BASELINE-BEFORE","result":"PASS","note":"Before-review baseline captured 97 candidate, 167 frozen-history, 13 Migration 320 Task, and 5 fixed external records."},
+    {"check_id":"CHECK-A5-CANDIDATE-MANIFEST","requirement_id":"ART-A5-CANDIDATE-MANIFEST","result":"PASS","note":"The exact 97-file manifest hash and included file-set hash matched the Phase 1.5 candidate."},
+    {"check_id":"CHECK-A5-CANDIDATE-SNAPSHOT","requirement_id":"ART-A5-CANDIDATE-SNAPSHOT","result":"PASS","note":"The WORKSPACE_CANDIDATE proof type, execution identity, manifest, payload and file-set binding matched."},
+    {"check_id":"CHECK-A5-FIXTURE-50","requirement_id":"ART-A5-FIXTURE-50","result":"PASS","note":"The freshly executed formal governance suite passed 50 of 50 filed cases."},
+    {"check_id":"CHECK-A5-REGRESSION","requirement_id":"ART-A5-REGRESSION","result":"PASS","note":"The filed Phase 1.5 regression runner passed; formal Reviewer findings prove its oracle remains insufficient."},
+    {"check_id":"CHECK-A5-MUTATION","requirement_id":"ART-A5-MUTATION","result":"PASS","note":"Seven of seven filed mutations were killed; this does not cover the surviving Reviewer constructions."},
+    {"check_id":"CHECK-A5-PRODUCTION-INTEGRATION","requirement_id":"ART-A5-PRODUCTION-INTEGRATION","result":"PASS","note":"Five of five filed production integration cases passed; the Code Reviewer independently reproduced two paths absent from those cases."},
+    {"check_id":"CHECK-A5-CONCURRENCY","requirement_id":"ART-A5-CONCURRENCY","result":"PASS","note":"Parallel child runs used unique roots and valid exact reports; truncated and provenance-invalid forged reports were rejected."},
+    {"check_id":"CHECK-A5-SCANNER","requirement_id":"ART-A5-SCANNER","result":"PASS","note":"The filed scanner contract verification completed, while the Security Reviewer separately recorded two blocking gaps not represented by this PASS verdict."},
+    {"check_id":"CHECK-A5-DOMAIN","requirement_id":"ART-A5-DOMAIN","result":"PASS","note":"The current proposed-only registry verification passed, while the Domain Reviewer separately proved a blocking generic meta-rule authority bypass."},
+    {"check_id":"CHECK-A5-LIFECYCLE","requirement_id":"ART-A5-LIFECYCLE","result":"PASS","note":"The deterministic informational lifecycle projection validated and remained excluded from gate authority."},
+    {"check_id":"CHECK-A5-HISTORY","requirement_id":"ART-A5-HISTORY","result":"PASS","note":"All 167 frozen historical governance records matched the before baseline."},
+    {"check_id":"CHECK-A5-M320","requirement_id":"ART-A5-M320","result":"PASS","note":"Migration 320 Task and five fixed external hashes were unchanged; Migration 320 remains NO-GO."},
+    {"check_id":"CHECK-A5-BASELINE-AFTER","requirement_id":"ART-A5-BASELINE-AFTER","result":"PASS","note":"Before and after baselines have zero candidate, frozen-history, Migration 320 Task, or external evidence changes."},
+    {"check_id":"CHECK-A5-CODE-REVIEW","requirement_id":"ART-A5-CODE-REVIEW","result":"PASS","note":"The formal independent Code Review artifact exists, has unique run and session identity, and records outcome BLOCKER."},
+    {"check_id":"CHECK-A5-SECURITY-REVIEW","requirement_id":"ART-A5-SECURITY-REVIEW","result":"PASS","note":"The formal independent Security Review artifact exists, has unique run and session identity, and records outcome BLOCKER."},
+    {"check_id":"CHECK-A5-DOMAIN-REVIEW","requirement_id":"ART-A5-DOMAIN-REVIEW","result":"PASS","note":"The formal independent Railway Domain Review artifact exists, has unique run and session identity, and records outcome BLOCKER without approving a business Rule."},
+    {"check_id":"CHECK-A5-CLOSURE-MATRIX","requirement_id":"ART-A5-CLOSURE-MATRIX","result":"PASS","note":"All twelve A4 formal finding identities have evidence-backed closure dispositions: four closed, two narrowed, and six not closed."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": [
+    "A PASS evidence check proves collection or execution only; it does not override the semantic outcome inside a formal Review artifact.",
+    "No product test, service, database, seed, migration, staged candidate, Git mutation, Session B, or actual Railway Rule approval was performed."
+  ]
+}

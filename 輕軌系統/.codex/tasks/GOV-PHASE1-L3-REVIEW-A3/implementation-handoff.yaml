@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A3",
+  "producer": "root-review-orchestrator",
+  "agent_session_ref": "A3-ROOT-ORCHESTRATOR-SESSION-20260717-001",
+  "started_at": "2026-07-17T13:01:00+08:00",
+  "changed_files": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/**"],
+  "commands": ["create A3 task scaffold", "capture exact 87-file before baseline", "dispatch three clean read-only Reviewers", "rerun serial 50-case fixtures", "rerun dual-parent concurrency regression", "verify exact commit manifest", "capture historical integrity snapshots"],
+  "evidence_refs": ["ART-A3-BASELINE-BEFORE", "ART-A3-FIXTURE", "ART-A3-CONCURRENCY", "ART-A3-MANIFEST", "ART-A3-HISTORICAL", "ART-A3-BASELINE-AFTER"],
+  "unverified": ["Session B Compatibility Review", "final human governance commit approval"],
+  "residual_risks": ["A3 Reviewer outcomes cannot authorize Session B automatically.", "Git and remote governance controls remain human-owned and unverified locally."],
+  "next_role": "human-governance-owner"
+}

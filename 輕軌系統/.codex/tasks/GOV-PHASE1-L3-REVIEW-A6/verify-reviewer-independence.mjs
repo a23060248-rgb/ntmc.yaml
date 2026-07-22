@@ -1,0 +1,38 @@
+import { readdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const taskDir = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(taskDir, "../../..");
+const tasksRoot = path.join(root, ".codex", "tasks");
+const assignments = JSON.parse(await readFile(path.join(taskDir, "reviewer-assignments.json"), "utf8"));
+const identities = assignments.assignments.flatMap((item) => [item.reviewer_run_id, item.session_id]);
+const historicalMatches = [];
+async function scanDir(absolute, relative) {
+  const entries = await readdir(absolute, { withFileTypes: true });
+  entries.sort((a, b) => a.name.localeCompare(b.name));
+  for (const entry of entries) {
+    const nextRelative = `${relative}/${entry.name}`;
+    if (nextRelative.startsWith(".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/")) continue;
+    const next = path.join(absolute, entry.name);
+    if (entry.isDirectory()) await scanDir(next, nextRelative);
+    else if (entry.isFile()) {
+      const text = await readFile(next, "utf8").catch(() => "");
+      for (const identity of identities) if (text.includes(identity)) historicalMatches.push({ identity, relative_path: nextRelative });
+    }
+  }
+}
+await scanDir(tasksRoot, ".codex/tasks");
+const payload = {
+  schema_version: 1,
+  task_id: "GOV-PHASE1-L3-REVIEW-A6",
+  reviewer_identity_count: identities.length,
+  identities_unique_within_a6: new Set(identities).size === identities.length,
+  identities_differ_from_implementer_session: !identities.includes(assignments.implementer_session_id),
+  historical_identity_match_count: historicalMatches.length,
+  historical_identity_matches: historicalMatches,
+  independence_result: new Set(identities).size === identities.length && !identities.includes(assignments.implementer_session_id) && historicalMatches.length === 0 ? "PASS" : "FAIL"
+};
+await writeFile(path.join(taskDir, "reviewer-independence-verification.json"), `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+console.log(`A6_REVIEWER_INDEPENDENCE result=${payload.independence_result} identities=${identities.length} historical_matches=${historicalMatches.length}`);
+process.exit(payload.independence_result === "PASS" ? 0 : 1);

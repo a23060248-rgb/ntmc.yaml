@@ -1,0 +1,25 @@
+{
+  "schema_version":1,
+  "task_id":"GOV-PHASE1-L3-REVIEW-A9",
+  "generated_at":"2026-07-20T00:45:00+08:00",
+  "nodes":[
+    {"id":"TASK:A9","type":"Task","label":"Independent Phase 1.9 review","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/task-intent.yaml"},
+    {"id":"REVIEW:CODE","type":"FormalReview","label":"Code Reviewer BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/code-review.json"},
+    {"id":"REVIEW:SECURITY","type":"FormalReview","label":"Security Reviewer BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/security-review.json"},
+    {"id":"REVIEW:DOMAIN","type":"FormalReview","label":"Railway Domain Reviewer PASS","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/railway-domain-review.json"},
+    {"id":"EVIDENCE:CANDIDATE","type":"Evidence","label":"Exact 103-file candidate PASS","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/candidate-manifest-verification.json"},
+    {"id":"EVIDENCE:BASELINE","type":"Evidence","label":"Before and after baselines identical","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/baseline-comparison.json"},
+    {"id":"GATE:CANDIDATE","type":"Gate","label":"Bootstrap Candidate Review NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/review-findings.yaml"},
+    {"id":"GATE:M320","type":"Gate","label":"Migration 320 NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/migration-320-integrity.json"}
+  ],
+  "edges":[
+    {"from":"TASK:A9","relation":"collects","to":"REVIEW:CODE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/code-review.json"},
+    {"from":"TASK:A9","relation":"collects","to":"REVIEW:SECURITY","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/security-review.json"},
+    {"from":"TASK:A9","relation":"collects","to":"REVIEW:DOMAIN","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/railway-domain-review.json"},
+    {"from":"EVIDENCE:CANDIDATE","relation":"supports","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/bootstrap-candidate-verification.json"},
+    {"from":"EVIDENCE:BASELINE","relation":"supports","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/baseline-comparison.json"},
+    {"from":"REVIEW:CODE","relation":"blocks","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/code-review.json"},
+    {"from":"REVIEW:SECURITY","relation":"blocks","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/security-review.json"},
+    {"from":"REVIEW:DOMAIN","relation":"keeps-external-decision-separate","to":"GATE:M320","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/domain-routing-verification.json"}
+  ]
+}

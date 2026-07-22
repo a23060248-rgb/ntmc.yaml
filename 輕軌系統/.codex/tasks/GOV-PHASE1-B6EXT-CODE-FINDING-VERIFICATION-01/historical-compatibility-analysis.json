@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "replays": [
+    {
+      "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+      "structural": "VALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 0,
+      "error_count": 0
+    },
+    {
+      "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+      "structural": "VALID",
+      "calculated_gate": "NO-GO",
+      "bootstrap_candidate_review_gate": "NO-GO",
+      "exit_code": 2,
+      "error_count": 0
+    },
+    {
+      "task_id": "GOV-PHASE1-REMEDIATION-10",
+      "structural": "VALID",
+      "calculated_gate": "NO-GO",
+      "bootstrap_candidate_review_gate": "NO-GO",
+      "exit_code": 2,
+      "error_count": 0
+    },
+    {
+      "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+      "structural": "VALID",
+      "calculated_gate": "NO-GO",
+      "bootstrap_candidate_review_gate": "NO-GO",
+      "exit_code": 2,
+      "error_count": 0
+    },
+    {
+      "task_id": "GOV-PHASE1-REMEDIATION-11",
+      "structural": "VALID",
+      "calculated_gate": "NO-GO",
+      "bootstrap_candidate_review_gate": "NO-GO",
+      "exit_code": 2,
+      "error_count": 0
+    },
+    {
+      "task_id": "GOV-PHASE1-REMEDIATION-12",
+      "structural": "INVALID",
+      "calculated_gate": "NO-GO",
+      "bootstrap_candidate_review_gate": "NO-GO",
+      "exit_code": 1,
+      "error_count": 28
+    }
+  ],
+  "answers": {
+    "retrospective_invalidation": "A new referenced-evidence rule must be versioned and applied prospectively; immutable historical outcomes remain historical evidence and are not rewritten.",
+    "versioning_required": true,
+    "new_candidate_baseline_required": true,
+    "candidate_file_count_changes": "Yes if production code/tests/schema contracts are changed; exact count must be recomputed rather than assumed.",
+    "candidate_chain_regeneration_required": [
+      "governance-commit-manifest",
+      "bootstrap-candidate-record",
+      "bootstrap-scanner-report"
+    ],
+    "invalidated_packages": [
+      "R12 pre-review package",
+      "External Review Preparation packages",
+      "Launch Bootstrap Remediation 01 envelopes and assignments",
+      "all payloads bound to the old candidate, including Code R1"
+    ],
+    "code_r1_future_use": "Finding evidence only; it cannot approve or represent a remediated candidate."
+  },
+  "result": "COMPATIBILITY_REVIEW_REQUIRED_FOR_VERSIONED_CANDIDATE_REMEDIATION"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "accepted_for_independent_review_only": [
+    {"risk":"Reviewer and human identity is procedurally attested.","boundary":"Cannot authorize final commit without a separate human decision and independent review."},
+    {"risk":"The scanner is deterministic but bounded.","boundary":"Claims are limited to the exact manifest and declared finding inventory; no global absence claim is allowed."},
+    {"risk":"Agent path policy is not runtime isolation.","boundary":"OS, container, DLP and external process controls remain outside the Phase 1 contract."},
+    {"risk":"Command shells, external executables, parent-process override and time-of-check/time-of-use remain platform risks.","boundary":"Git mutation and live staged validation remain human-controlled and absent from this Task."},
+    {"risk":"The entire governance tree is still untracked.","boundary":"Read-only change-scope validation fails closed until a human creates an exact staged candidate in a separately authorized step."}
+  ],
+  "not_eligible_as_residual_risk": [
+    "incorrect GO path",
+    "scope bypass",
+    "forged proof authority",
+    "confirmed Domain Rule promotion",
+    "false scanner capability claim"
+  ]
+}

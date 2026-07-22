@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "producer": "root-orchestrator",
+  "actor_role": "qa-engineer",
+  "agent_session_ref": "R10-IMPLEMENTATION-SESSION-9A6D61FD-35D0-42E3-8DF6-F71A4CC94C14",
+  "started_at": "2026-07-20T09:33:53.4462417+08:00",
+  "changed_files": [".codex/tasks/GOV-PHASE1-REMEDIATION-10/**"],
+  "commands": ["create-task.mjs non-overwriting L3 scaffold", "capture protected before and after baselines", "direct root-cause byte/hash classification", "official candidate record and scanner report validation", "official production schema loader validation", "20 contract/allowlist/chain mutation cases", "Migration 320 authoritative read-only validation", "Remediation 10 authoritative task validation"],
+  "evidence_refs": ["R10-ROOT-CAUSE", "R10-CONTRACT", "R10-CHAIN", "R10-ALLOWLIST", "R10-NEGATIVE", "R10-BASELINE", "R10-HISTORY", "R10-M320", "R10-READINESS"],
+  "unverified": ["Fresh Session B2 Reviewer Set", "Formal closure or retention of the two Session B Security findings", "Human Exact-Manifest Confirmation", "First-commit authorization"],
+  "residual_risks": ["Candidate and reviewer assurance remain INTERNAL_CONSISTENCY_ONLY and procedural.", "Future Session B2 artifact hashes must be bound by its separately authorized assignment before formal review.", "Migration 320 remains NEEDS_HUMAN_DECISION and NO-GO."],
+  "next_role": "human-governance-owner-to-consider-whether-to-authorize-a-separate-session-b2-review"
+}

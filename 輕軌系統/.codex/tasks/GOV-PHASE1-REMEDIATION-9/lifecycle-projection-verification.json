@@ -1,0 +1,20 @@
+{
+  "schema_version":1,
+  "task_id":"GOV-PHASE1-REMEDIATION-9",
+  "commands":["node .codex/scripts/build-phase-status.mjs 2026-07-19T23:51:00+08:00","node .codex/scripts/validate-phase-status.mjs"],
+  "authority":"informational",
+  "used_as_gate_input":false,
+  "used_as_scope_input":false,
+  "used_as_approval_input":false,
+  "last_completed_remediation":"GOV-PHASE1-REMEDIATION-9",
+  "last_completed_review":"GOV-PHASE1-L3-REVIEW-A8",
+  "last_review_outcome":"BLOCKER",
+  "active_task":null,
+  "session_b_authorized":false,
+  "bootstrap_candidate_review_gate":"NO-GO",
+  "bootstrap_human_commit_gate":"NO-GO",
+  "steady_state_governance_preparation_gate":"DISABLED",
+  "steady_state_governance_execution_gate":"DISABLED",
+  "migration_320_execution_gate":"NO-GO",
+  "validation_result":"PASS"
+}

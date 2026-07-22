@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "metadata": {
+    "reviewer": "compatibility-reviewer",
+    "formal": true,
+    "did_not_participate_in_implementation": true,
+    "assignment_id": "ASSIGN-SB-COMPAT-D7AE1613-9CEE-495E-BDCB-A8CAD9166BC5",
+    "reviewer_run_id": "SB-COMPAT-RUN-081CF7D3-74F3-489E-8EFC-252E2CF2514B",
+    "session_id": "SB-COMPAT-SESSION-FA64284D-6348-49C2-9F88-18CE89BB4C66",
+    "execution_mode": "read-only",
+    "implementation_participation": false,
+    "implementation_conversation_received": false,
+    "reviewed_candidate_baseline": "phase-1.9-bootstrap",
+    "candidate_manifest_file_count": 103,
+    "agent_profile_reference": ".codex/agents/compatibility-reviewer.toml",
+    "agent_profile_sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910",
+    "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "review_scope": "bootstrap_governance_compatibility"
+  },
+  "outcome": "PASS",
+  "summary": "The unchanged exact 103-file phase-1.9-bootstrap candidate is governance-compatible. All 103 candidate files independently matched their recorded byte sizes and SHA256 values, the manifest hash matched, and Session B artifacts remain outside the candidate. A10 remains archived PASS with Bootstrap Candidate Review VALID, GO and exit 0. The five Gates remain separated: Bootstrap Human Commit is NO-GO, both steady-state Gates are DISABLED, and Migration 320 remains NEEDS_HUMAN_DECISION and NO-GO. This review does not authorize Git activity, Human Commit GO, steady-state activation, a confirmed Railway Domain Rule, or Migration 320 execution.",
+  "gate_assessment": {
+    "outcome": "PASS",
+    "source_a10": {"task_id": "GOV-PHASE1-L3-REVIEW-A10", "status": "ARCHIVED", "reviewer_set_outcome": "PASS", "formal_artifact_count_checked": 45, "formal_artifacts_match_before_baseline": true},
+    "bootstrap_candidate_review": {"structural": "VALID", "status": "GO", "exit": 0, "independently_confirmed": true, "human_commit_authority_implied": false},
+    "bootstrap_human_commit": {"status": "NO-GO", "reason_codes_at_replay": ["SESSION_B_NOT_PASS", "HUMAN_EXACT_MANIFEST_NOT_APPROVED", "FIRST_COMMIT_AUTHORIZATION_ABSENT"], "approved_by_this_review": false},
+    "steady_state_preparation": {"status": "DISABLED", "approved_by_this_review": false},
+    "steady_state_execution": {"status": "DISABLED", "approved_by_this_review": false},
+    "migration_320_execution": {"status": "NO-GO", "domain_decision": "NEEDS_HUMAN_DECISION", "expected_validator_exit": 2, "approved_by_this_review": false},
+    "five_gate_separation": "PASS",
+    "candidate_gate_independent_of_session_b": true,
+    "candidate_gate_independent_of_final_commit": true,
+    "candidate_gate_independent_of_migration_320": true
+  },
+  "compatibility_matrix_assessment": {
+    "outcome": "PASS",
+    "candidate_integrity": {"expected_file_count": 103, "actual_file_count": 103, "unique_path_count": 103, "byte_size_or_sha256_mismatches": 0, "manifest_hash_match": true, "session_b_artifacts_in_candidate": false, "scanner_expected_file_count": 103, "scanner_scanned_file_count": 103, "scanner_finding_count": 0},
+    "schema_contract": {"production_loader": "loadAndCompileGovernanceSchemas", "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9", "declared_schema_count": 15, "candidate_schema_count": 15, "unique_schema_id_count": 15, "duplicate_schema_ids": [], "duplicate_schema_references": [], "schema_id_or_version_mismatches": 0, "registry_equals_candidate_schema_set": true, "inline_schema_observed": false, "fallback_schema_observed": false, "first_match_schema_resolution": false},
+    "production_wiring": {
+      "templates": {"artifact_count": 0, "assessment": "No standalone template authority or fallback template Schema is present in the candidate."},
+      "workflows": {"artifact_count": 3, "assessment": "L1, L2 and L3 workflow contracts remain consistent with role, review, evidence and Gate routing constraints."},
+      "checklists": {"artifact_count": 4, "assessment": "Compatibility, security, code and Railway review checklists preserve the narrow bootstrap contract."},
+      "blueprints": {"relationship_count": 15, "assessment": "Blueprint Schema, scope lattice, assignment and rule-selection consumers remain wired through production validation paths."},
+      "role_profiles": {"artifact_count": 10, "compatibility_profile_hash_match": true, "assessment": "Role profiles and assignment scopes remain candidate-bound; formal Railway binding remains procedural and read-only."},
+      "evidence_contract": {"relationship_count": 16, "assessment": "Required evidence, artifact scope, scanner bindings and fail-closed verdict handling remain production-consumed."}
+    },
+    "reruns": {"syntax": "18/18 PASS", "fixtures": "68/68 PASS", "production_scanner": "72/72 PASS", "production_integration": "48/48 PASS", "production_mutations": "31/31 KILLED", "reviewer_binding": "14/14 PASS", "official_schema_loader": "11/11 PASS", "schema_loader_mutations": "6/6 KILLED", "binary_magic_mutations": "45/45 KILLED", "concurrency_isolation": "PASS"},
+    "baseline_integrity": {"candidate_files_checked": 103, "candidate_files_matching_before_baseline": 103, "a10_formal_files_checked": 45, "a10_formal_files_matching_before_baseline": 45, "migration_320_wrapper_files_checked": 11, "migration_320_wrapper_files_matching_before_baseline": 11}
+  },
+  "removed_capability_assessment": {
+    "outcome": "PASS",
+    "all_removed_capabilities_non_executable": true,
+    "capabilities": [
+      {"capability": "STAGED_EXACT", "production_executable": false},
+      {"capability": "evidence_waiver", "production_executable": false},
+      {"capability": "confirmed_domain_rule_promotion", "production_executable": false},
+      {"capability": "dynamic_business_meta_rule_authority", "production_executable": false},
+      {"capability": "authoritative_phase_status_projection", "production_executable": false},
+      {"capability": "extension_magic_mismatch", "production_executable": false}
+    ],
+    "confirmed_domain_rejection_vs_promotion": {"rejection_checks_present": true, "promotion_or_confirmation_export_present": false, "promotion_or_confirmation_execution_path_present": false, "assessment": "References to confirmed status, confirmed_rule_count and railway_domain_authority are fail-closed rejection checks. They emit violations or preserve unsupported status and do not create, promote, approve or route a confirmed Railway Domain Rule into applicable_rules."}
+  },
+  "historical_task_assessment": {
+    "outcome": "PASS",
+    "classification_model_preserved": ["UNCHANGED_VALID", "UNCHANGED_NO-GO", "HISTORICAL_ONLY", "EXPECTEDLY_UNSUPPORTED", "INVALID_REGRESSION"],
+    "records": [
+      {"subject": "A10 formal review", "classification": "UNCHANGED_VALID", "recorded_outcome": "PASS", "candidate_gate": "GO"},
+      {"subject": "R9 remediation validation", "classification": "UNCHANGED_VALID", "recorded_outcome": "PASS_WITH_GATES_BLOCKED_AS_DESIGNED", "candidate_file_count": 103},
+      {"subject": "pre-R9 frozen review and remediation history", "classification": "HISTORICAL_ONLY", "recorded_file_count": 638},
+      {"subject": "Migration 320", "classification": "UNCHANGED_NO-GO", "recorded_outcome": "NO-GO"},
+      {"subject": "Removed Phase 1 executable capabilities", "classification": "EXPECTEDLY_UNSUPPORTED", "recorded_outcome": "NON_EXECUTABLE"}
+    ],
+    "historical_reviewer_outcomes_reinterpreted": false,
+    "historical_blockers_rewritten_as_pass": false,
+    "historical_no_go_rewritten_as_go": false,
+    "historical_raw_artifacts_added_to_candidate": false
+  },
+  "findings": [],
+  "conditions": [],
+  "residual_risks": [
+    {"risk": "Candidate assurance remains INTERNAL_CONSISTENCY_ONLY and does not provide STAGED_EXACT or trusted Git producer proof.", "classification": "residual-risk", "blocks_compatibility": false},
+    {"risk": "The declared scanner contract is not a DLP system and does not prove global sensitive-data absence.", "classification": "non-goal", "blocks_compatibility": false},
+    {"risk": "Agent path policy is a procedural scope gate with runtime_isolation=false and is not an OS sandbox.", "classification": "residual-risk", "blocks_compatibility": false},
+    {"risk": "Reviewer identity is procedurally bound and is not cryptographic or unforgeable.", "classification": "residual-risk", "blocks_compatibility": false},
+    {"risk": "Remote branch protection and external Git trust anchors are outside this bootstrap candidate.", "classification": "non-goal", "blocks_compatibility": false},
+    {"risk": "There are zero confirmed Railway Domain Rules and no agent-side confirmation authority.", "classification": "expectedly-unsupported", "blocks_compatibility": false},
+    {"risk": "Human exact-manifest approval and explicit first-commit authorization remain absent.", "classification": "human-gate", "blocks_compatibility": false, "blocks_human_commit": true},
+    {"risk": "Migration 320 still lacks formal-clone provenance, complete P-to-C evidence and shortage-to-inventory linkage.", "classification": "migration-blocker", "blocks_compatibility": false, "blocks_migration_320_execution": true}
+  ],
+  "prohibited_actions_confirmed": {"forbidden_read_occurred": false, "workspace_write_performed": false, "candidate_source_modified": false, "git_command_run": false, "service_started": false, "product_test_run": false, "database_connection_attempted": false, "database_operation_run": false, "seed_run": false, "migration_run": false, "migration_source_read": false, "environment_file_read": false, "frontend_read": false, "erp_api_read": false, "db_design_read": false, "collab_read": false, "parent_or_sibling_directory_read": false, "handoff_content_read": false, "implementation_handoff_content_read": false, "implementation_plan_content_read": false, "implementation_conversation_used": false, "memory_used": false, "attachment_used": false, "actual_maintenance_rule_approved_or_invented": false, "candidate_rule_promoted": false, "human_commit_go_declared": false, "steady_state_activation_authorized": false, "migration_320_approved": false}
+}

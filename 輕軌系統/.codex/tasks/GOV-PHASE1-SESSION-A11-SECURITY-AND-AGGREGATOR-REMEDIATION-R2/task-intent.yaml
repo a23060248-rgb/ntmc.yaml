@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "objective": "Prepare only the Security R2 relaunch and Aggregator R2 transport/QA contracts while preserving the 108-file Candidate and prior Reviewer outcomes.",
+  "allowed_write_paths": [
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/**"
+  ],
+  "forbidden_actions": [
+    "launch Security R2",
+    "launch Aggregator R2",
+    "execute fresh Aggregator QA",
+    "re-review Code/Railway/Compatibility",
+    "modify Candidate",
+    "modify historical tasks",
+    "Git",
+    "network",
+    "services",
+    "database",
+    "seed",
+    "migration"
+  ],
+  "expected_terminal_state": "READY_FOR_HUMAN_TO_LAUNCH_SECURITY_R2"
+}

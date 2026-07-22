@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "matrix_id": "B6-SESSION-B-COMPATIBILITY-GATE-DEPENDENCIES",
+  "required_inputs": [
+    {
+      "input_id": "candidate_manifest",
+      "artifact_path": ".codex/governance/governance-commit-manifest.yaml"
+    },
+    {
+      "input_id": "candidate_record",
+      "artifact_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json"
+    },
+    {
+      "input_id": "scanner_evidence",
+      "artifact_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json"
+    },
+    {
+      "input_id": "formal_code_payload",
+      "source": "byte-identical formal Reviewer payload"
+    },
+    {
+      "input_id": "formal_security_payload",
+      "source": "byte-identical formal Reviewer payload"
+    },
+    {
+      "input_id": "formal_railway_payload",
+      "source": "byte-identical formal Reviewer payload"
+    },
+    {
+      "input_id": "formal_compatibility_payload",
+      "source": "byte-identical formal Reviewer payload"
+    },
+    {
+      "input_id": "baseline_integrity",
+      "artifact_path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/baseline-comparison.json",
+      "resolution_stage": "post-review"
+    },
+    {
+      "input_id": "deterministic_qa",
+      "source": "task-local production QA runner output"
+    }
+  ],
+  "edges": [
+    "candidate_manifest->Session B Compatibility Gate",
+    "candidate_record->Session B Compatibility Gate",
+    "scanner_evidence->Session B Compatibility Gate",
+    "four formal Reviewer payloads->Session B Compatibility Gate",
+    "baseline_integrity->Session B Compatibility Gate",
+    "deterministic_qa->Session B Compatibility Gate"
+  ],
+  "prohibited_influences": [
+    "human approval",
+    "final commit approval",
+    "steady-state trust anchor",
+    "Migration 320 external decision",
+    "final summary text",
+    "derived gate fields"
+  ],
+  "prohibited_targets": [
+    "Reviewer technical outcome",
+    "Session B Compatibility Gate input"
+  ],
+  "result": "PASS"
+}

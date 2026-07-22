@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-3",
+  "artifacts": [
+    {"artifact_id": "ART-REM3-FIXTURE", "type": "fixture-rerun", "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-3/fixture-rerun.json", "sha256": "A85423A61C07FF7B635E1BEA4B0959A8653DA4DC89AA9321447D117F73E160B7", "authority": "evidence-only", "evidence_scope": "local_review_record", "commit_inclusion": false, "content_scan_status": "FULL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REQUIRED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-REM3-INTEGRITY", "type": "integrity-check", "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-3/integrity-check.json", "sha256": "004962F1078F9CA711E03AD6D7F5F04820826AE7CEA5D9F02746C9490FD4F3B9", "authority": "evidence-only", "evidence_scope": "local_review_record", "commit_inclusion": false, "content_scan_status": "FULL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REQUIRED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-REM3-REPORT", "type": "remediation-report", "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-3/remediation-report.md", "sha256": "6F4462642370A03CFBD9A4742F0442F364206F020F98C08C36B134EF3743462A", "authority": "evidence-only", "evidence_scope": "local_review_record", "commit_inclusion": false, "content_scan_status": "FULL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REQUIRED", "source_verification_status": "VERIFIED"}
+  ],
+  "product_changes": [],
+  "secrets_present": false
+}

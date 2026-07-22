@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2",
+  "security_r2_source_thread_id": "019f8545-1b15-7201-90ea-cdccdc9273fe",
+  "security_r2_outcome": "PASS",
+  "security_r2_startup": "STARTUP_VALID",
+  "candidate_binding_valid": true,
+  "formal_payload_count": 4,
+  "transport_attestation_count": 4,
+  "transport_schema_version": 2,
+  "payloads_modified": false,
+  "payloads": [
+    {
+      "reviewer_role": "EXTERNAL_CODE_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-48ca-7da1-b751-ab1df412f79d",
+      "review_package_id": "A11-R1-CODE-REVIEWER-PKG-20260721-01",
+      "payload_core_sha256": "63C6927A02043BCD185941F096BF90993BBDD9B1E0E39A2A2906D1E25D90DCF7",
+      "wrapper_canonical_sha256": "33CA1C35F6059780E61F0BE09A544C235AAF9650C6E9A4DA45B05C516B94BFE0",
+      "valid": true
+    },
+    {
+      "reviewer_role": "EXTERNAL_SECURITY_REVIEWER",
+      "generation": "R2",
+      "source_thread_id": "019f8545-1b15-7201-90ea-cdccdc9273fe",
+      "review_package_id": "A11-R2-SECURITY-REVIEWER-PKG-20260721-01",
+      "payload_core_sha256": "571F838480C7C2023DCE9DE3F5265673F8769FFB8F0664CC5A79963959E04EAB",
+      "wrapper_canonical_sha256": "6265FD7E3E78191DE8D6CD1AE7FFFF3F55C0D6C28B2948717F7BEF7D54B07B6A",
+      "valid": true
+    },
+    {
+      "reviewer_role": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-86f5-7f30-9e9b-32885933b428",
+      "review_package_id": "A11-R1-RAILWAY-DOMAIN-REVIEWER-PKG-20260721-03",
+      "payload_core_sha256": "CF2119E8B6F081E4D1333F8BA1C66D59C15C354467DB0F71290AA48E375DA8A0",
+      "wrapper_canonical_sha256": "63CA6CC21BCCFA438F331F422E4D6C212F60297750662220FB3B1582114D1E43",
+      "valid": true
+    },
+    {
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-97ae-7541-80e2-7401acc90b07",
+      "review_package_id": "A11-R1-COMPATIBILITY-REVIEWER-PKG-20260721-04",
+      "payload_core_sha256": "3C75292273125A2E8706971BB310FDD395E966DFAB013CE50F460F98686B3082",
+      "wrapper_canonical_sha256": "DCAB217516CF7DCE34766F5BCCF1EE877C089FE660A8DC87E0FC7BC7F6AF1325",
+      "valid": true
+    }
+  ],
+  "result": "PASS"
+}

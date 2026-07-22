@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "candidate_binding": {
+    "candidate_file_count": 108,
+    "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+    "scanner_contract_version": 5,
+    "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+  },
+  "security_r2_package": {
+    "task_id": "GOV-PHASE1-SESSION-A11-R2-SECURITY-REVIEW",
+    "directory": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/review-packages/security-review-r2",
+    "prompt_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/review-packages/security-review-r2/standalone-top-level-reviewer-prompt.md",
+    "launch_envelope_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/review-packages/security-review-r2/absolute-launch-envelope.json",
+    "ids": {
+      "review_package_id": "A11-R2-SECURITY-REVIEWER-PKG-20260721-01",
+      "assignment_id": "A11-R2-SECURITY-REVIEWER-ASSIGN-20260721-01",
+      "reviewer_run_id": "A11-R2-SECURITY-REVIEWER-RUN-20260721-01",
+      "reviewer_session_nonce": "B4F022FBCA9A69F4C4B4D30189EB8FA51767A38D48106F9C6D87129FD20DAC5E"
+    },
+    "package_core_sha256": "D78CAE0141F7CE781D784911421FACDB25BF2C2BB23C129B2DC0EA161525E38E",
+    "scope_sha256": "62F5001282E5D4D8BB78F8B8E50094F663CF51CE56C1E9BE037043BB46BD8751",
+    "launch_envelope_core_sha256": "D4329FC5564C95100BC36FAE1EB73292660BEE22A908343F12CC11939B078ECA",
+    "lifecycle": "NOT_STARTED"
+  },
+  "aggregation_r2_package": {
+    "task_id": "GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2",
+    "directory": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/review-packages/aggregation-deterministic-qa-r2",
+    "prompt_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/review-packages/aggregation-deterministic-qa-r2/standalone-top-level-aggregator-prompt.md",
+    "launch_envelope_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/review-packages/aggregation-deterministic-qa-r2/absolute-launch-envelope.json",
+    "ids": {
+      "aggregation_package_id": "A11-R2-AGGREGATOR-PKG-20260721-01",
+      "assignment_id": "A11-R2-AGGREGATOR-ASSIGN-20260721-01",
+      "aggregator_run_id": "A11-R2-AGGREGATOR-RUN-20260721-01",
+      "aggregator_session_nonce": "B004B5108DBBAF27832F66AAA081F991F378A127C143CFEDE96D2AD3881A49A8"
+    },
+    "package_core_sha256": "8837A99C8CC56F8D3509480D397A749271F3E9EE11C06D360649DC526C85FE19",
+    "scope_sha256": "65CE59EC865A32167C4923FEC33913EA854530CCBA5E88CDA618995D9CE14949",
+    "launch_envelope_core_sha256": "628772275C6731790FC38A44884F2D5711B45F1C9DE735A3DDB6257B4D83AB08",
+    "lifecycle": "NOT_STARTED"
+  },
+  "security_r2_started": false,
+  "aggregator_r2_started": false
+}

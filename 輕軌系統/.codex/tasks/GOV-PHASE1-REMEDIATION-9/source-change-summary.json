@@ -1,0 +1,33 @@
+{
+  "schema_version":1,
+  "task_id":"GOV-PHASE1-REMEDIATION-9",
+  "authorized_finding_ids":["A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001","A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001"],
+  "source_changes":[
+    "AGENTS.md",
+    ".codex/agents/railway-domain-reviewer.toml",
+    ".codex/blueprints/schemas/blueprint.schema.json",
+    ".codex/blueprints/schemas/review-findings.schema.json",
+    ".codex/blueprints/schemas/railway-domain-review.schema.json",
+    ".codex/checklists/railway-domain-review.md",
+    ".codex/governance/lifecycle-events.json",
+    ".codex/governance/phase-status.json",
+    ".codex/governance/scan-contract.yaml",
+    ".codex/scripts/lib/governance-commit-manifest.mjs",
+    ".codex/scripts/lib/governance/fixture-schema-loader-contract.mjs",
+    ".codex/scripts/lib/governance/reviewer-identity-binding.mjs",
+    ".codex/scripts/validate-task.mjs",
+    ".codex/tests/fixtures/valid-railway-domain-review.json",
+    ".codex/tests/run-bootstrap-mutation-tests.mjs",
+    ".codex/tests/run-bootstrap-production-integration.mjs",
+    ".codex/tests/run-governance-fixtures.mjs",
+    ".codex/tests/run-official-schema-loader-integration.mjs",
+    ".codex/tests/run-official-schema-loader-mutations.mjs",
+    ".codex/tests/run-reviewer-binding-regressions.mjs",
+    ".codex/workflows/l3-high-risk.md"
+  ],
+  "generated_candidate_source":".codex/governance/governance-commit-manifest.yaml",
+  "out_of_scope_controls_changed":false,
+  "a8_code_or_security_pass_reopened":false,
+  "migration_320_evidence_changed":false,
+  "git_mutation_performed":false
+}

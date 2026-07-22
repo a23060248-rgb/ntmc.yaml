@@ -1,0 +1,22 @@
+{
+  "schema_version":1,
+  "task_id":"GOV-PHASE1-REMEDIATION-9",
+  "result":"PASS",
+  "suites":[
+    {"name":"syntax","passed":38,"total":38},
+    {"name":"governance fixtures","passed":68,"total":68},
+    {"name":"concurrency isolation","passed":true,"adversarial_reports_rejected":4},
+    {"name":"scanner production","passed":72,"total":72},
+    {"name":"production integration","passed":48,"total":48},
+    {"name":"production mutations","killed":31,"total":31,"survived":0},
+    {"name":"binary magic mutations","killed":45,"total":45,"survived":0},
+    {"name":"reviewer binding regressions","passed":14,"total":14},
+    {"name":"official Schema-loader integration","passed":11,"total":11},
+    {"name":"official Schema-loader mutations","killed":6,"total":6,"survived":0}
+  ],
+  "a8_code_pass_reopened":false,
+  "a8_security_pass_reopened":false,
+  "gate_router_changed":false,
+  "scanner_v5_or_binary_contract_changed":false,
+  "domain_m320_gate_separation_changed":false
+}

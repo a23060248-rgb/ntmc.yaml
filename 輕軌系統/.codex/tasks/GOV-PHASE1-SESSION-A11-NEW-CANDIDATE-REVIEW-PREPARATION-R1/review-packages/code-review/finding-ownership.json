@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "assignment_id": "A11-R1-CODE-REVIEWER-ASSIGN-20260721-01",
+  "reviewer_role": "EXTERNAL_CODE_REVIEWER",
+  "closure_authority": [
+    "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001"
+  ],
+  "finding_closure_forbidden": false,
+  "required_closure_set": [
+    "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001"
+  ],
+  "b2_findings": [
+    {
+      "finding_id": "B2-CODE-FORBIDDEN-READ-001",
+      "status": "NOT_CLOSED",
+      "scope": "OUTSIDE_A11_CLOSURE_SCOPE"
+    },
+    {
+      "finding_id": "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001",
+      "status": "NOT_CLOSED",
+      "scope": "OUTSIDE_A11_CLOSURE_SCOPE"
+    },
+    {
+      "finding_id": "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001",
+      "status": "NOT_CLOSED",
+      "scope": "OUTSIDE_A11_CLOSURE_SCOPE"
+    },
+    {
+      "finding_id": "B2-QA-THREAD-LIMIT-001",
+      "status": "NOT_CLOSED",
+      "scope": "OUTSIDE_A11_CLOSURE_SCOPE"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "title": "Phase 1.8 Authoritative Projection, Binary Oracle, and Schema Unification",
+  "task_type": "governance",
+  "objective": "Resolve the four filed A7 defects by enforcing a single authoritative Gate projection, an exact nine-magic scanner oracle, and one production Railway Domain Review Schema and loader.",
+  "business_reason": "Session A7 proved four in-contract bypass or assurance gaps that block the bootstrap candidate despite all declared automated suites passing.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories", "named frozen historical Tasks", "Migration 320 original evidence", "STAGED_EXACT", "Evidence waiver", "confirmed Domain Rule promotion", "dynamic business meta-rule authority", "OS or container isolation", "DLP", "cryptographic human identity", "remote Git controls"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "One production computeAuthoritativeGateMap implementation emits five Gate results from an allow-listed input model and rejects unregistered or reverse dependencies.",
+    "Derived Gate fields are output-only projections and cannot influence the authoritative calculation.",
+    "Production integration and mutation tests prove Candidate isolation from final approval, Session B, steady-state trust anchors, and Migration 320 decisions.",
+    "A single machine-readable registry fixes the exact nine binary magic signatures and independent positive and safe-negative production oracles.",
+    "Scanner contract, report, candidate record, and manifest bind the binary magic registry hash and reject any mapping deletion or mutation.",
+    "The dedicated Railway Domain Review Schema is valid JSON and the single compiled governance schema set is used by production, fixtures, and Reviewer artifact validation without fallback.",
+    "Candidate routing consumes only the governance mechanism outcome while Migration 320 routing consumes only its typed external decision.",
+    "The exact bootstrap candidate manifest, scanner report, and candidate record are rebuilt after source convergence.",
+    "All named history and Migration 320 evidence remain byte-identical; Migration 320 remains structural VALID, NO-GO, exit 2.",
+    "A8 and Session B are not created or started and no Candidate GO or human commit is declared."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Remediation 8 implementation and governance-only validation are explicitly authorized; A8, Session B, Git mutation, product operations, and Migration 320 execution remain prohibited."
+}

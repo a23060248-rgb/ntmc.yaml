@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "assignment_id": "A11-COMPATIBILITY-REVIEW-ASSIGNMENT-20260721-04",
+  "review_type": "compatibility_review",
+  "owned_findings": [
+    "Active-format breaking change is explicit and fail-closed",
+    "Historical formats remain historical-only",
+    "Old review packages and candidate are explicitly superseded",
+    "Expected historical outcome changes are fully explained"
+  ],
+  "excluded_findings": [
+    "Code implementation ownership",
+    "Security risk acceptance",
+    "Railway business-rule approval",
+    "Finding closure"
+  ],
+  "closure_authority": "NONE",
+  "result_rule": "Report only findings owned by this role; do not close pre-existing findings."
+}

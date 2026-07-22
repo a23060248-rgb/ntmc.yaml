@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "command": "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-REMEDIATION-11 --target-gate bootstrap-candidate-review --write-graph",
+  "validator_reported_exit": 2,
+  "structural": "VALID",
+  "calculated_gate": "NO-GO",
+  "target_gate": {
+    "name": "bootstrap_candidate_review",
+    "status": "NO-GO",
+    "expected_pending_reasons": [
+      "Five fresh formal Session B3 reviews have not been executed.",
+      "The existing QA readback record is intentionally non-formal and unresolved.",
+      "The architect read-scope entries are not treated as an upstream authorization grant."
+    ]
+  },
+  "bootstrap_human_commit": "NO-GO",
+  "steady_state_preparation": "DISABLED",
+  "steady_state_execution": "DISABLED",
+  "migration_320_execution": "NO-GO",
+  "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "session_b3_authorized": false,
+  "formal_reviewer_outputs_created": false,
+  "human_exact_manifest_approved": false,
+  "result": "PASS"
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "required_fields": [
+    "top_level_chat",
+    "subagents_created",
+    "implementation_conversation_received",
+    "other_reviewer_conversation_received",
+    "other_reviewer_payload_received",
+    "conversation_memory_used",
+    "repository_write_performed",
+    "git_used",
+    "assurance"
+  ],
+  "required_values": {
+    "top_level_chat": true,
+    "subagents_created": false,
+    "implementation_conversation_received": false,
+    "other_reviewer_conversation_received": false,
+    "other_reviewer_payload_received": false,
+    "conversation_memory_used": false,
+    "repository_write_performed": false,
+    "git_used": false,
+    "assurance": "procedural"
+  },
+  "blocker_on_mismatch": true
+}

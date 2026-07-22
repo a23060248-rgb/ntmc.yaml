@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "level": "L3",
+  "reasons": [
+    "Formal independent review of governance authority and candidate eligibility.",
+    "A5 may change only the Candidate Governance Review Gate; later gates remain NO-GO.",
+    "A4 formal BLOCKER findings require fresh independent revalidation."
+  ],
+  "triggers": ["release-gate", "unresolved-reviewer-blocker", "security", "domain-rule-authority"],
+  "execution_categories": ["read-only-review", "governance-validation", "governance-fixture", "security", "domain-rule"],
+  "required_agents": ["code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain"],
+  "parallel_allowed": true,
+  "evidence_required": [
+    "ART-A5-BASELINE-BEFORE",
+    "ART-A5-CANDIDATE-MANIFEST",
+    "ART-A5-CANDIDATE-SNAPSHOT",
+    "ART-A5-FIXTURE-50",
+    "ART-A5-REGRESSION",
+    "ART-A5-MUTATION",
+    "ART-A5-PRODUCTION-INTEGRATION",
+    "ART-A5-CONCURRENCY",
+    "ART-A5-SCANNER",
+    "ART-A5-DOMAIN",
+    "ART-A5-LIFECYCLE",
+    "ART-A5-HISTORY",
+    "ART-A5-M320",
+    "ART-A5-BASELINE-AFTER"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]
+  },
+  "stop_conditions": [
+    "Any candidate, frozen-history or Migration 320 hash changes.",
+    "Any Reviewer returns BLOCKER or NEEDS_HUMAN_DECISION.",
+    "Any critical finding or unresolved high blocker remains.",
+    "Any prohibited read, write, Git mutation, service, product, database, seed or migration action occurs.",
+    "Any attempt is made to start Session B or set later gates to GO."
+  ],
+  "scope": {
+    "include": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/**"
+    ],
+    "exclude": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories"
+    ]
+  },
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

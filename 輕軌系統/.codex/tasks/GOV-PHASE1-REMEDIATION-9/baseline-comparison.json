@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "comparison_type": "sha256-byte-size-baseline-comparison",
+  "remediation_task_excluded": true,
+  "git_diff_used": false,
+  "governance_source_change_expected": true,
+  "frozen_history_identical": true,
+  "remediation_8_identical": true,
+  "review_a8_identical": true,
+  "migration_320_task_identical": true,
+  "migration_320_external_evidence_identical": true,
+  "by_artifact_type": {
+    "governance-source": {
+      "before_count": 115,
+      "after_count": 121,
+      "added": [
+        {
+          "relative_path": ".codex/scripts/lib/governance/fixture-schema-loader-contract.mjs",
+          "byte_size": 1787,
+          "sha256": "36B1D8706B9451DF97B37A93DE1DFF076FF8A7DA0574DCBF5F17DB7C844011B9",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/governance/reviewer-identity-binding.mjs",
+          "byte_size": 8668,
+          "sha256": "3426F3D99B4A8D9835BE47E0B644723AFA4C8F126C37FE29FA373133A1582911",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/tests/fixtures/valid-railway-domain-review.json",
+          "byte_size": 1022,
+          "sha256": "023EB0696E603654E58D3017FFFF8D9B34EC7C03C15F607A03CACA8CFED9D643",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/tests/run-official-schema-loader-integration.mjs",
+          "byte_size": 7025,
+          "sha256": "AF10588D1092A449F19DF241F49E2A8AAE8BF497AB59BBC3559C90A4E98F636F",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/tests/run-official-schema-loader-mutations.mjs",
+          "byte_size": 2467,
+          "sha256": "DFE76D397B74B5C930C266D3CE69FC70A36A68D3795B3E3E64A6AF8FEEBEA01F",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/tests/run-reviewer-binding-regressions.mjs",
+          "byte_size": 1705,
+          "sha256": "4C81448BF3D2404546A6483B2E92A066E90FB106067704D47AE54AEDAE605BA4",
+          "artifact_type": "governance-source"
+        }
+      ],
+      "deleted": [],
+      "modified": [
+        {
+          "relative_path": ".codex/agents/railway-domain-reviewer.toml",
+          "before_byte_size": 733,
+          "after_byte_size": 1063,
+          "before_sha256": "F8647AC3386107414653113CE85DB48EEF1AEDDF043BAD6915DF9985EA8702FF",
+          "after_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D"
+        },
+        {
+          "relative_path": ".codex/blueprints/schemas/blueprint.schema.json",
+          "before_byte_size": 3428,
+          "after_byte_size": 4536,
+          "before_sha256": "AE8A5C6530C7BF18B32CA230F619BCA649DEF40C99B9ECB576714AC3ABDE2FA1",
+          "after_sha256": "2E1C0CF024B6C8E5982009D9C1DD8A969D491ECC409774D4EBB13FCB7A11B47A"
+        },
+        {
+          "relative_path": ".codex/blueprints/schemas/railway-domain-review.schema.json",
+          "before_byte_size": 1371,
+          "after_byte_size": 2436,
+          "before_sha256": "D0A58D4FEDF740F0EA0B53F8B42F7CE95E2459FD0985F05A095F18BD5DCB4786",
+          "after_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D"
+        },
+        {
+          "relative_path": ".codex/blueprints/schemas/review-findings.schema.json",
+          "before_byte_size": 3656,
+          "after_byte_size": 4818,
+          "before_sha256": "C50A2F7250675B472A6046C55BE873C928DC9577BC6611B32616D47A55213924",
+          "after_sha256": "3496820A82565B4861084FC7CB1EF694FD0B31FF57F33D734123DFE739E82809"
+        },
+        {
+          "relative_path": ".codex/checklists/railway-domain-review.md",
+          "before_byte_size": 766,
+          "after_byte_size": 1542,
+          "before_sha256": "4B100F87CD03C4826572AB887CB3378D0ECD0D34AB209B1D8B6BEDE41D612596",
+          "after_sha256": "B1A2AEB2C5DC2B74EE29BE33E11BA072DA30ADF29524071CBC90610E9F80C41F"
+        },
+        {
+          "relative_path": ".codex/governance/governance-commit-manifest.yaml",
+          "before_byte_size": 33030,
+          "after_byte_size": 35346,
+          "before_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9",
+          "after_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D"
+        },
+        {
+          "relative_path": ".codex/governance/lifecycle-events.json",
+          "before_byte_size": 4514,
+          "after_byte_size": 5309,
+          "before_sha256": "CE10070B388A4240E9E623C5ECD98BE9240DEE12F02D384CF0933D79D276E54A",
+          "after_sha256": "D116C20FCD3FCB4861C3F07BD827C7D7A3463D838B782C34E784B462CBDC9F2C"
+        },
+        {
+          "relative_path": ".codex/governance/phase-status.json",
+          "before_byte_size": 3367,
+          "after_byte_size": 3763,
+          "before_sha256": "BEEBEC922635E2C73FEE3752DA2D92548D96AEDAFEC0E218A261405B346BC8CC",
+          "after_sha256": "6509779968A820504DEB30CB4854C7EFFBF062E93BED2F233631E8B51EF21DC7"
+        },
+        {
+          "relative_path": ".codex/governance/scan-contract.yaml",
+          "before_byte_size": 2075,
+          "after_byte_size": 2075,
+          "before_sha256": "68A51BF5606511401C64105D3764B9BDE79A9E1198933E433B7D979506B84F05",
+          "after_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/governance-commit-manifest.mjs",
+          "before_byte_size": 5105,
+          "after_byte_size": 5528,
+          "before_sha256": "74FE26852412FB382526E1BB910605B8AC3A07F15C08440290D0363A9F5AFFF7",
+          "after_sha256": "7ABEA4A9D54C005D2D4052CBE9809B0AFE19A4379739723E30052BDE92FB4B02"
+        },
+        {
+          "relative_path": ".codex/scripts/validate-task.mjs",
+          "before_byte_size": 48121,
+          "after_byte_size": 48602,
+          "before_sha256": "DFCE872FA67C2EF1740D8E335790A609F1A8E78C2950ACAC9178FFE7D741F99D",
+          "after_sha256": "FE794A03B47722590C8D42BA6CFDC0EE70FA7BD30C49CD99B558C792BF0E32AC"
+        },
+        {
+          "relative_path": ".codex/tests/run-bootstrap-mutation-tests.mjs",
+          "before_byte_size": 11365,
+          "after_byte_size": 14895,
+          "before_sha256": "A061EC396EEC347C7AEF8B1CA8FA86C5E7AFA7A6C7BFB626F72B5920A257C073",
+          "after_sha256": "3A0A44255866A173C07C376E9EB244480C99AE08E1910F5BFF107CBDE8579603"
+        },
+        {
+          "relative_path": ".codex/tests/run-bootstrap-production-integration.mjs",
+          "before_byte_size": 32753,
+          "after_byte_size": 38857,
+          "before_sha256": "817ADE1912F26FF4EF464D22F491678C3252643ACC3E25AD9C7657FD61D62E76",
+          "after_sha256": "35C64176E188744A0C331C22CCDE0621003C0C293F1271A4C6A21CE255E6C503"
+        },
+        {
+          "relative_path": ".codex/tests/run-governance-fixtures.mjs",
+          "before_byte_size": 19638,
+          "after_byte_size": 21324,
+          "before_sha256": "7EF4FD382AB03156136322DC83B0BB7064E1F9B9A9A984861AF216305E3A198F",
+          "after_sha256": "D917449FA2A07AB41A4BA737C7475426ABD7A4EFA6C3D6C1F957E82AB62A51F5"
+        },
+        {
+          "relative_path": ".codex/workflows/l3-high-risk.md",
+          "before_byte_size": 1364,
+          "after_byte_size": 1769,
+          "before_sha256": "F04C4F8DDD6BDEB604DD0037859BF345DF1A8635E4C44AD24A626FFA520B832F",
+          "after_sha256": "01D2E21B79A36583544A53B2D8EAA0C056F476B5C7BA31F879C2C5D0DAF54669"
+        },
+        {
+          "relative_path": "AGENTS.md",
+          "before_byte_size": 10042,
+          "after_byte_size": 10453,
+          "before_sha256": "3A6F4473E8E8EF9E285BAEA982108C13459BE4D7E36F48F508EB8F58CBA4C1E2",
+          "after_sha256": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E"
+        }
+      ],
+      "unchanged_count": 99,
+      "identical": false
+    },
+    "frozen-history": {
+      "before_count": 425,
+      "after_count": 425,
+      "added": [],
+      "deleted": [],
+      "modified": [],
+      "unchanged_count": 425,
+      "identical": true
+    },
+    "remediation-8": {
+      "before_count": 46,
+      "after_count": 46,
+      "added": [],
+      "deleted": [],
+      "modified": [],
+      "unchanged_count": 46,
+      "identical": true
+    },
+    "review-a8": {
+      "before_count": 51,
+      "after_count": 51,
+      "added": [],
+      "deleted": [],
+      "modified": [],
+      "unchanged_count": 51,
+      "identical": true
+    },
+    "migration-320-task": {
+      "before_count": 13,
+      "after_count": 13,
+      "added": [],
+      "deleted": [],
+      "modified": [],
+      "unchanged_count": 13,
+      "identical": true
+    },
+    "migration-320-external-evidence": {
+      "before_count": 5,
+      "after_count": 5,
+      "added": [],
+      "deleted": [],
+      "modified": [],
+      "unchanged_count": 5,
+      "identical": true
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer": "code-reviewer",
+    "review_task_id": "GOV-PHASE1-L3-REVIEW-A5",
+    "reviewer_run_id": "A5-CODE-RUN-6b9b3a59-1473-4ce9-96ef-c060a428d61f",
+    "session_id": "A5-CODE-SESSION-3e82748a-b10f-49a7-a4f8-b88845b70a7a",
+    "did_not_participate_in_implementation": true,
+    "mode": "read-only",
+    "reviewed_candidate_baseline": "phase-1.5",
+    "candidate_manifest_sha256": "DECF50261FEEC670EF18258556D1490D9B8C6FCA96CE8EC49A705C4DB4BEA969",
+    "candidate_file_count": 97,
+    "candidate_snapshot_execution_id": "WORKSPACE-6fd1de75-48d6-4a31-a039-7a73301eb839",
+    "relied_on_implementer_conversation": false,
+    "files_modified": 0,
+    "git_mutations_performed": false
+  },
+  "outcome": "BLOCKER",
+  "review_scope": {
+    "product_root": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+    "included": ["AGENTS.md and .agents/**", "GOV-PHASE1-L3-REVIEW-A5 Task", "GOV-PHASE1-L3-REVIEW-A4 formal Code Review", "GOV-PHASE1-A4-FINDING-CONSOLIDATION", "GOV-PHASE1-REMEDIATION-5 Task evidence", "exact 97 manifest-listed governance sources", "frozen-history and Migration 320 hashes from A5 before-baseline"],
+    "excluded": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "product programs", "light-rail-system sibling directories", "implementation conversations and unfiled explanations"],
+    "prohibited_operations_not_performed": ["file modification", "Git mutation", "service startup", "product tests", "seed", "migration", "database access", "sub-Agent spawn"],
+    "baseline_verification": {
+      "manifest_hash_matches": true,
+      "candidate_files": {"expected":97,"present":97,"unique":97,"hash_mismatches":0,"collector_exact_order_match":true,"included_file_set_sha256":"5C51D5C7C62FC5577A31306520E82466D025B7255813F1CEDC1E22DDE0EE079A"},
+      "candidate_proof_valid": true,
+      "candidate_proof_hash_matches_before_baseline": true,
+      "frozen_history": {"count":167,"missing":0,"hash_mismatches":0},
+      "migration_320_task": {"count":13,"missing":0,"hash_mismatches":0},
+      "migration_320_external": {"count":5,"missing":0,"hash_mismatches":0}
+    },
+    "control_assessment": {
+      "A_single_six_layer_scope_lattice": "FAIL_BLOCKER",
+      "B_unique_artifact_requirement_evidence_and_proof_identity": "PARTIAL_BLOCKER",
+      "C_typed_proof_roles_and_payload_binding": "FAIL_BLOCKER",
+      "D_phase1_waiver_capability_removed": "PASS",
+      "E_lifecycle_informational_deterministic_boundary": "PASS_WITH_LIMITATION",
+      "F_regression_mutation_integration_concurrency_oracle": "FAIL_HIGH"
+    },
+    "production_path_assessment": {
+      "declared_path": ["schema-loader", "scope-lattice", "identity-resolution", "evidence-validation", "typed-proof-validation", "scanner", "gate-calculation"],
+      "result": "NOT_PROVEN_FAIL_CLOSED",
+      "details": {
+        "schema_loader": "PASS",
+        "scope_lattice": "FAIL because default change-scope and handoff validation consume task-level four-layer scope unless an optional role is supplied",
+        "identity_resolution": "PASS for retained artifact and requirement contracts",
+        "evidence_validation": "PASS for unique PASS-only required evidence and waiver rejection",
+        "typed_proof_validation": "PARTIAL: WORKSPACE_CANDIDATE and stored STAGED_EXACT are typed, but live staged validation is represented by a caller boolean and scope/preapproval prerequisites remain generic PASS records",
+        "scanner": "PASS within its declared deterministic contract",
+        "gate_calculation": "FAIL because the production API returned GO under a forged live-validation boolean and generic scope/preapproval references"
+      }
+    }
+  },
+  "commands_and_results": [
+    {"command":"read-only manifest, collector, SHA256 and candidate-proof recomputation","result":"PASS","details":"manifest=DECF50261FEEC670EF18258556D1490D9B8C6FCA96CE8EC49A705C4DB4BEA969; files=97; unique=97; collector exact-order match=true; mismatches=0; proof_valid=true"},
+    {"command":"PowerShell SHA256 comparison against GOV-PHASE1-L3-REVIEW-A5/review-baseline-before.json","result":"PASS","details":"candidate 97/97, frozen history 167/167, Migration 320 Task 13/13, external evidence 5/5; zero missing or mismatched files"},
+    {"command":"node .codex/tests/run-governance-fixtures.mjs","result":"PASS","exit_code":0,"details":"50/50"},
+    {"command":"node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-REMEDIATION-5","result":"PASS_EXPECTED_NO_GO","exit_code":2,"details":"structural=VALID; calculated_gate=NO-GO"},
+    {"command":"node .codex/scripts/validate-phase-status.mjs","result":"PASS","exit_code":0,"details":"authority=informational; sources=4; violations=0"},
+    {"command":"node .codex/tests/run-phase15-mutation-tests.mjs","result":"PASS","exit_code":0,"details":"7/7 mutations killed"},
+    {"command":"node .codex/tests/run-phase15-production-integration.mjs","result":"PASS_BUT_INSUFFICIENT_ORACLE","exit_code":0,"details":"5/5 declared cases passed; PROD-04 tests generic PASS only in candidate/staged proof files, not generic scope/preapproval prerequisites or the caller-controlled liveStagedProofValidated flag"},
+    {"command":"node .codex/tests/run-governance-fixtures-concurrency.mjs","result":"PASS","exit_code":0,"details":"two unique child roots; two 50-case reports valid; truncated, duplicate-ID, provenance-free forged PASS, and tampered-suite-hash reports all rejected"},
+    {"command":"read-only scope-lattice/default-change-scope in-memory probe","result":"CONTROL_FAILURE_REPRODUCED","details":"violations=[]; task scope accepted .codex/tasks/GOV-PROBE/unassigned.txt; sole role scope rejected it with OUTSIDE_EFFECTIVE_SCOPE; default validateChangedPaths returned []"},
+    {"command":"temporary production-path variant based on run-phase15-production-integration.mjs, with valid typed candidate/staged files, caller liveStagedProofValidated=true, and generic PASS scope/preapproval references","result":"INCORRECT_GO_REPRODUCED","exit_code":0,"details":"validateTask returned structural_errors=0, calculated_gate=GO, gate_reasons=[] without executing or binding a live staged-validator receipt"},
+    {"command":"initial Node inline manifest probe","result":"COMMAND_ERROR_RETRIED","details":"PowerShell stripped embedded JavaScript quotes; no candidate write occurred. The corrected escaped inline probe passed."}
+  ],
+  "findings": [
+    {
+      "finding_id": "A5-CODE-BLOCKER-001",
+      "severity": "BLOCKER",
+      "title": "Default write validation bypasses Role Policy and Agent Assignment",
+      "locations": [".codex/scripts/lib/governance/scope-lattice.mjs:84-102", ".codex/scripts/lib/governance/scope-lattice.mjs:125-152", ".codex/scripts/validate-task.mjs:204-215", ".codex/scripts/validate-change-scope.mjs:45-52"],
+      "failure_condition": "A concrete changed path is inside the four-layer Phase/Intent/Classification/Blueprint task scope but outside every applicable role-policy/agent-assignment effective scope, and validate-change-scope is invoked without the optional --role or the handoff is checked by validateTask.",
+      "reproduction": {"method":"Read-only calls to production exports","construction":"Task effective write=.codex/tasks/GOV-PROBE/**; sole qa-engineer effective write=.codex/tasks/GOV-PROBE/allowed/**; changed path=.codex/tasks/GOV-PROBE/unassigned.txt.","observed":{"scope_lattice_violations":[],"task_scope_errors":[],"role_scope_errors":["OUTSIDE_EFFECTIVE_SCOPE .codex/tasks/GOV-PROBE/unassigned.txt"],"default_change_scope_errors":[]}},
+      "impact": "The public default path does not enforce the advertised single six-layer write lattice. Omitting --role or using Task handoff validation converts Role Policy and Agent Assignment from mandatory authorities into optional checks.",
+      "required_resolution": "Require an exact actor role or derive it from a validated unique assignment, then validate every changed path only against that role's six-layer effective scope. Reject absent, ambiguous, empty, or non-writing role authority. Add production and mutation cases for a Task-allowed but assignment-disallowed path."
+    },
+    {
+      "finding_id": "A5-CODE-BLOCKER-002",
+      "severity": "BLOCKER",
+      "title": "Commit execution can be forged with a caller boolean and generic PASS prerequisites",
+      "locations": [".codex/blueprints/schemas/human-approval.schema.json:14-17", ".codex/scripts/validate-task.mjs:380-391", ".codex/scripts/validate-staged-candidate.mjs:21-32", ".codex/tests/run-phase15-production-integration.mjs:91-102"],
+      "failure_condition": "Stored WORKSPACE_CANDIDATE and STAGED_EXACT objects are schema-valid, the programmatic caller supplies liveStagedProofValidated=true, and scope_validation/preapproval_gate contain arbitrary distinct evidence_ref strings with status PASS.",
+      "reproduction": {"method":"Temporary production-path variant using validateTask; candidate sources were not modified","observed":{"exit_code":0,"calculated_gate":"GO","structural_errors":0,"gate_reasons":[]},"key_fact":"No live staged-validator receipt was produced or bound. The STAGED_EXACT staged set hashes were arbitrary syntactically valid hashes, while scope and preapproval were generic Task-authored PASS objects."},
+      "impact": "The consuming production gate cannot prove that validate-staged-candidate actually checked the current Git index, and it cannot prove designated scope/preapproval executions. This preserves the incorrect-GO family identified by A4-CODE-BLOCKER-002.",
+      "required_resolution": "Replace liveStagedProofValidated with a validator-produced, payload-bound live receipt whose task, execution ID, manifest, staged path set and blob set are recomputed by the consumer or verified in the same execution. Define non-interchangeable typed scope-validation and preapproval proof contracts and resolve their evidence identities uniquely."
+    },
+    {
+      "finding_id": "A5-CODE-HIGH-003",
+      "severity": "HIGH",
+      "title": "The green regression and mutation suites do not cover the two surviving production bypasses",
+      "locations": [".codex/tests/run-governance-fixtures.mjs:24-45", ".codex/tests/run-phase15-mutation-tests.mjs:9-18", ".codex/tests/run-phase15-mutation-tests.mjs:30-39", ".codex/tests/run-phase15-production-integration.mjs:91-102", ".codex/tests/run-phase15-production-integration.mjs:108-110"],
+      "failure_condition": "All declared 50 fixtures, seven mutations and five integration cases pass while default role-free change-scope accepts an unassigned path and final commit calculation accepts generic scope/preapproval PASS plus a caller boolean.",
+      "reproduction": {"observed":["50/50 fixtures passed","7/7 mutations killed","5/5 declared production cases passed","the independent scope probe reproduced an authorization bypass","the independent production probe reproduced exit 0/GO"]},
+      "impact": "Case totals and the declared production-layer list provide false assurance and cannot support Candidate Gate passage.",
+      "required_resolution": "Add exact-set production cases and mutations for mandatory role resolution, unassigned changed paths, typed scope/preapproval proofs, forged live-stage booleans, staged path/blob recomputation and current-index binding."
+    },
+    {
+      "finding_id": "A5-CODE-MEDIUM-004",
+      "severity": "MEDIUM",
+      "title": "Lifecycle remains safely informational but its filed transition-validation claim is broader than production behavior",
+      "locations": [".codex/scripts/lib/governance/lifecycle-projection.mjs:10-31", ".codex/scripts/lib/governance/lifecycle-projection.mjs:46-72", ".codex/governance/lifecycle-events.json:6-24", ".codex/governance/phase-status.json:3-7", ".codex/tasks/GOV-PHASE1-REMEDIATION-5/six-core-contracts.json:57-63"],
+      "failure_condition": "A remediation COMPLETED event or review ARCHIVED event has no preceding STARTED transition.",
+      "reproduction": {"command":"node .codex/scripts/validate-phase-status.mjs","observed":"PASS despite the event log containing standalone R4 COMPLETED and A4 ARCHIVED events."},
+      "impact": "No gate bypass occurs because phase-status is explicitly informational, may be stale and used_as_gate_input=false. However, the Remediation 5 statement that completion/archive without start fails closed is not implemented.",
+      "required_resolution": "Either narrow the filed lifecycle contract to deterministic projection of accepted snapshot events or enforce a defined transition automaton. Preserve informational authority and exclusion from gate inputs."
+    }
+  ],
+  "a4_closure_entries": [
+    {"finding_id":"A4-CODE-BLOCKER-001","closure_status":"NOT_CLOSED","evidence":["A5-CODE-BLOCKER-001",".codex/scripts/validate-change-scope.mjs:47-52"],"reason":"Role Policy and Agent Assignment remain optional in the public default write-validation path."},
+    {"finding_id":"A4-CODE-BLOCKER-002","closure_status":"NOT_CLOSED","evidence":["A5-CODE-BLOCKER-002",".codex/scripts/validate-task.mjs:380-391"],"reason":"Candidate and stored staged objects are typed, but live staged validation is a caller boolean and scope/preapproval remain generic PASS prerequisites."},
+    {"finding_id":"A4-CODE-BLOCKER-003","closure_status":"CLOSED","evidence":[".codex/scripts/lib/governance/identity-resolver.mjs:33-63",".codex/scripts/validate-task.mjs:268-291",".codex/blueprints/schemas/test-evidence.schema.json:7-8"],"reason":"Duplicate requirement identities fail closed, required evidence is exact-one and PASS-only, NOT_APPLICABLE is invalid, and waiver data is rejected. The waiver schema/capability is absent from the 97-file candidate."},
+    {"finding_id":"A4-CODE-BLOCKER-004","closure_status":"CLOSED","evidence":[".codex/scripts/lib/governance/identity-resolver.mjs:9-30",".codex/scripts/lib/governance/proposed-domain-rules.mjs",".codex/domain/index.yaml"],"reason":"Retained artifact resolution evaluates the complete collection and rejects duplicates. Confirmed Domain approval authority and its cross-Task lookup were removed from Phase 1."},
+    {"finding_id":"A4-CODE-HIGH-005","closure_status":"REPLACED_BY_NARROWER_CONTRACT","evidence":[".codex/blueprints/schemas/classification.schema.json:7-11",".codex/scripts/validate-task.mjs:366-370",".codex/governance/phase-policy.yaml:11"],"reason":"Free-text trigger regex no longer controls execution approval. The retained Phase 1 contract uses enumerated Classification execution_categories and fails L3 closed when categories are absent. Cross-document semantic inference is not claimed as a retained Phase 1 capability."},
+    {"finding_id":"A4-CODE-HIGH-006","closure_status":"NOT_CLOSED","evidence":["A5-CODE-HIGH-003",".codex/tests/run-phase15-production-integration.mjs:91-102"],"reason":"The expanded oracle remains green while two independently reproduced incorrect authorization/GO paths survive."}
+  ],
+  "severity_counts": {"BLOCKER":2,"HIGH":1,"MEDIUM":1,"LOW":0},
+  "critical_count": 0,
+  "unresolved_high_blocker_count": 3,
+  "candidate_review_gate_recommendation": {"gate":"Candidate Governance Review Gate","recommendation":"NO-GO","reason":"Two incorrect-authorization/GO blocker families remain and the regression oracle does not detect them.","staged_exact_absence_is_candidate_review_blocker":false},
+  "later_gates": {
+    "governance_commit_preparation_gate": {"status":"NO-GO","reason":"Candidate Governance Review Gate did not pass."},
+    "governance_commit_execution_gate": {"status":"NO-GO","reason":"No independently acceptable live STAGED_EXACT/index receipt exists, final approval is absent, and the current production consumer can be forged."},
+    "migration_320_execution_gate": {"status":"NO-GO","reason":"Migration 320 remains candidate/unverified and this review authorizes no product, database or migration execution."},
+    "session_b": {"status":"NOT_AUTHORIZED"},
+    "git_mutation": {"status":"NOT_AUTHORIZED"}
+  },
+  "residual_risks": ["Agent path policy remains procedural and is not OS/container isolation.", "Reviewer and human identities remain procedural rather than cryptographic.", "The scanner is bounded deterministic detection, not DLP or global sensitive-data assurance.", "Branch protection, remote CI enforcement and repository-global Git controls were not reviewed.", "No STAGED_EXACT proof is expected or required for Candidate Review, but execution must remain NO-GO."]
+}

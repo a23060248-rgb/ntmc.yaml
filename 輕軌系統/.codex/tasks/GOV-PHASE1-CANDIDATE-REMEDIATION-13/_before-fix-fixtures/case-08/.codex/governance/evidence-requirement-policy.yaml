@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "policy_type": "phase1-pass-only-evidence-requirements",
+  "phase1_supported": true,
+  "required_evidence_result": "PASS",
+  "fail_closed_results": ["FAIL", "NOT_VERIFIED", "PASS_WITH_LIMITATION"],
+  "invalid_required_result": "NOT_APPLICABLE",
+  "one_definition_per_requirement_id": true,
+  "one_verdict_per_requirement_id": true,
+  "semantic_resolution": "exact-structured-fields-only",
+  "future_capabilities": [{"future_capability": "EVIDENCE_WAIVER", "phase1_supported": false}]
+}

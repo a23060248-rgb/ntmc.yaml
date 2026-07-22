@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "scan_scope": {
+    "governance_artifacts": "DETERMINISTIC_CONTRACT",
+    "external_referenced_evidence": "LIMITED"
+  },
+  "scan_contract": {
+    "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scan_contract_version": 3,
+    "manifest_sha256": "DECF50261FEEC670EF18258556D1490D9B8C6FCA96CE8EC49A705C4DB4BEA969",
+    "scanned_file_count": 97,
+    "scanned_file_set_sha256": "5C51D5C7C62FC5577A31306520E82466D025B7255813F1CEDC1E22DDE0EE079A"
+  },
+  "claims": {
+    "declared_scan_contract_executed": true,
+    "no_findings_within_declared_contract": true
+  },
+  "external_evidence": [],
+  "limitations": [
+    "The Security Reviewer proved a malformed-percent composition false negative despite the filed deterministic scan reporting no findings.",
+    "The formal fixture oracle does not lock the complete declared header and binary regression matrix.",
+    "The scanner is bounded deterministic detection, not DLP, global secret-absence proof, or OS runtime isolation.",
+    "External process behavior, command interpreters, reparse and filesystem timing races, and remote Git enforcement remain outside this evidence claim."
+  ]
+}

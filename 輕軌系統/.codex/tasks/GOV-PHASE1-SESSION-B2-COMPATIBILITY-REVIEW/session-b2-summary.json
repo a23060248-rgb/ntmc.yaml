@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "status": "ARCHIVED_BLOCKER",
+  "reviewer_set_outcome": "BLOCKER",
+  "formal_reviews_required": 5,
+  "formal_reviews_completed": 4,
+  "review_outcomes": {
+    "code": "BLOCKER",
+    "security": "PASS",
+    "railway_domain": "PASS",
+    "governance_compatibility": "BLOCKER",
+    "qa_deterministic_readback": "NOT_EXECUTED"
+  },
+  "open_blockers": [
+    "B2-CODE-FORBIDDEN-READ-001",
+    "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001",
+    "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001",
+    "B2-QA-THREAD-LIMIT-001"
+  ],
+  "candidate": {
+    "baseline": "phase-1.9-bootstrap",
+    "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "file_count": 103,
+    "unchanged": true
+  },
+  "protected_baseline": {"file_count": 874, "added": 0, "removed": 0, "changed": 0, "result": "PASS"},
+  "deterministic_evidence": {"raw_artifact_count": 20, "technical_result": "PASS"},
+  "authoritative_validator": {"structural": "VALID", "calculated_gate": "NO-GO", "reported_exit": 2, "result": "PASS_WITH_EXPECTED_NO_GO"},
+  "security_closure_dispositions": {
+    "SB-SEC-EVIDENCE-CONTRACT-VERSION-001": "CLOSED_BY_SECURITY_REVIEW",
+    "SB-SEC-ALLOWLIST-EVIDENCE-GAP-001": "CLOSED_BY_SECURITY_REVIEW"
+  },
+  "gates": {
+    "archived_a10_bootstrap_candidate_review": "GO",
+    "current_b2_target_gate": "NO-GO",
+    "bootstrap_human_commit": "NO-GO",
+    "steady_state_preparation": "DISABLED",
+    "steady_state_execution": "DISABLED",
+    "migration_320_domain_decision": "NEEDS_HUMAN_DECISION",
+    "migration_320_execution": "NO-GO"
+  },
+  "eligible_for_human_exact_manifest_confirmation": false,
+  "human_commit_go_declared": false,
+  "steady_state_started": false,
+  "migration_320_approved": false,
+  "next_task_started": false
+}

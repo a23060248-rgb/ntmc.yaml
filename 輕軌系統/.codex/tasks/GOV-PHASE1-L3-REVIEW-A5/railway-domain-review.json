@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer": "railway-domain-reviewer",
+    "review_task_id": "GOV-PHASE1-L3-REVIEW-A5",
+    "reviewer_run_id": "A5-DOMAIN-RUN-ea7f3928-32e0-45bb-beaa-0f247c860901",
+    "session_id": "A5-DOMAIN-SESSION-82760979-0753-4e74-a93a-c16d8e271197",
+    "did_not_participate_in_implementation": true,
+    "mode": "read-only",
+    "reviewed_candidate_baseline": "phase-1.5",
+    "candidate_manifest_sha256": "DECF50261FEEC670EF18258556D1490D9B8C6FCA96CE8EC49A705C4DB4BEA969",
+    "candidate_file_count": 97,
+    "candidate_snapshot_execution_id": "WORKSPACE-6fd1de75-48d6-4a31-a039-7a73301eb839",
+    "relied_on_implementer_conversation": false,
+    "business_rule_approval_performed": false,
+    "files_modified": 0,
+    "git_mutations_performed": false,
+    "subagents_spawned": 0
+  },
+  "outcome": "BLOCKER",
+  "review_scope": {
+    "included": [
+      "Domain Rule governance mechanism only",
+      "exact 97-file Phase 1.5 candidate manifest",
+      "A4 Railway Domain Review and A4 consolidation",
+      "Phase 1.5 remediation artifacts",
+      "Migration 320 governance artifacts and five fixed external evidence hashes"
+    ],
+    "excluded": [
+      "approval of actual railway maintenance rules",
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "product programs and sibling directories",
+      "implementation conversations and unfiled explanations"
+    ],
+    "baseline_verification": {
+      "manifest_hash_matches": true,
+      "candidate_file_count_matches": true,
+      "candidate_file_hashes_match": true,
+      "candidate_snapshot_execution_id_matches": true,
+      "migration_320_task_hashes_match": true,
+      "migration_320_external_evidence_hashes_match": true
+    }
+  },
+  "commands_and_results": [
+    {
+      "command": "read-only candidate manifest, baseline and candidate snapshot verification",
+      "result": "PASS",
+      "details": "97 files; manifest, file-set, snapshot execution ID and hashes matched"
+    },
+    {
+      "command": "read-only inventory for removed Domain approval schema, resolver, promotion paths and first-match lookup",
+      "result": "PASS_WITH_LIMITATION",
+      "details": "The dedicated approval schema/resolver and agent promotion path are absent, but a generic meta-rule authority path remains."
+    },
+    {
+      "command": "in-memory proposed-only Domain registry table",
+      "result": "PASS",
+      "details": "Current registry remains proposed_rule_registry, incomplete, confirmed_rule_count=0, applicable_rules empty, and candidates proposed/unverified."
+    },
+    {
+      "command": "in-memory generic meta-rule authority probe using production schema and selector",
+      "result": "FAIL",
+      "details": "A category=domain, status=confirmed meta Rule backed only by report evidence produced zero schema errors and zero Domain selection errors."
+    },
+    {
+      "command": "read-only Migration 320 external hash comparison",
+      "result": "PASS",
+      "details": "5 of 5 fixed external references matched; Migration 320 remains NO-GO and NEEDS_HUMAN_DECISION."
+    },
+    {
+      "command": "two initial read-only shell probes",
+      "result": "COMMAND_FORMAT_ERROR_RETRIED",
+      "details": "Quoting and formatting errors were retried without writes; corrected probes produced the reported results."
+    }
+  ],
+  "control_checks": {
+    "registry_type_proposed_rule_registry": "PASS",
+    "is_complete_domain_knowledge_base_false": "PASS",
+    "confirmed_rule_count_zero": "PASS",
+    "applicable_rules_confirmed_only": "FAIL_FOR_GENERIC_META_NAMESPACE",
+    "candidate_rules_hold_proposed_unverified": "PASS_FOR_CURRENT_REGISTRY",
+    "candidate_rule_affecting_l3_forces_human_decision_no_go": "PASS_FOR_CURRENT_MIGRATION_320",
+    "implementation_migration_test_health_not_automatically_authoritative": "FAIL_FOR_GENERIC_META_NAMESPACE",
+    "unverified_source_not_authoritative": "FAIL_FOR_GENERIC_META_NAMESPACE",
+    "agent_cannot_promote_proposed_to_confirmed": "PASS_FOR_DEDICATED_DOMAIN_PATH_WITH_GENERIC_NAMESPACE_LIMITATION",
+    "migration_320_candidate_rules_still_block_business_approval": "PASS"
+  },
+  "findings": [
+    {
+      "finding_id": "A5-DOMAIN-META-REGISTRY-BYPASS-001",
+      "severity": "HIGH",
+      "blocks_candidate_review_gate": true,
+      "title": "Generic meta-rule namespace can admit a confirmed Domain rule without Domain human authority",
+      "locations": [
+        ".codex/blueprints/schemas/rule.schema.json:9-10",
+        ".codex/blueprints/schemas/rule.schema.json:20-22",
+        ".codex/scripts/validate-task.mjs:118-135",
+        ".codex/scripts/validate-task.mjs:221-226",
+        ".codex/scripts/lib/governance/proposed-domain-rules.mjs:26-30"
+      ],
+      "failure_condition": "A Rule is filed in the generic .codex/meta-rules namespace with category=domain, status=confirmed, owner and approved_at populated, and only a report-type source. The generic Rule schema accepts it; the loader labels it registry=meta; applicable-rule selection rejects only registry=domain or non-confirmed entries, so the Rule becomes applicable without a Domain human approval binding.",
+      "reproduction": {
+        "method": "Construct the described Rule in memory and pass it through the production Rule schema and applicable-rule selector without modifying candidate files.",
+        "observed": {
+          "schema_errors": 0,
+          "domain_selection_errors": 0,
+          "accepted_as_applicable": true
+        }
+      },
+      "impact": "A report, implementation, test, migration, or health artifact can be represented as a confirmed Domain authority through the generic namespace, enabling an incorrect authoritative business decision despite the dedicated Domain registry remaining proposed-only.",
+      "required_resolution": "Make Domain category authority namespace-independent. Reject every category=domain Rule from generic meta authority, or require a validator-owned Domain approval binding and authoritative source contract before any Domain Rule can be applicable. Add cross-namespace mutation and production-path tests."
+    }
+  ],
+  "a4_closure_entries": [
+    {
+      "finding_id": "A4-DOMAIN-AUTHORITY-BINDING-001",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["A5-DOMAIN-META-REGISTRY-BYPASS-001", ".codex/scripts/lib/governance/proposed-domain-rules.mjs:26-30"],
+      "reason": "Dedicated confirmed-Domain approval was removed, but category=domain authority remains reachable through the generic meta-rule namespace without Domain approval provenance."
+    },
+    {
+      "finding_id": "A4-DOMAIN-APPROVAL-UNIQUENESS-002",
+      "closure_status": "REPLACED_BY_NARROWER_CONTRACT",
+      "evidence": [".codex/domain/index.yaml", ".codex/scripts/lib/governance/proposed-domain-rules.mjs"],
+      "reason": "Phase 1 no longer claims confirmed Domain approval lookup or promotion. The dedicated approval schema/resolver is absent, so its former uniqueness contract is outside the narrowed candidate; this does not cure the separate generic meta-rule bypass."
+    }
+  ],
+  "severity_counts": {"BLOCKER": 0, "HIGH": 1, "MEDIUM": 0, "LOW": 0},
+  "critical_count": 0,
+  "unresolved_high_blocker_count": 1,
+  "migration_320_state": {
+    "candidate_rules_status": "proposed/unverified",
+    "domain_outcome": "NEEDS_HUMAN_DECISION",
+    "phase1_governance_gate": "NO-GO",
+    "migration_320_gate": "NO-GO",
+    "external_hashes_matching": 5,
+    "business_rule_approval_granted": false
+  },
+  "candidate_review_gate_recommendation": {
+    "gate": "Candidate Governance Review Gate",
+    "recommendation": "NO-GO",
+    "reason": "The generic meta-rule path can grant Domain authority without an approved Domain source and human approval binding."
+  },
+  "later_gates": {
+    "governance_commit_preparation_gate": "NO-GO",
+    "governance_commit_execution_gate": "NO-GO",
+    "migration_320_execution_gate": "NO-GO",
+    "session_b": "NOT_AUTHORIZED",
+    "git_mutation": "NOT_AUTHORIZED"
+  },
+  "review_boundary": "This review assesses only the Domain Rule governance mechanism. It does not approve any actual railway maintenance rule."
+}

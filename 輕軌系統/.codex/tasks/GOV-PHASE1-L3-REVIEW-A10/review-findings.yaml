@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "review_context": "Formal independent A10 review of the unchanged exact 103-file Phase 1.9 bootstrap candidate. Root aggregation preserves each Reviewer outcome without override.",
+  "reviews": [
+    {"type":"code","reviewer":"code-reviewer","formal":true,"outcome":"PASS","reviewer_run_id":"A10-CODE-RUN-1F69FAA9-92B3-48C9-8D80-95463B5A1336","session_id":"A10-CODE-SESSION-0C9FD58E-5258-4BE9-B0C3-69AD36A1D3AE","did_not_participate_in_implementation":true,"finding_refs":["A9-CODE-PRODUCTION-MUTATION-RERUN-001-CLOSED"],"conditions":[],"decisions_required":[]},
+    {"type":"security","reviewer":"security-reviewer","formal":true,"outcome":"PASS","reviewer_run_id":"A10-SEC-RUN-085B8070-F7D7-4A30-B7B3-66D54FE2492F","session_id":"A10-SEC-SESSION-DD0A4AA4-A697-444D-BD0C-CC8AACF99C92","did_not_participate_in_implementation":true,"finding_refs":["A9-SEC-EXECUTION-HIGH-001-CLOSED"],"conditions":[],"decisions_required":[]},
+    {"type":"railway-domain","reviewer":"railway-domain-reviewer","formal":true,"outcome":"PASS","reviewer_run_id":"A10-DOMAIN-RUN-E0486A9D-394A-4568-8257-CDB23E78159D","session_id":"A10-DOMAIN-SESSION-994938BC-6E74-4AA3-A226-2B2A29BB87D0","did_not_participate_in_implementation":true,"review_scope":"bootstrap_rule_governance_mechanism","reviewer_binding":{"canonical_role_id":"railway-domain-reviewer","agent_profile_reference":".codex/agents/railway-domain-reviewer.toml","agent_profile_sha256":"E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D","task_assignment_id":"ASSIGN-A10-DOMAIN-4F88F054-3EA6-4CA9-BA3B-55DD4E9FC3C3","reviewer_run_id":"A10-DOMAIN-RUN-E0486A9D-394A-4568-8257-CDB23E78159D","session_id":"A10-DOMAIN-SESSION-994938BC-6E74-4AA3-A226-2B2A29BB87D0","formal":true,"execution_mode":"read-only","implementation_participation":false,"reviewer_identity_assurance":"procedural_role_and_assignment_binding"},"governance_mechanism_outcome":{"outcome":"PASS","findings":[]},"external_decisions":[{"decision_scope":"migration_320","outcome":"NEEDS_HUMAN_DECISION","affects_gate":"migration_320_execution","decision_owner_role":"human-domain-owner","decision_question":"Resolve proposed Migration 320 candidate Rules before execution."}],"finding_refs":["A9-DOMAIN-PASS-INDEPENDENTLY-REVALIDATED"],"conditions":[],"decisions_required":[]}
+  ],
+  "calculated_gate": "GO",
+  "overall_gate": "GO",
+  "bootstrap_candidate_review_gate": "GO",
+  "eligible_to_start_session_b": true,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "blockers": [],
+  "conditions": []
+}

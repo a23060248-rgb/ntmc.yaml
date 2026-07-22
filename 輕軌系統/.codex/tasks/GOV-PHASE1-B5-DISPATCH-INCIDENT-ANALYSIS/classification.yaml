@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+  "level": "L3",
+  "reasons": [
+    "Formal review dispatch protocol incident",
+    "Exact scope satisfiability analysis",
+    "Frozen history integrity"
+  ],
+  "triggers": [
+    "unresolved Reviewer blocker",
+    "backward compatibility"
+  ],
+  "execution_categories": [
+    "governance-validation",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "architect"
+  ],
+  "required_reviews": [
+    "qa-readback"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "B5-INCIDENT-SCOPE",
+    "B5-INCIDENT-STARTUP-EXIT",
+    "B5-INCIDENT-BASELINE"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "execution_approval"
+    ]
+  },
+  "stop_conditions": [
+    "Any candidate or historical artifact changes.",
+    "Any Reviewer or subagent is created.",
+    "Any Git/product/DB/migration operation occurs."
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS/**"
+    ],
+    "exclude": [
+      ".env*",
+      "collab/**",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "parent directories",
+      "sibling directories",
+      "conversation memory"
+    ]
+  },
+  "classified_by": "root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

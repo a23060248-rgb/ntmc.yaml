@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "level": "L3",
+  "reasons": [
+    "Session A7 is archived with two Code BLOCKER findings, one blocking Security HIGH finding, and one Railway Domain BLOCKER finding.",
+    "The remediation changes release-gate projection, security scanner proof binding, executable schemas, and Domain authority routing.",
+    "An incorrect implementation could create an incorrect Candidate GO, silently weaken a binary oracle, or bypass typed Domain routing."
+  ],
+  "triggers": ["unresolved-reviewer-blocker", "release-gate", "credential-and-sensitive-content-scanning", "domain-rule-authority", "backward-compatibility"],
+  "execution_categories": ["governance-source-edit", "governance-validation", "governance-fixture", "bootstrap-candidate", "security", "domain-rule", "backward-compatibility"],
+  "required_agents": ["architect", "qa-engineer", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain", "compatibility"],
+  "parallel_allowed": false,
+  "evidence_required": ["a7-finding-remediation-matrix", "authoritative-gate-contract", "gate-dependency-matrix", "output-only-projection-tests", "gate-isolation-mutations", "binary-magic-registry", "per-magic-production-oracles", "compiled-governance-schema-set", "domain-routing-production-tests", "bootstrap-candidate-rebuild", "frozen-history-integrity", "migration-320-no-go-integrity", "governance-path-scope"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": [
+    "Any named historical Task, A7 Reviewer outcome, Migration 320 Task artifact, or external evidence changes.",
+    "Any product, database, migration, sibling, or .env file is read or modified.",
+    "Any Git operation, service, product test, seed, migration, or database operation occurs.",
+    "Any excluded authority or isolation capability is enabled.",
+    "Bootstrap Candidate Review is declared GO before a fresh independent A8 exists.",
+    "A8 or Session B is created or started."
+  ],
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories", "frozen historical Tasks", "Migration 320 original evidence"]
+  },
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

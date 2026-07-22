@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-12",
+  "suite": "registered-task-local-schema-production-path",
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "cases": [
+    {
+      "test_id": "13",
+      "name": "Invalid Task Intent rejected",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "result": "PASS"
+    },
+    {
+      "test_id": "14",
+      "name": "Invalid Classification rejected",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "result": "PASS"
+    },
+    {
+      "test_id": "15",
+      "name": "Invalid Blueprint rejected",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "result": "PASS"
+    },
+    {
+      "test_id": "16",
+      "name": "Read-only Reviewer write assignment rejected",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "result": "PASS"
+    },
+    {
+      "test_id": "17",
+      "name": "Payload-only assignment passes",
+      "expected": "PASS",
+      "observed": "PASS",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

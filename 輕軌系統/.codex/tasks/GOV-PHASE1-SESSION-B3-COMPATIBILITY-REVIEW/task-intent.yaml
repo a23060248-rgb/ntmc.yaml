@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "IN_PROGRESS",
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "title": "Session B3 Final Compatibility Review with Sequenced Reviewer Dispatch",
+  "task_type": "review",
+  "objective": "Perform five fresh, independent and read-only formal reviews of the unchanged Phase 1.9 bootstrap candidate and decide the four Session B2 finding dispositions.",
+  "business_reason": "Session B2 was blocked by task-local review-scope, evidence-schema and reviewer-capacity defects; R11 prepared corrected inputs without changing the candidate.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/**",
+      "Exact 103-file candidate and explicitly frozen governance evidence, read-only"
+    ],
+    "exclude": [
+      "candidate mutation",
+      "historical outcome mutation",
+      "Git mutation",
+      "product/service/database/seed/migration execution",
+      "Human Exact-Manifest confirmation",
+      "steady-state enablement",
+      "Migration 320 approval"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Five fresh formal Reviewer outcomes are captured with exact access logs and procedural clean-context attestations.",
+    "The four B2 findings are closed only by their designated Reviewer owners.",
+    "The exact candidate and all protected history remain unchanged.",
+    "All required deterministic governance reruns pass.",
+    "Human approval remains pending and all Git, steady-state and Migration 320 gates remain closed."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Session B3 explicitly authorized to start; no downstream approval or Git action authorized."
+}

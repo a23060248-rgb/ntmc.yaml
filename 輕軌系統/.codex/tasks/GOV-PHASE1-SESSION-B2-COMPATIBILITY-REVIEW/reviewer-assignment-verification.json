@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "assignment_count": 5,
+  "unique_assignment_ids": true,
+  "required_roles": [
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "governance-compatibility-reviewer",
+    "qa-deterministic-readback-reviewer"
+  ],
+  "assignment_checks": [
+    {
+      "assignment_id": "ASSIGN-B2-CODE-1E812B14-C43A-4594-867D-71826A2E50F4",
+      "required_role_id": "code-reviewer",
+      "profile_ref": ".codex/agents/code-reviewer.toml",
+      "profile_sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    },
+    {
+      "assignment_id": "ASSIGN-B2-SEC-2B10EA08-026E-4BB6-85FB-C335F8C8322C",
+      "required_role_id": "security-reviewer",
+      "profile_ref": ".codex/agents/security-reviewer.toml",
+      "profile_sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    },
+    {
+      "assignment_id": "ASSIGN-B2-DOMAIN-98A11475-9823-47EF-A49F-0766DDB449BA",
+      "required_role_id": "railway-domain-reviewer",
+      "profile_ref": ".codex/agents/railway-domain-reviewer.toml",
+      "profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    },
+    {
+      "assignment_id": "ASSIGN-B2-COMPAT-4B5D650E-92FD-42E5-B28D-3244C51D407B",
+      "required_role_id": "compatibility-reviewer",
+      "profile_ref": ".codex/agents/compatibility-reviewer.toml",
+      "profile_sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    },
+    {
+      "assignment_id": "ASSIGN-B2-QA-C66AE772-52D8-4430-9AFE-6D7E73A6382E",
+      "required_role_id": "qa-engineer",
+      "profile_ref": ".codex/agents/qa-engineer.toml",
+      "profile_sha256": "FA299A96E503652AB50B2A6139963BCA45BA034AE766D7347689CDE1F81BA003",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

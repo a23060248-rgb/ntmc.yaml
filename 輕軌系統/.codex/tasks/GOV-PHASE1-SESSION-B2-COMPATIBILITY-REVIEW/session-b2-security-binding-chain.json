@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "candidate": {
+    "manifest_path": ".codex/governance/governance-commit-manifest.yaml",
+    "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "file_count": 103
+  },
+  "candidate_record": {
+    "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+    "file_sha256": "70F42946C70792DA2E2E637B85403DB312DA51979F001E366C66274F1F2BB6C3",
+    "payload_sha256": "DDE2E67B91BA3A2DBDA83FB45C060DE6A7147DB3CC70CF980F3B31C1CE4D4679",
+    "bound_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "bound_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "bound_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+  },
+  "scanner_report": {
+    "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json",
+    "file_sha256": "1B23623D233A6337B9026C95492B22E07AE55B0C9E531C6CE351C4E64B2C665C",
+    "report_payload_sha256": "EA7F58EC0912F1D302A9F1BE71CA44FBCFCE47EF6ADBD9606733DE00B6535F4A",
+    "bound_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "scanned_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "expected_file_count": 103,
+    "scanned_file_count": 103,
+    "finding_count": 0,
+    "bound_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "bound_contract_version": 5,
+    "bound_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+  },
+  "scanner_contract": {
+    "path": ".codex/governance/scan-contract.yaml",
+    "contract_id": "GOV-DETERMINISTIC-SCAN",
+    "contract_version": 5,
+    "contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+  },
+  "scanner_components": {
+    "finding_registry": {
+      "path": ".codex/governance/scanner-finding-registry.yaml",
+      "sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B"
+    },
+    "canonicalization_config": {
+      "path": ".codex/governance/scanner-canonicalization-config.yaml",
+      "sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6"
+    },
+    "binary_oracle_config": {
+      "path": ".codex/governance/scanner-binary-oracle.yaml",
+      "sha256": "B25F552BC2379EDEB741862682277B5BA7B435A389ED162E0F297E96C066733F"
+    },
+    "binary_magic_registry": {
+      "path": ".codex/governance/bootstrap-binary-magic-registry.yaml",
+      "sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D"
+    }
+  },
+  "schema_binding": {
+    "schema_set_path": ".codex/governance/governance-schema-set.yaml",
+    "schema_set_registry_sha256": "9485709A8240E22312D8C583B037C776619583F02D5D762A6B452472FCF01FC5",
+    "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9",
+    "schema_count": 15,
+    "railway_review_schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+    "railway_reviewer_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D"
+  },
+  "four_way_contract_consistency": true,
+  "integrity_result": "PASS"
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "updated_at": "2026-07-19T18:00:00+08:00",
+  "risks": [
+    {"risk_id": "RR-ENV-001", "status": "open", "statement": "OS permissions do not deny reads of ignored .env files; the safe profile is not runtime isolation."},
+    {"risk_id": "RR-CMD-001", "status": "open", "statement": "Node child_process can bypass profile validation and execute commands outside the profile contract."},
+    {"risk_id": "RR-CMD-002", "status": "open", "statement": "PowerShell and cmd.exe can bypass profile validation; no command interception or executable allowlist is enforced."},
+    {"risk_id": "RR-CMD-003", "status": "open", "statement": "Arbitrary external executables can bypass profile validation, and a Parent Task permission override may broaden an Agent TOML sandbox."},
+    {"risk_id": "RR-DB-001", "status": "open", "statement": "Product start/test scripts are not wired to the safety validator because frontend, erp-api and db-design remain locked in Phase 1."},
+    {"risk_id": "RR-GIT-001", "status": "open", "statement": "Branch, commit and worktree are repository-global human operations; branch protection, CODEOWNERS, required review and CI gates are not evidenced locally."},
+    {"risk_id": "RR-REVIEW-001", "status": "open", "statement": "Clean-context review is procedural; reviewer session identifiers provide auditability but not cryptographic proof of context isolation."},
+    {"risk_id": "RR-AGENT-001", "status": "open", "statement": "Agent path policy and change-scope validation can reject out-of-scope results but are not an OS-level filesystem sandbox."},
+    {"risk_id": "RR-PATH-001", "status": "open", "statement": "Canonical path and reparse-point checks reduce path escape risk, but Windows and Node cannot eliminate filesystem TOCTOU races absolutely."},
+    {"risk_id": "RR-DOMAIN-001", "status": "open", "statement": "The Domain index is an incomplete proposed Rule registry; human Owners have not confirmed the candidate Rules."},
+    {"risk_id": "RR-EVIDENCE-001", "status": "open", "statement": "No controlled external artifact store or retention policy is configured."},
+    {"risk_id": "RR-SECRET-001", "status": "open", "statement": "The deterministic governance scanner can produce false positives and cannot detect every encoded, fragmented or novel secret; a clean scan proves only no declared finding class was detected in the exact manifest-bound governance scope."},
+    {"risk_id": "RR-EVIDENCE-002", "status": "open", "statement": "External Migration 320 evidence contains operational workstation paths and a dump reference, is not redacted, is excluded from the governance commit, and is not verified globally clean."},
+    {"risk_id": "RR-FIXTURE-001", "status": "open", "statement": "Runner-owned random run roots, per-case mkdtemp, owner PID metadata and stale recovery prevent known cross-run cleanup collisions; a hard crash can retain a run for up to 24 hours and no lock proves immunity from every filesystem race."},
+    {"risk_id": "RR-GRAPH-001", "status": "accepted-phase1", "statement": "Phase 1 projects one task-graph.json from traceability only; no complete Knowledge Graph backend exists."},
+    {"risk_id": "RR-BOOTSTRAP-001", "status": "blocker", "statement": "The workspace validator is uncommitted and untrusted; BOOTSTRAP_WORKSPACE_CANDIDATE proves internal consistency only and cannot authorize a commit."},
+    {"risk_id": "RR-PROOF-001", "status": "open", "statement": "Bootstrap records bind hashes and file counts but do not prove producer identity, Git index state, external attestation or steady-state execution authority."},
+    {"risk_id": "RR-SCAN-002", "status": "open", "statement": "Bounded JSON and tolerant URL canonicalization covers only the declared contract; malformed percent input is rejected as a finding, while arbitrary nested, compressed or encrypted encodings remain outside the contract."},
+    {"risk_id": "RR-SCAN-003", "status": "accepted-phase1", "statement": "Phase 1 recognizes exactly nine registry-bound binary magic signatures and categorically rejects candidate binaries; it does not claim extension-to-type inference, archive inspection, polyglot detection, or exhaustive file-format identification."},
+    {"risk_id": "RR-SCHEMA-001", "status": "accepted-phase1", "statement": "The compiled governance Schema set supports the JSON Schema constructs used by the exact Phase 1 schemas and local references; it is not a general-purpose implementation of every JSON Schema vocabulary."},
+    {"risk_id": "RR-LIFECYCLE-001", "status": "accepted-phase1", "statement": "Lifecycle projection is generated, informational, may be stale, and is never a Gate, scope or approval input."},
+    {"risk_id": "RR-M320-001", "status": "blocker", "statement": "Migration 320 remains NO-GO: formal-clone provenance, P-to-C evidence and shortage/inventory closure are incomplete."}
+  ]
+}

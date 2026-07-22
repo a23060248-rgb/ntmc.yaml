@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-6",
+  "generated_at": "2026-07-18T08:15:00+08:00",
+  "generated_by": ".codex/scripts/validate-task.mjs",
+  "source_digest_sha256": "BE4B6EB7FFE6359185EFA41E3B088DCDE5F63874BE08E0C74BC58B1E4F066C75",
+  "nodes": [
+    {
+      "id": "EVIDENCE:R6-BASELINE",
+      "type": "Evidence",
+      "label": "Before and after baseline comparison",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/baseline-comparison.json"
+    },
+    {
+      "id": "EVIDENCE:R6-CANDIDATE",
+      "type": "Evidence",
+      "label": "Bootstrap candidate record",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/bootstrap-candidate-record.json"
+    },
+    {
+      "id": "EVIDENCE:R6-VALIDATION",
+      "type": "Evidence",
+      "label": "Production validation results",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/validation-results.json"
+    },
+    {
+      "id": "GATE:BOOTSTRAP-COMMIT",
+      "type": "Gate",
+      "label": "Bootstrap Human Commit Gate NO-GO",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/human-approval.yaml"
+    },
+    {
+      "id": "GATE:BOOTSTRAP-REVIEW",
+      "type": "Gate",
+      "label": "Bootstrap Candidate Review Gate NO-GO",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/review-findings.yaml"
+    },
+    {
+      "id": "GATE:M320",
+      "type": "Gate",
+      "label": "Migration 320 Execution Gate NO-GO",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/migration-320-integrity.md"
+    },
+    {
+      "id": "GATE:STEADY-EXEC",
+      "type": "Gate",
+      "label": "Steady-State Execution Gate NO-GO",
+      "source_ref": ".codex/governance/gate-policy.yaml"
+    },
+    {
+      "id": "GATE:STEADY-PREP",
+      "type": "Gate",
+      "label": "Steady-State Preparation Gate NO-GO",
+      "source_ref": ".codex/governance/gate-policy.yaml"
+    },
+    {
+      "id": "REVIEW:A5",
+      "type": "FormalReview",
+      "label": "A5 archived BLOCKER",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/session-a5-summary.json"
+    },
+    {
+      "id": "TASK:R6",
+      "type": "Task",
+      "label": "Remediation 6 Bootstrap convergence",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/task-intent.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "GATE:BOOTSTRAP-COMMIT",
+      "relation": "precedes",
+      "to": "GATE:STEADY-PREP",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/gate-and-trust-model.md"
+    },
+    {
+      "from": "GATE:BOOTSTRAP-REVIEW",
+      "relation": "precedes",
+      "to": "GATE:BOOTSTRAP-COMMIT",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/gate-and-trust-model.md"
+    },
+    {
+      "from": "GATE:STEADY-PREP",
+      "relation": "precedes",
+      "to": "GATE:STEADY-EXEC",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/gate-and-trust-model.md"
+    },
+    {
+      "from": "REVIEW:A5",
+      "relation": "blocks",
+      "to": "GATE:BOOTSTRAP-REVIEW",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/review-findings.yaml"
+    },
+    {
+      "from": "REVIEW:A5",
+      "relation": "requires-remediation",
+      "to": "TASK:R6",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/a5-finding-closure-matrix.md"
+    },
+    {
+      "from": "TASK:R6",
+      "relation": "keeps-no-go",
+      "to": "GATE:M320",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/migration-320-integrity.md"
+    },
+    {
+      "from": "TASK:R6",
+      "relation": "preserves",
+      "to": "EVIDENCE:R6-BASELINE",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/baseline-comparison.json"
+    },
+    {
+      "from": "TASK:R6",
+      "relation": "produces",
+      "to": "EVIDENCE:R6-CANDIDATE",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/bootstrap-candidate-record.json"
+    },
+    {
+      "from": "TASK:R6",
+      "relation": "produces",
+      "to": "EVIDENCE:R6-VALIDATION",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/validation-results.json"
+    }
+  ]
+}

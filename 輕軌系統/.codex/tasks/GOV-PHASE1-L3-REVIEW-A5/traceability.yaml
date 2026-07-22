@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "generated_at": "2026-07-18T06:30:00+08:00",
+  "nodes": [
+    {"id":"TASK:GOV-PHASE1-L3-REVIEW-A5","type":"Task","label":"Phase 1.5 Independent L3 Review Session A5","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/task-intent.yaml"},
+    {"id":"REVIEW:A5-CODE","type":"FormalReview","label":"A5 Code Reviewer BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/code-review.json"},
+    {"id":"REVIEW:A5-SECURITY","type":"FormalReview","label":"A5 Security Reviewer BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/security-review.json"},
+    {"id":"REVIEW:A5-DOMAIN","type":"FormalReview","label":"A5 Railway Domain Reviewer BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/railway-domain-review.json"},
+    {"id":"GATE:A5-CANDIDATE","type":"Gate","label":"Candidate Governance Review Gate NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/review-findings.yaml"}
+  ],
+  "edges": [
+    {"from":"TASK:GOV-PHASE1-L3-REVIEW-A5","relation":"HAS_FORMAL_REVIEW","to":"REVIEW:A5-CODE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/review-findings.yaml"},
+    {"from":"TASK:GOV-PHASE1-L3-REVIEW-A5","relation":"HAS_FORMAL_REVIEW","to":"REVIEW:A5-SECURITY","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/review-findings.yaml"},
+    {"from":"TASK:GOV-PHASE1-L3-REVIEW-A5","relation":"HAS_FORMAL_REVIEW","to":"REVIEW:A5-DOMAIN","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/review-findings.yaml"},
+    {"from":"REVIEW:A5-CODE","relation":"BLOCKS","to":"GATE:A5-CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/code-review.json"},
+    {"from":"REVIEW:A5-SECURITY","relation":"BLOCKS","to":"GATE:A5-CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/security-review.json"},
+    {"from":"REVIEW:A5-DOMAIN","relation":"BLOCKS","to":"GATE:A5-CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/railway-domain-review.json"}
+  ]
+}

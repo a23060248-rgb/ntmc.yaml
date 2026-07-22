@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "event_log_type": "phase-lifecycle-source-events",
+  "phase_id": "phase1_governance_only",
+  "events": [
+    {
+      "event_id": "EV-R4-COMPLETED",
+      "task_id": "GOV-PHASE1-REMEDIATION-4",
+      "task_kind": "remediation",
+      "state": "COMPLETED",
+      "outcome": "READY_FOR_REVIEW",
+      "at": "2026-07-17T18:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-4/task-intent.yaml",
+      "source_sha256": "5C87D6237A1BD9C2CBF2BDC9727053E6AD4F55820DD3DA1DD7B71F9C9CB77A61"
+    },
+    {
+      "event_id": "EV-A4-ARCHIVED",
+      "task_id": "GOV-PHASE1-L3-REVIEW-A4",
+      "task_kind": "review",
+      "state": "ARCHIVED",
+      "outcome": "BLOCKER",
+      "at": "2026-07-18T00:30:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/session-a4-summary.json",
+      "source_sha256": "17D3D11892FA1C56ADA3F20E89BD69FEBB70F9AD8EBA5A05C534EAC57B48C67A"
+    },
+    {
+      "event_id": "EV-R5-STARTED",
+      "task_id": "GOV-PHASE1-REMEDIATION-5",
+      "task_kind": "remediation",
+      "state": "STARTED",
+      "outcome": "IN_PROGRESS",
+      "at": "2026-07-18T01:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/classification.yaml",
+      "source_sha256": "8C907F2FEE5627FFD6FDE425299CE77D3B5D66B75AA492289F3F9FA562E7CD8B"
+    },
+    {
+      "event_id": "EV-R5-COMPLETED",
+      "task_id": "GOV-PHASE1-REMEDIATION-5",
+      "task_kind": "remediation",
+      "state": "COMPLETED",
+      "outcome": "READY_FOR_REVIEW",
+      "at": "2026-07-18T04:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/task-intent.yaml",
+      "source_sha256": "214BB36CBC098E830400B1642E46DDFDFF51CB5D457143028119AA84F3C4359C"
+    },
+    {
+      "event_id": "EV-A5-ARCHIVED",
+      "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+      "task_kind": "review",
+      "state": "ARCHIVED",
+      "outcome": "BLOCKER",
+      "at": "2026-07-18T05:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/session-a5-summary.json",
+      "source_sha256": "8825027803A59E3E449CAF06B096FD4136F39EA9E2B529992FBD86000FA1F63D"
+    },
+    {
+      "event_id": "EV-R6-STARTED",
+      "task_id": "GOV-PHASE1-REMEDIATION-6",
+      "task_kind": "remediation",
+      "state": "STARTED",
+      "outcome": "IN_PROGRESS",
+      "at": "2026-07-18T06:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/classification.yaml",
+      "source_sha256": "1A95B23F99152967786E67E8F6FFBDD1D3E087BAB1AB5578609A1549F612EFBD"
+    },
+    {
+      "event_id": "EV-R6-COMPLETED",
+      "task_id": "GOV-PHASE1-REMEDIATION-6",
+      "task_kind": "remediation",
+      "state": "COMPLETED",
+      "outcome": "READY_FOR_REVIEW",
+      "at": "2026-07-18T08:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/task-intent.yaml",
+      "source_sha256": "1E032D1F1B82B1B9AC986F317BE4A10868C78ACAE9AFBEDB789F240EADD82876"
+    },
+    {
+      "event_id": "EV-A6-ARCHIVED",
+      "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+      "task_kind": "review",
+      "state": "ARCHIVED",
+      "outcome": "BLOCKER",
+      "at": "2026-07-19T01:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/session-a6-summary.json",
+      "source_sha256": "292C13BB83A37D56EA68EACE567500FC6F18B9FBACCCD2D20247BBF3992D75BC"
+    },
+    {
+      "event_id": "EV-R7-COMPLETED",
+      "task_id": "GOV-PHASE1-REMEDIATION-7",
+      "task_kind": "remediation",
+      "state": "COMPLETED",
+      "outcome": "READY_FOR_REVIEW",
+      "at": "2026-07-19T08:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-7/task-intent.yaml",
+      "source_sha256": "91D85B5A37E3BE199A7CFCBC675344979EF75C82DACE7846B0415E02E7913E51"
+    },
+    {
+      "event_id": "EV-A7-ARCHIVED",
+      "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+      "task_kind": "review",
+      "state": "ARCHIVED",
+      "outcome": "BLOCKER",
+      "at": "2026-07-19T11:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/session-a7-summary.json",
+      "source_sha256": "1C630BC16606DF9770F3ED57A499694042423FA859BF3E84A8ACDA684585DEB0"
+    },
+    {
+      "event_id": "EV-R8-COMPLETED",
+      "task_id": "GOV-PHASE1-REMEDIATION-8",
+      "task_kind": "remediation",
+      "state": "COMPLETED",
+      "outcome": "READY_FOR_REVIEW",
+      "at": "2026-07-19T19:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-8/task-intent.yaml",
+      "source_sha256": "E5BD98B18BC51104278062025E1C9E7A988A354EDBBA870F28C996FD24D45FA3"
+    },
+    {
+      "event_id": "EV-A8-ARCHIVED",
+      "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+      "task_kind": "review",
+      "state": "ARCHIVED",
+      "outcome": "BLOCKER",
+      "at": "2026-07-19T23:00:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/session-a8-summary.json",
+      "source_sha256": "705C1200D4C04FE65724C4F069E39B15E2585272A9065DE41A1988016E7222A1"
+    },
+    {
+      "event_id": "EV-R9-COMPLETED",
+      "task_id": "GOV-PHASE1-REMEDIATION-9",
+      "task_kind": "remediation",
+      "state": "COMPLETED",
+      "outcome": "READY_FOR_REVIEW",
+      "at": "2026-07-19T23:50:00+08:00",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/task-intent.yaml",
+      "source_sha256": "CD7CDA277F729947F16FAAE91F15B5FB34C271D429CEA5A56E06BD2A02280F07"
+    }
+  ]
+}

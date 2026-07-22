@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "matrix_id": "GOV-EXTERNAL-SESSION-B-COMPATIBILITY-GATE-001",
+  "required_inputs": [
+    "unchanged candidate manifest/record/scanner chain",
+    "four exact valid Reviewer payloads",
+    "four valid procedural transport attestations",
+    "legal owner closure dispositions",
+    "fresh deterministic QA raw reports",
+    "before/after baseline integrity"
+  ],
+  "finding_owners": {
+    "B2-CODE-FORBIDDEN-READ-001": "EXTERNAL_CODE_REVIEWER",
+    "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001": "EXTERNAL_GOVERNANCE_COMPATIBILITY_REVIEWER",
+    "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001": "EXTERNAL_GOVERNANCE_COMPATIBILITY_REVIEWER",
+    "B2-QA-THREAD-LIMIT-001": "EXTERNAL_GOVERNANCE_COMPATIBILITY_REVIEWER_PLUS_EXTERNAL_DETERMINISTIC_QA"
+  },
+  "prohibited_inputs": [
+    "Human Approval",
+    "final summary prose",
+    "Aggregator subjective judgment",
+    "missing Reviewer substitution",
+    "Migration 320 business decision"
+  ],
+  "go_requires": [
+    "all four Reviewer statuses PASS",
+    "all four B2 dispositions legal and closed/replaced as specified",
+    "deterministic QA PASS",
+    "critical=0",
+    "unresolved high blocker=0",
+    "candidate/history unchanged"
+  ],
+  "default": "NO-GO"
+}

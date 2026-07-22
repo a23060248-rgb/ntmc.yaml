@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-R2-SECURITY-REVIEW",
+  "assignment_id": "A11-R2-SECURITY-REVIEWER-ASSIGN-20260721-01",
+  "reviewer_role": "EXTERNAL_SECURITY_REVIEWER",
+  "requirements": [
+    "Required nested schema-invalid evidence cannot pass through hash-only acceptance",
+    "Unknown evidence type, schema mismatch, registry hash mismatch and task-root/path/reparse escape fail closed",
+    "Duplicate active Security evidence fails closed",
+    "Optional present invalid evidence is structural invalid",
+    "Gate depends on validated referenced evidence",
+    "Scanner clean claims stay bounded",
+    "Production Case 4 is INVALID / NO-GO / exit 1",
+    "Referenced-evidence mutations are 8/8 killed",
+    "Candidate remains byte-identical"
+  ],
+  "candidate_binding": {
+    "candidate_file_count": 108,
+    "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+    "scanner_contract_version": 5,
+    "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+  },
+  "mandatory_output": "TWO_FIELD_CANONICAL_WRAPPER_ONLY",
+  "closure_authority": [],
+  "finding_closure_forbidden": true
+}

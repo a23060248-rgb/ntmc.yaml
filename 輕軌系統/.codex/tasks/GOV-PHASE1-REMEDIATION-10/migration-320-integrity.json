@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "subject_task_id": "GOV-M320-DRYRUN",
+  "task_wrapper_files_checked": 13,
+  "external_hash_bound_files_checked": 5,
+  "task_wrapper_hash_mismatches": [],
+  "external_hash_mismatches": [],
+  "domain_decision": "NEEDS_HUMAN_DECISION",
+  "execution_gate": "NO-GO",
+  "structural": "VALID",
+  "validator_process_exit": 2,
+  "validator_reported_exit": 2,
+  "validator_result_line": "VALIDATE_TASK_RESULT task_id=GOV-M320-DRYRUN calculated_gate=NO-GO target_gate=migration_320_execution:NO-GO structural=VALID exit=2 bootstrap_candidate_review=NO-GO bootstrap_human_commit=NO-GO steady_state_preparation=DISABLED steady_state_execution=DISABLED migration_320_execution=NO-GO proof_assurance=INTERNAL_CONSISTENCY_ONLY",
+  "candidate_rules_promoted": false,
+  "business_rule_approved": false,
+  "result": "PASS"
+}

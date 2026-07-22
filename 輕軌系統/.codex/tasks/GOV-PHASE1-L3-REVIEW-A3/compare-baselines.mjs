@@ -1,0 +1,20 @@
+import { readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const taskDir = path.dirname(fileURLToPath(import.meta.url));
+const before = JSON.parse(await readFile(path.join(taskDir, "review-baseline-before.json"), "utf8"));
+const after = JSON.parse(await readFile(path.join(taskDir, "review-baseline-after.json"), "utf8"));
+const key = (item) => `${item.relative_path}|${item.byte_size}|${item.sha256}|${item.artifact_type}|${item.commit_inclusion}`;
+const beforeMap = new Map(before.artifacts.map((item) => [item.relative_path, item]));
+const afterMap = new Map(after.artifacts.map((item) => [item.relative_path, item]));
+const changed = [];
+const missing = [];
+const added = [];
+for (const [ref, item] of beforeMap) if (!afterMap.has(ref)) missing.push(ref); else if (key(item) !== key(afterMap.get(ref))) changed.push({ relative_path: ref, before: item, after: afterMap.get(ref) });
+for (const ref of afterMap.keys()) if (!beforeMap.has(ref)) added.push(ref);
+const manifestIdentical = JSON.stringify(before.manifest) === JSON.stringify(after.manifest);
+const result = before.artifacts.length === 87 && after.artifacts.length === 87 && !changed.length && !missing.length && !added.length && manifestIdentical ? "PASS" : "FAIL";
+const output = { schema_version: 1, task_id: "GOV-PHASE1-L3-REVIEW-A3", before_count: before.artifacts.length, after_count: after.artifacts.length, comparison_fields: ["relative_path", "byte_size", "sha256", "artifact_type", "commit_inclusion"], changed_artifacts: changed, missing_artifacts: missing, added_artifacts: added, manifest_identical: manifestIdentical, hashes_identical: result === "PASS", reviewer_modified_candidate_source: result !== "PASS", result };
+await writeFile(path.join(taskDir, "baseline-comparison.json"), `${JSON.stringify(output, null, 2)}\n`, { encoding: "utf8", flag: "wx" });
+console.log(`A3_BASELINE_COMPARE result=${result} before=${before.artifacts.length} after=${after.artifacts.length}`);

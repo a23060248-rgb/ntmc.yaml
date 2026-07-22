@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "level": "L3",
+  "reasons": ["A6 contains one unresolved formal BLOCKER and two blocking Security HIGH findings.", "The review determines a release-like Bootstrap Candidate Review Gate.", "The candidate changes gate routing, scanner proof binding, binary evidence, and Railway Domain decision routing."],
+  "triggers": ["unresolved-reviewer-blocker", "release-gate", "security", "domain-rule-authority"],
+  "execution_categories": ["read-only-review", "governance-validation", "governance-fixture", "bootstrap-candidate", "security", "domain-rule"],
+  "required_agents": ["architect", "code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain"],
+  "parallel_allowed": true,
+  "evidence_required": ["A7-CANDIDATE-BASELINE", "A7-CODE-REVIEW", "A7-SECURITY-REVIEW", "A7-RAILWAY-DOMAIN-REVIEW", "A7-A6-CLOSURE", "A7-A5-SECURITY-CLOSURE", "A7-FIXTURE-RERUN", "A7-SCANNER-RERUN", "A7-PRODUCTION-RERUN", "A7-MUTATION-RERUN", "A7-CONCURRENCY-RERUN", "A7-SCANNER-BINDING", "A7-BINARY-ORACLE", "A7-RULE-ROUTING", "A7-HISTORY-INTEGRITY", "A7-M320-INTEGRITY"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["Any reviewed candidate, R7, A6, frozen history, Migration 320, or external evidence artifact changes.", "Any Reviewer is asked to alter another Reviewer outcome or depend on implementation conversation.", "Any product, service, database, seed, migration, Git mutation, Session B, or commit action is attempted.", "Any .env file or sibling directory is read.", "Bootstrap Human Commit or Migration 320 is represented as GO, or steady-state is represented as enabled."],
+  "scope": {"include": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"], "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories"]},
+  "classified_by": "human-authorized-a7-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

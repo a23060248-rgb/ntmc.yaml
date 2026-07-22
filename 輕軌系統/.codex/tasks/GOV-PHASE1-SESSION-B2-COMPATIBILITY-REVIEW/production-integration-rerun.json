@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "command": "node .codex/tests/run-bootstrap-production-integration.mjs",
+  "production_path": true,
+  "total": 48,
+  "passed": 48,
+  "failed": 0,
+  "layers": [
+    "schema-loader",
+    "gate-router",
+    "target-gate-cli",
+    "bootstrap-candidate-binding",
+    "scanner-report-schema",
+    "scanner-contract-bundle",
+    "domain-review-routing",
+    "migration-gate-separation",
+    "scope-lattice",
+    "rule-class-authority"
+  ],
+  "exit_code": 0,
+  "result": "PASS",
+  "completed_at": "2026-07-20T02:57:31.254Z"
+}

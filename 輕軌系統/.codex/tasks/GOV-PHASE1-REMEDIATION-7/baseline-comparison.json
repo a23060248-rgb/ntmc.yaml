@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-7",
+  "comparison_type": "sha256-byte-size-baseline-comparison",
+  "remediation_task_excluded": true,
+  "git_diff_used": false,
+  "governance_source_change_expected": true,
+  "frozen_history_identical": true,
+  "migration_320_task_identical": true,
+  "migration_320_external_evidence_identical": true,
+  "by_artifact_type": {
+    "governance-source": {
+      "before_count": 99,
+      "after_count": 110,
+      "added": [
+        {
+          "relative_path": ".codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+          "byte_size": 3033,
+          "sha256": "3A00DBC8214CE215297BA81A2880550385C0C626EF1B1781F3A101C1A81976C6",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/blueprints/schemas/railway-domain-review.schema.json",
+          "byte_size": 1018,
+          "sha256": "08799A331A30C1FD1FB3E7E0BB44754AB155D734A8D5206342E06CC6B751ECA0",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/governance/scanner-binary-oracle.yaml",
+          "byte_size": 845,
+          "sha256": "02E0C444F550EAC538C46D61ADFEE7C2C89B3DC3D0DF3A0B57223491D3EF2B16",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/governance/scanner-canonicalization-config.yaml",
+          "byte_size": 472,
+          "sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/governance/scanner-contract-matrix.yaml",
+          "byte_size": 2396,
+          "sha256": "3F257FAED83EB02E2993EB83377D2DCAF88B6046EB0C2C89A4B820364CDE9B40",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/governance/scanner-finding-registry.yaml",
+          "byte_size": 606,
+          "sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/governance/domain-review-routing.mjs",
+          "byte_size": 3342,
+          "sha256": "80B2D133763C0C8DDD674F61583A9059ABD53819860788ECDFBA5A2D6EEAE521",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/governance/gate-router.mjs",
+          "byte_size": 3037,
+          "sha256": "B39A4A09A3D0D071EA4B3C48C965B1272A4205605FDFCB03C753983FB45620DA",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/governance/scanner-report.mjs",
+          "byte_size": 7023,
+          "sha256": "76CFBCE7812E1B6A027F76B8922BA5ED547D579DB2A0CFDB84A69A7945D9B84C",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/tests/run-bootstrap-scanner-production.mjs",
+          "byte_size": 9609,
+          "sha256": "2B20E1FAB99FD8AC138B3DBBF3B883E8BD9C6CE6C6B6AFB6A913EB8F92C2107E",
+          "artifact_type": "governance-source"
+        },
+        {
+          "relative_path": ".codex/tests/scanner-production-case-manifest.json",
+          "byte_size": 4629,
+          "sha256": "1849AAA33DB2188340610DA34FF57774251671A18ACCBCB7DDFC9AD340BC44B9",
+          "artifact_type": "governance-source"
+        }
+      ],
+      "deleted": [],
+      "modified": [
+        {
+          "relative_path": ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+          "before_byte_size": 1137,
+          "after_byte_size": 2452,
+          "before_sha256": "50E067EFC8B182DC1D59DA5BA3606938EFE549BDD57D8BE7B8E37E0BA01F847F",
+          "after_sha256": "A69396EE8FF2FE11B898DB1CCF478D4435EF1A681C40CA5CA511400C406A3293"
+        },
+        {
+          "relative_path": ".codex/blueprints/schemas/human-approval.schema.json",
+          "before_byte_size": 1174,
+          "after_byte_size": 1719,
+          "before_sha256": "1987B57A577FF95617253C3E2737FD6F21F65EC1AA67FFF2ACA1B38C7C6905AC",
+          "after_sha256": "CB67D2785E3EB2541309FA27AE29D6099EAA9EE3B7645C2AF9F55A2766BCC701"
+        },
+        {
+          "relative_path": ".codex/blueprints/schemas/review-findings.schema.json",
+          "before_byte_size": 3129,
+          "after_byte_size": 3911,
+          "before_sha256": "79ABBEB378EB35106DF0B57E1DA211907A7D95A6B100FE4145F7D56E0EF5F005",
+          "after_sha256": "82731E7E7516FEE1286C1E0542075828C51752AF8B31A77076E85349C53857E3"
+        },
+        {
+          "relative_path": ".codex/blueprints/schemas/security-evidence.schema.json",
+          "before_byte_size": 2243,
+          "after_byte_size": 3160,
+          "before_sha256": "077C8685C6151BEED1E9C2A3B08C5DC64EEEC324022E905B5FD0EB0637B59204",
+          "after_sha256": "E0726C5D589574AA3164A79EEA412F1CF8933949A9141B5331AC8A861FF6B972"
+        },
+        {
+          "relative_path": ".codex/governance/bootstrap-trust-policy.yaml",
+          "before_byte_size": 957,
+          "after_byte_size": 957,
+          "before_sha256": "056F8DAFB1C6D5F59B5E3AE20A71AE24EF3BC68C0D31B5A96800A1E3A189D415",
+          "after_sha256": "6BF894C95D7C29F129AED28CB5123F74F579308CEB7CD23C22ED0493636F34C8"
+        },
+        {
+          "relative_path": ".codex/governance/gate-policy.yaml",
+          "before_byte_size": 1980,
+          "after_byte_size": 2775,
+          "before_sha256": "F770413A26A7CC548B72620928AAF90C3FBF2B821CECC674DE0B450E0C0CE4D4",
+          "after_sha256": "EDB8264839757A96F61C244E08DDCA65BA315D2732B1C83E759CAA49DD492083"
+        },
+        {
+          "relative_path": ".codex/governance/governance-commit-manifest.yaml",
+          "before_byte_size": 27263,
+          "after_byte_size": 31041,
+          "before_sha256": "52CE2A476C2D29BBE1AA1461D8D62B41502381FF776007580F23B2ED0D77AA33",
+          "after_sha256": "8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51"
+        },
+        {
+          "relative_path": ".codex/governance/lifecycle-events.json",
+          "before_byte_size": 2924,
+          "after_byte_size": 3719,
+          "before_sha256": "B46D9A457D9BEBBDE4425A416F9550E1D28EFB862E15785D05E7AAA1C56C3E5F",
+          "after_sha256": "488DA4CB1086830F0D2857E9EB8DFB451A6AC3B97FAC2C9D762BD23CA10B6B88"
+        },
+        {
+          "relative_path": ".codex/governance/phase-status.json",
+          "before_byte_size": 2569,
+          "after_byte_size": 2971,
+          "before_sha256": "7EA2BDA040834B32D33847F9374177835B59F1957FD7C816C9952739906A42FE",
+          "after_sha256": "5CF13901654B2180CCABD21F1D0844B5A4E21103BAB85B99809894E89B2569E0"
+        },
+        {
+          "relative_path": ".codex/governance/scan-contract.yaml",
+          "before_byte_size": 2069,
+          "after_byte_size": 1793,
+          "before_sha256": "8C710813B6797E99E65BF21928F31266297CE6E22CC7208CF56FC1BE17D77C02",
+          "after_sha256": "8CB9425631FD0D3CB50F8F0AFF6E5F9204D5F25FDD437A12712892DFC83C9463"
+        },
+        {
+          "relative_path": ".codex/scripts/build-phase-status.mjs",
+          "before_byte_size": 1109,
+          "after_byte_size": 1149,
+          "before_sha256": "50DE2E3CB81FC0200AB2D0DA7C5587EA5A6A53215655E7451131A0B03136B299",
+          "after_sha256": "EE466FE982EC5D904BA6CF0AEE2282B4C4450179EC46758C1169D4DBAF0CE6DC"
+        },
+        {
+          "relative_path": ".codex/scripts/generate-bootstrap-candidate.mjs",
+          "before_byte_size": 3148,
+          "after_byte_size": 3905,
+          "before_sha256": "E1BE1131DE6C631594BEAC2A904E7601A788DEADD0DACFB75BA0EFF07CC14565",
+          "after_sha256": "11801A9723362B87D515F22ACCAF10886FAF37C11EEA44C0E6576A89CAE2302E"
+        },
+        {
+          "relative_path": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+          "before_byte_size": 3166,
+          "after_byte_size": 1435,
+          "before_sha256": "6A557EB5657D1900DB94D4E1758425964A55727E5F0AF43360A522AA04F216D0",
+          "after_sha256": "F07D381562C25A56B6B8F387348E18059B6C3F5D1BE19EFB3982EFA8439F70E4"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/governance-commit-manifest.mjs",
+          "before_byte_size": 4261,
+          "after_byte_size": 4683,
+          "before_sha256": "07DA2A1A236957A949B2955CF6DBFB75EBDF951659DF7272495E56AD64406C37",
+          "after_sha256": "E5B80CA53C514942B6ED2D9B3C7AAEE7FD12D6F6CF0A9E550D55C5B19CCB272B"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/governance/lifecycle-projection.mjs",
+          "before_byte_size": 4323,
+          "after_byte_size": 4329,
+          "before_sha256": "FFF0D315902A2066E299F06F24CB5D295A20E6F70910E837540402AD9FF03562",
+          "after_sha256": "90D0EC56465FA72253C276787A5411DC0920DAC6D31AE576FBE2B1F4FECD1AA8"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+          "before_byte_size": 11328,
+          "after_byte_size": 15036,
+          "before_sha256": "ACE0D4D095620BEBCAE6CC46EC55741EDDABC7682C28098D5AD871BD0E14D6B0",
+          "after_sha256": "E46DF9C781F2C17EE9237736D09928C583F41BCB6303F4DE56029D4BDCA5C05F"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/governance/typed-proof.mjs",
+          "before_byte_size": 3989,
+          "after_byte_size": 4900,
+          "before_sha256": "0C44BC941828F510CFBE4C1FCBEC110BAB01E0EC61FD4AEA9AC0EEE34630F961",
+          "after_sha256": "C53DE492330ED39011053C3D6EF8C5920B13AD0ADAFD148C0BE71145D25D8C28"
+        },
+        {
+          "relative_path": ".codex/scripts/lib/schema-validator.mjs",
+          "before_byte_size": 2953,
+          "after_byte_size": 3931,
+          "before_sha256": "20D431DCFD505E22CC1DDBF8E6EFBF1E43D8069328553A0DDE5B609B6B4D3EF6",
+          "after_sha256": "F2FBE3E1673B11358570D0D612CADB48D8491AAC8B0D1FF04180F7D05797FFC7"
+        },
+        {
+          "relative_path": ".codex/scripts/validate-task.mjs",
+          "before_byte_size": 40003,
+          "after_byte_size": 46749,
+          "before_sha256": "AF5B01A9FCF67399A006467C1EA02F7992FEA5CA2F9FDC9C00C8B058A0DCEE35",
+          "after_sha256": "1FAC8CE7D0C6AA13825869D1331EF60A401ADBE2B5C359BC5AC4F4336285446C"
+        },
+        {
+          "relative_path": ".codex/tests/fixture-suite-manifest.json",
+          "before_byte_size": 7393,
+          "after_byte_size": 7482,
+          "before_sha256": "A63D48125C51A610EAF5C358A172035FEBD1CE717D306D88BDFD75B286FCBC4B",
+          "after_sha256": "88C24EAB4C29FC9860BA5593E7A5AF009EB78309EE814AB08A2D15766EC88757"
+        },
+        {
+          "relative_path": ".codex/tests/run-bootstrap-mutation-tests.mjs",
+          "before_byte_size": 6774,
+          "after_byte_size": 9120,
+          "before_sha256": "F83D8A18C582E01C4AF0596F8FB9F73DBAF9DE0FCC7549F7FCF7BFBD7C451DD6",
+          "after_sha256": "9A5C9E30A3AF250C82C3CA9D88642E978DCCC270B755F7569C2C60256611CC68"
+        },
+        {
+          "relative_path": ".codex/tests/run-bootstrap-production-integration.mjs",
+          "before_byte_size": 27917,
+          "after_byte_size": 27337,
+          "before_sha256": "A80AF6B871E292746A026C03F86736399FB61251198FF9D13C198284037D4BA6",
+          "after_sha256": "AA015CFFFA91A3817796CAEF080482441007A0061F9629F7DD062E4A20DEB4A2"
+        },
+        {
+          "relative_path": ".codex/tests/run-governance-fixtures.mjs",
+          "before_byte_size": 18500,
+          "after_byte_size": 19554,
+          "before_sha256": "FAD37A11C2FBFBA15E1FD2234D0B7F677A3AA5801564EC18DFA79B5CB83F32E6",
+          "after_sha256": "A09B1A3957C28196A066B77F94F91FD489B7CF2B01F92443FBE4D6831B5147E3"
+        },
+        {
+          "relative_path": "AGENTS.md",
+          "before_byte_size": 9579,
+          "after_byte_size": 10042,
+          "before_sha256": "1FA123623AF54C29857844681ADDCB4B63B06856068CE5871358067A83A8D1C6",
+          "after_sha256": "3A6F4473E8E8EF9E285BAEA982108C13459BE4D7E36F48F508EB8F58CBA4C1E2"
+        }
+      ],
+      "unchanged_count": 75,
+      "identical": false
+    },
+    "frozen-history": {
+      "before_count": 340,
+      "after_count": 340,
+      "added": [],
+      "deleted": [],
+      "modified": [],
+      "unchanged_count": 340,
+      "identical": true
+    },
+    "migration-320-task": {
+      "before_count": 13,
+      "after_count": 13,
+      "added": [],
+      "deleted": [],
+      "modified": [],
+      "unchanged_count": 13,
+      "identical": true
+    },
+    "migration-320-external-evidence": {
+      "before_count": 5,
+      "after_count": 5,
+      "added": [],
+      "deleted": [],
+      "modified": [],
+      "unchanged_count": 5,
+      "identical": true
+    }
+  }
+}

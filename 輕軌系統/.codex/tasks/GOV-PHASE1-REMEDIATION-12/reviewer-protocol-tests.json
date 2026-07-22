@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-12",
+  "suite": "payload-only-reviewer-protocol-production-path",
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "cases": [
+    {
+      "test_id": "18",
+      "name": "Invalid startup produces valid Early-Failure payload",
+      "expected": "STARTUP_BLOCKER+VALID_PAYLOAD",
+      "observed": "STARTUP_BLOCKER+VALID_PAYLOAD",
+      "result": "PASS"
+    },
+    {
+      "test_id": "19",
+      "name": "Early-Failure without mandatory exit is invalid",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "result": "PASS"
+    },
+    {
+      "test_id": "20",
+      "name": "Wrong payload self-hash is invalid",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "result": "PASS"
+    },
+    {
+      "test_id": "21",
+      "name": "Root outcome modification fails byte/hash verification",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "result": "PASS"
+    },
+    {
+      "test_id": "22",
+      "name": "Two Reviewer outcomes are invalid",
+      "expected": "BLOCKER",
+      "observed": "BLOCKER",
+      "result": "PASS"
+    },
+    {
+      "test_id": "23",
+      "name": "Timeout without payload is dispatch blocker",
+      "expected": "DISPATCH_BLOCKER",
+      "observed": "DISPATCH_BLOCKER",
+      "result": "PASS"
+    },
+    {
+      "test_id": "24",
+      "name": "Completed Reviewer with open thread cannot continue",
+      "expected": "BLOCKER",
+      "observed": "BLOCKER",
+      "result": "PASS"
+    },
+    {
+      "test_id": "25",
+      "name": "Complete PASS payload, identical storage and closed thread can continue",
+      "expected": "PASS",
+      "observed": "PASS",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

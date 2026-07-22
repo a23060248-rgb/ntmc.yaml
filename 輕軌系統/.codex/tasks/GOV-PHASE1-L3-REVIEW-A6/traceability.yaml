@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "generated_at": "2026-07-19T03:00:00+08:00",
+  "nodes": [
+    {"id":"TASK:A6","type":"ReviewTask","label":"Independent Session A6","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/task-intent.yaml"},
+    {"id":"REVIEW:A6-CODE","type":"FormalReview","label":"Code Reviewer BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/code-review.json"},
+    {"id":"REVIEW:A6-SECURITY","type":"FormalReview","label":"Security Reviewer BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/security-review.json"},
+    {"id":"REVIEW:A6-DOMAIN","type":"FormalReview","label":"Railway Domain Reviewer NEEDS_HUMAN_DECISION","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/railway-domain-review.json"},
+    {"id":"EVIDENCE:A6-CLOSURE","type":"Evidence","label":"A5 closure matrix","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/a5-finding-closure-matrix.yaml"},
+    {"id":"EVIDENCE:A6-BASELINE","type":"Evidence","label":"Before and after baseline comparison","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/baseline-comparison.json"},
+    {"id":"EVIDENCE:A6-RERUN","type":"Evidence","label":"Authoritative rerun summary","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/authoritative-rerun-summary.json"},
+    {"id":"GATE:A6-CANDIDATE","type":"Gate","label":"Bootstrap Candidate Review Gate NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/review-findings.yaml"},
+    {"id":"GATE:BOOTSTRAP-COMMIT","type":"Gate","label":"Bootstrap Human Commit Gate NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/human-approval.yaml"},
+    {"id":"GATE:M320","type":"Gate","label":"Migration 320 Execution Gate NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/migration-320-integrity.json"}
+  ],
+  "edges": [
+    {"from":"TASK:A6","relation":"collects","to":"REVIEW:A6-CODE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/code-review.json"},
+    {"from":"TASK:A6","relation":"collects","to":"REVIEW:A6-SECURITY","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/security-review.json"},
+    {"from":"TASK:A6","relation":"collects","to":"REVIEW:A6-DOMAIN","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/railway-domain-review.json"},
+    {"from":"REVIEW:A6-CODE","relation":"blocks","to":"GATE:A6-CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/review-findings.yaml"},
+    {"from":"REVIEW:A6-SECURITY","relation":"blocks","to":"GATE:A6-CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/review-findings.yaml"},
+    {"from":"REVIEW:A6-DOMAIN","relation":"requires-human-decision","to":"GATE:M320","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/railway-domain-review.json"},
+    {"from":"EVIDENCE:A6-CLOSURE","relation":"informs","to":"GATE:A6-CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/a5-finding-closure-matrix.yaml"},
+    {"from":"EVIDENCE:A6-BASELINE","relation":"informs","to":"GATE:A6-CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/baseline-comparison.json"},
+    {"from":"EVIDENCE:A6-RERUN","relation":"informs","to":"GATE:A6-CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/authoritative-rerun-summary.json"},
+    {"from":"GATE:A6-CANDIDATE","relation":"precedes","to":"GATE:BOOTSTRAP-COMMIT","source_ref":".codex/governance/gate-policy.yaml"}
+  ]
+}

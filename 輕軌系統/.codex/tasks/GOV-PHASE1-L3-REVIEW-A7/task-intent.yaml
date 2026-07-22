@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "title": "Phase 1.7 Bootstrap Governance Independent Review Session A7",
+  "task_type": "review",
+  "objective": "Independently determine whether Remediation 7 closes the three A6 trust-boundary findings and A5-SEC-HIGH-002, while keeping Bootstrap Candidate Review, Human Commit, steady-state, and Migration 320 decisions correctly separated.",
+  "business_reason": "R7 implementation evidence cannot close archived formal findings without a fresh independent Reviewer set reproducing the production paths against the exact 92-file candidate.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Three fresh formal independent Reviewers issue unmodified outcomes with unique run and session identities.",
+    "The exact 92-file candidate, bootstrap record, scanner v5 report, 340-file frozen history, Remediation 7 artifacts, Migration 320 Task, and five external evidence hashes remain unchanged.",
+    "Every A6 finding and A5-SEC-HIGH-002 receives an independent CLOSED or NOT_CLOSED disposition with reproducible production evidence.",
+    "Authoritative syntax, fixture, production scanner, production integration, mutation, concurrency, scanner binding, binary oracle, Domain routing, and Migration 320 checks are rerun.",
+    "The root Task mechanically derives Bootstrap Candidate Review only from verified evidence and Reviewer outcomes without changing them.",
+    "Session B, Bootstrap Human Commit, steady-state activation, Git mutation, and Migration 320 execution remain unauthorized."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Session A7 and its exact read-only independent review scope are authorized; Session B and all Git, product, service, migration, seed, and database operations remain unauthorized."
+}

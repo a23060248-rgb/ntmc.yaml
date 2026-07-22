@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "assignment_id": "A11-R1-AGGREGATION-QA-ASSIGN-20260721-05",
+  "aggregator_role": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+  "required_inputs": [
+    "4 raw Reviewer wrappers",
+    "4 manual transport attestations",
+    "4 package bindings",
+    "Candidate binding",
+    "Fresh QA command manifest"
+  ],
+  "duties": [
+    "Validate payload schemas and JCS hashes",
+    "Validate unique identities and exact access scopes",
+    "Validate clean-context attestations",
+    "Aggregate closure dispositions without modification",
+    "Execute only exact Fresh QA commands",
+    "Write raw evidence only inside the aggregation Task",
+    "Calculate A11 Gate fail-closed"
+  ],
+  "prohibited": [
+    "Assume Reviewer role",
+    "Modify Reviewer outcome",
+    "Close finding",
+    "Create Human approval",
+    "Use Git",
+    "Write Candidate or packages"
+  ]
+}

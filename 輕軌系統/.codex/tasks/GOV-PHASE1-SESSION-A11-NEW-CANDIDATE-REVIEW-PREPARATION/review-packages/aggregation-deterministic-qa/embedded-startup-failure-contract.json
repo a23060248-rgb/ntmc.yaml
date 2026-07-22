@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "review_type": "aggregation_qa",
+  "replacement_rule": "REPLACE_ONLY_ACTUAL_REASON_AND_RECOMPUTE_PAYLOAD_CORE_SHA256",
+  "template": {
+    "schema_version": 1,
+    "review_type": "aggregation_qa",
+    "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+    "assignment_id": "A11-AGGREGATION-QA-ASSIGNMENT-20260721-05",
+    "reviewer_run_id": "A11-AGGREGATION-QA-RUN-20260721-05",
+    "reviewer_session_nonce": "99E8475CC3D7E10055F6906056830C0D2F0D123B3D71B335EE9F80B7642FC0C5",
+    "payload_core": {
+      "verdict": "BLOCKER",
+      "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+      "findings": [],
+      "startup_blocker_reason": "<ACTUAL_REASON>"
+    },
+    "payload_core_sha256": "31AA127D69CDB090326802B1CAF55C86E9AB8DEB7359F3A2AA13C0AB532CBCAE"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "candidate_binding": {
+    "candidate_file_count": 108,
+    "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+    "scanner_contract_version": 5,
+    "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+  },
+  "reviewers": [
+    {
+      "reviewer_role": "EXTERNAL_CODE_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-48ca-7da1-b751-ab1df412f79d",
+      "review_package_id": "A11-R1-CODE-REVIEWER-PKG-20260721-01",
+      "assignment_id": "A11-R1-CODE-REVIEWER-ASSIGN-20260721-01",
+      "reviewer_run_id": "A11-R1-CODE-REVIEWER-RUN-20260721-01",
+      "reviewer_session_nonce": "33CE69E4ADF73DBD84A11A4A39E8B8861EF73A210C155EE909289950C640CA55",
+      "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+      "declared_payload_core_sha256": "63C6927A02043BCD185941F096BF90993BBDD9B1E0E39A2A2906D1E25D90DCF7",
+      "wrapper_canonical_sha256": "33CA1C35F6059780E61F0BE09A544C235AAF9650C6E9A4DA45B05C516B94BFE0",
+      "expected_review_status": "PASS",
+      "supersedes_payload": null,
+      "eligible_for_formal_import": true
+    },
+    {
+      "reviewer_role": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-86f5-7f30-9e9b-32885933b428",
+      "review_package_id": "A11-R1-RAILWAY-DOMAIN-REVIEWER-PKG-20260721-03",
+      "assignment_id": "A11-R1-RAILWAY-DOMAIN-REVIEWER-ASSIGN-20260721-03",
+      "reviewer_run_id": "A11-R1-RAILWAY-DOMAIN-REVIEWER-RUN-20260721-03",
+      "reviewer_session_nonce": "F0C1CD5A8F2510E67234C754A4CC17291411FA759A19B040981363AA42828FC5",
+      "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+      "declared_payload_core_sha256": "CF2119E8B6F081E4D1333F8BA1C66D59C15C354467DB0F71290AA48E375DA8A0",
+      "wrapper_canonical_sha256": "63CA6CC21BCCFA438F331F422E4D6C212F60297750662220FB3B1582114D1E43",
+      "expected_review_status": "PASS",
+      "supersedes_payload": null,
+      "eligible_for_formal_import": true
+    },
+    {
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-97ae-7541-80e2-7401acc90b07",
+      "review_package_id": "A11-R1-COMPATIBILITY-REVIEWER-PKG-20260721-04",
+      "assignment_id": "A11-R1-COMPATIBILITY-REVIEWER-ASSIGN-20260721-04",
+      "reviewer_run_id": "A11-R1-COMPATIBILITY-REVIEWER-RUN-20260721-04",
+      "reviewer_session_nonce": "9665AE1D01000BCB4E427C52B6ED570A74247A74D6070BCDEB76955A44148B2D",
+      "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+      "declared_payload_core_sha256": "3C75292273125A2E8706971BB310FDD395E966DFAB013CE50F460F98686B3082",
+      "wrapper_canonical_sha256": "DCAB217516CF7DCE34766F5BCCF1EE877C089FE660A8DC87E0FC7BC7F6AF1325",
+      "expected_review_status": "PASS",
+      "supersedes_payload": null,
+      "eligible_for_formal_import": true
+    },
+    {
+      "reviewer_role": "EXTERNAL_SECURITY_REVIEWER",
+      "generation": "R2",
+      "source_thread_id": "019f8545-1b15-7201-90ea-cdccdc9273fe",
+      "review_package_id": "A11-R2-SECURITY-REVIEWER-PKG-20260721-01",
+      "assignment_id": "A11-R2-SECURITY-REVIEWER-ASSIGN-20260721-01",
+      "reviewer_run_id": "A11-R2-SECURITY-REVIEWER-RUN-20260721-01",
+      "reviewer_session_nonce": "B4F022FBCA9A69F4C4B4D30189EB8FA51767A38D48106F9C6D87129FD20DAC5E",
+      "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+      "declared_payload_core_sha256": "571F838480C7C2023DCE9DE3F5265673F8769FFB8F0664CC5A79963959E04EAB",
+      "wrapper_canonical_sha256": "6265FD7E3E78191DE8D6CD1AE7FFFF3F55C0D6C28B2948717F7BEF7D54B07B6A",
+      "expected_review_status": "PASS",
+      "supersedes_payload": "A11-R1-SECURITY-REVIEWER-PKG-20260721-02",
+      "eligible_for_formal_import": true
+    }
+  ],
+  "superseded_history": [
+    {
+      "reviewer_role": "EXTERNAL_SECURITY_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-6c17-7d30-bbf1-81808ccdf836",
+      "review_package_id": "A11-R1-SECURITY-REVIEWER-PKG-20260721-02",
+      "disposition": "SUPERSEDED_STARTUP_BLOCKER_HISTORY",
+      "eligible_for_formal_import": false
+    }
+  ],
+  "generation_contract": {
+    "code": "R1",
+    "security": "R2",
+    "railway": "R1",
+    "compatibility": "R1"
+  },
+  "contract_valid": true,
+  "complete_for_aggregation": true,
+  "pending": []
+}

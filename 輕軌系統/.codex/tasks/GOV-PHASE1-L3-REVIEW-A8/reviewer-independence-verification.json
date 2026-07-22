@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "implementer_session_id": "R8-IMPLEMENTER-SESSION-7D6E38EA-6B4C-41EF-96CC-5E3AF96768FA",
+  "formal_review_count": 3,
+  "all_formal": true,
+  "all_did_not_participate_in_implementation": true,
+  "all_reviewed_baseline_phase_1_8": true,
+  "all_manifest_bindings_match": true,
+  "reviewer_run_ids_unique": true,
+  "reviewer_session_ids_unique": true,
+  "all_reviewer_sessions_differ_from_implementer": true,
+  "all_reviewer_sessions_pairwise_distinct": true,
+  "historical_search_scope": ".codex/tasks/**",
+  "run_or_session_id_matches_outside_a8": 0,
+  "root_modified_reviewer_outcomes": false,
+  "reviewers": [
+    {"reviewer": "code-reviewer", "outcome": "PASS", "reviewer_run_id": "A8-CODE-RUN-d04fc3fe-c300-450b-857d-ba3c2f13dc50", "session_id": "A8-CODE-SESSION-6c4db7fe-3808-4577-88e6-86cebdb28699", "artifact_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/code-review.json"},
+    {"reviewer": "security-reviewer", "outcome": "PASS", "reviewer_run_id": "A8-SEC-RUN-0ecb32f9-2578-45ef-ad3d-2c46227c316f", "session_id": "A8-SEC-SESSION-9b964674-361a-462c-b25d-ca362a7a278a", "artifact_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/security-review.json"},
+    {"reviewer": "railway-domain-reviewer", "outcome": "BLOCKER", "reviewer_run_id": "A8-DOMAIN-RUN-ee1b423f-2365-43d2-9199-29cabdb40055", "session_id": "A8-DOMAIN-SESSION-2c971a47-1f88-4a74-a880-8f97c2f7cb15", "artifact_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/railway-domain-review.json"}
+  ],
+  "result": "PASS"
+}

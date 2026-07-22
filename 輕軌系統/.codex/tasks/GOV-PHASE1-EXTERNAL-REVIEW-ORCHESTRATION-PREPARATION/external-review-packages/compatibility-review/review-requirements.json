@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-COMPATIBILITY-REVIEW",
+  "reviewer_role": "EXTERNAL_GOVERNANCE_COMPATIBILITY_REVIEWER",
+  "mandatory_focus": [
+    "Registered production Security Evidence Schema without fallback",
+    "Formal Scanner Contract v5",
+    "Exact Security scope excludes product, collab, Human Approval and M320 implementation paths",
+    "Static Schema/Template/Workflow/Gate/Role compatibility",
+    "QA finding replacement control without claiming a fifth Reviewer"
+  ],
+  "candidate_binding_required": {
+    "candidate_file_count": 103,
+    "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "scanner_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scanner_contract_version": 5,
+    "scanner_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+  },
+  "access_requirements": {
+    "exact_paths_only": true,
+    "forbidden_path_count_required": 0,
+    "out_of_scope_access_required": false
+  },
+  "pass_requirements": [
+    "All mandatory focus checks pass.",
+    "Candidate and production-chain binding match.",
+    "No forbidden or out-of-scope access.",
+    "All owned closure dispositions are supported by exact evidence."
+  ],
+  "blocker_requirements": [
+    "Any startup failure.",
+    "Any required check failure.",
+    "Any forbidden/out-of-scope access.",
+    "Any repository write, subagent use, Git use, conversation-memory use or implementer-conversation use."
+  ],
+  "no_final_gate_authority": true
+}

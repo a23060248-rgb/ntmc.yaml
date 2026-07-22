@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-REM13-BEFORE-CASE-04",
+  "title": "Before-fix referenced evidence fixture",
+  "task_type": "governance",
+  "objective": "Exercise authoritative referenced evidence validation.",
+  "business_reason": "Capture the pre-remediation defect.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-REM13-BEFORE-CASE-04/**"
+    ],
+    "exclude": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Authoritative validator emits a deterministic result."
+  ],
+  "requested_by": "remediation-owner"
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "required": true,
+  "status": "pending",
+  "approvals": [
+    {"stage": "scope_approval", "status": "approved", "by": "human-governance-owner", "at": "2026-07-20T01:01:27+08:00", "reason": "Human explicitly authorized A10 against the unchanged Phase 1.9 candidate."},
+    {"stage": "execution_approval", "status": "approved", "by": "human-governance-owner", "at": "2026-07-20T01:01:27+08:00", "reason": "Human authorized three fresh independent Reviewer contexts and A10 governance-only reruns."},
+    {"stage": "review_completion", "status": "pending", "by": "human-governance-owner", "at": "2026-07-20T01:01:27+08:00", "reason": "Pending the three formal A10 Reviewer outcomes."},
+    {"stage": "final_commit_approval", "status": "pending", "by": "human-governance-owner", "at": "2026-07-20T01:01:27+08:00", "reason": "Bootstrap Human Commit remains separate and human-exclusive."}
+  ],
+  "bootstrap_candidate_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+  "bootstrap_scanner_report_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json",
+  "bootstrap_candidate_subject_task_id": "GOV-PHASE1-REMEDIATION-9",
+  "session_b_outcome": "NOT_STARTED",
+  "human_exact_manifest_approved": false,
+  "post_review_baseline_unchanged": true,
+  "prohibited_until_approved": ["Session B", "Git stage", "commit", "push", "merge", "release", "steady-state activation", "Migration 320 execution"]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "finding_id": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+  "case": {
+    "case_id": "CASE-04",
+    "title": "Nested arbitrary-name schema-invalid Security evidence is required by manifest",
+    "security_evidence_location": [
+      ".codex/tasks/GOV-VERIFY-CASE-04/nested/session-b6-security-evidence.yaml"
+    ],
+    "expected": "FAIL",
+    "observed": "PASS",
+    "expectation_met": false,
+    "structural": "VALID",
+    "calculated_gate": "GO",
+    "bootstrap_candidate_review_gate": "GO",
+    "exit_code": 0,
+    "schema_loader_invoked": true,
+    "validated_evidence_paths": [
+      ".codex/tasks/GOV-VERIFY-CASE-04/security-evidence.yaml"
+    ],
+    "unvalidated_referenced_evidence_paths": [
+      ".codex/tasks/GOV-VERIFY-CASE-04/nested/session-b6-security-evidence.yaml"
+    ],
+    "errors": [],
+    "candidate_reasons": []
+  },
+  "reproduction_condition": "schema-invalid referenced Security evidence plus regenerated artifact manifest hash, fixture freeze, candidate record and scanner report",
+  "authoritative_result": "VALID_OR_GO_OR_EXIT_0",
+  "finding_reproduced": true,
+  "classification": "CANDIDATE_PRODUCTION_PATH_DEFECT"
+}

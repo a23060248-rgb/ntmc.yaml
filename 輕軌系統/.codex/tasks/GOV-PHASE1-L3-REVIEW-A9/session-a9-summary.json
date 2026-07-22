@@ -1,0 +1,29 @@
+{
+  "schema_version":1,
+  "task_id":"GOV-PHASE1-L3-REVIEW-A9",
+  "status":"ARCHIVED",
+  "reviewer_set_outcome":"BLOCKER",
+  "reviewer_outcomes":[
+    {"reviewer":"code-reviewer","outcome":"BLOCKER","reviewer_run_id":"A9-CODE-RUN-35132575-D0B8-44DE-A036-125230A95090","session_id":"A9-CODE-SESSION-63226E42-9DAA-40E3-A1AE-04C7E46D81B5","finding_refs":["A9-CODE-PRODUCTION-MUTATION-RERUN-001"]},
+    {"reviewer":"security-reviewer","outcome":"BLOCKER","reviewer_run_id":"A9-SEC-RUN-232B7E60-D7A1-469C-8B99-9C91FA2B36DF","session_id":"A9-SEC-SESSION-E97ED2B7-A95E-438E-B6F1-F0F3B9DAD033","finding_refs":["A9-SEC-EXECUTION-HIGH-001"]},
+    {"reviewer":"railway-domain-reviewer","outcome":"PASS","governance_mechanism_outcome":"PASS","migration_320_domain_decision":"NEEDS_HUMAN_DECISION","reviewer_run_id":"A9-DOMAIN-RUN-697099E4-0A0F-4CEC-BBFF-5D58B3A82710","session_id":"A9-DOMAIN-SESSION-B10C9029-0BE8-4050-A9E4-75430174237D","closure_refs":["A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001","A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001"]}
+  ],
+  "formal_metadata_fields_present":true,
+  "reviewer_independence_result":"FAIL_SECURITY_CONTEXT_SCOPE",
+  "severity_counts":{"BLOCKER":1,"HIGH":1,"MEDIUM":0,"LOW":0},
+  "a8_domain_closure_counts":{"CLOSED":2,"NOT_CLOSED":0},
+  "historical_closure_regression":"PASS_WITH_AGGREGATE_MUTATION_LIMITATION",
+  "candidate_integrity":{"file_count":103,"manifest_sha256":"29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D","scanner_findings":0,"result":"PASS"},
+  "authoritative_validator":{"structural":"VALID","bootstrap_candidate_review":{"status":"NO-GO","exit":2},"bootstrap_human_commit":{"status":"NO-GO"},"steady_state_preparation":{"status":"DISABLED"},"steady_state_execution":{"status":"DISABLED"},"migration_320_execution":{"status":"NO-GO","exit":2},"proof_assurance":"INTERNAL_CONSISTENCY_ONLY"},
+  "reviewed_source_baseline_identical":true,
+  "bootstrap_candidate_review_gate":"NO-GO",
+  "eligible_to_start_session_b":false,
+  "bootstrap_human_commit_gate":"NO-GO",
+  "steady_state_preparation_gate":"DISABLED",
+  "steady_state_execution_gate":"DISABLED",
+  "migration_320_execution_gate":"NO-GO",
+  "session_b_started":false,
+  "git_mutation_performed":false,
+  "root_modified_reviewer_outcomes":false,
+  "conclusion":"A9 is archived BLOCKER. The Railway Domain Reviewer closed both A8 findings, but Code lacks a completed fresh 31-mutant report and Security clean-context validity failed. Session B is not eligible or authorized."
+}

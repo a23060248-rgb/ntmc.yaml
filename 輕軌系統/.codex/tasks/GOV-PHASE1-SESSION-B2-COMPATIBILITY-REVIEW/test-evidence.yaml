@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "evidence_mode": "read-only-governance-production-path-rerun",
+  "commands": [
+    "node run-session-b2-quick-reruns.mjs",
+    "node run-session-b2-production-mutation.mjs",
+    "node run-remediation-10-chain-rerun.mjs",
+    "node build-b2-compatibility-evidence.mjs",
+    "node verify-b2-pre-review-freeze.mjs",
+    "node build-b2-deterministic-readback.mjs",
+    "node capture-review-baseline.mjs review-baseline-after.json",
+    "node compare-baselines.mjs"
+  ],
+  "checks": [
+    {"check_id": "B2-CANDIDATE-VERDICT", "requirement_id": "B2-CANDIDATE", "result": "PASS", "note": "Exact candidate is 103/103 with matching manifest and file-set hashes."},
+    {"check_id": "B2-FREEZE-VERDICT", "requirement_id": "B2-FREEZE", "result": "PASS", "note": "Nine frozen inputs remained byte-identical."},
+    {"check_id": "B2-SECURITY-CHAIN-VERDICT", "requirement_id": "B2-SECURITY-CHAIN", "result": "PASS", "note": "Eight required nodes and 20/20 chain cases passed; Security independently read 145/145 entries."},
+    {"check_id": "B2-DETERMINISTIC-VERDICT", "requirement_id": "B2-DETERMINISTIC", "result": "PASS", "note": "20 raw evidence artifacts passed, including syntax 18/18, fixtures 68/68, scanner 72/72, integration 48/48, production mutations 31/31 killed, reviewer binding 14/14, loader 11/11, loader mutations 6/6 and binary mutations 45/45."},
+    {"check_id": "B2-REVIEWS-VERDICT", "requirement_id": "B2-REVIEWS", "result": "FAIL", "note": "Code and Compatibility returned BLOCKER; fresh QA review was not executed."},
+    {"check_id": "B2-CLOSURE-VERDICT", "requirement_id": "B2-CLOSURE", "result": "FAIL", "note": "Security closed the two original Session B Security findings, but Compatibility found two new B2 blockers in the frozen Security evidence/scope."},
+    {"check_id": "B2-BASELINE-VERDICT", "requirement_id": "B2-BASELINE", "result": "PASS", "note": "874 before/after protected files; added=0, removed=0, changed=0."},
+    {"check_id": "B2-M320-VERDICT", "requirement_id": "B2-M320", "result": "PASS", "note": "Migration 320 remains structurally bound and separately NEEDS_HUMAN_DECISION/NO-GO; no approval was granted."},
+    {"check_id": "B2-GATE-VERDICT", "requirement_id": "B2-GATE", "result": "FAIL", "note": "Session B2 Reviewer Set is BLOCKER and cannot advance Human Commit."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": [
+    "Only governance production paths and isolated governance mutations were run; no product service, database, seed or migration operation was authorized.",
+    "Deterministic technical PASS results do not override formal Reviewer BLOCKER outcomes.",
+    "The required fifth QA review is absent and fails closed."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "risk": {"level": "L3", "reasons": ["Fresh formal five-context review is required before eligibility can advance to a separate human decision."]},
+  "scope": {"include": ["Exact 103-file candidate read-only", "Frozen A10, Session B and Remediation 10 records read-only", "Migration 320 13+5 records read-only", ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/**"], "exclude": ["candidate or historical mutation", "product code", "database and migration operations", "Git mutation", "Human Exact-Manifest execution", "Human Commit GO", "steady-state activation", "confirmed Railway Rule"], "product_changes_allowed": false, "database_operations_allowed": false},
+  "allowed_paths": {"read": ["AGENTS.md", ".agents/**", ".codex/**"], "write": [".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/**"]},
+  "agent_assignments": [
+    {"role": "architect", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": [".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/**"]},
+    {"role": "code-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": []},
+    {"role": "security-reviewer", "allowed_read_paths": [".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-read-scope-final.json"], "allowed_write_paths": []},
+    {"role": "railway-domain-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": []},
+    {"role": "compatibility-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": []},
+    {"role": "qa-engineer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": []}
+  ],
+  "review_assignments": [
+    {"assignment_id": "ASSIGN-B2-CODE-1E812B14-C43A-4594-867D-71826A2E50F4", "required_role_id": "code-reviewer", "agent_profile_reference": ".codex/agents/code-reviewer.toml", "agent_profile_sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": [], "required_review_scope": "bootstrap_code_and_gate_compatibility", "execution_mode": "read-only", "implementation_participation": false},
+    {"assignment_id": "ASSIGN-B2-SEC-2B10EA08-026E-4BB6-85FB-C335F8C8322C", "required_role_id": "security-reviewer", "agent_profile_reference": ".codex/agents/security-reviewer.toml", "agent_profile_sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E", "allowed_read_paths": [".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-read-scope-final.json"], "allowed_write_paths": [], "required_review_scope": "bootstrap_security_integrity_closure", "execution_mode": "read-only", "implementation_participation": false},
+    {"assignment_id": "ASSIGN-B2-DOMAIN-98A11475-9823-47EF-A49F-0766DDB449BA", "required_role_id": "railway-domain-reviewer", "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml", "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": [], "required_review_scope": "bootstrap_rule_governance_mechanism", "execution_mode": "read-only", "implementation_participation": false},
+    {"assignment_id": "ASSIGN-B2-COMPAT-4B5D650E-92FD-42E5-B28D-3244C51D407B", "required_role_id": "compatibility-reviewer", "agent_profile_reference": ".codex/agents/compatibility-reviewer.toml", "agent_profile_sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": [], "required_review_scope": "bootstrap_governance_compatibility", "execution_mode": "read-only", "implementation_participation": false},
+    {"assignment_id": "ASSIGN-B2-QA-C66AE772-52D8-4430-9AFE-6D7E73A6382E", "required_role_id": "qa-engineer", "agent_profile_reference": ".codex/agents/qa-engineer.toml", "agent_profile_sha256": "FA299A96E503652AB50B2A6139963BCA45BA034AE766D7347689CDE1F81BA003", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": [], "required_review_scope": "bootstrap_deterministic_readback", "execution_mode": "read-only", "implementation_participation": false}
+  ],
+  "applicable_rules": ["GOV-SCOPE-001", "REV-INDEP-001", "REV-L3-001", "EVD-HASH-001", "EVD-CLAIM-001"],
+  "candidate_rules": [],
+  "required_agents": ["architect", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer", "qa-engineer"],
+  "execution": {"parallel_groups": [["code-reviewer", "security-reviewer", "railway-domain-reviewer"], ["compatibility-reviewer", "qa-engineer"]], "sequential_steps": ["Build and freeze B2 pre-review inputs.", "Run deterministic evidence suites.", "Validate final exact Security scope.", "Dispatch five fresh read-only Reviewers.", "File outcomes without modification.", "Capture after baseline and recompute gates.", "Archive and stop before Human Exact-Manifest Confirmation."]},
+  "evidence_required": ["B2-CANDIDATE", "B2-FREEZE", "B2-SECURITY-CHAIN", "B2-DETERMINISTIC", "B2-REVIEWS", "B2-CLOSURE", "B2-BASELINE", "B2-M320", "B2-GATE"],
+  "rollback_restore": {"required": false, "evidence_or_reason": "Not applicable: B2 is a read-only review that writes only its new isolated Task records; candidate and historical sources remain immutable."},
+  "human_approval": {"required": true, "approver_roles": ["human-governance-owner"]},
+  "stop_conditions": ["Any pre-review or protected source changes.", "Any Reviewer violates scope or independence.", "Any deterministic evidence fails.", "Any finding remains open or Reviewer blocks.", "Any prohibited authority or operation is attempted."]
+}

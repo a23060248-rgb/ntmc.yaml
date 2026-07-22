@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "prepared_by_task": "GOV-PHASE1-REMEDIATION-11",
+  "dispatch_mode": "two_wave_fresh_sessions",
+  "root_thread_required": "fresh_orchestration_task_with_no_existing_reviewer_descendants",
+  "waves": [
+    {
+      "wave": 1,
+      "roles": [
+        "code-reviewer",
+        "security-reviewer",
+        "railway-domain-reviewer"
+      ],
+      "maximum_concurrent": 3,
+      "completion_required_before_next_wave": true
+    },
+    {
+      "wave": 2,
+      "roles": [
+        "compatibility-reviewer",
+        "qa-engineer"
+      ],
+      "maximum_concurrent": 2,
+      "qa_start_condition": "First four formal Reviewer outcomes and all raw deterministic reports are filed and frozen read-only."
+    }
+  ],
+  "rules": {
+    "reviewer_reuse": false,
+    "root_may_substitute_qa": false,
+    "qa_capacity_reserved": true,
+    "wave1_must_finish_before_qa": true,
+    "candidate_or_pre_review_input_changes_between_waves": false,
+    "missing_reviewer_is_pass": false
+  },
+  "result": "PASS"
+}

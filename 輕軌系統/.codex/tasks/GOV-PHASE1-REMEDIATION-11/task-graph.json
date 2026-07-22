@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "generated_at": "2026-07-20T12:00:00+08:00",
+  "generated_by": ".codex/scripts/validate-task.mjs",
+  "source_digest_sha256": "65A6B9BDB6B67CB8A3D1A2344F414251AAC153DDF2D01503FEE80DBD5F930678",
+  "nodes": [
+    {
+      "id": "EVIDENCE:R11-FREEZE",
+      "type": "Evidence",
+      "label": "B3 pre-review package freeze",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/pre-review-freeze.json"
+    },
+    {
+      "id": "EVIDENCE:R11-READINESS",
+      "type": "Evidence",
+      "label": "B3 readiness for human consideration",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-readiness.json"
+    },
+    {
+      "id": "EVIDENCE:R11-SCHEMA",
+      "type": "Evidence",
+      "label": "Registered Security evidence schema verification",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/official-security-evidence-schema-verification.json"
+    },
+    {
+      "id": "EVIDENCE:R11-SCOPES",
+      "type": "Evidence",
+      "label": "Five exact Reviewer scopes",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-read-scopes/code-reviewer-scope.json"
+    },
+    {
+      "id": "EVIDENCE:R11-TESTS",
+      "type": "Evidence",
+      "label": "Thirty preparation cases",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/preparation-test-summary.json"
+    },
+    {
+      "id": "TASK:GOV-PHASE1-REMEDIATION-11",
+      "type": "Task",
+      "label": "Phase 1.11 B3 preparation remediation",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/task-intent.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "EVIDENCE:R11-FREEZE",
+      "relation": "SUPPORTS",
+      "to": "EVIDENCE:R11-READINESS",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-readiness.json"
+    },
+    {
+      "from": "EVIDENCE:R11-SCHEMA",
+      "relation": "SUPPORTS",
+      "to": "EVIDENCE:R11-SCOPES",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-security-read-scope.json"
+    },
+    {
+      "from": "EVIDENCE:R11-SCOPES",
+      "relation": "SUPPORTS",
+      "to": "EVIDENCE:R11-TESTS",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/preparation-test-summary.json"
+    },
+    {
+      "from": "EVIDENCE:R11-TESTS",
+      "relation": "SUPPORTS",
+      "to": "EVIDENCE:R11-FREEZE",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/pre-review-freeze.json"
+    },
+    {
+      "from": "TASK:GOV-PHASE1-REMEDIATION-11",
+      "relation": "PRODUCES",
+      "to": "EVIDENCE:R11-SCHEMA",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/official-security-evidence-schema-verification.json"
+    }
+  ]
+}

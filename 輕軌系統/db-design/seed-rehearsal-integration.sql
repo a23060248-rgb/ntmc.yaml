@@ -334,3 +334,57 @@ SELECT m.id, w.id, 'AVAILABLE', a.id, 1, 'OPENING_BALANCE', u.id, 'REHEARSAL_SEE
    AND NOT EXISTS (SELECT 1 FROM inventory_transaction WHERE note='REHEARSAL_SEED_REH-SERIAL-001');
 
 COMMIT;
+
+-- Non-Word integration scenarios still require a published form-template
+-- reference before a P work order can be created. This placeholder never
+-- points at an official document and must not be used by Word output tests.
+BEGIN;
+
+INSERT INTO form_template (
+  template_code,
+  template_name,
+  pm_template_id,
+  version_no,
+  source_file_name,
+  storage_path,
+  file_hash,
+  file_format,
+  effective_from,
+  lifecycle_status,
+  is_active,
+  metadata,
+  created_by,
+  published_by,
+  published_at
+)
+SELECT
+  'REH-P1-NONWORD',
+  'Rehearsal P1 non-Word placeholder',
+  template.id,
+  '1',
+  'REHEARSAL-NONWORD-ONLY.doc',
+  '.local-rehearsal/nonword/REHEARSAL-NONWORD-ONLY.doc',
+  'REHEARSAL-NONWORD-ONLY',
+  'DOC',
+  CURRENT_DATE,
+  'PUBLISHED',
+  true,
+  jsonb_build_object('rehearsalOnly', true, 'wordOutputAllowed', false),
+  admin.id,
+  admin.id,
+  now()
+FROM pm_template template
+JOIN app_user admin ON admin.employee_no='REH-ADMIN'
+WHERE template.pm_code='P1'
+  AND template.lifecycle_status='PUBLISHED'
+  AND template.is_active=true
+ORDER BY template.revision_no DESC
+LIMIT 1
+ON CONFLICT (template_code, version_no) DO UPDATE SET
+  pm_template_id=EXCLUDED.pm_template_id,
+  lifecycle_status='PUBLISHED',
+  is_active=true,
+  metadata=EXCLUDED.metadata,
+  updated_at=now();
+
+COMMIT;

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "reviewer_role": "qa-readback-reviewer",
+  "assignment_id": "ASSIGN-B3-QA-AF5023CB-84C7-4236-A696-E87F359C4EE0",
+  "allowed_paths": [
+    ".codex/governance/governance-commit-manifest.yaml",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/baseline-comparison.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/review-baseline-after.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/review-baseline-before.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/blueprint.yaml",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/classification.yaml",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-assignments.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-capacity-preflight.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-dispatch-plan.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/session-b3-security-binding-chain.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/session-b3-security-evidence.yaml",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/task-intent.yaml",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/baseline-comparison.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/code-review.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/deterministic-readback-summary.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/code-review.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/governance-compatibility-review.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/railway-domain-review.json",
+    ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/security-integrity-review.json"
+  ],
+  "forbidden_paths": [
+    ".env*",
+    "collab/**",
+    "frontend/**",
+    "erp-api/**",
+    "db-design/**",
+    "migration/**",
+    "parent directories",
+    "sibling directories",
+    ".codex/tasks/GOV-M320-DRYRUN/implementation-handoff.yaml",
+    ".codex/tasks/GOV-M320-DRYRUN/implementation-plan.md",
+    ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/human-approval.yaml",
+    "unapproved HANDOFF",
+    "unapproved implementation plan",
+    "conversation memory",
+    "other Reviewer private access log"
+  ],
+  "required_nodes": [
+    "candidate_manifest"
+  ],
+  "directory_globs_allowed": false,
+  "allowed_write_paths": [],
+  "scope_sha256": "58D384C84B75A38993E8948BD62F3D73919333A441A272E00E04BECE7F4C5629"
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "phases": [
+    "freeze candidate and history",
+    "define canonical wrappers and authorities",
+    "generate five new packages",
+    "verify launch bijection",
+    "execute package contract tests",
+    "recheck immutable inputs",
+    "stop before launch"
+  ],
+  "hard_stops": [
+    "A11_R1_CANDIDATE_BINDING_CHANGED",
+    "A11_R1_RETURN_SCHEMA_AUTHORITY_AMBIGUOUS",
+    "A11_R1_CLOSURE_AUTHORITY_AMBIGUOUS",
+    "A11_R1_LAUNCH_SCOPE_MISMATCH",
+    "A11_R1_AGGREGATOR_WRITE_SCOPE_OVERBROAD",
+    "A11_R1_QA_COMMAND_NOT_DETERMINISTIC",
+    "A11_R1_RAW_EVIDENCE_CONTRACT_INCOMPLETE",
+    "A11_R1_PACKAGE_HASH_INVALID",
+    "A11_R1_IDENTITY_COLLISION",
+    "A11_R1_HISTORICAL_ARTIFACT_CHANGED"
+  ]
+}

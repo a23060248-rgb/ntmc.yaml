@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW",
+  "source_package": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/pre-review-input-manifest.json",
+  "expected_file_count": 15,
+  "verified_file_count": 15,
+  "checks": [
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/blueprint.yaml",
+      "expected_sha256": "2758B79CAAE9CACFFC2E433728E22386BDBE61C85EA3D2CBC766F9D3606C0D65",
+      "actual_sha256": "2758B79CAAE9CACFFC2E433728E22386BDBE61C85EA3D2CBC766F9D3606C0D65",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/classification.yaml",
+      "expected_sha256": "FC25EFEABFDA79657E5437CA75A5BBCA0FC0C785EA58991B4E54846D3E2B2B64",
+      "actual_sha256": "FC25EFEABFDA79657E5437CA75A5BBCA0FC0C785EA58991B4E54846D3E2B2B64",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/required-chain-node-verification.json",
+      "expected_sha256": "AB1481A2848F8546786D38F1D1F1FAB0EB895A9540C7280E441DE575BA976217",
+      "actual_sha256": "AB1481A2848F8546786D38F1D1F1FAB0EB895A9540C7280E441DE575BA976217",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-assignments.json",
+      "expected_sha256": "14B9EFAA1407A016A4E633F7EE639B08F9E7631A03018B4A260095D8C98710FC",
+      "actual_sha256": "14B9EFAA1407A016A4E633F7EE639B08F9E7631A03018B4A260095D8C98710FC",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-capacity-preflight.json",
+      "expected_sha256": "EA1BF0E4F05B7411E6156D238A39BE5F4636F8BF3017C1F8DAE30775D0098C6E",
+      "actual_sha256": "EA1BF0E4F05B7411E6156D238A39BE5F4636F8BF3017C1F8DAE30775D0098C6E",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-dispatch-plan.json",
+      "expected_sha256": "7387CB66AC423E5A04EA6C0F89E2EA6A3503D5842A06DBA0BA13F666A4D99F90",
+      "actual_sha256": "7387CB66AC423E5A04EA6C0F89E2EA6A3503D5842A06DBA0BA13F666A4D99F90",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/code-reviewer-scope.json",
+      "expected_sha256": "9B8C0C701DBCDA66FD18D9F9D65E241EC82AA96A29217C2FD71BFA142DDB4466",
+      "actual_sha256": "9B8C0C701DBCDA66FD18D9F9D65E241EC82AA96A29217C2FD71BFA142DDB4466",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/compatibility-reviewer-scope.json",
+      "expected_sha256": "6F28129D6176AFF36AF1A6FA3A41AAA7F497FB8853A58F5F150DBF9DDE81B339",
+      "actual_sha256": "6F28129D6176AFF36AF1A6FA3A41AAA7F497FB8853A58F5F150DBF9DDE81B339",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/qa-readback-reviewer-scope.json",
+      "expected_sha256": "9264C3F21489CFB769329D3AA2E2C2E2082DFC468F94B7F06603008C858190C6",
+      "actual_sha256": "9264C3F21489CFB769329D3AA2E2C2E2082DFC468F94B7F06603008C858190C6",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/railway-domain-reviewer-scope.json",
+      "expected_sha256": "8B64197AEDDE618D07AF528D6ED1A85BE67E5C8C3F91D2940BDC7FC1CFCE152B",
+      "actual_sha256": "8B64197AEDDE618D07AF528D6ED1A85BE67E5C8C3F91D2940BDC7FC1CFCE152B",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/security-reviewer-scope.json",
+      "expected_sha256": "A6D5981968EF4185352BD36CFA8782EC4D0149859BED53B645DE45EE586F319F",
+      "actual_sha256": "A6D5981968EF4185352BD36CFA8782EC4D0149859BED53B645DE45EE586F319F",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/session-b3-security-binding-chain.json",
+      "expected_sha256": "5A05483ED738E4D611EE164F6ADA7BA298A8DA5C4AA440748191C9A650B2B14E",
+      "actual_sha256": "5A05483ED738E4D611EE164F6ADA7BA298A8DA5C4AA440748191C9A650B2B14E",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/session-b3-security-evidence.yaml",
+      "expected_sha256": "09BF3EC496C5815D03779CD8D31A11BD1AD40743BF0C878EE0F42C17CE73B48E",
+      "actual_sha256": "09BF3EC496C5815D03779CD8D31A11BD1AD40743BF0C878EE0F42C17CE73B48E",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/session-b3-security-read-scope.json",
+      "expected_sha256": "C063B9475F441A4032A5BA0936AE87B018B58BAED992087D76ECF56076F29487",
+      "actual_sha256": "C063B9475F441A4032A5BA0936AE87B018B58BAED992087D76ECF56076F29487",
+      "result": "PASS"
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/task-intent.yaml",
+      "expected_sha256": "A3446816BE469C937880B9C503DE1E3723CA025DBC761B4EE8CE434EB8979B74",
+      "actual_sha256": "A3446816BE469C937880B9C503DE1E3723CA025DBC761B4EE8CE434EB8979B74",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

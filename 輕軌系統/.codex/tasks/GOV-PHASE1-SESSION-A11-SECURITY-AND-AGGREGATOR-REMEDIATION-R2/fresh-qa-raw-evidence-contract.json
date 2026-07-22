@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2",
+  "output_root": ".codex/tasks/GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2/",
+  "required_outputs": [
+    "imported-reviewer-payloads/",
+    "transport-attestations/",
+    "payload-schema-verification.json",
+    "payload-jcs-hash-verification.json",
+    "reviewer-binding-verification.json",
+    "reviewer-access-scope-verification.json",
+    "reviewer-independence-verification.json",
+    "finding-closure-matrix.json",
+    "deterministic-qa-raw-reports/",
+    "deterministic-qa-suite-ledger.json",
+    "deterministic-qa-verification.json",
+    "candidate-integrity-before.json",
+    "candidate-integrity-after.json",
+    "candidate-integrity-comparison.json",
+    "a11-gate-calculation.json",
+    "aggregation-output.json",
+    "final-summary.md"
+  ],
+  "summary_only_forbidden": true,
+  "raw_output_required": true
+}

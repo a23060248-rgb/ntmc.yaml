@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "review_context": "Three independent formal A8 Reviewers assessed the exact 97-file Phase 1.8 bootstrap candidate. Their filed outcomes are mechanically projected without modification; the Railway Domain BLOCKER dominates the Candidate Gate.",
+  "reviews": [
+    {
+      "type": "code",
+      "reviewer": "code-reviewer",
+      "formal": true,
+      "outcome": "PASS",
+      "reviewer_run_id": "A8-CODE-RUN-d04fc3fe-c300-450b-857d-ba3c2f13dc50",
+      "session_id": "A8-CODE-SESSION-6c4db7fe-3808-4577-88e6-86cebdb28699",
+      "finding_refs": ["A7-CODE-BLOCKER-001", "A7-CODE-BLOCKER-002"],
+      "conditions": [],
+      "decisions_required": []
+    },
+    {
+      "type": "security",
+      "reviewer": "security-reviewer",
+      "formal": true,
+      "outcome": "PASS",
+      "reviewer_run_id": "A8-SEC-RUN-0ecb32f9-2578-45ef-ad3d-2c46227c316f",
+      "session_id": "A8-SEC-SESSION-9b964674-361a-462c-b25d-ca362a7a278a",
+      "finding_refs": ["A7-SEC-HIGH-001", "A6-SEC-HIGH-002", "A5-SEC-HIGH-002"],
+      "conditions": [],
+      "decisions_required": []
+    },
+    {
+      "type": "railway-domain",
+      "reviewer": "railway-domain-reviewer",
+      "formal": true,
+      "outcome": "BLOCKER",
+      "reviewer_run_id": "A8-DOMAIN-RUN-ee1b423f-2365-43d2-9199-29cabdb40055",
+      "session_id": "A8-DOMAIN-SESSION-2c971a47-1f88-4a74-a880-8f97c2f7cb15",
+      "review_scope": "bootstrap_rule_governance_mechanism",
+      "governance_mechanism_outcome": {"outcome": "BLOCKER", "findings": ["A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001", "A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001"]},
+      "external_decisions": [
+        {
+          "decision_scope": "migration_320",
+          "outcome": "NEEDS_HUMAN_DECISION",
+          "affects_gate": "migration_320_execution",
+          "decision_owner_role": "human-domain-owner",
+          "decision_question": "Confirm, reject, or retain WO-P-C-LINK-001, WO-C-SHORTAGE-001 and COMPAT-M320-001 as unverified before any Migration 320 business approval or execution."
+        }
+      ],
+      "finding_refs": ["A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001", "A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001"],
+      "conditions": [],
+      "decisions_required": []
+    }
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "bootstrap_candidate_review_gate": "NO-GO",
+  "eligible_to_start_session_b": false,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "blockers": ["A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001", "A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001"],
+  "conditions": []
+}

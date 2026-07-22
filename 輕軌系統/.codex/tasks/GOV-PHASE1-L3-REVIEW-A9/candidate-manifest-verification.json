@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A9",
+  "reviewed_candidate_baseline": "phase-1.9-bootstrap",
+  "manifest_ref": ".codex/governance/governance-commit-manifest.yaml",
+  "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+  "expected_file_count": 103,
+  "actual_file_count": 103,
+  "unique_path_count": 103,
+  "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+  "all_paths_byte_size_and_sha256_match": true,
+  "a9_artifacts_in_candidate": false,
+  "railway_review_schema": {
+    "path": ".codex/blueprints/schemas/railway-domain-review.schema.json",
+    "sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+    "included_once": true
+  },
+  "railway_reviewer_profile": {
+    "path": ".codex/agents/railway-domain-reviewer.toml",
+    "sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "included_once": true
+  },
+  "result": "PASS"
+}

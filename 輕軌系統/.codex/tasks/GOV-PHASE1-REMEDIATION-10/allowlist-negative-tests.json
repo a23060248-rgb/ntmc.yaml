@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "suite": "exact-security-allowlist",
+  "total": 9,
+  "passed": 9,
+  "failed": 0,
+  "cases": [
+    {
+      "case_id": "AL-06",
+      "description": "Candidate manifest is missing.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "REQUIRED_NODE_MISSING:candidate_manifest"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "AL-07",
+      "description": "Candidate record is missing.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "REQUIRED_NODE_MISSING:candidate_record"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "AL-08",
+      "description": "Scanner report is missing.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "REQUIRED_NODE_MISSING:scanner_report"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "AL-09",
+      "description": "Scanner contract is missing.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "REQUIRED_NODE_MISSING:scanner_contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "AL-10",
+      "description": "Finding registry is missing.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "REQUIRED_NODE_MISSING:finding_registry"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "AL-11",
+      "description": "collab/HANDOFF.md is added.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "FORBIDDEN_SCOPE:collab/HANDOFF.md",
+        "ALLOWLIST_HASH_MISMATCH:collab/HANDOFF.md"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "AL-12",
+      "description": "A product directory file is added.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "FORBIDDEN_SCOPE:frontend/package.json",
+        "ALLOWLIST_HASH_MISMATCH:frontend/package.json"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "AL-13",
+      "description": "An allowlisted required hash disagrees with source bytes.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "ALLOWLIST_HASH_MISMATCH:.codex/governance/governance-commit-manifest.yaml",
+        "REQUIRED_NODE_HASH_MISMATCH:candidate_manifest"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "AL-14",
+      "description": "Every required node is present, exact and byte-matched.",
+      "expected_valid": true,
+      "expected_exit": 0,
+      "actual_valid": true,
+      "actual_exit": 0,
+      "violations": [],
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

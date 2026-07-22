@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "historical_source_tree_unchanged": true,
+  "suites": [
+    {
+      "suite": "REMEDIATION_10_CHAIN",
+      "production_script": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/run-security-chain-tests.mjs",
+      "executed_in_isolated_copy": true,
+      "source_tree_modified": false,
+      "exit_code": 1,
+      "total": 20,
+      "passed": 17,
+      "failed": 3,
+      "expected_total": 20,
+      "result": "FAIL",
+      "failed_cases": [
+        {
+          "report": "contract-version-negative-tests.json",
+          "case_id": "CV-05",
+          "description": "Production contract-derived v5 identity and all four bindings agree.",
+          "expected_valid": true,
+          "expected_exit": 0,
+          "actual_valid": false,
+          "actual_exit": 1,
+          "violations": [
+            "EVIDENCE_PRODUCTION_CONTRACT_MISMATCH",
+            "CANDIDATE_RECORD_CONTRACT_HASH_MISMATCH",
+            "SCANNER_REPORT_CONTRACT_BINDING_MISMATCH"
+          ],
+          "result": "FAIL"
+        },
+        {
+          "report": "allowlist-negative-tests.json",
+          "case_id": "AL-14",
+          "description": "Every required node is present, exact and byte-matched.",
+          "expected_valid": true,
+          "expected_exit": 0,
+          "actual_valid": false,
+          "actual_exit": 1,
+          "violations": [
+            "ALLOWLIST_HASH_MISMATCH:.codex/blueprints/schemas/artifact-manifest.schema.json",
+            "ALLOWLIST_HASH_MISMATCH:.codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+            "ALLOWLIST_HASH_MISMATCH:.codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+            "ALLOWLIST_HASH_MISMATCH:.codex/governance/evidence-requirement-policy.yaml",
+            "ALLOWLIST_HASH_MISMATCH:.codex/governance/evidence-scope-policy.yaml",
+            "ALLOWLIST_HASH_MISMATCH:.codex/governance/gate-dependency-matrix.yaml",
+            "ALLOWLIST_HASH_MISMATCH:.codex/governance/governance-commit-manifest.yaml",
+            "ALLOWLIST_HASH_MISMATCH:.codex/governance/scan-contract.yaml",
+            "ALLOWLIST_HASH_MISMATCH:.codex/governance/scanner-contract-matrix.yaml",
+            "ALLOWLIST_HASH_MISMATCH:.codex/scripts/create-task.mjs",
+            "ALLOWLIST_HASH_MISMATCH:.codex/scripts/generate-bootstrap-candidate.mjs",
+            "ALLOWLIST_HASH_MISMATCH:.codex/scripts/lib/governance/gate-router.mjs",
+            "ALLOWLIST_HASH_MISMATCH:.codex/scripts/lib/governance/governance-schema-loader.mjs",
+            "ALLOWLIST_HASH_MISMATCH:.codex/scripts/lib/governance/scanner-pipeline.mjs",
+            "ALLOWLIST_HASH_MISMATCH:.codex/scripts/lib/governance/scanner-report.mjs",
+            "ALLOWLIST_HASH_MISMATCH:.codex/scripts/lib/governance/typed-proof.mjs",
+            "ALLOWLIST_HASH_MISMATCH:.codex/scripts/validate-task.mjs",
+            "ALLOWLIST_HASH_MISMATCH:.codex/tests/run-bootstrap-production-integration.mjs",
+            "ALLOWLIST_HASH_MISMATCH:.codex/tests/run-governance-fixtures.mjs",
+            "REQUIRED_NODE_HASH_MISMATCH:candidate_manifest",
+            "REQUIRED_NODE_HASH_MISMATCH:scanner_contract"
+          ],
+          "result": "FAIL"
+        },
+        {
+          "report": "candidate-chain-negative-tests.json",
+          "case_id": "CH-20",
+          "description": "Complete 103-file chain is internally consistent.",
+          "expected_valid": true,
+          "expected_exit": 0,
+          "actual_valid": false,
+          "actual_exit": 1,
+          "violations": [
+            "CANDIDATE_MANIFEST_OR_COUNT_MISMATCH"
+          ],
+          "result": "FAIL"
+        }
+      ],
+      "stderr_tail": ""
+    },
+    {
+      "suite": "REMEDIATION_11_PREPARATION",
+      "production_script": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/run-preparation-tests.mjs",
+      "executed_in_isolated_copy": true,
+      "source_tree_modified": false,
+      "exit_code": 0,
+      "total": 30,
+      "passed": 30,
+      "failed": 0,
+      "expected_total": 30,
+      "result": "PASS",
+      "failed_cases": [],
+      "stderr_tail": ""
+    },
+    {
+      "suite": "REMEDIATION_12_PROTOCOL",
+      "production_script": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/run-remediation-12-tests.mjs",
+      "executed_in_isolated_copy": true,
+      "source_tree_modified": false,
+      "exit_code": 1,
+      "total": 30,
+      "passed": 29,
+      "failed": 1,
+      "expected_total": 30,
+      "result": "FAIL",
+      "failed_cases": [
+        {
+          "report": "scope-satisfiability-tests.json",
+          "test_id": "12",
+          "name": "Complete Code scope passes",
+          "expected": "PASS",
+          "observed": [
+            "UNSATISFIED_CAPABILITY:artifact:.codex/blueprints/schemas/artifact-manifest.schema.json:.codex/blueprints/schemas/artifact-manifest.schema.json",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/blueprints/schemas/bootstrap-candidate-record.schema.json:.codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/blueprints/schemas/bootstrap-scan-report.schema.json:.codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/governance/evidence-requirement-policy.yaml:.codex/governance/evidence-requirement-policy.yaml",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/governance/evidence-scope-policy.yaml:.codex/governance/evidence-scope-policy.yaml",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/governance/gate-dependency-matrix.yaml:.codex/governance/gate-dependency-matrix.yaml",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/governance/governance-commit-manifest.yaml:.codex/governance/governance-commit-manifest.yaml",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/governance/scan-contract.yaml:.codex/governance/scan-contract.yaml",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/governance/scanner-contract-matrix.yaml:.codex/governance/scanner-contract-matrix.yaml",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/create-task.mjs:.codex/scripts/create-task.mjs",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/generate-bootstrap-candidate.mjs:.codex/scripts/generate-bootstrap-candidate.mjs",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/gate-router.mjs:.codex/scripts/lib/governance/gate-router.mjs",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/governance-schema-loader.mjs:.codex/scripts/lib/governance/governance-schema-loader.mjs",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/scanner-pipeline.mjs:.codex/scripts/lib/governance/scanner-pipeline.mjs",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/scanner-report.mjs:.codex/scripts/lib/governance/scanner-report.mjs",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/typed-proof.mjs:.codex/scripts/lib/governance/typed-proof.mjs",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/validate-task.mjs:.codex/scripts/validate-task.mjs",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/tests/run-bootstrap-production-integration.mjs:.codex/tests/run-bootstrap-production-integration.mjs",
+            "UNSATISFIED_CAPABILITY:artifact:.codex/tests/run-governance-fixtures.mjs:.codex/tests/run-governance-fixtures.mjs"
+          ],
+          "result": "FAIL"
+        }
+      ],
+      "stderr_tail": ""
+    }
+  ],
+  "total": 80,
+  "passed": 76,
+  "failed": 4,
+  "result": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-R2-SECURITY-REVIEW",
+  "review_package_id": "A11-R2-SECURITY-REVIEWER-PKG-20260721-01",
+  "assignment_id": "A11-R2-SECURITY-REVIEWER-ASSIGN-20260721-01",
+  "reviewer_run_id": "A11-R2-SECURITY-REVIEWER-RUN-20260721-01",
+  "reviewer_session_nonce": "B4F022FBCA9A69F4C4B4D30189EB8FA51767A38D48106F9C6D87129FD20DAC5E",
+  "reviewer_role": "EXTERNAL_SECURITY_REVIEWER",
+  "canonical_path_contract": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/security-r2-path-canonicalization-contract.json",
+  "startup_order": [
+    "repository-root-binding.json",
+    "absolute-launch-envelope.json",
+    "embedded-startup-blocker-template.json",
+    "assignment.json",
+    "package-manifest.json",
+    "package-verification.json",
+    "exact-read-scope.json",
+    "capability-artifact-matrix.json",
+    "startup-contract.json",
+    "review-requirements.json",
+    "finding-ownership.json",
+    "return-payload.schema.json"
+  ],
+  "compare_decoded_unicode_values_not_console_glyphs": true,
+  "candidate_content_review_forbidden_until_startup_valid": true,
+  "fail_closed_on_missing_path": true,
+  "fail_closed_on_hash_mismatch": true,
+  "fail_closed_on_scope_mismatch": true,
+  "output_exactly_one_wrapper": true
+}

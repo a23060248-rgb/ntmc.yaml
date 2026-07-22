@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW",
+  "level": "L3",
+  "reasons": [
+    "Formal compatibility closure review",
+    "Security evidence and exact read-scope verification",
+    "Environment-bound deterministic QA replacement control"
+  ],
+  "triggers": [
+    "unresolved Reviewer blocker",
+    "backward compatibility",
+    "formal schema contract"
+  ],
+  "execution_categories": [
+    "governance-validation",
+    "security",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "required_reviews": [
+    "code",
+    "security",
+    "railway-domain",
+    "compatibility"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "B5-CANDIDATE",
+    "B5-SCHEMA",
+    "B5-SCOPES",
+    "B5-REVIEWS",
+    "B5-QA",
+    "B5-BASELINE"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/**"
+    ],
+    "exclude": [
+      ".env*",
+      "collab/**",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "parent directories",
+      "sibling directories",
+      "conversation memory"
+    ]
+  },
+  "classification_status": "human-authorized"
+}

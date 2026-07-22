@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-L3-REVIEW-A3",
+  "title": "Phase 1.3 Independent L3 Review A3",
+  "task_type": "review",
+  "objective": "Independently review the exact Phase 1.3 governance commit candidate without modifying the candidate baseline or prior formal outcomes.",
+  "business_reason": "Human governance ownership authorized a clean-context A3 Reviewer Set after Phase 1.3 remediation.",
+  "scope": {"include": ["87 governance commit manifest included artifacts", "frozen historical governance records", "five hash-bound Migration 320 external references", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/**"], "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "migrations/**", "product-root sibling directories"], "product_changes_allowed": false, "database_operations_allowed": false},
+  "acceptance_criteria": ["Three independent formal Reviewer results are preserved without root-task rewriting.", "The exact 87-file candidate baseline is identical before and after Review.", "Serial and dual-parent concurrency fixture suites are freshly rerun.", "Historical artifacts and five Migration 320 evidence hashes remain unchanged.", "A3 stops before Session B, final approval, or any Git mutation."],
+  "requested_by": "human"
+}

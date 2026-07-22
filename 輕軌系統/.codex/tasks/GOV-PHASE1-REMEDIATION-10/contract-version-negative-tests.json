@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "suite": "contract-version-derivation",
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "cases": [
+    {
+      "case_id": "CV-01",
+      "description": "Evidence declares v4 while production is v5.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "EVIDENCE_PRODUCTION_CONTRACT_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "CV-02",
+      "description": "Evidence declares v5 with an incorrect contract hash.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "EVIDENCE_PRODUCTION_CONTRACT_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "CV-03",
+      "description": "Candidate record is v5-bound while scanner report declares v4.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "SCANNER_REPORT_CONTRACT_BINDING_MISMATCH"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "CV-04",
+      "description": "A hand-written version attempts to override production derivation.",
+      "expected_valid": false,
+      "expected_exit": 1,
+      "actual_valid": false,
+      "actual_exit": 1,
+      "violations": [
+        "MANUAL_CONTRACT_VERSION_OVERRIDE_FORBIDDEN"
+      ],
+      "result": "PASS"
+    },
+    {
+      "case_id": "CV-05",
+      "description": "Production contract-derived v5 identity and all four bindings agree.",
+      "expected_valid": true,
+      "expected_exit": 0,
+      "actual_valid": true,
+      "actual_exit": 0,
+      "violations": [],
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

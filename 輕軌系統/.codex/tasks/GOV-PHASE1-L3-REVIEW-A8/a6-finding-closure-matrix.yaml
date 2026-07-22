@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "source_review": "security-review.json",
+  "entries": [
+    {"finding_id": "A6-SEC-HIGH-002", "reviewer": "security-reviewer", "closure_status": "CLOSED", "evidence": ["security-review.json#closure_dispositions", "production-scanner-rerun.json", "binary-magic-mutation-rerun.json"], "production_retest": "PASS", "blocks_bootstrap_candidate_gate": false}
+  ],
+  "external_decision_record": {"finding_id": "A6-DOMAIN-HUMAN-DECISION-001", "status": "PRESERVED_AS_EXTERNAL_DECISION", "affects_gate": "migration_320_execution", "outcome": "NEEDS_HUMAN_DECISION", "blocks_bootstrap_rule_governance_mechanism": false},
+  "open_a6_scanner_finding_closed": true
+}

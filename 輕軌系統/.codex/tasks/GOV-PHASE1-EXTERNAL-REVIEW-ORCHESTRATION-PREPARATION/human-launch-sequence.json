@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION",
+  "preparation_only": true,
+  "external_chats_started": false,
+  "sequence": [
+    {
+      "sequence": 1,
+      "task_id": "GOV-PHASE1-B6EXT-CODE-REVIEW",
+      "prompt": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/reviewer-prompt.md"
+    },
+    {
+      "sequence": 2,
+      "task_id": "GOV-PHASE1-B6EXT-SECURITY-REVIEW",
+      "prompt": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/reviewer-prompt.md"
+    },
+    {
+      "sequence": 3,
+      "task_id": "GOV-PHASE1-B6EXT-RAILWAY-REVIEW",
+      "prompt": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/reviewer-prompt.md"
+    },
+    {
+      "sequence": 4,
+      "task_id": "GOV-PHASE1-B6EXT-COMPATIBILITY-REVIEW",
+      "prompt": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/reviewer-prompt.md"
+    },
+    {
+      "sequence": 5,
+      "task_id": "GOV-PHASE1-B6EXT-AGGREGATION-QA",
+      "prompt": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/aggregator-prompt.md",
+      "prerequisite": "Four original Reviewer payloads and four procedural transport attestations exist."
+    }
+  ],
+  "stop_conditions": [
+    "Any Reviewer package startup check fails.",
+    "Any Reviewer returns BLOCKER or more than one payload.",
+    "Any payload is transport-damaged or edited.",
+    "Any payload is missing before Aggregator launch.",
+    "Any candidate or history drift occurs."
+  ],
+  "automatic_chat_creation_allowed": false,
+  "human_manual_launch_required": true
+}

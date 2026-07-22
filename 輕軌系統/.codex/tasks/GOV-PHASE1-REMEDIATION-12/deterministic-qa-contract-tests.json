@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-12",
+  "suite": "deterministic-qa-production-path",
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "cases": [
+    {
+      "test_id": "26",
+      "name": "Missing one Reviewer payload makes QA INVALID",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "result": "PASS"
+    },
+    {
+      "test_id": "27",
+      "name": "Reviewer BLOCKER makes QA FAIL",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "result": "PASS"
+    },
+    {
+      "test_id": "28",
+      "name": "Raw payload and envelope mismatch makes QA INVALID",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "result": "PASS"
+    },
+    {
+      "test_id": "29",
+      "name": "Root-filled QA PASS is invalid",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "result": "PASS"
+    },
+    {
+      "test_id": "30",
+      "name": "Four complete PASS payloads and raw evidence allow QA",
+      "expected": "PASS",
+      "observed": "PASS",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

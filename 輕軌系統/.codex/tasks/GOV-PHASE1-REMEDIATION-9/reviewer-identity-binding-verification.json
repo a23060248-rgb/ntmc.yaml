@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "finding_id": "A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001",
+  "status": "IMPLEMENTED_AWAITING_A9",
+  "assurance": "procedural_role_and_assignment_binding",
+  "prohibited_assurance_claims": ["cryptographic_identity", "unforgeable_identity", "trusted_producer_identity", "os_runtime_isolation"],
+  "required_role_id": "railway-domain-reviewer",
+  "canonical_profile_ref": ".codex/agents/railway-domain-reviewer.toml",
+  "canonical_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+  "required_review_scope": "bootstrap_rule_governance_mechanism",
+  "required_execution_mode": "read-only",
+  "required_implementation_participation": false,
+  "required_allowed_write_paths": [],
+  "production_control": ".codex/scripts/lib/governance/reviewer-identity-binding.mjs",
+  "production_callsite": ".codex/scripts/validate-task.mjs:409",
+  "manifest_profile_binding": {"manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D", "profile_entry_count": 1, "profile_hash_match": true},
+  "regression_result": {"total": 14, "passed": 14, "failed": 0},
+  "mutation_result": {"reviewer_binding_total": 8, "killed": 8, "survived": 0},
+  "fresh_reviewer_decision_required": true
+}

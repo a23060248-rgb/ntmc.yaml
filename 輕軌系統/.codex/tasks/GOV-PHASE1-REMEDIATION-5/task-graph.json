@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "generated_at": "2026-07-18T04:10:00+08:00",
+  "generated_by": ".codex/scripts/validate-task.mjs",
+  "source_digest_sha256": "382A5DAF4989A290E7181072E95893FFDFE97388949F406A7090245613D9A9A3",
+  "nodes": [
+    {
+      "id": "A4:FINDINGS",
+      "type": "FormalReviewBaseline",
+      "label": "Twelve preserved A4 findings",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/a4-finding-remediation-matrix.json"
+    },
+    {
+      "id": "CANDIDATE:WORKSPACE",
+      "type": "TypedProof",
+      "label": "Exact 97-file workspace candidate",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/candidate-snapshot.json"
+    },
+    {
+      "id": "CORE:SIX",
+      "type": "AuthorityContract",
+      "label": "Six shared production components",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/six-core-contracts.json"
+    },
+    {
+      "id": "REVIEW:A5",
+      "type": "ReviewBoundary",
+      "label": "Independent A5 not authorized",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/review-findings.yaml"
+    },
+    {
+      "id": "TASK:GOV-PHASE1-REMEDIATION-5",
+      "type": "Task",
+      "label": "Phase 1.5 minimum trustworthy governance core",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/task-intent.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "CANDIDATE:WORKSPACE",
+      "relation": "REQUIRES",
+      "to": "REVIEW:A5",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/review-findings.yaml"
+    },
+    {
+      "from": "CORE:SIX",
+      "relation": "BOUND_IN",
+      "to": "CANDIDATE:WORKSPACE",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/candidate-manifest-verification.json"
+    },
+    {
+      "from": "TASK:GOV-PHASE1-REMEDIATION-5",
+      "relation": "ADDRESSES_WITHOUT_REWRITING",
+      "to": "A4:FINDINGS",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/a4-finding-remediation-matrix.json"
+    },
+    {
+      "from": "TASK:GOV-PHASE1-REMEDIATION-5",
+      "relation": "IMPLEMENTS",
+      "to": "CORE:SIX",
+      "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/six-core-contracts.json"
+    }
+  ]
+}

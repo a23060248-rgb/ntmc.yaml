@@ -1,0 +1,8 @@
+{
+  "schema_version": 2,
+  "registry_role": "bootstrap_typed_controls",
+  "rules": [
+    {"rule_id": "EVD-HASH-001", "version": 2, "category": "evidence", "rule_class": "technical_constraint", "authority_effect": "technical_constraint", "status": "confirmed", "statement": "Referenced evidence must exist inside the product root and match its recorded SHA256.", "verification": {"automated": ["validate-task.mjs hash verification"], "manual": []}, "enforcement": {"mechanisms": ["artifact manifest"], "residual_risk": "A valid hash proves byte integrity, not source authority or truth."}, "sources": [{"type": "human-approval", "ref": "user approval 2026-07-17"}], "owner": "human-governance-owner", "approved_at": "2026-07-17T00:00:00+08:00", "open_questions": []},
+    {"rule_id": "EVD-CLAIM-001", "version": 2, "category": "evidence", "rule_class": "governance_control", "authority_effect": "procedural_governance", "status": "confirmed", "statement": "Bootstrap structural validation must not be represented as trusted producer proof, business GO, release approval or production readiness.", "verification": {"automated": ["Gate and assurance consistency checks"], "manual": ["final-summary review"]}, "enforcement": {"mechanisms": ["validate-task.mjs", "bootstrap trust policy"], "residual_risk": "Human summaries require independent review."}, "sources": [{"type": "human-approval", "ref": "user approval 2026-07-17"}], "owner": "human-governance-owner", "approved_at": "2026-07-17T00:00:00+08:00", "open_questions": []}
+  ]
+}

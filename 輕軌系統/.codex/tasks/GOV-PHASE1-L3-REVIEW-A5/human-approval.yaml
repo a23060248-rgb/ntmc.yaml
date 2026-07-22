@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "required": true,
+  "status": "pending",
+  "approvals": [
+    {"stage":"scope_approval","status":"approved","by":"human-governance-owner","at":"2026-07-18T05:00:00+08:00","reason":"Human authorized A5 against the exact Phase 1.5 minimum-core candidate."},
+    {"stage":"execution_approval","status":"approved","by":"human-governance-owner","at":"2026-07-18T05:00:00+08:00","reason":"Read-only governance validation and fixture reruns are authorized; Git and product operations are prohibited."},
+    {"stage":"review_completion","status":"pending","by":"human-governance-owner","at":"2026-07-18T05:00:00+08:00","reason":"All three formal outcomes were collected as BLOCKER; human review completion approval was not granted."},
+    {"stage":"final_commit_approval","status":"pending","by":"human-governance-owner","at":"2026-07-18T05:00:00+08:00","reason":"A5 cannot grant commit preparation or execution approval."}
+  ],
+  "prohibited_until_approved": ["Session B", "stage", "commit", "push", "merge", "release", "Domain Rule confirmation", "Migration 320 execution"]
+}

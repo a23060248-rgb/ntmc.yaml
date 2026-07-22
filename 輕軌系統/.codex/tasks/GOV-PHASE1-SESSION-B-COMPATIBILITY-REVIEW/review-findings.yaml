@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "review_context": "Three fresh formal read-only task-specific Session B reviews plus the supplemental Code Review required by the L3 validator; Security returned BLOCKER on Session B evidence packaging and allowlist completeness.",
+  "reviews": [
+    {"type": "code", "reviewer": "code-reviewer", "formal": true, "outcome": "PASS", "reviewer_run_id": "SB-CODE-RUN-5B662F37-4CEB-4E0E-87E0-1D2263A2DFB1", "session_id": "SB-CODE-SESSION-3D77F34D-8C93-47BB-9161-A4C340AF3043", "did_not_participate_in_implementation": true, "review_scope": "bootstrap_code_and_validator_compatibility", "finding_refs": ["SB-CODE-PASS"], "conditions": [], "decisions_required": []},
+    {"type": "compatibility", "reviewer": "compatibility-reviewer", "formal": true, "outcome": "PASS", "reviewer_run_id": "SB-COMPAT-RUN-081CF7D3-74F3-489E-8EFC-252E2CF2514B", "session_id": "SB-COMPAT-SESSION-FA64284D-6348-49C2-9F88-18CE89BB4C66", "did_not_participate_in_implementation": true, "review_scope": "bootstrap_governance_compatibility", "finding_refs": ["SB-COMPAT-PASS"], "conditions": [], "decisions_required": []},
+    {"type": "security", "reviewer": "security-reviewer", "formal": true, "outcome": "BLOCKER", "reviewer_run_id": "SB-SEC-RUN-83AF7C07-A3E6-4833-8591-E24F5E5F0A93", "session_id": "SB-SEC-SESSION-B2F727B2-46CA-469B-AF35-CEC353F63A61", "did_not_participate_in_implementation": true, "review_scope": "bootstrap_security_and_integrity_compatibility", "finding_refs": ["SB-SEC-EVIDENCE-CONTRACT-VERSION-001", "SB-SEC-ALLOWLIST-EVIDENCE-GAP-001"], "conditions": [], "decisions_required": []},
+    {"type": "railway-domain", "reviewer": "railway-domain-reviewer", "formal": true, "outcome": "PASS", "reviewer_run_id": "SB-DOMAIN-RUN-129D273D-677F-4510-B23D-2FC8517C8A91", "session_id": "SB-DOMAIN-SESSION-5AA6D11D-6898-4D60-ADB5-409146171D05", "did_not_participate_in_implementation": true, "review_scope": "bootstrap_rule_governance_mechanism", "reviewer_binding": {"canonical_role_id": "railway-domain-reviewer", "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml", "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D", "task_assignment_id": "ASSIGN-SB-DOMAIN-6DACC3E1-6780-4424-88C7-88AFA164E705", "reviewer_run_id": "SB-DOMAIN-RUN-129D273D-677F-4510-B23D-2FC8517C8A91", "session_id": "SB-DOMAIN-SESSION-5AA6D11D-6898-4D60-ADB5-409146171D05", "formal": true, "execution_mode": "read-only", "implementation_participation": false, "reviewer_identity_assurance": "procedural_role_and_assignment_binding"}, "governance_mechanism_outcome": {"outcome": "PASS", "findings": []}, "external_decisions": [{"decision_scope": "migration_320", "outcome": "NEEDS_HUMAN_DECISION", "affects_gate": "migration_320_execution", "decision_owner_role": "human-domain-owner", "decision_question": "Confirm, reject, or retain the three proposed Migration 320 candidate Rules before any business approval or execution."}], "finding_refs": ["SB-DOMAIN-PASS"], "conditions": [], "decisions_required": []}
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "bootstrap_candidate_review_gate": "NO-GO",
+  "eligible_to_start_session_b": false,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "blockers": ["SB-SEC-EVIDENCE-CONTRACT-VERSION-001", "SB-SEC-ALLOWLIST-EVIDENCE-GAP-001"],
+  "conditions": []
+}

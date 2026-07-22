@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A9",
+  "assignment_count": 3,
+  "unique_assignment_ids": true,
+  "required_roles": [
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer"
+  ],
+  "assignment_checks": [
+    {
+      "assignment_id": "ASSIGN-A9-CODE-EDD87E2A-1379-4B3E-A902-E15F9939F769",
+      "required_role_id": "code-reviewer",
+      "profile_ref": ".codex/agents/code-reviewer.toml",
+      "profile_sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    },
+    {
+      "assignment_id": "ASSIGN-A9-SEC-9C53631D-9476-4C58-9120-5C632EEDE88C",
+      "required_role_id": "security-reviewer",
+      "profile_ref": ".codex/agents/security-reviewer.toml",
+      "profile_sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    },
+    {
+      "assignment_id": "ASSIGN-A9-DOMAIN-2DEBF7B2-31AD-4226-905C-D79D75B3055B",
+      "required_role_id": "railway-domain-reviewer",
+      "profile_ref": ".codex/agents/railway-domain-reviewer.toml",
+      "profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+      "assignment_profile_hash_match": true,
+      "candidate_manifest_entry_count": 1,
+      "candidate_manifest_hash_match": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "allowed_write_paths": [],
+      "result": "PASS"
+    }
+  ],
+  "reviewer_run_and_session_ids_unique_within_a9": true,
+  "historical_run_or_session_collisions": [],
+  "result": "PASS"
+}

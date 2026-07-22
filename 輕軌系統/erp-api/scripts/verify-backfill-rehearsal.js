@@ -123,6 +123,8 @@ function normalCheckResults(checks) {
       else if (item.min_value !== null) resultValue = String(Number(item.min_value));
       else if (item.max_value !== null) resultValue = String(Number(item.max_value));
       else resultValue = "1";
+    } else if (item.requires_value) {
+      resultValue = "Phase 5 required text";
     }
     return {
       checkItemId: item.id,
@@ -179,6 +181,31 @@ function basePayload(detail) {
   };
 }
 
+async function ensureIssuedStock(materialId) {
+  const location = await query(
+    `SELECT w.id AS warehouse_id,wb.id AS bin_id
+       FROM warehouse w
+       JOIN warehouse_bin wb ON wb.warehouse_id=w.id AND wb.bin_code='REH-C01'
+      WHERE w.warehouse_code='REH-REPAIR'`
+  );
+  assert.equal(location.rowCount, 1, "rehearsal repair bin is missing");
+  const { warehouse_id: warehouseId, bin_id: binId } = location.rows[0];
+  await query(
+    `INSERT INTO inventory_balance (material_id,warehouse_id,stock_status,qty)
+     VALUES ($1,$2,'ISSUED',20)
+     ON CONFLICT (material_id,warehouse_id,stock_status)
+     DO UPDATE SET qty=20,updated_at=now()`,
+    [materialId, warehouseId]
+  );
+  await query(
+    `INSERT INTO inventory_bin_balance (material_id,warehouse_id,warehouse_bin_id,stock_status,qty)
+     VALUES ($1,$2,$3,'ISSUED',20)
+     ON CONFLICT (material_id,warehouse_id,warehouse_bin_id,stock_status)
+     DO UPDATE SET qty=20,updated_at=now()`,
+    [materialId, warehouseId, binId]
+  );
+}
+
 async function main() {
   const detail = await createPackage();
   assert.ok(detail.checks.length > 0, "P1 checks are missing");
@@ -186,6 +213,8 @@ async function main() {
   const encoded = encodeURIComponent(detail.item.workOrderNo);
   const completePath = `/precheck/backfills/${encoded}/complete`;
   const payload = basePayload(detail);
+  assert.ok(payload.materials.length > 0, "P1 default material is missing");
+  await ensureIssuedStock(payload.materials[0].materialId);
 
   const missingMessage = await expectBlocked(completePath, { ...payload, checkResults: [], attachmentResults: [] }, /必填檢查|附件回填/);
 
@@ -210,7 +239,6 @@ async function main() {
   brake.abnormalReason = "API must detect out-of-range air gap";
   const brakeMessage = await expectBlocked(completePath, abnormalBrake, /尚未選擇報修處理/);
 
-  assert.ok(payload.materials.length > 0, "P1 default material is missing");
   const shortage = structuredClone(payload);
   shortage.materials[0].actualQty = 999;
   const shortageMessage = await expectBlocked(completePath, shortage, /insufficient|庫存/);

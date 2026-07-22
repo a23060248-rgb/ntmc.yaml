@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "tested_initial_working_directories": [
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統",
+    "C:/Users/a2306/Desktop/code",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/nested/example",
+    "C:/unrelated/location"
+  ],
+  "resolution_source": "launch_envelope_absolute_paths_only",
+  "relative_dot_codex_resolution_used": false,
+  "cases": [
+    {
+      "test_id": "ROOT-01",
+      "scenario": "chat cwd is repository root",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-02",
+      "scenario": "chat cwd is repository parent",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-03",
+      "scenario": "chat cwd is nested below repository",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-04",
+      "scenario": "wrong root",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-05",
+      "scenario": "root identity hash mismatch",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-06",
+      "scenario": "package directory missing",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-07",
+      "scenario": "startup file missing",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-08",
+      "scenario": "package file hash mismatch",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "ROOT-09",
+      "scenario": "recursive package search prohibited",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "metadata": {
+    "formal": true,
+    "reviewer": "security-reviewer",
+    "reviewer_run_id": "A6-SEC-RUN-aef79a44-3c80-44dd-aae8-b9f77498fddb",
+    "session_id": "A6-SEC-SESSION-c85f23f3-65e8-423e-b95f-93e8ed8a379c",
+    "did_not_participate_in_implementation": true,
+    "reviewed_candidate_baseline": "phase-1.6-bootstrap",
+    "candidate_manifest_file_count": 81,
+    "candidate_manifest_sha256": "52CE2A476C2D29BBE1AA1461D8D62B41502381FF776007580F23B2ED0D77AA33",
+    "bootstrap_candidate_record_id": "30A21CDB600B2738B0F8BD38F0E1A3AEB748F8B6F79368E8599ACE31ACFB8D01",
+    "mode": "read-only-reviewed-sources",
+    "relied_on_implementation_conversation": false,
+    "git_commands_run": false,
+    "git_mutations_performed": false,
+    "product_tests_run": false,
+    "service_or_database_operations_run": false
+  },
+  "review_scope": {
+    "included": [
+      "AGENTS.md and the filed GOV-PHASE1-L3-REVIEW-A6 task artifacts",
+      "review-baseline-before.json",
+      "the exact 81-file governance commit manifest and every manifested file",
+      "the 38 filed GOV-PHASE1-REMEDIATION-6 artifacts",
+      "scanner contract v4, production scanner pipeline, scanner/candidate generators, authoritative fixtures, production integration, and mutation tests",
+      "bootstrap-scanner-report.json, bootstrap-candidate-record.json, and candidate-manifest-report.md",
+      "the filed A5 Security Review and Session A5 summary"
+    ],
+    "excluded": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories",
+      "implementation conversations and unfiled explanations",
+      "unknown, encrypted, compressed, or split secrets outside scanner contract v4"
+    ],
+    "prohibited_operations_not_performed": [
+      "Git inspection or mutation",
+      "service startup",
+      "product tests",
+      "database, seed, or migration operations",
+      "modification of any reviewed source"
+    ],
+    "baseline_verification": {
+      "manifest_sha256_matches": true,
+      "candidate_file_count": 81,
+      "candidate_files_present": 81,
+      "candidate_hash_mismatches": 0,
+      "candidate_duplicate_paths": 0,
+      "included_file_set_sha256": "E7D1186203D6909AEE7CEFBE829E8D2C22CA6FAA025DB4C46186ED70B57FAB11",
+      "r6_files_checked_against_before_baseline": 38,
+      "r6_hash_mismatches": 0,
+      "a5_security_artifacts_checked_against_before_baseline": 2,
+      "a5_security_artifact_hash_mismatches": 0
+    }
+  },
+  "methods_and_commands": [
+    {
+      "method": "Independent exact-manifest and typed-binding recomputation",
+      "command": "node --input-type=module -e <read-only manifest/hash/binding verifier>",
+      "result": "PASS: manifest 52CE2A...AA33; 81 artifacts; 0 missing; 0 hash mismatches; 0 duplicate paths; file-set E7D118...AB11; filed scanner F6053A...5D40; candidate payload 30A21C...8D01; every binding matched."
+    },
+    {
+      "method": "Formal manifest scanner invocation with TEMP and TMP confined to the A6 security reviewer-temp directory",
+      "command": "node .codex/scripts/generate-bootstrap-scan-report.mjs 2026-07-19T12:00:00+08:00 .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-temp/security/formal-bootstrap-scan-a6.json",
+      "result": "PASS: BOOTSTRAP_SCAN_REPORT result=PASS files=81 findings=0 contract=GOV-DETERMINISTIC-SCAN@4; manifest and file-set bindings matched."
+    },
+    {
+      "method": "Authoritative governance fixture rerun",
+      "command": "node .codex/tests/run-governance-fixtures.mjs",
+      "result": "PASS: 68/68, exit 0."
+    },
+    {
+      "method": "Authoritative production-path integration rerun",
+      "command": "node .codex/tests/run-bootstrap-production-integration.mjs",
+      "result": "PASS: 20/20, exit 0."
+    },
+    {
+      "method": "Authoritative mutation rerun",
+      "command": "node .codex/tests/run-bootstrap-mutation-tests.mjs",
+      "result": "PASS: 10/10 mutations killed, exit 0."
+    },
+    {
+      "method": "Independent scanner family, safe-negative, contract-drift, and binary-oracle matrix",
+      "command": "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-temp/security/scanner-matrix-a6.mjs",
+      "result": "SECURITY FAILURE REPRODUCED: 47/50 expectations passed; contract binary-policy drift and entropy-policy drift produced zero violations, and an unconditional EXTENSION_MAGIC_MISMATCH mutation left all nine filed binary-positive assertions green while breaking the matching-extension safe-negative."
+    },
+    {
+      "method": "Candidate generator negative binding matrix",
+      "command": "node .codex/scripts/generate-bootstrap-candidate.mjs GOV-A6-SEC-PROBE ... <missing|bad-manifest|bad-file-set|bad-file-count scanner report> <reviewer-temp output>",
+      "result": "PASS for fail-closed behavior: missing report, manifest mismatch, file-set mismatch, and file-count mismatch were each rejected with exit 1."
+    },
+    {
+      "method": "Scanner report contract-version and claim-binding negative",
+      "command": "node .codex/scripts/generate-bootstrap-candidate.mjs GOV-A6-SEC-PROBE 2026-07-19T12:06:00+08:00 .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-temp/security/scanner-report-version-999.json .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-temp/security/candidate-from-version-999.json",
+      "result": "FAIL: exit 0. The generator accepted scan_contract_id=UNAPPROVED-SCANNER, scan_contract_version=999, declared_scan_contract_executed=false, global_sensitive_data_absence_verified=true, and trusted_producer_identity_verified=true."
+    },
+    {
+      "method": "Production validateTask contract-version negative",
+      "command": "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-temp/security/version-gate-probe-a6.mjs",
+      "result": "FAIL: the version-999/prohibited-claims scanner report was accepted by validateTask; PROD-01 remained structurally valid and all existing 20 production cases stayed green."
+    }
+  ],
+  "control_results": {
+    "manifest_bound_claim": {
+      "status": "PASS",
+      "details": "The current on-disk 81-file candidate is exactly manifest-bound; every file exists, every SHA256 matches, the canonical file-set hash matches the filed scanner and candidate record, and the filed scanner report itself is a zero-finding v4 report."
+    },
+    "formal_manifest_scanner": {
+      "status": "PASS",
+      "details": "The formal generator independently rescanned all 81 manifest entries and reproduced PASS/0 findings with the exact manifest and file-set identities."
+    },
+    "a5_malformed_percent_masking": {
+      "status": "PASS",
+      "details": "Tolerant bounded percent decoding preserves adjacent encoded content and emits MALFORMED_PERCENT_ENCODING. The A5 masking construction emitted both MALFORMED_PERCENT_ENCODING and BASIC_AUTH through direct and production paths."
+    },
+    "scanner_family_behavior": {
+      "status": "PASS",
+      "details": "The present implementation passed independent positive and safe-negative behavior for JSON Unicode/backslash escape handling, two-pass percent decoding, Basic/Bearer, Cookie/quoted Cookie/Set-Cookie, URL-safe entropy, Windows/UNC/file URI paths, NUL, and all nine binary signatures."
+    },
+    "contract_to_implementation_to_fixture_equality": {
+      "status": "FAIL",
+      "details": "Current values match, but validateDeclaredScanContract does not compare material entropy or binary-policy fields, and CASE-54 therefore does not prove full contract equality."
+    },
+    "candidate_failure_modes": {
+      "status": "FAIL",
+      "details": {
+        "missing_scanner_report": "REJECTED",
+        "manifest_hash_mismatch": "REJECTED",
+        "file_set_mismatch": "REJECTED",
+        "file_count_mismatch": "REJECTED",
+        "scan_contract_policy_version_mismatch": "REJECTED by validateDeclaredScanContract",
+        "bound_scanner_report_id_version_or_claim_mismatch": "ACCEPTED by both generate-bootstrap-candidate and validateTask"
+      }
+    },
+    "extension_magic_mismatch": {
+      "status": "FAIL",
+      "details": "EXTENSION_MAGIC_MISMATCH is declared and implemented, and every signature has a filed mismatch-positive. The filed suite has no matching-extension safe-negative and the mutation suite has no binary/extension mutation; an unsafe unconditional-mismatch regression remains green. Because the class is claimed, this is an in-contract oracle miss."
+    },
+    "claim_boundaries": {
+      "status": "PASS_WITH_LIMITATION",
+      "details": "The filed candidate report correctly limits assurance to INTERNAL_CONSISTENCY_ONLY and makes no global/DLP/OS/Git claim. The blocking defects concern what replacement reports the production candidate binding will accept."
+    }
+  },
+  "scanner_family_matrix": [
+    {
+      "family": "json_unicode_and_backslash_escapes",
+      "positive": {"status": "PASS", "cases": ["Unicode-escaped Authorization reached BASIC_AUTH", "backslash-escaped quoted Authorization reached BEARER_TOKEN"]},
+      "safe_negative": {"status": "PASS", "cases": ["non-Authorization Unicode prefix", "escaped benign scheme"]}
+    },
+    {
+      "family": "bounded_percent_decode",
+      "positive": {"status": "PASS", "cases": ["double-encoded credential URI", "mixed malformed percent plus encoded Basic", "invalid UTF-8 percent sequence"]},
+      "safe_negative": {"status": "PASS", "cases": ["third encoding pass remains outside the declared two-pass bound", "isolated invalid syntax outside the declared mixed/invalid-UTF8 scope"]}
+    },
+    {
+      "family": "basic_and_bearer_headers",
+      "positive": {"status": "PASS", "cases": ["Basic", "Bearer"]},
+      "safe_negative": {"status": "PASS", "cases": ["short Basic", "short Bearer"]}
+    },
+    {
+      "family": "cookie_headers",
+      "positive": {"status": "PASS", "cases": ["Cookie session", "quoted Cookie session", "quoted Set-Cookie auth"]},
+      "safe_negative": {"status": "PASS", "cases": ["theme/locale-only Cookie"]}
+    },
+    {
+      "family": "url_safe_entropy",
+      "positive": {"status": "PASS", "cases": ["mixed URL-safe high-entropy opaque value"]},
+      "safe_negative": {"status": "PASS", "cases": ["64-character hexadecimal SHA256"]}
+    },
+    {
+      "family": "operational_paths",
+      "positive": {"status": "PASS", "cases": ["Windows absolute path", "UNC path", "file URI"]},
+      "safe_negative": {"status": "PASS", "cases": ["relative documentation path"]}
+    },
+    {
+      "family": "nul_and_binary_magic",
+      "positive": {"status": "PASS", "cases": ["NUL", "MZ", "ELF", "ZIP", "PDF", "SQLITE", "PGDMP", "OLE", "PNG", "JPEG", "all nine extension mismatches"]},
+      "safe_negative": {"status": "PASS_IMPLEMENTATION_ONLY", "cases": ["ordinary ASCII", "all nine matching extensions produced no EXTENSION_MAGIC_MISMATCH"], "formal_fixture_status": "FAIL_MISSING_SAFE_NEGATIVES"}
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "A6-SEC-HIGH-001",
+      "severity": "HIGH",
+      "blocks_a6": true,
+      "title": "Candidate binding accepts an unapproved scanner contract version and prohibited scanner claims",
+      "evidence": [
+        ".codex/governance/scan-contract.yaml:3-17",
+        ".codex/scripts/generate-bootstrap-candidate.mjs:31-40",
+        ".codex/scripts/validate-task.mjs:163-180",
+        ".codex/tests/run-bootstrap-production-integration.mjs:57-79",
+        ".codex/tests/run-bootstrap-production-integration.mjs:162-167"
+      ],
+      "failure_condition": "A manifest/file-set-bound scanner report has the expected report_type, PASS result and empty findings but carries a different or absent scan_contract_id/version, denies declared contract execution, or asserts prohibited global-clean/trusted-producer claims.",
+      "reproducible_read_only_check": "Generate a synthetic report with the current manifest/file-set/count, scan_contract_id=UNAPPROVED-SCANNER, scan_contract_version=999, and prohibited claims; pass it to generate-bootstrap-candidate and to the transient validateTask production fixture. Both accepted it, and all 20 existing production cases stayed green.",
+      "observed": "generate-bootstrap-candidate exited 0 and produced a bound BOOTSTRAP_WORKSPACE_CANDIDATE; validateTask kept PROD-01 structurally valid.",
+      "expected": "The scanner report must be rejected unless its exact contract ID/version and allowed/prohibited claims equal the approved v4 contract.",
+      "impact": "A bootstrap candidate can cryptographically bind a report that did not execute the approved scanner contract and that makes claims the contract expressly prohibits.",
+      "required_resolution": "Schema and validate the scanner report itself; require GOV-DETERMINISTIC-SCAN@4, INTERNAL_CONSISTENCY_ONLY, exact allowed claim booleans, exact manifest/file-set/count, PASS, and zero findings in both the candidate generator and validateTask. Add production and mutation negatives for ID, version, missing fields, and prohibited claims."
+    },
+    {
+      "finding_id": "A6-SEC-HIGH-002",
+      "severity": "HIGH",
+      "blocks_a6": true,
+      "title": "The formal contract/binary oracle still does not enforce material policy equality or extension-magic safe-negatives",
+      "evidence": [
+        ".codex/governance/scan-contract.yaml:5-17",
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:34-44",
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:161-190",
+        ".codex/tests/fixture-suite-manifest.json:12-16",
+        ".codex/tests/run-governance-fixtures.mjs:98-111",
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:34-52",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-6/a5-finding-closure-matrix.md:11-12"
+      ],
+      "failure_condition": "The declared binary signature list, extension-magic policy, or entropy policy drifts, or EXTENSION_MAGIC_MISMATCH regresses to fire for every recognized signature regardless of extension.",
+      "reproducible_read_only_check": "Pass copies of the v4 contract with JPEG removed, extension_magic_mismatch changed to ignore, and entropy bounds changed to validateDeclaredScanContract; it returns no violations. In a transient copied module, replace the allowed-extension condition with an unconditional mismatch finding; all nine filed CASE-44..52 predicates remain green while matching-extension safe-negatives fail.",
+      "observed": "CASE-54's equality helper accepted material contract drift, and the complete filed binary-positive set survived the unsafe unconditional-mismatch mutation.",
+      "expected": "Contract, implementation, and fixture identities must be equal for all claimed material fields, and every extension-magic positive must have a formal matching-extension safe-negative protected by mutation testing.",
+      "impact": "The filed oracle can remain fully green while claimed binary/entropy policy changes silently or while the extension-magic classifier begins producing systematic false positives.",
+      "required_resolution": "Make the scanner contract the table-driven source for entropy, signature, and allowed-extension policy or compare every field exactly; add matching-extension safe-negatives for all nine signatures and mutations that remove, invert, and unconditionalize signature/mismatch logic."
+    }
+  ],
+  "a5_closure": [
+    {
+      "finding_id": "A5-SEC-HIGH-001",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:63-115",
+        ".codex/tests/run-governance-fixtures.mjs:80-87",
+        ".codex/tests/run-bootstrap-production-integration.mjs:169-175"
+      ],
+      "reason": "The exact A5 malformed-percent masking construction now preserves and detects the adjacent encoded Basic credential while also emitting MALFORMED_PERCENT_ENCODING; bounded and safe-negative cases passed independently."
+    },
+    {
+      "finding_id": "A5-SEC-HIGH-002",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["A6-SEC-HIGH-001", "A6-SEC-HIGH-002"],
+      "reason": "Current recognizers work, but the formal regression boundary still accepts unapproved scanner report versions/claims, does not compare material contract fields, and lacks extension-magic matching-extension safe-negatives."
+    }
+  ],
+  "limitations": [
+    "The review establishes only internal consistency of the exact workspace candidate and the declared scanner contract; it is not a Git trust anchor.",
+    "No OS sandbox, complete DLP, repository-global scan, or global sensitive-data absence was evaluated or claimed.",
+    "Unknown, encrypted, compressed, fragmented, split, and beyond-contract multiply encoded secrets remain outside the approved contract and are not blockers.",
+    "Product, service, database, seed, migration, and external evidence behavior was not inspected or executed.",
+    "An incidental first Node one-liner failed because the PowerShell native-command boundary stripped nested quotes; the same check was immediately rerun successfully with corrected quoting.",
+    "A nonessential Get-CimInstance process-inspection attempt was denied by Windows permissions; no review conclusion depends on it."
+  ],
+  "outcome": "BLOCKER",
+  "severity_counts": {
+    "BLOCKER": 0,
+    "HIGH": 2,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "conclusion": "The exact 81-file candidate and current scanner implementation are internally consistent, and A5-SEC-HIGH-001 is closed. A5-SEC-HIGH-002 is not closed: production candidate binding accepts scanner reports with an unapproved version and prohibited claims, while the formal contract/binary oracle does not enforce material policy equality or extension-magic safe-negatives. These are proven in-contract misses, so the A6 Security outcome is BLOCKER."
+}

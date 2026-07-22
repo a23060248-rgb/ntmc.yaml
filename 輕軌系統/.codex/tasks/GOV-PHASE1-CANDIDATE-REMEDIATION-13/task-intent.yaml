@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "status": "SCOPE_LOCKED",
+  "title": "Manifest-Referenced Evidence Validation and Candidate Re-baseline",
+  "objective": "Repair the authoritative referenced-evidence production path and generate a new candidate without changing historical review artifacts.",
+  "finding_id": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+  "verified_classification": "CANDIDATE_PRODUCTION_PATH_DEFECT",
+  "scope": {
+    "write": ["implementation-change-manifest.json exact candidate paths", ".codex/tasks/GOV-PHASE1-CANDIDATE-REMEDIATION-13/**"],
+    "exclude": ["frontend/**", "erp-api/**", "db-design/**", "migration/**", ".env*", "collab/**", "Migration 320 implementation plan/handoff", "External Review packages and launch material", "Git"]
+  },
+  "stop_conditions": ["SCOPE_EXPANSION_REQUIRED", "AUTHORITATIVE_MANIFEST_SOURCE_AMBIGUOUS", "EVIDENCE_AUTHORITY_CYCLE_DETECTED", "HISTORICAL_COMPATIBILITY_REQUIRES_FAIL_OPEN", "PRODUCTION_CASE_4_STILL_GO", "NEW_MUTANT_SURVIVED", "REGRESSION_FAILURE_UNEXPLAINED", "NEW_CANDIDATE_BINDING_INCOMPLETE", "CANDIDATE_GENERATOR_MANUAL_OVERRIDE_REQUIRED"]
+}

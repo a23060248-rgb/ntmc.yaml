@@ -1,0 +1,25 @@
+{
+  "review_scope": "bootstrap_rule_governance_mechanism",
+  "reviewer_binding": {
+    "canonical_role_id": "railway-domain-reviewer",
+    "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml",
+    "agent_profile_sha256": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "task_assignment_id": "ASSIGN-RAILWAY-DOMAIN",
+    "reviewer_run_id": "RUN-RAILWAY-DOMAIN",
+    "session_id": "SESSION-RAILWAY-DOMAIN",
+    "formal": true,
+    "execution_mode": "read-only",
+    "implementation_participation": false,
+    "reviewer_identity_assurance": "procedural_role_and_assignment_binding"
+  },
+  "governance_mechanism_outcome": {"outcome": "PASS", "findings": []},
+  "external_decisions": [
+    {
+      "decision_scope": "migration_320",
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "affects_gate": "migration_320_execution",
+      "decision_owner_role": "human-domain-owner",
+      "decision_question": "Resolve proposed Migration 320 candidate Rules before any execution."
+    }
+  ]
+}

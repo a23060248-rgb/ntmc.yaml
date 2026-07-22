@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "residual_risk_ref": ".codex/governance/residual-risks.yaml",
+  "bootstrap_workspace_validator_trusted": false,
+  "git_trust_anchor_present": false,
+  "human_commit_authorization_present": false,
+  "steady_state_enabled": false,
+  "scanner_claim_scope": "exact manifest and declared contract only",
+  "binary_scope": "exact nine signatures with no extension/type inference or binary admission",
+  "schema_scope": "exact Phase 1 schema constructs and local references; not every JSON Schema vocabulary",
+  "os_isolation_claimed": false,
+  "dlp_claimed": false,
+  "global_secret_absence_claimed": false,
+  "staged_exact_claimed": false,
+  "confirmed_domain_authority_claimed": false,
+  "remote_git_control_claimed": false
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "formal_closure_claimed": false,
+  "requires_fresh_a8_security_revalidation": true,
+  "a5_finding": "A5-SEC-HIGH-002",
+  "a6_open_scanner_finding_continued": true,
+  "implemented_evidence": {
+    "governance_fixtures": "68/68",
+    "production_scanner": "72/72",
+    "production_integration": "34/34",
+    "production_mutations": "23/23 killed",
+    "binary_magic_mutations": "45/45 killed",
+    "candidate_scan": "97/97, zero findings"
+  },
+  "narrowed_claim": "The Phase 1 scanner recognizes the declared canonicalization/content classes and exact nine binary magics; extension-to-type inference and exhaustive sensitive-data detection are not claimed.",
+  "a7_security_outcome_preserved": true
+}

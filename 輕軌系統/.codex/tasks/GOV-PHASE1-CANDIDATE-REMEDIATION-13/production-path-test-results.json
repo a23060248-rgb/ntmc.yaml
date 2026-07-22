@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "before_case_4": {
+    "case_id": "CASE-04",
+    "title": "Nested arbitrary-name schema-invalid Security evidence is required by manifest",
+    "referenced_evidence_path": ".codex/tasks/GOV-REM13-BEFORE-CASE-04/nested/session-b6-security-evidence.yaml",
+    "all_bindings_regenerated_before_validation": true,
+    "independent_oracle": {
+      "structural": "INVALID",
+      "gate": "NO-GO",
+      "exit_code": 1
+    },
+    "observed": {
+      "structural": "VALID",
+      "gate": "GO",
+      "exit_code": 0
+    },
+    "defect_reproduced": true,
+    "errors": [],
+    "candidate_reasons": []
+  },
+  "after_case_4": {
+    "case_id": "CASE-04",
+    "title": "Nested schema-invalid Security evidence remains invalid after every hash is regenerated.",
+    "production_entrypoint": "validateTask",
+    "independent_oracle": {
+      "structural": "INVALID",
+      "gate": "NO-GO",
+      "exit_code": 1,
+      "expected_invalid_count": 1,
+      "expected_complete": false
+    },
+    "observed": {
+      "structural": "INVALID",
+      "gate": "NO-GO",
+      "exit_code": 1,
+      "invalid_count": 1,
+      "complete": false
+    },
+    "pass": true,
+    "schema_loader_invoked": true,
+    "referenced_evidence_validation": {
+      "active_manifest_contract": true,
+      "manifest_contract_version": 2,
+      "disposition": "INCOMPLETE",
+      "complete": false,
+      "errors": [
+        "REFERENCED_EVIDENCE SCHEMA_INVALID: .codex/tasks/GOV-BOOTSTRAP-PROD/nested/session-b6-security-evidence.yaml: missing required property limitations",
+        "REFERENCED_EVIDENCE SCHEMA_INVALID: .codex/tasks/GOV-BOOTSTRAP-PROD/nested/session-b6-security-evidence.yaml.scan_contract: must match exactly one oneOf branch; matched 0"
+      ],
+      "declared_count": 3,
+      "required_count": 3,
+      "resolved_count": 3,
+      "validated_count": 2,
+      "invalid_count": 1,
+      "unresolved_count": 1,
+      "duplicate_count": 0,
+      "required_types": [
+        "security_evidence",
+        "test_evidence",
+        "review_findings"
+      ],
+      "satisfied_required_types": [
+        "test_evidence",
+        "review_findings"
+      ],
+      "missing_required_types": [
+        "security_evidence"
+      ],
+      "evidence": [
+        {
+          "artifact_id": "ART-TYPED-TEST",
+          "evidence_id": "ART-TYPED-TEST",
+          "evidence_type": "test_evidence",
+          "path": ".codex/tasks/GOV-BOOTSTRAP-PROD/test-evidence.yaml",
+          "normalized_path": ".codex/tasks/GOV-BOOTSTRAP-PROD/test-evidence.yaml",
+          "required": true,
+          "schema_id": "https://ntmc.local/codex/schemas/test-evidence.schema.json",
+          "declared_schema_id": "https://ntmc.local/codex/schemas/test-evidence.schema.json",
+          "resolved_schema_id": "https://ntmc.local/codex/schemas/test-evidence.schema.json",
+          "schema_path": ".codex/blueprints/schemas/test-evidence.schema.json",
+          "schema_sha256": "FB21FCDC8BF4B22B36480148C21AB2E2BD85A1D9E0E3C27209A94B310F8D9C9C",
+          "sha256": "B0B649356B57E8F703DF0BA927FC3B809657FC4B4576D2ECAA48D7182209219F",
+          "content_sha256": "B0B649356B57E8F703DF0BA927FC3B809657FC4B4576D2ECAA48D7182209219F",
+          "schema_valid": true,
+          "schema_validation": "PASS",
+          "task_binding_valid": true,
+          "referenced_by": [
+            "validateTask",
+            "bootstrap_candidate_review"
+          ],
+          "document": {
+            "schema_version": 1,
+            "task_id": "GOV-BOOTSTRAP-PROD",
+            "evidence_mode": "production-path-integration",
+            "commands": [
+              "validateTask production API"
+            ],
+            "requirements": [
+              {
+                "requirement_id": "EV-PRODUCTION",
+                "semantic_category": "EVIDENCE_INTEGRITY",
+                "criticality": "CRITICAL",
+                "required_for_levels": [
+                  "L3"
+                ],
+                "required_execution_categories": [
+                  "governance-validation"
+                ]
+              }
+            ],
+            "checks": [
+              {
+                "check_id": "CHECK-PRODUCTION",
+                "requirement_id": "EV-PRODUCTION",
+                "result": "PASS",
+                "note": "Production integration evidence passed."
+              }
+            ],
+            "product_tests_run": false,
+            "database_operations_run": false,
+            "limitations": [
+              "No product, database, Git, or external system was used."
+            ]
+          }
+        },
+        {
+          "artifact_id": "ART-TYPED-SECURITY",
+          "evidence_id": "ART-TYPED-SECURITY",
+          "evidence_type": "security_evidence",
+          "path": ".codex/tasks/GOV-BOOTSTRAP-PROD/nested/session-b6-security-evidence.yaml",
+          "normalized_path": ".codex/tasks/GOV-BOOTSTRAP-PROD/nested/session-b6-security-evidence.yaml",
+          "required": true,
+          "schema_id": "https://ntmc.local/codex/schemas/security-evidence.schema.json",
+          "declared_schema_id": "https://ntmc.local/codex/schemas/security-evidence.schema.json",
+          "resolved_schema_id": "https://ntmc.local/codex/schemas/security-evidence.schema.json",
+          "schema_path": ".codex/blueprints/schemas/security-evidence.schema.json",
+          "schema_sha256": "59821D081386D9F379D1E1EFD48536FEE438C5A764BC6586E6C390F4564DE7B4",
+          "sha256": "A09BAF84F1C30B2732F44CC373EBC283B200D59B9D307F2F97B8CF3299FA91DB",
+          "content_sha256": "A09BAF84F1C30B2732F44CC373EBC283B200D59B9D307F2F97B8CF3299FA91DB",
+          "schema_valid": false,
+          "schema_validation": "FAIL",
+          "task_binding_valid": true,
+          "referenced_by": [
+            "validateTask",
+            "bootstrap_candidate_review"
+          ],
+          "document": {
+            "schema_version": 1,
+            "task_id": "GOV-BOOTSTRAP-PROD",
+            "scan_scope": {
+              "governance_artifacts": "DETERMINISTIC_CONTRACT",
+              "external_referenced_evidence": "LIMITED"
+            },
+            "scan_contract": {
+              "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+              "scan_contract_version": 5
+            },
+            "claims": {
+              "no_findings_within_declared_contract": true
+            },
+            "external_evidence": []
+          }
+        },
+        {
+          "artifact_id": "ART-TYPED-REVIEWS",
+          "evidence_id": "ART-TYPED-REVIEWS",
+          "evidence_type": "review_findings",
+          "path": ".codex/tasks/GOV-BOOTSTRAP-PROD/review-findings.yaml",
+          "normalized_path": ".codex/tasks/GOV-BOOTSTRAP-PROD/review-findings.yaml",
+          "required": true,
+          "schema_id": "https://ntmc.local/codex/schemas/review-findings.schema.json",
+          "declared_schema_id": "https://ntmc.local/codex/schemas/review-findings.schema.json",
+          "resolved_schema_id": "https://ntmc.local/codex/schemas/review-findings.schema.json",
+          "schema_path": ".codex/blueprints/schemas/review-findings.schema.json",
+          "schema_sha256": "3496820A82565B4861084FC7CB1EF694FD0B31FF57F33D734123DFE739E82809",
+          "sha256": "FFD5B2CCA4EE6673D76343C612D6E655ED3476B13AF2CD9022596B23F3218BFE",
+          "content_sha256": "FFD5B2CCA4EE6673D76343C612D6E655ED3476B13AF2CD9022596B23F3218BFE",
+          "schema_valid": true,
+          "schema_validation": "PASS",
+          "task_binding_valid": true,
+          "referenced_by": [
+            "validateTask",
+            "bootstrap_candidate_review"
+          ],
+          "document": {
+            "schema_version": 1,
+            "task_id": "GOV-BOOTSTRAP-PROD",
+            "review_context": "Synthetic production integration reviews only.",
+            "reviews": [
+              {
+                "type": "code",
+                "reviewer": "code-reviewer",
+                "formal": true,
+                "outcome": "PASS",
+                "reviewer_run_id": "RUN-CODE-UNIQUE",
+                "session_id": "SESSION-CODE-UNIQUE",
+                "finding_refs": [
+                  "NO-CODE-FINDINGS"
+                ],
+                "conditions": [],
+                "decisions_required": []
+              },
+              {
+                "type": "security",
+                "reviewer": "security-reviewer",
+                "formal": true,
+                "outcome": "PASS",
+                "reviewer_run_id": "RUN-SECURITY-UNIQUE",
+                "session_id": "SESSION-SECURITY-UNIQUE",
+                "finding_refs": [
+                  "NO-SECURITY-FINDINGS"
+                ],
+                "conditions": [],
+                "decisions_required": []
+              },
+              {
+                "type": "railway-domain",
+                "reviewer": "railway-domain-reviewer",
+                "formal": true,
+                "did_not_participate_in_implementation": true,
+                "outcome": "PASS",
+                "reviewer_run_id": "RUN-DOMAIN-UNIQUE",
+                "session_id": "SESSION-DOMAIN-UNIQUE",
+                "reviewer_binding": {
+                  "canonical_role_id": "railway-domain-reviewer",
+                  "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml",
+                  "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+                  "task_assignment_id": "ASSIGN-RAILWAY-DOMAIN",
+                  "reviewer_run_id": "RUN-DOMAIN-UNIQUE",
+                  "session_id": "SESSION-DOMAIN-UNIQUE",
+                  "formal": true,
+                  "execution_mode": "read-only",
+                  "implementation_participation": false,
+                  "reviewer_identity_assurance": "procedural_role_and_assignment_binding"
+                },
+                "review_scope": "bootstrap_rule_governance_mechanism",
+                "governance_mechanism_outcome": {
+                  "outcome": "PASS",
+                  "findings": []
+                },
+                "external_decisions": [
+                  {
+                    "decision_scope": "migration_320",
+                    "outcome": "NEEDS_HUMAN_DECISION",
+                    "affects_gate": "migration_320_execution",
+                    "decision_owner_role": "human-domain-owner",
+                    "decision_question": "Resolve the proposed Migration 320 candidate Rules before execution."
+                  }
+                ],
+                "finding_refs": [
+                  "NO-MECHANISM-FINDINGS"
+                ],
+                "conditions": [],
+                "decisions_required": []
+              }
+            ],
+            "calculated_gate": "GO",
+            "overall_gate": "GO",
+            "bootstrap_candidate_review_gate": "GO",
+            "eligible_to_start_session_b": true,
+            "bootstrap_human_commit_gate": "NO-GO",
+            "steady_state_preparation_gate": "DISABLED",
+            "steady_state_execution_gate": "DISABLED",
+            "migration_320_execution_gate": "NO-GO",
+            "blockers": [],
+            "conditions": []
+          }
+        }
+      ]
+    },
+    "errors": [
+      "REFERENCED_EVIDENCE SCHEMA_INVALID: .codex/tasks/GOV-BOOTSTRAP-PROD/nested/session-b6-security-evidence.yaml: missing required property limitations",
+      "REFERENCED_EVIDENCE SCHEMA_INVALID: .codex/tasks/GOV-BOOTSTRAP-PROD/nested/session-b6-security-evidence.yaml.scan_contract: must match exactly one oneOf branch; matched 0",
+      "SECURITY_EVIDENCE declared scanner contract execution must be true.",
+      "SECURITY_EVIDENCE manifest hash mismatch.",
+      "SECURITY_EVIDENCE scanned file set does not match the manifest.",
+      "SECURITY_EVIDENCE scanner binding contract_sha256 mismatch.",
+      "SECURITY_EVIDENCE scanner binding finding_registry_sha256 mismatch.",
+      "SECURITY_EVIDENCE scanner binding canonicalization_config_sha256 mismatch.",
+      "SECURITY_EVIDENCE scanner binding binary_oracle_config_sha256 mismatch.",
+      "SECURITY_EVIDENCE scanner binding binary_magic_registry_sha256 mismatch.",
+      "SECURITY_EVIDENCE scanner binding schema_set_sha256 mismatch.",
+      "GATE_PROJECTION calculated_gate=GO disagrees with authoritative projection NO-GO.",
+      "GATE_PROJECTION overall_gate=GO disagrees with authoritative projection NO-GO.",
+      "GATE_PROJECTION bootstrap_candidate_review_gate=GO disagrees with authoritative projection NO-GO.",
+      "GATE_PROJECTION eligible_to_start_session_b=true disagrees with authoritative projection false.",
+      "GATE final summary disagrees with NO-GO."
+    ]
+  },
+  "suite": "./production-path-after-fix.json",
+  "result": "PASS"
+}

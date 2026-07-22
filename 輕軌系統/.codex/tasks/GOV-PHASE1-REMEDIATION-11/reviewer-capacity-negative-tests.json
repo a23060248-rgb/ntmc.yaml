@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "suite": "reviewer-capacity-and-dispatch",
+  "total": 7,
+  "passed": 7,
+  "failed": 0,
+  "cases": [
+    {
+      "case_id": "20",
+      "description": "Dispatch five concurrently over capacity.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "21",
+      "description": "QA capacity not reserved.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "22",
+      "description": "QA assignment missing.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "23",
+      "description": "QA shares another Reviewer session.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "24",
+      "description": "QA starts before Wave 1 completes.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "25",
+      "description": "Summary claims five PASS without QA execution.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "29",
+      "description": "Two-wave dispatch reserves five fresh Reviewer slots including QA.",
+      "expected": "PASS",
+      "actual": "PASS",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

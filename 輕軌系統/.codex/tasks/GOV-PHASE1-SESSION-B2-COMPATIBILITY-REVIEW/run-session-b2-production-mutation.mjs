@@ -1,0 +1,20 @@
+import {spawnSync} from "node:child_process";
+import {writeFile} from "node:fs/promises";
+import path from "node:path";
+import {fileURLToPath} from "node:url";
+import {sha256} from "../../scripts/lib/governance/typed-proof.mjs";
+
+const taskDir=path.dirname(fileURLToPath(import.meta.url));
+const root=path.resolve(taskDir,"../../..");
+const startedAt=new Date().toISOString();
+const child=spawnSync(process.execPath,[".codex/tests/run-bootstrap-mutation-tests.mjs"],{cwd:root,encoding:"utf8",timeout:30*60*1000,maxBuffer:128*1024*1024});
+if(child.error) throw child.error;
+const line=child.stdout.split(/\r?\n/).find((item)=>item.startsWith("BOOTSTRAP_MUTATION_TESTS "));
+if(!line) throw new Error(`MUTATION_REPORT_MISSING:${child.stderr}`);
+const raw=JSON.parse(line.slice("BOOTSTRAP_MUTATION_TESTS ".length));
+const ids=raw.results.map((i)=>i.mutation_id), duplicateIds=ids.filter((id,index)=>ids.indexOf(id)!==index);
+const completedAt=new Date().toISOString();
+const payload={schema_version:1,task_id:"GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",suite_id:"PHASE1-BOOTSTRAP-PRODUCTION-MUTATIONS",runner_reference:".codex/tests/run-bootstrap-mutation-tests.mjs",started_at:startedAt,completed_at:completedAt,execution_mode:"single_full_production_run",sharding_supported:false,sharding_used:false,exit_code:child.status,expected_total:31,actual_total:raw.total,killed:raw.killed,survived:raw.survived,duplicate_mutation_ids:[...new Set(duplicateIds)],timeouts:0,production_entrypoints:raw.production_entrypoints,mutations:raw.results,completion_payload_sha256:sha256(Buffer.from(line,"utf8")),result:child.status===0&&raw.total===31&&raw.killed===31&&raw.survived===0&&duplicateIds.length===0?"PASS":"FAIL"};
+await writeFile(path.join(taskDir,"production-mutation-rerun.json"),`${JSON.stringify(payload,null,2)}\n`,{encoding:"utf8",flag:"w"});
+console.log(JSON.stringify({result:payload.result,total:payload.actual_total,killed:payload.killed,survived:payload.survived,exit_code:payload.exit_code,started_at:startedAt,completed_at:completedAt}));
+if(payload.result!=="PASS") process.exit(1);

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "finding_id": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+  "verified_classification": "CANDIDATE_PRODUCTION_PATH_DEFECT",
+  "severity": "HIGH",
+  "status": "OPEN",
+  "root_cause": {"validation_discovery_model": "fixed_filename_or_task_root_only", "referenced_nested_evidence_schema_validation": "missing", "manifest_hash_integrity": "present", "semantic_schema_validation": "bypassable", "gate_fail_closed": false},
+  "security_effect": {"schema_invalid_required_evidence_can_be_rehashed": true, "authoritative_validator_can_return_go": true, "exit_zero_possible": true},
+  "candidate_change_required": true,
+  "distinctions": ["Hash integrity is not Schema validity.", "Schema validity is not Evidence authority.", "Evidence authority is not Gate eligibility."]
+}

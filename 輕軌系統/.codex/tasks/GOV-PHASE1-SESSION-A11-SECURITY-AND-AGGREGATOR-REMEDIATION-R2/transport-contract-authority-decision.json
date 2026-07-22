@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "authoritative_contract": "manual-transport-attestation-r2.schema.json",
+  "supersedes_r1_five_field_contract": true,
+  "raw_wrapper_byte_hash_rejected_as_authority": true,
+  "authoritative_wrapper_hash": "wrapper_canonical_sha256 = SHA256(UTF8(RFC8785_JCS(original Reviewer wrapper)))",
+  "payload_core_hash": "Reviewer-declared payload_core_sha256 independently recomputed from RFC8785 JCS(payload_core)",
+  "payload_modified_semantics": "The parsed Reviewer wrapper content is preserved without semantic modification; formatting changes are neutralized by JCS.",
+  "transported_by_human_required": true,
+  "additional_properties_forbidden": true,
+  "result": "UNAMBIGUOUS_R2_AUTHORITY"
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer_run_id": "CR-A-019F6BCD-0001",
+    "session_id": "CRS-A-019F6BCD-1001",
+    "implementer_session_id": "phase1-mvp-root-task",
+    "mode": "read-only",
+    "review_scope": "Phase 1 governance gate determinism, schemas, validator behavior only"
+  },
+  "outcome": "BLOCKER",
+  "findings": [
+    {
+      "id": "CR-A-BLOCKER-001",
+      "severity": "BLOCKER",
+      "location": ".codex/tests/run-governance-fixtures.mjs:86",
+      "evidence": "The governance fixture command completed with total=21 passed=19 failed=2. Case 06 expected exit 2 but returned exit 1 with 27 structural errors; case 07 at line 87 expected exit 2 but returned exit 1 with 3 structural errors. The suite itself therefore exits 1 at line 123.",
+      "reproduction": "From the product root run: node .codex/tests/run-governance-fixtures.mjs. Observe FAIL 06, FAIL 07, and GOV​ERNANCE_FIXTURES total=21 passed=19 failed=2 (the zero-width character in this evidence label is descriptive only; the actual command output label is GOVERNANCE_FIXTURES).",
+      "impact": "The checked-in deterministic governance regression suite is red, so Phase 1 cannot claim a passing formal governance gate baseline even though both cases fail closed. The distinction between a valid policy NO-GO (exit 2) and malformed evidence (exit 1) is not regression-proven for reviewer-session collision and pending approval."
+    }
+  ],
+  "checks": {
+    "program_recomputes_gate": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:294 computes GO only when both structural errors and gate reasons are empty; lines 313 and 319-323 map the computed result to the process exit."
+    },
+    "manual_overall_calculated_final_summary_task_graph_cannot_grant_go": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:294-310 recomputes the gate before comparing declared overall/calculated/final-summary values and derives task-graph solely from traceability. Fixture 17 rejects a forged manual gate with exit 1. A stale graph is rejected, not used as a gate input."
+    },
+    "blocker_dominance": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:251-257 and 275 convert review BLOCKER and top-level blockers into NO-GO reasons. Fixture 02 returned exit 2 and NO-GO."
+    },
+    "missing_reviewer_run_session_evidence_hash_rule_approval_fail_closed": {
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "Fixtures 04, 08, 10, 20 and 21 fail closed; .codex/scripts/validate-task.mjs:261-281 enforces required review identity, session independence, and final approval. The live GOV-M320-DRYRUN run reported missing formal reviewer identities and pending final approval and returned exit 2. Condition: fixture 06 and 07 exit-class assertions are failing as recorded in CR-A-BLOCKER-001."
+    },
+    "l1_l2_l3_minimums_validator_decided": {
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": ".codex/scripts/validate-task.mjs:241-247 unions declared reviews with automatic level-triggered reviews; lines 265-281 add L3 identity, session, and approval requirements. L3 behavior is exercised extensively, while the checked-in suite does not contain complete positive/negative L1 and L2 task fixtures."
+    },
+    "ten_schemas_applied": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:14-25 maps nine task artifacts to schemas; validateTask loads and applies them before gating, and loadRuleRegistry applies rule.schema.json to every Meta and Domain Rule. This totals the ten supplied schemas."
+    },
+    "empty_arrays_unknown_enum_placeholders_rejected": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/lib/schema-validator.mjs:22 and 29-32 enforce enums and minItems; review-findings.schema.json:6 requires at least one review; .codex/scripts/validate-task.mjs:160-174 rejects TBD, TODO, PLACEHOLDER, and <TASK-ID>. Fixtures 09, 18, 19, and 21 returned exit 1."
+    },
+    "exit_codes_0_1_2": {
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": ".codex/scripts/validate-task.mjs:313 defines 0=valid GO, 1=structural error, 2=valid NO-GO. Fixtures demonstrate all three and the live dry-run returned structural=VALID exit=2. Condition: the full regression suite exits 1 because cases 06 and 07 disagree with their expected class."
+    },
+    "create_task_draft_no_go": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/create-task.mjs:96-104 creates DRAFT evidence, non-formal unresolved reviews, pending L3 approval, NO-GO summaries, and reports status=DRAFT calculated_gate=NO-GO."
+    },
+    "task_graph_cannot_reverse_gate": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:284-313 validates traceability, computes the gate first, and only then compares or writes the deterministic graph; graph content is never read as a gate-authority input."
+    },
+    "gov_m320_live_validation": {
+      "result": "PASS",
+      "evidence": "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN returned calculated_gate=NO-GO structural=VALID exit=2 with candidate Rule, failed evidence, compatibility BLOCKER, missing formal reviewer identity, open conditions/blockers, and pending final approval reasons."
+    },
+    "governance_fixture_suite": {
+      "result": "FAIL",
+      "evidence": "node .codex/tests/run-governance-fixtures.mjs returned total=21 passed=19 failed=2 and process exit 1."
+    }
+  },
+  "limitations": [
+    "Review was restricted to AGENTS.md, .codex/**, .agents/**, GOV-M320-DRYRUN, and the evidence paths declared by its manifest; no .env*, frontend, erp-api, db-design, migration, service, product test, database, or Git mutation was performed.",
+    "No source file was modified and no task graph was rewritten. Governance fixtures used their own temporary tree and cleaned it up.",
+    "The checked-in fixture suite has comprehensive L3 coverage but does not provide complete end-to-end L1 and L2 positive/negative task fixtures, so their minimum-level behavior was assessed statically.",
+    "The artifact outcome is BLOCKER because a formal baseline suite is failing, not because fail-closed behavior was bypassed; both failed cases returned the stricter structural-error exit 1."
+  ]
+}

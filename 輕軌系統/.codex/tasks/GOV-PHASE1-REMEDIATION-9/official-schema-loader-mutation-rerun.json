@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "command": "node .codex/tests/run-official-schema-loader-mutations.mjs",
+  "total": 6,
+  "killed": 6,
+  "survived": 0,
+  "mutation_ids": ["LOADER-MUT-01-ALTERNATE-IMPORT", "LOADER-MUT-02-DISABLE-MANIFEST-BINDING", "LOADER-MUT-03-FALLBACK-SCHEMA", "LOADER-MUT-04-SKIP-TYPED-VALIDATION", "LOADER-MUT-05-SKIP-SET-HASH", "LOADER-MUT-06-FALSE-EXECUTION-REPORT"],
+  "transient_source_values_only": true,
+  "result": "PASS"
+}

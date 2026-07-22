@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "evidence_type": "session-b-security-integrity-evidence",
+  "candidate_binding": {
+    "manifest_path": ".codex/governance/governance-commit-manifest.yaml",
+    "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "file_count": 103
+  },
+  "scanner_binding": {
+    "source_path": ".codex/governance/scan-contract.yaml",
+    "contract_id": "GOV-DETERMINISTIC-SCAN",
+    "contract_version": 5,
+    "contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C",
+    "candidate_record_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C",
+    "scanner_report_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C",
+    "derived_from_production_contract": true,
+    "manual_version_override_allowed": false
+  },
+  "security_read_scope_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-read-scope-final.json",
+  "security_read_scope_sha256": "54F45DD89278A1E47597E6E3E36D64D9BDAA900E3F5B9A7FE26F90597F64724E",
+  "required_chain_nodes": [
+    "candidate_manifest",
+    "candidate_record",
+    "scanner_report",
+    "scanner_contract",
+    "finding_registry",
+    "canonicalization_config",
+    "binary_oracle_config",
+    "binary_magic_registry"
+  ],
+  "clean_context_requirements": {
+    "fresh_session": true,
+    "implementation_conversation_received": false,
+    "read_only": true,
+    "initial_read_must_be_scope_file": true,
+    "allowed_scope_only": true,
+    "forbidden_path_access_detected": false,
+    "allowed_write_paths": []
+  },
+  "claim_boundary": {
+    "allowed": [
+      "deterministic_declared_contract",
+      "byte_integrity",
+      "procedural_clean_context"
+    ],
+    "prohibited": [
+      "FULL",
+      "complete DLP",
+      "all secrets absent",
+      "cryptographically proven clean context",
+      "producer identity unforgeable"
+    ]
+  },
+  "result": "PASS_AS_FROZEN_PRE_REVIEW_INPUT"
+}

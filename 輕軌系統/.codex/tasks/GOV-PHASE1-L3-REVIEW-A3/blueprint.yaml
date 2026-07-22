@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-L3-REVIEW-A3",
+  "task_id": "GOV-PHASE1-L3-REVIEW-A3",
+  "risk": {"level": "L3", "reasons": ["Independent formal review controls eligibility for a later Session B."]},
+  "scope": {"include": ["read-only governance candidate and historical integrity evidence", "A3 review records"], "exclude": ["product code", "database operations", "Git mutation", "Session B"], "product_changes_allowed": false, "database_operations_allowed": false},
+  "allowed_paths": {"read": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"], "write": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/**"]},
+  "agent_assignments": [
+    {"role": "code-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"], "allowed_write_paths": []},
+    {"role": "security-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"], "allowed_write_paths": []},
+    {"role": "railway-domain-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**", "docs/migration-320-*", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md"], "allowed_write_paths": []}
+  ],
+  "applicable_rules": ["GOV-SCOPE-001", "REV-INDEP-001", "REV-L3-001", "EVD-HASH-001"],
+  "candidate_rules": [],
+  "required_agents": ["code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "execution": {"parallel_groups": [["code-reviewer", "security-reviewer", "railway-domain-reviewer"]], "sequential_steps": ["Capture exact before baseline.", "Run three independent read-only Reviews.", "Rerun deterministic fixtures and integrity checks.", "Capture after baseline and compute gate."]},
+  "evidence_required": ["ART-A3-BASELINE-BEFORE", "ART-A3-FIXTURE", "ART-A3-CONCURRENCY", "ART-A3-MANIFEST", "ART-A3-HISTORICAL", "ART-A3-BASELINE-AFTER"],
+  "rollback_restore": {"required": false, "evidence_or_reason": "Not applicable to a read-only Review with only local A3 records written."},
+  "human_approval": {"required": true, "approver_roles": ["human-governance-owner"]},
+  "stop_conditions": ["Do not rewrite Reviewer outcomes, start Session B, or claim Governance Commit GO."]
+}

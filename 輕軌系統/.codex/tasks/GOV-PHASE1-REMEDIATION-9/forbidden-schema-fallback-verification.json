@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "official_runner_ref": ".codex/tests/run-governance-fixtures.mjs",
+  "source_contract": {"official_import_count": 1, "official_call_count": 1, "typed_validation_count": 1, "schema_set_hash_check_count": 1, "production_loader_report_count": 1},
+  "forbidden_fragments_absent": ["requireManifestBinding: false", "fixtureSchemaSet", "inlineRailwaySchema", "fallbackSchema", "cachedSchemaSet", "loadFixtureSchemas"],
+  "mutation_oracles": ["alternate import", "manifest-binding downgrade", "fallback Schema", "skip typed validation", "skip Schema-set hash", "false production-loader report"],
+  "result": "PASS",
+  "limitations": ["This is mutable bootstrap source-contract evidence and is not a cryptographic trust anchor."]
+}

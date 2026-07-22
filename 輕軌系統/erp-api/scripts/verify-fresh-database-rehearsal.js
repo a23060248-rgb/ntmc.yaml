@@ -14,6 +14,11 @@ const apiRoot = path.resolve(__dirname, "..");
 const systemRoot = path.resolve(apiRoot, "..");
 const dbRoot = path.join(systemRoot, "db-design");
 const rehearsalRoot = path.join(systemRoot, ".local-rehearsal");
+const migrationManifest = JSON.parse(
+  fs.readFileSync(path.join(dbRoot, "migration-manifest.json"), "utf8"),
+);
+const expectedMigrationCount = migrationManifest.migrations.length;
+const expectedLedgerRows = expectedMigrationCount + 1;
 const timestamp = new Date().toISOString().replace(/[-:TZ.]/g, "").slice(0, 14);
 const freshName = `ntmc_erp_rehearsal_fresh_${timestamp}`;
 const restoreName = `ntmc_erp_rehearsal_restore_${timestamp}`;
@@ -88,6 +93,25 @@ async function querySummary(database) {
   }
 }
 
+async function queryMigrationLedger(database) {
+  const client = new Client({ connectionString: database });
+  await client.connect();
+  try {
+    const result = await client.query(
+      `SELECT migration_id,
+              sequence_no,
+              file_name,
+              file_sha256,
+              migration_status
+         FROM schema_migration
+        ORDER BY sequence_no, migration_id`,
+    );
+    return result.rows;
+  } finally {
+    await client.end();
+  }
+}
+
 async function main() {
   const sourceUrl = process.env.DATABASE_URL;
   if (!sourceUrl) throw new Error("DATABASE_URL is required");
@@ -127,7 +151,7 @@ async function main() {
     ],
     { cwd: apiRoot, env: runnerEnv },
   );
-  assert.match(firstMigrationRun, /"ledgerRows": 27/);
+  assert.match(firstMigrationRun, new RegExp(`"ledgerRows": ${expectedLedgerRows}`));
 
   const seedFiles = [
     "seed-reference-data.sql",
@@ -136,10 +160,18 @@ async function main() {
     "material-import-tamhai.sql",
     "import-master-data.sql",
     "import-pm-templates.sql",
-    "seed-pm-p1-attachments.sql",
-    "seed-rehearsal-integration.sql",
   ];
   seedFiles.forEach((file) => runSqlFile(freshUrl, file));
+  run(
+    process.execPath,
+    [path.join(apiRoot, "scripts", "seed-p1-check-items-rehearsal.js")],
+    { cwd: apiRoot, env: runnerEnv },
+  );
+  [
+    "seed-pm-p1-attachments.sql",
+    "seed-publish-pm-templates.sql",
+    "seed-rehearsal-integration.sql",
+  ].forEach((file) => runSqlFile(freshUrl, file));
   runSqlFile(freshUrl, "verify-rehearsal-integration.sql");
 
   const secondMigrationRun = run(
@@ -147,12 +179,14 @@ async function main() {
     [path.join(apiRoot, "scripts", "apply-rehearsal-migrations.js"), "--apply-missing"],
     { cwd: apiRoot, env: runnerEnv },
   );
-  assert.match(secondMigrationRun, /"verified": 26/);
+  assert.match(secondMigrationRun, new RegExp(`"verified": ${expectedMigrationCount}`));
   assert.match(secondMigrationRun, /"applied": 0/);
 
   const freshSummary = await querySummary(freshUrl);
-  assert.equal(freshSummary.ledger_rows, 27);
-  assert.equal(freshSummary.applied_rows + freshSummary.baselined_rows, 27);
+  const freshLedger = await queryMigrationLedger(freshUrl);
+  assert.equal(freshSummary.ledger_rows, expectedLedgerRows);
+  assert.equal(freshLedger.length, expectedLedgerRows);
+  assert.equal(freshSummary.applied_rows + freshSummary.baselined_rows, expectedLedgerRows);
   assert.equal(freshSummary.equipment_alias, "equipment_alias");
   assert.equal(freshSummary.equipment_alias_view, "v_equipment_alias");
   assert.equal(freshSummary.rehearsal_users, 6);
@@ -225,7 +259,9 @@ async function main() {
     "--dbname", restoreUrl, "--no-owner", "--no-privileges", "--exit-on-error", backupPath,
   ]);
   const restoreSummary = await querySummary(restoreUrl);
+  const restoreLedger = await queryMigrationLedger(restoreUrl);
   assert.deepEqual(restoreSummary, freshSummary);
+  assert.deepEqual(restoreLedger, freshLedger);
 
   console.log(JSON.stringify({
     ok: true,
@@ -237,9 +273,11 @@ async function main() {
       applied: freshSummary.applied_rows,
       baselined: freshSummary.baselined_rows,
     },
-    migrationSecondRun: { verified: 26, applied: 0 },
+    migrationSecondRun: { verified: expectedMigrationCount, applied: 0 },
     freshSummary,
     restoreMatchesFresh: true,
+    ledgerMatchesFresh: true,
+    ledgerRows: freshLedger.length,
     backup: { path: backupPath, bytes: backup.size },
     endpoints: endpointResults,
   }, null, 2));

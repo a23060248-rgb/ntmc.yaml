@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "git_operations_run": false,
+  "a8_started": false,
+  "session_b_started": false,
+  "suites": [
+    {
+      "suite_id": "governance-fixtures",
+      "output_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-8/fixture-rerun.json",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true
+    },
+    {
+      "suite_id": "fixture-concurrency",
+      "output_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-8/concurrency-regression.json",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true
+    },
+    {
+      "suite_id": "production-scanner",
+      "output_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-8/production-scanner-rerun.json",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true
+    },
+    {
+      "suite_id": "production-integration",
+      "output_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-8/production-integration-rerun.json",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true
+    },
+    {
+      "suite_id": "production-mutations",
+      "output_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-8/mutation-test-rerun.json",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true
+    },
+    {
+      "suite_id": "binary-magic-mutations",
+      "output_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-8/binary-magic-mutation-rerun.json",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true
+    },
+    {
+      "suite_id": "migration-320-validator",
+      "output_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-8/migration-320-validator-rerun.json",
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "pass": true
+    }
+  ],
+  "passed": true
+}

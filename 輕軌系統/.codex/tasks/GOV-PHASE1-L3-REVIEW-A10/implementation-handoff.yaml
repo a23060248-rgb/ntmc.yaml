@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "producer": "codex-root-review-orchestrator",
+  "actor_role": "architect",
+  "agent_session_ref": "A10-ROOT-SESSION-D3CE2472-F0BE-4E2E-AA46-E7C6D63F2546",
+  "started_at": "2026-07-20T01:01:27+08:00",
+  "changed_files": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/**"],
+  "commands": ["node .codex/tasks/GOV-PHASE1-L3-REVIEW-A10/generate-security-read-scope.mjs", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A10/capture-review-baseline.mjs review-baseline-before.json", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A10/capture-review-baseline.mjs review-baseline-after.json", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A10/compare-review-baselines.mjs", "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN --target-gate migration-320-execution", "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-L3-REVIEW-A10 --target-gate bootstrap-candidate-review"],
+  "evidence_refs": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/review-baseline-before.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/code-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/railway-domain-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/baseline-comparison.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/migration-320-integrity.json"],
+  "unverified": [],
+  "residual_risks": ["Bootstrap workspace evidence remains INTERNAL_CONSISTENCY_ONLY.", "Bootstrap Human Commit, Session B and Migration 320 execution remain separately human-controlled and unauthorized."],
+  "next_role": "human-governance-owner"
+}

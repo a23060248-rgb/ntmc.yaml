@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "manifest_contract_version": 2,
+  "source_entry": {"artifact_class": "source", "required_evidence_fields": []},
+  "evidence_entry": {"artifact_class": "evidence", "required_fields": ["evidence_type", "required", "schema_id", "referenced_by"]},
+  "authoritative_direction": "manifest_to_evidence",
+  "bidirectional_checks": ["Every Gate-required evidence ID is a manifest evidence entry.", "Every present manifest evidence entry is parsed and schema validated, including optional entries.", "Every declared consumer has an exact manifest back-reference."],
+  "legacy_active_gate_result": "HISTORICAL_FORMAT_UNSUPPORTED_FOR_ACTIVE_GATE",
+  "filename_inference": "FORBIDDEN"
+}

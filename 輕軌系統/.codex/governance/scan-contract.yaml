@@ -1,0 +1,35 @@
+{
+  "schema_version": 4,
+  "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+  "scan_contract_version": 5,
+  "assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "finding_registry_ref": ".codex/governance/scanner-finding-registry.yaml",
+  "canonicalization_config_ref": ".codex/governance/scanner-canonicalization-config.yaml",
+  "binary_oracle_config_ref": ".codex/governance/scanner-binary-oracle.yaml",
+  "binary_magic_registry_ref": ".codex/governance/bootstrap-binary-magic-registry.yaml",
+  "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+  "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+  "evidence_schema_registry_ref": ".codex/governance/evidence-schema-registry.yaml",
+  "evidence_schema_registry_sha256": "2744036D841174BE94BF1D05F6EA38C2B2C410E0EB5520D3D3723135E674E142",
+  "referenced_evidence_policy_ref": ".codex/governance/referenced-evidence-validation-policy.yaml",
+  "referenced_evidence_policy_sha256": "D9406A5663164027FAA0FC762C8B2DBBAB29B0F27AEAB7310F79ED9A88F30ED5",
+  "implementation_matrix_ref": ".codex/governance/scanner-contract-matrix.yaml",
+  "production_case_manifest_ref": ".codex/tests/scanner-production-case-manifest.json",
+  "candidate_text_extensions": [".md", ".yaml", ".yml", ".json", ".toml", ".mjs", ".js"],
+  "finding_classes": [
+    "PRIVATE_KEY", "CREDENTIAL_URI", "BEARER_TOKEN", "BASIC_AUTH", "COOKIE_HEADER", "SESSION_COOKIE", "JWT", "KNOWN_TOKEN", "SECRET_VALUE", "CREDENTIAL_FILE", "HIGH_ENTROPY_OPAQUE_VALUE", "MALFORMED_PERCENT_ENCODING",
+    "WINDOWS_ABSOLUTE_PATH", "UNC_PATH", "FILE_URI", "UNIX_LOCAL_PATH", "HOME_EXPANSION", "DUMP_REFERENCE",
+    "DISALLOWED_FILE_EXTENSION", "NUL_BYTE_DETECTED", "KNOWN_BINARY_MAGIC_DETECTED", "NON_UTF8_TEXT", "BINARY_CONTENT_RATIO_EXCEEDED", "MANIFEST_HASH_MISMATCH"
+  ],
+  "evidence_claims": {
+    "required_true": ["declared_contract_executed"],
+    "derived": ["no_findings_within_declared_contract"],
+    "prohibited": ["globally_clean", "all_secrets_absent", "trusted_producer_identity", "complete_sensitive_data_detection", "DLP", "OS_isolation"]
+  },
+  "limitations": [
+    "Pattern scanning cannot prove absence of every secret.",
+    "High entropy does not prove a value is a secret.",
+    "Compressed, encrypted, fragmented, unknown, or beyond-contract multiply encoded content can evade detection.",
+    "This scanner is not DLP, producer identity, Git authority, or OS isolation."
+  ]
+}

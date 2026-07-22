@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "DRAFT",
+  "task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "title": "Session B6 Four-Reviewer Compatibility Review with Deterministic QA",
+  "task_type": "review",
+  "objective": "Future separately authorized review of the unchanged Phase 1.9 candidate using four read-only payload-only Reviewers and non-Agent deterministic QA.",
+  "business_reason": "Revalidate four open B2 findings after R12 task-local dispatch protocol preparation.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/**",
+      "Exact read-only candidate and frozen governance evidence"
+    ],
+    "exclude": [
+      "candidate mutation",
+      "human approval during review",
+      "Git/product/DB/migration operations"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Four unique read-only payload-only Reviewer sessions complete sequentially.",
+    "All payload and transport hashes validate.",
+    "Deterministic QA executes after four frozen payloads.",
+    "Candidate remains 103/103 unchanged."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "NOT AUTHORIZED; R12 prepares inputs only."
+}

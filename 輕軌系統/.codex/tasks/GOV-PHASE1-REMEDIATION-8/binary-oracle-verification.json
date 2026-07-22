@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "registry_ref": ".codex/governance/bootstrap-binary-magic-registry.yaml",
+  "registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+  "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+  "magic_oracles": [
+    {"magic_id":"MZ","positive_fixture_id":"SCAN-MAGIC-MZ-P","safe_negative_fixture_id":"SCAN-MAGIC-MZ-N","positive_pass":true,"safe_negative_pass":true},
+    {"magic_id":"ELF","positive_fixture_id":"SCAN-MAGIC-ELF-P","safe_negative_fixture_id":"SCAN-MAGIC-ELF-N","positive_pass":true,"safe_negative_pass":true},
+    {"magic_id":"ZIP","positive_fixture_id":"SCAN-MAGIC-ZIP-P","safe_negative_fixture_id":"SCAN-MAGIC-ZIP-N","positive_pass":true,"safe_negative_pass":true},
+    {"magic_id":"PDF","positive_fixture_id":"SCAN-MAGIC-PDF-P","safe_negative_fixture_id":"SCAN-MAGIC-PDF-N","positive_pass":true,"safe_negative_pass":true},
+    {"magic_id":"SQLite","positive_fixture_id":"SCAN-MAGIC-SQLITE-P","safe_negative_fixture_id":"SCAN-MAGIC-SQLITE-N","positive_pass":true,"safe_negative_pass":true},
+    {"magic_id":"PGDMP","positive_fixture_id":"SCAN-MAGIC-PGDMP-P","safe_negative_fixture_id":"SCAN-MAGIC-PGDMP-N","positive_pass":true,"safe_negative_pass":true},
+    {"magic_id":"OLE","positive_fixture_id":"SCAN-MAGIC-OLE-P","safe_negative_fixture_id":"SCAN-MAGIC-OLE-N","positive_pass":true,"safe_negative_pass":true},
+    {"magic_id":"PNG","positive_fixture_id":"SCAN-MAGIC-PNG-P","safe_negative_fixture_id":"SCAN-MAGIC-PNG-N","positive_pass":true,"safe_negative_pass":true},
+    {"magic_id":"JPEG","positive_fixture_id":"SCAN-MAGIC-JPEG-P","safe_negative_fixture_id":"SCAN-MAGIC-JPEG-N","positive_pass":true,"safe_negative_pass":true}
+  ],
+  "production_scanner": {"total": 72, "passed": 72, "failed": 0, "entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs"},
+  "mutation_matrix": {"magic_count": 9, "families": ["remove-registry-entry", "remove-positive-oracle", "remove-safe-negative-oracle", "modify-signature", "wrong-finding-class"], "total": 45, "killed": 45, "survived": 0},
+  "hash_bindings": ["scan-contract", "bootstrap-scanner-report", "bootstrap-candidate-record"],
+  "extension_magic_mismatch_claimed": false,
+  "binary_admission_in_phase1": false
+}

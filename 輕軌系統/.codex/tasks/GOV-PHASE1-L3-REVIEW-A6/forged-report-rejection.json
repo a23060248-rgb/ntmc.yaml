@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "production_entrypoint": ".codex/tests/run-governance-fixtures-concurrency.mjs",
+  "all_rejected": true,
+  "adversarial_results": [
+    {
+      "adversary": "TRUNCATED_CHILD_REPORT",
+      "violations": [
+        "FIXTURE_REPORT case count mismatch.",
+        "FIXTURE_REPORT missing case CASE-68.",
+        "FIXTURE_REPORT required hash invalid for CASE-68."
+      ]
+    },
+    {
+      "adversary": "DUPLICATE_CASE_ID",
+      "violations": [
+        "FIXTURE_REPORT duplicate case ID.",
+        "FIXTURE_REPORT missing case CASE-02.",
+        "FIXTURE_REPORT required hash invalid for CASE-02."
+      ]
+    },
+    {
+      "adversary": "FORGED_PASS_WITHOUT_PROVENANCE",
+      "violations": [
+        "FIXTURE_REPORT case CASE-01 lacks invariant or production entrypoint provenance.",
+        "FIXTURE_REPORT case CASE-01 does not match the trusted invariant contract.",
+        "FIXTURE_REPORT case CASE-01 artifact hash mismatch."
+      ]
+    },
+    {
+      "adversary": "TAMPERED_SUITE_HASH",
+      "violations": [
+        "FIXTURE_REPORT case manifest hash mismatch."
+      ]
+    }
+  ]
+}

@@ -7,12 +7,12 @@ const { validateMigrationManifest } = require("../src/services/migrationLedger")
 
 const dbDesignRoot = path.resolve(__dirname, "..", "..", "db-design");
 
-test("migration manifest is ordered, unique, and references 28 existing migrations", () => {
+test("migration manifest is ordered, unique, and references 32 existing migrations", () => {
   const manifest = JSON.parse(
     fs.readFileSync(path.join(dbDesignRoot, "migration-manifest.json"), "utf8"),
   );
   const entries = validateMigrationManifest(manifest, dbDesignRoot);
-  assert.equal(entries.length, 28);
+  assert.equal(entries.length, 32);
   assert.deepEqual(entries.map((entry) => entry.sequence), [...entries]
     .map((entry) => entry.sequence)
     .sort((left, right) => left - right));
@@ -23,6 +23,10 @@ test("migration manifest is ordered, unique, and references 28 existing migratio
   assert.equal(entries.find((entry) => entry.id === "word-block-verification").sequence, 260);
   assert.equal(entries.find((entry) => entry.id === "pm-template-structure").sequence, 270);
   assert.equal(entries.find((entry) => entry.id === "pm-attachment-library").sequence, 280);
+  assert.equal(entries.find((entry) => entry.id === "master-data-import-staging").sequence, 290);
+  assert.equal(entries.find((entry) => entry.id === "master-data-import-row-quality").sequence, 300);
+  assert.equal(entries.find((entry) => entry.id === "master-data-import-issue-resolution").sequence, 310);
+  assert.equal(entries.find((entry) => entry.id === "c-work-order-workflow").sequence, 320);
 });
 
 test("migration manifest rejects duplicate history", () => {

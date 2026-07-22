@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://ntmc.local/codex/schemas/classification.schema.json", "x-governance-schema-version": 1, "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "task_id", "level", "reasons", "triggers", "required_agents", "required_reviews", "parallel_allowed", "evidence_required", "human_approval", "stop_conditions", "scope", "classified_by", "classification_status"],
+  "properties": {
+    "schema_version": {"const": 1}, "task_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,63}$"}, "level": {"enum": ["L1", "L2", "L3"]},
+    "reasons": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "triggers": {"type": "array", "items": {"type": "string"}},
+    "execution_categories": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["governance-source-edit", "governance-validation", "governance-fixture", "read-only-review", "bootstrap-candidate", "security", "domain-rule", "backward-compatibility", "migration", "database", "credential", "external-system", "sensitive-evidence", "git-mutation", "destructive", "rollback"]}},
+    "required_agents": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "required_reviews": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["qa-readback", "code", "security", "railway-domain", "compatibility"]}},
+    "parallel_allowed": {"type": "boolean"}, "evidence_required": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "human_approval": {"type": "object", "additionalProperties": false, "required": ["required", "stages"], "properties": {"required": {"type": "boolean"}, "stages": {"type": "array", "uniqueItems": true, "items": {"enum": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]}}}},
+    "stop_conditions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "scope": {"type": "object", "additionalProperties": false, "required": ["include", "exclude"], "properties": {"include": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "exclude": {"type": "array", "minItems": 1, "items": {"type": "string"}}}},
+    "classified_by": {"type": "string", "minLength": 1}, "classification_status": {"enum": ["proposed", "human-approved-scope"]}
+  }
+}

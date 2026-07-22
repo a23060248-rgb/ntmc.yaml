@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "migration_task_id": "GOV-M320-DRYRUN",
+  "task_file_count": 13,
+  "external_evidence_file_count": 5,
+  "task_hashes_unchanged_at_pre_review_baseline": true,
+  "external_evidence_hashes_unchanged_at_pre_review_baseline": true,
+  "validator_command": "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN --target-gate migration-320-execution",
+  "structural_validation": "VALID",
+  "domain_decision": "NEEDS_HUMAN_DECISION",
+  "compatibility_decision": "BLOCKER",
+  "migration_320_execution_gate": "NO-GO",
+  "emitted_exit": 2,
+  "candidate_rules": ["WO-P-C-LINK-001", "WO-C-SHORTAGE-001", "COMPAT-M320-001"],
+  "actual_domain_rules_approved": [],
+  "original_evidence_modified": false,
+  "assurance": "INTERNAL_CONSISTENCY_ONLY"
+}

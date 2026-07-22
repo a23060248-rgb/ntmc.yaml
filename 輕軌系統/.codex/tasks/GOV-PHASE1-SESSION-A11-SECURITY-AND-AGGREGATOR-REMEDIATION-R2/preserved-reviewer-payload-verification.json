@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "candidate_binding": {
+    "candidate_file_count": 108,
+    "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+    "scanner_contract_version": 5,
+    "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+  },
+  "payloads": [
+    {
+      "reviewer_role": "EXTERNAL_CODE_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-48ca-7da1-b751-ab1df412f79d",
+      "review_package_id": "A11-R1-CODE-REVIEWER-PKG-20260721-01",
+      "raw_file_sha256": "95ABDE95584440431FB95A0C022134B041EA842D20D56BFC335DDADDF782E7F7",
+      "payload_core_sha256": "63C6927A02043BCD185941F096BF90993BBDD9B1E0E39A2A2906D1E25D90DCF7",
+      "wrapper_canonical_sha256": "33CA1C35F6059780E61F0BE09A544C235AAF9650C6E9A4DA45B05C516B94BFE0",
+      "schema_valid": true,
+      "jcs_valid": true,
+      "package_binding_valid": true,
+      "candidate_binding_valid": true,
+      "result": "FORMALLY_REUSABLE_FOR_AGGREGATOR_R2"
+    },
+    {
+      "reviewer_role": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-86f5-7f30-9e9b-32885933b428",
+      "review_package_id": "A11-R1-RAILWAY-DOMAIN-REVIEWER-PKG-20260721-03",
+      "raw_file_sha256": "36827FF0D6B776BFB50F15EDCBD6694E92DEBFD1CD0F8BD815C3F4E9B00A8221",
+      "payload_core_sha256": "CF2119E8B6F081E4D1333F8BA1C66D59C15C354467DB0F71290AA48E375DA8A0",
+      "wrapper_canonical_sha256": "63CA6CC21BCCFA438F331F422E4D6C212F60297750662220FB3B1582114D1E43",
+      "schema_valid": true,
+      "jcs_valid": true,
+      "package_binding_valid": true,
+      "candidate_binding_valid": true,
+      "result": "FORMALLY_REUSABLE_FOR_AGGREGATOR_R2"
+    },
+    {
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "generation": "R1",
+      "source_thread_id": "019f8293-97ae-7541-80e2-7401acc90b07",
+      "review_package_id": "A11-R1-COMPATIBILITY-REVIEWER-PKG-20260721-04",
+      "raw_file_sha256": "66096AA192ADA94885142D08C53E5507DE805F453E071A93CA51A913F9864F70",
+      "payload_core_sha256": "3C75292273125A2E8706971BB310FDD395E966DFAB013CE50F460F98686B3082",
+      "wrapper_canonical_sha256": "DCAB217516CF7DCE34766F5BCCF1EE877C089FE660A8DC87E0FC7BC7F6AF1325",
+      "schema_valid": true,
+      "jcs_valid": true,
+      "package_binding_valid": true,
+      "candidate_binding_valid": true,
+      "result": "FORMALLY_REUSABLE_FOR_AGGREGATOR_R2"
+    }
+  ],
+  "result": "PASS"
+}

@@ -1,0 +1,2127 @@
+{
+  "executedAt": "2026-07-16T00:49:10.508Z",
+  "source": {
+    "dumpPath": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.local-rehearsal\\before-c-workflow-320-20260716.dump",
+    "dumpSha256": "6C666849134691E543546BE4439C6E52073ABF8F3D74A0FB3D701BCD3E7DE19E",
+    "classification": "REHEARSAL_PRE_320_SNAPSHOT",
+    "formalReadonlyVerified": false,
+    "cloneRole": {
+      "database_name": "ntmc_erp_rehearsal_m320_before_20260716004856",
+      "role_name": "postgres",
+      "transaction_read_only": "off",
+      "rolsuper": true,
+      "rolcreaterole": true,
+      "rolcreatedb": true,
+      "rolcanlogin": true
+    },
+    "formalConnectionAttempted": false
+  },
+  "cloneNames": {
+    "before": "ntmc_erp_rehearsal_m320_before_20260716004856",
+    "after": "ntmc_erp_rehearsal_m320_after_20260716004856",
+    "failure": "ntmc_erp_rehearsal_m320_failure_20260716004856",
+    "restored": "ntmc_erp_rehearsal_m320_restored_20260716004856"
+  },
+  "migration": {
+    "file": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\db-design\\migration-c-work-order-workflow.sql",
+    "fileSha256": "30FC5C272ECF9338EC8334AE0FB858544309D7B3B4DC208365A6A8958C497400",
+    "output": "VERIFY   10 migration-auth.sql\nVERIFY   20 migration-system-roles.sql\nVERIFY   30 migration-train-fleet.sql\nVERIFY   40 migration-inventory-location-status.sql\nVERIFY   50 migration-work-order-numbering.sql\nVERIFY   60 migration-vehicle-position-slots.sql\nVERIFY   70 migration-asset-installation-import-staging.sql\nVERIFY   80 migration-repair-workflow-options.sql\nVERIFY   90 migration-pm-check-items.sql\nVERIFY   100 migration-document-sequence-inventory-document.sql\nVERIFY   110 migration-material-master-usage.sql\nVERIFY   120 migration-material-system-2026.sql\nVERIFY   130 migration-equipment-alias.sql\nVERIFY   140 migration-fault-keeper-merge.sql\nVERIFY   150 migration-fault-report-matrix.sql\nVERIFY   160 migration-fault-dispatch-catalog.sql\nVERIFY   170 migration-danger-dispatch-tree.sql\nVERIFY   180 migration-master-data-versioning.sql\nVERIFY   190 migration-precheck-schedule.sql\nVERIFY   200 migration-precheck-workflow-print.sql\nVERIFY   210 migration-audit-reporting.sql\nVERIFY   220 migration-work-order-integrity.sql\nVERIFY   230 migration-inventory-idempotency.sql\nVERIFY   240 migration-session-security.sql\nVERIFY   250 migration-pm-template-maintenance.sql\nVERIFY   260 migration-word-block-verification.sql\nVERIFY   270 migration-pm-template-structure.sql\nVERIFY   280 migration-pm-attachment-library.sql\nVERIFY   290 migration-master-data-import-staging.sql\nVERIFY   300 migration-master-data-import-row-quality.sql\nVERIFY   310 migration-master-data-import-issue-resolution.sql\nAPPLY    320 migration-c-work-order-workflow.sql\n{\n  \"ok\": true,\n  \"database\": \"ntmc_erp_rehearsal_m320_after_20260716004856\",\n  \"manifestVersion\": 1,\n  \"migrations\": 32,\n  \"ledgerRows\": 33,\n  \"verified\": 31,\n  \"baselined\": 0,\n  \"applied\": 1\n}\n",
+    "outputHash": "D8918729757CB10ADDD9C89A8CC29CEA26468EDEC1EBB61DA8002590AF549739"
+  },
+  "ledger": {
+    "before": {
+      "rows": 32,
+      "hash": "238D10C4ADF9EA142FEAA4D243D65372D781A3757443E64D1067373605A81256",
+      "items": [
+        {
+          "migration_id": "schema-migration-ledger",
+          "sequence_no": 0,
+          "file_name": "migration-schema-ledger.sql",
+          "file_sha256": "E2EB9460B5C2A1BC867BD60E246CA09B4FE667138E794225DCBD31B32F98B655",
+          "migration_status": "APPLIED",
+          "note": "Ledger bootstrap"
+        },
+        {
+          "migration_id": "auth",
+          "sequence_no": 10,
+          "file_name": "migration-auth.sql",
+          "file_sha256": "5FDF9C8443A93F35EDA3BEFFD46B07C375DD355406E9925ADA54A3B67C3D771B",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "system-roles",
+          "sequence_no": 20,
+          "file_name": "migration-system-roles.sql",
+          "file_sha256": "7621801C024D1B8C6A05A2A85FC3F366CB603E2FE13A43EC0BD7A0546AAAAFA6",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "train-fleet",
+          "sequence_no": 30,
+          "file_name": "migration-train-fleet.sql",
+          "file_sha256": "E36255C40E9E1977AAFA0B9C60FFD782D4877E9E51685C309B1B64303A2B67DF",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "inventory-location-status",
+          "sequence_no": 40,
+          "file_name": "migration-inventory-location-status.sql",
+          "file_sha256": "6FABDC3BB9940A16ADA4C2B6A37A89E3A7ED87DBE452D981AB3E881B75CEC208",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "work-order-numbering",
+          "sequence_no": 50,
+          "file_name": "migration-work-order-numbering.sql",
+          "file_sha256": "BCD05CA7CE0C259D70D562C92EA22CF7AF75ED489C64FBE44D55A81A4B49083B",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "vehicle-position-slots",
+          "sequence_no": 60,
+          "file_name": "migration-vehicle-position-slots.sql",
+          "file_sha256": "5EEAA8DE57A956E07EAF506E938383AA42CB3B7878309C2086C0EE534B295C2A",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "asset-installation-import-staging",
+          "sequence_no": 70,
+          "file_name": "migration-asset-installation-import-staging.sql",
+          "file_sha256": "CC70FFA4B57BCA0C022388CE275A2056298D23931F12210256264A43755E9E10",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "repair-workflow-options",
+          "sequence_no": 80,
+          "file_name": "migration-repair-workflow-options.sql",
+          "file_sha256": "124355AE02C9471FC6C178C628DBC4E7697CF60839DD83B297779879FEB8800B",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "pm-check-items",
+          "sequence_no": 90,
+          "file_name": "migration-pm-check-items.sql",
+          "file_sha256": "AC12E93775E6AFA413F66333626D3768D5EA0E91D65FB99702DA24A92A939DB1",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "document-sequence-inventory-document",
+          "sequence_no": 100,
+          "file_name": "migration-document-sequence-inventory-document.sql",
+          "file_sha256": "597B1B014354B0EC164804F4319BC6A51E23C553316C3A4F802A1802B5252301",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "material-master-usage",
+          "sequence_no": 110,
+          "file_name": "migration-material-master-usage.sql",
+          "file_sha256": "49EDA71919271F1A7DBB5FD22182328F02F4F6EB06530EE19F38D1ECFE3E2B42",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "material-system-2026",
+          "sequence_no": 120,
+          "file_name": "migration-material-system-2026.sql",
+          "file_sha256": "874BA564C9540C208B3DFA128155824370F363E9219224544F9F26DB977A0F7C",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "equipment-alias",
+          "sequence_no": 130,
+          "file_name": "migration-equipment-alias.sql",
+          "file_sha256": "FBB2ACE406F3890BDDEB80609920A607A1D3F12D8097DF1C55D67DF029ACA413",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "fault-keeper-merge",
+          "sequence_no": 140,
+          "file_name": "migration-fault-keeper-merge.sql",
+          "file_sha256": "EB7BDBBA0299917C33CC305317BBDEC6BE2429C7D9794CE88C154424706BAE0C",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "fault-report-matrix",
+          "sequence_no": 150,
+          "file_name": "migration-fault-report-matrix.sql",
+          "file_sha256": "2F6F76F847ADAA0FBD7D56AAF488F94971F1B2253FEFA660C3AEEAF868CE7735",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "fault-dispatch-catalog",
+          "sequence_no": 160,
+          "file_name": "migration-fault-dispatch-catalog.sql",
+          "file_sha256": "A6F1EB814105AA61ABE93E5976BD2A9B8C8B6D36A21EC88F8FA51B21F3FB638D",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "danger-dispatch-tree",
+          "sequence_no": 170,
+          "file_name": "migration-danger-dispatch-tree.sql",
+          "file_sha256": "54C8F611FEA240358D2484999ECB2AB7D035DDCB9865B82C5F629A8977396E70",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-versioning",
+          "sequence_no": 180,
+          "file_name": "migration-master-data-versioning.sql",
+          "file_sha256": "581BC0B463B75D0497544D3F601A40E563AB940F545D8030C36CC9EAE6CB78A0",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "precheck-schedule",
+          "sequence_no": 190,
+          "file_name": "migration-precheck-schedule.sql",
+          "file_sha256": "9E3D56F162539E25DEEFB6C43F131A1CED409BC4EC505605294115BC208415B4",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "precheck-workflow-print",
+          "sequence_no": 200,
+          "file_name": "migration-precheck-workflow-print.sql",
+          "file_sha256": "27A7C0B7D7ED7B29C6D57B5E2E88FD33E59FD856A0230A39D638DB97F1783972",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "audit-reporting",
+          "sequence_no": 210,
+          "file_name": "migration-audit-reporting.sql",
+          "file_sha256": "36D80605829BA58CE8FB729627C2756ABCED39C2A99DF84A195ABB732DE3483C",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "work-order-integrity",
+          "sequence_no": 220,
+          "file_name": "migration-work-order-integrity.sql",
+          "file_sha256": "6DBA45099C03A4162873B092D9735B94C9713100626D5404D24C418E9D84CF63",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "inventory-idempotency",
+          "sequence_no": 230,
+          "file_name": "migration-inventory-idempotency.sql",
+          "file_sha256": "A10597E5A0202CD972F07E96FE18FD5096A95F41342AEC1F2A3D39F4B0C87791",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "session-security",
+          "sequence_no": 240,
+          "file_name": "migration-session-security.sql",
+          "file_sha256": "1ABF19A15A15BAAF263196A758DBE1462B447CC9E328E1A4B198D76B974FDC32",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "pm-template-maintenance",
+          "sequence_no": 250,
+          "file_name": "migration-pm-template-maintenance.sql",
+          "file_sha256": "21B6F938B5946E75C13A2695CA1C6BFE4A0ABD167411167BF4D6AAAFF582FFED",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "word-block-verification",
+          "sequence_no": 260,
+          "file_name": "migration-word-block-verification.sql",
+          "file_sha256": "CF20077C1E5E6A1A076C9A0B87EB333601BBA9250A88F586DB940FEB6AE56FFB",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "pm-template-structure",
+          "sequence_no": 270,
+          "file_name": "migration-pm-template-structure.sql",
+          "file_sha256": "C89B05F50467AD1F68BD14DDA34A9B521466A3E6D7F4EE88D1A48FC1AB4132E1",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "pm-attachment-library",
+          "sequence_no": 280,
+          "file_name": "migration-pm-attachment-library.sql",
+          "file_sha256": "1515CEAEBB718B351A1D16E2E08EF58DF356EE08E85CD1C0AE67C3867A80AAF2",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-import-staging",
+          "sequence_no": 290,
+          "file_name": "migration-master-data-import-staging.sql",
+          "file_sha256": "C5E8D2AA3CE4E7C25B433CE2EE15C9147B0A7CAF7CAE0661E7D8DB3BE1479B95",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-import-row-quality",
+          "sequence_no": 300,
+          "file_name": "migration-master-data-import-row-quality.sql",
+          "file_sha256": "F52491DFF81B625B392581850199CBDE9FF797A3F8E79C3246B179C4824FAD8E",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-import-issue-resolution",
+          "sequence_no": 310,
+          "file_name": "migration-master-data-import-issue-resolution.sql",
+          "file_sha256": "F2EEEC81D77A89090F7FE7B6A543BC5ECEE0ABC95ADC8B4E35B535896296BE00",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        }
+      ]
+    },
+    "after": {
+      "rows": 33,
+      "hash": "B86D26AC71914A31DF537E65713559D69B9EA31A27C1148B35CD58DB47073409",
+      "items": [
+        {
+          "migration_id": "schema-migration-ledger",
+          "sequence_no": 0,
+          "file_name": "migration-schema-ledger.sql",
+          "file_sha256": "E2EB9460B5C2A1BC867BD60E246CA09B4FE667138E794225DCBD31B32F98B655",
+          "migration_status": "APPLIED",
+          "note": "Ledger bootstrap"
+        },
+        {
+          "migration_id": "auth",
+          "sequence_no": 10,
+          "file_name": "migration-auth.sql",
+          "file_sha256": "5FDF9C8443A93F35EDA3BEFFD46B07C375DD355406E9925ADA54A3B67C3D771B",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "system-roles",
+          "sequence_no": 20,
+          "file_name": "migration-system-roles.sql",
+          "file_sha256": "7621801C024D1B8C6A05A2A85FC3F366CB603E2FE13A43EC0BD7A0546AAAAFA6",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "train-fleet",
+          "sequence_no": 30,
+          "file_name": "migration-train-fleet.sql",
+          "file_sha256": "E36255C40E9E1977AAFA0B9C60FFD782D4877E9E51685C309B1B64303A2B67DF",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "inventory-location-status",
+          "sequence_no": 40,
+          "file_name": "migration-inventory-location-status.sql",
+          "file_sha256": "6FABDC3BB9940A16ADA4C2B6A37A89E3A7ED87DBE452D981AB3E881B75CEC208",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "work-order-numbering",
+          "sequence_no": 50,
+          "file_name": "migration-work-order-numbering.sql",
+          "file_sha256": "BCD05CA7CE0C259D70D562C92EA22CF7AF75ED489C64FBE44D55A81A4B49083B",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "vehicle-position-slots",
+          "sequence_no": 60,
+          "file_name": "migration-vehicle-position-slots.sql",
+          "file_sha256": "5EEAA8DE57A956E07EAF506E938383AA42CB3B7878309C2086C0EE534B295C2A",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "asset-installation-import-staging",
+          "sequence_no": 70,
+          "file_name": "migration-asset-installation-import-staging.sql",
+          "file_sha256": "CC70FFA4B57BCA0C022388CE275A2056298D23931F12210256264A43755E9E10",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "repair-workflow-options",
+          "sequence_no": 80,
+          "file_name": "migration-repair-workflow-options.sql",
+          "file_sha256": "124355AE02C9471FC6C178C628DBC4E7697CF60839DD83B297779879FEB8800B",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "pm-check-items",
+          "sequence_no": 90,
+          "file_name": "migration-pm-check-items.sql",
+          "file_sha256": "AC12E93775E6AFA413F66333626D3768D5EA0E91D65FB99702DA24A92A939DB1",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "document-sequence-inventory-document",
+          "sequence_no": 100,
+          "file_name": "migration-document-sequence-inventory-document.sql",
+          "file_sha256": "597B1B014354B0EC164804F4319BC6A51E23C553316C3A4F802A1802B5252301",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "material-master-usage",
+          "sequence_no": 110,
+          "file_name": "migration-material-master-usage.sql",
+          "file_sha256": "49EDA71919271F1A7DBB5FD22182328F02F4F6EB06530EE19F38D1ECFE3E2B42",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "material-system-2026",
+          "sequence_no": 120,
+          "file_name": "migration-material-system-2026.sql",
+          "file_sha256": "874BA564C9540C208B3DFA128155824370F363E9219224544F9F26DB977A0F7C",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "equipment-alias",
+          "sequence_no": 130,
+          "file_name": "migration-equipment-alias.sql",
+          "file_sha256": "FBB2ACE406F3890BDDEB80609920A607A1D3F12D8097DF1C55D67DF029ACA413",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "fault-keeper-merge",
+          "sequence_no": 140,
+          "file_name": "migration-fault-keeper-merge.sql",
+          "file_sha256": "EB7BDBBA0299917C33CC305317BBDEC6BE2429C7D9794CE88C154424706BAE0C",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "fault-report-matrix",
+          "sequence_no": 150,
+          "file_name": "migration-fault-report-matrix.sql",
+          "file_sha256": "2F6F76F847ADAA0FBD7D56AAF488F94971F1B2253FEFA660C3AEEAF868CE7735",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "fault-dispatch-catalog",
+          "sequence_no": 160,
+          "file_name": "migration-fault-dispatch-catalog.sql",
+          "file_sha256": "A6F1EB814105AA61ABE93E5976BD2A9B8C8B6D36A21EC88F8FA51B21F3FB638D",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "danger-dispatch-tree",
+          "sequence_no": 170,
+          "file_name": "migration-danger-dispatch-tree.sql",
+          "file_sha256": "54C8F611FEA240358D2484999ECB2AB7D035DDCB9865B82C5F629A8977396E70",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-versioning",
+          "sequence_no": 180,
+          "file_name": "migration-master-data-versioning.sql",
+          "file_sha256": "581BC0B463B75D0497544D3F601A40E563AB940F545D8030C36CC9EAE6CB78A0",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "precheck-schedule",
+          "sequence_no": 190,
+          "file_name": "migration-precheck-schedule.sql",
+          "file_sha256": "9E3D56F162539E25DEEFB6C43F131A1CED409BC4EC505605294115BC208415B4",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "precheck-workflow-print",
+          "sequence_no": 200,
+          "file_name": "migration-precheck-workflow-print.sql",
+          "file_sha256": "27A7C0B7D7ED7B29C6D57B5E2E88FD33E59FD856A0230A39D638DB97F1783972",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "audit-reporting",
+          "sequence_no": 210,
+          "file_name": "migration-audit-reporting.sql",
+          "file_sha256": "36D80605829BA58CE8FB729627C2756ABCED39C2A99DF84A195ABB732DE3483C",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "work-order-integrity",
+          "sequence_no": 220,
+          "file_name": "migration-work-order-integrity.sql",
+          "file_sha256": "6DBA45099C03A4162873B092D9735B94C9713100626D5404D24C418E9D84CF63",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "inventory-idempotency",
+          "sequence_no": 230,
+          "file_name": "migration-inventory-idempotency.sql",
+          "file_sha256": "A10597E5A0202CD972F07E96FE18FD5096A95F41342AEC1F2A3D39F4B0C87791",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "session-security",
+          "sequence_no": 240,
+          "file_name": "migration-session-security.sql",
+          "file_sha256": "1ABF19A15A15BAAF263196A758DBE1462B447CC9E328E1A4B198D76B974FDC32",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "pm-template-maintenance",
+          "sequence_no": 250,
+          "file_name": "migration-pm-template-maintenance.sql",
+          "file_sha256": "21B6F938B5946E75C13A2695CA1C6BFE4A0ABD167411167BF4D6AAAFF582FFED",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "word-block-verification",
+          "sequence_no": 260,
+          "file_name": "migration-word-block-verification.sql",
+          "file_sha256": "CF20077C1E5E6A1A076C9A0B87EB333601BBA9250A88F586DB940FEB6AE56FFB",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "pm-template-structure",
+          "sequence_no": 270,
+          "file_name": "migration-pm-template-structure.sql",
+          "file_sha256": "C89B05F50467AD1F68BD14DDA34A9B521466A3E6D7F4EE88D1A48FC1AB4132E1",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "pm-attachment-library",
+          "sequence_no": 280,
+          "file_name": "migration-pm-attachment-library.sql",
+          "file_sha256": "1515CEAEBB718B351A1D16E2E08EF58DF356EE08E85CD1C0AE67C3867A80AAF2",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-import-staging",
+          "sequence_no": 290,
+          "file_name": "migration-master-data-import-staging.sql",
+          "file_sha256": "C5E8D2AA3CE4E7C25B433CE2EE15C9147B0A7CAF7CAE0661E7D8DB3BE1479B95",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-import-row-quality",
+          "sequence_no": 300,
+          "file_name": "migration-master-data-import-row-quality.sql",
+          "file_sha256": "F52491DFF81B625B392581850199CBDE9FF797A3F8E79C3246B179C4824FAD8E",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-import-issue-resolution",
+          "sequence_no": 310,
+          "file_name": "migration-master-data-import-issue-resolution.sql",
+          "file_sha256": "F2EEEC81D77A89090F7FE7B6A543BC5ECEE0ABC95ADC8B4E35B535896296BE00",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "c-work-order-workflow",
+          "sequence_no": 320,
+          "file_name": "migration-c-work-order-workflow.sql",
+          "file_sha256": "30FC5C272ECF9338EC8334AE0FB858544309D7B3B4DC208365A6A8958C497400",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        }
+      ]
+    },
+    "rerun": {
+      "rows": 33,
+      "hash": "B86D26AC71914A31DF537E65713559D69B9EA31A27C1148B35CD58DB47073409",
+      "items": [
+        {
+          "migration_id": "schema-migration-ledger",
+          "sequence_no": 0,
+          "file_name": "migration-schema-ledger.sql",
+          "file_sha256": "E2EB9460B5C2A1BC867BD60E246CA09B4FE667138E794225DCBD31B32F98B655",
+          "migration_status": "APPLIED",
+          "note": "Ledger bootstrap"
+        },
+        {
+          "migration_id": "auth",
+          "sequence_no": 10,
+          "file_name": "migration-auth.sql",
+          "file_sha256": "5FDF9C8443A93F35EDA3BEFFD46B07C375DD355406E9925ADA54A3B67C3D771B",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "system-roles",
+          "sequence_no": 20,
+          "file_name": "migration-system-roles.sql",
+          "file_sha256": "7621801C024D1B8C6A05A2A85FC3F366CB603E2FE13A43EC0BD7A0546AAAAFA6",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "train-fleet",
+          "sequence_no": 30,
+          "file_name": "migration-train-fleet.sql",
+          "file_sha256": "E36255C40E9E1977AAFA0B9C60FFD782D4877E9E51685C309B1B64303A2B67DF",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "inventory-location-status",
+          "sequence_no": 40,
+          "file_name": "migration-inventory-location-status.sql",
+          "file_sha256": "6FABDC3BB9940A16ADA4C2B6A37A89E3A7ED87DBE452D981AB3E881B75CEC208",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "work-order-numbering",
+          "sequence_no": 50,
+          "file_name": "migration-work-order-numbering.sql",
+          "file_sha256": "BCD05CA7CE0C259D70D562C92EA22CF7AF75ED489C64FBE44D55A81A4B49083B",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "vehicle-position-slots",
+          "sequence_no": 60,
+          "file_name": "migration-vehicle-position-slots.sql",
+          "file_sha256": "5EEAA8DE57A956E07EAF506E938383AA42CB3B7878309C2086C0EE534B295C2A",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "asset-installation-import-staging",
+          "sequence_no": 70,
+          "file_name": "migration-asset-installation-import-staging.sql",
+          "file_sha256": "CC70FFA4B57BCA0C022388CE275A2056298D23931F12210256264A43755E9E10",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "repair-workflow-options",
+          "sequence_no": 80,
+          "file_name": "migration-repair-workflow-options.sql",
+          "file_sha256": "124355AE02C9471FC6C178C628DBC4E7697CF60839DD83B297779879FEB8800B",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "pm-check-items",
+          "sequence_no": 90,
+          "file_name": "migration-pm-check-items.sql",
+          "file_sha256": "AC12E93775E6AFA413F66333626D3768D5EA0E91D65FB99702DA24A92A939DB1",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "document-sequence-inventory-document",
+          "sequence_no": 100,
+          "file_name": "migration-document-sequence-inventory-document.sql",
+          "file_sha256": "597B1B014354B0EC164804F4319BC6A51E23C553316C3A4F802A1802B5252301",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "material-master-usage",
+          "sequence_no": 110,
+          "file_name": "migration-material-master-usage.sql",
+          "file_sha256": "49EDA71919271F1A7DBB5FD22182328F02F4F6EB06530EE19F38D1ECFE3E2B42",
+          "migration_status": "BASELINED",
+          "note": "Verified existing rehearsal schema"
+        },
+        {
+          "migration_id": "material-system-2026",
+          "sequence_no": 120,
+          "file_name": "migration-material-system-2026.sql",
+          "file_sha256": "874BA564C9540C208B3DFA128155824370F363E9219224544F9F26DB977A0F7C",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "equipment-alias",
+          "sequence_no": 130,
+          "file_name": "migration-equipment-alias.sql",
+          "file_sha256": "FBB2ACE406F3890BDDEB80609920A607A1D3F12D8097DF1C55D67DF029ACA413",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "fault-keeper-merge",
+          "sequence_no": 140,
+          "file_name": "migration-fault-keeper-merge.sql",
+          "file_sha256": "EB7BDBBA0299917C33CC305317BBDEC6BE2429C7D9794CE88C154424706BAE0C",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "fault-report-matrix",
+          "sequence_no": 150,
+          "file_name": "migration-fault-report-matrix.sql",
+          "file_sha256": "2F6F76F847ADAA0FBD7D56AAF488F94971F1B2253FEFA660C3AEEAF868CE7735",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "fault-dispatch-catalog",
+          "sequence_no": 160,
+          "file_name": "migration-fault-dispatch-catalog.sql",
+          "file_sha256": "A6F1EB814105AA61ABE93E5976BD2A9B8C8B6D36A21EC88F8FA51B21F3FB638D",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "danger-dispatch-tree",
+          "sequence_no": 170,
+          "file_name": "migration-danger-dispatch-tree.sql",
+          "file_sha256": "54C8F611FEA240358D2484999ECB2AB7D035DDCB9865B82C5F629A8977396E70",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-versioning",
+          "sequence_no": 180,
+          "file_name": "migration-master-data-versioning.sql",
+          "file_sha256": "581BC0B463B75D0497544D3F601A40E563AB940F545D8030C36CC9EAE6CB78A0",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "precheck-schedule",
+          "sequence_no": 190,
+          "file_name": "migration-precheck-schedule.sql",
+          "file_sha256": "9E3D56F162539E25DEEFB6C43F131A1CED409BC4EC505605294115BC208415B4",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "precheck-workflow-print",
+          "sequence_no": 200,
+          "file_name": "migration-precheck-workflow-print.sql",
+          "file_sha256": "27A7C0B7D7ED7B29C6D57B5E2E88FD33E59FD856A0230A39D638DB97F1783972",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "audit-reporting",
+          "sequence_no": 210,
+          "file_name": "migration-audit-reporting.sql",
+          "file_sha256": "36D80605829BA58CE8FB729627C2756ABCED39C2A99DF84A195ABB732DE3483C",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "work-order-integrity",
+          "sequence_no": 220,
+          "file_name": "migration-work-order-integrity.sql",
+          "file_sha256": "6DBA45099C03A4162873B092D9735B94C9713100626D5404D24C418E9D84CF63",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "inventory-idempotency",
+          "sequence_no": 230,
+          "file_name": "migration-inventory-idempotency.sql",
+          "file_sha256": "A10597E5A0202CD972F07E96FE18FD5096A95F41342AEC1F2A3D39F4B0C87791",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "session-security",
+          "sequence_no": 240,
+          "file_name": "migration-session-security.sql",
+          "file_sha256": "1ABF19A15A15BAAF263196A758DBE1462B447CC9E328E1A4B198D76B974FDC32",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "pm-template-maintenance",
+          "sequence_no": 250,
+          "file_name": "migration-pm-template-maintenance.sql",
+          "file_sha256": "21B6F938B5946E75C13A2695CA1C6BFE4A0ABD167411167BF4D6AAAFF582FFED",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "word-block-verification",
+          "sequence_no": 260,
+          "file_name": "migration-word-block-verification.sql",
+          "file_sha256": "CF20077C1E5E6A1A076C9A0B87EB333601BBA9250A88F586DB940FEB6AE56FFB",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "pm-template-structure",
+          "sequence_no": 270,
+          "file_name": "migration-pm-template-structure.sql",
+          "file_sha256": "C89B05F50467AD1F68BD14DDA34A9B521466A3E6D7F4EE88D1A48FC1AB4132E1",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "pm-attachment-library",
+          "sequence_no": 280,
+          "file_name": "migration-pm-attachment-library.sql",
+          "file_sha256": "1515CEAEBB718B351A1D16E2E08EF58DF356EE08E85CD1C0AE67C3867A80AAF2",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-import-staging",
+          "sequence_no": 290,
+          "file_name": "migration-master-data-import-staging.sql",
+          "file_sha256": "C5E8D2AA3CE4E7C25B433CE2EE15C9147B0A7CAF7CAE0661E7D8DB3BE1479B95",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-import-row-quality",
+          "sequence_no": 300,
+          "file_name": "migration-master-data-import-row-quality.sql",
+          "file_sha256": "F52491DFF81B625B392581850199CBDE9FF797A3F8E79C3246B179C4824FAD8E",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "master-data-import-issue-resolution",
+          "sequence_no": 310,
+          "file_name": "migration-master-data-import-issue-resolution.sql",
+          "file_sha256": "F2EEEC81D77A89090F7FE7B6A543BC5ECEE0ABC95ADC8B4E35B535896296BE00",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        },
+        {
+          "migration_id": "c-work-order-workflow",
+          "sequence_no": 320,
+          "file_name": "migration-c-work-order-workflow.sql",
+          "file_sha256": "30FC5C272ECF9338EC8334AE0FB858544309D7B3B4DC208365A6A8958C497400",
+          "migration_status": "APPLIED",
+          "note": "Applied by rehearsal migration runner"
+        }
+      ]
+    }
+  },
+  "business": {
+    "normalization": {
+      "rowOrder": "primary key ascending; fallback all selected columns ascending",
+      "null": "JSON null",
+      "timestamp": "UTC ISO-8601",
+      "json": "object keys recursively sorted; array order preserved",
+      "columns": "intersection of before/after columns; updated_at, last_seen_at, execution_ms excluded"
+    },
+    "beforeHash": "66BF855DDBD19B8BA8E69420EA22AD1CFC21ECB000AE2B16E966E6963BF364C7",
+    "afterHash": "66BF855DDBD19B8BA8E69420EA22AD1CFC21ECB000AE2B16E966E6963BF364C7",
+    "equal": true,
+    "tables": [
+      {
+        "table": "work_order",
+        "columns": [
+          "id",
+          "work_order_no",
+          "work_order_type",
+          "work_order_date",
+          "site_code",
+          "target_code",
+          "daily_sequence",
+          "title",
+          "status",
+          "train_id",
+          "source_work_order_id",
+          "created_by",
+          "assigned_to",
+          "created_at",
+          "planned_start_at",
+          "actual_start_at",
+          "actual_finish_at",
+          "closed_at",
+          "closed_by",
+          "remark",
+          "deleted_at"
+        ],
+        "before": {
+          "exists": true,
+          "table": "work_order",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_no",
+            "work_order_type",
+            "work_order_date",
+            "site_code",
+            "target_code",
+            "daily_sequence",
+            "title",
+            "status",
+            "train_id",
+            "source_work_order_id",
+            "created_by",
+            "assigned_to",
+            "created_at",
+            "planned_start_at",
+            "actual_start_at",
+            "actual_finish_at",
+            "closed_at",
+            "closed_by",
+            "remark",
+            "deleted_at"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "work_order",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_no",
+            "work_order_type",
+            "work_order_date",
+            "site_code",
+            "target_code",
+            "daily_sequence",
+            "title",
+            "status",
+            "train_id",
+            "source_work_order_id",
+            "created_by",
+            "assigned_to",
+            "created_at",
+            "planned_start_at",
+            "actual_start_at",
+            "actual_finish_at",
+            "closed_at",
+            "closed_by",
+            "remark",
+            "deleted_at"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "fault_work_order",
+        "columns": [
+          "work_order_id",
+          "fault_category",
+          "fault_description",
+          "main_system",
+          "fault_component",
+          "fault_sub_component",
+          "vehicle_position_id",
+          "removed_asset_id",
+          "installed_asset_id",
+          "fault_found_at",
+          "fault_closed_at",
+          "report_node_id",
+          "severity_level",
+          "deadline_at",
+          "observe_until",
+          "shortage_item",
+          "merged_into_id",
+          "reporter_text",
+          "location_path",
+          "source_pm_work_order_id",
+          "source_check_section",
+          "source_check_item"
+        ],
+        "before": {
+          "exists": true,
+          "table": "fault_work_order",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "work_order_id",
+            "fault_category",
+            "fault_description",
+            "main_system",
+            "fault_component",
+            "fault_sub_component",
+            "vehicle_position_id",
+            "removed_asset_id",
+            "installed_asset_id",
+            "fault_found_at",
+            "fault_closed_at",
+            "report_node_id",
+            "severity_level",
+            "deadline_at",
+            "observe_until",
+            "shortage_item",
+            "merged_into_id",
+            "reporter_text",
+            "location_path",
+            "source_pm_work_order_id",
+            "source_check_section",
+            "source_check_item"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "fault_work_order",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "work_order_id",
+            "fault_category",
+            "fault_description",
+            "main_system",
+            "fault_component",
+            "fault_sub_component",
+            "vehicle_position_id",
+            "removed_asset_id",
+            "installed_asset_id",
+            "fault_found_at",
+            "fault_closed_at",
+            "report_node_id",
+            "severity_level",
+            "deadline_at",
+            "observe_until",
+            "shortage_item",
+            "merged_into_id",
+            "reporter_text",
+            "location_path",
+            "source_pm_work_order_id",
+            "source_check_section",
+            "source_check_item"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "work_order_attachment",
+        "columns": [
+          "id",
+          "work_order_id",
+          "file_name",
+          "file_url",
+          "file_type",
+          "uploaded_by",
+          "uploaded_at"
+        ],
+        "before": {
+          "exists": true,
+          "table": "work_order_attachment",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "file_name",
+            "file_url",
+            "file_type",
+            "uploaded_by",
+            "uploaded_at"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "work_order_attachment",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "file_name",
+            "file_url",
+            "file_type",
+            "uploaded_by",
+            "uploaded_at"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "fault_finish_record",
+        "columns": [
+          "id",
+          "work_order_id",
+          "finished_by",
+          "finished_by_text",
+          "finish_report",
+          "action_code",
+          "warranty_code",
+          "danger_work_code",
+          "is_passenger_ui",
+          "mileage",
+          "removed_serial",
+          "installed_serial",
+          "dispatch_node_id",
+          "dispatch_component",
+          "accepted_at",
+          "is_final",
+          "created_at"
+        ],
+        "before": {
+          "exists": true,
+          "table": "fault_finish_record",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "finished_by",
+            "finished_by_text",
+            "finish_report",
+            "action_code",
+            "warranty_code",
+            "danger_work_code",
+            "is_passenger_ui",
+            "mileage",
+            "removed_serial",
+            "installed_serial",
+            "dispatch_node_id",
+            "dispatch_component",
+            "accepted_at",
+            "is_final",
+            "created_at"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "fault_finish_record",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "finished_by",
+            "finished_by_text",
+            "finish_report",
+            "action_code",
+            "warranty_code",
+            "danger_work_code",
+            "is_passenger_ui",
+            "mileage",
+            "removed_serial",
+            "installed_serial",
+            "dispatch_node_id",
+            "dispatch_component",
+            "accepted_at",
+            "is_final",
+            "created_at"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "work_order_event",
+        "columns": [
+          "id",
+          "work_order_id",
+          "actor_id",
+          "actor_text",
+          "action_code",
+          "note",
+          "created_at"
+        ],
+        "before": {
+          "exists": true,
+          "table": "work_order_event",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "actor_id",
+            "actor_text",
+            "action_code",
+            "note",
+            "created_at"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "work_order_event",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "actor_id",
+            "actor_text",
+            "action_code",
+            "note",
+            "created_at"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "repair_work_order",
+        "columns": [
+          "work_order_id",
+          "source_fault_work_order_id",
+          "removed_asset_id",
+          "installed_asset_id",
+          "original_position_id",
+          "original_location_text",
+          "main_system",
+          "fault_component",
+          "fault_sub_component",
+          "repair_method",
+          "current_place",
+          "outsourcing_status",
+          "acceptance_result",
+          "next_action",
+          "risk_tags",
+          "stay_days"
+        ],
+        "before": {
+          "exists": true,
+          "table": "repair_work_order",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "work_order_id",
+            "source_fault_work_order_id",
+            "removed_asset_id",
+            "installed_asset_id",
+            "original_position_id",
+            "original_location_text",
+            "main_system",
+            "fault_component",
+            "fault_sub_component",
+            "repair_method",
+            "current_place",
+            "outsourcing_status",
+            "acceptance_result",
+            "next_action",
+            "risk_tags",
+            "stay_days"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "repair_work_order",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "work_order_id",
+            "source_fault_work_order_id",
+            "removed_asset_id",
+            "installed_asset_id",
+            "original_position_id",
+            "original_location_text",
+            "main_system",
+            "fault_component",
+            "fault_sub_component",
+            "repair_method",
+            "current_place",
+            "outsourcing_status",
+            "acceptance_result",
+            "next_action",
+            "risk_tags",
+            "stay_days"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "asset_event",
+        "columns": [
+          "id",
+          "asset_id",
+          "event_type",
+          "from_status",
+          "to_status",
+          "from_location",
+          "to_location",
+          "from_position_id",
+          "to_position_id",
+          "work_order_id",
+          "related_asset_id",
+          "event_at",
+          "handled_by",
+          "approved_by",
+          "note",
+          "created_at"
+        ],
+        "before": {
+          "exists": true,
+          "table": "asset_event",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "asset_id",
+            "event_type",
+            "from_status",
+            "to_status",
+            "from_location",
+            "to_location",
+            "from_position_id",
+            "to_position_id",
+            "work_order_id",
+            "related_asset_id",
+            "event_at",
+            "handled_by",
+            "approved_by",
+            "note",
+            "created_at"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "asset_event",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "asset_id",
+            "event_type",
+            "from_status",
+            "to_status",
+            "from_location",
+            "to_location",
+            "from_position_id",
+            "to_position_id",
+            "work_order_id",
+            "related_asset_id",
+            "event_at",
+            "handled_by",
+            "approved_by",
+            "note",
+            "created_at"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "pm_work_order",
+        "columns": [
+          "work_order_id",
+          "pm_template_id",
+          "pm_code",
+          "plan_start_date",
+          "latest_finish_date",
+          "assigned_by",
+          "person_in_charge",
+          "system_name",
+          "equipment_group_no",
+          "equipment_group_name",
+          "maintenance_type",
+          "execution_type",
+          "qty_plan",
+          "qty_completed",
+          "corrective_action",
+          "danger_start",
+          "danger_end",
+          "danger_total_hours",
+          "cost_center",
+          "ntmc_completed_by",
+          "ntmc_approved_by",
+          "form_snapshot",
+          "form_template_id",
+          "backfill_status",
+          "actual_work_date",
+          "workforce_count",
+          "workforce_hours",
+          "external_service_na",
+          "external_service_detail",
+          "maintenance_result",
+          "actual_material_note",
+          "backfill_snapshot",
+          "template_snapshot",
+          "template_snapshot_hash",
+          "template_snapshot_created_at"
+        ],
+        "before": {
+          "exists": true,
+          "table": "pm_work_order",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "work_order_id",
+            "pm_template_id",
+            "pm_code",
+            "plan_start_date",
+            "latest_finish_date",
+            "assigned_by",
+            "person_in_charge",
+            "system_name",
+            "equipment_group_no",
+            "equipment_group_name",
+            "maintenance_type",
+            "execution_type",
+            "qty_plan",
+            "qty_completed",
+            "corrective_action",
+            "danger_start",
+            "danger_end",
+            "danger_total_hours",
+            "cost_center",
+            "ntmc_completed_by",
+            "ntmc_approved_by",
+            "form_snapshot",
+            "form_template_id",
+            "backfill_status",
+            "actual_work_date",
+            "workforce_count",
+            "workforce_hours",
+            "external_service_na",
+            "external_service_detail",
+            "maintenance_result",
+            "actual_material_note",
+            "backfill_snapshot",
+            "template_snapshot",
+            "template_snapshot_hash",
+            "template_snapshot_created_at"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "pm_work_order",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "work_order_id",
+            "pm_template_id",
+            "pm_code",
+            "plan_start_date",
+            "latest_finish_date",
+            "assigned_by",
+            "person_in_charge",
+            "system_name",
+            "equipment_group_no",
+            "equipment_group_name",
+            "maintenance_type",
+            "execution_type",
+            "qty_plan",
+            "qty_completed",
+            "corrective_action",
+            "danger_start",
+            "danger_end",
+            "danger_total_hours",
+            "cost_center",
+            "ntmc_completed_by",
+            "ntmc_approved_by",
+            "form_snapshot",
+            "form_template_id",
+            "backfill_status",
+            "actual_work_date",
+            "workforce_count",
+            "workforce_hours",
+            "external_service_na",
+            "external_service_detail",
+            "maintenance_result",
+            "actual_material_note",
+            "backfill_snapshot",
+            "template_snapshot",
+            "template_snapshot_hash",
+            "template_snapshot_created_at"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "pm_work_order_check_result",
+        "columns": [
+          "id",
+          "work_order_id",
+          "check_item_id",
+          "result_status",
+          "result_value",
+          "remark",
+          "filled_by",
+          "filled_at",
+          "created_at",
+          "abnormal_action",
+          "linked_fault_work_order_id",
+          "abnormal_reason"
+        ],
+        "before": {
+          "exists": true,
+          "table": "pm_work_order_check_result",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "check_item_id",
+            "result_status",
+            "result_value",
+            "remark",
+            "filled_by",
+            "filled_at",
+            "created_at",
+            "abnormal_action",
+            "linked_fault_work_order_id",
+            "abnormal_reason"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "pm_work_order_check_result",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "check_item_id",
+            "result_status",
+            "result_value",
+            "remark",
+            "filled_by",
+            "filled_at",
+            "created_at",
+            "abnormal_action",
+            "linked_fault_work_order_id",
+            "abnormal_reason"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "pm_work_order_attachment_result",
+        "columns": [
+          "id",
+          "work_order_id",
+          "template_attachment_id",
+          "item_key",
+          "result_status",
+          "result_value",
+          "remark",
+          "abnormal_action",
+          "linked_fault_work_order_id",
+          "abnormal_reason",
+          "filled_by",
+          "filled_at",
+          "created_at"
+        ],
+        "before": {
+          "exists": true,
+          "table": "pm_work_order_attachment_result",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "template_attachment_id",
+            "item_key",
+            "result_status",
+            "result_value",
+            "remark",
+            "abnormal_action",
+            "linked_fault_work_order_id",
+            "abnormal_reason",
+            "filled_by",
+            "filled_at",
+            "created_at"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "pm_work_order_attachment_result",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "template_attachment_id",
+            "item_key",
+            "result_status",
+            "result_value",
+            "remark",
+            "abnormal_action",
+            "linked_fault_work_order_id",
+            "abnormal_reason",
+            "filled_by",
+            "filled_at",
+            "created_at"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "work_order_material",
+        "columns": [
+          "id",
+          "work_order_id",
+          "material_id",
+          "planned_qty",
+          "actual_qty",
+          "unit",
+          "warehouse_id",
+          "note",
+          "created_at"
+        ],
+        "before": {
+          "exists": true,
+          "table": "work_order_material",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "material_id",
+            "planned_qty",
+            "actual_qty",
+            "unit",
+            "warehouse_id",
+            "note",
+            "created_at"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "work_order_material",
+          "rows": 0,
+          "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+          "columns": [
+            "id",
+            "work_order_id",
+            "material_id",
+            "planned_qty",
+            "actual_qty",
+            "unit",
+            "warehouse_id",
+            "note",
+            "created_at"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "inventory_transaction",
+        "columns": [
+          "id",
+          "inventory_document_id",
+          "inventory_document_line_id",
+          "material_id",
+          "warehouse_id",
+          "warehouse_bin_id",
+          "stock_status",
+          "asset_id",
+          "qty_change",
+          "transaction_type",
+          "work_order_id",
+          "event_id",
+          "custodian_user_id",
+          "custodian_name",
+          "transaction_at",
+          "created_by",
+          "note"
+        ],
+        "before": {
+          "exists": true,
+          "table": "inventory_transaction",
+          "rows": 5,
+          "hash": "A7E721766CC4A25E78F4E90435D2834F988390CFA46730435F58A0A2DF4B8E2C",
+          "columns": [
+            "id",
+            "inventory_document_id",
+            "inventory_document_line_id",
+            "material_id",
+            "warehouse_id",
+            "warehouse_bin_id",
+            "stock_status",
+            "asset_id",
+            "qty_change",
+            "transaction_type",
+            "work_order_id",
+            "event_id",
+            "custodian_user_id",
+            "custodian_name",
+            "transaction_at",
+            "created_by",
+            "note"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "inventory_transaction",
+          "rows": 5,
+          "hash": "A7E721766CC4A25E78F4E90435D2834F988390CFA46730435F58A0A2DF4B8E2C",
+          "columns": [
+            "id",
+            "inventory_document_id",
+            "inventory_document_line_id",
+            "material_id",
+            "warehouse_id",
+            "warehouse_bin_id",
+            "stock_status",
+            "asset_id",
+            "qty_change",
+            "transaction_type",
+            "work_order_id",
+            "event_id",
+            "custodian_user_id",
+            "custodian_name",
+            "transaction_at",
+            "created_by",
+            "note"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "inventory_balance",
+        "columns": [
+          "material_id",
+          "warehouse_id",
+          "stock_status",
+          "qty"
+        ],
+        "before": {
+          "exists": true,
+          "table": "inventory_balance",
+          "rows": 1152,
+          "hash": "5DBEF97B6739DC0CD30EC39D000ED1AB76FE9CD402035A43BEC42DF6F1B5D78D",
+          "columns": [
+            "material_id",
+            "warehouse_id",
+            "stock_status",
+            "qty"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "inventory_balance",
+          "rows": 1152,
+          "hash": "5DBEF97B6739DC0CD30EC39D000ED1AB76FE9CD402035A43BEC42DF6F1B5D78D",
+          "columns": [
+            "material_id",
+            "warehouse_id",
+            "stock_status",
+            "qty"
+          ]
+        },
+        "equal": true
+      },
+      {
+        "table": "inventory_bin_balance",
+        "columns": [
+          "material_id",
+          "warehouse_id",
+          "warehouse_bin_id",
+          "stock_status",
+          "qty"
+        ],
+        "before": {
+          "exists": true,
+          "table": "inventory_bin_balance",
+          "rows": 1152,
+          "hash": "048FDAE28C28E6C19DCC3CCFCD97E59B900BA6D5A98AB4A759D2B9B476C20A33",
+          "columns": [
+            "material_id",
+            "warehouse_id",
+            "warehouse_bin_id",
+            "stock_status",
+            "qty"
+          ]
+        },
+        "after": {
+          "exists": true,
+          "table": "inventory_bin_balance",
+          "rows": 1152,
+          "hash": "048FDAE28C28E6C19DCC3CCFCD97E59B900BA6D5A98AB4A759D2B9B476C20A33",
+          "columns": [
+            "material_id",
+            "warehouse_id",
+            "warehouse_bin_id",
+            "stock_status",
+            "qty"
+          ]
+        },
+        "equal": true
+      }
+    ]
+  },
+  "relationships": {
+    "before": {
+      "cFault": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "attachments": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "finishRecords": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "merges": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "repairs": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "inventory": {
+        "rows": 5,
+        "hash": "A811AD59B35BAC07B550A6911D171A5D11554E49637951CA173333BC1AF92095"
+      },
+      "hash": "93A8FF5ECAC1874612FD4A571F1331C45D2F12C1983655EAE2FE0B98959C6AE6"
+    },
+    "after": {
+      "cFault": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "attachments": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "finishRecords": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "merges": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "repairs": {
+        "rows": 0,
+        "hash": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "inventory": {
+        "rows": 5,
+        "hash": "A811AD59B35BAC07B550A6911D171A5D11554E49637951CA173333BC1AF92095"
+      },
+      "hash": "93A8FF5ECAC1874612FD4A571F1331C45D2F12C1983655EAE2FE0B98959C6AE6"
+    },
+    "equal": true
+  },
+  "schema": {
+    "before": {
+      "hash": "788737BFAA38EDDA304B24307C85CD6156C9233FF697B1E9AA00FD1D0A4DB643",
+      "counts": {
+        "columns": 1089,
+        "constraints": 955,
+        "indexes": 199
+      }
+    },
+    "after": {
+      "hash": "AFC000D8FA82FCF3C00AC10A479D63B744251F496C4D126D4018C8CA647E11BC",
+      "counts": {
+        "columns": 1146,
+        "constraints": 1000,
+        "indexes": 210
+      }
+    },
+    "rerun": {
+      "hash": "AFC000D8FA82FCF3C00AC10A479D63B744251F496C4D126D4018C8CA647E11BC",
+      "counts": {
+        "columns": 1146,
+        "constraints": 1000,
+        "indexes": 210
+      }
+    },
+    "rerunStable": true
+  },
+  "legacyEvents": {
+    "before": {
+      "schemaCapabilities": {
+        "hasEventType": false,
+        "hasRequestId": false,
+        "hasVersion": false
+      },
+      "events": {
+        "total": 0,
+        "legacy": 0,
+        "workflow": 0,
+        "distinct_ids": 0,
+        "request_ids": 0
+      },
+      "workOrders": {
+        "work_orders": 0,
+        "version_sum": "0",
+        "status_hash": "-6939563903564495251"
+      },
+      "auditRows": 1,
+      "sla": {
+        "rows": 0,
+        "hash": "-6939563903564495251"
+      },
+      "notificationOrOutboxTables": []
+    },
+    "after": {
+      "schemaCapabilities": {
+        "hasEventType": true,
+        "hasRequestId": true,
+        "hasVersion": true
+      },
+      "events": {
+        "total": 0,
+        "legacy": 0,
+        "workflow": 0,
+        "distinct_ids": 0,
+        "request_ids": 0
+      },
+      "workOrders": {
+        "work_orders": 0,
+        "version_sum": "0",
+        "status_hash": "-6939563903564495251"
+      },
+      "auditRows": 1,
+      "sla": {
+        "rows": 0,
+        "hash": "-6939563903564495251"
+      },
+      "notificationOrOutboxTables": []
+    },
+    "rerun": {
+      "schemaCapabilities": {
+        "hasEventType": true,
+        "hasRequestId": true,
+        "hasVersion": true
+      },
+      "events": {
+        "total": 0,
+        "legacy": 0,
+        "workflow": 0,
+        "distinct_ids": 0,
+        "request_ids": 0
+      },
+      "workOrders": {
+        "work_orders": 0,
+        "version_sum": "0",
+        "status_hash": "-6939563903564495251"
+      },
+      "auditRows": 1,
+      "sla": {
+        "rows": 0,
+        "hash": "-6939563903564495251"
+      },
+      "notificationOrOutboxTables": []
+    },
+    "initialSideEffectsSafe": true
+  },
+  "rerun": {
+    "outputHash": "F599967C3138EB7FDE0693C400F4B903558FABD6107B2A4BABC4A32E99B1B3F7",
+    "businessStable": true,
+    "relationshipsStable": true,
+    "legacyStable": true,
+    "safe": true
+  },
+  "rollback": {
+    "transaction": {
+      "before": 0,
+      "after": 0,
+      "unchanged": true
+    },
+    "migrationFailure": {
+      "status": 3,
+      "errorExcerpt": [
+        "COMMENT",
+        "COMMENT",
+        "psql:C:/Users/a2306/Desktop/code/ntmc.yaml/���y�t��/.local-rehearsal/migration-320-forced-failure-20260716004856.sql:11: NOTICE:  constraint \"work_order_version_positive\" of relation \"work_order\" does not exist, skipping",
+        "psql:C:/Users/a2306/Desktop/code/ntmc.yaml/���y�t��/.local-rehearsal/migration-320-forced-failure-20260716004856.sql:157: ERROR:  division by zero"
+      ],
+      "schemaUnchanged": true,
+      "ledgerUnchanged": true,
+      "businessUnchanged": true,
+      "evidenceFile": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.local-rehearsal\\migration-320-forced-failure-20260716004856.sql",
+      "evidenceFileSha256": "DA5BC2C35C37C03DCDD8ED5E2C0E4050CB9B20B07CE30848CCDB98695D6E8DF2"
+    }
+  },
+  "backupRestore": {
+    "backup": {
+      "path": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.local-rehearsal\\migration-320-after-20260716004856.dump",
+      "bytes": 836594,
+      "sha256": "F98618BBF6126C764682525FCE5BC492DE80C4B198701C1E963F7A233B8A3E01"
+    },
+    "businessHash": "7B9B4B3A942B58B3329BFEA0AB0D73451D80A0F4FBEBEAACE21017215A09EA72",
+    "schemaHash": "AFC000D8FA82FCF3C00AC10A479D63B744251F496C4D126D4018C8CA647E11BC",
+    "ledgerHash": "B86D26AC71914A31DF537E65713559D69B9EA31A27C1148B35CD58DB47073409",
+    "equal": true
+  },
+  "anomalies": [
+    {
+      "code": "MISSING_P1_WORD_TEMPLATE",
+      "recordKey": "P1",
+      "detail": "published P1 has no active published Word template",
+      "classification": "PRE_EXISTING",
+      "disposition": "review before production",
+      "goNoGoImpact": "conditional"
+    },
+    {
+      "code": "INVENTORY_MISMATCH",
+      "recordKey": "aggregate",
+      "detail": "719",
+      "classification": "PRE_EXISTING",
+      "disposition": "review before production",
+      "goNoGoImpact": "conditional"
+    }
+  ],
+  "crossModule": {
+    "endpoints": [
+      {
+        "endpoint": "/api/health",
+        "status": 200,
+        "responseHash": "0385FD9863D9D5F3E0411B4A8B80CF579F991072AB2F174046A61B200DE402C6",
+        "excerpt": "{\"ok\":true,\"service\":\"erp-api\",\"timestamp\":\"2026-07-16T00:49:09.128Z\"}"
+      },
+      {
+        "endpoint": "/api/health/db",
+        "status": 200,
+        "responseHash": "E3E47A34A349AFDB8964FBDE375B75A161D45866F9C0BAAAAFCD019B88D82B96",
+        "excerpt": "{\"ok\":true,\"databaseTime\":\"2026-07-16T00:49:09.167Z\"}"
+      },
+      {
+        "endpoint": "/api/work-orders/all?limit=2",
+        "status": 200,
+        "responseHash": "6F237C740CBAAAC3FC8E75A71FAC044EB674009DDD39AFF1952873D8C5BB0ACA",
+        "excerpt": "{\"items\":[],\"total\":0,\"limit\":2,\"offset\":0}"
+      }
+    ],
+    "pcr": {
+      "command": "node scripts/verify-pcr-rehearsal.js",
+      "output": "{\n  \"ok\": true,\n  \"pOrderNo\": \"P-2690110-D-TS-001\",\n  \"cOrderNo\": \"C-2690110-D-TS-001\",\n  \"rOrderNo\": \"R-1150716-D-TS-001\",\n  \"duplicateStatus\": 409,\n  \"sourceCheck\": \"車體配件 / P1-R003\",\n  \"removedEvents\": 4,\n  \"installedEvents\": 1,\n  \"currentPositionAsset\": \"REH-ASSET-SPARE-001\",\n  \"removedAssetLocation\": \"REH-CENTER\",\n  \"simulatedPreWorkPrint\": true\n}\n",
+      "json": {
+        "ok": true,
+        "pOrderNo": "P-2690110-D-TS-001",
+        "cOrderNo": "C-2690110-D-TS-001",
+        "rOrderNo": "R-1150716-D-TS-001",
+        "duplicateStatus": 409,
+        "sourceCheck": "車體配件 / P1-R003",
+        "removedEvents": 4,
+        "installedEvents": 1,
+        "currentPositionAsset": "REH-ASSET-SPARE-001",
+        "removedAssetLocation": "REH-CENTER",
+        "simulatedPreWorkPrint": true
+      }
+    },
+    "inventory": {
+      "command": "node scripts/verify-inventory-rehearsal.js",
+      "output": "{\n  \"ok\": true,\n  \"missingKeyStatus\": 400,\n  \"concurrentStatuses\": [\n    409,\n    201\n  ],\n  \"duplicateStatuses\": [\n    201,\n    200\n  ],\n  \"mismatchStatus\": 409,\n  \"transferStatuses\": [\n    201,\n    200\n  ],\n  \"rollbackStatus\": 409,\n  \"finalBalances\": {\n    \"REH-CENTER:AVAILABLE\": 97,\n    \"REH-REPAIR:ISSUED\": 6\n  },\n  \"recalculated\": {\n    \"REH-CENTER:AVAILABLE\": 97,\n    \"REH-REPAIR:ISSUED\": 6\n  },\n  \"transactions\": [\n    {\n      \"transaction_type\": \"CONSUME\",\n      \"count\": 2\n    },\n    {\n      \"transaction_type\": \"TRANSFER_IN\",\n      \"count\": 1\n    },\n    {\n      \"transaction_type\": \"TRANSFER_OUT\",\n      \"count\": 1\n    }\n  ]\n}\n",
+      "json": {
+        "ok": true,
+        "missingKeyStatus": 400,
+        "concurrentStatuses": [
+          409,
+          201
+        ],
+        "duplicateStatuses": [
+          201,
+          200
+        ],
+        "mismatchStatus": 409,
+        "transferStatuses": [
+          201,
+          200
+        ],
+        "rollbackStatus": 409,
+        "finalBalances": {
+          "REH-CENTER:AVAILABLE": 97,
+          "REH-REPAIR:ISSUED": 6
+        },
+        "recalculated": {
+          "REH-CENTER:AVAILABLE": 97,
+          "REH-REPAIR:ISSUED": 6
+        },
+        "transactions": [
+          {
+            "transaction_type": "CONSUME",
+            "count": 2
+          },
+          {
+            "transaction_type": "TRANSFER_IN",
+            "count": 1
+          },
+          {
+            "transaction_type": "TRANSFER_OUT",
+            "count": 1
+          }
+        ]
+      }
+    },
+    "pToC": {
+      "sql": "SELECT p.work_order_no AS p_order,c.work_order_no AS c_order,\n               f.source_pm_work_order_id,f.source_check_section,f.source_check_item,\n               cr.result_value,ci.standard_value,ci.min_value,ci.max_value,ci.unit,\n               (SELECT count(*)::int FROM work_order_attachment wa WHERE wa.work_order_id=c.id) AS c_attachment_count,\n               (SELECT count(*)::int FROM pm_work_order_attachment_result ar WHERE ar.work_order_id=p.id) AS p_attachment_result_count\n         FROM work_order c\n         JOIN fault_work_order f ON f.work_order_id=c.id\n         JOIN work_order p ON p.id=f.source_pm_work_order_id\n          LEFT JOIN pm_work_order_check_result cr ON cr.linked_fault_work_order_id=c.id\n          LEFT JOIN pm_template_check_item ci ON ci.id=cr.check_item_id\n         WHERE c.work_order_no=$1",
+      "row": {
+        "p_order": "P-2690110-D-TS-001",
+        "c_order": "C-2690110-D-TS-001",
+        "source_pm_work_order_id": "fe8c40e9-a694-4ca7-a01e-6d799b966891",
+        "source_check_section": "車體配件",
+        "source_check_item": "P1-R003",
+        "result_value": null,
+        "standard_value": "正常",
+        "min_value": null,
+        "max_value": null,
+        "unit": null,
+        "c_attachment_count": 0,
+        "p_attachment_result_count": 68
+      },
+      "sourceP": true,
+      "checkItem": true,
+      "abnormalValue": false,
+      "standard": true,
+      "attachmentSnapshot": false
+    },
+    "cToR": {
+      "sql": "SELECT count(*)::int AS r_orders,\n               count(DISTINCT r.source_disassembly_event_id)::int AS disassembly_events,\n               count(DISTINCT r.removed_asset_id)::int AS removed_assets,\n               count(DISTINCT ae.id)::int AS asset_events\n         FROM repair_work_order r\n          JOIN work_order c ON c.id=r.source_fault_work_order_id\n          LEFT JOIN asset_event ae ON ae.id=r.source_disassembly_event_id\n         WHERE c.work_order_no=$1",
+      "row": {
+        "r_orders": 1,
+        "disassembly_events": 1,
+        "removed_assets": 1,
+        "asset_events": 1
+      },
+      "passed": true
+    },
+    "shortageInventory": {
+      "sql": "SELECT count(*)::int AS linked\n          FROM fault_work_order_shortage s\n          JOIN inventory_transaction i ON i.work_order_id=s.work_order_id",
+      "auditSql": "SELECT count(*)::int AS rows FROM operation_audit_log\n        WHERE request_id LIKE 'PHASE7:%' OR action_code ILIKE '%INVENTORY%'",
+      "linkedRows": 0,
+      "auditRows": 9,
+      "rollbackPassed": true,
+      "reconciliationPassed": true
+    },
+    "apiLogHash": "ED6106E33D6C4705CCE5883F91F4222FF5B2321CFB4EC08ECFC18D16A172A99E",
+    "fixture": {
+      "file": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\db-design\\seed-rehearsal-integration.sql",
+      "fileSha256": "FAEE6AB66B5F1217812EF9F58F5FE5A53AF2D2A02A437057C55BF9159C7F1D6F",
+      "outputHash": "3445A18537D3AA736A817B26121D5B6C97D96139B1A6011FE9BE7B56E24F310B"
+    }
+  },
+  "decision": {
+    "result": "NO-GO",
+    "passedGates": [
+      "migration 前後既有業務欄位 hash 一致",
+      "migration 前後既有關聯 hash 一致",
+      "migration 未新增資料異常",
+      "一般 transaction rollback 無殘留",
+      "migration failure 完整 rollback",
+      "既有事件回填不新增事件、不觸發 workflow、通知、SLA 或狀態變更",
+      "migration 320 可安全重跑且 LEGACY/event 無副作用",
+      "backup restore 與來源 clone 一致",
+      "C 拆件建立 R 的事件、序號與唯一關聯一致"
+    ],
+    "failedGates": [
+      "去識別化正式來源具唯讀帳號、唯讀交易與正式 ledger 前後 hash 證據",
+      "P 異常建立 C 完整保存來源、值、標準與附件",
+      "C 領退料、缺料、庫存回滾與稽核完整閉環"
+    ]
+  }
+}

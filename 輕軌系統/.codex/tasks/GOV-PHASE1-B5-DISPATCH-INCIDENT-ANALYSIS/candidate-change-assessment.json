@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+  "candidate_change_required": false,
+  "affected_candidate_files": [],
+  "task_local_remediation_possible": true,
+  "dispatch_protocol_remediation_possible": true,
+  "environment_change_required": false,
+  "conditional_candidate_change_risk": "If direct Reviewer filesystem writes remain mandatory, the formal read-only profile and registered blueprint schema would require candidate-level contract changes. The recommended task-local design instead keeps Reviewers read-only and captures an exact machine-readable response payload without Root interpretation.",
+  "recommended_next_action": "Authorize Remediation 12 only as task-local review-protocol remediation: rebuild exact scopes from B5 capabilities, add deterministic satisfiability preflight, define response-channel startup/early-failure/exit contracts, persist the exact dispatch prompt and returned payload hash, and add a bounded allocation ledger. Do not create a new 103-file candidate.",
+  "remediation_12_status": "NOT_AUTHORIZED_NOT_CREATED",
+  "b6_status": "NOT_AUTHORIZED_NOT_CREATED",
+  "four_reviewer_plus_deterministic_qa_model_viable": true
+}

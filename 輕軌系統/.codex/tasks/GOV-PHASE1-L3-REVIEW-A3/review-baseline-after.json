@@ -1,0 +1,627 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A3",
+  "baseline_scope": "exact-governance-commit-manifest-included-set",
+  "manifest": {
+    "relative_path": ".codex/governance/governance-commit-manifest.yaml",
+    "byte_size": 26830,
+    "sha256": "BDBA5FF324C98DBF05CABC71E77DF18C459A0E88537ED8BC293EFDA3642BD9AE",
+    "included_artifact_count": 87
+  },
+  "excluded": [
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/**",
+    "manifest excluded_records",
+    ".codex/tests/.tmp/**"
+  ],
+  "artifacts": [
+    {
+      "relative_path": ".agents/skills/task-classification/agents/openai.yaml",
+      "byte_size": 263,
+      "sha256": "CD552813CB719532BD7E639CF0D8958B9C4F09E8A3DE2643345839014B0C6F1F",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".agents/skills/task-classification/SKILL.md",
+      "byte_size": 4691,
+      "sha256": "6A4532088E1C2AB15E691D8137F6A8378B8252896768D02C5C2D3A4E0341EB41",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/architect.toml",
+      "byte_size": 649,
+      "sha256": "B9ACFCC9F95240BC86900A1505827DE0C3FB34DC0AE28914F5B7E76D12159792",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/backend-engineer.toml",
+      "byte_size": 674,
+      "sha256": "52A5AC4008EDBBC51E3146C7BB2270C81D376D0D1C5A4549EF6565FFD9F5DF7A",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/code-reviewer.toml",
+      "byte_size": 568,
+      "sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/compatibility-reviewer.toml",
+      "byte_size": 668,
+      "sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/database-engineer.toml",
+      "byte_size": 672,
+      "sha256": "FC6E509F163FC361A789F0E8E5DA602FFA3A88D1D27B59F27C89D90B5B2DA0EC",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/documentation-engineer.toml",
+      "byte_size": 637,
+      "sha256": "42EB88969BC5906ADC053490A648B7BF9AADCDC629D9A3ABADA79ED759D8D117",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/frontend-engineer.toml",
+      "byte_size": 666,
+      "sha256": "98D7C9662B451B225824A86590C12DA7D583D7191B3F57EC30A559ABD8AD3810",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/qa-engineer.toml",
+      "byte_size": 664,
+      "sha256": "FA299A96E503652AB50B2A6139963BCA45BA034AE766D7347689CDE1F81BA003",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/railway-domain-reviewer.toml",
+      "byte_size": 618,
+      "sha256": "6838A55AC589630FD6C7E284CF5CDAEC28244F457A8226FDF6679ED7FE9BB329",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/agents/security-reviewer.toml",
+      "byte_size": 643,
+      "sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/artifact-manifest.schema.json",
+      "byte_size": 1649,
+      "sha256": "D78A6AC5886799F20A61FA7CB74E666FFCA9266E2DD73FAD989C93EB33126FAE",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/blueprint.schema.json",
+      "byte_size": 3392,
+      "sha256": "9B2923B59C051B6883A97C66C09992B8A76754F8AEB7D9874395AA5C5F99338A",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/classification.schema.json",
+      "byte_size": 1926,
+      "sha256": "035A9AA398AF3FCF59C890FAC0EE5F4F2095102F26C959EC39FF0215547F162E",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/governance-commit-manifest.schema.json",
+      "byte_size": 1204,
+      "sha256": "ED4A627E3D06E80870FE6277FC6513FAB321C7656C589413C0F9367A4D167FC6",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/human-approval.schema.json",
+      "byte_size": 1614,
+      "sha256": "D1E26286FC55FAD60B2FED4E00A5DDD67A8E6D241F2B81C8512D4B4EFB776138",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/implementation-handoff.schema.json",
+      "byte_size": 955,
+      "sha256": "0B1496B34BD96C04438774483D94DDD1F6671917A2D52B9EBF90F5C505249524",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/review-findings.schema.json",
+      "byte_size": 3129,
+      "sha256": "79ABBEB378EB35106DF0B57E1DA211907A7D95A6B100FE4145F7D56E0EF5F005",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/rule.schema.json",
+      "byte_size": 2513,
+      "sha256": "E9F0E1DB198CD8299D003583E5ED125D8E2A26230B9AB91E0FB1FE6DA1F28458",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/security-evidence.schema.json",
+      "byte_size": 2021,
+      "sha256": "F04B33D8C830D7E239975773B0C23983853AF2B973099FEDD62842DD682C35E3",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/task-intent.schema.json",
+      "byte_size": 1525,
+      "sha256": "8A7BA3D2C6993D7E8659DFC7D0F4595AB07B113DA65BE2FECF198C3E9694C866",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/test-evidence.schema.json",
+      "byte_size": 1605,
+      "sha256": "8AF057DFA990E5311E5D0AAE110D47891BD90CC735B8E0F30ECB857A7730A573",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/schemas/traceability.schema.json",
+      "byte_size": 1173,
+      "sha256": "7B7F52B2E79C5B89909D9D2A5EBB148D7BDFF1F673DA72FC30297667E7F5D291",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/templates/bugfix.yaml",
+      "byte_size": 388,
+      "sha256": "BD59DCFA974EED4C8E920317530039402EC459C3BFD2FF6192549EEBDCD119C0",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/templates/feature.yaml",
+      "byte_size": 433,
+      "sha256": "F273CEC46B5AA3DCF3F609504681D5E4F0B70A83412670879629FDC8E8B5319F",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/templates/migration.yaml",
+      "byte_size": 541,
+      "sha256": "807EC2D472F1F49F6217D86CFBA67B8DC91E83378DB72FC8702BCA30CDEC1E57",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/blueprints/templates/review.yaml",
+      "byte_size": 460,
+      "sha256": "22B629BA6ADB3F5AE7F89A3696D3D1712620652B2A1640FC35E98C25E70B839B",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/checklists/code-review.md",
+      "byte_size": 399,
+      "sha256": "D8991059CFB784C9A7A69F742F8A8F51A5C583487324C390C3EF7830E8ACA4FF",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/checklists/compatibility-review.md",
+      "byte_size": 520,
+      "sha256": "FECFDBBF51DF610E72FC1F27DBF55A2407017A407ADEA717BC0F012F236A602D",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/checklists/railway-domain-review.md",
+      "byte_size": 416,
+      "sha256": "4871212565C5BCAD1CC650D3680749A9F6D69E99F2A57F50BC898A46A585A294",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/checklists/security-review.md",
+      "byte_size": 487,
+      "sha256": "0FC9D0451ECD343ADE6AFF3D7DABF4FB4C9B0CF3B782D4143E61C1FE9049E1E5",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/config.toml",
+      "byte_size": 64,
+      "sha256": "3C009A50F76570271B2A9CCEEC1077415D618A307EC02F935F8753595D397C92",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/domain/index.yaml",
+      "byte_size": 5017,
+      "sha256": "457638541FE0F204CC7D16261350DBA10D2309602465F75F3659B03FA10F27D8",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/environment/agent-safe-profile.json",
+      "byte_size": 420,
+      "sha256": "1472230406B2450F35EAA850A0B42260D7D0368706B821BF2C292BAE68E016B6",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/environment/fixtures/unsafe-remote-profile.json",
+      "byte_size": 288,
+      "sha256": "033A4366D4BB4E867C426C327DAEF80E5589006DECF894C730F163622D4804ED",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/governance/agent-path-policy.yaml",
+      "byte_size": 4366,
+      "sha256": "034DA1838DBF9496223818C6B037498A9AD4FA023D8588989155B92FB3F67741",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/governance/environment-safety-evidence.json",
+      "byte_size": 1187,
+      "sha256": "9453E4E7800D00C4578F36F4C0FC9E4F299404F908363027626F6A6F4C2CF608",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/governance/evidence-scope-policy.yaml",
+      "byte_size": 2032,
+      "sha256": "620AECB542EB545817493DD806C22E0A596BC312BFCC669A7EEF3193200B622F",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/governance/phase-status.json",
+      "byte_size": 610,
+      "sha256": "CCA8A0F8E03940D23F03D4972E3436C9E6346A79A6D45E70803D21F41FC52F6E",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/governance/residual-risks.yaml",
+      "byte_size": 3342,
+      "sha256": "CAF6D01C0551B11C2E00DC887A68E0896FEE920253098F05E65BB883C4F059E4",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/meta-rules/confidentiality.yaml",
+      "byte_size": 744,
+      "sha256": "8135DD7928753844838D91CAC852FBF4A44E7161C1BC275315057A7C479E4799",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/meta-rules/database.yaml",
+      "byte_size": 1376,
+      "sha256": "83383FA806FD871830574870F1C29BA49CF14E5D70374A94F0C8193DFE7B1AE0",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/meta-rules/evidence.yaml",
+      "byte_size": 1301,
+      "sha256": "9100CFD3048A3FF360BBD4A8FFDFF4D4D965CA41FFC3D57A7F44F5DEB98238AA",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/meta-rules/global.yaml",
+      "byte_size": 1855,
+      "sha256": "2B85352BC694313D2814028905D114DBA1B71671E7C78CF83B5A7275A90596B3",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/meta-rules/review-independence.yaml",
+      "byte_size": 1321,
+      "sha256": "B1C96BC022B9C9841E338AEB8B1F8F882005FC15A00A3F44FA670921954237CE",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/meta-rules/security.yaml",
+      "byte_size": 711,
+      "sha256": "D3D41683EB57547E192A07EDFC08BBF8297A9902AEFF1261E462BB7FE46B6098",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/scripts/create-task.mjs",
+      "byte_size": 10874,
+      "sha256": "17E3A5D186448787F2F4E1535C39DA2231AB4BD9CDC437624B2184B51B299F6A",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/scripts/generate-governance-commit-manifest.mjs",
+      "byte_size": 1498,
+      "sha256": "C98B495564DBA671E3939B26C5A258096C212CB47652CB3D9B6462FBFBBFD16D",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/scripts/lib/governance-commit-manifest.mjs",
+      "byte_size": 2513,
+      "sha256": "CC3978B922A9AE661FD0299DE46306A1F9856F496365CDECB898890EF4B59B12",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/scripts/lib/path-safety.mjs",
+      "byte_size": 3475,
+      "sha256": "4D82071055D75E0E622B32623E20D005B208E388927E188A2431589A9E48920E",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/scripts/lib/schema-validator.mjs",
+      "byte_size": 2953,
+      "sha256": "20D431DCFD505E22CC1DDBF8E6EFBF1E43D8069328553A0DDE5B609B6B4D3EF6",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/scripts/lib/secret-scanner.mjs",
+      "byte_size": 3473,
+      "sha256": "BB37C520F69C2A646C0C50A0DE2B41E04D1DECC807169709FB66B3CF1DE28002",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/scripts/validate-agent-environment.mjs",
+      "byte_size": 3644,
+      "sha256": "8B89588899C61AEC6BE569F9A09FC71A258550E6ED84DAEC369C56A952746F1F",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/scripts/validate-change-scope.mjs",
+      "byte_size": 6111,
+      "sha256": "9FF3850902C16C75ABA34BD0C9CD73ABAFD0B1153EF191C2A63BDD92F6AA3D7C",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/scripts/validate-task.mjs",
+      "byte_size": 39495,
+      "sha256": "E06F98EBE73C003BE30F28DA60C90BA5E9CF62687414B73052C984813885FCF2",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/artifact-manifest.yaml",
+      "byte_size": 2698,
+      "sha256": "59FE7DA1A947A0A21B006EDD88A7E6DC641F5E0A15C50F531268CD08C904F069",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml",
+      "byte_size": 4603,
+      "sha256": "736B1CD6DE102E19AD7109347E01BA069B383166E670EEA7A1A1E2618AFBD5C9",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/classification.yaml",
+      "byte_size": 1521,
+      "sha256": "8DA9E864B1AAA57BEF406389736B478031AF3099554965B07014E099A3C2B75B",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/final-summary.md",
+      "byte_size": 1014,
+      "sha256": "B4DE6A56F13ED66E1E6BEEAE50C3C43755D06F2A714D5C2A035C24ADABDBC35F",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/human-approval.yaml",
+      "byte_size": 1050,
+      "sha256": "8DDB2DF4C11AAC48B544B547D9597C9328C2BE0DA3AFE883897BD4E609775A5A",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/implementation-handoff.yaml",
+      "byte_size": 896,
+      "sha256": "9F95FF2EAFEA7D10A0CEBA65473AA1EFB24123B796BAD1D98DE2D489F124AF3D",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/implementation-plan.md",
+      "byte_size": 1188,
+      "sha256": "E49CCE877E6FE3D4993E6A98560C3B7F0EA9B7F3F598108FA0007A433BFE0AB5",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/review-findings.yaml",
+      "byte_size": 3224,
+      "sha256": "4D88093B9716B363209E3C21E9BB521730E84F6D83ECCCE58E7597D339413350",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/security-evidence.yaml",
+      "byte_size": 2506,
+      "sha256": "91791C97A7A8FE8D43567F169F7B16F2115A9CBB8F24EDE77897B0559DFDF727",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/task-graph.json",
+      "byte_size": 5405,
+      "sha256": "1792CF13FB52D872833633F2D57FDF7718C86A84C82C0C347374FB270101F0BC",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/task-intent.yaml",
+      "byte_size": 1473,
+      "sha256": "3BF933C1E9B6CA075A60D81C1E612C0CC2E724AE5E31DDABB0503456B42B557F",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/test-evidence.yaml",
+      "byte_size": 2451,
+      "sha256": "B8EA29C1E2BB932F58CC5FABDEBA0C43029AE7BCB91314470EED166610BF8C8D",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tasks/GOV-M320-DRYRUN/traceability.yaml",
+      "byte_size": 4387,
+      "sha256": "66D98323653D65D97B326708502119275F814D53242ECCBECFD04371938A82BC",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/artifact-manifest.yaml",
+      "byte_size": 555,
+      "sha256": "34FE5F7373FA10813FB6DADC694B5FA41AA0C0ECE3D7F4F8ABD1A98D4960AE87",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/blueprint.yaml",
+      "byte_size": 989,
+      "sha256": "F2FC8B57F7FFD595785B1FA658F370E38683B71D37AF14655AE9323E9E80A68E",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/classification.yaml",
+      "byte_size": 556,
+      "sha256": "AE3A7F2C0ACE25C67FB280B7FE2CE6D900F045A4E68C37ED03AE01FC17A0235D",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/final-summary.md",
+      "byte_size": 123,
+      "sha256": "D7BA147E1FA56A98E53E20CEFD6D6456778DDBFCD63682EA4BD2F7B5162AFB4B",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/human-approval.yaml",
+      "byte_size": 155,
+      "sha256": "DD0EAE24F8008A2EFC3164B59669D052450518D13C69DAFB1C28F234EDEEA149",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/implementation-handoff.yaml",
+      "byte_size": 264,
+      "sha256": "75AE99AFE985B9B25A98A901527D253B10B8FB98A740143DE500FC9DFA0C89EF",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/implementation-plan.md",
+      "byte_size": 109,
+      "sha256": "6CC4822958EA4A814BC9D7CED295C4A2741FA333411E8390431E3DAD92ABC471",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/review-findings.yaml",
+      "byte_size": 892,
+      "sha256": "1E651232BEAC952CF76D9195F7BA1B2B111CEC530A5537243DFEC67F2986EB08",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/security-evidence.yaml",
+      "byte_size": 369,
+      "sha256": "E5382F93D2C5BDE21080D24D53F6CD9817B256945BEE25D404C44D6F66341CF9",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/task-intent.yaml",
+      "byte_size": 467,
+      "sha256": "012E6F96E690B2302BBB56822908FD014E3A42ED42F8094036207E8FC8D21BFC",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/test-evidence.yaml",
+      "byte_size": 589,
+      "sha256": "5E427B73761531FC333C9412055A4D59353F2E793F1D883F24C54AC4BB30BEED",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/templates/traceability.yaml",
+      "byte_size": 124,
+      "sha256": "B485810C44E8D90B1179CB7E0AFB7998C2F71381BD0E15253ED3C10EA03A0A96",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tests/run-governance-fixtures-concurrency.mjs",
+      "byte_size": 3246,
+      "sha256": "40D5A905B1EC24F149AE7EE361D8704C9219CADB1550ACF7C883B80DEC623D6F",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/tests/run-governance-fixtures.mjs",
+      "byte_size": 31392,
+      "sha256": "4EA51B705542E273F66050D1539D6B3147E190FB08D94877C1931840090E9C46",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/workflows/l1-lightweight.md",
+      "byte_size": 298,
+      "sha256": "5464A43605D3A71F036602BCB51A571B13E1D526673CBEB7AE77ABD58F0D6711",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/workflows/l2-standard.md",
+      "byte_size": 293,
+      "sha256": "B0F536CD939F03BF9FF2E35113B8BB6E398E7D2F8DF5BACACEBC411347D699E5",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": ".codex/workflows/l3-high-risk.md",
+      "byte_size": 1355,
+      "sha256": "4F89585B5C880E2DAEA9DE5148E1626139434C6A7BA654C66C69CA1A18880539",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true
+    },
+    {
+      "relative_path": "AGENTS.md",
+      "byte_size": 7427,
+      "sha256": "3BC5F6D8041177D7C8055DBEC70EC459A80ACE8BBF63BACCEAF8D8B6A8F91CC1",
+      "artifact_type": "governance-policy",
+      "commit_inclusion": true
+    }
+  ]
+}

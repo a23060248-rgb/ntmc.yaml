@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-REM13-BEFORE-CASE-04",
+  "generated_at": "2026-07-21T00:00:00Z",
+  "nodes": [
+    {
+      "id": "TASK:GOV-REM13-BEFORE-CASE-04",
+      "type": "Task",
+      "label": "Fixture Task",
+      "source_ref": ".codex/tasks/GOV-REM13-BEFORE-CASE-04/task-intent.yaml"
+    },
+    {
+      "id": "EVIDENCE:GOV-REM13-BEFORE-CASE-04",
+      "type": "Evidence",
+      "label": "Fixture Evidence",
+      "source_ref": ".codex/tasks/GOV-REM13-BEFORE-CASE-04/evidence.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "TASK:GOV-REM13-BEFORE-CASE-04",
+      "relation": "VERIFIED_BY",
+      "to": "EVIDENCE:GOV-REM13-BEFORE-CASE-04",
+      "source_ref": ".codex/tasks/GOV-REM13-BEFORE-CASE-04/test-evidence.yaml"
+    }
+  ]
+}

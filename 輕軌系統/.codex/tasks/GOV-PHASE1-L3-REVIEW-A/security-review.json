@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer_run_id": "SR-A-019F6BCD-0002",
+    "session_id": "SRS-A-019F6BCD-1002",
+    "implementer_session_id": "phase1-mvp-root-task",
+    "session_independence": "PASS",
+    "mode": "read-only",
+    "review_scope": "Phase 1 governance path, scope, secret, environment security mechanisms only",
+    "reviewer": "security-reviewer-a",
+    "reviewed_at": "2026-07-17T01:40:00+08:00"
+  },
+  "outcome": "BLOCKER",
+  "findings": [
+    {
+      "id": "SEC-A-001",
+      "severity": "HIGH",
+      "location": "docs/migration-320-before-after.json:4",
+      "evidence": "A manifest-listed evidence artifact records an absolute workstation path to a .dump file. Additional absolute local paths occur at docs/migration-320-before-after.json:26, docs/migration-320-before-after.json:1940, docs/migration-320-before-after.json:1941, docs/migration-320-before-after.json:1946, docs/migration-320-before-after.json:1952 and docs/migration-320-before-after.json:2103; docs/cross-module-closure-report.md:3 and docs/migration-320-compatibility-report.md:52 also record absolute local paths. The artifact is included by .codex/tasks/GOV-M320-DRYRUN/artifact-manifest.yaml:6 and is content-scanned without an absolute-path rule by .codex/scripts/lib/secret-scanner.mjs:4-10.",
+      "reproduction": "From the product root, run the scoped read-only search used by this review for drive-letter and UNC forms over AGENTS.md, .codex, .agents, and the five manifest-listed docs; observe the cited matches. No .env file is searched or read.",
+      "impact": "The governance evidence violates the requirement that governance artifacts add no absolute local paths, exposes workstation/user/directory layout, preserves references to dump artifacts, and is non-portable. Because these files are hash-bound evidence, sanitization also requires manifest hash regeneration and revalidation before acceptance."
+    },
+    {
+      "id": "SEC-A-002",
+      "severity": "MEDIUM",
+      "location": ".codex/scripts/validate-task.mjs:229",
+      "evidence": "validate-task scans manifest-listed artifact content at lines 229-235 and required Task files at lines 237-237, but it does not scan the complete governance corpus (.codex scripts, policies, agents, templates, workflows, .agents skill, or all governance docs). The scanner patterns at .codex/scripts/lib/secret-scanner.mjs:4-10 omit absolute local paths and many credential families/encoded secrets. The limitation is acknowledged at .codex/governance/residual-risks.yaml:16.",
+      "reproduction": "Place a drive-letter path or an unsupported token family in a temporary governance fixture outside the fixture artifact manifest and invoke validateTask against that fixture; validation has no corpus-wide rule that reports it. The present scoped search independently found SEC-A-001 while validate-task reported the dry run structurally valid.",
+      "impact": "A structurally valid Task can retain sensitive or machine-specific strings outside the narrow scan set, so the validator cannot substantiate a governance-wide no-secret/no-local-path claim."
+    },
+    {
+      "id": "SEC-A-003",
+      "severity": "MEDIUM",
+      "location": ".codex/scripts/validate-change-scope.mjs:83",
+      "evidence": "The scope validator unions repository-wide staged, unstaged and untracked paths at lines 83-88 and validates all of them against one Task's allowed_write_paths. The current read-only invocation for GOV-M320-DRYRUN failed on numerous pre-existing governance and product changes outside that Task. The success message itself limits proof to changed-files-only and states branch_or_worktree_restriction=false at line 91.",
+      "reproduction": "Run node .codex/scripts/validate-change-scope.mjs --task-id GOV-M320-DRYRUN from the product root. It reports OUTSIDE_TASK_SCOPE for unrelated dirty-worktree files from the staged/unstaged/untracked union.",
+      "impact": "The gate fails closed, which is safer than accepting mixed changes, but it cannot attribute changes to this Task or produce a usable positive scope attestation in the current shared dirty worktree. Human-controlled isolation/pathspec review remains required before Git mutation."
+    },
+    {
+      "id": "SEC-A-004",
+      "severity": "LOW",
+      "location": ".codex/scripts/lib/path-safety.mjs:27",
+      "evidence": "The path helper performs segment-by-segment lstat and realpath checks and rejects stat.isSymbolicLink(), then revalidates after creation. It does not hold directory handles across check/use operations and cannot eliminate replacement races; the residual is accurately recorded at .codex/governance/residual-risks.yaml:13. Its error text groups all reparse-point forms with links although the code predicate is isSymbolicLink() at line 33.",
+      "reproduction": "Review safeNewPath at lines 60-66 followed by caller write/mkdir and verifyCreatedPath. There is necessarily a check/use interval. The approved fixture rejects traversal, absolute, graph escape and a junction, but does not prove immunity to every Windows reparse type or concurrent replacement.",
+      "impact": "Under a concurrently writable or hostile workspace, path components may change between validation and use. Phase 1 must retain this as a residual risk and must not represent the path policy as an OS sandbox."
+    }
+  ],
+  "checks": [
+    {
+      "id": "PATH-REALPATH-LSTAT-SEGMENTS",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": ".codex/scripts/lib/path-safety.mjs:27-42 checks each existing segment with lstat and realpath; canonical containment is enforced. TOCTOU and non-link reparse coverage remain residual per SEC-A-004."
+    },
+    {
+      "id": "PATH-ABS-UNC-DRIVE-TRAVERSAL",
+      "result": "PASS",
+      "evidence": ".codex/scripts/lib/path-safety.mjs:10-19 rejects empty, traversal, absolute, drive-letter, UNC and .env segments; governance fixture case 12 rejected traversal, absolute and graph escape."
+    },
+    {
+      "id": "PATH-SYMLINK-JUNCTION-REPARSE",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "Governance fixture case 12 rejected a junction; the scoped live tree enumeration found no ReparsePoint attributes. General Windows reparse/TOCTOU assurance is limited as recorded in SEC-A-004."
+    },
+    {
+      "id": "PATH-NEW-PRE-POST-VALIDATION",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": ".codex/scripts/create-task.mjs:30-33 and :52-57 validate before creation and revalidate after creation. The interval is not atomic."
+    },
+    {
+      "id": "GRAPH-ESCAPE",
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:284-291 resolves graph source_ref through safeExistingPath; governance fixture case 12 rejected graph escape."
+    },
+    {
+      "id": "CHANGE-SCOPE-STAGED-UNSTAGED-UNTRACKED",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": ".codex/scripts/validate-change-scope.mjs:83-91 collects all three sets and fails closed. Current replay fails because unrelated changes are mixed; see SEC-A-003."
+    },
+    {
+      "id": "GIT-MUTATION-HUMAN-ONLY",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": ".codex/meta-rules/global.yaml:6 and .codex/governance/residual-risks.yaml:10 reserve mutation operations to humans, but no command hook, branch protection, CODEOWNERS, required-review or CI evidence exists."
+    },
+    {
+      "id": "PATH-POLICY-NOT-OS-SANDBOX",
+      "result": "PASS",
+      "evidence": ".codex/governance/agent-path-policy.yaml:3-4 declares commit-time-role-scope-gate and runtime_isolation=false; .codex/governance/residual-risks.yaml:12 repeats the limitation."
+    },
+    {
+      "id": "SECRET-CONTENT-SCAN",
+      "result": "FAIL",
+      "evidence": "Known patterns are scanned in manifest and required Task content, but governance-wide coverage and absolute-local-path detection are absent; actual violations are recorded in SEC-A-001 and SEC-A-002."
+    },
+    {
+      "id": "NO-UNAPPROVED-BINARY-DUMP",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": ".codex/scripts/lib/secret-scanner.mjs:13-17 rejects dump/backup suffixes and non-text artifacts unless authority is approved-binary. No binary file was found in the scoped governance artifact list, but manifest evidence contains absolute strings referencing .dump files."
+    },
+    {
+      "id": "ENVIRONMENT-PROFILE-CONSTRAINTS",
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-agent-environment.mjs:29-38 enforces no dotenv, explicit JSON source, loopback, port 5433, rehearsal naming/mode, no operations and no secret-like keys. The safe profile contains no credentials."
+    },
+    {
+      "id": "ENVIRONMENT-NO-RUNTIME-ISOLATION-OVERCLAIM",
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-agent-environment.mjs:44-56 and .codex/governance/environment-safety-evidence.json:40-46 explicitly state runtime command isolation, OS env denial and product-script integration are false."
+    },
+    {
+      "id": "COMMAND-BYPASS-PARENT-OVERRIDE",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": ".codex/governance/residual-risks.yaml:6-9 records child_process, PowerShell, cmd.exe, arbitrary external executable and Parent permission override bypass risks; no enforcement mechanism closes them."
+    },
+    {
+      "id": "GOVERNANCE-FIXTURES",
+      "result": "PASS",
+      "evidence": "Read-only source execution using temporary fixtures completed 21/21 cases, including no-overwrite, path escape/junction, scope, secret, review identity, approval and gate cases."
+    },
+    {
+      "id": "M320-STRUCTURE-AND-GATE",
+      "result": "PASS",
+      "evidence": "validate-task replay returned structural=VALID and calculated_gate=NO-GO with the expected evidence, review, blocker and approval reasons."
+    },
+    {
+      "id": "SCOPED-LIVE-REPARSE-SCAN",
+      "result": "PASS",
+      "evidence": "PowerShell read-only attribute enumeration over AGENTS.md, .codex, .agents and the five manifest-listed docs returned no ReparsePoint entries."
+    }
+  ],
+  "limitations": [
+    "The review did not read any .env file or its contents.",
+    "The review did not read frontend, erp-api, db-design or migration source; only the five docs explicitly listed by GOV-M320-DRYRUN were read under docs evidence authority.",
+    "No service, product test, database command, database connection, Git mutation, branch operation, commit, worktree operation or external executable beyond Node, Git read commands and PowerShell read-only inspection was performed.",
+    "The review is a filesystem and governance-mechanism assessment, not proof of Codex runtime context isolation or OS sandbox enforcement.",
+    "The scoped content scan uses deterministic patterns and cannot establish absence of every encoded, fragmented or novel secret.",
+    "Git hosting controls and remote repository policy were not available as local evidence.",
+    "No adversarial concurrent filesystem race was attempted; TOCTOU assessment is code-based.",
+    "The current dirty worktree prevents a clean per-Task positive change-scope attestation without human-controlled isolation or an approved baseline/provenance mechanism."
+  ]
+}

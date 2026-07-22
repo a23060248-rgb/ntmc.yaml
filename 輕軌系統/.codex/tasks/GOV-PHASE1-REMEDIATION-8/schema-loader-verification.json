@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "loader_ref": ".codex/scripts/lib/governance/governance-schema-loader.mjs#loadAndCompileGovernanceSchemas",
+  "registry_ref": ".codex/governance/governance-schema-set.yaml",
+  "schema_count": 15,
+  "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+  "railway_domain_schema_ref": ".codex/blueprints/schemas/railway-domain-review.schema.json",
+  "startup_fail_closed": ["missing schema", "invalid JSON", "duplicate $id", "id/version mismatch", "unresolved local reference", "manifest/schema-set disagreement"],
+  "fallback_present": false,
+  "production_schema_cases": {"total": 6, "passed": 6, "case_ids": ["PROD-SCHEMA-01", "PROD-SCHEMA-02", "PROD-SCHEMA-03", "PROD-SCHEMA-04", "PROD-SCHEMA-05", "PROD-SCHEMA-06"]},
+  "mutation": {"mutation_id": "MUT-SCHEMA-01-SKIP-DOMAIN-SCHEMA", "killed": true, "failed_case": "PROD-SCHEMA-06"},
+  "schema_hash_bound_to": ["scan-contract", "bootstrap-scanner-report", "bootstrap-candidate-record"]
+}

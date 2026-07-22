@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/a11-r2/aggregator-output.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "payload_core",
+    "payload_core_sha256"
+  ],
+  "properties": {
+    "payload_core": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "aggregation_package_id",
+        "task_id",
+        "candidate_binding",
+        "startup",
+        "imported_reviewer_status",
+        "deterministic_qa",
+        "a11_gate",
+        "human_exact_manifest_eligible",
+        "active_candidate_review_gate",
+        "bootstrap_human_commit_gate",
+        "migration_320_gate",
+        "write_scope",
+        "completed"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "aggregation_package_id": {
+          "const": "A11-R2-AGGREGATOR-PKG-20260721-01"
+        },
+        "task_id": {
+          "const": "GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2"
+        },
+        "candidate_binding": {
+          "const": {
+            "candidate_file_count": 108,
+            "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+            "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+            "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+            "scanner_contract_version": 5,
+            "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+          }
+        },
+        "startup": {
+          "type": "object"
+        },
+        "imported_reviewer_status": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "deterministic_qa": {
+          "type": "object"
+        },
+        "a11_gate": {
+          "enum": [
+            "GO",
+            "NO-GO"
+          ]
+        },
+        "human_exact_manifest_eligible": {
+          "type": "boolean"
+        },
+        "active_candidate_review_gate": {
+          "enum": [
+            "GO",
+            "NO-GO"
+          ]
+        },
+        "bootstrap_human_commit_gate": {
+          "const": "NO-GO"
+        },
+        "migration_320_gate": {
+          "const": "NEEDS_HUMAN_DECISION / NO-GO"
+        },
+        "write_scope": {
+          "type": "object"
+        },
+        "completed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "payload_core_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "producer": "a7-root-review-orchestrator",
+  "actor_role": "architect",
+  "agent_session_ref": "A7-ROOT-SESSION-9e08cd1b-43b0-4a8d-8616-93b261e3527d",
+  "started_at": "2026-07-19T09:01:00+08:00",
+  "changed_files": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/**"],
+  "commands": ["node .codex/tasks/GOV-PHASE1-L3-REVIEW-A7/capture-review-baseline.mjs review-baseline-before.json", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A7/run-a7-authoritative-reruns.mjs", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A7/capture-review-baseline.mjs review-baseline-after.json", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A7/compare-review-baselines.mjs", "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-L3-REVIEW-A7 --target-gate bootstrap-candidate-review"],
+  "evidence_refs": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/code-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/security-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/railway-domain-review.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/baseline-comparison.json", ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/authoritative-rerun-summary.json"],
+  "unverified": ["Any remediation of the four A7 findings.", "Session B outcome or human commit authorization.", "Git tree, index, commit, remote, or branch-protection state.", "Product runtime, service, database, seed, migration, or product-test behavior."],
+  "residual_risks": ["A7 has four blocking findings despite all declared automated suites passing.", "Bootstrap evidence remains internal-consistency-only workspace evidence.", "Migration 320 Domain decision remains NEEDS_HUMAN_DECISION and execution remains NO-GO."],
+  "next_role": "human-governance-owner reviews the archived A7 BLOCKER record and decides whether to authorize bounded remediation"
+}

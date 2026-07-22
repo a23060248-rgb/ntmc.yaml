@@ -1,0 +1,8 @@
+{
+  "schema_version": 2,
+  "registry_role": "bootstrap_typed_controls",
+  "rules": [
+    {"rule_id": "REV-INDEP-001", "version": 2, "category": "review", "rule_class": "governance_control", "authority_effect": "procedural_governance", "status": "confirmed", "statement": "An implementer cannot formally review the same Task; Reviewers use clean context and authorized filed inputs only.", "verification": {"automated": ["producer and reviewer identity comparison"], "manual": ["fresh Task evidence"]}, "enforcement": {"mechanisms": ["read-only reviewer agents", "review schema"], "residual_risk": "Bootstrap cannot cryptographically prove context isolation."}, "sources": [{"type": "human-approval", "ref": "user approval 2026-07-17"}], "owner": "human-governance-owner", "approved_at": "2026-07-17T00:00:00+08:00", "open_questions": []},
+    {"rule_id": "REV-L3-001", "version": 2, "category": "review", "rule_class": "governance_control", "authority_effect": "procedural_governance", "status": "confirmed", "statement": "L3 final review uses a new Codex Task or Session and requires human approval before any commit, merge or release decision.", "verification": {"automated": ["unique run and session identity"], "manual": ["new Task reference", "human approval artifact"]}, "enforcement": {"mechanisms": ["L3 workflow", "human Gate"], "residual_risk": "Remote branch protection and Git state are outside bootstrap assurance."}, "sources": [{"type": "human-approval", "ref": "user approval 2026-07-17"}], "owner": "human-governance-owner", "approved_at": "2026-07-17T00:00:00+08:00", "open_questions": []}
+  ]
+}

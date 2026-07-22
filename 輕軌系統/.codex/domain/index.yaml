@@ -1,0 +1,61 @@
+{
+  "schema_version": 2,
+  "registry_type": "proposed_rule_registry",
+  "registry_authority": "candidate_only",
+  "is_complete_domain_knowledge_base": false,
+  "policy": "This is an incomplete proposed Rule registry. Bootstrap mode supports candidate-only railway Domain Rules and cannot create business authority, promotion, approval, or applicable Rules.",
+  "confirmed_rule_count": 0,
+  "phase1_confirmation_supported": false,
+  "applicable_rules": [],
+  "candidate_rules": ["WO-P-C-LINK-001", "WO-C-R-LINK-001", "WO-C-SHORTAGE-001", "WO-C-MERGE-001", "PERMISSION-SEPARATION-001", "COMPAT-M320-001"],
+  "rules": [
+    {
+      "rule_id": "WO-P-C-LINK-001", "version": 2, "category": "domain", "rule_class": "railway_domain_candidate", "authority_effect": "candidate_only", "status": "proposed",
+      "statement": "A C work order created from a P abnormal result preserves the P source, check item, actual value, standard value, abnormal description and attachment snapshot.",
+      "verification": {"automated": [], "manual": ["Domain Owner review"]},
+      "enforcement": {"mechanisms": [], "residual_risk": "Current Migration 320 evidence reports NULL abnormal value and zero C attachment snapshots."},
+      "sources": [{"type": "report", "ref": "docs/cross-module-closure-report.md", "section": "P to C closure", "source_verification_status": "VERIFIED"}, {"type": "report", "ref": "docs/go-no-go-report.md", "section": "blocking gates", "source_verification_status": "VERIFIED"}],
+      "owner": null, "approved_at": null, "open_questions": ["Which maintenance authority owns this rule?", "Which attachment copy semantics are authoritative?"]
+    },
+    {
+      "rule_id": "WO-C-R-LINK-001", "version": 2, "category": "domain", "rule_class": "railway_domain_candidate", "authority_effect": "candidate_only", "status": "proposed",
+      "statement": "One C work order may create multiple independent removal events and R work orders, each linked to a serialized part.",
+      "verification": {"automated": [], "manual": ["Domain Owner review"]},
+      "enforcement": {"mechanisms": [], "residual_risk": "Implementation and rehearsal evidence are not formal business authority."},
+      "sources": [{"type": "report", "ref": "docs/migration-320-compatibility-report.md", "section": "C to R evidence", "source_verification_status": "VERIFIED"}],
+      "owner": null, "approved_at": null, "open_questions": ["Identify the approving repair-process owner."]
+    },
+    {
+      "rule_id": "WO-C-SHORTAGE-001", "version": 2, "category": "domain", "rule_class": "railway_domain_candidate", "authority_effect": "candidate_only", "status": "proposed",
+      "statement": "A shortage pause is not completion, review or closure and must remain traceable to inventory activity.",
+      "verification": {"automated": [], "manual": ["Maintenance and inventory owner review"]},
+      "enforcement": {"mechanisms": [], "residual_risk": "Current evidence has zero direct shortage-to-inventory links."},
+      "sources": [{"type": "report", "ref": "docs/cross-module-closure-report.md", "section": "shortage and inventory", "source_verification_status": "VERIFIED"}, {"type": "report", "ref": "docs/go-no-go-report.md", "section": "blocking gates", "source_verification_status": "VERIFIED"}],
+      "owner": null, "approved_at": null, "open_questions": ["Define the authoritative issue, return and reservation relationship."]
+    },
+    {
+      "rule_id": "WO-C-MERGE-001", "version": 2, "category": "domain", "rule_class": "railway_domain_candidate", "authority_effect": "candidate_only", "status": "proposed",
+      "statement": "C work-order merge relationships cannot be self-referential, cyclic or duplicated.",
+      "verification": {"automated": [], "manual": ["Domain Owner review"]},
+      "enforcement": {"mechanisms": [], "residual_risk": "Implementation tests are supporting evidence only."},
+      "sources": [{"type": "report", "ref": "docs/system-health-check-20260715.md", "section": "C work-order workflow", "source_verification_status": "UNVERIFIED"}],
+      "owner": null, "approved_at": null, "open_questions": ["Identify the approving maintenance workflow owner."]
+    },
+    {
+      "rule_id": "PERMISSION-SEPARATION-001", "version": 2, "category": "domain", "rule_class": "railway_domain_candidate", "authority_effect": "candidate_only", "status": "proposed",
+      "statement": "Work completion, review and closure require explicitly separated permissions.",
+      "verification": {"automated": [], "manual": ["Security and Domain Owner review"]},
+      "enforcement": {"mechanisms": [], "residual_risk": "Current role tests do not constitute organizational approval."},
+      "sources": [{"type": "report", "ref": "docs/system-health-check-20260715.md", "section": "permissions and audit", "source_verification_status": "UNVERIFIED"}],
+      "owner": null, "approved_at": null, "open_questions": ["Name the security and maintenance approvers."]
+    },
+    {
+      "rule_id": "COMPAT-M320-001", "version": 2, "category": "compatibility", "rule_class": "railway_domain_candidate", "authority_effect": "candidate_only", "status": "proposed",
+      "statement": "Migration 320 cannot proceed to formal rollout until formal-clone provenance, P-to-C evidence and shortage-to-inventory closure blockers are resolved.",
+      "verification": {"automated": ["evidence hash verification"], "manual": ["Database, Domain and Security Owner approval"]},
+      "enforcement": {"mechanisms": ["NO-GO gate"], "residual_risk": "No deidentified formal-clone evidence exists."},
+      "sources": [{"type": "report", "ref": "docs/go-no-go-report.md", "section": "NO-GO", "source_verification_status": "VERIFIED"}, {"type": "report", "ref": "docs/migration-320-before-after.json", "section": "decision", "source_verification_status": "VERIFIED"}],
+      "owner": null, "approved_at": null, "open_questions": ["Who owns formal-clone provenance approval?"]
+    }
+  ]
+}

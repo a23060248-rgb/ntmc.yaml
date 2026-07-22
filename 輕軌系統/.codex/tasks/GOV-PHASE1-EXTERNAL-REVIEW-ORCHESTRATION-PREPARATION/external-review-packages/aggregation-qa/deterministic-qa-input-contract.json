@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "contract_id": "GOV-EXTERNAL-DETERMINISTIC-QA-INPUT-001",
+  "execution_mode": "non-reviewer deterministic runner",
+  "reviewer_payload_count": 4,
+  "required_payload_checks": [
+    "schema",
+    "JCS payload self-hash",
+    "review package ID and package core hash",
+    "assignment, role, run and session nonce",
+    "candidate binding",
+    "transport attestation",
+    "unique identities",
+    "clean access log",
+    "completed and mandatory exit"
+  ],
+  "suites": [
+    {
+      "suite": "Syntax",
+      "expected": "18/18",
+      "source_contract": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/syntax-rerun.json",
+      "execution": "Fresh node --check over the exact 18 modules enumerated by the source contract."
+    },
+    {
+      "suite": "Governance fixtures",
+      "expected": "68/68",
+      "entrypoint": ".codex/tests/run-governance-fixtures.mjs"
+    },
+    {
+      "suite": "Concurrency",
+      "expected": "PASS",
+      "entrypoint": ".codex/tests/run-governance-fixtures-concurrency.mjs"
+    },
+    {
+      "suite": "Production scanner",
+      "expected": "72/72",
+      "entrypoint": ".codex/tests/run-bootstrap-scanner-production.mjs"
+    },
+    {
+      "suite": "Production integration",
+      "expected": "48/48",
+      "entrypoint": ".codex/tests/run-bootstrap-production-integration.mjs"
+    },
+    {
+      "suite": "Production mutations",
+      "expected": "31/31 killed with complete unique mutation IDs and no timeout/unknown/incomplete result",
+      "entrypoint": ".codex/tests/run-bootstrap-mutation-tests.mjs"
+    },
+    {
+      "suite": "Reviewer binding",
+      "expected": "14/14",
+      "entrypoint": ".codex/tests/run-reviewer-binding-regressions.mjs"
+    },
+    {
+      "suite": "Official loader integration",
+      "expected": "11/11",
+      "entrypoint": ".codex/tests/run-official-schema-loader-integration.mjs"
+    },
+    {
+      "suite": "Schema-loader mutations",
+      "expected": "6/6 killed",
+      "entrypoint": ".codex/tests/run-official-schema-loader-mutations.mjs"
+    },
+    {
+      "suite": "Binary mutations",
+      "expected": "45/45 killed",
+      "entrypoint": ".codex/tests/run-binary-magic-registry-mutations.mjs"
+    },
+    {
+      "suite": "Remediation 10 chain",
+      "expected": "20/20",
+      "entrypoint": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/run-security-chain-tests.mjs"
+    },
+    {
+      "suite": "R11 preparation",
+      "expected": "30/30",
+      "entrypoint": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/run-preparation-tests.mjs"
+    },
+    {
+      "suite": "R12 protocol",
+      "expected": "30/30",
+      "entrypoint": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/run-remediation-12-tests.mjs"
+    }
+  ],
+  "required_additional_checks": [
+    "Candidate 103/103 and exact manifest/file-set hashes",
+    "Scanner Contract v5 production-chain binding",
+    "Four package and payload self-hashes",
+    "Reviewer identity uniqueness",
+    "No forbidden access",
+    "Closure owner/disposition legality",
+    "31 unique killed mutations and no omissions/duplicates/extras/timeouts/unknown/incomplete entries",
+    "Before/after baseline",
+    "Frozen history unchanged"
+  ],
+  "raw_reports_must_be_written_under_aggregator_task": true,
+  "source_artifact_writes_allowed": false
+}

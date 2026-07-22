@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-REMEDIATION-7",
+  "title": "Phase 1.7 Bootstrap Gate Routing and Scanner Finalization",
+  "task_type": "governance",
+  "objective": "Separate bootstrap candidate, human commit, steady-state, and Migration 320 gates while making scanner reports and Railway review routing authoritative within the narrow INTERNAL_CONSISTENCY_ONLY contract.",
+  "business_reason": "Session A6 proved three remaining trust-boundary defects even though the declared fixtures passed.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md", "docs/migration-320-before-after.json", "docs/migration-320-compatibility-report.md", "docs/migration-320-data-anomalies.csv"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories", "frozen historical Task artifacts", "Migration 320 original evidence"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Production validator emits a five-entry gate map and supports three explicit --target-gate values with exit 0/1/2 semantics.",
+    "Candidate Review inputs exclude final commit approval, Session B, Git stage, STAGED_EXACT, and Migration 320 business decisions.",
+    "Steady-state gates are DISABLED until the three human bootstrap trust anchors exist.",
+    "Railway governance mechanism outcome and Migration 320 external decision route to distinct gates.",
+    "Scanner report schema and validator recompute contract, registry, canonicalization, binary oracle, manifest, file-set, count, claims, and payload bindings.",
+    "The binary contract exposes exactly five finding classes and nine known magic signatures; extension-magic mismatch is absent.",
+    "Formal production-path scanner tests cover all 22 required families and safe-negative oracles; required mutations are killed.",
+    "The exact candidate manifest and candidate record are rebuilt after source convergence.",
+    "Frozen history and all five Migration 320 external evidence hashes remain identical; Migration 320 is structural VALID, gate NO-GO, exit 2.",
+    "A7 and Session B remain unstarted and no GO is declared for the current candidate."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Remediation 7 implementation and deterministic governance validation authorized; A7, Session B, Git mutation, commit, release, product, migration, and database operations are prohibited."
+}

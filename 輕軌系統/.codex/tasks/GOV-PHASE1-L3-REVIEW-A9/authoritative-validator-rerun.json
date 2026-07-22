@@ -1,0 +1,16 @@
+{
+  "schema_version":1,
+  "task_id":"GOV-PHASE1-L3-REVIEW-A9",
+  "command":"node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-L3-REVIEW-A9 --target-gate bootstrap-candidate-review",
+  "structural":"VALID",
+  "calculated_gate":"NO-GO",
+  "target_gate":"bootstrap_candidate_review:NO-GO",
+  "emitted_exit":2,
+  "bootstrap_candidate_review":"NO-GO",
+  "bootstrap_human_commit":"NO-GO",
+  "steady_state_preparation":"DISABLED",
+  "steady_state_execution":"DISABLED",
+  "migration_320_execution":"NO-GO",
+  "proof_assurance":"INTERNAL_CONSISTENCY_ONLY",
+  "blocking_basis":["A9-CODE-PRODUCTION-MUTATION-RERUN-001","A9-SEC-EXECUTION-HIGH-001","historical-closure-regression is PASS_WITH_LIMITATION","retained-code-regressions is NOT_VERIFIED"]
+}

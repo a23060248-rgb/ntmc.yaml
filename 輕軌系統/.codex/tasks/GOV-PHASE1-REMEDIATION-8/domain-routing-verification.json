@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "candidate_route_input": "governance_mechanism_outcome",
+  "migration_route_input": "external_decisions[decision_scope=migration_320]",
+  "allowed_mechanism_outcomes": ["PASS", "PASS_WITH_CONDITIONS", "BLOCKER"],
+  "allowed_external_outcomes": ["NEEDS_HUMAN_DECISION", "RESOLVED"],
+  "external_affects_gate": "migration_320_execution",
+  "external_to_candidate_rejected": true,
+  "production_cases": {"total": 5, "passed": 5, "case_ids": ["PROD-DOMAIN-01", "PROD-DOMAIN-02", "PROD-DOMAIN-03", "PROD-DOMAIN-04", "PROD-DOMAIN-05"]},
+  "mutations": [
+    {"mutation_id":"MUT-DOMAIN-01-EXTERNAL-AS-MECHANISM","killed":true},
+    {"mutation_id":"MUT-DOMAIN-02-GENERIC-META-BUSINESS","killed":true},
+    {"mutation_id":"MUT-DOMAIN-03-RAILWAY-CANDIDATE-APPLICABLE","killed":true}
+  ],
+  "actual_railway_rules_approved": [],
+  "migration_320_domain_decision": "NEEDS_HUMAN_DECISION",
+  "migration_320_gate": "NO-GO"
+}

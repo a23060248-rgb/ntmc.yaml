@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A9",
+  "formal": true,
+  "reviewer": "security-reviewer",
+  "reviewer_run_id": "A9-SEC-RUN-232B7E60-D7A1-469C-8B99-9C91FA2B36DF",
+  "session_id": "A9-SEC-SESSION-E97ED2B7-A95E-438E-B6F1-F0F3B9DAD033",
+  "did_not_participate_in_implementation": true,
+  "reviewed_candidate_baseline": "phase-1.9-bootstrap",
+  "candidate_manifest_file_count": 103,
+  "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+  "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9",
+  "railway_review_schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+  "railway_reviewer_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+  "assignment_id": "ASSIGN-A9-SEC-9C53631D-9476-4C58-9120-5C632EEDE88C",
+  "review_scope": "phase1_9_bootstrap_candidate_security_boundary",
+  "execution_mode": "read-only",
+  "implementation_participation": false,
+  "candidate_security_assessment": "PASS",
+  "formal_review_validity": "INVALID_PROHIBITED_CONTEXT_READ",
+  "outcome": "BLOCKER",
+  "summary": "The exact candidate technically passes the scoped Security assessment: 103-file bindings agree, fresh scanning found zero findings, scanner passed 72/72, binary mutations killed 45/45, and production integration passed 48/48. The formal outcome is BLOCKER because this Reviewer read product-root-external collab/HANDOFF.md before the scoped audit, violating the allowed-source-only clean context.",
+  "control_results": {"exact_manifest_and_scan_binding":"PASS","stale_report_rejection":"PASS","missing_or_truncated_scan_rejection":"PASS","wrong_manifest_replay_rejection":"PASS","nonempty_findings_and_false_clean_claim_rejection":"PASS","contract_and_bundle_hash_mismatch_rejection":"PASS","report_and_candidate_payload_hash_validation":"PASS","railway_schema_profile_and_binding_candidate_inclusion":"PASS","utf8_and_binary_policy":"PASS","absolute_workstation_path_and_credential_scan":"PASS","a8_security_pass_regression":"PASS","a6_scanner_regression":"PASS","a5_sec_high_002_regression":"PASS","identity_claim_boundary":"procedural_role_and_assignment_binding","security_claim_boundary":"INTERNAL_CONSISTENCY_ONLY declared-contract evidence","extension_magic_mismatch_active_claim":false},
+  "a9_self_metadata_change_assessment": {"status":"NON_EXPANSIVE","change":"Architect root-writer assignment is limited to A9 artifacts.","security_reviewer_assignment_unchanged":true,"security_reviewer_write_paths":[],"candidate_manifest_sha256_unchanged":true,"candidate_scanner_report_sha256_unchanged":true,"security_claims_expanded":false},
+  "findings": [
+    {
+      "finding_id": "A9-SEC-EXECUTION-HIGH-001",
+      "severity": "HIGH",
+      "location": "Review execution command 1: Get-Content C:\\Users\\a2306\\Desktop\\code\\collab\\HANDOFF.md",
+      "failure": "The formal Reviewer obtained a file outside the explicitly allowed product-root governance paths and cannot certify an allowed-source-only clean context.",
+      "read_only_reproduction": "Inspect the Reviewer tool transcript and confirm the initial command read the product-root-external collab/HANDOFF.md before A9 review.",
+      "impact": "Otherwise passing technical evidence cannot serve as the formally isolated A9 Security outcome.",
+      "minimum_remediation": "Discard this formal outcome and rerun A9 Security in a fresh session that reads only expressly allowed governance paths.",
+      "blocks_candidate_gate": true
+    }
+  ],
+  "conditions": [],
+  "residual_risks": ["Workspace hashes establish internal consistency, not producer identity or Git authority.", "Reviewer identity remains procedural.", "Scanner evidence is declared-contract, not complete DLP."],
+  "prohibited_actions_confirmed": {"memory_used":false,"workspace_files_written":false,"git_commands_run":false,"product_code_read":false,"env_files_read":false,"product_tests_run":false,"services_started":false,"database_seed_or_migration_operations_run":false}
+}

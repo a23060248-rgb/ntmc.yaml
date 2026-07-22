@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer": "security-reviewer",
+    "review_task_id": "GOV-PHASE1-L3-REVIEW-A5",
+    "reviewer_run_id": "A5-SEC-RUN-49ae83dc-0583-44df-b5ad-328e80a9d0ac",
+    "session_id": "A5-SEC-SESSION-a68b137b-4478-4be1-a0cf-8741a617c857",
+    "did_not_participate_in_implementation": true,
+    "mode": "read-only",
+    "reviewed_candidate_baseline": "phase-1.5",
+    "candidate_manifest_sha256": "DECF50261FEEC670EF18258556D1490D9B8C6FCA96CE8EC49A705C4DB4BEA969",
+    "candidate_file_count": 97,
+    "candidate_snapshot_execution_id": "WORKSPACE-6fd1de75-48d6-4a31-a039-7a73301eb839",
+    "relied_on_implementer_conversation": false,
+    "files_modified": 0,
+    "git_mutations_performed": false
+  },
+  "outcome": "BLOCKER",
+  "review_scope": {
+    "included": [
+      "GOV-PHASE1-L3-REVIEW-A5 filed baseline and task artifacts",
+      "GOV-PHASE1-L3-REVIEW-A4 formal Security Review",
+      "Phase 1.4 consolidation and Phase 1.5 remediation evidence",
+      "exact 97-file candidate manifest",
+      "candidate snapshot and deterministic scanner contract",
+      "frozen-history and Migration 320 integrity records"
+    ],
+    "excluded": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "product programs and sibling directories",
+      "implementation conversations and unfiled explanations"
+    ],
+    "prohibited_operations_not_performed": [
+      "file modification",
+      "Git mutation",
+      "service startup",
+      "product tests",
+      "seed, migration, or database access",
+      "sub-Agent spawn"
+    ],
+    "baseline_verification": {
+      "manifest_hash_matches": true,
+      "candidate_files": {
+        "expected": 97,
+        "present": 97,
+        "hash_mismatches": 0,
+        "included_file_set_sha256": "5C51D5C7C62FC5577A31306520E82466D025B7255813F1CEDC1E22DDE0EE079A"
+      },
+      "candidate_snapshot_execution_id_matches": true,
+      "frozen_history_hashes_match": true,
+      "migration_320_hashes_match": true
+    }
+  },
+  "commands_and_results": [
+    {
+      "command": "node .codex/tests/run-governance-fixtures.mjs",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "50/50"
+    },
+    {
+      "command": "node .codex/tests/run-phase15-mutation-tests.mjs",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "7/7 mutations killed"
+    },
+    {
+      "command": "node .codex/tests/run-phase15-production-integration.mjs",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "5/5 declared production cases passed"
+    },
+    {
+      "command": "node .codex/tests/run-governance-fixtures-concurrency.mjs and forged-report checks",
+      "result": "PASS",
+      "details": "parallel children were isolated; truncated and provenance-invalid child reports were rejected"
+    },
+    {
+      "command": "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-REMEDIATION-5",
+      "result": "PASS_EXPECTED_NO_GO",
+      "exit_code": 2,
+      "details": "structural=VALID; calculated_gate=NO-GO"
+    },
+    {
+      "command": "read-only 97-file manifest, candidate snapshot, schema-contract and tamper verification",
+      "result": "PASS",
+      "details": "manifest, file-set, snapshot execution ID and typed proof payload matched"
+    },
+    {
+      "command": "read-only scanner canonicalization differential matrix",
+      "result": "FAIL",
+      "details": "47 of 48 cases passed; a malformed percent sequence masked a valid encoded credential URI in the same input"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "A5-SEC-HIGH-001",
+      "severity": "HIGH",
+      "blocks_candidate_review_gate": true,
+      "title": "Malformed percent encoding can suppress a valid scanner finding",
+      "locations": [
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:57-79",
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:73-75"
+      ],
+      "failure_condition": "A scanned text contains any malformed percent sequence before or beside a valid percent-encoded credential URI. decodeURIComponent is applied to the whole view, throws, and the catch/break path skips the decoded view instead of failing closed or decoding safe segments.",
+      "reproduction": {
+        "method": "Call production canonicalizeScannerInput and scanCanonicalContent with a synthetic malformed percent prefix and a separately encoded synthetic database credential URI.",
+        "observed": "No finding was emitted.",
+        "expected": "A CREDENTIAL_URI finding or an explicit fail-closed canonicalization finding."
+      },
+      "impact": "An attacker can place one malformed percent token in an otherwise scanned text to conceal a credential that the declared percent-decoding contract would detect in isolation.",
+      "required_resolution": "Canonicalize percent-encoded input segment-wise or emit a blocking malformed-encoding finding without abandoning other canonical views. Add differential tests combining malformed encodings with every in-contract credential class."
+    },
+    {
+      "finding_id": "A5-SEC-HIGH-002",
+      "severity": "HIGH",
+      "blocks_candidate_review_gate": true,
+      "title": "The filed scanner fixture oracle does not enforce the full declared header and binary matrix",
+      "locations": [
+        ".codex/tests/fixture-suite-manifest.json:39-50",
+        ".codex/tests/run-governance-fixtures.mjs:78-93",
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:33-43",
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:123-153"
+      ],
+      "failure_condition": "The formal Phase 1 fixture suite passes without asserting all nine declared binary signatures, safe binary negatives, extension/magic mismatches, or the complete quoted Set-Cookie, session, and token header families through the production scanner path.",
+      "reproduction": {
+        "method": "Compare the declared scanner contract and production recognizers with the exact fixture-suite manifest and runner assertions.",
+        "observed": "The independent reviewer matrix exercises cases absent from the filed 50-case oracle; that oracle can stay green if an uncovered recognizer regresses."
+      },
+      "impact": "The filed suite is not a trustworthy regression boundary for controls claimed by the candidate, so a later change can silently remove an advertised finding class while all authoritative fixture totals remain green.",
+      "required_resolution": "Make the formal suite table-driven from the scanner contract and require exact positive and negative coverage for every declared binary magic, mismatch, quoted-header, session, cookie, token, URL-safe entropy, and canonicalization composition class."
+    }
+  ],
+  "a4_closure_entries": [
+    {
+      "finding_id": "SEC-A4-001",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["A5-SEC-HIGH-001", ".codex/scripts/lib/governance/scanner-pipeline.mjs:73-75"],
+      "reason": "The unified canonicalization pipeline still has a composition bypass: one malformed percent sequence suppresses a valid decoded finding."
+    },
+    {
+      "finding_id": "SEC-A4-002",
+      "closure_status": "CLOSED",
+      "evidence": [".codex/scripts/lib/governance/scanner-pipeline.mjs:33-43", ".codex/scripts/lib/governance/scanner-pipeline.mjs:123-153"],
+      "reason": "The retained implementation has bounded header and binary recognition with explicit extension and magic handling; no direct implementation bypass from the A4 construction remained."
+    },
+    {
+      "finding_id": "SEC-A4-003",
+      "closure_status": "CLOSED",
+      "evidence": [".codex/governance/security-scan-contract.json", ".codex/blueprints/schemas/security-evidence.schema.json"],
+      "reason": "The filed contract is versioned and bounded, uses exact manifest and file-set identity, and does not claim OS isolation or general DLP."
+    },
+    {
+      "finding_id": "SEC-A4-004",
+      "closure_status": "NOT_CLOSED",
+      "evidence": ["A5-SEC-HIGH-002", ".codex/tests/fixture-suite-manifest.json:39-50"],
+      "reason": "The formal fixture oracle still does not lock the entire scanner contract matrix despite the production recognizers being present."
+    }
+  ],
+  "severity_counts": {"BLOCKER": 0, "HIGH": 2, "MEDIUM": 0, "LOW": 0},
+  "critical_count": 0,
+  "unresolved_high_blocker_count": 2,
+  "candidate_review_gate_recommendation": {
+    "gate": "Candidate Governance Review Gate",
+    "recommendation": "NO-GO",
+    "reason": "A scanner composition bypass remains and the formal fixture oracle does not prove the complete declared scanner contract."
+  },
+  "later_gates": {
+    "governance_commit_preparation_gate": "NO-GO",
+    "governance_commit_execution_gate": "NO-GO",
+    "migration_320_execution_gate": "NO-GO",
+    "session_b": "NOT_AUTHORIZED",
+    "git_mutation": "NOT_AUTHORIZED"
+  },
+  "residual_risks": [
+    "Agent and reviewer identity is procedural rather than cryptographic.",
+    "Agent path policy is not an OS sandbox.",
+    "The scanner is bounded deterministic detection, not DLP or repository-global sensitive-data assurance.",
+    "External executables, child-process invocation, PowerShell or cmd behavior, parent-process override and TOCTOU remain outside the claimed isolation boundary.",
+    "An unstaged working tree remains a human-reviewed residual risk and is not proof of staged commit identity."
+  ]
+}

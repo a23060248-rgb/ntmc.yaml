@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "level": "L3",
+  "reasons": [
+    "Formal compatibility review",
+    "Security and domain governance revalidation"
+  ],
+  "triggers": [
+    "unresolved Reviewer blocker",
+    "backward compatibility"
+  ],
+  "execution_categories": [
+    "governance-validation",
+    "security",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "required_reviews": [
+    "code",
+    "security",
+    "railway-domain",
+    "compatibility"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "B6-SCOPES",
+    "B6-PAYLOADS",
+    "B6-QA",
+    "B6-BASELINE",
+    "B6-GATE"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "execution_approval",
+      "review_completion",
+      "final_commit_approval"
+    ]
+  },
+  "stop_conditions": [
+    "Any scope is unsatisfiable.",
+    "Any Reviewer payload is invalid.",
+    "Any thread fails to close.",
+    "Any candidate/history change occurs."
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/**"
+    ],
+    "exclude": [
+      ".env*",
+      "collab/**",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "parent directories",
+      "sibling directories",
+      "conversation memory"
+    ]
+  },
+  "classified_by": "R12-task-local-preparation",
+  "classification_status": "proposed"
+}

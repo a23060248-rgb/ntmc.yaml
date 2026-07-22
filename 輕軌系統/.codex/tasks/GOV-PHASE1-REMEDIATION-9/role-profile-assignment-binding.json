@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "binding_chain": ["required review type", "required role", "Blueprint unique review assignment", "canonical agent profile reference", "canonical profile byte hash", "formal review reviewer_binding", "outer reviewer run and session", "candidate manifest profile entry"],
+  "fail_closed_conditions": ["missing or duplicate assignment", "role substitution", "alias or case mismatch", "root or unrelated role", "profile reference mismatch", "profile hash mismatch", "review scope mismatch", "non-read-only execution", "non-empty write paths", "implementation participation", "outer/bound run mismatch", "outer/bound session mismatch", "reviewer/implementer session equality", "profile missing from candidate manifest"],
+  "profile": {"ref": ".codex/agents/railway-domain-reviewer.toml", "sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D", "manifest_bound": true},
+  "schema_refs": [".codex/blueprints/schemas/blueprint.schema.json", ".codex/blueprints/schemas/review-findings.schema.json", ".codex/blueprints/schemas/railway-domain-review.schema.json"],
+  "validator_result": "PASS_ON_VALID_SYNTHETIC_BINDING_AND_FAIL_CLOSED_ON_14_NEGATIVES",
+  "identity_assurance": "procedural_role_and_assignment_binding"
+}

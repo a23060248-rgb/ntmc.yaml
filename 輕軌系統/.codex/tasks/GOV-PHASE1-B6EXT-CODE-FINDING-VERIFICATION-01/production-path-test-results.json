@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "production_entrypoint": "validateTask(taskId, {projectRoot: isolatedRoot, writeGraph: true, targetGate: bootstrap-candidate-review})",
+  "official_modules_loaded_from_candidate": [
+    ".codex/scripts/validate-task.mjs",
+    ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+    ".codex/scripts/lib/schema-validator.mjs"
+  ],
+  "fixture_write_scope": ".codex/tasks/GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01/_isolated-fixtures/**",
+  "cases": [
+    {
+      "case_id": "CASE-01",
+      "title": "Task-root valid Security evidence with regenerated bindings",
+      "security_evidence_location": ".codex/tasks/GOV-VERIFY-CASE-01/security-evidence.yaml",
+      "expected": "PASS",
+      "observed": "PASS",
+      "expectation_met": true,
+      "structural": "VALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 0,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-01/security-evidence.yaml"
+      ],
+      "unvalidated_referenced_evidence_paths": [],
+      "errors": [],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-02",
+      "title": "Task-root invalid Security evidence with regenerated bindings",
+      "security_evidence_location": ".codex/tasks/GOV-VERIFY-CASE-02/security-evidence.yaml",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expectation_met": true,
+      "structural": "INVALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 1,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-02/security-evidence.yaml"
+      ],
+      "unvalidated_referenced_evidence_paths": [],
+      "errors": [
+        "SCHEMA security-evidence.yaml: missing required property limitations"
+      ],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-03",
+      "title": "Nested arbitrary-name valid Security evidence is required by manifest",
+      "security_evidence_location": [
+        ".codex/tasks/GOV-VERIFY-CASE-03/nested/session-b6-security-evidence.yaml"
+      ],
+      "expected": "PASS",
+      "observed": "PASS",
+      "expectation_met": true,
+      "structural": "VALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 0,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-03/security-evidence.yaml"
+      ],
+      "unvalidated_referenced_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-03/nested/session-b6-security-evidence.yaml"
+      ],
+      "errors": [],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-04",
+      "title": "Nested arbitrary-name schema-invalid Security evidence is required by manifest",
+      "security_evidence_location": [
+        ".codex/tasks/GOV-VERIFY-CASE-04/nested/session-b6-security-evidence.yaml"
+      ],
+      "expected": "FAIL",
+      "observed": "PASS",
+      "expectation_met": false,
+      "structural": "VALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 0,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-04/security-evidence.yaml"
+      ],
+      "unvalidated_referenced_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-04/nested/session-b6-security-evidence.yaml"
+      ],
+      "errors": [],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-05",
+      "title": "Nested Security evidence is missing while manifest still references it",
+      "security_evidence_location": [
+        ".codex/tasks/GOV-VERIFY-CASE-05/nested/session-b6-security-evidence.yaml"
+      ],
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expectation_met": true,
+      "structural": "INVALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 1,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-05/security-evidence.yaml"
+      ],
+      "unvalidated_referenced_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-05/nested/session-b6-security-evidence.yaml"
+      ],
+      "errors": [
+        "ARTIFACT .codex/tasks/GOV-VERIFY-CASE-05/nested/session-b6-security-evidence.yaml: ENOENT: no such file or directory, lstat 'C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.codex\\tasks\\GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01\\_isolated-fixtures\\case-05\\.codex\\tasks\\GOV-VERIFY-CASE-05\\nested'",
+        "EVIDENCE required evidence EV-NESTED-SECURITY resolved to 0; exactly one PASS verdict or valid artifact is required."
+      ],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-06",
+      "title": "Nested Security evidence declares an unregistered schema version",
+      "security_evidence_location": [
+        ".codex/tasks/GOV-VERIFY-CASE-06/nested/session-b6-security-evidence.yaml"
+      ],
+      "expected": "FAIL",
+      "observed": "PASS",
+      "expectation_met": false,
+      "structural": "VALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 0,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-06/security-evidence.yaml"
+      ],
+      "unvalidated_referenced_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-06/nested/session-b6-security-evidence.yaml"
+      ],
+      "errors": [],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-07",
+      "title": "Referenced Security evidence path escapes Task root",
+      "security_evidence_location": [
+        ".codex/tasks/GOV-VERIFY-CASE-07/nested/../../escaped-security-evidence.yaml"
+      ],
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expectation_met": true,
+      "structural": "INVALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 1,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-07/security-evidence.yaml"
+      ],
+      "unvalidated_referenced_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-07/nested/../../escaped-security-evidence.yaml"
+      ],
+      "errors": [
+        "ARTIFACT .codex/tasks/GOV-VERIFY-CASE-07/nested/../../escaped-security-evidence.yaml: Traversal or empty path segment is forbidden: .codex/tasks/GOV-VERIFY-CASE-07/nested/../../escaped-security-evidence.yaml",
+        "EVIDENCE required evidence EV-NESTED-SECURITY resolved to 0; exactly one PASS verdict or valid artifact is required."
+      ],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-08",
+      "title": "Two Security evidence files exist and the required nested one is invalid",
+      "security_evidence_location": [
+        ".codex/tasks/GOV-VERIFY-CASE-08/nested/session-b6-security-evidence.yaml"
+      ],
+      "expected": "FAIL",
+      "observed": "PASS",
+      "expectation_met": false,
+      "structural": "VALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 0,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-08/security-evidence.yaml"
+      ],
+      "unvalidated_referenced_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-08/nested/session-b6-security-evidence.yaml"
+      ],
+      "errors": [],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-09",
+      "title": "Manifest marks required nested Security evidence VERIFIED although schema-invalid",
+      "security_evidence_location": [
+        ".codex/tasks/GOV-VERIFY-CASE-09/nested/session-b6-security-evidence.yaml"
+      ],
+      "expected": "FAIL",
+      "observed": "PASS",
+      "expectation_met": false,
+      "structural": "VALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 0,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-09/security-evidence.yaml"
+      ],
+      "unvalidated_referenced_evidence_paths": [
+        ".codex/tasks/GOV-VERIFY-CASE-09/nested/session-b6-security-evidence.yaml"
+      ],
+      "errors": [],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-10",
+      "title": "Task omits standard Security evidence",
+      "security_evidence_location": "none",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expectation_met": true,
+      "structural": "INVALID",
+      "calculated_gate": "GO",
+      "bootstrap_candidate_review_gate": "GO",
+      "exit_code": 1,
+      "schema_loader_invoked": true,
+      "validated_evidence_paths": [],
+      "unvalidated_referenced_evidence_paths": [],
+      "errors": [
+        "REQUIRED security-evidence.yaml: ENOENT: no such file or directory, lstat 'C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.codex\\tasks\\GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01\\_isolated-fixtures\\case-10\\.codex\\tasks\\GOV-VERIFY-CASE-10\\security-evidence.yaml'"
+      ],
+      "candidate_reasons": []
+    }
+  ],
+  "total": 10,
+  "expected_controls_passed": 6,
+  "security_failures": [
+    "CASE-04",
+    "CASE-06",
+    "CASE-08",
+    "CASE-09"
+  ],
+  "result": "REPRODUCED_FAIL_OPEN"
+}

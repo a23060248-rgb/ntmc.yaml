@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "template": "review",
+  "task_type": "review",
+  "required_inputs": ["task artifacts", "scoped diff", "handoff", "test evidence", "applicable governance Rule IDs", "proposed-only Domain candidate Rule IDs", "reviewer run and session identity", "checklist"],
+  "forbidden_inputs": ["implementer reasoning", "unrecorded verbal claims", ".env*", "unrelated paths"],
+  "allowed_outcomes": ["PASS", "PASS_WITH_CONDITIONS", "BLOCKER", "NEEDS_HUMAN_DECISION"]
+}

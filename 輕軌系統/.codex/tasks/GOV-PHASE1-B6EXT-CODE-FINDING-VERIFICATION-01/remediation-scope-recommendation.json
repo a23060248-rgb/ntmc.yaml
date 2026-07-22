@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "classification": "CANDIDATE_PRODUCTION_PATH_DEFECT",
+  "candidate_change_required": true,
+  "required_design": "referenced-evidence validation",
+  "prohibited_design": "Do not hard-code session-b6-security-evidence.yaml or another magic filename.",
+  "candidate_files_to_assess": [
+    ".codex/scripts/validate-task.mjs",
+    ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+    ".codex/blueprints/schemas/artifact-manifest.schema.json",
+    "machine-readable evidence-type/schema resolver",
+    ".codex/tests/run-bootstrap-production-integration.mjs",
+    "related integration and mutation tests",
+    "candidate manifest/record/scanner report generation chain"
+  ],
+  "required_behavior": [
+    "Resolve every required or Gate-consumed evidence artifact by machine-readable evidence type.",
+    "Reject unknown or ambiguous schema mappings.",
+    "Load the registered schema and validate the actual referenced bytes before accepting the artifact as required evidence.",
+    "Reject duplicate Security evidence unless the contract explicitly models multiplicity."
+  ],
+  "next_task": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "not_authorized_in_this_task": true
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "assignment_id": "A11-R1-AGGREGATION-QA-ASSIGN-20260721-05",
+  "aggregator_role": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+  "closure_authority": [],
+  "can_close_findings": false,
+  "required_closure_set_observation_only": [
+    "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001"
+  ],
+  "b2_findings_outside_a11_scope": [
+    "B2-CODE-FORBIDDEN-READ-001",
+    "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001",
+    "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001",
+    "B2-QA-THREAD-LIMIT-001"
+  ]
+}

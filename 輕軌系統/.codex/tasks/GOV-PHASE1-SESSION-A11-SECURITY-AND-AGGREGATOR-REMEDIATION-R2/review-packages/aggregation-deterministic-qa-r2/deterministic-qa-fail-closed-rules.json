@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2",
+  "rules": [
+    "Missing command result => Aggregator input INVALID",
+    "Unexpected exit code => QA FAIL",
+    "Case count mismatch => QA FAIL",
+    "Mutation survivor => QA FAIL",
+    "Raw report missing => Aggregator output INVALID",
+    "Candidate write => A11 NO-GO",
+    "Reviewer package or historical write => A11 NO-GO",
+    "Scope-external write => Aggregator output INVALID",
+    "Historical expected failures must exactly match the supersession ledger"
+  ]
+}

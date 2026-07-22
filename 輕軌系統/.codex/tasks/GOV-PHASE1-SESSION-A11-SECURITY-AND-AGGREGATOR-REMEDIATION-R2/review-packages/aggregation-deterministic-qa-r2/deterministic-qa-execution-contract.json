@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2",
+  "execution_role": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER_R2",
+  "exact_commands_only": true,
+  "command_manifest_sha256": "478CF3D7F9826D63B8A471D8FFE2D3268DC3337BE840AF2D716BD9ACAB219B5C",
+  "allowed_working_directory": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統",
+  "allowed_write_root": ".codex/tasks/GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2/**",
+  "candidate_write_allowed": false,
+  "reviewer_package_write_allowed": false,
+  "historical_artifact_write_allowed": false,
+  "git_allowed": false,
+  "network_allowed": false,
+  "services_allowed": false,
+  "databases_allowed": false,
+  "seeds_allowed": false,
+  "migrations_allowed": false,
+  "historical_expected_exit_contract": {
+    "QA-REM10": {
+      "expected_exit_code": 1,
+      "explained_supersession_cases": [
+        "CV-05",
+        "AL-14",
+        "CH-20"
+      ]
+    },
+    "QA-R12": {
+      "expected_exit_code": 1,
+      "explained_supersession_cases": [
+        "12"
+      ]
+    }
+  }
+}

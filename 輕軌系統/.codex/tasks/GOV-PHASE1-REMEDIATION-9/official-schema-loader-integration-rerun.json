@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "command": "node .codex/tests/run-official-schema-loader-integration.mjs",
+  "production_loader": "loadAndCompileGovernanceSchemas",
+  "total": 11,
+  "passed": 11,
+  "failed": 0,
+  "transient_copies_only": true,
+  "valid_fixture_schema_execution": {"production_loader_used": true, "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9", "railway_review_schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D", "schema_compile_status": "PASS"},
+  "result": "PASS"
+}

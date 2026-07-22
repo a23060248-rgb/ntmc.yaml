@@ -1,0 +1,281 @@
+{
+  "metadata": {
+    "task_id": "GOV-PHASE1-L3-REVIEW-A4",
+    "review_type": "domain-rule-authority-enforcement",
+    "reviewer_role": "Railway Domain Reviewer",
+    "reviewer": "railway-domain-reviewer",
+    "formal": true,
+    "reviewer_run_id": "A4-DOMAIN-RUN-5a8f0fb8-caa0-4453-a90c-193598eeb3a0",
+    "session_id": "A4-DOMAIN-SESSION-3299672b-2d06-4f1e-b85e-5d5a931b6b96",
+    "did_not_participate_in_implementation": true,
+    "reviewed_candidate_baseline": "phase-1.4",
+    "candidate_snapshot_id": "CANDIDATE-d8a9b19b-db02-4f1a-a763-33f0a38d265d",
+    "candidate_manifest_sha256": "7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C",
+    "mode": "read-only",
+    "business_rule_approval_performed": false
+  },
+  "scope": {
+    "product_root": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+    "included": [
+      "AGENTS.md",
+      ".codex/governance/phase-status.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/task-intent.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/classification.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/blueprint.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/review-baseline-before.json",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-4/candidate-snapshot.json",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-4/root-cause-remediation-matrix.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/railway-domain-review.json",
+      ".codex/domain/index.yaml",
+      ".codex/blueprints/schemas/rule.schema.json",
+      ".codex/blueprints/schemas/domain-rule-approval.schema.json",
+      ".codex/blueprints/schemas/artifact-manifest.schema.json",
+      ".codex/scripts/validate-task.mjs",
+      ".codex/scripts/lib/governance-controls.mjs",
+      ".codex/scripts/lib/schema-validator.mjs",
+      ".codex/scripts/lib/lifecycle-projection.mjs",
+      ".codex/governance/agent-path-policy.yaml",
+      ".codex/governance/evidence-scope-policy.yaml",
+      ".codex/governance/gate-policy.yaml",
+      ".codex/governance/phase-policy.yaml",
+      ".codex/governance/governance-commit-manifest.yaml",
+      ".codex/tests/fixture-suite-manifest.json",
+      ".codex/tests/run-governance-fixtures.mjs",
+      ".codex/tests/run-remediation-4-contract-fixtures.mjs",
+      ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml",
+      ".codex/tasks/GOV-M320-DRYRUN/review-findings.yaml",
+      ".codex/tasks/GOV-M320-DRYRUN/human-approval.yaml",
+      ".codex/tasks/GOV-M320-DRYRUN/task-intent.yaml"
+    ],
+    "excluded": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "migrations/**",
+      "product-root siblings",
+      "implementer conversations or unfiled explanations",
+      "actual railway maintenance Rule approval"
+    ],
+    "actions_performed": [
+      "read-only filed-artifact inspection",
+      "read-only SHA256 comparison of all 103 frozen candidate artifacts",
+      "read-only in-memory schema, canonical Rule hash, chronology, binding and uniqueness probes",
+      "read-only deterministic lifecycle projection comparison"
+    ],
+    "actions_not_performed": [
+      "Git command or mutation",
+      "service startup",
+      "product test execution",
+      "database, seed or migration operation",
+      "governance source modification",
+      "maintenance Rule confirmation"
+    ],
+    "baseline_integrity": {
+      "result": "PASS",
+      "artifact_count": 103,
+      "mismatch_count": 0,
+      "manifest_expected_sha256": "7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C",
+      "manifest_actual_sha256": "7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C",
+      "included_file_set_sha256": "BCE28F2E0F00CE2F756C5C814954937D13D737EE2983B761FC6D45A5CF5A407C"
+    }
+  },
+  "outcome": "BLOCKER",
+  "findings": [
+    {
+      "finding_id": "A4-DOMAIN-AUTHORITY-BINDING-001",
+      "severity": "HIGH",
+      "location": [
+        ".codex/blueprints/schemas/domain-rule-approval.schema.json:1",
+        ".codex/scripts/validate-task.mjs:16-27",
+        ".codex/scripts/validate-task.mjs:159-180",
+        ".codex/scripts/lib/governance-controls.mjs:61-72",
+        ".codex/tests/run-governance-fixtures.mjs:140-150",
+        ".codex/tests/run-governance-fixtures.mjs:221-225",
+        ".codex/tests/run-remediation-4-contract-fixtures.mjs:57-64"
+      ],
+      "evidence": [
+        "A dedicated domain-rule-human-approval schema exists and requires schema version, human producer, approval method, procedural identity assurance, human owner, Rule ID/version/canonical hash, source type/reference/hash/verification time, approval time/scope/effective time and verification method.",
+        "validate-task.mjs does not load or apply domain-rule-approval.schema.json. Its approval-record path checks only artifact classification/provenance literals, Rule ID/version/canonical hash and the three approval-record timestamps.",
+        "The confirmation path does not require approval-record human_owner to equal Rule human_owner, approval-record approved_at/scope/effective_from to equal the Rule authority fields, or approval-record source reference/hash and verification method to bind to verified authority evidence.",
+        "A read-only in-memory probe produced zero Rule-schema errors, zero domain-approval-schema errors and zero validateDomainApprovalRecord errors while owner, approval scope, effective time, source reference and source hash all disagreed between the otherwise valid approval record and Rule authority record.",
+        "Because the approval artifact bytes can still match authority.source_hash and be classified authoritative, these mismatches can survive validateConfirmedDomainRule and allow a confirmed Rule to participate in applicable_rules with false owner, source, scope, effective or verification claims. This is an in-contract incorrect GO, not merely the accepted residual limitation of procedural identity assurance."
+      ],
+      "reproduction": {
+        "read_only_commands": [
+          "rg -n \"domain-rule-approval\\.schema|validateDomainApprovalRecord|approval\\.human_owner|approval_method|verification_method|source_sha256|approval_scope|effective_from\" .codex/scripts/validate-task.mjs",
+          "rg -n \"validateConfirmedDomainRule|approval provenance|approval does not bind|approval chronology\" .codex/scripts/validate-task.mjs",
+          "rg -n \"validateDomainApprovalRecord|R4-49|R4-50|R4-51|R4-52|R4-53|R4-54\" .codex/scripts/lib/governance-controls.mjs .codex/tests/run-remediation-4-contract-fixtures.mjs"
+        ],
+        "observed": {
+          "domain_approval_schema_loaded_by_validate_task": false,
+          "probe_rule_schema_error_count": 0,
+          "probe_domain_approval_schema_error_count": 0,
+          "probe_domain_approval_control_error_count": 0,
+          "probe_mismatches_accepted": [
+            "human_owner",
+            "approval_scope",
+            "effective_from",
+            "source_reference",
+            "source_sha256"
+          ]
+        }
+      },
+      "impact": "A hash-bound human approval record can authorize a confirmed Rule while the registry claims a different owner, source, approval scope, effective time or verification basis. The Candidate Governance Review Gate must remain NO-GO."
+    },
+    {
+      "finding_id": "A4-DOMAIN-APPROVAL-UNIQUENESS-002",
+      "severity": "HIGH",
+      "location": [
+        ".codex/scripts/validate-task.mjs:146-175",
+        ".codex/scripts/validate-task.mjs:307-309",
+        ".codex/blueprints/schemas/artifact-manifest.schema.json:6",
+        ".codex/scripts/lib/governance-controls.mjs:32-40"
+      ],
+      "evidence": [
+        "findManifestArtifacts scans every Task manifest but uses Array.find inside each manifest, so it returns at most one matching artifact per manifest even when that manifest contains the same approval_artifact_id more than once.",
+        "validateConfirmedDomainRule then accepts artifacts.length === 1 as global uniqueness. Two same-ID entries in one non-current Task manifest are therefore observed as one.",
+        "validateArtifactIdentities is applied only to the Task currently being validated. The approval-source Task manifest found during Domain confirmation is parsed but is not independently schema- or identity-validated by findManifestArtifacts.",
+        "A read-only in-memory probe of the exact per-manifest find algorithm observed two matching entries but exposed one authoritative match to the caller. This can produce an incorrect GO despite a non-unique approval identity."
+      ],
+      "reproduction": {
+        "read_only_commands": [
+          "rg -n -C 4 \"findManifestArtifacts|\\.find\\(\\(item\\) => item\\.artifact_id|artifacts.length !== 1|validateArtifactIdentities\" .codex/scripts/validate-task.mjs",
+          "rg -n \"uniqueItems|artifact_id\" .codex/blueprints/schemas/artifact-manifest.schema.json"
+        ],
+        "observed": {
+          "probe_actual_duplicate_count": 2,
+          "probe_find_algorithm_visible_match_count": 1,
+          "artifact_manifest_schema_unique_items_constraint": false
+        }
+      },
+      "impact": "The mechanism cannot prove that approval_artifact_id identifies exactly one filed authority artifact across all Task manifests, so ambiguous or forged approval identity can be accepted."
+    }
+  ],
+  "conditions": [
+    {
+      "condition_id": "A4-DOMAIN-COND-001",
+      "status": "open",
+      "condition": "Apply domain-rule-approval.schema.json to every referenced approval artifact and fail closed unless record and Rule authority agree on human owner, Rule ID/version/RULE-CORE-V1 hash, source type/reference/hash/verification time, approval time/scope/effective time and verification method.",
+      "completion_criterion": "Isolated negative fixtures for each missing or mismatched binding return validation-error exit 1, while one fully bound procedural human approval succeeds."
+    },
+    {
+      "condition_id": "A4-DOMAIN-COND-002",
+      "status": "open",
+      "condition": "Replace per-manifest first-match lookup with complete artifact-ID collection, validate artifact identity uniqueness in every searched manifest and require exactly one authoritative domain-rule-human-approval match.",
+      "completion_criterion": "A duplicate approval ID within one current or historical Task manifest is rejected before Rule confirmation, and a single unique approval remains accepted."
+    },
+    {
+      "condition_id": "A4-DOMAIN-COND-003",
+      "status": "open",
+      "condition": "After remediation, freeze a new immutable candidate baseline and obtain a fresh independent read-only Railway Domain Review without confirming any maintenance Rule.",
+      "completion_criterion": "All Domain authority checks pass against the newly frozen candidate and the Reviewer records no blocking authority finding."
+    }
+  ],
+  "decisions_required": [
+    {
+      "decision_id": "M320-DOMAIN-AUTHORITY",
+      "decision_owner_role": "human-domain-owner",
+      "decision_question": "Confirm, reject or retain as proposed each Migration 320 candidate Rule only after the authority mechanism blockers are remediated and independently re-reviewed.",
+      "decision_deadline_or_trigger": "Before any Migration 320 business approval or execution.",
+      "current_state": "NEEDS_HUMAN_DECISION"
+    }
+  ],
+  "domain_checks": [
+    {
+      "check_id": "A4-BASELINE-INTEGRITY",
+      "result": "PASS",
+      "evidence": "All 103 frozen candidate artifacts match review-baseline-before SHA256 values; manifest actual and expected SHA256 are both 7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C."
+    },
+    {
+      "check_id": "A4-DEDICATED-HUMAN-APPROVAL-CLASSIFICATION",
+      "result": "PASS",
+      "evidence": "validate-task.mjs:171-176 requires one authoritative artifact typed domain-rule-human-approval whose parsed record declares artifact_type=domain-rule-human-approval, producer_type=human and procedural identity assurance."
+    },
+    {
+      "check_id": "A4-DOMAIN-APPROVAL-SCHEMA-ENFORCEMENT",
+      "result": "FAIL",
+      "evidence": "The dedicated schema is present in the candidate but absent from validate-task.mjs schema loading and is not applied to parsed approval records."
+    },
+    {
+      "check_id": "A4-OWNER-SOURCE-SCOPE-EFFECTIVE-VERIFICATION-BINDING",
+      "result": "FAIL",
+      "evidence": "Record-to-Rule equality checks are absent for human_owner, source reference/hash, approval scope, effective time and verification method; the read-only mismatch probe was accepted by the shared Domain approval control."
+    },
+    {
+      "check_id": "A4-RULE-CORE-V1-COVERAGE",
+      "result": "PASS",
+      "evidence": "governance-controls.mjs:61-64 canonically hashes rule_id, version, statement, applies_when, prohibited, verification, enforcement and scope. Read-only mutation probes confirmed every listed component invalidates the old approval hash."
+    },
+    {
+      "check_id": "A4-APPROVAL-CHRONOLOGY",
+      "result": "PASS_WITH_LIMITATION",
+      "evidence": "validate-task.mjs:178-179 and governance-controls.mjs:70-71 enforce source_verified_at < approved_at <= effective_from and reject missing, invalid, equal or reversed record timestamps. However, the valid record timestamps are not required to equal the Rule approval/effective fields, which is part of blocking finding A4-DOMAIN-AUTHORITY-BINDING-001."
+    },
+    {
+      "check_id": "A4-NONAUTHORITATIVE-EVIDENCE-EXCLUSION",
+      "result": "PASS",
+      "evidence": "UNVERIFIED, report, implementation, migration, test or health/report evidence cannot independently confirm a Rule because a VERIFIED human-approval source and a unique authoritative domain-rule-human-approval artifact are required."
+    },
+    {
+      "check_id": "A4-APPROVAL-ARTIFACT-UNIQUENESS",
+      "result": "FAIL",
+      "evidence": "Per-manifest Array.find hides same-manifest duplicates from the global artifacts.length === 1 test."
+    },
+    {
+      "check_id": "A4-NO-AGENT-DOMAIN-PROMOTION-PATH",
+      "result": "PASS_WITH_LIMITATION",
+      "evidence": "No role in agent-path-policy.yaml has a write path to .codex/domain/** or permission for domain-rule-human-approval artifacts; Railway Domain Reviewer has no write paths and explicitly cannot confirm a Rule. The policy is commit-time and not runtime isolation, and QA lacks an explicit confirm-domain-rule prohibition, but QA still has no domain registry write path or permitted approval artifact type."
+    },
+    {
+      "check_id": "A4-PROCEDURAL-IDENTITY-BOUNDARY",
+      "result": "PASS_WITH_LIMITATION",
+      "evidence": "The model explicitly declares human_identity_assurance=procedural and does not claim cryptographic or OS-authenticated identity. This residual boundary is recorded as a risk and is not itself a blocker."
+    },
+    {
+      "check_id": "A4-CONFIRMED-COUNT",
+      "result": "PASS",
+      "evidence": "validate-task.mjs:197-198 programmatically recomputes confirmed Rules. The filed registry declares 0, the read-only recomputation is 0 and all six Rules are proposed; zero confirmed is legal."
+    },
+    {
+      "check_id": "A4-M320-PRESERVATION",
+      "result": "PASS",
+      "evidence": "WO-P-C-LINK-001, WO-C-SHORTAGE-001 and COMPAT-M320-001 remain candidate_rules and proposed. Railway Domain outcome is NEEDS_HUMAN_DECISION, the three Migration 320 blockers remain filed and calculated/overall gates remain NO-GO."
+    },
+    {
+      "check_id": "A4-DETERMINISTIC-LIFECYCLE",
+      "result": "PASS_WITH_LIMITATION",
+      "evidence": "A read-only lifecycle projection using the filed generated_at exactly matched phase-status.json and kept Candidate Review, commit preparation, commit execution and Migration 320 gates NO-GO. The filed projection intentionally remains pre-A4 with a4_started=false until a later authorized lifecycle update."
+    }
+  ],
+  "residual_risks": [
+    {
+      "risk_id": "A4-DOMAIN-RISK-001",
+      "status": "open",
+      "statement": "Procedural human identity is a declared claim boundary rather than cryptographic actor authentication; this is not an independent blocker but must not be described as authenticated identity proof."
+    },
+    {
+      "risk_id": "A4-DOMAIN-RISK-002",
+      "status": "open",
+      "statement": "Commit-time role policy is not OS/runtime isolation. It prevents no filed Rule promotion by policy but cannot independently attribute who typed a producer_type=human record."
+    },
+    {
+      "risk_id": "A4-DOMAIN-RISK-003",
+      "status": "open",
+      "statement": "The current registry is non-authoritative and safe from immediate application because all six Rules remain proposed; the blocking authority defects become reachable when a confirmed Rule is introduced."
+    },
+    {
+      "risk_id": "A4-GATE-SEPARATION",
+      "status": "open",
+      "statement": "This Review determines only the Domain portion of the Candidate Governance Review Gate. It does not authorize Session B, staging, commit, release or Migration 320 execution."
+    }
+  ],
+  "candidate_review_gate_implication": {
+    "candidate_governance_review_gate": "NO-GO",
+    "reason": "Two blocking Domain authority findings permit an in-contract incorrect GO for mismatched or non-unique approval authority.",
+    "governance_commit_preparation_gate": "NO-GO",
+    "governance_commit_execution_gate": "NO-GO",
+    "migration_320_execution_gate": "NO-GO"
+  }
+}

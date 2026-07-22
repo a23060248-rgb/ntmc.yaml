@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "suite": "code-reviewer-exact-scope",
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "cases": [
+    {
+      "case_id": "16",
+      "description": "Code scope includes forbidden .codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/human-approval.yaml.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "18",
+      "description": "Code scope includes forbidden .codex/tasks/FUTURE/security-review-access-log.json.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "19",
+      "description": "Code scope includes forbidden .codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/**.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "17",
+      "description": "Code Reviewer attempts human approval read.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "28",
+      "description": "Code scope excludes human approval and broad/private paths.",
+      "expected": "PASS",
+      "actual": "PASS",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW",
+  "dispatch_mode": "strict_sequential_fresh_sessions",
+  "sequence": [
+    {
+      "sequence": 1,
+      "reviewer_role": "code-reviewer",
+      "assignment_id": "ASSIGN-B5-CODE-6C602EC0-59B9-4D80-A41C-9DD3B94FD501"
+    },
+    {
+      "sequence": 2,
+      "reviewer_role": "security-reviewer",
+      "assignment_id": "ASSIGN-B5-SEC-7B405BE8-2C59-42F7-91F2-7059693F2502"
+    },
+    {
+      "sequence": 3,
+      "reviewer_role": "railway-domain-reviewer",
+      "assignment_id": "ASSIGN-B5-DOMAIN-E5F95EA1-57F0-4773-BD9F-FA41003AE503"
+    },
+    {
+      "sequence": 4,
+      "reviewer_role": "compatibility-reviewer",
+      "assignment_id": "ASSIGN-B5-COMPAT-8FF4C321-ACB0-4214-8319-331CA41EA504"
+    }
+  ],
+  "maximum_concurrent_reviewers": 1,
+  "rules": {
+    "reviewer_reuse": false,
+    "reviewer_subagents": false,
+    "next_dispatch_requires_prior_thread_closed": true,
+    "allocation_failure_result": "REVIEWER_DISPATCH_BLOCKER",
+    "deterministic_qa_requires_child_agent": false
+  },
+  "result": "PASS"
+}

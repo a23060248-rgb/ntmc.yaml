@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "overall_pass": true,
+  "checks": {
+    "syntax_18_18": true,
+    "fixtures_68_68": true,
+    "concurrency_pass": true,
+    "scanner_72_72": true,
+    "production_34_34": true,
+    "mutations_23_23": true,
+    "binary_mutations_45_45": true,
+    "candidate_97_exact": true,
+    "candidate_record_and_report_valid": true,
+    "binary_registry_and_oracles_valid": true,
+    "schema_set_valid": true,
+    "gate_split_valid": true,
+    "dependency_matrix_valid": true,
+    "migration_320_valid_no_go": true
+  },
+  "counts": {
+    "syntax": "18/18",
+    "fixtures": "68/68",
+    "concurrency": "PASS",
+    "scanner": "72/72",
+    "production_integration": "34/34",
+    "mutations": "23/23",
+    "binary_magic_mutations": "45/45",
+    "candidate": "97/97",
+    "migration_320_task": "13/13",
+    "migration_320_external": "5/5"
+  },
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "git_operations_run": false,
+  "session_b_started": false
+}

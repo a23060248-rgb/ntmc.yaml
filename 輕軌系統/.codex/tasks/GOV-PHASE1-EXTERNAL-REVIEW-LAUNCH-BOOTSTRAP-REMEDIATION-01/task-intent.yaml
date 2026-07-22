@@ -1,0 +1,16 @@
+task_id: GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01
+level: L3
+mode: governance_only
+goal: Repair external Reviewer launch bootstrap and working-directory independence.
+allowed_write_scope:
+  - .codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/**
+forbidden_actions:
+  - launch_reviewer
+  - launch_aggregator
+  - git
+  - service
+  - database
+  - seed
+  - migration
+  - product_operation
+  - candidate_change

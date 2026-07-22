@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "evaluated_at_utc": "2026-07-20T13:54:26.339Z",
+  "execution_root": {
+    "top_level_task_observed": true,
+    "fresh_root_confirmed": false,
+    "existing_child_threads": 1,
+    "existing_child_thread_details": [
+      {
+        "agent_name": "/root/b5_code_reviewer",
+        "status": "interrupted",
+        "origin": "prior B5 execution"
+      }
+    ]
+  },
+  "dispatch_contract": {
+    "required_reviewer_count": 4,
+    "maximum_concurrent_reviewers": 1,
+    "reviewers_may_spawn_children": false,
+    "qa_uses_child_allocation": false,
+    "lifetime_allocation_capacity_proof_required": false
+  },
+  "runtime_validation_completed": true,
+  "dispatch_authorized": false,
+  "result": "B6_PRECHECK_BLOCKER",
+  "dispatch_result": "NO_REVIEWER_DISPATCHED",
+  "blocking_conditions": [
+    "fresh_root_confirmed is false",
+    "existing_child_threads is 1, but the required value is 0"
+  ],
+  "downstream_pre_review_package_validation": "NOT_STARTED_FAIL_CLOSED",
+  "notes": [
+    "The existing child is interrupted, but it remains an existing child thread on this root.",
+    "The preflight stopped before any R12 package validation, reviewer allocation, deterministic QA, or human-approval creation."
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "formal": true,
+  "reviewer": "railway-domain-reviewer",
+  "reviewer_run_id": "A7-DOMAIN-RUN-70ae18b8-aa31-4c39-86c4-a0b5d28bdbb8",
+  "session_id": "A7-DOMAIN-SESSION-ae3ddba2-2a24-4417-9563-9566d4a742e8",
+  "did_not_participate_in_implementation": true,
+  "reviewed_candidate_baseline": "phase-1.7-bootstrap",
+  "candidate_manifest_file_count": 92,
+  "candidate_manifest_sha256": "8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51",
+  "bootstrap_candidate_record_id": "34173D4341ABD1664878AB9F25BCFED1976D7F61B517C03887F4BC7BA00AE8B1",
+  "review_scope": "bootstrap_rule_governance_mechanism",
+  "governance_mechanism_outcome": {
+    "outcome": "BLOCKER"
+  },
+  "external_decisions": [
+    {
+      "decision_scope": "migration_320",
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "affects_gate": "migration_320_execution",
+      "decision_owner_role": "human-domain-owner",
+      "decision_question": "Confirm, reject, or retain as unverified WO-P-C-LINK-001, WO-C-SHORTAGE-001, and COMPAT-M320-001 before any Migration 320 business approval or execution."
+    }
+  ],
+  "outcome": "BLOCKER",
+  "mode": "read-only-reviewed-sources",
+  "relied_on_implementation_conversation": false,
+  "business_rule_approval_performed": false,
+  "migration_execution_authorized": false,
+  "reviewed_sources_modified": 0,
+  "git_commands_run": false,
+  "services_started": false,
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "migration_operations_run": false,
+  "review_scope_details": {
+    "included": [
+      "Phase 1.7 bootstrap Rule classification, fixed registry loading, selection, Domain outcome routing, and five-gate separation",
+      "exact 92-file bootstrap candidate and A7 review-baseline-before SHA256 inventory",
+      "Remediation 7 on-disk artifacts and independent governance fixture, production, mutation, boundary, and Migration 320 reruns",
+      "A5 generic/meta business-category bypass closure and unsupported railway authority rejection",
+      "Migration 320 Task artifacts and five approved external evidence files for hash integrity only"
+    ],
+    "excluded": [
+      "approval, confirmation, or reinterpretation of any actual railway maintenance, inventory, compatibility, permission, or audit Rule",
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration source",
+      "sibling directories",
+      "Git state or mutation",
+      "services, product tests, database, seed, and migration execution",
+      "implementation conversations and unfiled explanations"
+    ],
+    "boundary": "This review assesses only the bootstrap Rule governance mechanism. The separate Migration 320 human decision does not change the mechanism outcome and this review grants no railway business authority."
+  },
+  "baseline_verification": {
+    "manifest_hash_match": true,
+    "candidate_count": 92,
+    "candidate_mismatches": 0,
+    "frozen_history_count": 340,
+    "frozen_history_mismatches": 0,
+    "remediation_7_count": 40,
+    "remediation_7_mismatches": 0,
+    "migration_320_task_count": 13,
+    "migration_320_task_mismatches": 0,
+    "migration_320_external_count": 5,
+    "migration_320_external_mismatches": 0,
+    "a7_self_excluded": true,
+    "git_diff_used": false,
+    "evidence": [
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/review-baseline-before.json",
+      ".codex/governance/governance-commit-manifest.yaml"
+    ]
+  },
+  "methods_and_commands": [
+    {
+      "method_id": "A7-DOMAIN-METHOD-BASELINE",
+      "command": "Read-only SHA256 and byte-size comparison for every review-baseline-before candidate, frozen_history, remediation_7, migration_320_task, and migration_320_external entry",
+      "result": "PASS",
+      "observed": "92/92 candidate, 340/340 frozen history, 40/40 R7, 13/13 M320 Task, and 5/5 external evidence entries matched. The governance manifest SHA256 matched 8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51 before and after the independent reruns."
+    },
+    {
+      "method_id": "A7-DOMAIN-METHOD-STATIC",
+      "command": "Read-only inspection of Rule and Railway Domain review schemas, fixed meta/Domain registries, proposed-domain-rules.mjs, rule-class.mjs, domain-review-routing.mjs, gate-router.mjs, and validate-task.mjs",
+      "result": "BLOCKER",
+      "observed": "The production call chain enforces explicit Rule class/effect pairs, unique resolution, namespace-independent business-category checks, proposed-only Domain records, typed mechanism-versus-external routing, and separate Candidate Review and Migration 320 gate reasons. However, the dedicated railway-domain-review.schema.json contract is malformed JSON and is not loaded by validate-task.mjs."
+    },
+    {
+      "method_id": "A7-DOMAIN-METHOD-TYPED-SCHEMA",
+      "command": "node JSON.parse of .codex/blueprints/schemas/railway-domain-review.schema.json followed by reference search across production and test entrypoints",
+      "result": "BLOCKER",
+      "observed": "JSON.parse failed at the end of the document because line 8 closes the outcome and properties objects but not the governance_mechanism_outcome object. The only references are manifest/baseline evidence; validate-task.mjs loads review-findings.schema.json instead, and the green Domain production cases exercise only that duplicated inline schema."
+    },
+    {
+      "method_id": "A7-DOMAIN-METHOD-FIXTURES",
+      "command": "TEMP/TMP=<PRODUCT_ROOT>/.codex/tasks/GOV-PHASE1-L3-REVIEW-A7/reviewer-temp/domain/fixtures node .codex/tests/run-governance-fixtures.mjs",
+      "result": "PASS",
+      "observed": "68/68 passed. Cases 57-63 covered proposed-only Domain registry, confirmed Domain rejection, candidate/applicable separation, generic meta business rejection, unsupported railway authority, allowed governance/technical controls, and duplicate identity rejection."
+    },
+    {
+      "method_id": "A7-DOMAIN-METHOD-PRODUCTION",
+      "command": "TEMP/TMP=<PRODUCT_ROOT>/.codex/tasks/GOV-PHASE1-L3-REVIEW-A7/reviewer-temp/domain/production node .codex/tests/run-bootstrap-production-integration.mjs",
+      "result": "PASS",
+      "observed": "27/27 passed. PROD-DOMAIN-01 proved mechanism PASS can coexist with Migration 320 NEEDS_HUMAN_DECISION; PROD-DOMAIN-02 through PROD-DOMAIN-05 proved mechanism blocking, illegal external-to-candidate routing, candidate/applicable rejection, and generic meta business bypass rejection."
+    },
+    {
+      "method_id": "A7-DOMAIN-METHOD-MUTATION",
+      "command": "TEMP/TMP=<PRODUCT_ROOT>/.codex/tasks/GOV-PHASE1-L3-REVIEW-A7/reviewer-temp/domain/mutation node .codex/tests/run-bootstrap-mutation-tests.mjs",
+      "result": "PASS",
+      "observed": "17/17 mutations were killed and none survived. MUT-07, MUT-16, and MUT-17 specifically exercised external-as-mechanism, generic-meta-business, and railway-candidate-applicable faults."
+    },
+    {
+      "method_id": "A7-DOMAIN-METHOD-BOUNDARY-PROBE",
+      "command": "Read-only in-memory Node probe importing the exact production Rule modules and current Domain registry",
+      "result": "PASS_AFTER_QUOTING_RETRY",
+      "observed": "The current registry had zero violations. Agent-filled human_owner, confirmed Domain status, railway_domain_authority, generic meta business classification, and candidate-to-applicable selection were each rejected. The first PowerShell node -e form failed before imports because nested quotes were stripped; the corrected equivalent command exited 0 and no source file was written."
+    },
+    {
+      "method_id": "A7-DOMAIN-METHOD-M320",
+      "command": "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN --target-gate migration-320-execution",
+      "result": "PASS_AS_FAIL_CLOSED_NO_GO",
+      "observed": "VALIDATE_TASK_RESULT reported structural=VALID, target migration_320_execution:NO-GO, and exit=2. The three proposed candidate Rules lacked human business authority, the Domain decision remained NEEDS_HUMAN_DECISION, and the original Migration 320 blockers remained. No --write-graph flag was used."
+    }
+  ],
+  "control_results": {
+    "independent_formal_review": {
+      "result": "PASS",
+      "reason": "The assigned run/session identity is unique, does not match the R7 implementer session, and no implementation conversation was used.",
+      "evidence": [
+        ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/reviewer-assignments.json",
+        ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/reviewer-independence.json"
+      ]
+    },
+    "explicit_rule_class_and_effect_required": {
+      "result": "PASS",
+      "reason": "rule_class and authority_effect are schema-required and the production classifier rejects missing, unsupported, or mismatched pairs.",
+      "evidence": [
+        ".codex/blueprints/schemas/rule.schema.json",
+        ".codex/scripts/lib/governance/rule-class.mjs"
+      ]
+    },
+    "generic_meta_business_bypass_rejected": {
+      "result": "PASS",
+      "reason": "domain/compatibility categories cannot use generic governance or technical classes, and meta registries cannot carry railway business classes. Production and mutation tests detect this exploit family independently.",
+      "evidence": [
+        ".codex/scripts/lib/governance/rule-class.mjs",
+        ".codex/tests/run-bootstrap-production-integration.mjs",
+        ".codex/tests/run-bootstrap-mutation-tests.mjs"
+      ]
+    },
+    "candidate_applicable_separation": {
+      "result": "PASS",
+      "reason": "Only confirmed governance_control and technical_constraint records can resolve as bootstrap applicable Rules. Proposed Domain candidates resolve only through candidate_rules and are rejected from applicable_rules.",
+      "evidence": [
+        ".codex/scripts/lib/governance/rule-class.mjs",
+        ".codex/scripts/lib/governance/proposed-domain-rules.mjs"
+      ]
+    },
+    "unsupported_railway_authority_rejected": {
+      "result": "PASS",
+      "reason": "railway_domain_authority maps only to unsupported and is always rejected in bootstrap mode.",
+      "evidence": [
+        ".codex/scripts/lib/governance/rule-class.mjs",
+        ".codex/tests/run-governance-fixtures.mjs"
+      ]
+    },
+    "self_escalation_and_status_promotion_rejected": {
+      "result": "PASS",
+      "reason": "The proposed Domain validator rejects owner/approved_at authority and truthy human_owner, approval, or authority fields. It also restricts Domain status to proposed/candidate/unverified, so confirmed cannot self-promote.",
+      "evidence": [
+        ".codex/scripts/lib/governance/proposed-domain-rules.mjs",
+        ".codex/domain/index.yaml"
+      ]
+    },
+    "typed_mechanism_external_decision_routing": {
+      "result": "BLOCKER",
+      "reason": "The production router and the duplicate inline schema in review-findings.schema.json correctly separate mechanism and Migration 320 outcomes. The dedicated railway-domain-review.schema.json is nevertheless malformed and unreferenced by production validation, so the candidate's advertised typed Domain contract cannot be parsed and can drift without any test failing.",
+      "evidence": [
+        ".codex/blueprints/schemas/railway-domain-review.schema.json",
+        ".codex/blueprints/schemas/review-findings.schema.json",
+        ".codex/scripts/lib/governance/domain-review-routing.mjs",
+        ".codex/scripts/lib/governance/gate-router.mjs",
+        ".codex/scripts/validate-task.mjs"
+      ]
+    },
+    "fixed_loader_and_unique_resolution": {
+      "result": "PASS",
+      "reason": "Production loads only fixed meta registries and the proposed Domain registry; every selected Rule ID must resolve exactly once, preventing first-match authority and indirect report promotion.",
+      "evidence": [
+        ".codex/scripts/validate-task.mjs",
+        ".codex/scripts/lib/governance/rule-class.mjs"
+      ]
+    },
+    "confirmed_rule_count_zero": {
+      "result": "PASS_NON_BLOCKING",
+      "actual": 0,
+      "reason": "The bootstrap contract intentionally supports no confirmed railway business authority. Zero confirmed Rules is a fail-closed boundary and is not a mechanism defect.",
+      "evidence": [
+        ".codex/domain/index.yaml",
+        ".codex/scripts/lib/governance/proposed-domain-rules.mjs"
+      ]
+    },
+    "no_actual_railway_rule_approved": {
+      "result": "PASS",
+      "reason": "This formal review accepts only the governance mechanism and grants no maintenance, inventory, permission, compatibility, audit, or Migration 320 authority."
+    }
+  },
+  "rule_class_matrix": [
+    {
+      "rule_class": "governance_control",
+      "required_authority_effect": "procedural_governance",
+      "bootstrap_applicable_rules_allowed": true,
+      "candidate_rules_allowed": false,
+      "exact_candidate_count": 9,
+      "result": "PASS"
+    },
+    {
+      "rule_class": "technical_constraint",
+      "required_authority_effect": "technical_constraint",
+      "bootstrap_applicable_rules_allowed": true,
+      "candidate_rules_allowed": false,
+      "exact_candidate_count": 2,
+      "result": "PASS"
+    },
+    {
+      "rule_class": "railway_domain_candidate",
+      "required_authority_effect": "candidate_only",
+      "bootstrap_applicable_rules_allowed": false,
+      "candidate_rules_allowed": true,
+      "exact_candidate_count": 6,
+      "result": "PASS_FAIL_CLOSED"
+    },
+    {
+      "rule_class": "railway_domain_authority",
+      "required_authority_effect": "unsupported",
+      "bootstrap_applicable_rules_allowed": false,
+      "candidate_rules_allowed": false,
+      "exact_candidate_count": 0,
+      "result": "REJECTED_AS_REQUIRED"
+    }
+  ],
+  "closure_assessment": {
+    "A5-DOMAIN-META-REGISTRY-BYPASS-001": {
+      "status": "CLOSED",
+      "reason": "The current production classifier rejects business categories under generic meta classes, the fixed registry/unique resolver prevents namespace and first-match bypass, PROD-DOMAIN-05 passes, and MUT-16 is killed."
+    },
+    "A6-DOMAIN-HUMAN-DECISION-001": {
+      "status": "PRESERVED_AS_EXTERNAL_DECISION",
+      "blocks_bootstrap_rule_governance_mechanism": false,
+      "affects_gate": "migration_320_execution",
+      "reason": "The human business decision remains open and fail-closed, but the typed router now prevents it from overwriting or blocking the independent mechanism outcome."
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "A7-DOMAIN-TYPED-SCHEMA-PARSE-001",
+      "finding_type": "GOVERNANCE_MECHANISM_DEFECT",
+      "severity": "BLOCKER",
+      "blocks_bootstrap_rule_governance_mechanism": true,
+      "blocks_migration_320_execution": false,
+      "title": "Dedicated Railway Domain review schema is malformed and outside production schema coverage",
+      "locations": [
+        ".codex/blueprints/schemas/railway-domain-review.schema.json:8",
+        ".codex/scripts/validate-task.mjs:23",
+        ".codex/scripts/validate-task.mjs:31",
+        ".codex/scripts/validate-task.mjs:234",
+        ".codex/tests/run-bootstrap-production-integration.mjs:115"
+      ],
+      "reproducible_read_only_check": "Run node -e \"JSON.parse(require('fs').readFileSync('.codex/blueprints/schemas/railway-domain-review.schema.json','utf8'))\" from the product root; observe SyntaxError. Then search for railway-domain-review.schema and observe no production or test loader reference.",
+      "observed": "The governance_mechanism_outcome property is missing its outer closing brace. JSON.parse fails, while fixtures 68/68, production 27/27, and mutations 17/17 remain green because validate-task.mjs validates the duplicated inline fields in review-findings.schema.json and never parses the dedicated schema.",
+      "impact": "A candidate artifact presented as the typed Railway Domain contract is unusable by a consumer, and its divergence or corruption is not fail-closed. The mechanism cannot receive formal PASS while this machine-readable contract and its coverage are defective.",
+      "required_remediation": [
+        "Repair the malformed JSON and prove that every candidate .schema.json file is parsed by an authoritative test or validator.",
+        "Use one authoritative Railway Domain review schema in production validation, or mechanically derive the inline review-findings definition from the dedicated schema so the two contracts cannot drift.",
+        "Add production and mutation coverage showing malformed or divergent Railway Domain schema input fails closed, then obtain a fresh independent Domain review on a new immutable candidate baseline."
+      ],
+      "disposition": "NOT_CLOSED"
+    }
+  ],
+  "external_decision_record": {
+    "record_id": "A7-DOMAIN-M320-DECISION-001",
+    "finding_type": "HUMAN_DECISION_REQUIRED",
+    "severity": "NONE",
+    "blocks_bootstrap_rule_governance_mechanism": false,
+    "blocks_migration_320_execution": true,
+    "candidate_rules": [
+      "WO-P-C-LINK-001",
+      "WO-C-SHORTAGE-001",
+      "COMPAT-M320-001"
+    ],
+    "disposition": "Preserve NEEDS_HUMAN_DECISION and Migration 320 NO-GO until the human Domain owner decides each proposed Rule and the separate Migration 320 blockers are resolved."
+  },
+  "migration_320_verification": {
+    "review_mode": "governance-and-hash-integrity-only",
+    "candidate_rules": [
+      "WO-P-C-LINK-001",
+      "WO-C-SHORTAGE-001",
+      "COMPAT-M320-001"
+    ],
+    "candidate_rule_status": "proposed",
+    "domain_decision": "NEEDS_HUMAN_DECISION",
+    "structural_status": "VALID",
+    "target_gate": "migration_320_execution",
+    "target_gate_status": "NO-GO",
+    "validator_reported_exit_code": 2,
+    "original_blockers_preserved": true,
+    "migration_task_hashes": "13/13 match",
+    "approved_external_evidence_hashes": "5/5 match",
+    "business_rule_approval_granted": false,
+    "migration_execution_authorized": false
+  },
+  "limitations": [
+    "Workspace-produced bootstrap evidence establishes internal consistency only; it does not create trusted producer, Git, commit, release, or railway business authority.",
+    "No Git state, service, product code, product test, database, seed, migration source, or migration execution was inspected or run.",
+    "The five Migration 320 external evidence files were checked only against the approved hashes; their business meaning was not reinterpreted.",
+    "No actual railway Rule was approved. Any future candidate manifest, typed Rule, approval workflow, or routing change requires a new review."
+  ],
+  "reviewer_command_notes": [
+    "One initial Node boundary-probe command failed before module import because PowerShell stripped nested quotes; the equivalent corrected read-only command passed and is the only probe result relied on.",
+    "One read-only rg command named a nonexistent optional implementation-plan.yaml path; the existing A7 task intent, blueprint, approval, assignments, independence, baseline, R7 evidence, and production source files were independently read.",
+    "One read-only rg command first looked for schema-validator.mjs in a governance subdirectory; the subsequent source search located the actual .codex/scripts/lib/schema-validator.mjs path. This path correction did not affect the dedicated-schema parse finding."
+  ],
+  "severity_counts": {
+    "BLOCKER": 1,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "EXTERNAL_DECISION_REQUIRED": 1
+  },
+  "conclusion": {
+    "bootstrap_rule_governance_mechanism": "BLOCKER",
+    "migration_320": "NEEDS_HUMAN_DECISION / NO-GO",
+    "routing_statement": "The Migration 320 external decision affects only migration_320_execution and does not cause or replace the independent mechanism BLOCKER.",
+    "actual_railway_rules_approved": []
+  }
+}

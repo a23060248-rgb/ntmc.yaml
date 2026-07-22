@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "candidate_binding": {
+    "candidate_file_count": 108,
+    "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+    "scanner_contract_version": 5,
+    "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+  },
+  "reviewer_packages": [
+    {
+      "package_kind": "reviewer",
+      "role": "EXTERNAL_CODE_REVIEWER",
+      "package_directory": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/code-review",
+      "prompt_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/code-review/standalone-top-level-reviewer-prompt.md",
+      "launch_envelope_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/code-review/absolute-launch-envelope.json",
+      "ids": {
+        "review_package_id": "A11-R1-CODE-REVIEWER-PKG-20260721-01",
+        "assignment_id": "A11-R1-CODE-REVIEWER-ASSIGN-20260721-01",
+        "reviewer_run_id": "A11-R1-CODE-REVIEWER-RUN-20260721-01",
+        "reviewer_session_nonce": "33CE69E4ADF73DBD84A11A4A39E8B8861EF73A210C155EE909289950C640CA55"
+      },
+      "package_core_sha256": "C71AA0A75C906E2889C16C4B3DCD74C6966EBB4ED71F5E0486AC33412F620E45",
+      "scope_sha256": "9B0F8634398BD74D39A4EEEF5C981DFE10361FA2FB3F4E362A55B4C9786099D8",
+      "launch_envelope_core_sha256": "F8E7DF01F39E8A40F0381EFDBCFF634511110F3850B335C29BB6868B835A968A",
+      "verification_result": "PASS",
+      "lifecycle": "NOT_STARTED"
+    },
+    {
+      "package_kind": "reviewer",
+      "role": "EXTERNAL_SECURITY_REVIEWER",
+      "package_directory": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review",
+      "prompt_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/standalone-top-level-reviewer-prompt.md",
+      "launch_envelope_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/security-review/absolute-launch-envelope.json",
+      "ids": {
+        "review_package_id": "A11-R1-SECURITY-REVIEWER-PKG-20260721-02",
+        "assignment_id": "A11-R1-SECURITY-REVIEWER-ASSIGN-20260721-02",
+        "reviewer_run_id": "A11-R1-SECURITY-REVIEWER-RUN-20260721-02",
+        "reviewer_session_nonce": "4FFB4FD99A27DDF18CFD94DEF926FCA15C890124C809705AB2C18A73AD2414CB"
+      },
+      "package_core_sha256": "4EFDFA31AD2378396DD5C4D0413DED652AA75AB53B7DDA3861A231EA9EEC24EE",
+      "scope_sha256": "31DDE1BEC58652B0EFF742187E1490DF2E120C12BF6A1DA1CBDB590627545C27",
+      "launch_envelope_core_sha256": "19C847296EC62FB9E18976BD9DFF55A3F01E87519E1BD6B500AB16225F1B932C",
+      "verification_result": "PASS",
+      "lifecycle": "NOT_STARTED"
+    },
+    {
+      "package_kind": "reviewer",
+      "role": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+      "package_directory": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/railway-domain-review",
+      "prompt_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/railway-domain-review/standalone-top-level-reviewer-prompt.md",
+      "launch_envelope_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/railway-domain-review/absolute-launch-envelope.json",
+      "ids": {
+        "review_package_id": "A11-R1-RAILWAY-DOMAIN-REVIEWER-PKG-20260721-03",
+        "assignment_id": "A11-R1-RAILWAY-DOMAIN-REVIEWER-ASSIGN-20260721-03",
+        "reviewer_run_id": "A11-R1-RAILWAY-DOMAIN-REVIEWER-RUN-20260721-03",
+        "reviewer_session_nonce": "F0C1CD5A8F2510E67234C754A4CC17291411FA759A19B040981363AA42828FC5"
+      },
+      "package_core_sha256": "BDEA18A18A834FDD1F5D101F908C05E27EF9B9EE358AF86087CB2D9A30C86048",
+      "scope_sha256": "D1FD345A1A11D22FB47D5A763BC2BEBABBF1FE74033C54361C0DF5916A6AD9AB",
+      "launch_envelope_core_sha256": "9A9B9E4C7ADE8C531BA6FDBF2100F6A5A7ECC2D5C4BD1BB98FE7313810C633F1",
+      "verification_result": "PASS",
+      "lifecycle": "NOT_STARTED"
+    },
+    {
+      "package_kind": "reviewer",
+      "role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "package_directory": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/compatibility-review",
+      "prompt_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/compatibility-review/standalone-top-level-reviewer-prompt.md",
+      "launch_envelope_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/compatibility-review/absolute-launch-envelope.json",
+      "ids": {
+        "review_package_id": "A11-R1-COMPATIBILITY-REVIEWER-PKG-20260721-04",
+        "assignment_id": "A11-R1-COMPATIBILITY-REVIEWER-ASSIGN-20260721-04",
+        "reviewer_run_id": "A11-R1-COMPATIBILITY-REVIEWER-RUN-20260721-04",
+        "reviewer_session_nonce": "9665AE1D01000BCB4E427C52B6ED570A74247A74D6070BCDEB76955A44148B2D"
+      },
+      "package_core_sha256": "1651E0915C27D992FFAB7F702EB133EC23CD31F7EE84EA97ECF52D7648B23206",
+      "scope_sha256": "3BC46F2225B3A7058B5E64971FA8339011A5F45AA8350A873507CFC597B1611F",
+      "launch_envelope_core_sha256": "A7BF00B7B352D1E8055879540FEFAC2CBC563C2AC124C26A439BC7CEE275C404",
+      "verification_result": "PASS",
+      "lifecycle": "NOT_STARTED"
+    }
+  ],
+  "aggregation_package": {
+    "package_kind": "aggregator",
+    "role": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+    "package_directory": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa",
+    "prompt_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/standalone-top-level-aggregator-prompt.md",
+    "launch_envelope_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/absolute-launch-envelope.json",
+    "ids": {
+      "aggregation_package_id": "A11-R1-AGGREGATION-QA-PKG-20260721-05",
+      "assignment_id": "A11-R1-AGGREGATION-QA-ASSIGN-20260721-05",
+      "aggregator_run_id": "A11-R1-AGGREGATION-QA-RUN-20260721-05",
+      "aggregator_session_nonce": "1BC14CB8E8D31BFB1F8003FC8E1FD4DB039E9215C146455B81A0FBA23A28D18B"
+    },
+    "package_core_sha256": "A830AD323F36057E2EFB0467AF384B6E7AC965755C714D84A1F82DF6392580EE",
+    "scope_sha256": "1F1FD8F3567100FDD54AE9282C3D7B49DE38E9E51302BC4CACADFD88C4356899",
+    "launch_envelope_core_sha256": "EE3D57A493FD7E7D6D3F945528D892764F5C913CF42D25B6474CA5E6128132C9",
+    "verification_result": "PASS",
+    "lifecycle": "NOT_STARTED"
+  },
+  "reviewers_started": 0,
+  "aggregator_started": 0
+}

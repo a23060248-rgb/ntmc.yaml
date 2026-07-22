@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/schemas/security-evidence.schema.json",
+  "x-governance-schema-version": 1,
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "task_id", "scan_scope", "scan_contract", "claims", "external_evidence", "limitations"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "task_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,63}$"},
+    "scan_scope": {"type": "object", "additionalProperties": false, "required": ["governance_artifacts", "external_referenced_evidence"], "properties": {"governance_artifacts": {"const": "DETERMINISTIC_CONTRACT"}, "external_referenced_evidence": {"enum": ["LIMITED", "CONTRACT"]}}},
+    "scan_contract": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["scan_contract_id", "scan_contract_version", "manifest_sha256", "scanned_file_count", "scanned_file_set_sha256", "contract_sha256", "finding_registry_sha256", "canonicalization_config_sha256", "binary_oracle_config_sha256", "binary_magic_registry_sha256", "schema_set_sha256"], "properties": {"scan_contract_id": {"const": "GOV-DETERMINISTIC-SCAN"}, "scan_contract_version": {"const": 5}, "manifest_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "scanned_file_count": {"type": "integer", "minimum": 1}, "scanned_file_set_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "contract_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "finding_registry_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "canonicalization_config_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "binary_oracle_config_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "binary_magic_registry_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "schema_set_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}}},
+        {"type": "object", "additionalProperties": false, "required": ["scan_contract_id", "scan_contract_version", "manifest_sha256", "scanned_file_count", "scanned_file_set_sha256"], "properties": {"scan_contract_id": {"const": "GOV-DETERMINISTIC-SCAN"}, "scan_contract_version": {"const": 4}, "manifest_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "scanned_file_count": {"type": "integer", "minimum": 1}, "scanned_file_set_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}}},
+        {"type": "object", "additionalProperties": true, "required": ["scan_contract_id", "scan_contract_version", "manifest_sha256", "scanned_file_count", "scanned_file_set_sha256"], "properties": {"scan_contract_id": {"const": "GOV-DETERMINISTIC-SCAN"}, "scan_contract_version": {"enum": [2, 3]}, "manifest_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "scanned_file_count": {"type": "integer", "minimum": 1}, "scanned_file_set_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}}}
+      ]
+    },
+    "claims": {"type": "object", "additionalProperties": true, "required": ["no_findings_within_declared_contract"], "properties": {"declared_scan_contract_executed": {"type": "boolean"}, "no_findings_within_declared_contract": {"type": "boolean"}, "external_evidence_globally_clean": {"const": false}, "global_sensitive_data_absence_verified": {"const": false}}},
+    "external_evidence": {"type": "array", "items": {"type": "object"}},
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+  }
+}

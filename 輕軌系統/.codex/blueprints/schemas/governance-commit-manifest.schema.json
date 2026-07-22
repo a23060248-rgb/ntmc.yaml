@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/schemas/governance-commit-manifest.schema.json",
+  "x-governance-schema-version": 1,
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "manifest_type", "generated_at", "self_excluded", "artifacts", "excluded_records"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "manifest_type": {"const": "governance-commit-manifest"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "self_excluded": {"const": true},
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "artifact_type", "commit_inclusion", "scan_required", "sha256", "binary_allowed"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "artifact_type": {"type": "string", "minLength": 1},
+          "commit_inclusion": {"const": true},
+          "scan_required": {"const": true},
+          "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+          "binary_allowed": {"const": false}
+        }
+      }
+    },
+    "excluded_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "commit_inclusion", "evidence_scope", "reason"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "commit_inclusion": {"const": false},
+          "evidence_scope": {"enum": ["local_review_record", "external_reference"]},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

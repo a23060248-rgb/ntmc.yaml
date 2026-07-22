@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "status": "PASS_WITH_GATES_BLOCKED_AS_DESIGNED",
+  "suites": [
+    {"name":"syntax","result":"PASS","passed":38,"total":38},
+    {"name":"governance-fixtures","result":"PASS","passed":68,"total":68,"production_schema_loader_executed":true},
+    {"name":"concurrency-regression","result":"PASS","child_reports":2,"adversarial_reports_rejected":4},
+    {"name":"production-scanner","result":"PASS","passed":72,"total":72},
+    {"name":"production-integration","result":"PASS","passed":48,"total":48},
+    {"name":"production-mutations","result":"PASS","killed":31,"total":31,"survived":0},
+    {"name":"binary-magic-mutations","result":"PASS","killed":45,"total":45,"survived":0},
+    {"name":"reviewer-binding-regressions","result":"PASS","passed":14,"total":14},
+    {"name":"official-schema-loader-integration","result":"PASS","passed":11,"total":11},
+    {"name":"official-schema-loader-mutations","result":"PASS","killed":6,"total":6,"survived":0},
+    {"name":"lifecycle-projection","result":"PASS"},
+    {"name":"baseline-comparison","result":"PASS","frozen_history_unchanged":425,"review_a8_identical":true,"migration_320_identical":true},
+    {"name":"r9-authoritative-validator","result":"PASS","structural":"VALID","target_gate":"NO-GO","emitted_exit":2},
+    {"name":"migration-320-validator","result":"PASS","structural":"VALID","target_gate":"NO-GO","emitted_exit":2}
+  ],
+  "candidate": {
+    "file_count": 103,
+    "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "scanner_report_sha256": "1B23623D233A6337B9026C95492B22E07AE55B0C9E531C6CE351C4E64B2C665C",
+    "scanner_findings": 0,
+    "assurance": "INTERNAL_CONSISTENCY_ONLY"
+  },
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "git_operations_run": false
+}

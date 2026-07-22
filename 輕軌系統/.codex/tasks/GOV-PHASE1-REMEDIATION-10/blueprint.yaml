@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-REMEDIATION-10",
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "risk": {"level": "L3", "reasons": ["Formal Security blockers and future review compatibility inputs require fail-closed evidence and human gates."]},
+  "scope": {"include": ["Frozen 103-file candidate and binding records read-only", "A10 and Session B frozen formal records read-only", "Migration 320 13+5 records read-only", ".codex/tasks/GOV-PHASE1-REMEDIATION-10/**"], "exclude": ["candidate modification", "Session B modification", "Session B2 startup", "product code", "database or migration operations", "Git mutation", "Human Commit GO", "steady-state activation"], "product_changes_allowed": false, "database_operations_allowed": false},
+  "allowed_paths": {"read": ["AGENTS.md", ".agents/**", ".codex/**"], "write": [".codex/tasks/GOV-PHASE1-REMEDIATION-10/**"]},
+  "agent_assignments": [
+    {"role": "qa-engineer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": [".codex/tasks/GOV-PHASE1-REMEDIATION-10/**"]},
+    {"role": "code-reviewer", "allowed_read_paths": [".codex/tasks/GOV-PHASE1-REMEDIATION-10/**"], "allowed_write_paths": []},
+    {"role": "security-reviewer", "allowed_read_paths": [".codex/tasks/GOV-PHASE1-REMEDIATION-10/**"], "allowed_write_paths": []},
+    {"role": "railway-domain-reviewer", "allowed_read_paths": [".codex/tasks/GOV-PHASE1-REMEDIATION-10/**"], "allowed_write_paths": []},
+    {"role": "compatibility-reviewer", "allowed_read_paths": [".codex/tasks/GOV-PHASE1-REMEDIATION-10/**"], "allowed_write_paths": []}
+  ],
+  "applicable_rules": ["GOV-SCOPE-001", "REV-INDEP-001", "REV-L3-001", "EVD-HASH-001", "EVD-CLAIM-001"],
+  "candidate_rules": [],
+  "required_agents": ["qa-engineer", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer"],
+  "execution": {"parallel_groups": [], "sequential_steps": ["Capture the protected before baseline.", "Classify both root causes and stop if candidate_change_required is true.", "Derive the production contract and complete security chain from frozen source bytes.", "Build the exact future Security read scope and evidence input contract.", "Run all 20 fail-closed cases.", "Verify A10, Session B and Migration 320 preservation.", "Capture and compare the after baseline.", "Mark only readiness for human consideration of a separate Session B2 and stop."]},
+  "evidence_required": ["R10-ROOT-CAUSE", "R10-CONTRACT", "R10-CHAIN", "R10-ALLOWLIST", "R10-NEGATIVE", "R10-BASELINE", "R10-HISTORY", "R10-M320", "R10-READINESS"],
+  "rollback_restore": {"required": false, "evidence_or_reason": "Not applicable: Remediation 10 writes only a new isolated governance Task directory and leaves every reviewed candidate and historical source byte unchanged."},
+  "human_approval": {"required": true, "approver_roles": ["human-governance-owner"]},
+  "stop_conditions": ["Candidate change required.", "Protected baseline changes.", "Required chain node missing or mismatched.", "Negative case does not fail closed.", "Session B2 or any prohibited operation is started."]
+}

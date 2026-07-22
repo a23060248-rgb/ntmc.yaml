@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "generated_at": "2026-07-19T23:55:00+08:00",
+  "nodes": [
+    {"id": "TASK:R9", "type": "Task", "label": "Remediation 9 reviewer binding and official fixture Schema loader", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/task-intent.yaml"},
+    {"id": "REVIEW:A8", "type": "FormalReview", "label": "A8 archived BLOCKER", "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/session-a8-summary.json"},
+    {"id": "EVIDENCE:R9-IDENTITY", "type": "Evidence", "label": "Procedural Railway reviewer identity binding", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/reviewer-identity-binding-verification.json"},
+    {"id": "EVIDENCE:R9-LOADER", "type": "Evidence", "label": "Official Schema-loader execution", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/official-schema-loader-verification.json"},
+    {"id": "EVIDENCE:R9-CANDIDATE", "type": "Evidence", "label": "103-file bootstrap candidate", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json"},
+    {"id": "GATE:CANDIDATE", "type": "Gate", "label": "Bootstrap Candidate Review NO-GO", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/review-findings.yaml"},
+    {"id": "GATE:HUMAN", "type": "Gate", "label": "Bootstrap Human Commit NO-GO", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/human-approval.yaml"},
+    {"id": "GATE:M320", "type": "Gate", "label": "Migration 320 Execution NO-GO", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/migration-320-integrity.json"}
+  ],
+  "edges": [
+    {"from": "REVIEW:A8", "relation": "requires-remediation", "to": "TASK:R9", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/a8-finding-remediation-mapping.md"},
+    {"from": "TASK:R9", "relation": "produces", "to": "EVIDENCE:R9-IDENTITY", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/reviewer-identity-binding-verification.json"},
+    {"from": "TASK:R9", "relation": "produces", "to": "EVIDENCE:R9-LOADER", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/official-schema-loader-verification.json"},
+    {"from": "TASK:R9", "relation": "produces", "to": "EVIDENCE:R9-CANDIDATE", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-verification.json"},
+    {"from": "REVIEW:A8", "relation": "blocks-until-a9", "to": "GATE:CANDIDATE", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/review-findings.yaml"},
+    {"from": "GATE:CANDIDATE", "relation": "precedes", "to": "GATE:HUMAN", "source_ref": ".codex/governance/gate-policy.yaml"},
+    {"from": "TASK:R9", "relation": "keeps-independent-no-go", "to": "GATE:M320", "source_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/migration-320-integrity.json"}
+  ]
+}

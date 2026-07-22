@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-REMEDIATION-6",
+  "title": "Phase 1.6 Bootstrap Governance Core Convergence",
+  "task_type": "governance",
+  "objective": "Replace self-authorizing steady-state claims with a minimum bootstrap governance core that proves internal consistency only and remains human-controlled, independently reviewed, and fail-closed.",
+  "business_reason": "Session A5 proved that an uncommitted validator cannot establish its own trust anchor and that scope, proof, scanner, and Rule authority bypasses remain despite green fixtures.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "exclude": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories",
+      "frozen historical Task artifacts",
+      "Migration 320 original evidence"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "retained_phase1_capabilities": [
+    "governance-only Phase lock",
+    "six-operand role-bound scope intersection",
+    "unique artifact and requirement resolution",
+    "BOOTSTRAP_WORKSPACE_CANDIDATE internal-consistency record",
+    "exact manifest-bound deterministic scanner contract",
+    "typed governance-control and technical-constraint Rules",
+    "proposed-only railway Domain candidate governance",
+    "independent review and human-only commit controls",
+    "Migration 320 deterministic NO-GO"
+  ],
+  "removed_phase1_capabilities": [
+    "STAGED_EXACT executable path",
+    "validator-produced trust or producer identity claims",
+    "automatic commit approval",
+    "dynamic meta-rule business authority",
+    "evidence waiver execution",
+    "railway confirmed-rule promotion",
+    "authoritative lifecycle projection",
+    "unimplemented or global scanner claims"
+  ],
+  "acceptance_criteria": [
+    "The four bootstrap/steady-state Gates are machine-readable and all remain NO-GO.",
+    "Scope is computed from all six operands and an exact actor role for production consumers; missing or empty authority fails closed.",
+    "The bootstrap candidate record binds the Task, manifest, included file set, scanner report, count, and generation time with INTERNAL_CONSISTENCY_ONLY assurance.",
+    "The scanner executes one declared canonicalization pipeline and rejects every declared credential, operational-path, binary, and malformed-percent class.",
+    "Rule class validation prevents railway candidates or generic meta records from creating applicable business authority.",
+    "Production-path property, mutation, collision, canonicalization, and schema-loader tests detect all A5 bypass families.",
+    "A minimal exact candidate manifest is rebuilt; historical Tasks stay excluded and byte-identical.",
+    "Migration 320 remains structural VALID, calculated NO-GO, exit 2, and its five external evidence hashes remain unchanged.",
+    "All governance Gates remain NO-GO; A6 and Session B remain unstarted."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Option 2 Bootstrap convergence and Remediation 6 execution authorized; A6, Session B, Git mutation, commit, and release are not authorized."
+}

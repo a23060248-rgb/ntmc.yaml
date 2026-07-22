@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "level": "L3",
+  "reasons": ["An unresolved High Reviewer finding affects the authoritative Candidate Gate."],
+  "triggers": ["unresolved Reviewer blocker", "release gate", "backward compatibility"],
+  "required_agents": ["root-orchestrator"],
+  "required_reviews": ["DEFERRED_TO_GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW"],
+  "parallel_allowed": false,
+  "evidence_required": ["24-case production matrix", "eight mutation operators", "full regression ledger", "new candidate binding", "historical integrity"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["Any scope expansion", "Any unexplained failure", "Any attempt to replace A11 independent review"],
+  "scope": {"include": ["locked candidate files", ".codex/tasks/GOV-PHASE1-CANDIDATE-REMEDIATION-13/**"], "exclude": ["product, database, Git, External Review mutation"]},
+  "classified_by": "task-classification skill and root orchestrator",
+  "classification_status": "human-approved-scope"
+}

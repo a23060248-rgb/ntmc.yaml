@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-REM13-BEFORE-CASE-08",
+  "task_id": "GOV-REM13-BEFORE-CASE-08",
+  "risk": {
+    "level": "L3",
+    "reasons": [
+      "Production path verification."
+    ]
+  },
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-REM13-BEFORE-CASE-08/**"
+    ],
+    "exclude": [
+      "product",
+      "database",
+      "Git mutation"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": [
+      ".codex/tasks/GOV-REM13-BEFORE-CASE-08/**"
+    ],
+    "write": [
+      ".codex/tasks/GOV-REM13-BEFORE-CASE-08/**"
+    ]
+  },
+  "agent_assignments": [
+    {
+      "role": "qa-engineer",
+      "allowed_read_paths": [
+        ".codex/tasks/GOV-REM13-BEFORE-CASE-08/**"
+      ],
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-REM13-BEFORE-CASE-08/**"
+      ]
+    },
+    {
+      "role": "code-reviewer",
+      "allowed_read_paths": [
+        ".codex/tasks/GOV-REM13-BEFORE-CASE-08/**"
+      ],
+      "allowed_write_paths": []
+    },
+    {
+      "role": "security-reviewer",
+      "allowed_read_paths": [
+        ".codex/tasks/GOV-REM13-BEFORE-CASE-08/**"
+      ],
+      "allowed_write_paths": []
+    },
+    {
+      "role": "railway-domain-reviewer",
+      "allowed_read_paths": [
+        ".codex/tasks/GOV-REM13-BEFORE-CASE-08/**"
+      ],
+      "allowed_write_paths": []
+    }
+  ],
+  "review_assignments": [
+    {
+      "assignment_id": "ASSIGN-GOV-REM13-BEFORE-CASE-08-DOMAIN",
+      "required_role_id": "railway-domain-reviewer",
+      "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml",
+      "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+      "allowed_read_paths": [
+        "AGENTS.md",
+        ".agents/**",
+        ".codex/**"
+      ],
+      "allowed_write_paths": [],
+      "required_review_scope": "bootstrap_rule_governance_mechanism",
+      "execution_mode": "read-only",
+      "implementation_participation": false
+    }
+  ],
+  "applicable_rules": [
+    "GOV-SCOPE-001",
+    "EVD-HASH-001"
+  ],
+  "candidate_rules": [],
+  "required_agents": [
+    "qa-engineer",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer"
+  ],
+  "execution": {
+    "parallel_groups": [],
+    "sequential_steps": [
+      "Invoke validateTask production API."
+    ]
+  },
+  "evidence_required": [
+    "EV-PRODUCTION",
+    "EV-NESTED-SECURITY"
+  ],
+  "rollback_restore": {
+    "required": false,
+    "evidence_or_reason": "Not applicable to an isolated governance fixture."
+  },
+  "human_approval": {
+    "required": true,
+    "approver_roles": [
+      "remediation-owner"
+    ]
+  },
+  "stop_conditions": [
+    "Any validation layer fails."
+  ]
+}

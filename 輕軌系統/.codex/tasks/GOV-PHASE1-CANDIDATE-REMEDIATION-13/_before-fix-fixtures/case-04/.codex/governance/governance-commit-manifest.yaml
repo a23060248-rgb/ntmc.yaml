@@ -1,0 +1,966 @@
+{
+  "schema_version": 1,
+  "manifest_type": "governance-commit-manifest",
+  "generated_at": "2026-07-19T23:52:00+08:00",
+  "self_excluded": true,
+  "artifacts": [
+    {
+      "path": ".agents/skills/task-classification/SKILL.md",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "5B81BCB60822E4828F721AFE620C631B8B6C430A177D3DF30A76C6A7BDAA3F57",
+      "binary_allowed": false
+    },
+    {
+      "path": ".agents/skills/task-classification/agents/openai.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "CD552813CB719532BD7E639CF0D8958B9C4F09E8A3DE2643345839014B0C6F1F",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/architect.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "B9ACFCC9F95240BC86900A1505827DE0C3FB34DC0AE28914F5B7E76D12159792",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/backend-engineer.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "52A5AC4008EDBBC51E3146C7BB2270C81D376D0D1C5A4549EF6565FFD9F5DF7A",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/code-reviewer.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/compatibility-reviewer.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/database-engineer.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "FC6E509F163FC361A789F0E8E5DA602FFA3A88D1D27B59F27C89D90B5B2DA0EC",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/documentation-engineer.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "42EB88969BC5906ADC053490A648B7BF9AADCDC629D9A3ABADA79ED759D8D117",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/frontend-engineer.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "98D7C9662B451B225824A86590C12DA7D583D7191B3F57EC30A559ABD8AD3810",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/qa-engineer.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "FA299A96E503652AB50B2A6139963BCA45BA034AE766D7347689CDE1F81BA003",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/railway-domain-reviewer.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/agents/security-reviewer.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/artifact-manifest.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "2A60EB1AF1C806FB844E96F8C540D95378FC6B7365EC677FBC3657A65C6460B1",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/blueprint.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "2E1C0CF024B6C8E5982009D9C1DD8A969D491ECC409774D4EBB13FCB7A11B47A",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "954EDA35D10557ABB88ED7D817E2F4F1805706CD3D6E99B4CE6620E0345D97CF",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "B4A762A9208B3D90ADAF305068DE961E62FDE9D78D907AEBFA64CBBFB5760D67",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/classification.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "7F8E7FC91FC82621541C73FF4F2A1271AD4701AFFBC6199FB93E04D3F223E12D",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/governance-commit-manifest.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "329113CC76020CC5F7D32EBAAE0A13045E8EF65ABC436AB11E9A8B0BBF141E03",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/human-approval.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "1CA4B198A2767B886A4D2D739637F5E79233E566DB7B694D50EAC34C84152432",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/implementation-handoff.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "2EDC0D7EBABECD83A1E5EC1EA13F784C7C1DFE664333FA73A9BE9BF463EC9D6B",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/railway-domain-review.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/review-findings.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "3496820A82565B4861084FC7CB1EF694FD0B31FF57F33D734123DFE739E82809",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/rule.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "1562104F1849C3E430496ECFE693CC2D47B1819016AA92B90BAE89420CD78522",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/security-evidence.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "59821D081386D9F379D1E1EFD48536FEE438C5A764BC6586E6C390F4564DE7B4",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/task-intent.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "2E5CBE747167BD56BDE47A975312B78CF129144FF2FBD52B3F0614C1B742F2EF",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/test-evidence.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "FB21FCDC8BF4B22B36480148C21AB2E2BD85A1D9E0E3C27209A94B310F8D9C9C",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/blueprints/schemas/traceability.schema.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "FD24C85A4DEECC7047EF4FCF8F08A1CD80FD355DB8A4D2EE3BD4C48253E0B16C",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/checklists/code-review.md",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "D8991059CFB784C9A7A69F742F8A8F51A5C583487324C390C3EF7830E8ACA4FF",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/checklists/compatibility-review.md",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "FECFDBBF51DF610E72FC1F27DBF55A2407017A407ADEA717BC0F012F236A602D",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/checklists/railway-domain-review.md",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "B1A2AEB2C5DC2B74EE29BE33E11BA072DA30ADF29524071CBC90610E9F80C41F",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/checklists/security-review.md",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "0FC9D0451ECD343ADE6AFF3D7DABF4FB4C9B0CF3B782D4143E61C1FE9049E1E5",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/config.toml",
+      "artifact_type": "governance-toml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "3C009A50F76570271B2A9CCEEC1077415D618A307EC02F935F8753595D397C92",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/domain/index.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "7F43F466B5E7605FE020572D1D25DF3FD6C670CCE3321D103856AFCE7A6D2F66",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/environment/agent-safe-profile.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "1472230406B2450F35EAA850A0B42260D7D0368706B821BF2C292BAE68E016B6",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/agent-path-policy.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/bootstrap-binary-magic-registry.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/bootstrap-trust-policy.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "4AE5B2DEF123B71FDBDE31BEA44A1FD2A8D5E90E752EFD347D4CF79EB387F87F",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/environment-safety-evidence.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "9453E4E7800D00C4578F36F4C0FC9E4F299404F908363027626F6A6F4C2CF608",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/evidence-requirement-policy.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "12F31C736D61C2D1EA02B5C8FAD5797D5FDB76D28AA661999952181AA97FAE5D",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/evidence-scope-policy.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "984D1CD15F9F54BFB4A7994586F8B93E216839AA14617F009B195E8D391CE499",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/gate-dependency-matrix.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "A064223B9742B3A6190A3FE111DE5C74ED71D2D412F792A015C04F307EFEEA7F",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/gate-policy.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "4A58BCAF65064DCB220A6EBBA8B865C2D36BBB3878F435B328A69A5C9486B8C1",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/governance-schema-set.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "9485709A8240E22312D8C583B037C776619583F02D5D762A6B452472FCF01FC5",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/lifecycle-events.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "D116C20FCD3FCB4861C3F07BD827C7D7A3463D838B782C34E784B462CBDC9F2C",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/phase-policy.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/phase-status.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "6509779968A820504DEB30CB4854C7EFFBF062E93BED2F233631E8B51EF21DC7",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/residual-risks.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "D742B870942805445AB0DF1EF9D4F73B342F7137BB6A6A9F455F40081B549182",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/scan-contract.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/scanner-binary-oracle.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "B25F552BC2379EDEB741862682277B5BA7B435A389ED162E0F297E96C066733F",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/scanner-canonicalization-config.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/scanner-contract-matrix.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "AB93A8B3BE00569F32FABFD040CBBCEF2BA342066D38C034834A5B02743584AE",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/governance/scanner-finding-registry.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/meta-rules/confidentiality.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "17CA80C999E5606519B089A6EBDF63F26293141AEC9B1B1FE36BA55784964576",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/meta-rules/database.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "218E6E681CE074870DDC9BED6C54CF3895DB3539841C1B37F013DBBB62621452",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/meta-rules/evidence.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "4073ED9C905C1DBB126984ACAA3F8A7BE17164F2439F58D8110A66575B9DBB97",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/meta-rules/global.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "8A60C5D36ACE2F66A51C23DF60F7B1D3E5A79CB17A6AA3CF887F003B1DF78E10",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/meta-rules/review-independence.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "76E40E11B36D7BA85B77DFC9CC5190863917756AF76EC2B7C49BDA6E46249A12",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/meta-rules/security.yaml",
+      "artifact_type": "governance-yaml",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "AC236E767D05A5D495AD362E96D5189DD22293B5ACF287871CCD0239816E6861",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/build-phase-status.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "EE466FE982EC5D904BA6CF0AEE2282B4C4450179EC46758C1169D4DBAF0CE6DC",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/create-task.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "BECC3FDAD3E27597E546824CA9F766692E4B01D89481B8542815E218B0F28362",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/generate-bootstrap-candidate.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "F2AFE4E006E0B06582976BA8979855D2ED49275C73A9D1190E7EFBE507C1806A",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "F07D381562C25A56B6B8F387348E18059B6C3F5D1BE19EFB3982EFA8439F70E4",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/generate-governance-commit-manifest.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "C98B495564DBA671E3939B26C5A258096C212CB47652CB3D9B6462FBFBBFD16D",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance-commit-manifest.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "7ABEA4A9D54C005D2D4052CBE9809B0AFE19A4379739723E30052BDE92FB4B02",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance-controls.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "4EFD6D48498184A2166D9962810328527A297CC3E28C1BD233BC0CD5C90F296B",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/domain-review-routing.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "5D9AE873E27B637594890D4D89FE13ADB058DAFEF3E217065BAD9DB82A7735AC",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/fixture-report.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "2C677DD9430690DD10D708E4247A085DD82C9725F024A669E9FD65A7B2F50407",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/fixture-schema-loader-contract.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "36B1D8706B9451DF97B37A93DE1DFF076FF8A7DA0574DCBF5F17DB7C844011B9",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/gate-router.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "A7E5B19A95C38904788191F81B0A2C1152D25E24095D6D639268629C704E821A",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "1A79C7D71BBDDFE49661DD032C52847148E7568F5D01E1D470B18B3C8E11C4A5",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/identity-resolver.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "C7DF670F54912F551059F39E421D751F70D0B99744A763FCBC4DF1DA252B1747",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/lifecycle-projection.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "90D0EC56465FA72253C276787A5411DC0920DAC6D31AE576FBE2B1F4FECD1AA8",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/proposed-domain-rules.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "CFE9EE4E094AB123A94053D62422B176C78AF0015170767163A412C6615490D0",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/reviewer-identity-binding.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "3426F3D99B4A8D9835BE47E0B644723AFA4C8F126C37FE29FA373133A1582911",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/rule-class.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "558D3981D2B16D4D34B88A6348367336565074DC54E61D6DE9B6E66036D7B49E",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "61286064DC5713AC07C743777306B25650ED5AC1362D07696633CE55020118EA",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/scanner-report.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "78CA28AF7A46CC7A340E8623643E04B22A6A238F8F4CA61C60240D00B5CE414C",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/scope-lattice.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "5491CF38CFE245C1674773D69B8D8B18565F5A97D866938050E346ED935F88DC",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/typed-proof.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "5100E4FBA5D7C53FE18387EF99D9B8B9D822891F1CD8D4EBCAD98B448CAB605E",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/lifecycle-projection.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "1C82950A7C97A6EFBF4B44DBF180B71D31F4B10A54E2E25B14191C535DD10317",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/path-safety.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "4D82071055D75E0E622B32623E20D005B208E388927E188A2431589A9E48920E",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/schema-validator.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "F2FBE3E1673B11358570D0D612CADB48D8491AAC8B0D1FF04180F7D05797FFC7",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/lib/secret-scanner.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "C9C4594391E110BC351533D5E64C5A2AE0E7F35E30482D038FB248BF4B58982E",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/validate-agent-environment.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "8B89588899C61AEC6BE569F9A09FC71A258550E6ED84DAEC369C56A952746F1F",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/validate-change-scope.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "1C866039633FE811A18DE93B7BC2A2538268EE1ABE166827801E907919A16F7C",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/validate-phase-status.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "C5BE3CB1F9EC8CA2929F1EF7CAFF952016329AED4DFAC70A6B1418ACDC746258",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/scripts/validate-task.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "FE794A03B47722590C8D42BA6CFDC0EE70FA7BD30C49CD99B558C792BF0E32AC",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/fixture-suite-manifest.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "88C24EAB4C29FC9860BA5593E7A5AF009EB78309EE814AB08A2D15766EC88757",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/fixtures/valid-railway-domain-review.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "023EB0696E603654E58D3017FFFF8D9B34EC7C03C15F607A03CACA8CFED9D643",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/run-binary-magic-registry-mutations.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "3383B8C031531E5F6C79744C69CBF7DDA5309CE721DEB6EE5AC19476F898F7DF",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/run-bootstrap-mutation-tests.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "3A0A44255866A173C07C376E9EB244480C99AE08E1910F5BFF107CBDE8579603",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "35C64176E188744A0C331C22CCDE0621003C0C293F1271A4C6A21CE255E6C503",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/run-bootstrap-scanner-production.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "8F3CBCAB73332AA2CDF7DCD154815C3E4739CEECDA512E9A51FA45EBE2E977C9",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/run-governance-fixtures-concurrency.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "2DEB67076C2E05050ED09A217AC80CB03A95318F8D9C80B702E80475F7F5EBCE",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/run-governance-fixtures.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "D917449FA2A07AB41A4BA737C7475426ABD7A4EFA6C3D6C1F957E82AB62A51F5",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/run-official-schema-loader-integration.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "AF10588D1092A449F19DF241F49E2A8AAE8BF497AB59BBC3559C90A4E98F636F",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/run-official-schema-loader-mutations.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "DFE76D397B74B5C930C266D3CE69FC70A36A68D3795B3E3E64A6AF8FEEBEA01F",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/run-reviewer-binding-regressions.mjs",
+      "artifact_type": "governance-mjs",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "4C81448BF3D2404546A6483B2E92A066E90FB106067704D47AE54AEDAE605BA4",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/tests/scanner-production-case-manifest.json",
+      "artifact_type": "governance-json",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "E1D622F18B3ECA0AFD20F7CCD383B0238779671FFAEACC9023BB9B5ED5B3A4F2",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/workflows/l1-lightweight.md",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "5464A43605D3A71F036602BCB51A571B13E1D526673CBEB7AE77ABD58F0D6711",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/workflows/l2-standard.md",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "B0F536CD939F03BF9FF2E35113B8BB6E398E7D2F8DF5BACACEBC411347D699E5",
+      "binary_allowed": false
+    },
+    {
+      "path": ".codex/workflows/l3-high-risk.md",
+      "artifact_type": "governance-md",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "01D2E21B79A36583544A53B2D8EAA0C056F476B5C7BA31F879C2C5D0DAF54669",
+      "binary_allowed": false
+    },
+    {
+      "path": "AGENTS.md",
+      "artifact_type": "governance-policy",
+      "commit_inclusion": true,
+      "scan_required": true,
+      "sha256": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E",
+      "binary_allowed": false
+    }
+  ],
+  "excluded_records": [
+    {
+      "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Session A review record."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-2/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Phase 1.2 remediation record."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A2/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Session A2 review record."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-3/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Phase 1.3 remediation record."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Session A3 review record."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-4/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Phase 1.4 remediation record; excluded from the first governance commit candidate."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Session A4 review record."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-A4-FINDING-CONSOLIDATION/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "A4 read-only finding consolidation record."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-5/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Phase 1.5 implementation and self-validation record; not a runtime governance control."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Session A5 review record with preserved BLOCKER outcomes."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-A5-BOOTSTRAP-TRUST-ANALYSIS/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Read-only A5 bootstrap trust analysis; not an executable governance control."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Phase 1.6 implementation and self-validation record; excluded from the bootstrap control set."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Session A6 review record with preserved BLOCKER outcomes."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-7/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Phase 1.7 implementation and self-validation record; excluded from the bootstrap control set."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Session A7 review record with preserved BLOCKER outcomes."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-8/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Phase 1.8 implementation and self-validation record; excluded from the bootstrap control set."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Archived Session A8 review record with preserved Reviewer outcomes."
+    },
+    {
+      "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Phase 1.9 implementation and self-validation record; excluded from the bootstrap control set."
+    },
+    {
+      "path": ".codex/tasks/GOV-M320-DRYRUN/**",
+      "commit_inclusion": false,
+      "evidence_scope": "local_review_record",
+      "reason": "Migration 320 governance dry-run and historical evidence record; not a Phase 1 runtime control."
+    },
+    {
+      "path": "docs/migration-320-*",
+      "commit_inclusion": false,
+      "evidence_scope": "external_reference",
+      "reason": "Hash-bound external evidence, not included in governance-only commit."
+    },
+    {
+      "path": "docs/cross-module-closure-report.md",
+      "commit_inclusion": false,
+      "evidence_scope": "external_reference",
+      "reason": "Hash-bound external evidence, not included in governance-only commit."
+    },
+    {
+      "path": "docs/go-no-go-report.md",
+      "commit_inclusion": false,
+      "evidence_scope": "external_reference",
+      "reason": "Hash-bound external evidence, not included in governance-only commit."
+    }
+  ]
+}

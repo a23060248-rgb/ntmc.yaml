@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-12",
+  "suite": "scope-satisfiability-production-path",
+  "total": 12,
+  "passed": 11,
+  "failed": 1,
+  "cases": [
+    {
+      "test_id": "01",
+      "name": "Old reviewer-capacity-preflight filename blocks dispatch",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "02",
+      "name": "Correct fresh-root-preflight path resolves",
+      "expected": "PASS",
+      "observed": "PASS",
+      "result": "PASS"
+    },
+    {
+      "test_id": "03",
+      "name": "Missing candidate manifest blocks dispatch",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "04",
+      "name": "Missing candidate record blocks dispatch",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "05",
+      "name": "Missing scanner report blocks dispatch",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "06",
+      "name": "Missing pre-review manifest or freeze blocks dispatch",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "07",
+      "name": "Missing Security read-scope or required-node verification blocks dispatch",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "08",
+      "name": "Missing gate dependency matrix blocks dispatch",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "09",
+      "name": "Required path simultaneously forbidden blocks dispatch",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "10",
+      "name": "Required future output blocks dispatch",
+      "expected": "BLOCKED_FUTURE",
+      "observed": "BLOCKED_FUTURE",
+      "result": "PASS"
+    },
+    {
+      "test_id": "11",
+      "name": "Path or hash mismatch blocks dispatch",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "result": "PASS"
+    },
+    {
+      "test_id": "12",
+      "name": "Complete Code scope passes",
+      "expected": "PASS",
+      "observed": [
+        "UNSATISFIED_CAPABILITY:artifact:.codex/blueprints/schemas/artifact-manifest.schema.json:.codex/blueprints/schemas/artifact-manifest.schema.json",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/blueprints/schemas/bootstrap-candidate-record.schema.json:.codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/blueprints/schemas/bootstrap-scan-report.schema.json:.codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/governance/evidence-requirement-policy.yaml:.codex/governance/evidence-requirement-policy.yaml",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/governance/evidence-scope-policy.yaml:.codex/governance/evidence-scope-policy.yaml",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/governance/gate-dependency-matrix.yaml:.codex/governance/gate-dependency-matrix.yaml",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/governance/governance-commit-manifest.yaml:.codex/governance/governance-commit-manifest.yaml",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/governance/scan-contract.yaml:.codex/governance/scan-contract.yaml",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/governance/scanner-contract-matrix.yaml:.codex/governance/scanner-contract-matrix.yaml",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/create-task.mjs:.codex/scripts/create-task.mjs",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/generate-bootstrap-candidate.mjs:.codex/scripts/generate-bootstrap-candidate.mjs",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/gate-router.mjs:.codex/scripts/lib/governance/gate-router.mjs",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/governance-schema-loader.mjs:.codex/scripts/lib/governance/governance-schema-loader.mjs",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/scanner-pipeline.mjs:.codex/scripts/lib/governance/scanner-pipeline.mjs",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/scanner-report.mjs:.codex/scripts/lib/governance/scanner-report.mjs",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/lib/governance/typed-proof.mjs:.codex/scripts/lib/governance/typed-proof.mjs",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/scripts/validate-task.mjs:.codex/scripts/validate-task.mjs",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/tests/run-bootstrap-production-integration.mjs:.codex/tests/run-bootstrap-production-integration.mjs",
+        "UNSATISFIED_CAPABILITY:artifact:.codex/tests/run-governance-fixtures.mjs:.codex/tests/run-governance-fixtures.mjs"
+      ],
+      "result": "FAIL"
+    }
+  ],
+  "result": "FAIL"
+}

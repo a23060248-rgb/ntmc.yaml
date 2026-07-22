@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "producer": "root-orchestrator",
+  "actor_role": "architect",
+  "agent_session_ref": "remediation-11-preparation",
+  "started_at": "2026-07-20T12:00:00+08:00",
+  "changed_files": [
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**"
+  ],
+  "commands": [
+    "prepare-remediation-11.mjs",
+    "run-preparation-tests.mjs",
+    "finalize-remediation-11.mjs"
+  ],
+  "evidence_refs": [
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-readiness.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/preparation-test-summary.json",
+    ".codex/tasks/GOV-PHASE1-REMEDIATION-11/baseline-comparison.json"
+  ],
+  "unverified": [
+    "Future B3 fresh Reviewer execution and fresh deterministic reruns."
+  ],
+  "residual_risks": [
+    "Future B3 requires a new clean root thread with verified reviewer capacity.",
+    "R11 readiness does not close B2 blockers or authorize B3."
+  ],
+  "next_role": "human-governance-owner"
+}

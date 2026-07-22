@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-3",
+  "level": "L3",
+  "reasons": ["The remediation changes authoritative governance schemas, validators, evidence gates, Review semantics, and commit controls.", "Session A2 returned formal BLOCKER outcomes that this implementation cannot override."],
+  "triggers": ["governance", "security", "domain authority", "formal evidence integrity"],
+  "required_agents": ["qa-engineer", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain", "compatibility"],
+  "parallel_allowed": false,
+  "evidence_required": ["ART-REM3-FIXTURE", "ART-REM3-INTEGRITY", "ART-REM3-REPORT", "REM3-M320-GATE"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["Any structural validation fails.", "Any frozen formal Review artifact changes.", "Migration 320 changes from VALID NO-GO exit 2.", "A Git, product, service, database, migration, or external evidence mutation is requested."],
+  "scope": {"include": ["AGENTS.md", ".codex/blueprints/schemas/**", ".codex/governance/**", ".codex/scripts/**", ".codex/tests/**", ".codex/templates/**", ".codex/workflows/l3-high-risk.md", ".codex/tasks/GOV-M320-DRYRUN/**", ".codex/tasks/GOV-PHASE1-REMEDIATION-3/**"], "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "migrations/**", "docs/**", "frozen Review Tasks"]},
+  "classified_by": "root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 4,
+  "policy_type": "bootstrap-steady-state-and-migration-gate-router",
+  "governance_mode": "bootstrap",
+  "authoritative_router": ".codex/scripts/lib/governance/gate-router.mjs#computeAuthoritativeGateMap",
+  "dependency_matrix_ref": ".codex/governance/gate-dependency-matrix.yaml",
+  "projection_fields_are_output_only": true,
+  "gates": {
+    "bootstrap_candidate_review": {
+      "automated_go_allowed": true,
+      "required_record_type": "BOOTSTRAP_WORKSPACE_CANDIDATE",
+      "required_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "requires": ["exact_manifest", "bootstrap_candidate_record", "manifest_bound_scanner_report", "formal_code_review", "formal_security_review", "formal_railway_governance_mechanism_review", "reviewer_identity_and_independence", "candidate_baseline_integrity", "production_path_tests", "no_unresolved_candidate_blocker"],
+      "excludes": ["calculated_gate", "overall_gate", "candidate_gate", "eligible_to_start_session_b", "final_summary", "final_commit_approval", "git_stage", "STAGED_EXACT", "session_b", "bootstrap_human_commit_approval", "steady_state_trust_anchor", "migration_320_business_decision"],
+      "purpose": "Determine whether an exact uncommitted workspace candidate is ready for human-controlled bootstrap commit review without asserting commit or Migration 320 authority."
+    },
+    "bootstrap_human_commit": {
+      "automated_go_allowed": false,
+      "human_exclusive": true,
+      "requires": ["exact_human_selected_manifest", "fresh_independent_review_pass", "resolved_conditions", "human_commit_decision"],
+      "purpose": "Reserve the initial bootstrap commit decision to the human owner; workspace validation cannot approve the commit."
+    },
+    "steady_state_governance_preparation": {
+      "enabled": false,
+      "automated_go_allowed": false,
+      "requires": ["bootstrap_commit_sha256", "bootstrap_manifest_sha256", "human_attestation"],
+      "purpose": "Remain unavailable until an external Git trust anchor and human attestation are recorded after the bootstrap commit."
+    },
+    "steady_state_governance_execution": {
+      "enabled": false,
+      "automated_go_allowed": false,
+      "requires": ["trusted_committed_validator", "live_external_index_binding", "fresh_independent_review_pass", "final_human_commit_approval"],
+      "purpose": "Remain unavailable in Phase 1 bootstrap mode; no staged proof executable is part of this candidate."
+    },
+    "migration_320_execution": {
+      "automated_go_allowed": false,
+      "requires": ["all_migration_320_blockers_resolved", "human_domain_decision", "database_and_compatibility_evidence", "migration_320_approval"],
+      "excludes": ["bootstrap_candidate_review_gate"],
+      "purpose": "Keep Migration 320 business and execution authority independent from bootstrap governance-candidate readiness."
+    }
+  },
+  "current_status": {
+    "bootstrap_candidate_review": "NO-GO",
+    "bootstrap_human_commit": "NO-GO",
+    "steady_state_governance_preparation": "DISABLED",
+    "steady_state_governance_execution": "DISABLED",
+    "migration_320_execution": "NO-GO"
+  }
+}

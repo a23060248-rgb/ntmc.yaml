@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "contract_id": "EXT-STARTUP-COMPATIBILITY-001",
+  "before_candidate_content": true,
+  "required_checks": [
+    "top-level chat procedural attestation",
+    "no conversation memory or implementer conversation",
+    "package manifest and package_core_sha256",
+    "all core-file hashes",
+    "package verification envelope",
+    "assignment, role, run and session nonce",
+    "scope_sha256",
+    "all source hashes",
+    "candidate and Scanner Contract binding",
+    "payload-only mode"
+  ],
+  "valid_result": "STARTUP_VALID",
+  "invalid_result": "STARTUP_BLOCKER",
+  "invalid_effect": {
+    "technical_review_authorized": false,
+    "candidate_content_reviewed": false,
+    "review_status": "BLOCKER",
+    "immediate_single_payload_exit": true
+  }
+}

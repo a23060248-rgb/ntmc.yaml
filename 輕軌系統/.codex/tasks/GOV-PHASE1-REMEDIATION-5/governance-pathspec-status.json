@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "mode": "read-only-git-pathspec-inventory",
+  "pathspecs": ["AGENTS.md", ".agents", ".codex"],
+  "staged_paths": [],
+  "unstaged_tracked_paths": [],
+  "untracked_roots": ["AGENTS.md", ".agents/", ".codex/"],
+  "global_ignore_read_warning": "The sandbox could not read the user-level Git exclude file; repository pathspec output was still returned.",
+  "exact_staged_manifest": false,
+  "staged_manifest_mode": "NOT_A_COMMIT_CANDIDATE",
+  "authoritative_change_scope": {
+    "command": "node .codex/scripts/validate-change-scope.mjs --task-id GOV-PHASE1-REMEDIATION-5",
+    "exit_code": 1,
+    "result": "FAIL_CLOSED",
+    "violation_count": 183,
+    "reason": "The complete governance tree predates this Task and remains untracked. Frozen history, Migration 320 records, environment fixtures and configuration are outside the current Task effective write scope, so workspace inventory cannot be accepted as an exact commit candidate."
+  },
+  "scope_source": "computeEffectiveScope",
+  "branch_or_worktree_restriction": false,
+  "git_mutation_performed": false,
+  "result": "NO-GO"
+}

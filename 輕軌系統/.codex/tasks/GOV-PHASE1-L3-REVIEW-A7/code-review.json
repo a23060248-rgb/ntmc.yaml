@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "metadata": {
+    "formal": true,
+    "reviewer": "code-reviewer",
+    "reviewer_run_id": "A7-CODE-RUN-ff810a70-9e54-4d2e-b32d-fe32f697ab8a",
+    "session_id": "A7-CODE-SESSION-699df19c-6690-4ee1-9497-83b7b0eefa6b",
+    "did_not_participate_in_implementation": true,
+    "reviewed_candidate_baseline": "phase-1.7-bootstrap",
+    "candidate_manifest_file_count": 92,
+    "candidate_manifest_sha256": "8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51",
+    "bootstrap_candidate_record_id": "34173D4341ABD1664878AB9F25BCFED1976D7F61B517C03887F4BC7BA00AE8B1"
+  },
+  "review_scope": {
+    "product_root": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+    "mode": "read-only-reviewed-sources",
+    "included": [
+      "AGENTS.md and .agents/**",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/task-intent.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/classification.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/blueprint.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/reviewer-assignments.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/review-baseline-before.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/code-review.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/session-a6-summary.json",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-7/**",
+      ".codex/governance/governance-commit-manifest.yaml and all exact 92 manifest-listed governance sources"
+    ],
+    "excluded": [
+      "Git and .git/**",
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories",
+      "R7 implementation conversations and unfiled explanations"
+    ],
+    "prohibited_operations_not_performed": [
+      "Git inspection or mutation",
+      "service startup",
+      "product tests",
+      "database access",
+      "seed",
+      "migration",
+      "modification of any reviewed source"
+    ],
+    "baseline_verification": {
+      "manifest": {
+        "expected_sha256": "8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51",
+        "actual_sha256": "8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51",
+        "match": true
+      },
+      "candidate": {
+        "expected": 92,
+        "missing": 0,
+        "size_mismatches": 0,
+        "hash_mismatches": 0
+      },
+      "frozen_history": {
+        "expected": 340,
+        "missing": 0,
+        "size_mismatches": 0,
+        "hash_mismatches": 0
+      },
+      "remediation_7": {
+        "expected": 40,
+        "missing": 0,
+        "size_mismatches": 0,
+        "hash_mismatches": 0
+      },
+      "migration_320_task": {
+        "expected": 13,
+        "missing": 0,
+        "size_mismatches": 0,
+        "hash_mismatches": 0
+      },
+      "migration_320_external_hashes_only": {
+        "expected": 5,
+        "missing": 0,
+        "size_mismatches": 0,
+        "hash_mismatches": 0
+      },
+      "scanner_report_verification": {
+        "sha256": "FFF9FD0A6DF720ED5753261A0094A7AFF54BAAB661966D4F6D5BD33BC05D880D",
+        "file_count": 92,
+        "findings": 0,
+        "binding_validated_by_production_validator": true
+      },
+      "bootstrap_candidate_verification": {
+        "file_sha256": "D83D16E83EF6A644B7A02B6CCAFEC8AF288B4AAEC715CD5FAB1BF5AA938C2A63",
+        "record_payload_sha256": "34173D4341ABD1664878AB9F25BCFED1976D7F61B517C03887F4BC7BA00AE8B1",
+        "included_file_set_sha256": "C8C4CD2DC1457B68436E1973DB3163D7DE4D168FB6E1244F1C06EAA749297F84",
+        "assurance": "INTERNAL_CONSISTENCY_ONLY",
+        "binding_validated_by_production_validator": true
+      }
+    }
+  },
+  "methods_and_commands": [
+    {
+      "method": "SHA256 baseline recomputation without Git",
+      "command": "PowerShell Get-FileHash over review-baseline-before.json candidate, frozen_history, remediation_7, migration_320_task, and migration_320_external entries",
+      "result": "PASS",
+      "details": "92/92 candidate, 340/340 frozen history, 40/40 R7, 13/13 Migration 320 Task, and 5/5 external hash-only entries were present with zero size or hash mismatches."
+    },
+    {
+      "method": "Production integration rerun",
+      "command": "node .codex/tests/run-bootstrap-production-integration.mjs",
+      "result": "PASS_WITH_SEPARATE_REVIEW_FINDINGS",
+      "exit_code": 0,
+      "details": "27/27 declared production cases passed. PROD-GATE-01 through PROD-GATE-05 prove the legal split Candidate GO, Human NO-GO, steady-state DISABLED, Migration 320 NO-GO, with Session B, final approval, and Migration 320 kept out of Candidate inputs."
+    },
+    {
+      "method": "Production-module mutation rerun",
+      "command": "node .codex/tests/run-bootstrap-mutation-tests.mjs",
+      "result": "PASS_WITH_BLOCKING_COVERAGE_GAP",
+      "exit_code": 0,
+      "details": "17/17 filed mutations were killed and zero survived. Source enumeration shows mutants for final approval, Migration 320, and Domain external-decision routing, but no mutant for Session B or steady-state anchor separation."
+    },
+    {
+      "method": "Target Gate exit semantics",
+      "command": "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-REMEDIATION-7 --target-gate bootstrap-candidate-review; node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-L3-REVIEW-A7 --target-gate bootstrap-human-commit; node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN --target-gate migration-320-execution; node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-REMEDIATION-7 --target-gate unsupported",
+      "result": "PASS",
+      "details": "Observed target exit 0 in the clean transient production integration case, exit 2 for structurally valid filed NO-GO targets, and exit 1 for an unsupported target. The R7 filed Task was structural VALID with Candidate NO-GO because its own remediation reviews and approvals are not a clean review candidate."
+    },
+    {
+      "method": "Gate input and reverse-influence source trace",
+      "command": "Read routeGovernanceGates and validateTask production paths plus their exact integration and mutation callers",
+      "result": "FAIL_BLOCKER",
+      "details": "The authoritative inputs are correctly separated at validate-task.mjs:489-503, but lines 505-520 accept overall_gate, calculated_gate, final-summary, and task-graph consistency as structural inputs and reroute every Gate with Structural validation failed when any differs."
+    },
+    {
+      "method": "Initial inline production-router probe",
+      "command": "node --input-type=module -e <PowerShell-embedded-probe>",
+      "result": "COMMAND_ERROR_REPLACED_BY_OFFICIAL_TESTS",
+      "exit_code": 1,
+      "details": "PowerShell removed JavaScript quote characters. No reviewed source was written; the official production integration, mutation, and validator CLI entrypoints were then used successfully."
+    }
+  ],
+  "gate_map_review": [
+    {
+      "gate": "Bootstrap Candidate Review",
+      "filed_status": "NO-GO",
+      "code_path_result": "FAIL_BLOCKER",
+      "evidence": [
+        ".codex/scripts/validate-task.mjs:489-520",
+        ".codex/scripts/lib/governance/gate-router.mjs:11-16",
+        ".codex/tests/run-bootstrap-production-integration.mjs:91-104"
+      ],
+      "details": "The direct Candidate input is correctly isolated, but derived hand-written result artifacts can still reverse-influence the target through the structural-error reroute."
+    },
+    {
+      "gate": "Bootstrap Human Commit",
+      "filed_status": "NO-GO",
+      "code_path_result": "PASS_NO_GO_HUMAN_EXCLUSIVE",
+      "evidence": [
+        ".codex/scripts/lib/governance/gate-router.mjs:17-23",
+        ".codex/scripts/validate-task.mjs:491-496",
+        ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/human-approval.yaml:1-23"
+      ]
+    },
+    {
+      "gate": "Steady-State Preparation",
+      "filed_status": "DISABLED",
+      "code_path_result": "PASS_DISABLED",
+      "evidence": [
+        ".codex/scripts/lib/governance/gate-router.mjs:24-29",
+        ".codex/scripts/validate-task.mjs:497-501",
+        ".codex/tests/run-bootstrap-production-integration.mjs:94"
+      ]
+    },
+    {
+      "gate": "Steady-State Execution",
+      "filed_status": "DISABLED",
+      "code_path_result": "PASS_DISABLED",
+      "evidence": [
+        ".codex/scripts/lib/governance/gate-router.mjs:24-29",
+        ".codex/tests/run-bootstrap-production-integration.mjs:94"
+      ]
+    },
+    {
+      "gate": "Migration 320 Execution",
+      "filed_status": "NO-GO",
+      "code_path_result": "PASS_NO_GO_INDEPENDENT",
+      "evidence": [
+        ".codex/scripts/lib/governance/gate-router.mjs:30-38",
+        ".codex/scripts/validate-task.mjs:502",
+        ".codex/tests/run-bootstrap-production-integration.mjs:98"
+      ]
+    }
+  ],
+  "control_results": [
+    {
+      "control": "Legal Gate-map combination and separation from final approval, Session B, Git stage, STAGED_EXACT, and Migration 320",
+      "result": "PASS",
+      "evidence": [
+        ".codex/scripts/validate-task.mjs:489-503",
+        ".codex/scripts/lib/governance/gate-router.mjs:11-38",
+        ".codex/tests/run-bootstrap-production-integration.mjs:91-104"
+      ],
+      "details": "Production integration emitted Candidate GO, Human NO-GO, steady-state Preparation and Execution DISABLED, and Migration 320 NO-GO. Candidate has no Git, STAGED_EXACT, final approval, Session B, steady-state anchor, or Migration 320 input."
+    },
+    {
+      "control": "Target Gate exit 0/1/2 behavior",
+      "result": "PASS",
+      "evidence": [
+        ".codex/scripts/lib/governance/gate-router.mjs:41-52",
+        ".codex/scripts/validate-task.mjs:521-535",
+        ".codex/tests/run-bootstrap-production-integration.mjs:91-104"
+      ]
+    },
+    {
+      "control": "Missing Reviewer, identity, evidence, hash, and schema inputs fail closed",
+      "result": "PASS",
+      "evidence": [
+        ".codex/scripts/validate-task.mjs:263-393",
+        ".codex/tests/run-bootstrap-production-integration.mjs:106-173",
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:14-31"
+      ]
+    },
+    {
+      "control": "overall_gate, calculated_gate, final-summary, and task-graph are non-authoritative outputs and cannot reverse-influence Gates",
+      "result": "FAIL_BLOCKER",
+      "evidence": [
+        ".codex/scripts/validate-task.mjs:504-520",
+        ".codex/tests/run-bootstrap-production-integration.mjs:82-104"
+      ],
+      "details": "Any disagreement or stale graph is added to structural errors, after which all Gate results are recomputed with Structural validation failed. This makes derived outputs authoritative over the target Gate."
+    },
+    {
+      "control": "Production mutation coverage for final approval, Session B, Migration 320, steady-state anchor, and Domain external routing",
+      "result": "FAIL_BLOCKER",
+      "evidence": [
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:11-31",
+        ".codex/tests/run-bootstrap-production-integration.mjs:91-104"
+      ],
+      "details": "Final approval is covered by MUT-01, Migration 320 by MUT-02, and Domain external routing by MUT-07. The 17-mutant registry contains no Session B or steady-state-anchor isolation mutant."
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "A7-CODE-BLOCKER-001",
+      "severity": "BLOCKER",
+      "title": "Derived Gate summaries and graph can reverse-influence the authoritative target Gate",
+      "affected_control": "Non-authoritative overall/calculated/summary/graph outputs must not affect the five-Gate calculation",
+      "affected_files_and_lines": [
+        ".codex/scripts/validate-task.mjs:504-521",
+        ".codex/tests/run-bootstrap-production-integration.mjs:82-104"
+      ],
+      "exact_failure_condition": "Start from the clean production fixture in which Bootstrap Candidate Review is GO while Human Commit is NO-GO, both steady-state Gates are DISABLED, and Migration 320 is NO-GO. Without changing any authoritative Candidate input, change review-findings.yaml overall_gate or calculated_gate, the final-summary Gate text, or an existing task-graph.json so it disagrees with the recomputed aggregate or traceability. validateTask appends a GATE or GRAPH structural error at lines 505-517, then line 520 replaces the already-computed Gate map with one containing Structural validation failed. Candidate becomes NO-GO and a targeted Candidate invocation exits 1 rather than retaining its authoritative result.",
+      "reproducible_read_only_check": {
+        "production_fixture": ".codex/tests/run-bootstrap-production-integration.mjs:82-104",
+        "source_trace": ".codex/scripts/validate-task.mjs:504-521",
+        "expected_observation": "A transient copy with only one derived output changed enters errors.length, reroutes all Gate results, and changes the Candidate target despite unchanged candidateReasons."
+      },
+      "impact": "A stale or hand-edited report, summary, or graph can block an otherwise clean Bootstrap Candidate Review and erase the legal five-Gate split. Derived presentation artifacts therefore remain unintended Gate inputs.",
+      "blocks_bootstrap_candidate_gate": true
+    },
+    {
+      "finding_id": "A7-CODE-BLOCKER-002",
+      "severity": "BLOCKER",
+      "title": "Mandatory production mutation coverage omits Session B and steady-state anchor isolation",
+      "affected_control": "Each later-stage input family must have a production mutant proving it cannot enter Bootstrap Candidate Review",
+      "affected_files_and_lines": [
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:11-31",
+        ".codex/tests/run-bootstrap-production-integration.mjs:91-104"
+      ],
+      "exact_failure_condition": "Enumerate the 17 production mutations. MUT-01 injects final approval into Candidate, MUT-02 injects Migration 320, and MUT-07 corrupts Domain external-decision routing. No mutation injects approval.session_b_outcome or any steady_state_anchor field into candidate_reasons, nor otherwise weakens their isolation. The mutation runner can therefore report 17/17 killed without exercising two mandatory Gate-separation fault families.",
+      "reproducible_read_only_check": {
+        "command": "node .codex/tests/run-bootstrap-mutation-tests.mjs and enumerate the mutation registry at lines 11-31",
+        "observed": "17/17 killed, zero survived; no Session B mutant and no steady-state anchor mutant exist."
+      },
+      "impact": "The green mutation score overstates the enforced Gate-separation contract. A future coupling of Candidate to Session B or a steady-state anchor is not demonstrated to be killed by a dedicated production mutation.",
+      "blocks_bootstrap_candidate_gate": true
+    }
+  ],
+  "a6_closure": [
+    {
+      "finding_id": "A6-CODE-BLOCKER-001",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/scripts/validate-task.mjs:489-503",
+        ".codex/scripts/lib/governance/gate-router.mjs:11-23",
+        ".codex/tests/run-bootstrap-production-integration.mjs:91-104",
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:12",
+        "A7 rerun: production integration 27/27 PASS and production mutations 17/17 killed"
+      ],
+      "production_exploit_retest": {
+        "result": "PASS_EXPLOIT_REJECTED",
+        "observed": [
+          "PROD-GATE-01 returns Candidate GO and Human Commit NO-GO while final commit approval is pending.",
+          "PROD-GATE-05 returns Candidate GO when final commit approval is explicitly rejected.",
+          "MUT-01-CANDIDATE-REQUIRES-FINAL is killed by the production integration oracle."
+        ]
+      },
+      "remaining_risk": "The final-approval coupling is closed. New A7-CODE-BLOCKER-001 and A7-CODE-BLOCKER-002 are separate reverse-influence and mutation-adequacy defects and do not reopen the exact A6 exploit.",
+      "blocks_bootstrap_candidate_gate": false
+    }
+  ],
+  "remaining_risk": [
+    {
+      "risk": "Derived output disagreement can structurally reroute all five Gates.",
+      "classification": "blocking-control-defect",
+      "disposition": "A7-CODE-BLOCKER-001; Bootstrap Candidate Review remains blocked."
+    },
+    {
+      "risk": "Two required later-stage isolation fault families are absent from the mutation registry.",
+      "classification": "blocking-test-adequacy-defect",
+      "disposition": "A7-CODE-BLOCKER-002; add and kill Session B and steady-state anchor production mutants."
+    },
+    {
+      "risk": "The bootstrap validator, scanner, and candidate remain mutable workspace artifacts without a Git trust anchor.",
+      "classification": "approved-bootstrap-limitation",
+      "disposition": "Not an additional Candidate blocker; Human Commit and steady-state Gates remain unauthorized."
+    },
+    {
+      "risk": "Role, Reviewer, and human identities are procedural rather than cryptographic.",
+      "classification": "approved-bootstrap-limitation",
+      "disposition": "Not an additional Candidate blocker within the declared bootstrap boundary."
+    }
+  ],
+  "blocks_bootstrap_candidate_gate": true,
+  "limitations": [
+    "No STAGED_EXACT or Git proof was expected, created, or required for Bootstrap Candidate Review.",
+    "No OS sandbox or repository-global path enforcement was claimed or tested.",
+    "Scanner v5 proves only no findings within its exact declared 92-file contract; it is not DLP or repository-global assurance.",
+    "The review did not inspect Git, .env*, product source, Migration 320 product files, implementation conversations, or unfiled explanations and did not run services, product tests, database, seed, or migration operations."
+  ],
+  "outcome": "BLOCKER",
+  "severity_counts": {
+    "BLOCKER": 2,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "conclusion": "R7 closes A6-CODE-BLOCKER-001: Candidate Review no longer depends on final commit approval, Session B, Migration 320, steady-state anchors, Git stage, or STAGED_EXACT, and the legal five-Gate combination is emitted. The exact 92-file candidate and all frozen baselines match, and the filed production suites rerun green. However, derived overall/calculated/summary/graph artifacts can still reverse-influence every Gate through the structural-error reroute, and the mandatory mutation registry lacks Session B and steady-state anchor isolation mutants. A7-CODE-BLOCKER-001 and A7-CODE-BLOCKER-002 therefore block Bootstrap Candidate Review. Bootstrap Human Commit and Migration 320 remain NO-GO; both steady-state Gates remain DISABLED."
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-MASTER-BATCH-2D-A11-QA-FAILURE-TRIAGE",
+  "batch": "MASTER BATCH 2D",
+  "status": "COMPLETE",
+  "source_aggregation_task_id": "GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2",
+  "qa_failures_in_scope": 6,
+  "qa_failures_reproduced": 3,
+  "classification_totals": {
+    "candidate_production_defects": 0,
+    "test_historical_contract_defects": 0,
+    "qa_execution_contract_defects": 1,
+    "mixed_defects": 2,
+    "not_reproduced": 3
+  },
+  "classifications_are_mutually_exclusive": true,
+  "suites": [
+    {
+      "command_id": "QA-PROD-INTEGRATION",
+      "reproduction_status": "REPRODUCED_AS_FAIL_CLOSED_CASE_COUNT_MISMATCH",
+      "classification": "QA_EXECUTION_CONTRACT_DEFECT",
+      "exact_script": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "expected_case_count": 49,
+      "actual_case_count": 48,
+      "actual_passed": 48,
+      "actual_failed": 0,
+      "candidate_production_defect_observed": false,
+      "analysis": "The suite is green at 48/48, but the immutable A11 command manifest requires 49 cases. The fail-closed rule makes the suite unacceptable because of the count binding, not because a production assertion failed."
+    },
+    {
+      "command_id": "QA-EXISTING-MUTATIONS",
+      "reproduction_status": "NOT_REPRODUCED",
+      "classification": "NOT_REPRODUCED",
+      "exact_script": ".codex/tests/run-bootstrap-mutation-tests.mjs",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "expected_case_count": 31,
+      "actual_case_count": 31,
+      "killed": 31,
+      "survived": 0,
+      "candidate_production_defect_observed": false,
+      "analysis": "The prior missing execution result did not recur in isolated execution. All declared mutations were killed."
+    },
+    {
+      "command_id": "QA-REVIEWER-BINDING",
+      "reproduction_status": "NOT_REPRODUCED",
+      "classification": "NOT_REPRODUCED",
+      "exact_script": ".codex/tests/run-reviewer-binding-regressions.mjs",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "expected_case_count": 14,
+      "actual_case_count": 14,
+      "actual_passed": 14,
+      "actual_failed": 0,
+      "candidate_production_defect_observed": false,
+      "analysis": "The prior missing execution result did not recur in isolated execution. All reviewer-binding regressions passed."
+    },
+    {
+      "command_id": "QA-BINARY-MUTATIONS",
+      "reproduction_status": "NOT_REPRODUCED",
+      "classification": "NOT_REPRODUCED",
+      "exact_script": ".codex/tests/run-binary-magic-registry-mutations.mjs",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "expected_case_count": 45,
+      "actual_case_count": 45,
+      "killed": 45,
+      "survived": 0,
+      "candidate_production_defect_observed": false,
+      "analysis": "The prior missing execution result did not recur in isolated execution. All binary-magic mutations were killed."
+    },
+    {
+      "command_id": "QA-REM10",
+      "reproduction_status": "REPRODUCED",
+      "classification": "MIXED_DEFECT",
+      "exact_script": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/run-security-chain-tests.mjs",
+      "expected_exit_code": 1,
+      "actual_exit_code": 1,
+      "expected_case_count": 20,
+      "actual_case_count": null,
+      "expected_supersession_cases": [
+        "CV-05",
+        "AL-14",
+        "CH-20"
+      ],
+      "actual_failure": "EEXIST contract-version-negative-tests.json",
+      "candidate_production_defect_observed": false,
+      "analysis": "The historical runner is non-idempotent and attempts wx writes in a historical task. A11 simultaneously forbids historical writes and only accepts exit 1 when the declared supersession cases are emitted. The process aborts before the 20-case report, so both the historical runner behavior and A11 execution contract are incompatible."
+    },
+    {
+      "command_id": "QA-R11",
+      "reproduction_status": "REPRODUCED",
+      "classification": "MIXED_DEFECT",
+      "exact_script": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/run-preparation-tests.mjs",
+      "expected_exit_code": 0,
+      "actual_exit_code": 1,
+      "expected_case_count": 30,
+      "actual_case_count": null,
+      "actual_failure": "EEXIST evidence-schema-negative-tests.json",
+      "candidate_production_defect_observed": false,
+      "analysis": "The historical runner is non-idempotent and attempts wx writes in a historical task, while A11 forbids historical writes. It aborts before the 30-case report and cannot satisfy expected exit 0."
+    }
+  ],
+  "candidate_change_required": false,
+  "reviewer_payloads_reusable": true,
+  "recommended_next_task": "GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3",
+  "git_used": false
+}

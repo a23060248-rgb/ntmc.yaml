@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer_run_id": "SR-A2-019F6BCD-2002",
+    "session_id": "SRS-A2-019F6BCD-3002",
+    "did_not_participate_in_implementation": true,
+    "mode": "read-only",
+    "review_scope": "Phase1.2 governance/external evidence separation, scanner, path, environment and residual risk",
+    "reviewer": "security-reviewer-a2",
+    "reviewed_at": "2026-07-17T02:06:32.6716182+08:00"
+  },
+  "outcome": "BLOCKER",
+  "scope_claims": {
+    "governance_commit_contains_no_detected_secrets": "NOT_ESTABLISHED",
+    "external_evidence_globally_clean": false,
+    "global_sensitive_data_absence_verified": false,
+    "actual_credential_or_token_detected_in_reviewed_scope": false
+  },
+  "findings": [
+    {
+      "id": "SEC-A2-001",
+      "severity": "HIGH",
+      "location": ".codex/scripts/validate-task.mjs:114-141; .codex/governance/evidence-scope-policy.yaml:4-6",
+      "evidence": "The policy defines AGENTS.md, .codex/** and .agents/** as governance commit candidates and requires FULL content scanning, but governanceCommitFiles unconditionally skips every .codex/tasks/** entry at line 120. A deterministic read-only enumeration of the current candidate tree, excluding only .codex/tests/.tmp/** and .env* as the baseline collector does, found 126 files: 55 Task files omitted by the scanner and 71 files within the scanner walk. review-baseline-before.json independently includes earlier Task artifacts among governance sources, confirming that Task artifacts are part of the governed corpus rather than external evidence.",
+      "reproduction": "From the product root run: $all=@('AGENTS.md')+@(rg --files -uu '.agents' '.codex' -g '!.codex/tests/.tmp/**' -g '!**/.env*'); $tasks=@($all|Where-Object{$_ -match '^\\.codex[\\\\/]tasks[\\\\/]'}); [pscustomobject]@{all=$all.Count;tasks_excluded=$tasks.Count;walked=$all.Count-$tasks.Count}|ConvertTo-Json -Compress. Observe all=126, tasks_excluded=55 and walked=71, then compare validate-task.mjs line 120.",
+      "impact": "The deterministic validation can return a successful governance scan while commit-eligible Task artifacts, including review JSON and manifest-adjacent files, have never been scanned. This invalidates the FULL-governance-scope premise and prevents the scoped no-detected-secrets assertion from being established. It also permits an unmanifested dump or unapproved binary under .codex/tasks to evade scanGovernanceCommit."
+    },
+    {
+      "id": "SEC-A2-002",
+      "severity": "HIGH",
+      "location": ".codex/scripts/lib/secret-scanner.mjs:3-17; .codex/tests/run-governance-fixtures.mjs:115",
+      "evidence": "The scanner positively detects assigned password/token/credential values, Bearer values, listed session-cookie names, PostgreSQL credential URIs, private-key headers and dump references. A read-only in-memory replay found zero findings for a generic Cookie header, an HTTPS URI containing user information, a Windows local absolute path outside Users/Documents and Settings, and a Unix local absolute path. The only secret-specific governance fixture is the assigned-password case at line 115; there are no deterministic rejection fixtures for Bearer, generic cookies, credential URIs outside PostgreSQL, private keys, absolute-path families, dump references or disguised binary content. The source tree also contains the synthetic absolute-path probe at run-governance-fixtures.mjs:100, while the current operational-path expression does not classify that form.",
+      "reproduction": "Import scanText and classifyOperationalContent from .codex/scripts/lib/secret-scanner.mjs in node --input-type=module mode. Construct generic-cookie, credential-bearing-HTTPS-URI, Windows-absolute and Unix-absolute vectors at runtime from string fragments, call both functions for each vector, and observe empty finding arrays. In the same process, positive controls for assigned password, assigned token, Bearer, listed session cookie, PostgreSQL URI, private-key header and dump reference produce their named findings.",
+      "impact": "Required cookie, URI and local-absolute-path families are not covered, and the regression suite cannot prevent those gaps from returning. A FULL scan label therefore overstates the implemented deterministic pattern coverage even after the Task-directory omission is repaired. Extension-only binary classification also cannot distinguish binary bytes disguised with an allow-listed text suffix."
+    },
+    {
+      "id": "SEC-A2-003",
+      "severity": "MEDIUM",
+      "location": ".codex/tasks/GOV-M320-DRYRUN/security-evidence.yaml:6-11; .codex/scripts/validate-task.mjs:290-297",
+      "evidence": "All five external artifacts in the M320 manifest correctly carry path, evidence_scope=external_reference, commit_inclusion=false, content scan, operational-path, dump-reference, credential-scan, redaction and source-verification fields. However, every corresponding security-evidence.external_evidence entry omits path, evidence_scope, commit_inclusion and source_verification_status. validate-task builds a map by artifact_id and only checks that an entry exists; it does not compare duplicated scan/path/dump/credential/redaction classifications to the manifest.",
+      "reproduction": "Parse .codex/tasks/GOV-M320-DRYRUN/artifact-manifest.yaml and security-evidence.yaml with ConvertFrom-Json. For each security external_evidence entry compare its property names with artifact_id,path,evidence_scope,commit_inclusion,content_scan_status,contains_operational_paths,contains_dump_reference,credential_scan_status,redaction_status,source_verification_status. All five entries report the same missing fields: path,evidence_scope,commit_inclusion,source_verification_status. Then inspect validate-task.mjs lines 296-297 and observe presence-only validation.",
+      "impact": "The authoritative manifest currently preserves external-reference separation and hashes, but the security evidence is not independently complete and can drift from the manifest without rejection. That weakens the audit trail for non-commit external evidence containing operational paths and a dump reference."
+    }
+  ],
+  "checks": [
+    {
+      "id": "GOVERNANCE-CANDIDATE-DETERMINISTIC-FULL-SCAN",
+      "result": "FAIL",
+      "evidence": "validate-task.mjs:120 excludes .codex/tasks/**; current read-only enumeration measured 55 excluded Task files out of 126 candidates. See SEC-A2-001."
+    },
+    {
+      "id": "SCANNER-CREDENTIAL-PASSWORD-TOKEN-BEARER-SESSION-PRIVATE-KEY-POSTGRES-DUMP-POSITIVE-CONTROLS",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "Read-only in-memory calls produced the expected findings for the implemented positive-control families. This does not cure the missing families or corpus omission."
+    },
+    {
+      "id": "SCANNER-GENERIC-COOKIE-CREDENTIAL-URI-LOCAL-ABSOLUTE-PATH-COVERAGE",
+      "result": "FAIL",
+      "evidence": "Generic cookie, HTTPS user-information URI, general Windows absolute and Unix absolute vectors produced no findings. See SEC-A2-002."
+    },
+    {
+      "id": "SCANNER-UNAPPROVED-BINARY-COVERAGE",
+      "result": "FAIL",
+      "evidence": "assertTextArtifact rejects non-allow-listed suffixes, dumps and backups, but has no byte-level text validation; disguised binary bytes with an allow-listed suffix are not deterministically rejected. Task-directory omission additionally bypasses the commit-wide extension gate."
+    },
+    {
+      "id": "EXTERNAL-REFERENCE-MANIFEST-SEPARATION",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "The five M320 manifest entries retain evidence_scope=external_reference, commit_inclusion=false, SHA256, PARTIAL scan, operational-path/dump classification, credential scan, redaction and source verification. Security-evidence duplication is incomplete and not cross-validated; see SEC-A2-003."
+    },
+    {
+      "id": "EXTERNAL-AND-GLOBAL-CLEAN-OVERCLAIM",
+      "result": "PASS",
+      "evidence": "GOV-M320-DRYRUN and remediation security-evidence records keep external_evidence_globally_clean=false and global_sensitive_data_absence_verified=false. No external/global clean assertion is made by this review."
+    },
+    {
+      "id": "DUMP-BINARY-MANIFEST-AND-SCOPED-GIT-EXCLUSION",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "M320 retains only textual external references and hashes; no manifest path names a dump binary. Current governance candidates contain zero non-allow-listed extensions after excluding fixture .tmp. Scoped git ls-files over AGENTS.md/.codex/**/.agents/** returned zero tracked governance files and therefore zero tracked dump/binary matches; this is a current scoped observation, not a repository-history or future-commit guarantee."
+    },
+    {
+      "id": "PATH-REALPATH-LSTAT-SEGMENT-CONTAINMENT",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "path-safety.mjs:27-42 performs per-existing-segment lstat and realpath containment, and lines 45-57 canonicalize the product root and existing target. Non-link reparse coverage and TOCTOU remain limited."
+    },
+    {
+      "id": "PATH-ABSOLUTE-DRIVE-UNC-TRAVERSAL-DOTENV",
+      "result": "PASS",
+      "evidence": "path-safety.mjs:10-19 rejects Node absolute paths, win32 absolute paths, drive-letter forms, UNC prefixes, empty/traversal segments and .env segments."
+    },
+    {
+      "id": "PATH-SYMLINK-JUNCTION-REPARSE",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "path-safety.mjs rejects lstat symbolic-link objects; fixture source includes a junction rejection case. The code cannot prove coverage of every Windows reparse type and retains that limitation."
+    },
+    {
+      "id": "PATH-GRAPH-AND-NEW-PATH-PRE-POST",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "Graph source_ref values flow through safeExistingPath at validate-task.mjs:343-350. create-task and graph/evidence writers call safeNewPath before writes and verifyCreatedPath after creation. The validation/use sequence is not atomic."
+    },
+    {
+      "id": "PATH-TOCTOU-RESIDUAL-RETAINED",
+      "result": "PASS",
+      "evidence": ".codex/governance/residual-risks.yaml:13 retains Windows/Node filesystem TOCTOU risk and does not claim OS sandbox enforcement."
+    },
+    {
+      "id": "ENVIRONMENT-PROFILE-CONSTRAINTS",
+      "result": "PASS",
+      "evidence": "validate-agent-environment.mjs:29-38 enforces no dotenv, explicit JSON source, loopback, port 5433, rehearsal database naming/mode, no allowed operations and no secret-like key names. No database connection is attempted."
+    },
+    {
+      "id": "ENVIRONMENT-NO-RUNTIME-ISOLATION-OVERCLAIM",
+      "result": "PASS",
+      "evidence": "environment-safety-evidence.json:40-46 explicitly records runtime_command_isolation_verified=false, os_env_access_denied=false and product_script_integration_verified=false."
+    },
+    {
+      "id": "COMMAND-AND-PARENT-OVERRIDE-RESIDUALS",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "residual-risks.yaml:5-9 retains OS .env-read absence, child_process, PowerShell, cmd.exe, arbitrary executable, Parent permission override and unintegrated product-script risks; these remain open and unenforced."
+    },
+    {
+      "id": "SCANNER-FIXTURE-STORE-RESIDUALS",
+      "result": "PASS",
+      "evidence": "residual-risks.yaml:15-18 retains no controlled external artifact store/retention, scanner false-negative limits and fixture-crash/orphan/race risks."
+    },
+    {
+      "id": "GOVERNANCE-SCRIPT-SYNTAX",
+      "result": "PASS",
+      "evidence": "node --check returned exit 0 for nine MJS files under .codex/scripts and .codex/tests, excluding .codex/tests/.tmp."
+    },
+    {
+      "id": "GOVERNANCE-FIXTURE-EXECUTION",
+      "result": "NOT_RUN",
+      "evidence": "The fixture runners create and delete .codex/tests/.tmp run roots. This reviewer was authorized to write only security-review.json, so source was inspected but the runners were not executed."
+    },
+    {
+      "id": "ACTUAL-CREDENTIAL-OR-TOKEN-IN-REVIEWED-SCOPE",
+      "result": "PASS_WITH_CONDITIONS",
+      "evidence": "The scoped read-only searches and positive-control replay found no actual credential or token in AGENTS.md, .agents/**, or the allowed governance/scripts/tests/tasks files. Because full candidate scanning and pattern coverage are defective, this is not a global clean claim."
+    },
+    {
+      "id": "SESSION-B-AND-GO-AUTHORITY",
+      "result": "PASS",
+      "evidence": "No Session B action, merge, release, commit, migration or GO grant was performed. phase-status.json retains session_b_started=false, governance_commit_gate=NO-GO and migration_320_gate=NO-GO."
+    }
+  ],
+  "limitations": [
+    "The review did not read any .env file or .env* content.",
+    "The review did not read frontend, erp-api, db-design, sibling directories or external docs evidence content.",
+    "No service, product test, database command, database connection, migration, seed, API start or Git mutation was performed.",
+    "Governance fixture runners were not executed because they write and delete temporary run roots; only static source inspection and node --check were authorized.",
+    "The external evidence hashes and source contents were not re-read in this reviewer scope; conclusions about them are limited to the checked-in manifest/security metadata.",
+    "The scoped git pathspec currently contains no tracked governance files, so the review can observe no scoped tracked dump binary but cannot provide a repository-history, staged-commit or remote-control attestation.",
+    "Pattern searches cannot establish absence of encoded, fragmented, compressed, renamed or novel secrets, especially while the deterministic scanner omits Task files and required families.",
+    "Path safety conclusions are code-based; no adversarial concurrent filesystem replacement or exhaustive Windows reparse-point experiment was performed.",
+    "Clean reviewer context is procedural and identified by reviewer/session IDs; it is not cryptographically proven."
+  ],
+  "prohibited_conclusions": {
+    "session_b_started_or_authorized": false,
+    "governance_commit_go_granted": false,
+    "migration_320_go_granted": false,
+    "external_evidence_globally_clean": false,
+    "global_sensitive_data_absence_verified": false
+  }
+}

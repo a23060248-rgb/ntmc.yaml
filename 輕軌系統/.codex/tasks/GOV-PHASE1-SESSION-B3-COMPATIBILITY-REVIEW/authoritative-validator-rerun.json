@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "command": "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW --target-gate bootstrap-candidate-review --write-graph",
+  "first_attempt": {
+    "result": "DIAGNOSTIC_FAILURE",
+    "error": "TypeError: Cannot read properties of undefined (reading 'map')",
+    "cause": "The initial task-local traceability artifact omitted the registered nodes structure.",
+    "resolution": "Traceability was corrected to the official registered schema before the authoritative rerun."
+  },
+  "authoritative_rerun": {
+    "validator_reported_exit": 1,
+    "structural": "INVALID",
+    "calculated_gate": "NO-GO",
+    "target_gate": "bootstrap_candidate_review:NO-GO",
+    "bootstrap_human_commit": "NO-GO",
+    "steady_state_preparation": "DISABLED",
+    "steady_state_execution": "DISABLED",
+    "migration_320_execution": "NO-GO",
+    "proof_assurance": "INTERNAL_CONSISTENCY_ONLY"
+  },
+  "expected_stop_state_reasons": [
+    "No formal B3 Reviewer output exists because capacity preflight blocked Wave 1.",
+    "Required Wave 1, Compatibility, QA and fresh-rerun evidence is absent or NOT_VERIFIED.",
+    "human-approval.yaml is intentionally absent because five formal reviews did not complete.",
+    "Generic implementation-plan and implementation-handoff artifacts were not created because the B3 authorization expressly prohibited unapproved plan/handoff use."
+  ],
+  "historical_a10_bootstrap_candidate_review": "GO",
+  "historical_a10_preserved_separately": true,
+  "session_b3_compatibility_gate": "NO-GO",
+  "b3_precheck_blocker": true,
+  "result": "BLOCKER"
+}

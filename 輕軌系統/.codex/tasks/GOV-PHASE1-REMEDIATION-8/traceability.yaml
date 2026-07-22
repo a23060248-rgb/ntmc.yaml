@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "generated_at": "2026-07-19T19:20:00+08:00",
+  "nodes": [
+    {"id":"TASK:R8","type":"Task","label":"Remediation 8 authoritative projection, binary oracle, and Schema unification","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/task-intent.yaml"},
+    {"id":"REVIEW:A7","type":"FormalReview","label":"A7 archived BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/session-a7-summary.json"},
+    {"id":"EVIDENCE:R8-VALIDATION","type":"Evidence","label":"R8 production and mutation validation","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/validation-run-summary.json"},
+    {"id":"EVIDENCE:R8-CANDIDATE","type":"Evidence","label":"R8 bootstrap candidate","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-candidate-record.json"},
+    {"id":"EVIDENCE:R8-BASELINE","type":"Evidence","label":"R8 frozen baseline integrity","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/history-integrity.json"},
+    {"id":"GATE:CANDIDATE","type":"Gate","label":"Bootstrap Candidate Review NO-GO","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/review-findings.yaml"},
+    {"id":"GATE:HUMAN","type":"Gate","label":"Bootstrap Human Commit NO-GO","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/human-approval.yaml"},
+    {"id":"GATE:STEADY","type":"Gate","label":"Steady-state gates DISABLED","source_ref":".codex/governance/gate-policy.yaml"},
+    {"id":"GATE:M320","type":"Gate","label":"Migration 320 Execution NO-GO","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/migration-320-integrity.json"}
+  ],
+  "edges": [
+    {"from":"REVIEW:A7","relation":"requires-remediation","to":"TASK:R8","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/a7-finding-remediation-matrix.md"},
+    {"from":"TASK:R8","relation":"produces","to":"EVIDENCE:R8-VALIDATION","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/validation-run-summary.json"},
+    {"from":"TASK:R8","relation":"produces","to":"EVIDENCE:R8-CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/bootstrap-candidate-record.json"},
+    {"from":"TASK:R8","relation":"preserves","to":"EVIDENCE:R8-BASELINE","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/history-integrity.json"},
+    {"from":"REVIEW:A7","relation":"blocks-until-a8","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/review-findings.yaml"},
+    {"from":"GATE:CANDIDATE","relation":"precedes","to":"GATE:HUMAN","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/gate-projection-verification.json"},
+    {"from":"GATE:HUMAN","relation":"requires-trust-anchor","to":"GATE:STEADY","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/gate-projection-verification.json"},
+    {"from":"TASK:R8","relation":"keeps-independent-no-go","to":"GATE:M320","source_ref":".codex/tasks/GOV-PHASE1-REMEDIATION-8/migration-320-integrity.json"}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A9",
+  "level": "L3",
+  "reasons": ["A8 has two unresolved formal Railway Domain BLOCKER findings.", "The review determines the bootstrap candidate Gate and reviewer authority boundary.", "Migration 320 must remain independently NO-GO and NEEDS_HUMAN_DECISION."],
+  "triggers": ["unresolved-reviewer-blocker", "reviewer-independence", "release-gate", "domain-rule-authority"],
+  "execution_categories": ["read-only-review", "bootstrap-candidate", "security", "domain-rule"],
+  "required_agents": ["architect", "code-reviewer", "security-reviewer", "railway-domain-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain"],
+  "parallel_allowed": true,
+  "evidence_required": ["candidate-manifest-integrity", "candidate-scanner-binding", "reviewer-identity-binding", "official-schema-loader", "a8-finding-closure", "historical-closure-regression", "retained-code-regressions", "retained-security-regressions", "domain-routing", "before-after-integrity", "migration-320-no-go", "authoritative-gate-rerun"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": ["Any reviewed candidate, R8, A8, R9, frozen-history, Migration 320 Task, or external evidence file changes.", "Any .env, product, database, migration, or sibling path is read or modified.", "Any Git mutation, service, product test, seed, migration, or database operation occurs.", "Any root action would alter a Reviewer outcome.", "Session B, Human Commit, steady-state activation, confirmed Domain authority, or Migration 320 execution is started or declared."],
+  "scope": {"include": ["AGENTS.md", ".agents/**", ".codex/**"], "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories"]},
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

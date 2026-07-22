@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "manifest_ref": ".codex/governance/governance-commit-manifest.yaml",
+  "manifest_type": "governance-commit-manifest",
+  "file_count": 97,
+  "manifest_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9",
+  "included_file_set_sha256": "13795421312A230963C1208B2B668730E569219DB27147E0454763BC83450866",
+  "self_excluded": true,
+  "excluded_record_count": 20,
+  "remediation_8_task_excluded": true,
+  "historical_review_and_remediation_records_excluded": true,
+  "migration_320_task_and_external_evidence_excluded": true,
+  "newly_included_controls": [
+    ".codex/governance/bootstrap-binary-magic-registry.yaml",
+    ".codex/governance/gate-dependency-matrix.yaml",
+    ".codex/governance/governance-schema-set.yaml",
+    ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+    ".codex/tests/run-binary-magic-registry-mutations.mjs"
+  ],
+  "git_index_or_staged_claim": false,
+  "assurance": "INTERNAL_CONSISTENCY_ONLY"
+}

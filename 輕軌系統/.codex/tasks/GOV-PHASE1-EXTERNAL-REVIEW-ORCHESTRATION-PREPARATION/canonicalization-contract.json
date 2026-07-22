@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "contract_id": "GOV-EXTERNAL-REVIEW-JCS-001",
+  "standard": "RFC 8785 JSON Canonicalization Scheme (JCS)",
+  "encoding": "UTF-8",
+  "payload_hash_algorithm": "SHA-256",
+  "digest_format": "uppercase hexadecimal",
+  "payload_hash_target": "JCS(payload_core)",
+  "package_hash_target": "JCS(package manifest core without package_core_sha256)",
+  "prohibitions": [
+    "Hashing the wrapper containing payload_core_sha256",
+    "Whitespace-dependent hashing",
+    "Key-order-dependent noncanonical hashing",
+    "Non-finite JSON numbers"
+  ],
+  "reference_algorithm": [
+    "Serialize null, booleans, strings and finite numbers using JSON primitives.",
+    "Preserve array order.",
+    "Sort object property names by UTF-16 code units.",
+    "Emit no insignificant whitespace.",
+    "Encode canonical text as UTF-8 before SHA-256."
+  ],
+  "jcs_self_test": {
+    "input": {
+      "z": 1,
+      "a": [
+        true,
+        "x"
+      ]
+    },
+    "canonical_utf8_text": "{\"a\":[true,\"x\"],\"z\":1}",
+    "sha256": "E94EBCC51D10E89083DE7043F5F952F070CA649847BCED0A0B5215E779CB3D84"
+  },
+  "result": "PASS"
+}

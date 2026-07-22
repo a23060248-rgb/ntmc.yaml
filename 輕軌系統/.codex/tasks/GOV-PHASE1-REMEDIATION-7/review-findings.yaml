@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-7",
+  "review_context": "R7 implementation evidence is being finalized; fresh independent Session A7 is not authorized or started in this Task, and A6 outcomes remain archived unchanged.",
+  "reviews": [
+    {"type":"code","reviewer":"unassigned-independent-a7-code-reviewer","formal":false,"outcome":"NEEDS_HUMAN_DECISION","finding_refs":["A7-NOT-STARTED-CODE"],"conditions":[],"decisions_required":[{"decision_required":"authorize-fresh-a7-code-review","decision_owner_role":"human-governance-owner","decision_question":"Authorize a distinct read-only Code Reviewer to revalidate A6-CODE-BLOCKER-001 against the R7 candidate?","decision_deadline_or_trigger":"Before Bootstrap Candidate Review can be reconsidered."}]},
+    {"type":"security","reviewer":"unassigned-independent-a7-security-reviewer","formal":false,"outcome":"NEEDS_HUMAN_DECISION","finding_refs":["A7-NOT-STARTED-SECURITY"],"conditions":[],"decisions_required":[{"decision_required":"authorize-fresh-a7-security-review","decision_owner_role":"human-governance-owner","decision_question":"Authorize a distinct read-only Security Reviewer to revalidate both A6 Security findings against the R7 scanner path?","decision_deadline_or_trigger":"Before Bootstrap Candidate Review can be reconsidered."}]},
+    {"type":"railway-domain","reviewer":"unassigned-independent-a7-railway-domain-reviewer","formal":false,"outcome":"NEEDS_HUMAN_DECISION","finding_refs":["A7-NOT-STARTED-RAILWAY-DOMAIN"],"conditions":[],"decisions_required":[{"decision_required":"authorize-fresh-a7-domain-review","decision_owner_role":"human-governance-owner","decision_question":"Authorize a distinct read-only Railway Domain Reviewer to verify the typed mechanism and Migration 320 routing boundary?","decision_deadline_or_trigger":"Before Bootstrap Candidate Review can be reconsidered."}]},
+    {"type":"compatibility","reviewer":"unassigned-independent-a7-compatibility-reviewer","formal":false,"outcome":"NEEDS_HUMAN_DECISION","finding_refs":["A7-NOT-STARTED-COMPATIBILITY"],"conditions":[],"decisions_required":[{"decision_required":"authorize-fresh-a7-compatibility-review","decision_owner_role":"human-governance-owner","decision_question":"Authorize compatibility revalidation of frozen history and Migration 320 deterministic NO-GO?","decision_deadline_or_trigger":"Before Bootstrap Candidate Review can be reconsidered."}]}
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "blockers": ["A6 remains ARCHIVED / BLOCKER.", "A7 is not authorized or started, so R7 has no formal independent Reviewer outcome.", "Bootstrap Human Commit and Migration 320 remain NO-GO; steady-state remains DISABLED."],
+  "conditions": []
+}

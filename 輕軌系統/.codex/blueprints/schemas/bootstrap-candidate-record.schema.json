@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/schemas/bootstrap-candidate-record.schema.json",
+  "x-governance-schema-version": 1,
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "record_type", "assurance", "governance_mode", "task_id", "manifest_sha256", "included_file_set_sha256", "file_count", "scanner_report_sha256", "generated_at", "validator_version", "record_payload_sha256"],
+      "properties": {
+        "schema_version": {"const": 1}, "record_type": {"const": "BOOTSTRAP_WORKSPACE_CANDIDATE"}, "assurance": {"const": "INTERNAL_CONSISTENCY_ONLY"}, "governance_mode": {"const": "bootstrap"},
+        "task_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,63}$"}, "manifest_sha256": {"$ref": "#/$defs/sha"}, "included_file_set_sha256": {"$ref": "#/$defs/sha"}, "file_count": {"type": "integer", "minimum": 1}, "scanner_report_sha256": {"$ref": "#/$defs/sha"}, "generated_at": {"type": "string", "format": "date-time"}, "validator_version": {"const": "PHASE1-BOOTSTRAP-1"}, "record_payload_sha256": {"$ref": "#/$defs/sha"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "record_type", "assurance", "governance_mode", "task_id", "manifest_sha256", "included_file_set_sha256", "file_count", "scanner_report_sha256", "scan_contract_sha256", "finding_registry_sha256", "canonicalization_config_sha256", "binary_oracle_config_sha256", "generated_at", "validator_version", "record_payload_sha256"],
+      "properties": {
+        "schema_version": {"const": 2}, "record_type": {"const": "BOOTSTRAP_WORKSPACE_CANDIDATE"}, "assurance": {"const": "INTERNAL_CONSISTENCY_ONLY"}, "governance_mode": {"const": "bootstrap"},
+        "task_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,63}$"}, "manifest_sha256": {"$ref": "#/$defs/sha"}, "included_file_set_sha256": {"$ref": "#/$defs/sha"}, "file_count": {"type": "integer", "minimum": 1}, "scanner_report_sha256": {"$ref": "#/$defs/sha"},
+        "scan_contract_sha256": {"$ref": "#/$defs/sha"}, "finding_registry_sha256": {"$ref": "#/$defs/sha"}, "canonicalization_config_sha256": {"$ref": "#/$defs/sha"}, "binary_oracle_config_sha256": {"$ref": "#/$defs/sha"},
+        "generated_at": {"type": "string", "format": "date-time"}, "validator_version": {"const": "PHASE1-BOOTSTRAP-2"}, "record_payload_sha256": {"$ref": "#/$defs/sha"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "record_type", "assurance", "governance_mode", "task_id", "manifest_sha256", "included_file_set_sha256", "file_count", "scanner_report_sha256", "scan_contract_sha256", "finding_registry_sha256", "canonicalization_config_sha256", "binary_oracle_config_sha256", "binary_magic_registry_sha256", "schema_set_sha256", "generated_at", "validator_version", "record_payload_sha256"],
+      "properties": {
+        "schema_version": {"const": 3}, "record_type": {"const": "BOOTSTRAP_WORKSPACE_CANDIDATE"}, "assurance": {"const": "INTERNAL_CONSISTENCY_ONLY"}, "governance_mode": {"const": "bootstrap"},
+        "task_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,63}$"}, "manifest_sha256": {"$ref": "#/$defs/sha"}, "included_file_set_sha256": {"$ref": "#/$defs/sha"}, "file_count": {"type": "integer", "minimum": 1}, "scanner_report_sha256": {"$ref": "#/$defs/sha"},
+        "scan_contract_sha256": {"$ref": "#/$defs/sha"}, "finding_registry_sha256": {"$ref": "#/$defs/sha"}, "canonicalization_config_sha256": {"$ref": "#/$defs/sha"}, "binary_oracle_config_sha256": {"$ref": "#/$defs/sha"}, "binary_magic_registry_sha256": {"$ref": "#/$defs/sha"}, "schema_set_sha256": {"$ref": "#/$defs/sha"},
+        "generated_at": {"type": "string", "format": "date-time"}, "validator_version": {"const": "PHASE1-BOOTSTRAP-3"}, "record_payload_sha256": {"$ref": "#/$defs/sha"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "record_type", "assurance", "governance_mode", "task_id", "manifest_sha256", "included_file_set_sha256", "file_count", "scanner_report_sha256", "scan_contract_sha256", "finding_registry_sha256", "canonicalization_config_sha256", "binary_oracle_config_sha256", "binary_magic_registry_sha256", "schema_set_sha256", "evidence_schema_registry_sha256", "referenced_evidence_policy_sha256", "supersedes_candidate_manifest_sha256", "supersession_reason", "breaking_governance_change", "generated_at", "validator_version", "record_payload_sha256"],
+      "properties": {
+        "schema_version": {"const": 4}, "record_type": {"const": "BOOTSTRAP_WORKSPACE_CANDIDATE"}, "assurance": {"const": "INTERNAL_CONSISTENCY_ONLY"}, "governance_mode": {"const": "bootstrap"},
+        "task_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,63}$"}, "manifest_sha256": {"$ref": "#/$defs/sha"}, "included_file_set_sha256": {"$ref": "#/$defs/sha"}, "file_count": {"type": "integer", "minimum": 1}, "scanner_report_sha256": {"$ref": "#/$defs/sha"},
+        "scan_contract_sha256": {"$ref": "#/$defs/sha"}, "finding_registry_sha256": {"$ref": "#/$defs/sha"}, "canonicalization_config_sha256": {"$ref": "#/$defs/sha"}, "binary_oracle_config_sha256": {"$ref": "#/$defs/sha"}, "binary_magic_registry_sha256": {"$ref": "#/$defs/sha"}, "schema_set_sha256": {"$ref": "#/$defs/sha"}, "evidence_schema_registry_sha256": {"$ref": "#/$defs/sha"}, "referenced_evidence_policy_sha256": {"$ref": "#/$defs/sha"},
+        "supersedes_candidate_manifest_sha256": {"$ref": "#/$defs/sha"}, "supersession_reason": {"type": "string", "minLength": 1}, "breaking_governance_change": {"const": "referenced_evidence_validation_required"},
+        "generated_at": {"type": "string", "format": "date-time"}, "validator_version": {"const": "PHASE1-BOOTSTRAP-4"}, "record_payload_sha256": {"$ref": "#/$defs/sha"}
+      }
+    }
+  ],
+  "$defs": {"sha": {"type": "string", "pattern": "^[A-F0-9]{64}$"}}
+}

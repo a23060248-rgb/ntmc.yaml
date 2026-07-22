@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "template": "migration",
+  "task_type": "migration",
+  "minimum_risk": "L3",
+  "required_sections": ["source_provenance", "deidentification", "scope", "allowed_paths", "agent_assignments", "applicable_rules", "candidate_rules", "baseline", "apply_plan", "verify_plan", "rollback_restore", "anomaly_plan", "compatibility_plan", "evidence_required", "human_approval", "stop_conditions"],
+  "default_exclusions": ["formal database write", "unapproved backfill", "destructive command", "automatic merge or release"]
+}

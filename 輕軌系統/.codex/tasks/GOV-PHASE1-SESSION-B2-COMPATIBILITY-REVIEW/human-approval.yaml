@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "required": true,
+  "status": "pending",
+  "approvals": [
+    {
+      "stage": "scope_approval",
+      "status": "approved",
+      "by": "user-delegated-governance-owner",
+      "at": "2026-07-20T10:48:00+08:00",
+      "reason": "The attached Session B2 task specification explicitly authorized this bounded read-only review task."
+    },
+    {
+      "stage": "execution_approval",
+      "status": "approved",
+      "by": "user-delegated-governance-owner",
+      "at": "2026-07-20T10:48:00+08:00",
+      "reason": "Authorization was limited to governance evidence generation and independent read-only review; no Git, service, product test, database, seed or migration authority was granted."
+    },
+    {
+      "stage": "review_completion",
+      "status": "rejected",
+      "by": "root-orchestrator",
+      "at": "2026-07-20T11:45:00+08:00",
+      "reason": "Code and Compatibility returned BLOCKER, and the required fresh QA review could not be dispatched because the reviewer thread limit was reached."
+    },
+    {
+      "stage": "final_commit_approval",
+      "status": "pending",
+      "by": "governance-owner",
+      "at": "2026-07-20T11:45:00+08:00",
+      "reason": "Human Exact-Manifest Confirmation and explicit first-commit authorization were not performed and remain outside this task."
+    }
+  ],
+  "bootstrap_candidate_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-candidate-record.json",
+  "bootstrap_scanner_report_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-9/bootstrap-scanner-report.json",
+  "bootstrap_candidate_subject_task_id": "GOV-PHASE1-REMEDIATION-9",
+  "session_b_outcome": "BLOCKER",
+  "human_exact_manifest_approved": false,
+  "post_review_baseline_unchanged": true,
+  "prohibited_until_approved": [
+    "Human Exact-Manifest Confirmation",
+    "Git stage",
+    "commit",
+    "merge",
+    "release",
+    "steady-state activation",
+    "database operation",
+    "Migration 320 execution"
+  ]
+}

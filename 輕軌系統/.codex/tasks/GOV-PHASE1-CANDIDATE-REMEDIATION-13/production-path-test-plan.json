@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "entrypoint": "validateTask",
+  "fixed_oracle_count": 24,
+  "key_case": "CASE-04",
+  "required_key_outcome": {
+    "structural": "INVALID",
+    "gate": "NO-GO",
+    "exit_code": 1
+  },
+  "result": "EXECUTED"
+}

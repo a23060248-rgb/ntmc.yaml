@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A9",
+  "reviewer": "code-reviewer",
+  "formal": true,
+  "did_not_participate_in_implementation": true,
+  "reviewer_run_id": "A9-CODE-RUN-35132575-D0B8-44DE-A036-125230A95090",
+  "session_id": "A9-CODE-SESSION-63226E42-9DAA-40E3-A1AE-04C7E46D81B5",
+  "assignment_id": "ASSIGN-A9-CODE-EDD87E2A-1379-4B3E-A902-E15F9939F769",
+  "agent_profile_reference": ".codex/agents/code-reviewer.toml",
+  "agent_profile_sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9",
+  "reviewed_candidate_baseline": "phase-1.9-bootstrap",
+  "candidate_manifest_file_count": 103,
+  "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+  "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9",
+  "railway_review_schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+  "railway_reviewer_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+  "review_scope": "phase1_9_bootstrap_candidate_correctness",
+  "execution_mode": "read-only",
+  "implementation_participation": false,
+  "outcome": "BLOCKER",
+  "summary": "The exact 103-file candidate and all permitted baseline files matched. Fixtures, production integration, reviewer binding, official Schema-loader integration and mutations, and concurrency passed. A9 metadata revalidation passed after the authorized root filing assignment was added. The mandatory fresh 31-mutant suite did not emit a completion report or exit after more than ten minutes, so 31/31 killed cannot be independently attested.",
+  "candidate_integrity": {"manifest_artifacts":103,"unique_paths":103,"missing_files":0,"hash_mismatches":0,"manifest_hash_match":true,"schema_set_hash_match":true,"railway_schema_hash_match":true,"railway_profile_hash_match":true,"code_reviewer_profile_hash_match":true},
+  "reviewer_binding_assessment": {
+    "result": "PASS",
+    "assurance": "procedural_role_and_assignment_binding",
+    "single_resolver": ".codex/scripts/lib/governance/reviewer-identity-binding.mjs#validateFormalRailwayReviewerBinding",
+    "production_consumer": ".codex/scripts/validate-task.mjs:402-414",
+    "production_entrypoint": "validateTask",
+    "negative_cases_rejected": ["missing_binding","missing_assignment","duplicate_assignment","zero_match","multi_match","substituted_role","case_variant_alias","alternate_profile","profile_hash_mismatch","scope_mismatch","write_path","run_mismatch","session_mismatch","implementer_session_reuse","wrong_canonical_profile_role"],
+    "gate_integration": "Binding failures are structural INVALID with exit 1 on the production validateTask path."
+  },
+  "official_schema_loader_assessment": {"result":"PASS","production_loader":"loadAndCompileGovernanceSchemas","manifest_binding_enabled":true,"typed_railway_fixture_validated":true,"scan_contract_schema_set_hash_match":true,"inline_schema_observed":false,"fallback_schema_observed":false,"manual_schema_substitute_observed":false,"alternate_loader_observed":false},
+  "a8_closure_dispositions": [
+    {"finding_id":"A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001","status":"CLOSED","reason":"Fresh production negative cases rejected all fourteen substitution, identity, assignment, scope, mode and session attacks."},
+    {"finding_id":"A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001","status":"CLOSED","reason":"The fixture suite uses the official production loader and fresh integration/mutation suites reject malformed, missing, alternate, downgraded and fallback paths."}
+  ],
+  "a9_metadata_revalidation": {"result":"PASS","unique_filing_actor":"architect","filing_actor_effective_write_paths":[".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/**"],"reviewer_write_paths_remain_empty":true,"scope_violations":[],"gate_violations":[],"disposition_of_initial_precheck":"WITHDRAWN_AFTER_AUTHORIZED_A9_METADATA_REVALIDATION"},
+  "findings": [
+    {
+      "finding_id": "A9-CODE-PRODUCTION-MUTATION-RERUN-001",
+      "severity": "BLOCKER",
+      "exact_locations": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/task-intent.yaml:20", ".codex/tests/run-bootstrap-mutation-tests.mjs"],
+      "failure": "The mandatory fresh command remained running for more than ten minutes without stdout, a final BOOTSTRAP_MUTATIONS report, or an exit code; total=31, killed=31, survived=0 is NOT_VERIFIED.",
+      "read_only_reproduction": "Run node .codex/tests/run-bootstrap-mutation-tests.mjs from the product root and require exit 0 plus total=31, killed=31, survived=0. Do not substitute the R9 stored summary.",
+      "impact": "The Reviewer cannot independently attest that all declared production mutants are killed on the reviewed candidate.",
+      "minimum_remediation": "Obtain a completed fresh isolated 31/31 mutation report and Reviewer revalidation before Candidate Review GO.",
+      "blocks_candidate_gate": true
+    }
+  ],
+  "conditions": [],
+  "residual_risks": ["Candidate evidence remains INTERNAL_CONSISTENCY_ONLY.", "Reviewer identity is procedural, not cryptographic.", "Migration 320 remains NEEDS_HUMAN_DECISION and NO-GO."],
+  "reviewer_execution_integrity": {"clean_context":true,"memory_used":false,"implementer_conversation_or_reasoning_used":false,"product_root_external_handoff_read":false,"collab_handoff_read":false,"workspace_file_written":false,"git_command_run":false,"product_test_run":false,"database_accessed":false,"env_file_read":false,"only_test_runner_transient_temp_copies_mutated":true}
+}

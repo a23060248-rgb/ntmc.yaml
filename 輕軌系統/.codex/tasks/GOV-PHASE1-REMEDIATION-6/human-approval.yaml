@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-6",
+  "required": true,
+  "status": "pending",
+  "approvals": [
+    {
+      "stage": "scope_approval",
+      "status": "approved",
+      "by": "human-governance-owner",
+      "at": "2026-07-18T00:00:00+08:00",
+      "reason": "Human selected Option 2 Bootstrap convergence and authorized the exact Remediation 6 scope."
+    },
+    {
+      "stage": "execution_approval",
+      "status": "approved",
+      "by": "human-governance-owner",
+      "at": "2026-07-18T00:00:00+08:00",
+      "reason": "Governance source edits and deterministic governance tests are authorized; Git, product, service, migration, seed, and database operations are prohibited."
+    },
+    {
+      "stage": "review_completion",
+      "status": "pending",
+      "by": "human-governance-owner",
+      "at": "2026-07-18T00:00:00+08:00",
+      "reason": "Session A6 is not started or authorized in this Task."
+    },
+    {
+      "stage": "final_commit_approval",
+      "status": "pending",
+      "by": "human-governance-owner",
+      "at": "2026-07-18T00:00:00+08:00",
+      "reason": "The Bootstrap Human Commit Gate remains human-only and NO-GO."
+    }
+  ],
+  "prohibited_until_approved": [
+    "A6",
+    "Session B",
+    "Git stage",
+    "commit",
+    "push",
+    "merge",
+    "release",
+    "railway Rule confirmation",
+    "change Migration 320 to GO"
+  ],
+  "bootstrap_candidate_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/bootstrap-candidate-record.json",
+  "bootstrap_scanner_report_ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-6/bootstrap-scanner-report.json"
+}

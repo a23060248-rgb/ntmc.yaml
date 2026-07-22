@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "source_task": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "candidate_change_required": false,
+  "findings": [
+    {
+      "finding_id": "B2-CODE-FORBIDDEN-READ-001",
+      "affected_layer": [
+        "reviewer_execution",
+        "task_local_read_scope"
+      ],
+      "candidate_change_required": false,
+      "root_cause": "Code Reviewer scope and execution did not exclude human-approval.yaml precisely enough.",
+      "minimum_remediation": "Create a Code exact scope that forbids human-approval.yaml and sequence B3 human approval after all reviews.",
+      "session_b3_revalidation_required": true
+    },
+    {
+      "finding_id": "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001",
+      "affected_layer": [
+        "task_local_evidence"
+      ],
+      "candidate_change_required": false,
+      "root_cause": "B2 task-local Security evidence used an unregistered version-2 shape instead of the registered production schema.",
+      "minimum_remediation": "Generate B3 Security evidence conforming to the registered production security-evidence schema and validate it through the official loader.",
+      "session_b3_revalidation_required": true
+    },
+    {
+      "finding_id": "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001",
+      "affected_layer": [
+        "task_local_read_scope"
+      ],
+      "candidate_change_required": false,
+      "root_cause": "B2 inherited two M320 implementation planning paths into the required Security allowlist.",
+      "minimum_remediation": "Use exact approved M320 wrapper paths and exclude both implementation plan/handoff paths and all directory globs.",
+      "session_b3_revalidation_required": true
+    },
+    {
+      "finding_id": "B2-QA-THREAD-LIMIT-001",
+      "affected_layer": [
+        "reviewer_capacity_plan"
+      ],
+      "candidate_change_required": false,
+      "root_cause": "Reviewer thread lifetime/capacity was not preflighted and QA capacity was not reserved.",
+      "minimum_remediation": "Use a fresh B3 orchestration task with two waves and reserve one Wave-2 QA slot before Wave 1 starts.",
+      "session_b3_revalidation_required": true
+    }
+  ]
+}

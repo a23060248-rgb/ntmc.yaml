@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "finding_id": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+  "scope_status": "IMPLEMENTED_WITHOUT_EXPANSION",
+  "declared_count": 24,
+  "entries": [
+    {
+      "path": ".codex/scripts/create-task.mjs",
+      "operation": "MODIFY",
+      "reason": "Emit versioned manifest evidence declarations for future tasks.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "BECC3FDAD3E27597E546824CA9F766692E4B01D89481B8542815E218B0F28362",
+      "current_sha256": "09C1DB27FC051A7FD0CB5FECA91132BAAE3F5AA33B0E25654A9D8E023DF5ECAE",
+      "expected_responsibility": "Emit versioned manifest evidence declarations for future tasks.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/scripts/validate-task.mjs",
+      "operation": "MODIFY",
+      "reason": "Invoke authoritative referenced-evidence resolution and schema validation before Gate calculation.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "FE794A03B47722590C8D42BA6CFDC0EE70FA7BD30C49CD99B558C792BF0E32AC",
+      "current_sha256": "C155793588410F3BDF326FED0589AC6CB823277489D2C19D627A5FB0FA0E7CD9",
+      "expected_responsibility": "Invoke authoritative referenced-evidence resolution and schema validation before Gate calculation.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+      "operation": "MODIFY",
+      "reason": "Load and verify the official evidence-schema registry.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "1A79C7D71BBDDFE49661DD032C52847148E7568F5D01E1D470B18B3C8E11C4A5",
+      "current_sha256": "8F9B002096507C51C03E300CCCAB1C14CB63494760FAFA12EB94BE0C49F34D17",
+      "expected_responsibility": "Load and verify the official evidence-schema registry.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/gate-router.mjs",
+      "operation": "MODIFY",
+      "reason": "Make referenced-evidence completeness a fail-closed Candidate Gate input.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "A7E5B19A95C38904788191F81B0A2C1152D25E24095D6D639268629C704E821A",
+      "current_sha256": "00F5527678651AC9492096BFECC3CE60B4C35F28B74206786F53EF51E8C0AFA8",
+      "expected_responsibility": "Make referenced-evidence completeness a fail-closed Candidate Gate input.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+      "operation": "MODIFY",
+      "reason": "Bind the registry and validation policy into production scanning.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "61286064DC5713AC07C743777306B25650ED5AC1362D07696633CE55020118EA",
+      "current_sha256": "23F92E6DCE4F30E7D341DE8075FD6E0A040AF833B26D5A53DB402DF27E4BFBCA",
+      "expected_responsibility": "Bind the registry and validation policy into production scanning.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/scanner-report.mjs",
+      "operation": "MODIFY",
+      "reason": "Report registry and validation-policy capability bindings without claiming task-content validation.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "78CA28AF7A46CC7A340E8623643E04B22A6A238F8F4CA61C60240D00B5CE414C",
+      "current_sha256": "AEB3D1E7D89E40C98DED8F0788CE076F9641A0910FE5C20CC1244E7E10957D10",
+      "expected_responsibility": "Report registry and validation-policy capability bindings without claiming task-content validation.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/typed-proof.mjs",
+      "operation": "MODIFY",
+      "reason": "Produce versioned candidate records with schema-registry and supersession bindings.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "5100E4FBA5D7C53FE18387EF99D9B8B9D822891F1CD8D4EBCAD98B448CAB605E",
+      "current_sha256": "B94701AAC3F5AC4AE52797BCF3E63ED7FB3AD061B87C1E98400233957A91F27A",
+      "expected_responsibility": "Produce versioned candidate records with schema-registry and supersession bindings.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/scripts/generate-bootstrap-candidate.mjs",
+      "operation": "MODIFY",
+      "reason": "Expose official-generator inputs for superseding candidate records.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "F2AFE4E006E0B06582976BA8979855D2ED49275C73A9D1190E7EFBE507C1806A",
+      "current_sha256": "0893F59622510D6458C6B4AE7AC275A58D28FEDB9610456680529D1FA1EDDA62",
+      "expected_responsibility": "Expose official-generator inputs for superseding candidate records.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/artifact-manifest.schema.json",
+      "operation": "MODIFY",
+      "reason": "Define typed, versioned manifest evidence metadata.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "2A60EB1AF1C806FB844E96F8C540D95378FC6B7365EC677FBC3657A65C6460B1",
+      "current_sha256": "B968876E8BD439AD5D8A0AE195FDE8FB90C849E65A1FF414682C95D60BF8A562",
+      "expected_responsibility": "Define typed, versioned manifest evidence metadata.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+      "operation": "MODIFY",
+      "reason": "Define candidate-record version 4 registry, policy, and supersession bindings.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "954EDA35D10557ABB88ED7D817E2F4F1805706CD3D6E99B4CE6620E0345D97CF",
+      "current_sha256": "F33BA69D02F130F80B45555760672E903BF1D0D8BA44240B755E474EE55E69D3",
+      "expected_responsibility": "Define candidate-record version 4 registry, policy, and supersession bindings.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+      "operation": "MODIFY",
+      "reason": "Define scanner capability and registry-policy bindings.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "B4A762A9208B3D90ADAF305068DE961E62FDE9D78D907AEBFA64CBBFB5760D67",
+      "current_sha256": "2ACBE61E3DB9FA70A94C2574DAF4894FC28C4BB6FAC398764AE9D295FDF4BBD1",
+      "expected_responsibility": "Define scanner capability and registry-policy bindings.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/governance/gate-dependency-matrix.yaml",
+      "operation": "MODIFY",
+      "reason": "Declare referenced-evidence completeness as a Candidate Gate dependency.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "A064223B9742B3A6190A3FE111DE5C74ED71D2D412F792A015C04F307EFEEA7F",
+      "current_sha256": "922B2C1D059B79F854F342DC110527B4BB4A7412152D5CF4872C0BC3D89A2601",
+      "expected_responsibility": "Declare referenced-evidence completeness as a Candidate Gate dependency.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/governance/scan-contract.yaml",
+      "operation": "MODIFY",
+      "reason": "Pin the official registry and validation policy in the scan contract.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C",
+      "current_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9",
+      "expected_responsibility": "Pin the official registry and validation policy in the scan contract.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/governance/scanner-contract-matrix.yaml",
+      "operation": "MODIFY",
+      "reason": "Map referenced-evidence validation capabilities to production components.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "AB93A8B3BE00569F32FABFD040CBBCEF2BA342066D38C034834A5B02743584AE",
+      "current_sha256": "4FE489ACD4F2D84F35106AA992ECC2DB593C5FEEE70EA018376956D254D365AC",
+      "expected_responsibility": "Map referenced-evidence validation capabilities to production components.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/governance/evidence-requirement-policy.yaml",
+      "operation": "MODIFY",
+      "reason": "Define active-format evidence requirement rules.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "12F31C736D61C2D1EA02B5C8FAD5797D5FDB76D28AA661999952181AA97FAE5D",
+      "current_sha256": "E0DE816BBB3C9A77B4D64567E2C758C914B627E2EB382E337E6A5E0F009B704A",
+      "expected_responsibility": "Define active-format evidence requirement rules.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/governance/evidence-scope-policy.yaml",
+      "operation": "MODIFY",
+      "reason": "Define exact evidence path containment and optional-evidence rules.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "984D1CD15F9F54BFB4A7994586F8B93E216839AA14617F009B195E8D391CE499",
+      "current_sha256": "EC388356A0BA16EF70CB6D9CAF565221BE530B87DD4D30CA029889D9866AEFCF",
+      "expected_responsibility": "Define exact evidence path containment and optional-evidence rules.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "operation": "MODIFY",
+      "reason": "Migrate the production integration fixture to the active manifest format.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "35C64176E188744A0C331C22CCDE0621003C0C293F1271A4C6A21CE255E6C503",
+      "current_sha256": "F5CAD6A824AD23FF94AFEAA921ACCE54C6F3EA15DB7270A48DA74F8394D65E04",
+      "expected_responsibility": "Migrate the production integration fixture to the active manifest format.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/tests/run-governance-fixtures.mjs",
+      "operation": "MODIFY",
+      "reason": "Update typed candidate-record fixture coverage for version 4.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "D917449FA2A07AB41A4BA737C7475426ABD7A4EFA6C3D6C1F957E82AB62A51F5",
+      "current_sha256": "B3AB9D5557C3ABD1CE8B97E5D1677311BD19B2D7D0CAA0BACE6643344FB57B18",
+      "expected_responsibility": "Update typed candidate-record fixture coverage for version 4.",
+      "candidate_membership_before": true,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/governance/governance-commit-manifest.yaml",
+      "operation": "MODIFY",
+      "reason": "Formally regenerate the self-excluded candidate manifest after implementation.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+      "current_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+      "expected_responsibility": "Formally regenerate the self-excluded candidate manifest after implementation.",
+      "candidate_membership_before": false,
+      "candidate_membership_after": false
+    },
+    {
+      "path": ".codex/scripts/lib/governance/evidence-resolver.mjs",
+      "operation": "ADD",
+      "reason": "Resolve manifest-declared evidence, verify bytes and schemas, and return completeness facts.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": null,
+      "current_sha256": "0F342CE7C88D68D9D780F409F6925F4E4B61C6D262E0BD027806AD8C9D97325E",
+      "expected_responsibility": "Resolve manifest-declared evidence, verify bytes and schemas, and return completeness facts.",
+      "candidate_membership_before": false,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/governance/evidence-schema-registry.yaml",
+      "operation": "ADD",
+      "reason": "Provide the authoritative evidence-type to schema registry.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": null,
+      "current_sha256": "2744036D841174BE94BF1D05F6EA38C2B2C410E0EB5520D3D3723135E674E142",
+      "expected_responsibility": "Provide the authoritative evidence-type to schema registry.",
+      "candidate_membership_before": false,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/governance/referenced-evidence-validation-policy.yaml",
+      "operation": "ADD",
+      "reason": "Provide fail-closed production validation policy without magic filenames.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": null,
+      "current_sha256": "D9406A5663164027FAA0FC762C8B2DBBAB29B0F27AEAB7310F79ED9A88F30ED5",
+      "expected_responsibility": "Provide fail-closed production validation policy without magic filenames.",
+      "candidate_membership_before": false,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/tests/run-referenced-evidence-production.mjs",
+      "operation": "ADD",
+      "reason": "Execute the independent 24-case production-path validation matrix.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": null,
+      "current_sha256": "85F3CA3EAE7716937C1A038B5C12ACCBA9FF474083388B7788047A1F36C451EA",
+      "expected_responsibility": "Execute the independent 24-case production-path validation matrix.",
+      "candidate_membership_before": false,
+      "candidate_membership_after": true
+    },
+    {
+      "path": ".codex/tests/run-referenced-evidence-mutations.mjs",
+      "operation": "ADD",
+      "reason": "Execute eight production mutation operators against fixed oracles.",
+      "finding_trace": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+      "before_sha256": null,
+      "current_sha256": "1E5CE53ACBCD15C4329560903185E221A9CC8C4FCBC2EE2C28304441A3DC3793",
+      "expected_responsibility": "Execute eight production mutation operators against fixed oracles.",
+      "candidate_membership_before": false,
+      "candidate_membership_after": true
+    }
+  ]
+}

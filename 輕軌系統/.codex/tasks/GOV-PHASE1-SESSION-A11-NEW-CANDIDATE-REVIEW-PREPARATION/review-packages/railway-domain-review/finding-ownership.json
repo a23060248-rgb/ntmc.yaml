@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "assignment_id": "A11-RAILWAY-DOMAIN-REVIEW-ASSIGNMENT-20260721-03",
+  "review_type": "railway_domain_review",
+  "owned_findings": [
+    "Railway-domain evidence type remains authoritative and correctly routed",
+    "Governance changes do not claim Migration 320 or business-rule approval",
+    "Domain-review evidence is required and schema-bound where applicable"
+  ],
+  "excluded_findings": [
+    "Migration 320 approval",
+    "Product operations",
+    "General security acceptance",
+    "Finding closure"
+  ],
+  "closure_authority": "NONE",
+  "result_rule": "Report only findings owned by this role; do not close pre-existing findings."
+}

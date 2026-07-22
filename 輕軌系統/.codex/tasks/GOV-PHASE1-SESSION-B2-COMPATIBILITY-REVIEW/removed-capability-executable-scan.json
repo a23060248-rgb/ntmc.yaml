@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "scan_scope": "exact candidate production Gate, validator, Domain and scanner control paths",
+  "capabilities": [
+    {
+      "capability": "STAGED_EXACT",
+      "production_executable": false,
+      "expected": false
+    },
+    {
+      "capability": "evidence_waiver",
+      "production_executable": false,
+      "expected": false
+    },
+    {
+      "capability": "confirmed_domain_rule_promotion",
+      "production_executable": false,
+      "expected": false
+    },
+    {
+      "capability": "dynamic_business_meta_rule_authority",
+      "production_executable": false,
+      "expected": false
+    },
+    {
+      "capability": "authoritative_phase_status_projection",
+      "production_executable": false,
+      "expected": false
+    },
+    {
+      "capability": "extension_magic_mismatch",
+      "production_executable": false,
+      "expected": false
+    }
+  ],
+  "all_removed_capabilities_non_executable": true,
+  "expected_absence_is_not_blocker": true,
+  "result": "PASS"
+}

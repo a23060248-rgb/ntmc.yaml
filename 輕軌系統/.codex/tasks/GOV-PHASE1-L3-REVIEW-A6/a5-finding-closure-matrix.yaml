@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "source": "mechanical-copy-of-formal-reviewer-a5-closure",
+  "root_modified_reviewer_outcomes": false,
+  "finding_count": 7,
+  "closure_counts": {
+    "CLOSED": 5,
+    "REPLACED_BY_BOOTSTRAP_BOUNDARY": 1,
+    "NOT_CLOSED": 1
+  },
+  "findings": [
+    {
+      "finding_id": "A5-CODE-BLOCKER-001",
+      "original_reviewer": "code-reviewer",
+      "original_severity": "BLOCKER",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/scripts/lib/governance/scope-lattice.mjs:88-168",
+        ".codex/scripts/lib/governance/scope-lattice.mjs:195-218",
+        ".codex/scripts/validate-change-scope.mjs:45-54",
+        "A6 read-only role-scope retest: explicit actor OUTSIDE_EFFECTIVE_SCOPE; absent actor matched zero roles; validateChangedPaths OUTSIDE_EFFECTIVE_SCOPE"
+      ],
+      "production_exploit_retest": "Every production consumer reviewed here uses the actor-bound role scope. The original Task-allowed but Assignment-disallowed path no longer passes the production handoff or change-scope path.",
+      "remaining_risk": "Every production consumer reviewed here uses the actor-bound role scope. The original Task-allowed but Assignment-disallowed path no longer passes the production handoff or change-scope path.",
+      "blocks_bootstrap_candidate_gate": false
+    },
+    {
+      "finding_id": "A5-CODE-BLOCKER-002",
+      "original_reviewer": "code-reviewer",
+      "original_severity": "BLOCKER",
+      "closure_status": "REPLACED_BY_BOOTSTRAP_BOUNDARY",
+      "evidence": [
+        ".codex/governance/bootstrap-trust-policy.yaml:4-28",
+        ".codex/scripts/lib/governance/typed-proof.mjs:3-5",
+        ".codex/scripts/lib/governance/typed-proof.mjs:47-69",
+        ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json:3-18",
+        ".codex/tests/run-bootstrap-production-integration.mjs:150-160",
+        ".codex/scripts/validate-task.mjs:426-432"
+      ],
+      "production_exploit_retest": "The approved bootstrap contract removed commit-execution proof authority, STAGED_EXACT, caller proof booleans, and generic final prerequisites. The retained record proves internal consistency only; Bootstrap Human Commit and steady-state execution remain outside validator authority and NO-GO.",
+      "remaining_risk": "The approved bootstrap contract removed commit-execution proof authority, STAGED_EXACT, caller proof booleans, and generic final prerequisites. The retained record proves internal consistency only; Bootstrap Human Commit and steady-state execution remain outside validator authority and NO-GO.",
+      "blocks_bootstrap_candidate_gate": false
+    },
+    {
+      "finding_id": "A5-CODE-HIGH-003",
+      "original_reviewer": "code-reviewer",
+      "original_severity": "HIGH",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/tests/run-governance-fixtures.mjs:1-154",
+        ".codex/tests/run-bootstrap-production-integration.mjs:126-263",
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:10-96",
+        ".codex/tests/run-governance-fixtures-concurrency.mjs:25-46",
+        "A6 rerun: fixtures 68/68; production 20/20; mutations 10/10; four adversarial report forms rejected"
+      ],
+      "production_exploit_retest": "The two exact A5 bypass families are now covered by actor-bound production cases and mutations or removed under the approved bootstrap boundary. The newly identified candidate-review/final-approval conflation is recorded separately as A6-CODE-BLOCKER-001.",
+      "remaining_risk": "The two exact A5 bypass families are now covered by actor-bound production cases and mutations or removed under the approved bootstrap boundary. The newly identified candidate-review/final-approval conflation is recorded separately as A6-CODE-BLOCKER-001.",
+      "blocks_bootstrap_candidate_gate": false
+    },
+    {
+      "finding_id": "A5-CODE-MEDIUM-004",
+      "original_reviewer": "code-reviewer",
+      "original_severity": "MEDIUM",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/scripts/lib/governance/lifecycle-projection.mjs:46-75",
+        ".codex/governance/phase-status.json:3-9",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-6/lifecycle-downgrade.md:3-14",
+        "A6 rerun: PHASE_STATUS_VALIDATION result=PASS authority=informational sources=7 violations=0"
+      ],
+      "production_exploit_retest": "The filed contract was narrowed to a deterministic informational projection that may be stale and is explicitly excluded from Gate, scope, and approval inputs; it no longer claims a transition automaton.",
+      "remaining_risk": "The filed contract was narrowed to a deterministic informational projection that may be stale and is explicitly excluded from Gate, scope, and approval inputs; it no longer claims a transition automaton.",
+      "blocks_bootstrap_candidate_gate": false
+    },
+    {
+      "finding_id": "A5-SEC-HIGH-001",
+      "original_reviewer": "security-reviewer",
+      "original_severity": "HIGH",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:63-115",
+        ".codex/tests/run-governance-fixtures.mjs:80-87",
+        ".codex/tests/run-bootstrap-production-integration.mjs:169-175"
+      ],
+      "production_exploit_retest": "The exact A5 malformed-percent masking construction now preserves and detects the adjacent encoded Basic credential while also emitting MALFORMED_PERCENT_ENCODING; bounded and safe-negative cases passed independently.",
+      "remaining_risk": "The exact A5 malformed-percent masking construction now preserves and detects the adjacent encoded Basic credential while also emitting MALFORMED_PERCENT_ENCODING; bounded and safe-negative cases passed independently.",
+      "blocks_bootstrap_candidate_gate": false
+    },
+    {
+      "finding_id": "A5-SEC-HIGH-002",
+      "original_reviewer": "security-reviewer",
+      "original_severity": "HIGH",
+      "closure_status": "NOT_CLOSED",
+      "evidence": [
+        "A6-SEC-HIGH-001",
+        "A6-SEC-HIGH-002"
+      ],
+      "production_exploit_retest": "Current recognizers work, but the formal regression boundary still accepts unapproved scanner report versions/claims, does not compare material contract fields, and lacks extension-magic matching-extension safe-negatives.",
+      "remaining_risk": "Current recognizers work, but the formal regression boundary still accepts unapproved scanner report versions/claims, does not compare material contract fields, and lacks extension-magic matching-extension safe-negatives.",
+      "blocks_bootstrap_candidate_gate": true
+    },
+    {
+      "finding_id": "A5-DOMAIN-META-REGISTRY-BYPASS-001",
+      "original_reviewer": "railway-domain-reviewer",
+      "original_severity": "HIGH",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/railway-domain-review.json:94-115",
+        ".codex/scripts/lib/governance/rule-class.mjs:12-30",
+        ".codex/scripts/validate-task.mjs:124-146",
+        ".codex/tests/run-bootstrap-production-integration.mjs:191-207",
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:54-65"
+      ],
+      "production_exploit_retest": [
+        "Production integration PROD-12 rejects the exact generic confirmed meta business-category exploit.",
+        "Mutation MUT-09 removes the business-category guard and is killed by PROD-12.",
+        "Independent in-memory exact-module probe rejects category=domain plus governance_control/procedural_governance in registry=meta."
+      ],
+      "remaining_risk": "Classification is now namespace-independent for business categories, meta registries are restricted to procedural/technical classes, Domain records are proposed-only candidates, and selection resolves unique typed records. The A5 exploit no longer reaches business applicable_rules.",
+      "blocks_bootstrap_candidate_gate": false
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "command": "copied production create-task.mjs in isolated temporary governance root",
+  "created_task_id": "GOV-DRAFT-CHECK",
+  "create_output_declares_draft": true,
+  "create_output_declares_no_go": true,
+  "validator_structural_result": "VALID",
+  "validator_calculated_gate": "NO-GO",
+  "validator_exit_code": 2,
+  "validator_errors": [],
+  "validator_gate_reasons": [
+    "Evidence DRAFT-READBACK is NOT_VERIFIED.",
+    "Required evidence DRAFT-READBACK is not PASS.",
+    "qa-readback review returned NEEDS_HUMAN_DECISION.",
+    "qa-readback review is not formal.",
+    "Top-level unresolved blockers remain recorded.",
+    "Top-level review conditions remain open.",
+    "Task or classification remains draft/proposed."
+  ],
+  "gate_reason_count": 7,
+  "product_or_database_operation": false,
+  "source_root_modified": false,
+  "result": "PASS"
+}

@@ -1,0 +1,693 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "manifest_ref": ".codex/governance/governance-commit-manifest.yaml",
+  "manifest_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9",
+  "expected_manifest_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9",
+  "manifest_file_count": 97,
+  "expected_file_count": 97,
+  "all_hashes_match": true,
+  "included_file_set_sha256": "13795421312A230963C1208B2B668730E569219DB27147E0454763BC83450866",
+  "a8_self_excluded": true,
+  "files": [
+    {
+      "path": ".agents/skills/task-classification/agents/openai.yaml",
+      "byte_size": 263,
+      "manifest_sha256": "CD552813CB719532BD7E639CF0D8958B9C4F09E8A3DE2643345839014B0C6F1F",
+      "actual_sha256": "CD552813CB719532BD7E639CF0D8958B9C4F09E8A3DE2643345839014B0C6F1F",
+      "hash_match": true
+    },
+    {
+      "path": ".agents/skills/task-classification/SKILL.md",
+      "byte_size": 4894,
+      "manifest_sha256": "5B81BCB60822E4828F721AFE620C631B8B6C430A177D3DF30A76C6A7BDAA3F57",
+      "actual_sha256": "5B81BCB60822E4828F721AFE620C631B8B6C430A177D3DF30A76C6A7BDAA3F57",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/architect.toml",
+      "byte_size": 649,
+      "manifest_sha256": "B9ACFCC9F95240BC86900A1505827DE0C3FB34DC0AE28914F5B7E76D12159792",
+      "actual_sha256": "B9ACFCC9F95240BC86900A1505827DE0C3FB34DC0AE28914F5B7E76D12159792",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/backend-engineer.toml",
+      "byte_size": 674,
+      "manifest_sha256": "52A5AC4008EDBBC51E3146C7BB2270C81D376D0D1C5A4549EF6565FFD9F5DF7A",
+      "actual_sha256": "52A5AC4008EDBBC51E3146C7BB2270C81D376D0D1C5A4549EF6565FFD9F5DF7A",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/code-reviewer.toml",
+      "byte_size": 568,
+      "manifest_sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9",
+      "actual_sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/compatibility-reviewer.toml",
+      "byte_size": 668,
+      "manifest_sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910",
+      "actual_sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/database-engineer.toml",
+      "byte_size": 672,
+      "manifest_sha256": "FC6E509F163FC361A789F0E8E5DA602FFA3A88D1D27B59F27C89D90B5B2DA0EC",
+      "actual_sha256": "FC6E509F163FC361A789F0E8E5DA602FFA3A88D1D27B59F27C89D90B5B2DA0EC",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/documentation-engineer.toml",
+      "byte_size": 637,
+      "manifest_sha256": "42EB88969BC5906ADC053490A648B7BF9AADCDC629D9A3ABADA79ED759D8D117",
+      "actual_sha256": "42EB88969BC5906ADC053490A648B7BF9AADCDC629D9A3ABADA79ED759D8D117",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/frontend-engineer.toml",
+      "byte_size": 666,
+      "manifest_sha256": "98D7C9662B451B225824A86590C12DA7D583D7191B3F57EC30A559ABD8AD3810",
+      "actual_sha256": "98D7C9662B451B225824A86590C12DA7D583D7191B3F57EC30A559ABD8AD3810",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/qa-engineer.toml",
+      "byte_size": 664,
+      "manifest_sha256": "FA299A96E503652AB50B2A6139963BCA45BA034AE766D7347689CDE1F81BA003",
+      "actual_sha256": "FA299A96E503652AB50B2A6139963BCA45BA034AE766D7347689CDE1F81BA003",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/railway-domain-reviewer.toml",
+      "byte_size": 733,
+      "manifest_sha256": "F8647AC3386107414653113CE85DB48EEF1AEDDF043BAD6915DF9985EA8702FF",
+      "actual_sha256": "F8647AC3386107414653113CE85DB48EEF1AEDDF043BAD6915DF9985EA8702FF",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/agents/security-reviewer.toml",
+      "byte_size": 643,
+      "manifest_sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E",
+      "actual_sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/artifact-manifest.schema.json",
+      "byte_size": 1756,
+      "manifest_sha256": "2A60EB1AF1C806FB844E96F8C540D95378FC6B7365EC677FBC3657A65C6460B1",
+      "actual_sha256": "2A60EB1AF1C806FB844E96F8C540D95378FC6B7365EC677FBC3657A65C6460B1",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/blueprint.schema.json",
+      "byte_size": 3428,
+      "manifest_sha256": "AE8A5C6530C7BF18B32CA230F619BCA649DEF40C99B9ECB576714AC3ABDE2FA1",
+      "actual_sha256": "AE8A5C6530C7BF18B32CA230F619BCA649DEF40C99B9ECB576714AC3ABDE2FA1",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+      "byte_size": 4053,
+      "manifest_sha256": "954EDA35D10557ABB88ED7D817E2F4F1805706CD3D6E99B4CE6620E0345D97CF",
+      "actual_sha256": "954EDA35D10557ABB88ED7D817E2F4F1805706CD3D6E99B4CE6620E0345D97CF",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+      "byte_size": 3304,
+      "manifest_sha256": "B4A762A9208B3D90ADAF305068DE961E62FDE9D78D907AEBFA64CBBFB5760D67",
+      "actual_sha256": "B4A762A9208B3D90ADAF305068DE961E62FDE9D78D907AEBFA64CBBFB5760D67",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/classification.schema.json",
+      "byte_size": 2426,
+      "manifest_sha256": "7F8E7FC91FC82621541C73FF4F2A1271AD4701AFFBC6199FB93E04D3F223E12D",
+      "actual_sha256": "7F8E7FC91FC82621541C73FF4F2A1271AD4701AFFBC6199FB93E04D3F223E12D",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/governance-commit-manifest.schema.json",
+      "byte_size": 1706,
+      "manifest_sha256": "329113CC76020CC5F7D32EBAAE0A13045E8EF65ABC436AB11E9A8B0BBF141E03",
+      "actual_sha256": "329113CC76020CC5F7D32EBAAE0A13045E8EF65ABC436AB11E9A8B0BBF141E03",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/human-approval.schema.json",
+      "byte_size": 1827,
+      "manifest_sha256": "1CA4B198A2767B886A4D2D739637F5E79233E566DB7B694D50EAC34C84152432",
+      "actual_sha256": "1CA4B198A2767B886A4D2D739637F5E79233E566DB7B694D50EAC34C84152432",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/implementation-handoff.schema.json",
+      "byte_size": 1117,
+      "manifest_sha256": "2EDC0D7EBABECD83A1E5EC1EA13F784C7C1DFE664333FA73A9BE9BF463EC9D6B",
+      "actual_sha256": "2EDC0D7EBABECD83A1E5EC1EA13F784C7C1DFE664333FA73A9BE9BF463EC9D6B",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/railway-domain-review.schema.json",
+      "byte_size": 1371,
+      "manifest_sha256": "D0A58D4FEDF740F0EA0B53F8B42F7CE95E2459FD0985F05A095F18BD5DCB4786",
+      "actual_sha256": "D0A58D4FEDF740F0EA0B53F8B42F7CE95E2459FD0985F05A095F18BD5DCB4786",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/review-findings.schema.json",
+      "byte_size": 3656,
+      "manifest_sha256": "C50A2F7250675B472A6046C55BE873C928DC9577BC6611B32616D47A55213924",
+      "actual_sha256": "C50A2F7250675B472A6046C55BE873C928DC9577BC6611B32616D47A55213924",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/rule.schema.json",
+      "byte_size": 3066,
+      "manifest_sha256": "1562104F1849C3E430496ECFE693CC2D47B1819016AA92B90BAE89420CD78522",
+      "actual_sha256": "1562104F1849C3E430496ECFE693CC2D47B1819016AA92B90BAE89420CD78522",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/security-evidence.schema.json",
+      "byte_size": 3475,
+      "manifest_sha256": "59821D081386D9F379D1E1EFD48536FEE438C5A764BC6586E6C390F4564DE7B4",
+      "actual_sha256": "59821D081386D9F379D1E1EFD48536FEE438C5A764BC6586E6C390F4564DE7B4",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/task-intent.schema.json",
+      "byte_size": 1924,
+      "manifest_sha256": "2E5CBE747167BD56BDE47A975312B78CF129144FF2FBD52B3F0614C1B742F2EF",
+      "actual_sha256": "2E5CBE747167BD56BDE47A975312B78CF129144FF2FBD52B3F0614C1B742F2EF",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/test-evidence.schema.json",
+      "byte_size": 1755,
+      "manifest_sha256": "FB21FCDC8BF4B22B36480148C21AB2E2BD85A1D9E0E3C27209A94B310F8D9C9C",
+      "actual_sha256": "FB21FCDC8BF4B22B36480148C21AB2E2BD85A1D9E0E3C27209A94B310F8D9C9C",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/blueprints/schemas/traceability.schema.json",
+      "byte_size": 1209,
+      "manifest_sha256": "FD24C85A4DEECC7047EF4FCF8F08A1CD80FD355DB8A4D2EE3BD4C48253E0B16C",
+      "actual_sha256": "FD24C85A4DEECC7047EF4FCF8F08A1CD80FD355DB8A4D2EE3BD4C48253E0B16C",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/checklists/code-review.md",
+      "byte_size": 399,
+      "manifest_sha256": "D8991059CFB784C9A7A69F742F8A8F51A5C583487324C390C3EF7830E8ACA4FF",
+      "actual_sha256": "D8991059CFB784C9A7A69F742F8A8F51A5C583487324C390C3EF7830E8ACA4FF",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/checklists/compatibility-review.md",
+      "byte_size": 520,
+      "manifest_sha256": "FECFDBBF51DF610E72FC1F27DBF55A2407017A407ADEA717BC0F012F236A602D",
+      "actual_sha256": "FECFDBBF51DF610E72FC1F27DBF55A2407017A407ADEA717BC0F012F236A602D",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/checklists/railway-domain-review.md",
+      "byte_size": 766,
+      "manifest_sha256": "4B100F87CD03C4826572AB887CB3378D0ECD0D34AB209B1D8B6BEDE41D612596",
+      "actual_sha256": "4B100F87CD03C4826572AB887CB3378D0ECD0D34AB209B1D8B6BEDE41D612596",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/checklists/security-review.md",
+      "byte_size": 487,
+      "manifest_sha256": "0FC9D0451ECD343ADE6AFF3D7DABF4FB4C9B0CF3B782D4143E61C1FE9049E1E5",
+      "actual_sha256": "0FC9D0451ECD343ADE6AFF3D7DABF4FB4C9B0CF3B782D4143E61C1FE9049E1E5",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/config.toml",
+      "byte_size": 64,
+      "manifest_sha256": "3C009A50F76570271B2A9CCEEC1077415D618A307EC02F935F8753595D397C92",
+      "actual_sha256": "3C009A50F76570271B2A9CCEEC1077415D618A307EC02F935F8753595D397C92",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/domain/index.yaml",
+      "byte_size": 5959,
+      "manifest_sha256": "7F43F466B5E7605FE020572D1D25DF3FD6C670CCE3321D103856AFCE7A6D2F66",
+      "actual_sha256": "7F43F466B5E7605FE020572D1D25DF3FD6C670CCE3321D103856AFCE7A6D2F66",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/environment/agent-safe-profile.json",
+      "byte_size": 420,
+      "manifest_sha256": "1472230406B2450F35EAA850A0B42260D7D0368706B821BF2C292BAE68E016B6",
+      "actual_sha256": "1472230406B2450F35EAA850A0B42260D7D0368706B821BF2C292BAE68E016B6",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/agent-path-policy.yaml",
+      "byte_size": 4460,
+      "manifest_sha256": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "actual_sha256": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/bootstrap-binary-magic-registry.yaml",
+      "byte_size": 1985,
+      "manifest_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+      "actual_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/bootstrap-trust-policy.yaml",
+      "byte_size": 992,
+      "manifest_sha256": "4AE5B2DEF123B71FDBDE31BEA44A1FD2A8D5E90E752EFD347D4CF79EB387F87F",
+      "actual_sha256": "4AE5B2DEF123B71FDBDE31BEA44A1FD2A8D5E90E752EFD347D4CF79EB387F87F",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/environment-safety-evidence.json",
+      "byte_size": 1187,
+      "manifest_sha256": "9453E4E7800D00C4578F36F4C0FC9E4F299404F908363027626F6A6F4C2CF608",
+      "actual_sha256": "9453E4E7800D00C4578F36F4C0FC9E4F299404F908363027626F6A6F4C2CF608",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/evidence-requirement-policy.yaml",
+      "byte_size": 513,
+      "manifest_sha256": "12F31C736D61C2D1EA02B5C8FAD5797D5FDB76D28AA661999952181AA97FAE5D",
+      "actual_sha256": "12F31C736D61C2D1EA02B5C8FAD5797D5FDB76D28AA661999952181AA97FAE5D",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/evidence-scope-policy.yaml",
+      "byte_size": 2043,
+      "manifest_sha256": "984D1CD15F9F54BFB4A7994586F8B93E216839AA14617F009B195E8D391CE499",
+      "actual_sha256": "984D1CD15F9F54BFB4A7994586F8B93E216839AA14617F009B195E8D391CE499",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/gate-dependency-matrix.yaml",
+      "byte_size": 1125,
+      "manifest_sha256": "A064223B9742B3A6190A3FE111DE5C74ED71D2D412F792A015C04F307EFEEA7F",
+      "actual_sha256": "A064223B9742B3A6190A3FE111DE5C74ED71D2D412F792A015C04F307EFEEA7F",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/gate-policy.yaml",
+      "byte_size": 3129,
+      "manifest_sha256": "4A58BCAF65064DCB220A6EBBA8B865C2D36BBB3878F435B328A69A5C9486B8C1",
+      "actual_sha256": "4A58BCAF65064DCB220A6EBBA8B865C2D36BBB3878F435B328A69A5C9486B8C1",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/governance-schema-set.yaml",
+      "byte_size": 2394,
+      "manifest_sha256": "9485709A8240E22312D8C583B037C776619583F02D5D762A6B452472FCF01FC5",
+      "actual_sha256": "9485709A8240E22312D8C583B037C776619583F02D5D762A6B452472FCF01FC5",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/lifecycle-events.json",
+      "byte_size": 4514,
+      "manifest_sha256": "CE10070B388A4240E9E623C5ECD98BE9240DEE12F02D384CF0933D79D276E54A",
+      "actual_sha256": "CE10070B388A4240E9E623C5ECD98BE9240DEE12F02D384CF0933D79D276E54A",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/phase-policy.yaml",
+      "byte_size": 1162,
+      "manifest_sha256": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "actual_sha256": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/phase-status.json",
+      "byte_size": 3367,
+      "manifest_sha256": "BEEBEC922635E2C73FEE3752DA2D92548D96AEDAFEC0E218A261405B346BC8CC",
+      "actual_sha256": "BEEBEC922635E2C73FEE3752DA2D92548D96AEDAFEC0E218A261405B346BC8CC",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/residual-risks.yaml",
+      "byte_size": 4894,
+      "manifest_sha256": "D742B870942805445AB0DF1EF9D4F73B342F7137BB6A6A9F455F40081B549182",
+      "actual_sha256": "D742B870942805445AB0DF1EF9D4F73B342F7137BB6A6A9F455F40081B549182",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/scan-contract.yaml",
+      "byte_size": 2075,
+      "manifest_sha256": "68A51BF5606511401C64105D3764B9BDE79A9E1198933E433B7D979506B84F05",
+      "actual_sha256": "68A51BF5606511401C64105D3764B9BDE79A9E1198933E433B7D979506B84F05",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/scanner-binary-oracle.yaml",
+      "byte_size": 468,
+      "manifest_sha256": "B25F552BC2379EDEB741862682277B5BA7B435A389ED162E0F297E96C066733F",
+      "actual_sha256": "B25F552BC2379EDEB741862682277B5BA7B435A389ED162E0F297E96C066733F",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/scanner-canonicalization-config.yaml",
+      "byte_size": 472,
+      "manifest_sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6",
+      "actual_sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/scanner-contract-matrix.yaml",
+      "byte_size": 2399,
+      "manifest_sha256": "AB93A8B3BE00569F32FABFD040CBBCEF2BA342066D38C034834A5B02743584AE",
+      "actual_sha256": "AB93A8B3BE00569F32FABFD040CBBCEF2BA342066D38C034834A5B02743584AE",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/governance/scanner-finding-registry.yaml",
+      "byte_size": 606,
+      "manifest_sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B",
+      "actual_sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/meta-rules/confidentiality.yaml",
+      "byte_size": 897,
+      "manifest_sha256": "17CA80C999E5606519B089A6EBDF63F26293141AEC9B1B1FE36BA55784964576",
+      "actual_sha256": "17CA80C999E5606519B089A6EBDF63F26293141AEC9B1B1FE36BA55784964576",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/meta-rules/database.yaml",
+      "byte_size": 1576,
+      "manifest_sha256": "218E6E681CE074870DDC9BED6C54CF3895DB3539841C1B37F013DBBB62621452",
+      "actual_sha256": "218E6E681CE074870DDC9BED6C54CF3895DB3539841C1B37F013DBBB62621452",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/meta-rules/evidence.yaml",
+      "byte_size": 1533,
+      "manifest_sha256": "4073ED9C905C1DBB126984ACAA3F8A7BE17164F2439F58D8110A66575B9DBB97",
+      "actual_sha256": "4073ED9C905C1DBB126984ACAA3F8A7BE17164F2439F58D8110A66575B9DBB97",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/meta-rules/global.yaml",
+      "byte_size": 2199,
+      "manifest_sha256": "8A60C5D36ACE2F66A51C23DF60F7B1D3E5A79CB17A6AA3CF887F003B1DF78E10",
+      "actual_sha256": "8A60C5D36ACE2F66A51C23DF60F7B1D3E5A79CB17A6AA3CF887F003B1DF78E10",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/meta-rules/review-independence.yaml",
+      "byte_size": 1614,
+      "manifest_sha256": "76E40E11B36D7BA85B77DFC9CC5190863917756AF76EC2B7C49BDA6E46249A12",
+      "actual_sha256": "76E40E11B36D7BA85B77DFC9CC5190863917756AF76EC2B7C49BDA6E46249A12",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/meta-rules/security.yaml",
+      "byte_size": 896,
+      "manifest_sha256": "AC236E767D05A5D495AD362E96D5189DD22293B5ACF287871CCD0239816E6861",
+      "actual_sha256": "AC236E767D05A5D495AD362E96D5189DD22293B5ACF287871CCD0239816E6861",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/build-phase-status.mjs",
+      "byte_size": 1149,
+      "manifest_sha256": "EE466FE982EC5D904BA6CF0AEE2282B4C4450179EC46758C1169D4DBAF0CE6DC",
+      "actual_sha256": "EE466FE982EC5D904BA6CF0AEE2282B4C4450179EC46758C1169D4DBAF0CE6DC",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/create-task.mjs",
+      "byte_size": 11701,
+      "manifest_sha256": "BECC3FDAD3E27597E546824CA9F766692E4B01D89481B8542815E218B0F28362",
+      "actual_sha256": "BECC3FDAD3E27597E546824CA9F766692E4B01D89481B8542815E218B0F28362",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/generate-bootstrap-candidate.mjs",
+      "byte_size": 4129,
+      "manifest_sha256": "F2AFE4E006E0B06582976BA8979855D2ED49275C73A9D1190E7EFBE507C1806A",
+      "actual_sha256": "F2AFE4E006E0B06582976BA8979855D2ED49275C73A9D1190E7EFBE507C1806A",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+      "byte_size": 1435,
+      "manifest_sha256": "F07D381562C25A56B6B8F387348E18059B6C3F5D1BE19EFB3982EFA8439F70E4",
+      "actual_sha256": "F07D381562C25A56B6B8F387348E18059B6C3F5D1BE19EFB3982EFA8439F70E4",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/generate-governance-commit-manifest.mjs",
+      "byte_size": 1498,
+      "manifest_sha256": "C98B495564DBA671E3939B26C5A258096C212CB47652CB3D9B6462FBFBBFD16D",
+      "actual_sha256": "C98B495564DBA671E3939B26C5A258096C212CB47652CB3D9B6462FBFBBFD16D",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance-commit-manifest.mjs",
+      "byte_size": 5105,
+      "manifest_sha256": "74FE26852412FB382526E1BB910605B8AC3A07F15C08440290D0363A9F5AFFF7",
+      "actual_sha256": "74FE26852412FB382526E1BB910605B8AC3A07F15C08440290D0363A9F5AFFF7",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance-controls.mjs",
+      "byte_size": 751,
+      "manifest_sha256": "4EFD6D48498184A2166D9962810328527A297CC3E28C1BD233BC0CD5C90F296B",
+      "actual_sha256": "4EFD6D48498184A2166D9962810328527A297CC3E28C1BD233BC0CD5C90F296B",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/domain-review-routing.mjs",
+      "byte_size": 3447,
+      "manifest_sha256": "5D9AE873E27B637594890D4D89FE13ADB058DAFEF3E217065BAD9DB82A7735AC",
+      "actual_sha256": "5D9AE873E27B637594890D4D89FE13ADB058DAFEF3E217065BAD9DB82A7735AC",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/fixture-report.mjs",
+      "byte_size": 2739,
+      "manifest_sha256": "2C677DD9430690DD10D708E4247A085DD82C9725F024A669E9FD65A7B2F50407",
+      "actual_sha256": "2C677DD9430690DD10D708E4247A085DD82C9725F024A669E9FD65A7B2F50407",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/gate-router.mjs",
+      "byte_size": 6418,
+      "manifest_sha256": "A7E5B19A95C38904788191F81B0A2C1152D25E24095D6D639268629C704E821A",
+      "actual_sha256": "A7E5B19A95C38904788191F81B0A2C1152D25E24095D6D639268629C704E821A",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+      "byte_size": 4053,
+      "manifest_sha256": "1A79C7D71BBDDFE49661DD032C52847148E7568F5D01E1D470B18B3C8E11C4A5",
+      "actual_sha256": "1A79C7D71BBDDFE49661DD032C52847148E7568F5D01E1D470B18B3C8E11C4A5",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/identity-resolver.mjs",
+      "byte_size": 3967,
+      "manifest_sha256": "C7DF670F54912F551059F39E421D751F70D0B99744A763FCBC4DF1DA252B1747",
+      "actual_sha256": "C7DF670F54912F551059F39E421D751F70D0B99744A763FCBC4DF1DA252B1747",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/lifecycle-projection.mjs",
+      "byte_size": 4329,
+      "manifest_sha256": "90D0EC56465FA72253C276787A5411DC0920DAC6D31AE576FBE2B1F4FECD1AA8",
+      "actual_sha256": "90D0EC56465FA72253C276787A5411DC0920DAC6D31AE576FBE2B1F4FECD1AA8",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/proposed-domain-rules.mjs",
+      "byte_size": 2730,
+      "manifest_sha256": "CFE9EE4E094AB123A94053D62422B176C78AF0015170767163A412C6615490D0",
+      "actual_sha256": "CFE9EE4E094AB123A94053D62422B176C78AF0015170767163A412C6615490D0",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/rule-class.mjs",
+      "byte_size": 4123,
+      "manifest_sha256": "558D3981D2B16D4D34B88A6348367336565074DC54E61D6DE9B6E66036D7B49E",
+      "actual_sha256": "558D3981D2B16D4D34B88A6348367336565074DC54E61D6DE9B6E66036D7B49E",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+      "byte_size": 17471,
+      "manifest_sha256": "61286064DC5713AC07C743777306B25650ED5AC1362D07696633CE55020118EA",
+      "actual_sha256": "61286064DC5713AC07C743777306B25650ED5AC1362D07696633CE55020118EA",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/scanner-report.mjs",
+      "byte_size": 7824,
+      "manifest_sha256": "78CA28AF7A46CC7A340E8623643E04B22A6A238F8F4CA61C60240D00B5CE414C",
+      "actual_sha256": "78CA28AF7A46CC7A340E8623643E04B22A6A238F8F4CA61C60240D00B5CE414C",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/scope-lattice.mjs",
+      "byte_size": 11344,
+      "manifest_sha256": "5491CF38CFE245C1674773D69B8D8B18565F5A97D866938050E346ED935F88DC",
+      "actual_sha256": "5491CF38CFE245C1674773D69B8D8B18565F5A97D866938050E346ED935F88DC",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/governance/typed-proof.mjs",
+      "byte_size": 5364,
+      "manifest_sha256": "5100E4FBA5D7C53FE18387EF99D9B8B9D822891F1CD8D4EBCAD98B448CAB605E",
+      "actual_sha256": "5100E4FBA5D7C53FE18387EF99D9B8B9D822891F1CD8D4EBCAD98B448CAB605E",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/lifecycle-projection.mjs",
+      "byte_size": 222,
+      "manifest_sha256": "1C82950A7C97A6EFBF4B44DBF180B71D31F4B10A54E2E25B14191C535DD10317",
+      "actual_sha256": "1C82950A7C97A6EFBF4B44DBF180B71D31F4B10A54E2E25B14191C535DD10317",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/path-safety.mjs",
+      "byte_size": 3475,
+      "manifest_sha256": "4D82071055D75E0E622B32623E20D005B208E388927E188A2431589A9E48920E",
+      "actual_sha256": "4D82071055D75E0E622B32623E20D005B208E388927E188A2431589A9E48920E",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/schema-validator.mjs",
+      "byte_size": 3931,
+      "manifest_sha256": "F2FBE3E1673B11358570D0D612CADB48D8491AAC8B0D1FF04180F7D05797FFC7",
+      "actual_sha256": "F2FBE3E1673B11358570D0D612CADB48D8491AAC8B0D1FF04180F7D05797FFC7",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/lib/secret-scanner.mjs",
+      "byte_size": 429,
+      "manifest_sha256": "C9C4594391E110BC351533D5E64C5A2AE0E7F35E30482D038FB248BF4B58982E",
+      "actual_sha256": "C9C4594391E110BC351533D5E64C5A2AE0E7F35E30482D038FB248BF4B58982E",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/validate-agent-environment.mjs",
+      "byte_size": 3644,
+      "manifest_sha256": "8B89588899C61AEC6BE569F9A09FC71A258550E6ED84DAEC369C56A952746F1F",
+      "actual_sha256": "8B89588899C61AEC6BE569F9A09FC71A258550E6ED84DAEC369C56A952746F1F",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/validate-change-scope.mjs",
+      "byte_size": 4877,
+      "manifest_sha256": "1C866039633FE811A18DE93B7BC2A2538268EE1ABE166827801E907919A16F7C",
+      "actual_sha256": "1C866039633FE811A18DE93B7BC2A2538268EE1ABE166827801E907919A16F7C",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/validate-phase-status.mjs",
+      "byte_size": 1743,
+      "manifest_sha256": "C5BE3CB1F9EC8CA2929F1EF7CAFF952016329AED4DFAC70A6B1418ACDC746258",
+      "actual_sha256": "C5BE3CB1F9EC8CA2929F1EF7CAFF952016329AED4DFAC70A6B1418ACDC746258",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/scripts/validate-task.mjs",
+      "byte_size": 48121,
+      "manifest_sha256": "DFCE872FA67C2EF1740D8E335790A609F1A8E78C2950ACAC9178FFE7D741F99D",
+      "actual_sha256": "DFCE872FA67C2EF1740D8E335790A609F1A8E78C2950ACAC9178FFE7D741F99D",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/tests/fixture-suite-manifest.json",
+      "byte_size": 7482,
+      "manifest_sha256": "88C24EAB4C29FC9860BA5593E7A5AF009EB78309EE814AB08A2D15766EC88757",
+      "actual_sha256": "88C24EAB4C29FC9860BA5593E7A5AF009EB78309EE814AB08A2D15766EC88757",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/tests/run-binary-magic-registry-mutations.mjs",
+      "byte_size": 5313,
+      "manifest_sha256": "3383B8C031531E5F6C79744C69CBF7DDA5309CE721DEB6EE5AC19476F898F7DF",
+      "actual_sha256": "3383B8C031531E5F6C79744C69CBF7DDA5309CE721DEB6EE5AC19476F898F7DF",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/tests/run-bootstrap-mutation-tests.mjs",
+      "byte_size": 11365,
+      "manifest_sha256": "A061EC396EEC347C7AEF8B1CA8FA86C5E7AFA7A6C7BFB626F72B5920A257C073",
+      "actual_sha256": "A061EC396EEC347C7AEF8B1CA8FA86C5E7AFA7A6C7BFB626F72B5920A257C073",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "byte_size": 32753,
+      "manifest_sha256": "817ADE1912F26FF4EF464D22F491678C3252643ACC3E25AD9C7657FD61D62E76",
+      "actual_sha256": "817ADE1912F26FF4EF464D22F491678C3252643ACC3E25AD9C7657FD61D62E76",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/tests/run-bootstrap-scanner-production.mjs",
+      "byte_size": 10762,
+      "manifest_sha256": "8F3CBCAB73332AA2CDF7DCD154815C3E4739CEECDA512E9A51FA45EBE2E977C9",
+      "actual_sha256": "8F3CBCAB73332AA2CDF7DCD154815C3E4739CEECDA512E9A51FA45EBE2E977C9",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/tests/run-governance-fixtures-concurrency.mjs",
+      "byte_size": 4692,
+      "manifest_sha256": "2DEB67076C2E05050ED09A217AC80CB03A95318F8D9C80B702E80475F7F5EBCE",
+      "actual_sha256": "2DEB67076C2E05050ED09A217AC80CB03A95318F8D9C80B702E80475F7F5EBCE",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/tests/run-governance-fixtures.mjs",
+      "byte_size": 19638,
+      "manifest_sha256": "7EF4FD382AB03156136322DC83B0BB7064E1F9B9A9A984861AF216305E3A198F",
+      "actual_sha256": "7EF4FD382AB03156136322DC83B0BB7064E1F9B9A9A984861AF216305E3A198F",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/tests/scanner-production-case-manifest.json",
+      "byte_size": 4632,
+      "manifest_sha256": "E1D622F18B3ECA0AFD20F7CCD383B0238779671FFAEACC9023BB9B5ED5B3A4F2",
+      "actual_sha256": "E1D622F18B3ECA0AFD20F7CCD383B0238779671FFAEACC9023BB9B5ED5B3A4F2",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/workflows/l1-lightweight.md",
+      "byte_size": 298,
+      "manifest_sha256": "5464A43605D3A71F036602BCB51A571B13E1D526673CBEB7AE77ABD58F0D6711",
+      "actual_sha256": "5464A43605D3A71F036602BCB51A571B13E1D526673CBEB7AE77ABD58F0D6711",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/workflows/l2-standard.md",
+      "byte_size": 293,
+      "manifest_sha256": "B0F536CD939F03BF9FF2E35113B8BB6E398E7D2F8DF5BACACEBC411347D699E5",
+      "actual_sha256": "B0F536CD939F03BF9FF2E35113B8BB6E398E7D2F8DF5BACACEBC411347D699E5",
+      "hash_match": true
+    },
+    {
+      "path": ".codex/workflows/l3-high-risk.md",
+      "byte_size": 1364,
+      "manifest_sha256": "F04C4F8DDD6BDEB604DD0037859BF345DF1A8635E4C44AD24A626FFA520B832F",
+      "actual_sha256": "F04C4F8DDD6BDEB604DD0037859BF345DF1A8635E4C44AD24A626FFA520B832F",
+      "hash_match": true
+    },
+    {
+      "path": "AGENTS.md",
+      "byte_size": 10042,
+      "manifest_sha256": "3A6F4473E8E8EF9E285BAEA982108C13459BE4D7E36F48F508EB8F58CBA4C1E2",
+      "actual_sha256": "3A6F4473E8E8EF9E285BAEA982108C13459BE4D7E36F48F508EB8F58CBA4C1E2",
+      "hash_match": true
+    }
+  ]
+}

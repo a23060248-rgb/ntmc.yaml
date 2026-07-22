@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "title": "Session B2 Final Bootstrap Compatibility Re-review",
+  "task_type": "review",
+  "objective": "Perform a fresh five-context formal compatibility re-review of the unchanged exact 103-file Phase 1.9 candidate, formally disposition the two Session B Security findings and determine eligibility for Human Exact-Manifest Confirmation without granting commit authority.",
+  "business_reason": "Remediation 10 prepared a production-derived Scanner Contract v5 chain and exact read scope; only a fresh independent B2 Reviewer Set may determine whether the Session B findings are closed.",
+  "scope": {"include": ["AGENTS.md", ".agents/**", ".codex/**"], "exclude": [".env*", "collab/**", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "parent directories", "sibling directories", "Git mutation", "Human Exact-Manifest Confirmation", "steady-state activation", "Migration 320 approval"], "product_changes_allowed": false, "database_operations_allowed": false, "git_mutation_allowed": false},
+  "acceptance_criteria": ["The exact candidate remains 103 files with frozen manifest and file-set hashes.", "All pre-review inputs are frozen before any Reviewer starts and remain byte-identical afterward.", "Five fresh formal read-only Reviewers use unique assignments, runs and sessions.", "Security directly reads all eight required chain nodes and 103 included files through an exact hash-bound allowlist.", "The two original Session B finding IDs receive formal Security closure dispositions.", "All deterministic suites and 31 mutants pass with complete raw evidence.", "A10, Session B, Remediation 10, history and Migration 320 remain byte-identical.", "A PASS may only establish eligibility for Human Exact-Manifest Confirmation; Human Commit, Git, steady state and Migration 320 remain blocked."],
+  "requested_by": "human-governance-owner",
+  "authorization": "The human explicitly authorized Session B2 only; no candidate modification, Human Exact-Manifest action, Git mutation, steady-state activation or Migration 320 approval is authorized."
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "scan_scope": {"governance_artifacts": "DETERMINISTIC_CONTRACT", "external_referenced_evidence": "LIMITED"},
+  "scan_contract": {
+    "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scan_contract_version": 5,
+    "manifest_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9",
+    "scanned_file_count": 97,
+    "scanned_file_set_sha256": "13795421312A230963C1208B2B668730E569219DB27147E0454763BC83450866",
+    "contract_sha256": "68A51BF5606511401C64105D3764B9BDE79A9E1198933E433B7D979506B84F05",
+    "finding_registry_sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B",
+    "canonicalization_config_sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6",
+    "binary_oracle_config_sha256": "B25F552BC2379EDEB741862682277B5BA7B435A389ED162E0F297E96C066733F",
+    "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+    "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836"
+  },
+  "claims": {
+    "declared_scan_contract_executed": true,
+    "no_findings_within_declared_contract": true,
+    "external_evidence_globally_clean": false,
+    "global_sensitive_data_absence_verified": false,
+    "trusted_producer_identity_verified": false,
+    "os_runtime_isolation_verified": false
+  },
+  "external_evidence": [],
+  "limitations": [
+    "The scanner covers only the exact 97-file bootstrap candidate and declared contract v5 classes.",
+    "A8 Security Review closed the historical scanner findings, but bootstrap producer provenance and OS isolation remain unverified.",
+    "External Migration 320 evidence was hash-verified but was not globally rescanned or reinterpreted.",
+    "No DLP, operating-system isolation, repository-global scanning, Git index identity, remote control, or global sensitive-data absence claim is made."
+  ]
+}

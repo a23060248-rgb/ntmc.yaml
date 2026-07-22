@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION",
+  "package_count": 5,
+  "packages": [
+    {
+      "review_package_id": "PKG-7B92159005BED99CD0EBC9C7",
+      "task_id": "GOV-PHASE1-B6EXT-CODE-REVIEW",
+      "role": "EXTERNAL_CODE_REVIEWER",
+      "package_manifest_path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/package-manifest.json",
+      "package_manifest_sha256": "2D8E58EEA50F30D170DF58FAA13EAE35D70A6C16159E8FCCEF3086AE0AE201EC",
+      "declared_package_core_sha256": "D0CE723975EA6FD1AD51E33A3A323A305387D83B8DB6719545ABC9FFAE6519C3",
+      "recomputed_package_core_sha256": "D0CE723975EA6FD1AD51E33A3A323A305387D83B8DB6719545ABC9FFAE6519C3",
+      "core_file_count": 9,
+      "all_core_file_hashes_match": true,
+      "result": "PASS"
+    },
+    {
+      "review_package_id": "PKG-80147D05BF0731E544649885",
+      "task_id": "GOV-PHASE1-B6EXT-SECURITY-REVIEW",
+      "role": "EXTERNAL_SECURITY_INTEGRITY_REVIEWER",
+      "package_manifest_path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/package-manifest.json",
+      "package_manifest_sha256": "115FD65A7B39B0228872A0BFC9F394807EA006FAB49E2D48ECE27ABE71C7B839",
+      "declared_package_core_sha256": "A1813289A6BF51F6150B73F845D351E77B7BB33FDEB86787217073AC6E6ABC8F",
+      "recomputed_package_core_sha256": "A1813289A6BF51F6150B73F845D351E77B7BB33FDEB86787217073AC6E6ABC8F",
+      "core_file_count": 9,
+      "all_core_file_hashes_match": true,
+      "result": "PASS"
+    },
+    {
+      "review_package_id": "PKG-082719421A6B04661EDA399F",
+      "task_id": "GOV-PHASE1-B6EXT-RAILWAY-REVIEW",
+      "role": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+      "package_manifest_path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/package-manifest.json",
+      "package_manifest_sha256": "F8D46A4982A5C4264B3D4AC412DBF780C52DFAD176A91F1B61D2FDFD9A33A366",
+      "declared_package_core_sha256": "F55481920E35E0A9A8ECCCD3110698A5E2C5461D19538D8C6900374A6E98C1B4",
+      "recomputed_package_core_sha256": "F55481920E35E0A9A8ECCCD3110698A5E2C5461D19538D8C6900374A6E98C1B4",
+      "core_file_count": 9,
+      "all_core_file_hashes_match": true,
+      "result": "PASS"
+    },
+    {
+      "review_package_id": "PKG-3950B1480D885E8819698093",
+      "task_id": "GOV-PHASE1-B6EXT-COMPATIBILITY-REVIEW",
+      "role": "EXTERNAL_GOVERNANCE_COMPATIBILITY_REVIEWER",
+      "package_manifest_path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/package-manifest.json",
+      "package_manifest_sha256": "4B2AD883F919003375B68F9C672CE3D692E2A559FF63ED4EC185D2D8281DCD02",
+      "declared_package_core_sha256": "F6263E096EE0287E6B5D49111983D3AA9EA87A0E61B5075FC7F11FBAE9277C2A",
+      "recomputed_package_core_sha256": "F6263E096EE0287E6B5D49111983D3AA9EA87A0E61B5075FC7F11FBAE9277C2A",
+      "core_file_count": 9,
+      "all_core_file_hashes_match": true,
+      "result": "PASS"
+    },
+    {
+      "review_package_id": "PKG-F299CB520B1813B6D1F5AECF",
+      "task_id": "GOV-PHASE1-B6EXT-AGGREGATION-QA",
+      "role": "EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+      "package_manifest_path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/package-manifest.json",
+      "package_manifest_sha256": "7BF871F4D67D5F9673D9B7654120A28546B79A02DFC9A5D807579D90EDA70469",
+      "declared_package_core_sha256": "11D7DC83A41BFA554B6399E6729145C542DE94535AA343560D8D43C802F79DFF",
+      "recomputed_package_core_sha256": "11D7DC83A41BFA554B6399E6729145C542DE94535AA343560D8D43C802F79DFF",
+      "core_file_count": 10,
+      "all_core_file_hashes_match": true,
+      "result": "PASS"
+    }
+  ],
+  "package_ids_unique": true,
+  "assignment_ids_unique": true,
+  "reviewer_run_ids_unique": true,
+  "reviewer_session_nonces_unique": true,
+  "external_chats_created": false,
+  "result": "PASS"
+}

@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-7",
+  "generated_at": "2026-07-19T08:30:00+08:00",
+  "git_commands_run": false,
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "syntax": {
+    "total": 18,
+    "passed": 18,
+    "failed": 0,
+    "results": [
+      {
+        "ref": ".codex/scripts/build-phase-status.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/generate-bootstrap-candidate.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/validate-task.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/lib/schema-validator.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/lib/governance-commit-manifest.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/lib/governance/domain-review-routing.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/lib/governance/gate-router.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/lib/governance/lifecycle-projection.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/lib/governance/scanner-report.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/scripts/lib/governance/typed-proof.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/tests/run-bootstrap-scanner-production.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/tests/run-bootstrap-production-integration.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/tests/run-bootstrap-mutation-tests.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/tests/run-governance-fixtures.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/tests/run-governance-fixtures-concurrency.mjs",
+        "exit_code": 0,
+        "pass": true
+      },
+      {
+        "ref": ".codex/tasks/GOV-PHASE1-REMEDIATION-7/build-task-artifacts.mjs",
+        "exit_code": 0,
+        "pass": true
+      }
+    ]
+  },
+  "fixtures": {
+    "suite_id": "PHASE1-BOOTSTRAP-CORE",
+    "suite_version": 7,
+    "case_manifest_sha256": "6454720742D0BE4DD76D6B2F37251B906A8E8679B496A2E99ACBF176221E048E",
+    "total": 68,
+    "passed": 68,
+    "failed": 0,
+    "exit_code": 0
+  },
+  "scanner_production": {
+    "suite_id": "PHASE1-BOOTSTRAP-SCANNER-PRODUCTION",
+    "suite_version": 1,
+    "total": 72,
+    "passed": 72,
+    "failed": 0,
+    "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+    "exit_code": 0
+  },
+  "production_integration": {
+    "total": 27,
+    "passed": 27,
+    "failed": 0,
+    "layers": [
+      "schema-loader",
+      "gate-router",
+      "target-gate-cli",
+      "bootstrap-candidate-binding",
+      "scanner-report-schema",
+      "scanner-contract-bundle",
+      "domain-review-routing",
+      "migration-gate-separation",
+      "scope-lattice",
+      "rule-class-authority"
+    ],
+    "exit_code": 0
+  },
+  "mutation": {
+    "total": 17,
+    "killed": 17,
+    "survived": 0,
+    "production_entrypoints": [
+      ".codex/tests/run-bootstrap-production-integration.mjs",
+      ".codex/tests/run-bootstrap-scanner-production.mjs"
+    ],
+    "exit_code": 0
+  },
+  "concurrency": {
+    "passed": true,
+    "reports_valid": true,
+    "unique_run_roots": true,
+    "caller_ids_ignored": true,
+    "unique_case_roots": true,
+    "case_roots_owned": true,
+    "adversarial_reports_rejected": true,
+    "exit_code": 0
+  },
+  "candidate": {
+    "artifact_count": 92,
+    "manifest_sha256": "8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51",
+    "all_manifest_hashes_match": true,
+    "scanner_report_sha256": "FFF9FD0A6DF720ED5753261A0094A7AFF54BAAB661966D4F6D5BD33BC05D880D",
+    "scanner_result": "PASS",
+    "scanner_finding_count": 0,
+    "scanner_contract_version": 5,
+    "candidate_record_type": "BOOTSTRAP_WORKSPACE_CANDIDATE",
+    "candidate_assurance": "INTERNAL_CONSISTENCY_ONLY",
+    "candidate_manifest_binding_match": true,
+    "candidate_scanner_binding_match": true,
+    "candidate_file_count_match": true,
+    "scanner_bundle_binding_match": true
+  },
+  "lifecycle": {
+    "validator_exit_code": 0,
+    "pass": true
+  },
+  "current_r7": {
+    "validator_exit_code": 2,
+    "expected_exit_code": 2,
+    "structural_error_count": 0,
+    "result_line": "VALIDATE_TASK_RESULT task_id=GOV-PHASE1-REMEDIATION-7 calculated_gate=NO-GO target_gate=bootstrap_candidate_review:NO-GO structural=VALID exit=2 bootstrap_candidate_review=NO-GO bootstrap_human_commit=NO-GO steady_state_preparation=DISABLED steady_state_execution=DISABLED migration_320_execution=NO-GO proof_assurance=INTERNAL_CONSISTENCY_ONLY"
+  },
+  "migration_320": {
+    "validator_exit_code": 2,
+    "expected_exit_code": 2,
+    "structural_error_count": 0,
+    "result_line": "VALIDATE_TASK_RESULT task_id=GOV-M320-DRYRUN calculated_gate=NO-GO target_gate=migration_320_execution:NO-GO structural=VALID exit=2 bootstrap_candidate_review=NO-GO bootstrap_human_commit=NO-GO steady_state_preparation=DISABLED steady_state_execution=DISABLED migration_320_execution=NO-GO proof_assurance=INTERNAL_CONSISTENCY_ONLY"
+  },
+  "overall_pass": true
+}

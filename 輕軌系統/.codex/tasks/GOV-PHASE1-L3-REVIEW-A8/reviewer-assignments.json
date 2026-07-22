@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "root_session_id": "A8-ROOT-SESSION-82817250-43e9-4890-b977-85dcf366e66f",
+  "candidate_manifest_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9",
+  "candidate_manifest_file_count": 97,
+  "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+  "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+  "implementer_session_id": "R8-IMPLEMENTER-SESSION-7D6E38EA-6B4C-41EF-96CC-5E3AF96768FA",
+  "assignments": [
+    {
+      "reviewer": "code-reviewer", "formal": true, "did_not_participate_in_implementation": true,
+      "reviewer_run_id": "A8-CODE-RUN-d04fc3fe-c300-450b-857d-ba3c2f13dc50",
+      "session_id": "A8-CODE-SESSION-6c4db7fe-3808-4577-88e6-86cebdb28699",
+      "reviewed_candidate_baseline": "phase-1.8-bootstrap",
+      "review_scope": "authoritative gate derivation, dependency routing, production target-gate behavior, and A7 Code finding closure",
+      "output_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/code-review.json"
+    },
+    {
+      "reviewer": "security-reviewer", "formal": true, "did_not_participate_in_implementation": true,
+      "reviewer_run_id": "A8-SEC-RUN-0ecb32f9-2578-45ef-ad3d-2c46227c316f",
+      "session_id": "A8-SEC-SESSION-9b964674-361a-462c-b25d-ca362a7a278a",
+      "reviewed_candidate_baseline": "phase-1.8-bootstrap",
+      "review_scope": "scanner report bindings, nine-magic production oracles, binary mutation resistance, declared finding classes, and A5/A6/A7 Security closure",
+      "output_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/security-review.json"
+    },
+    {
+      "reviewer": "railway-domain-reviewer", "formal": true, "did_not_participate_in_implementation": true,
+      "reviewer_run_id": "A8-DOMAIN-RUN-ee1b423f-2365-43d2-9199-29cabdb40055",
+      "session_id": "A8-DOMAIN-SESSION-2c971a47-1f88-4a74-a880-8f97c2f7cb15",
+      "reviewed_candidate_baseline": "phase-1.8-bootstrap",
+      "review_scope": "official Railway Domain Review schema loading, schema-set binding, mechanism routing, and separation from the external Migration 320 decision",
+      "output_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/railway-domain-review.json"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "contract_id": "GOV-GATE-REFERENCED-EVIDENCE-COMPLETENESS",
+  "gate_input": "referenced_evidence_validation",
+  "required_predicates": ["required_count = resolved_count", "required_count = validated_count", "invalid_count = 0", "unresolved_count = 0", "duplicate_count = 0", "complete = true"],
+  "failure_result": {"structural": "INVALID", "bootstrap_candidate_review": "NO-GO", "exit_code": 1},
+  "self_asserted_evidence_fields_trusted": false
+}

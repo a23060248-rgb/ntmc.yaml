@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "blocker_id": "A11_COMMON_PACKAGE_BINDING_FAILURE",
+  "phase": "PRELAUNCH / BEFORE REVIEWER 1",
+  "reviewers_started": 0,
+  "aggregator_started": 0,
+  "candidate_change_required": false,
+  "package_change_required": true,
+  "defects": [
+    "RETURN_PAYLOAD_CONTRACT_CONFLICT",
+    "CODE_FINDING_CLOSURE_AUTHORITY_CONFLICT",
+    "CLEAN_CONTEXT_ATTESTATION_MISSING",
+    "AGGREGATOR_WRITE_AND_QA_AUTHORIZATION_MISSING",
+    "RAW_QA_EVIDENCE_CONTRACT_MISSING"
+  ],
+  "remediation_boundary": [
+    "A11 packages",
+    "A11 schemas",
+    "A11 exact scopes",
+    "A11 assignments",
+    "A11 prompts",
+    "A11 identities",
+    "A11 hashes",
+    "A11 launch envelopes",
+    "A11 Aggregator execution contract"
+  ],
+  "forbidden_changes": [
+    "108-file Candidate",
+    "Candidate Remediation 13",
+    "historical A11 preparation",
+    "historical Reviewer evidence",
+    "Migration 320",
+    "product code",
+    "database",
+    "Git"
+  ]
+}

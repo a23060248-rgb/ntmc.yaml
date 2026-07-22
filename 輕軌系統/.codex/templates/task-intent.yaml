@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "DRAFT",
+  "task_id": "<TASK-ID>",
+  "title": "<TITLE>",
+  "task_type": "governance",
+  "objective": "<OBJECTIVE>",
+  "business_reason": "<BUSINESS-REASON>",
+  "scope": {"include": [".codex/tasks/<TASK-ID>/**"], "exclude": [".env*", "sibling directories", "formal database"], "product_changes_allowed": false, "database_operations_allowed": false},
+  "acceptance_criteria": ["<ACCEPTANCE-CRITERION>"],
+  "requested_by": "human"
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "scan_scope": {
+    "governance_artifacts": "DETERMINISTIC_CONTRACT",
+    "external_referenced_evidence": "LIMITED"
+  },
+  "scan_contract": {
+    "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scan_contract_version": 5,
+    "manifest_sha256": "8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51",
+    "scanned_file_count": 92,
+    "scanned_file_set_sha256": "C8C4CD2DC1457B68436E1973DB3163D7DE4D168FB6E1244F1C06EAA749297F84",
+    "contract_sha256": "8CB9425631FD0D3CB50F8F0AFF6E5F9204D5F25FDD437A12712892DFC83C9463",
+    "finding_registry_sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B",
+    "canonicalization_config_sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6",
+    "binary_oracle_config_sha256": "02E0C444F550EAC538C46D61ADFEE7C2C89B3DC3D0DF3A0B57223491D3EF2B16"
+  },
+  "claims": {
+    "declared_scan_contract_executed": true,
+    "no_findings_within_declared_contract": true,
+    "external_evidence_globally_clean": false,
+    "global_sensitive_data_absence_verified": false,
+    "trusted_producer_identity_verified": false,
+    "os_runtime_isolation_verified": false
+  },
+  "external_evidence": [],
+  "limitations": [
+    "The scanner covers only the exact 92-file bootstrap candidate and the declared contract v5 classes.",
+    "A7 independently recomputed the current scanner bindings, but the formal Security Reviewer found that the mandatory binary-oracle coverage contract is incomplete.",
+    "The scanner report and validator remain mutable bootstrap workspace artifacts with internal-consistency assurance only.",
+    "External Migration 320 evidence was hash-verified but was not globally rescanned or reinterpreted.",
+    "No operating-system isolation, repository-global scanning, Git index, remote control, or global sensitive-data absence claim is made."
+  ]
+}

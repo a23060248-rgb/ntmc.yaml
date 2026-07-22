@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "status": "ARCHIVED",
+  "session_b_outcome": "BLOCKER",
+  "reviewer_outcomes": [
+    {"reviewer": "code-reviewer", "outcome": "PASS", "reviewer_run_id": "SB-CODE-RUN-5B662F37-4CEB-4E0E-87E0-1D2263A2DFB1", "session_id": "SB-CODE-SESSION-3D77F34D-8C93-47BB-9161-A4C340AF3043", "supplemental_l3_contract_review": true},
+    {"reviewer": "compatibility-reviewer", "outcome": "PASS", "reviewer_run_id": "SB-COMPAT-RUN-081CF7D3-74F3-489E-8EFC-252E2CF2514B", "session_id": "SB-COMPAT-SESSION-FA64284D-6348-49C2-9F88-18CE89BB4C66"},
+    {"reviewer": "security-reviewer", "outcome": "BLOCKER", "reviewer_run_id": "SB-SEC-RUN-83AF7C07-A3E6-4833-8591-E24F5E5F0A93", "session_id": "SB-SEC-SESSION-B2F727B2-46CA-469B-AF35-CEC353F63A61", "finding_refs": ["SB-SEC-EVIDENCE-CONTRACT-VERSION-001", "SB-SEC-ALLOWLIST-EVIDENCE-GAP-001"]},
+    {"reviewer": "railway-domain-reviewer", "outcome": "PASS", "governance_mechanism_outcome": "PASS", "migration_320_domain_decision": "NEEDS_HUMAN_DECISION", "reviewer_run_id": "SB-DOMAIN-RUN-129D273D-677F-4510-B23D-2FC8517C8A91", "session_id": "SB-DOMAIN-SESSION-5AA6D11D-6898-4D60-ADB5-409146171D05"}
+  ],
+  "severity_counts": {"BLOCKER": 2, "HIGH": 0, "MEDIUM": 0, "LOW": 0},
+  "candidate_integrity": {"file_count": 103, "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D", "file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB", "unchanged": true, "session_b_artifacts_in_candidate": false},
+  "fresh_regressions": {"syntax": "18/18 PASS", "fixtures": "68/68 PASS", "production_scanner": "72/72 PASS", "production_integration": "48/48 PASS", "production_mutations": "31/31 KILLED", "reviewer_binding": "14/14 PASS", "official_schema_loader": "11/11 PASS", "schema_loader_mutations": "6/6 KILLED", "binary_magic_mutations": "45/45 KILLED", "concurrency": "PASS"},
+  "reviewed_source_baseline": {"total": 786, "identical": true, "git_diff_used": false},
+  "authoritative_validator": {"structural": "VALID", "reported_exit": 2, "proof_assurance": "INTERNAL_CONSISTENCY_ONLY"},
+  "eligible_for_human_exact_manifest_confirmation": false,
+  "bootstrap_candidate_review_gate": "NO-GO",
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "migration_320_domain_decision": "NEEDS_HUMAN_DECISION",
+  "git_mutation_performed": false,
+  "candidate_source_modified": false,
+  "root_modified_reviewer_outcomes": false,
+  "blockers": [
+    {"finding_id": "SB-SEC-EVIDENCE-CONTRACT-VERSION-001", "affected_contract": "Session B security evidence to production scan-contract binding", "production_path": ".codex/governance/scan-contract.yaml and security-evidence schema consumption", "minimal_reproduction": "Compare security-evidence.yaml scan_contract_version=4 with production scan-contract.yaml scan_contract_version=5 and SHA256 6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C.", "incorrect_go_or_false_claim": "Accepting the Session B zero-finding assertion would misidentify the executed security contract version.", "why_existing_a10_evidence_did_not_detect_it": "The defect is newly introduced in the Session B scaffold security-evidence artifact; A10 did not review this new Task record."},
+    {"finding_id": "SB-SEC-ALLOWLIST-EVIDENCE-GAP-001", "affected_contract": "Formal Security independent-verification read scope", "production_path": "security-review-read-scope.json allowlist enforcement", "minimal_reproduction": "Check allowed_files and observe that governance-commit-manifest.yaml, bootstrap-candidate-record.json and bootstrap-scanner-report.json are absent.", "incorrect_go_or_false_claim": "Filed summaries cannot substitute for direct source-byte verification of the candidate chain.", "why_existing_a10_evidence_did_not_detect_it": "A10 used its own complete Security allowlist; the omission exists only in the new Session B allowlist."}
+  ],
+  "conclusion": "Session B is archived BLOCKER. The exact candidate and protected sources remain unchanged, but the Session B Security evidence package is not independently complete. Human exact-manifest confirmation is not eligible; Human Commit, Git, steady-state and Migration 320 execution remain prohibited."
+}

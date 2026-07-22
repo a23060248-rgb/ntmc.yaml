@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "verification_target": "GOV-M320-DRYRUN",
+  "mode": "read-only-hash-and-gate-wrapper",
+  "external_evidence_count": 5,
+  "artifacts": [
+    {
+      "artifact_id": "ART-M320-COMPAT-REPORT",
+      "relative_path": "docs/migration-320-compatibility-report.md",
+      "expected_sha256": "3F78871002ECD422EBA1EF05D63BE7A54940B12ED020E2423667D036A7091BC1",
+      "actual_sha256": "3F78871002ECD422EBA1EF05D63BE7A54940B12ED020E2423667D036A7091BC1",
+      "unchanged": true
+    },
+    {
+      "artifact_id": "ART-M320-BEFORE-AFTER",
+      "relative_path": "docs/migration-320-before-after.json",
+      "expected_sha256": "2C751A478FCE04C03E61CE909215498D4D378B767AFE3A726855D7890F12B988",
+      "actual_sha256": "2C751A478FCE04C03E61CE909215498D4D378B767AFE3A726855D7890F12B988",
+      "unchanged": true
+    },
+    {
+      "artifact_id": "ART-M320-ANOMALIES",
+      "relative_path": "docs/migration-320-data-anomalies.csv",
+      "expected_sha256": "8E552DFA9524995E05B918EC8B87810E1889CDFC8E1694E79C0FA41863700B4D",
+      "actual_sha256": "8E552DFA9524995E05B918EC8B87810E1889CDFC8E1694E79C0FA41863700B4D",
+      "unchanged": true
+    },
+    {
+      "artifact_id": "ART-M320-CLOSURE",
+      "relative_path": "docs/cross-module-closure-report.md",
+      "expected_sha256": "1AAA1E6D7C9BDEBF4762E6EDEC0EE4A9A6C7800B47ECEB3239F31231321594F4",
+      "actual_sha256": "1AAA1E6D7C9BDEBF4762E6EDEC0EE4A9A6C7800B47ECEB3239F31231321594F4",
+      "unchanged": true
+    },
+    {
+      "artifact_id": "ART-M320-NO-GO",
+      "relative_path": "docs/go-no-go-report.md",
+      "expected_sha256": "743E1B4473B67298228CFB047C0EA6043A97F3F29EBF71083A7A96F76367BBDA",
+      "actual_sha256": "743E1B4473B67298228CFB047C0EA6043A97F3F29EBF71083A7A96F76367BBDA",
+      "unchanged": true
+    }
+  ],
+  "structural_result": "VALID",
+  "calculated_gate": "NO-GO",
+  "expected_exit_code": 2,
+  "migration_execution_authorized": false,
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "original_evidence_modified": false,
+  "violations": []
+}

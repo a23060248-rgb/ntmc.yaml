@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "prepared_by_task": "GOV-PHASE1-REMEDIATION-11",
+  "human_approval_artifact_path": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/human-approval.yaml",
+  "must_not_exist_before_or_during_reviews": true,
+  "create_only_after_five_outcomes_frozen": true,
+  "initial_value": {
+    "status": "pending",
+    "authorized_actions": []
+  },
+  "reviewer_access_forbidden": true,
+  "feedback_into_reviewer_evidence_forbidden": true,
+  "pending_is_candidate_blocker": false,
+  "pending_is_compatibility_blocker": false,
+  "approval_in_b3_forbidden": true,
+  "violation_effect": {
+    "reviewer_outcome": "BLOCKER",
+    "review_session": "INVALID"
+  },
+  "result": "PASS"
+}

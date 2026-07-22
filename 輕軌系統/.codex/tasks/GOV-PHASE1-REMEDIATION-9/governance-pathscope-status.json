@@ -1,0 +1,16 @@
+{
+  "schema_version":1,
+  "task_id":"GOV-PHASE1-REMEDIATION-9",
+  "authorized_read_scope":["AGENTS.md",".agents/**",".codex/**"],
+  "authorized_write_scope":["AGENTS.md",".agents/**",".codex/agents/**",".codex/blueprints/**",".codex/checklists/**",".codex/domain/**",".codex/environment/**",".codex/governance/**",".codex/meta-rules/**",".codex/scripts/**",".codex/templates/**",".codex/tests/**",".codex/workflows/**",".codex/config.toml",".codex/tasks/GOV-PHASE1-REMEDIATION-9/**"],
+  "forbidden_paths_read":false,
+  "forbidden_paths_written":false,
+  "environment_files_read":false,
+  "product_or_database_files_read":false,
+  "product_or_database_files_written":false,
+  "git_command_run":false,
+  "git_state_claimed":false,
+  "service_or_database_operation_run":false,
+  "system_temp_mutations_only_for_adversarial_tests":true,
+  "result":"PASS_WITH_DECLARED_SCOPE_LIMITATION"
+}

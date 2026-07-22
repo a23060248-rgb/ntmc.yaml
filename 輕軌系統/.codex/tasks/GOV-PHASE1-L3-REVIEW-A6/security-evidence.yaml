@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "scan_scope": {"governance_artifacts":"DETERMINISTIC_CONTRACT","external_referenced_evidence":"LIMITED"},
+  "scan_contract": {
+    "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+    "scan_contract_version": 4,
+    "manifest_sha256": "52CE2A476C2D29BBE1AA1461D8D62B41502381FF776007580F23B2ED0D77AA33",
+    "scanned_file_count": 81,
+    "scanned_file_set_sha256": "E7D1186203D6909AEE7CEFBE829E8D2C22CA6FAA025DB4C46186ED70B57FAB11"
+  },
+  "claims": {
+    "declared_scan_contract_executed": true,
+    "no_findings_within_declared_contract": true,
+    "external_evidence_globally_clean": false,
+    "global_sensitive_data_absence_verified": false,
+    "formal_security_review_outcome": "BLOCKER"
+  },
+  "external_evidence": [],
+  "limitations": [
+    "The current exact manifest scan is PASS with zero findings, but A6 Security Review proved that replacement scanner report ID, version, and claims are not fully bound by production consumers.",
+    "The formal contract equality and extension-magic safe-negative oracle remain incomplete.",
+    "This evidence is not DLP, repository-global assurance, OS isolation, or trusted producer provenance."
+  ]
+}

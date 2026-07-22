@@ -1,0 +1,13 @@
+import { readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const dir=path.dirname(fileURLToPath(import.meta.url));
+const before=JSON.parse(await readFile(path.join(dir,"baseline-before.json"),"utf8"));
+const after=JSON.parse(await readFile(path.join(dir,"baseline-after.json"),"utf8"));
+const map=(items)=>new Map(items.map((x)=>[x.relative_path,`${x.byte_size}:${x.sha256}`]));
+const a=map(before.frozen_artifacts),b=map(after.frozen_artifacts),changed=[];
+for(const [ref,value] of a) if(b.get(ref)!==value) changed.push(ref);
+for(const ref of b.keys()) if(!a.has(ref)) changed.push(ref);
+const output={schema_version:1,task_id:"GOV-PHASE1-REMEDIATION-4",frozen_before_count:a.size,frozen_after_count:b.size,changed_frozen_artifacts:[...new Set(changed)].sort(),historical_integrity:changed.length?"FAIL":"PASS",candidate_before_count:before.candidate_artifacts.length,candidate_after_count:after.candidate_artifacts.length,candidate_baseline_reused:false};
+await writeFile(path.join(dir,"historical-integrity.json"),`${JSON.stringify(output,null,2)}\n`,{encoding:"utf8",flag:"wx"});
+console.log(`REMEDIATION_HISTORY result=${output.historical_integrity} frozen=${a.size} candidate_before=${output.candidate_before_count} candidate_after=${output.candidate_after_count}`);

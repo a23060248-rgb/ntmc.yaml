@@ -1,0 +1,50 @@
+{
+  "schema_version": 3,
+  "policy_type": "bootstrap-governance-and-external-evidence-separation",
+  "governance_mode": "bootstrap",
+  "governance_commit_candidates": ["AGENTS.md", ".codex/**", ".agents/**"],
+  "governance_requirements": {
+    "evidence_scope": "governance_artifact",
+    "commit_inclusion": true,
+    "content_scan_status": "DETERMINISTIC_CONTRACT",
+    "detected_secret_or_operational_path_result": "validation-error-exit-1",
+    "commit_manifest": ".codex/governance/governance-commit-manifest.yaml",
+    "manifest_coverage": "exact-included-paths-and-hashes",
+    "bootstrap_candidate_record_type": "BOOTSTRAP_WORKSPACE_CANDIDATE",
+    "bootstrap_candidate_assurance": "INTERNAL_CONSISTENCY_ONLY",
+    "bootstrap_candidate_purpose": ["session-a6-baseline", "human-exact-manifest-comparison"],
+    "trusted_producer_identity_claimed": false,
+    "staged_proof_supported": false,
+    "automatic_commit_approval_supported": false
+  },
+  "evidence_verdict_policy": {
+    "required_default": "PASS",
+    "fail_closed": ["FAIL", "NOT_VERIFIED", "PASS_WITH_LIMITATION"],
+    "invalid_for_required": ["NOT_APPLICABLE"],
+    "waiver_supported": false,
+    "one_definition_per_requirement_id": true,
+    "one_verdict_per_requirement_id": true
+  },
+  "external_reference_requirements": {
+    "evidence_scope": "external_reference",
+    "commit_inclusion": false,
+    "content_scan_status": "PARTIAL",
+    "global_clean_claim_allowed": false,
+    "hash_required": true
+  },
+  "binary_policy": {
+    "database_dump_in_governance_commit": false,
+    "unapproved_binary_in_task_or_commit": false,
+    "reference_does_not_authorize_binary_inclusion": true
+  },
+  "fixture_policy": {
+    "production_entrypoint_required": true,
+    "helper_only_result_is_authoritative": false,
+    "exact_finding_class_required": true,
+    "resolved_identity_required": true,
+    "mutation_detection_required": true,
+    "proof_assurance_assertion_required": true,
+    "scope_actor_assertion_required": true,
+    "child_expected_set_trusted": false
+  }
+}

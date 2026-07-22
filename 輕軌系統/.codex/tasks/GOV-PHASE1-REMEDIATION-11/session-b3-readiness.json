@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "subject_task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "status": "READY_FOR_HUMAN_TO_CONSIDER_SESSION_B3",
+  "conditions": {
+    "four_b2_blockers_candidate_change_false": true,
+    "security_evidence_registered_schema_pass": true,
+    "security_allowlist_forbidden_m320_paths_absent": true,
+    "five_exact_reviewer_scopes_present": true,
+    "code_scope_excludes_human_approval": true,
+    "human_approval_sequencing_defined": true,
+    "thread_capacity_verified": true,
+    "qa_assignment_and_capacity_reserved": true,
+    "preparation_tests_30_of_30": true,
+    "pre_review_package_inputs_only": true,
+    "candidate_byte_identical": true,
+    "session_b2_outcomes_unmodified": true,
+    "no_git_mutation": true,
+    "required_nodes_valid": true
+  },
+  "session_b3_authorized": false,
+  "session_b3_pass": false,
+  "b2_blockers_closed": false,
+  "human_exact_manifest_eligible": false,
+  "reviewer_threads_created": false,
+  "b3_human_approval_created": false,
+  "git_mutation_performed": false,
+  "result": "PASS"
+}

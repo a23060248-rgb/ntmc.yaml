@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "task_id": "GOV-PHASE1-L3-REVIEW-A2",
+    "review_type": "railway-domain-governance-mechanism",
+    "formal": true,
+    "reviewer_run_id": "DR-A2-019F6BCD-2003",
+    "session_id": "DRS-A2-019F6BCD-3003",
+    "did_not_participate_in_implementation": true,
+    "mode": "read-only",
+    "review_scope": "Phase1.2 Domain Rule governance preservation only; no railway business-rule approval"
+  },
+  "outcome": "BLOCKER",
+  "findings": [
+    {
+      "id": "DRG-AUTHORITY-ENFORCEMENT-001",
+      "severity": "HIGH",
+      "title": "Human Domain Owner confirmation and verified-source authority are stated but not fail-closed in the validator",
+      "locations": [
+        ".codex/scripts/validate-task.mjs:156-162",
+        ".codex/scripts/validate-task.mjs:248-258",
+        ".codex/scripts/validate-task.mjs:105-111",
+        ".codex/scripts/validate-task.mjs:242-245",
+        ".codex/blueprints/schemas/rule.schema.json:10",
+        ".codex/blueprints/schemas/rule.schema.json:16-18",
+        ".codex/domain/index.yaml:5-6",
+        ".codex/governance/agent-path-policy.yaml:41-47",
+        ".codex/governance/agent-path-policy.yaml:62-67"
+      ],
+      "reproducible_evidence": [
+        {
+          "command": "rg -n \"confirmed_rule_count|rule\\.status|rule\\.owner|rule\\.approved_at|source_verification_status|human-approval\" .codex/scripts/validate-task.mjs",
+          "expected": "The Domain-specific matches are the registry header check at line 157 and status routing at lines 251 and 256; there is no validation of a Domain Rule's owner, approved_at, human-approval source, or source_verification_status."
+        },
+        {
+          "command": "rg -n \"status|sources|owner|approved_at|source_verification_status\" .codex/blueprints/schemas/rule.schema.json",
+          "expected": "The schema permits status=confirmed while owner and approved_at remain null, permits implementation/migration/test/report sources, and permits source_verification_status=UNVERIFIED."
+        },
+        {
+          "command": "rg -n \"documentation-engineer|railway-domain-reviewer|confirm-domain-rule\" .codex/governance/agent-path-policy.yaml .codex/scripts/validate-task.mjs",
+          "expected": "The current role policy correctly prohibits both roles from confirmation, but validate-task explicitly verifies only the Documentation Engineer prohibition and does not verify the Railway Domain Reviewer prohibition."
+        }
+      ],
+      "impact": "A Domain entry can be changed to status=confirmed while confirmed_rule_count remains 0, owner and approved_at remain null, and its only source is an implementation, migration, test, report, or UNVERIFIED source. loadRuleRegistry accepts that entry, and applicable_rules then accepts it solely because status is confirmed. This bypasses the recorded human Domain Owner authority model and can turn non-authoritative evidence into an authoritative L3 input. The current files have not exercised this bypass, but the governance mechanism does not reject it.",
+      "required_remediation": [
+        "For registry_type=proposed_rule_registry during Phase 1, compute the actual confirmed Domain Rule count and reject any non-proposed Domain Rule or any mismatch with confirmed_rule_count.",
+        "Before accepting a confirmed Domain Rule in applicable_rules, require a non-null human owner, non-null approved_at, at least one VERIFIED human-approval source, and reject UNVERIFIED or implementation/migration/test/report-only authority.",
+        "Validate that Railway Domain Reviewer and Documentation Engineer policies both retain confirm-domain-rule prohibitions, and add negative fixtures for confirmation without human authority and for UNVERIFIED-only confirmation."
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "DRG-REGISTRY-STATE-001",
+      "result": "PASS",
+      "evidence": [
+        ".codex/domain/index.yaml:3-6",
+        ".codex/domain/index.yaml:8-13"
+      ],
+      "note": "The current registry declares registry_type=proposed_rule_registry, is_complete_domain_knowledge_base=false, and confirmed_rule_count=0; all six current entries remain proposed. This check does not approve any entry."
+    },
+    {
+      "id": "DRG-RULE-LAYERS-002",
+      "result": "PASS_WITH_LIMITATION",
+      "evidence": [
+        ".agents/skills/task-classification/SKILL.md:51-54",
+        ".codex/scripts/validate-task.mjs:248-258"
+      ],
+      "note": "The validator rejects non-confirmed Rules in applicable_rules and confirmed Rules in candidate_rules, and any candidate causes a gate reason. It does not restrict candidate_rules specifically to proposed/unverified entries, nor does it validate how confirmed authority was obtained."
+    },
+    {
+      "id": "DRG-L3-CANDIDATE-GATE-003",
+      "result": "PASS",
+      "evidence": [
+        ".agents/skills/task-classification/SKILL.md:54",
+        ".codex/workflows/l3-high-risk.md:5",
+        ".codex/scripts/validate-task.mjs:258",
+        ".codex/scripts/validate-task.mjs:314-340",
+        ".codex/scripts/validate-task.mjs:353-355"
+      ],
+      "note": "Candidate Rules affecting L3 require Railway Domain NEEDS_HUMAN_DECISION and contribute to calculated NO-GO."
+    },
+    {
+      "id": "DRG-NONAUTHORITATIVE-EVIDENCE-004",
+      "result": "FAIL",
+      "evidence": [
+        ".codex/domain/index.yaml:5",
+        ".codex/agents/railway-domain-reviewer.toml:5",
+        ".codex/blueprints/schemas/rule.schema.json:16-18",
+        ".codex/scripts/validate-task.mjs:156-162",
+        ".codex/scripts/validate-task.mjs:248-258"
+      ],
+      "note": "Policy text says implementation, migration, tests and reports cannot confirm a Domain Rule, but the schema and validator do not enforce that a confirmed Domain Rule has verified human authority."
+    },
+    {
+      "id": "DRG-UNVERIFIED-SOURCE-005",
+      "result": "FAIL",
+      "evidence": [
+        ".codex/domain/index.yaml:11-12",
+        ".codex/blueprints/schemas/rule.schema.json:16",
+        ".codex/scripts/validate-task.mjs:248-256"
+      ],
+      "note": "The current UNVERIFIED-backed entries remain proposed, but source_verification_status is not consulted when an entry is admitted to applicable_rules."
+    },
+    {
+      "id": "DRG-AGENT-CONFIRMATION-006",
+      "result": "PASS_WITH_LIMITATION",
+      "evidence": [
+        ".codex/agents/documentation-engineer.toml:2-5",
+        ".codex/agents/railway-domain-reviewer.toml:2-5",
+        ".codex/governance/agent-path-policy.yaml:41-47",
+        ".codex/governance/agent-path-policy.yaml:62-67",
+        ".codex/scripts/validate-task.mjs:244"
+      ],
+      "note": "Current Agent and Documentation policies prohibit confirmation. The validator explicitly guards only the Documentation Engineer prohibition, so preservation of the Railway Domain Reviewer prohibition is not fail-closed."
+    },
+    {
+      "id": "DRG-M320-PRESERVATION-007",
+      "result": "PASS",
+      "evidence": [
+        ".codex/tasks/GOV-M320-DRYRUN/blueprint.yaml:19-26",
+        ".codex/tasks/GOV-M320-DRYRUN/review-findings.yaml:8-14",
+        ".codex/tasks/GOV-M320-DRYRUN/human-approval.yaml:4-7",
+        ".codex/tasks/GOV-M320-DRYRUN/final-summary.md:5",
+        ".codex/tasks/GOV-M320-DRYRUN/final-summary.md:17-21",
+        ".codex/tasks/GOV-M320-DRYRUN/final-summary.md:29"
+      ],
+      "reproduction": {
+        "command": "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN",
+        "observed": "VALIDATE_TASK_RESULT task_id=GOV-M320-DRYRUN calculated_gate=NO-GO structural=VALID exit=2"
+      },
+      "note": "M320 remains candidate/proposed, Railway Domain remains NEEDS_HUMAN_DECISION, Compatibility remains BLOCKER, the three formal-clone/P-to-C/shortage-inventory blockers remain recorded, and final human approval remains pending."
+    }
+  ],
+  "approvals": {
+    "domain_rule_approved": false,
+    "m320_approved": false,
+    "governance_commit_approved": false,
+    "merge_or_release_approved": false
+  },
+  "limitations": [
+    "This review covers only the Phase 1.2 Domain Rule governance mechanism. It does not approve, reject, interpret, or confirm any railway maintenance Rule, including M320 candidate Rules.",
+    "No implementer conversation was used; conclusions rely only on authorized files on disk and read-only command output.",
+    "No .env* content, frontend, erp-api, db-design, sibling directory, service, product test, database operation, network operation, or Git mutation was accessed or performed.",
+    "No mutation-based negative fixture was executed because the assigned mode permits writing only this review artifact. The blocker is established by the reachable validator control flow, the permissive Rule schema, and reproducible absence checks.",
+    "The current M320 NO-GO state is preserved. This BLOCKER does not change or approve any M320 evidence, Domain Rule, Governance Commit, merge, release, or production decision."
+  ]
+}

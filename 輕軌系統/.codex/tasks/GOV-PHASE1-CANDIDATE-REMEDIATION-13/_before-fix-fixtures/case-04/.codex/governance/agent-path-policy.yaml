@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "policy_type": "commit-time-role-scope-gate",
+  "runtime_isolation": false,
+  "roles": {
+    "architect": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "docs/**"],
+      "allowed_write_paths": ["AGENTS.md", ".agents/**", ".codex/**"],
+      "forbidden_paths": [".env*", "frontend/**", "erp-api/**", "db-design/**"],
+      "permitted_artifact_types": ["architecture-decision", "blueprint-review", "governance-source", "governance-test", "risk-note"],
+      "prohibited_actions": ["modify-product", "modify-migration", "confirm-domain-rule", "formal-self-review", "git-mutation"]
+    },
+    "frontend-engineer": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "frontend/**", "docs/**"],
+      "allowed_write_paths": ["frontend/**", ".codex/tasks/**"],
+      "forbidden_paths": [".env*", "erp-api/**", "db-design/**"],
+      "permitted_artifact_types": ["frontend-source", "frontend-test", "task-evidence"],
+      "prohibited_actions": ["database-operation", "confirm-domain-rule", "formal-self-review"]
+    },
+    "backend-engineer": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "erp-api/**", "docs/**"],
+      "allowed_write_paths": ["erp-api/**", ".codex/tasks/**"],
+      "forbidden_paths": [".env*", "frontend/**", "db-design/**"],
+      "permitted_artifact_types": ["backend-source", "backend-test", "task-evidence"],
+      "prohibited_actions": ["unapproved-database-operation", "confirm-domain-rule", "formal-self-review"]
+    },
+    "database-engineer": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "db-design/**", "docs/**"],
+      "allowed_write_paths": ["db-design/**", ".codex/tasks/**"],
+      "forbidden_paths": [".env*", "frontend/**", "erp-api/**"],
+      "permitted_artifact_types": ["database-design", "migration-plan", "rollback-plan", "task-evidence"],
+      "prohibited_actions": ["connect-database", "apply-migration", "run-seed", "destructive-sql", "confirm-domain-rule"]
+    },
+    "qa-engineer": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "frontend/**", "erp-api/**", "db-design/**", "docs/**"],
+      "allowed_write_paths": ["frontend/tests/**", "erp-api/tests/**", ".codex/tasks/**"],
+      "forbidden_paths": [".env*", "frontend/src/**", "erp-api/src/**", "db-design/migrations/**"],
+      "permitted_artifact_types": ["test-source", "test-evidence", "task-evidence"],
+      "prohibited_actions": ["modify-product-source", "apply-migration", "run-seed", "formal-self-review"]
+    },
+    "documentation-engineer": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "docs/**"],
+      "allowed_write_paths": ["docs/**", ".codex/tasks/**"],
+      "forbidden_paths": [".env*", "frontend/**", "erp-api/**", "db-design/**"],
+      "permitted_artifact_types": ["documentation", "sop", "task-summary"],
+      "prohibited_actions": ["modify-product", "change-test-result", "confirm-domain-rule"]
+    },
+    "code-reviewer": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "frontend/**", "erp-api/**", "db-design/**", "docs/**"],
+      "allowed_write_paths": [],
+      "forbidden_paths": [".env*"],
+      "permitted_artifact_types": ["review-finding"],
+      "prohibited_actions": ["modify-any-file", "formal-self-review"]
+    },
+    "security-reviewer": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "frontend/**", "erp-api/**", "db-design/**", "docs/**"],
+      "allowed_write_paths": [],
+      "forbidden_paths": [".env*"],
+      "permitted_artifact_types": ["security-finding"],
+      "prohibited_actions": ["modify-any-file", "read-credential", "formal-self-review"]
+    },
+    "railway-domain-reviewer": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "docs/**"],
+      "allowed_write_paths": [],
+      "forbidden_paths": [".env*"],
+      "permitted_artifact_types": ["domain-review-finding"],
+      "prohibited_actions": ["modify-any-file", "invent-domain-rule", "confirm-domain-rule"]
+    },
+    "compatibility-reviewer": {
+      "allowed_read_paths": ["AGENTS.md", ".codex/**", ".agents/**", "frontend/**", "erp-api/**", "db-design/**", "docs/**"],
+      "allowed_write_paths": [],
+      "forbidden_paths": [".env*"],
+      "permitted_artifact_types": ["compatibility-finding"],
+      "prohibited_actions": ["modify-any-file", "database-operation", "fabricate-formal-evidence"]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-L3-REVIEW-A9",
+  "title": "Phase 1.9 Independent L3 Review Session A9",
+  "task_type": "review",
+  "objective": "Independently determine whether the two A8 Railway Domain blockers are closed on the exact 103-file Phase 1.9 bootstrap candidate without altering any reviewed source or historical outcome.",
+  "business_reason": "Human authorized a fresh read-only A9 after Remediation 9 completed bounded implementation and self-validation.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories", "STAGED_EXACT", "evidence waiver", "confirmed Domain Rule promotion", "OS or container sandbox", "complete DLP", "cryptographic human identity", "remote Git controls", "Migration 320 business Rule approval"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Three fresh independent formal Reviewer contexts produce unmodified outcomes with unique run and session IDs.",
+    "The exact 103-file candidate, scanner report, schema set, Railway review schema, and Railway reviewer profile are independently hash verified.",
+    "A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001 and A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001 each receive a Reviewer-owned CLOSED or NOT_CLOSED disposition.",
+    "Code, Security, Domain routing, historical closure, scanner, binary oracle, fixture, integration, mutation, and concurrency regressions are independently checked.",
+    "Before and after baselines prove the candidate, 425 frozen-history files, R8, A8, R9, Migration 320 Task, and five external evidence files are unchanged.",
+    "The authoritative validator recalculates the Bootstrap Candidate Review Gate without root-task override.",
+    "Session B, Bootstrap Human Commit, steady-state activation, Git mutation, and Migration 320 execution remain outside this Task."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Human explicitly authorized GOV-PHASE1-L3-REVIEW-A9 with three fresh independent read-only Reviewers and writes limited to this A9 Task directory."
+}

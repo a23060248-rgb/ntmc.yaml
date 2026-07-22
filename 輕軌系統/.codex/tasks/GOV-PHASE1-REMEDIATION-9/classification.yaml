@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "level": "L3",
+  "reasons": [
+    "Session A8 is archived with two formal Railway Domain BLOCKER findings.",
+    "The remediation changes formal reviewer authority binding and the executable Schema validation path.",
+    "An incorrect implementation could accept a substituted Railway reviewer or allow fixtures to pass while the official typed contract is unavailable."
+  ],
+  "triggers": ["unresolved-reviewer-blocker", "reviewer-independence", "domain-rule-authority", "schema-loader", "bootstrap-candidate"],
+  "execution_categories": ["governance-source-edit", "governance-validation", "governance-fixture", "bootstrap-candidate", "domain-rule", "backward-compatibility"],
+  "required_agents": ["architect", "qa-engineer", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer"],
+  "required_reviews": ["code", "security", "railway-domain", "compatibility"],
+  "parallel_allowed": false,
+  "evidence_required": ["a8-finding-remediation-mapping", "reviewer-identity-binding", "role-profile-assignment-binding", "official-schema-loader-execution", "forbidden-fallback-absence", "schema-loader-negative-tests", "reviewer-binding-regressions", "schema-loader-integration", "schema-loader-mutations", "retained-regressions", "bootstrap-candidate-rebuild", "frozen-history-integrity", "migration-320-no-go-integrity", "governance-path-scope"],
+  "human_approval": {"required": true, "stages": ["scope_approval", "execution_approval", "review_completion", "final_commit_approval"]},
+  "stop_conditions": [
+    "Any A8 Reviewer outcome, named historical Task, Migration 320 Task artifact, or external evidence changes.",
+    "Any product, database, migration, sibling, or .env file is read or modified.",
+    "Any Git operation, service, product test, seed, migration, or database operation occurs.",
+    "The identity claim is broadened beyond procedural role-and-assignment binding.",
+    "A9, Session B, Candidate GO, Human Commit GO, or Migration 320 execution is started or declared."
+  ],
+  "scope": {"include": ["AGENTS.md", ".agents/**", ".codex/**"], "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories", "frozen historical Tasks", "Migration 320 original evidence"]},
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "suite": "security-exact-allowlist-v3",
+  "total": 11,
+  "passed": 11,
+  "failed": 0,
+  "cases": [
+    {
+      "case_id": "06",
+      "description": "Missing manifest.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "07",
+      "description": "Missing candidate record.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "08",
+      "description": "Missing scanner report.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "09",
+      "description": "Missing scanner component.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "10",
+      "description": "Forbidden scope path .codex/tasks/GOV-M320-DRYRUN/implementation-handoff.yaml.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "11",
+      "description": "Forbidden scope path .codex/tasks/GOV-M320-DRYRUN/implementation-plan.md.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "12",
+      "description": "Forbidden scope path collab/HANDOFF.md.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "13",
+      "description": "Forbidden scope path frontend/package.json.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "14",
+      "description": "Forbidden scope path .codex/tasks/**.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "15",
+      "description": "Required node hash mismatch.",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case_id": "27",
+      "description": "Exact Security allowlist complete and forbidden-free.",
+      "expected": "PASS",
+      "actual": "PASS",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

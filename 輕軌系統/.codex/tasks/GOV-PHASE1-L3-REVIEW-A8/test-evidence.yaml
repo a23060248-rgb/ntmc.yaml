@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "evidence_mode": "independent-production-path-review",
+  "commands": [
+    "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A8/run-a8-authoritative-reruns.mjs",
+    "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A8/compare-review-baselines.mjs",
+    "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-L3-REVIEW-A8 --target-gate bootstrap-candidate-review"
+  ],
+  "requirements": [],
+  "checks": [
+    {"check_id": "CHECK-A8-BASELINE", "requirement_id": "A8-CANDIDATE-BASELINE", "result": "PASS", "note": "Exact 97-file candidate and before/after reviewed-source baselines are identical."},
+    {"check_id": "CHECK-A8-CODE", "requirement_id": "A8-CODE-REVIEW", "result": "PASS", "note": "Formal Code artifact is filed with outcome PASS."},
+    {"check_id": "CHECK-A8-SEC", "requirement_id": "A8-SECURITY-REVIEW", "result": "PASS", "note": "Formal Security artifact is filed with outcome PASS."},
+    {"check_id": "CHECK-A8-DOMAIN", "requirement_id": "A8-RAILWAY-DOMAIN-REVIEW", "result": "PASS", "note": "Formal typed Domain artifact is filed with mechanism BLOCKER and separate Migration 320 NEEDS_HUMAN_DECISION; PASS here means artifact presence and metadata validity only."},
+    {"check_id": "CHECK-A8-A7", "requirement_id": "A8-A7-CLOSURE", "result": "PASS", "note": "All four A7 findings have Reviewer-owned CLOSED dispositions; two new A8 Domain blockers remain."},
+    {"check_id": "CHECK-A8-A6", "requirement_id": "A8-A6-CLOSURE", "result": "PASS", "note": "A6-SEC-HIGH-002 has a Reviewer-owned CLOSED disposition."},
+    {"check_id": "CHECK-A8-A5", "requirement_id": "A8-A5-SECURITY-CLOSURE", "result": "PASS", "note": "A5-SEC-HIGH-002 has a Reviewer-owned CLOSED disposition."},
+    {"check_id": "CHECK-A8-SYNTAX", "requirement_id": "A8-SYNTAX-RERUN", "result": "PASS", "note": "18/18 syntax checks passed."},
+    {"check_id": "CHECK-A8-FIXTURE", "requirement_id": "A8-FIXTURE-RERUN", "result": "PASS", "note": "68/68 governance fixtures passed; Domain Reviewer separately proved the fixture path bypasses the official schema loader."},
+    {"check_id": "CHECK-A8-CONC", "requirement_id": "A8-CONCURRENCY-RERUN", "result": "PASS", "note": "Concurrency isolation passed."},
+    {"check_id": "CHECK-A8-SCANNER", "requirement_id": "A8-SCANNER-RERUN", "result": "PASS", "note": "72/72 production scanner cases passed."},
+    {"check_id": "CHECK-A8-PROD", "requirement_id": "A8-PRODUCTION-RERUN", "result": "PASS", "note": "34/34 production integration cases passed; Domain Reviewer independently reproduced an uncovered reviewer-identity substitution."},
+    {"check_id": "CHECK-A8-MUT", "requirement_id": "A8-MUTATION-RERUN", "result": "PASS", "note": "23/23 declared production mutations were killed."},
+    {"check_id": "CHECK-A8-BINARY-MUT", "requirement_id": "A8-BINARY-MUTATION-RERUN", "result": "PASS", "note": "45/45 binary-magic registry mutations were killed."},
+    {"check_id": "CHECK-A8-BINARY-ORACLE", "requirement_id": "A8-BINARY-ORACLE", "result": "PASS", "note": "Exact nine-entry registry, 18 unique production oracles, exact binary finding set, and candidate claim boundary were independently verified."},
+    {"check_id": "CHECK-A8-SCHEMA-LOADER", "requirement_id": "A8-SCHEMA-LOADER", "result": "PASS", "note": "Official loader compiled 15 schemas and bound B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836; the formal Domain Reviewer separately found fixture-path divergence."},
+    {"check_id": "CHECK-A8-RULE-ROUTING", "requirement_id": "A8-RULE-ROUTING", "result": "PASS", "note": "Proposed-only Domain authority and mechanism versus Migration 320 external-decision routing were verified; Reviewer BLOCKER remains on identity binding and fixture-path divergence."},
+    {"check_id": "CHECK-A8-BIND", "requirement_id": "A8-SCANNER-BINDING", "result": "PASS", "note": "Candidate record, report, manifest, registry and compiled schema-set bindings recompute exactly."},
+    {"check_id": "CHECK-A8-HISTORY", "requirement_id": "A8-HISTORY-INTEGRITY", "result": "PASS", "note": "425 frozen history files and 46 Remediation 8 files remained byte-identical."},
+    {"check_id": "CHECK-A8-M320", "requirement_id": "A8-M320-INTEGRITY", "result": "PASS", "note": "Migration 320 is structural VALID, NO-GO, exit 2 with 13 Task and five external evidence files unchanged."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": [
+    "Green automated checks do not override the formal Railway Domain Reviewer BLOCKER.",
+    "No Git, product, service, migration, seed, or database operation was performed.",
+    "Session B, Human Commit, steady-state activation, and Migration 320 execution remain unauthorized."
+  ]
+}

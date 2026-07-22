@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "evidence_mode": "independent-production-path-review",
+  "commands": ["node .codex/tasks/GOV-PHASE1-L3-REVIEW-A7/run-a7-authoritative-reruns.mjs", "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A7/compare-review-baselines.mjs", "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-L3-REVIEW-A7 --target-gate bootstrap-candidate-review"],
+  "requirements": [],
+  "checks": [
+    {"check_id":"CHECK-A7-BASELINE","requirement_id":"A7-CANDIDATE-BASELINE","result":"PASS","note":"Exact 92-file candidate and before/after reviewed-source baseline were verified."},
+    {"check_id":"CHECK-A7-CODE","requirement_id":"A7-CODE-REVIEW","result":"PASS","note":"Formal Code artifact is filed with outcome BLOCKER; PASS here means evidence presence and metadata validity only."},
+    {"check_id":"CHECK-A7-SEC","requirement_id":"A7-SECURITY-REVIEW","result":"PASS","note":"Formal Security artifact is filed with outcome BLOCKER; PASS here means evidence presence and metadata validity only."},
+    {"check_id":"CHECK-A7-DOMAIN","requirement_id":"A7-RAILWAY-DOMAIN-REVIEW","result":"PASS","note":"Formal typed Domain artifact is filed with mechanism BLOCKER and separate M320 NEEDS_HUMAN_DECISION."},
+    {"check_id":"CHECK-A7-A6","requirement_id":"A7-A6-CLOSURE","result":"PASS","note":"All three A6 remediation findings have explicit closure dispositions; one is NOT_CLOSED."},
+    {"check_id":"CHECK-A7-A5SEC","requirement_id":"A7-A5-SECURITY-CLOSURE","result":"PASS","note":"A5-SEC-HIGH-002 has an explicit NOT_CLOSED disposition."},
+    {"check_id":"CHECK-A7-FIXTURE","requirement_id":"A7-FIXTURE-RERUN","result":"PASS","note":"68/68 governance fixtures passed."},
+    {"check_id":"CHECK-A7-SCANNER","requirement_id":"A7-SCANNER-RERUN","result":"PASS","note":"72/72 production scanner cases passed; Reviewer still identified an oracle completeness blocker."},
+    {"check_id":"CHECK-A7-PROD","requirement_id":"A7-PRODUCTION-RERUN","result":"PASS","note":"27/27 production integration cases passed."},
+    {"check_id":"CHECK-A7-MUT","requirement_id":"A7-MUTATION-RERUN","result":"PASS","note":"17/17 declared mutations were killed; Code Reviewer found required missing mutation families."},
+    {"check_id":"CHECK-A7-CONC","requirement_id":"A7-CONCURRENCY-RERUN","result":"PASS","note":"Concurrency isolation and adversarial report rejection passed."},
+    {"check_id":"CHECK-A7-BIND","requirement_id":"A7-SCANNER-BINDING","result":"PASS","note":"Current scanner report and candidate bindings recompute exactly."},
+    {"check_id":"CHECK-A7-BINARY","requirement_id":"A7-BINARY-ORACLE","result":"PASS","note":"Current candidate has the declared binary cases; formal per-magic mandatory coverage remains a Reviewer blocker."},
+    {"check_id":"CHECK-A7-RULE","requirement_id":"A7-RULE-ROUTING","result":"PASS","note":"Current production cases route typed mechanism and M320 decision separately; the dedicated schema file remains malformed."},
+    {"check_id":"CHECK-A7-HISTORY","requirement_id":"A7-HISTORY-INTEGRITY","result":"PASS","note":"Frozen history and R7 artifacts were unchanged."},
+    {"check_id":"CHECK-A7-M320","requirement_id":"A7-M320-INTEGRITY","result":"PASS","note":"M320 is structural VALID, NO-GO, exit 2 with 13 Task and five external evidence hashes unchanged."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": ["Green automated checks do not override formal Reviewer findings.", "No Git, product, service, migration, seed, or database operation was performed.", "Session B and human commit remain unauthorized."]
+}

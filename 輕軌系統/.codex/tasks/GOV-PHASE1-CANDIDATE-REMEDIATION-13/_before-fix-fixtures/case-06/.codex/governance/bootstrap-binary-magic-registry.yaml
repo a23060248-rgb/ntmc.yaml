@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "registry_id": "GOV-BOOTSTRAP-BINARY-MAGIC",
+  "registry_version": 1,
+  "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+  "entries": [
+    {"magic_id":"MZ","signature_bytes":"4D5A","offset":0,"finding_class":"KNOWN_BINARY_MAGIC_DETECTED","positive_fixture_id":"SCAN-MAGIC-MZ-P","safe_negative_fixture_id":"SCAN-MAGIC-MZ-N"},
+    {"magic_id":"ELF","signature_bytes":"7F454C46","offset":0,"finding_class":"KNOWN_BINARY_MAGIC_DETECTED","positive_fixture_id":"SCAN-MAGIC-ELF-P","safe_negative_fixture_id":"SCAN-MAGIC-ELF-N"},
+    {"magic_id":"ZIP","signature_bytes":"504B0304","offset":0,"finding_class":"KNOWN_BINARY_MAGIC_DETECTED","positive_fixture_id":"SCAN-MAGIC-ZIP-P","safe_negative_fixture_id":"SCAN-MAGIC-ZIP-N"},
+    {"magic_id":"PDF","signature_bytes":"255044462D","offset":0,"finding_class":"KNOWN_BINARY_MAGIC_DETECTED","positive_fixture_id":"SCAN-MAGIC-PDF-P","safe_negative_fixture_id":"SCAN-MAGIC-PDF-N"},
+    {"magic_id":"SQLite","signature_bytes":"53514C69746520666F726D6174203300","offset":0,"finding_class":"KNOWN_BINARY_MAGIC_DETECTED","positive_fixture_id":"SCAN-MAGIC-SQLITE-P","safe_negative_fixture_id":"SCAN-MAGIC-SQLITE-N"},
+    {"magic_id":"PGDMP","signature_bytes":"5047444D50","offset":0,"finding_class":"KNOWN_BINARY_MAGIC_DETECTED","positive_fixture_id":"SCAN-MAGIC-PGDMP-P","safe_negative_fixture_id":"SCAN-MAGIC-PGDMP-N"},
+    {"magic_id":"OLE","signature_bytes":"D0CF11E0","offset":0,"finding_class":"KNOWN_BINARY_MAGIC_DETECTED","positive_fixture_id":"SCAN-MAGIC-OLE-P","safe_negative_fixture_id":"SCAN-MAGIC-OLE-N"},
+    {"magic_id":"PNG","signature_bytes":"89504E470D0A1A0A","offset":0,"finding_class":"KNOWN_BINARY_MAGIC_DETECTED","positive_fixture_id":"SCAN-MAGIC-PNG-P","safe_negative_fixture_id":"SCAN-MAGIC-PNG-N"},
+    {"magic_id":"JPEG","signature_bytes":"FFD8FF","offset":0,"finding_class":"KNOWN_BINARY_MAGIC_DETECTED","positive_fixture_id":"SCAN-MAGIC-JPEG-P","safe_negative_fixture_id":"SCAN-MAGIC-JPEG-N"}
+  ]
+}

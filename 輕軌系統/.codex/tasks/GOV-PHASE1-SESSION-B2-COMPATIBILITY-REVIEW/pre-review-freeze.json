@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "pre_review_freeze": {
+    "frozen": true,
+    "frozen_at": "2026-07-20T10:55:00+08:00",
+    "input_manifest_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/pre-review-input-manifest.json",
+    "input_manifest_sha256": "6062D856BCCB2FFDD506EB6B3215D25A66FDD15A4DEF546702B5E04856AB3D17",
+    "file_count": 9,
+    "files": [
+      {
+        "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/blueprint.yaml",
+        "sha256": "5751F9E41B916AB63728D3DD69162DE6F9453F0AF5D4F1D32EF4DCA193175290",
+        "byte_size": 5942
+      },
+      {
+        "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/candidate-manifest-verification.json",
+        "sha256": "5F883AAF78AE27CFFACA0A29101A123B94F92B318B123239DA7889AFE636421C",
+        "byte_size": 1118
+      },
+      {
+        "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/classification.yaml",
+        "sha256": "280F973354D4D3F036BE06CEFF38DA3F79EB7140BD3337EE09BC62DC5581FE2D",
+        "byte_size": 2190
+      },
+      {
+        "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/required-chain-node-verification.json",
+        "sha256": "06B266CA6AB1028EAB55D892CD2DE911283E8263F83DEF1CFD1AE373623E3508",
+        "byte_size": 3813
+      },
+      {
+        "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-baseline-before.json",
+        "sha256": "7DE5CE019E70AA0BDB71A8216F5450424C0A0764798E860259634C283BA1707E",
+        "byte_size": 220653
+      },
+      {
+        "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-binding-chain.json",
+        "sha256": "CE263BFC6A54366D804AA1E33E1184DB30D1DE0D4CA6BCB9A26EB657B38C75BA",
+        "byte_size": 3454
+      },
+      {
+        "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-evidence.yaml",
+        "sha256": "582595CFC129A6E891FB0B135A4982A342274C8BE6DFDCF92F2179C4D3ABCA03",
+        "byte_size": 2151
+      },
+      {
+        "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-read-scope-final.json",
+        "sha256": "33E0403B3229D0A7DF94FEC153979861D6DD401FFCBC56428C76CAD9FEEEEA19",
+        "byte_size": 51134
+      },
+      {
+        "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/task-intent.yaml",
+        "sha256": "695215E6BDE9F626908ED11E1254E6599C710919DACCA27809887CA555972877",
+        "byte_size": 2183
+      }
+    ]
+  },
+  "reviewer_outputs_may_only_be_added_after_freeze": true,
+  "reviewer_outputs_are_not_pre_review_evidence": true,
+  "mutation_rule": "Any frozen input byte or hash change makes Session B2 structural INVALID with exit 1.",
+  "result": "PASS"
+}

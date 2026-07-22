@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A",
+  "session": "Session A",
+  "command": "node .codex/tests/run-governance-fixtures.mjs",
+  "executed_in_clean_session": true,
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "total": 21,
+  "passed": 21,
+  "failed": 0,
+  "process_exit_code": 0,
+  "failures": [],
+  "execution_note": "The authoritative run was executed serially after all three reviewers stopped. Earlier concurrent invocations shared .codex/tests/.tmp and produced inconsistent 18/21, 19/21 and 21/21 observations; those concurrent observations are not treated as authoritative suite results.",
+  "summary": "Fresh serialized governance fixture rerun passed 21 of 21 cases; prior summary evidence was not reused."
+}

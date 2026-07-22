@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "contract_id": "EXT-RETURN-CODE-001",
+  "output_count": 1,
+  "output_format": "JSON object only",
+  "wrapper_fields": [
+    "payload_core",
+    "payload_core_sha256"
+  ],
+  "hash_target": "JCS(payload_core)",
+  "canonicalization_contract": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/canonicalization-contract.json",
+  "manual_transport_contract": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/manual-review-payload-transport-contract.json",
+  "second_payload_allowed": false,
+  "natural_language_summary_allowed": false,
+  "mandatory_exit_after_payload": true,
+  "transport_assurance": "procedural"
+}

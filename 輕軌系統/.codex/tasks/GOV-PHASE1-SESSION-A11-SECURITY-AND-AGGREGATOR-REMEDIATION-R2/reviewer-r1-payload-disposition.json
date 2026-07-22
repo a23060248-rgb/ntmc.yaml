@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "dispositions": [
+    {
+      "reviewer_role": "EXTERNAL_CODE_REVIEWER",
+      "source_thread_id": "019f8293-48ca-7da1-b751-ab1df412f79d",
+      "review_package_id": "A11-R1-CODE-REVIEWER-PKG-20260721-01",
+      "review_status": "PASS",
+      "startup_status": "STARTUP_VALID",
+      "disposition": "PRESERVED_PENDING_AGGREGATOR_R2_FORMAL_VALIDATION"
+    },
+    {
+      "reviewer_role": "EXTERNAL_SECURITY_REVIEWER",
+      "source_thread_id": "019f8293-6c17-7d30-bbf1-81808ccdf836",
+      "review_package_id": "A11-R1-SECURITY-REVIEWER-PKG-20260721-02",
+      "review_status": "BLOCKER",
+      "startup_status": "STARTUP_BLOCKER",
+      "disposition": "PRESERVED_STARTUP_BLOCKER_HISTORY / NOT_ELIGIBLE_AS_SUCCESSFUL_SECURITY_REVIEW / SUPERSEDED_BY_SECURITY_R2"
+    },
+    {
+      "reviewer_role": "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+      "source_thread_id": "019f8293-86f5-7f30-9e9b-32885933b428",
+      "review_package_id": "A11-R1-RAILWAY-DOMAIN-REVIEWER-PKG-20260721-03",
+      "review_status": "PASS",
+      "startup_status": "STARTUP_VALID",
+      "disposition": "PRESERVED_PENDING_AGGREGATOR_R2_FORMAL_VALIDATION"
+    },
+    {
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "source_thread_id": "019f8293-97ae-7541-80e2-7401acc90b07",
+      "review_package_id": "A11-R1-COMPATIBILITY-REVIEWER-PKG-20260721-04",
+      "review_status": "PASS",
+      "startup_status": "STARTUP_VALID",
+      "disposition": "PRESERVED_PENDING_AGGREGATOR_R2_FORMAL_VALIDATION"
+    }
+  ]
+}

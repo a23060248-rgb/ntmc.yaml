@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A4",
+  "generated_at": "2026-07-18T00:30:00+08:00",
+  "generated_by": ".codex/scripts/validate-task.mjs",
+  "source_digest_sha256": "EC69CF8159FF1283DF2691CCAC2405E010AE178A3C80FA789302A765A4A50170",
+  "nodes": [
+    {
+      "id": "BLUEPRINT:BP-GOV-PHASE1-L3-REVIEW-A4",
+      "type": "Blueprint",
+      "label": "Independent L3 A4 Review Blueprint",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/blueprint.yaml"
+    },
+    {
+      "id": "TASK:GOV-PHASE1-L3-REVIEW-A4",
+      "type": "Task",
+      "label": "Phase 1.4 Independent L3 Review Session A4",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/task-intent.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "from": "TASK:GOV-PHASE1-L3-REVIEW-A4",
+      "relation": "USES",
+      "to": "BLUEPRINT:BP-GOV-PHASE1-L3-REVIEW-A4",
+      "source_ref": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/blueprint.yaml"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "declared_adds": [
+    ".codex/governance/evidence-schema-registry.yaml",
+    ".codex/governance/referenced-evidence-validation-policy.yaml",
+    ".codex/scripts/lib/governance/evidence-resolver.mjs",
+    ".codex/tests/run-referenced-evidence-mutations.mjs",
+    ".codex/tests/run-referenced-evidence-production.mjs"
+  ],
+  "observed_adds": [
+    ".codex/governance/evidence-schema-registry.yaml",
+    ".codex/governance/referenced-evidence-validation-policy.yaml",
+    ".codex/scripts/lib/governance/evidence-resolver.mjs",
+    ".codex/tests/run-referenced-evidence-mutations.mjs",
+    ".codex/tests/run-referenced-evidence-production.mjs"
+  ],
+  "declared_modifications": [
+    ".codex/blueprints/schemas/artifact-manifest.schema.json",
+    ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+    ".codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+    ".codex/governance/evidence-requirement-policy.yaml",
+    ".codex/governance/evidence-scope-policy.yaml",
+    ".codex/governance/gate-dependency-matrix.yaml",
+    ".codex/governance/scan-contract.yaml",
+    ".codex/governance/scanner-contract-matrix.yaml",
+    ".codex/scripts/create-task.mjs",
+    ".codex/scripts/generate-bootstrap-candidate.mjs",
+    ".codex/scripts/lib/governance/gate-router.mjs",
+    ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+    ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+    ".codex/scripts/lib/governance/scanner-report.mjs",
+    ".codex/scripts/lib/governance/typed-proof.mjs",
+    ".codex/scripts/validate-task.mjs",
+    ".codex/tests/run-bootstrap-production-integration.mjs",
+    ".codex/tests/run-governance-fixtures.mjs"
+  ],
+  "observed_modifications": [
+    ".codex/blueprints/schemas/artifact-manifest.schema.json",
+    ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+    ".codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+    ".codex/governance/evidence-requirement-policy.yaml",
+    ".codex/governance/evidence-scope-policy.yaml",
+    ".codex/governance/gate-dependency-matrix.yaml",
+    ".codex/governance/scan-contract.yaml",
+    ".codex/governance/scanner-contract-matrix.yaml",
+    ".codex/scripts/create-task.mjs",
+    ".codex/scripts/generate-bootstrap-candidate.mjs",
+    ".codex/scripts/lib/governance/gate-router.mjs",
+    ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+    ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+    ".codex/scripts/lib/governance/scanner-report.mjs",
+    ".codex/scripts/lib/governance/typed-proof.mjs",
+    ".codex/scripts/validate-task.mjs",
+    ".codex/tests/run-bootstrap-production-integration.mjs",
+    ".codex/tests/run-governance-fixtures.mjs"
+  ],
+  "observed_removals": [],
+  "self_excluded_manifest_changed": true,
+  "scope_expansion_detected": false,
+  "result": "PASS"
+}

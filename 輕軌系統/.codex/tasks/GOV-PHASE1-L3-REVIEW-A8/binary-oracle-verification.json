@@ -1,0 +1,1296 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "registry_ref": ".codex/governance/bootstrap-binary-magic-registry.yaml",
+  "registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+  "expected_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+  "registry_entry_count": 9,
+  "exact_nine_magics": true,
+  "unique_magic_ids": true,
+  "unique_positive_fixture_ids": true,
+  "unique_safe_negative_fixture_ids": true,
+  "all_oracles_pass": true,
+  "exact_binary_finding_classes": true,
+  "extension_magic_mismatch_absent_from_candidate": true,
+  "entries": [
+    {
+      "magic_id": "MZ",
+      "signature_bytes": "4D5A",
+      "offset": 0,
+      "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+      "positive_fixture_id": "SCAN-MAGIC-MZ-P",
+      "safe_negative_fixture_id": "SCAN-MAGIC-MZ-N",
+      "positive_oracle": {
+        "case_id": "SCAN-MAGIC-MZ-P",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "positive",
+        "magic_id": "MZ",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 2,
+        "actual_exit": 2,
+        "expected_result": "FAIL",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "A88FCDEA16E0E3AE2C347077562EE658EDC638F93818591E884E12CD4AEE6F58",
+        "scanned_file_identity": "7863404D4C66D619FC269F5537C06E043AA45F0BBB547D65FCE1527F6867317C",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      },
+      "safe_negative_oracle": {
+        "case_id": "SCAN-MAGIC-MZ-N",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "safe-negative",
+        "magic_id": "MZ",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 0,
+        "actual_exit": 0,
+        "expected_result": "PASS",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "633B9D72A1464EFC0452BD1A42EDF24EDA3B3764DF290B179B2992D5464226F6",
+        "scanned_file_identity": "B635A2DC95F1B0001C4CC05B3220947DBD42EA64F90B6AEE580756146F9E7B2F",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      }
+    },
+    {
+      "magic_id": "ELF",
+      "signature_bytes": "7F454C46",
+      "offset": 0,
+      "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+      "positive_fixture_id": "SCAN-MAGIC-ELF-P",
+      "safe_negative_fixture_id": "SCAN-MAGIC-ELF-N",
+      "positive_oracle": {
+        "case_id": "SCAN-MAGIC-ELF-P",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "positive",
+        "magic_id": "ELF",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 2,
+        "actual_exit": 2,
+        "expected_result": "FAIL",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "F6CA42AEBB8C432BAA9C99546C95F3015645B46A3BD9C316F97251AE4A8D296D",
+        "scanned_file_identity": "55D22CA3E93B2A733218FBAE302ADA526B1FDFB800420668B3A08F49B7BD135B",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      },
+      "safe_negative_oracle": {
+        "case_id": "SCAN-MAGIC-ELF-N",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "safe-negative",
+        "magic_id": "ELF",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 0,
+        "actual_exit": 0,
+        "expected_result": "PASS",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "30AC33FD1023752C413E72EE4D730ED5A4F53FD7B02F3618F5D8CB52CC378841",
+        "scanned_file_identity": "03C6D4DC2A5E33AB7CBBC2B2C2CA2F7ACEFEA6471900D0C1C23F51F00C646BA2",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      }
+    },
+    {
+      "magic_id": "ZIP",
+      "signature_bytes": "504B0304",
+      "offset": 0,
+      "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+      "positive_fixture_id": "SCAN-MAGIC-ZIP-P",
+      "safe_negative_fixture_id": "SCAN-MAGIC-ZIP-N",
+      "positive_oracle": {
+        "case_id": "SCAN-MAGIC-ZIP-P",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "positive",
+        "magic_id": "ZIP",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 2,
+        "actual_exit": 2,
+        "expected_result": "FAIL",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "51CEE23724F222ED60C0C1822FC09E1FF4017C11ECE93DBAB84B333D484B2450",
+        "scanned_file_identity": "63329FAA76F6AD4EF6C94EBFF87FD25CD4C52B5B79DC34778523D8E62922F937",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      },
+      "safe_negative_oracle": {
+        "case_id": "SCAN-MAGIC-ZIP-N",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "safe-negative",
+        "magic_id": "ZIP",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 0,
+        "actual_exit": 0,
+        "expected_result": "PASS",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "711D5EE5AD92AB75FA848F83315311D83BE0FC15A2E3ACE173CA7197D1CD9096",
+        "scanned_file_identity": "667E6C2F0DA733F9933E5454D2ED0EE84119D4277C16AEA926BCC47CAB380B16",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      }
+    },
+    {
+      "magic_id": "PDF",
+      "signature_bytes": "255044462D",
+      "offset": 0,
+      "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+      "positive_fixture_id": "SCAN-MAGIC-PDF-P",
+      "safe_negative_fixture_id": "SCAN-MAGIC-PDF-N",
+      "positive_oracle": {
+        "case_id": "SCAN-MAGIC-PDF-P",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "positive",
+        "magic_id": "PDF",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 2,
+        "actual_exit": 2,
+        "expected_result": "FAIL",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "487238EA026F766760500318A6A5DF50C1FC7114BB90D8C755336AA676200B41",
+        "scanned_file_identity": "46C3451269E008CBB9DB05BFA7560A90550CFCCF3CCFA8C2E17CA9D3371B7A31",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      },
+      "safe_negative_oracle": {
+        "case_id": "SCAN-MAGIC-PDF-N",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "safe-negative",
+        "magic_id": "PDF",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 0,
+        "actual_exit": 0,
+        "expected_result": "PASS",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "230CBF2C92B54254C09F958F5CC231A8515BA84BF360E03902A8D5657556AC2B",
+        "scanned_file_identity": "3954751FD1F3FA1E13547CF1BC1453C7E61F00E76D97274CA6519F710ECAEA8C",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      }
+    },
+    {
+      "magic_id": "SQLite",
+      "signature_bytes": "53514C69746520666F726D6174203300",
+      "offset": 0,
+      "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+      "positive_fixture_id": "SCAN-MAGIC-SQLITE-P",
+      "safe_negative_fixture_id": "SCAN-MAGIC-SQLITE-N",
+      "positive_oracle": {
+        "case_id": "SCAN-MAGIC-SQLITE-P",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "positive",
+        "magic_id": "SQLite",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 2,
+        "actual_exit": 2,
+        "expected_result": "FAIL",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "23A862929FF5F43B9B3D9DB58CE23438F1BDABFB007CA41558E78CC6991689C8",
+        "scanned_file_identity": "25A40A5BB5EDDDF04EB0A7C9ED7242E53716014DF18FE4A8CC928DE6FB1675F2",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      },
+      "safe_negative_oracle": {
+        "case_id": "SCAN-MAGIC-SQLITE-N",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "safe-negative",
+        "magic_id": "SQLite",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 0,
+        "actual_exit": 0,
+        "expected_result": "PASS",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "8297B91719C3FE2FAEF0CD8D970F7FCD14B3D9B8746258506AEC9DC73680E9A8",
+        "scanned_file_identity": "28E226D86BAC5CBDFB0F46F4B1AAAB9205C3D06DF8703342AF76D383FC508987",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      }
+    },
+    {
+      "magic_id": "PGDMP",
+      "signature_bytes": "5047444D50",
+      "offset": 0,
+      "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+      "positive_fixture_id": "SCAN-MAGIC-PGDMP-P",
+      "safe_negative_fixture_id": "SCAN-MAGIC-PGDMP-N",
+      "positive_oracle": {
+        "case_id": "SCAN-MAGIC-PGDMP-P",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "positive",
+        "magic_id": "PGDMP",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 2,
+        "actual_exit": 2,
+        "expected_result": "FAIL",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "9D3A484094431593EC3DA29B8DFA5AE7540258FE6F99BB63A58F13560AB83E12",
+        "scanned_file_identity": "59176EF313F50D936D55F68BB54645843B06F0F0057D16E0B61D28CAEC828EAF",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      },
+      "safe_negative_oracle": {
+        "case_id": "SCAN-MAGIC-PGDMP-N",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "safe-negative",
+        "magic_id": "PGDMP",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 0,
+        "actual_exit": 0,
+        "expected_result": "PASS",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "9BF4950B038B40CE8EE359AC0642BC0B96C7FA6C408EA2E8A05C4973BCDFE070",
+        "scanned_file_identity": "B76A91B9F1FFD9F6D17BB03AD0D0D5B4113C483B293D74C2CB68CA3F29D90FCC",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      }
+    },
+    {
+      "magic_id": "OLE",
+      "signature_bytes": "D0CF11E0",
+      "offset": 0,
+      "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+      "positive_fixture_id": "SCAN-MAGIC-OLE-P",
+      "safe_negative_fixture_id": "SCAN-MAGIC-OLE-N",
+      "positive_oracle": {
+        "case_id": "SCAN-MAGIC-OLE-P",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "positive",
+        "magic_id": "OLE",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 2,
+        "actual_exit": 2,
+        "expected_result": "FAIL",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "0475E56F214B165D65785EE917617384C3CC27C8D5681FF086768FA9D78CD500",
+        "scanned_file_identity": "246241427FEF72058FFE81FCC6ECD9E53045D97344CA98533DB649AF3BD011AE",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      },
+      "safe_negative_oracle": {
+        "case_id": "SCAN-MAGIC-OLE-N",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "safe-negative",
+        "magic_id": "OLE",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 0,
+        "actual_exit": 0,
+        "expected_result": "PASS",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "D1385B4D5608F896EDADF53D57203E40BE969250B76792F0462AF2AB22D73E90",
+        "scanned_file_identity": "A27EECE422C2389C13D7101D0C5FB36247729B1ABC99B6EF394A4500B97B2D71",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      }
+    },
+    {
+      "magic_id": "PNG",
+      "signature_bytes": "89504E470D0A1A0A",
+      "offset": 0,
+      "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+      "positive_fixture_id": "SCAN-MAGIC-PNG-P",
+      "safe_negative_fixture_id": "SCAN-MAGIC-PNG-N",
+      "positive_oracle": {
+        "case_id": "SCAN-MAGIC-PNG-P",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "positive",
+        "magic_id": "PNG",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 2,
+        "actual_exit": 2,
+        "expected_result": "FAIL",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "12E2350E01F50D317C80C32856B4760C4CFE80B7D93823FF085BDEE6BEEC3E12",
+        "scanned_file_identity": "BB71A031EA82617C5218A44B792DA0C6E93AACD702EAC2E60F1BFF151D9B9EEB",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      },
+      "safe_negative_oracle": {
+        "case_id": "SCAN-MAGIC-PNG-N",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "safe-negative",
+        "magic_id": "PNG",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 0,
+        "actual_exit": 0,
+        "expected_result": "PASS",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "9F51ED836A1A8B620A5E6374D3DC870A6E42C02F29B4AE192AE91A365A5B7306",
+        "scanned_file_identity": "F07CE19FB81D0218E001ED22F84174DA015F86AD01D1831AFDBE1FA8EC7D6A5C",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      }
+    },
+    {
+      "magic_id": "JPEG",
+      "signature_bytes": "FFD8FF",
+      "offset": 0,
+      "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+      "positive_fixture_id": "SCAN-MAGIC-JPEG-P",
+      "safe_negative_fixture_id": "SCAN-MAGIC-JPEG-N",
+      "positive_oracle": {
+        "case_id": "SCAN-MAGIC-JPEG-P",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "positive",
+        "magic_id": "JPEG",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 2,
+        "actual_exit": 2,
+        "expected_result": "FAIL",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B",
+        "scanned_file_identity": "504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      },
+      "safe_negative_oracle": {
+        "case_id": "SCAN-MAGIC-JPEG-N",
+        "finding_class": "KNOWN_BINARY_MAGIC_DETECTED",
+        "mode": "safe-negative",
+        "magic_id": "JPEG",
+        "production_entrypoint": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "expected_exit": 0,
+        "actual_exit": 0,
+        "expected_result": "PASS",
+        "finding_source_transform": "raw-bytes",
+        "manifest_sha256": "E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879",
+        "scanned_file_identity": "8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C",
+        "contract_version": 5,
+        "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+        "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+        "pass": true
+      }
+    }
+  ],
+  "mutation_summary": {
+    "registry_id": "GOV-BOOTSTRAP-BINARY-MAGIC",
+    "registry_version": 1,
+    "magic_count": 9,
+    "mutation_families": [
+      "remove-registry-entry",
+      "remove-positive-oracle",
+      "remove-safe-negative-oracle",
+      "modify-signature",
+      "wrong-finding-class"
+    ],
+    "total": 45,
+    "killed": 45,
+    "survived": 0,
+    "results": [
+      {
+        "mutation_id": "MUT-MAGIC-MZ-REMOVE-REGISTRY-ENTRY",
+        "magic_id": "MZ",
+        "family": "remove-registry-entry",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic registry must contain the exact ordered nine-magic set."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-MZ-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-MZ-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-MZ-REMOVE-POSITIVE-ORACLE",
+        "magic_id": "MZ",
+        "family": "remove-positive-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 2,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic MZ positive_fixture_id is not a dedicated formal positive oracle.",
+          "SCAN_CONTRACT KNOWN_BINARY_MAGIC_DETECTED lacks production implementation or positive/safe-negative case."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-MZ-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-MZ-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-MZ-REMOVE-SAFE-NEGATIVE-ORACLE",
+        "magic_id": "MZ",
+        "family": "remove-safe-negative-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 2,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic MZ safe_negative_fixture_id is not a dedicated formal safe-negative oracle.",
+          "SCAN_CONTRACT KNOWN_BINARY_MAGIC_DETECTED lacks production implementation or positive/safe-negative case."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-MZ-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-MZ-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-MZ-MODIFY-SIGNATURE",
+        "magic_id": "MZ",
+        "family": "modify-signature",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 0,
+        "bundle_violations": [],
+        "expected_positive_case": "SCAN-MAGIC-MZ-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-MZ-N",
+        "child_exit": 1,
+        "expected_case_failed": true,
+        "killed": true,
+        "output_tail": "scan-report.mjs\",\"expected_exit\":2,\"actual_exit\":2,\"expected_result\":\"FAIL\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B\",\"scanned_file_identity\":\"504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"E4ABF33E6499465EADF5C8D9C408E31D1F433FAC72933D8D2646BB8868564233\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true},{\"case_id\":\"SCAN-MAGIC-JPEG-N\",\"finding_class\":\"KNOWN_BINARY_MAGIC_DETECTED\",\"mode\":\"safe-negative\",\"magic_id\":\"JPEG\",\"production_entrypoint\":\".codex/scripts/generate-bootstrap-scan-report.mjs\",\"expected_exit\":0,\"actual_exit\":0,\"expected_result\":\"PASS\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879\",\"scanned_file_identity\":\"8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"E4ABF33E6499465EADF5C8D9C408E31D1F433FAC72933D8D2646BB8868564233\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true}]}\n\n"
+      },
+      {
+        "mutation_id": "MUT-MAGIC-MZ-WRONG-FINDING-CLASS",
+        "magic_id": "MZ",
+        "family": "wrong-finding-class",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic MZ signature/offset/class mismatch."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-MZ-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-MZ-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ELF-REMOVE-REGISTRY-ENTRY",
+        "magic_id": "ELF",
+        "family": "remove-registry-entry",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic registry must contain the exact ordered nine-magic set."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-ELF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ELF-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ELF-REMOVE-POSITIVE-ORACLE",
+        "magic_id": "ELF",
+        "family": "remove-positive-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic ELF positive_fixture_id is not a dedicated formal positive oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-ELF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ELF-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ELF-REMOVE-SAFE-NEGATIVE-ORACLE",
+        "magic_id": "ELF",
+        "family": "remove-safe-negative-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic ELF safe_negative_fixture_id is not a dedicated formal safe-negative oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-ELF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ELF-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ELF-MODIFY-SIGNATURE",
+        "magic_id": "ELF",
+        "family": "modify-signature",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 0,
+        "bundle_violations": [],
+        "expected_positive_case": "SCAN-MAGIC-ELF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ELF-N",
+        "child_exit": 1,
+        "expected_case_failed": true,
+        "killed": true,
+        "output_tail": "scan-report.mjs\",\"expected_exit\":2,\"actual_exit\":2,\"expected_result\":\"FAIL\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B\",\"scanned_file_identity\":\"504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"535318E30791F4F548F635275883D7DA58B8D4550D845F8CFB8A7DBA8FB34E59\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true},{\"case_id\":\"SCAN-MAGIC-JPEG-N\",\"finding_class\":\"KNOWN_BINARY_MAGIC_DETECTED\",\"mode\":\"safe-negative\",\"magic_id\":\"JPEG\",\"production_entrypoint\":\".codex/scripts/generate-bootstrap-scan-report.mjs\",\"expected_exit\":0,\"actual_exit\":0,\"expected_result\":\"PASS\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879\",\"scanned_file_identity\":\"8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"535318E30791F4F548F635275883D7DA58B8D4550D845F8CFB8A7DBA8FB34E59\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true}]}\n\n"
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ELF-WRONG-FINDING-CLASS",
+        "magic_id": "ELF",
+        "family": "wrong-finding-class",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic ELF signature/offset/class mismatch."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-ELF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ELF-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ZIP-REMOVE-REGISTRY-ENTRY",
+        "magic_id": "ZIP",
+        "family": "remove-registry-entry",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic registry must contain the exact ordered nine-magic set."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-ZIP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ZIP-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ZIP-REMOVE-POSITIVE-ORACLE",
+        "magic_id": "ZIP",
+        "family": "remove-positive-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic ZIP positive_fixture_id is not a dedicated formal positive oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-ZIP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ZIP-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ZIP-REMOVE-SAFE-NEGATIVE-ORACLE",
+        "magic_id": "ZIP",
+        "family": "remove-safe-negative-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic ZIP safe_negative_fixture_id is not a dedicated formal safe-negative oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-ZIP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ZIP-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ZIP-MODIFY-SIGNATURE",
+        "magic_id": "ZIP",
+        "family": "modify-signature",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 0,
+        "bundle_violations": [],
+        "expected_positive_case": "SCAN-MAGIC-ZIP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ZIP-N",
+        "child_exit": 1,
+        "expected_case_failed": true,
+        "killed": true,
+        "output_tail": "scan-report.mjs\",\"expected_exit\":2,\"actual_exit\":2,\"expected_result\":\"FAIL\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B\",\"scanned_file_identity\":\"504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"8400437D3ACF5F1B0716DECC9C07B789BE78E637B851A88491A6716374504B48\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true},{\"case_id\":\"SCAN-MAGIC-JPEG-N\",\"finding_class\":\"KNOWN_BINARY_MAGIC_DETECTED\",\"mode\":\"safe-negative\",\"magic_id\":\"JPEG\",\"production_entrypoint\":\".codex/scripts/generate-bootstrap-scan-report.mjs\",\"expected_exit\":0,\"actual_exit\":0,\"expected_result\":\"PASS\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879\",\"scanned_file_identity\":\"8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"8400437D3ACF5F1B0716DECC9C07B789BE78E637B851A88491A6716374504B48\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true}]}\n\n"
+      },
+      {
+        "mutation_id": "MUT-MAGIC-ZIP-WRONG-FINDING-CLASS",
+        "magic_id": "ZIP",
+        "family": "wrong-finding-class",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic ZIP signature/offset/class mismatch."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-ZIP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-ZIP-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PDF-REMOVE-REGISTRY-ENTRY",
+        "magic_id": "PDF",
+        "family": "remove-registry-entry",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic registry must contain the exact ordered nine-magic set."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PDF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PDF-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PDF-REMOVE-POSITIVE-ORACLE",
+        "magic_id": "PDF",
+        "family": "remove-positive-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic PDF positive_fixture_id is not a dedicated formal positive oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PDF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PDF-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PDF-REMOVE-SAFE-NEGATIVE-ORACLE",
+        "magic_id": "PDF",
+        "family": "remove-safe-negative-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic PDF safe_negative_fixture_id is not a dedicated formal safe-negative oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PDF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PDF-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PDF-MODIFY-SIGNATURE",
+        "magic_id": "PDF",
+        "family": "modify-signature",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 0,
+        "bundle_violations": [],
+        "expected_positive_case": "SCAN-MAGIC-PDF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PDF-N",
+        "child_exit": 1,
+        "expected_case_failed": true,
+        "killed": true,
+        "output_tail": "scan-report.mjs\",\"expected_exit\":2,\"actual_exit\":2,\"expected_result\":\"FAIL\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B\",\"scanned_file_identity\":\"504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"18B978835795A546EEBF40DD30EC4E507431ADA7707BCE8447F9046D72E10272\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true},{\"case_id\":\"SCAN-MAGIC-JPEG-N\",\"finding_class\":\"KNOWN_BINARY_MAGIC_DETECTED\",\"mode\":\"safe-negative\",\"magic_id\":\"JPEG\",\"production_entrypoint\":\".codex/scripts/generate-bootstrap-scan-report.mjs\",\"expected_exit\":0,\"actual_exit\":0,\"expected_result\":\"PASS\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879\",\"scanned_file_identity\":\"8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"18B978835795A546EEBF40DD30EC4E507431ADA7707BCE8447F9046D72E10272\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true}]}\n\n"
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PDF-WRONG-FINDING-CLASS",
+        "magic_id": "PDF",
+        "family": "wrong-finding-class",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic PDF signature/offset/class mismatch."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PDF-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PDF-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-SQLITE-REMOVE-REGISTRY-ENTRY",
+        "magic_id": "SQLite",
+        "family": "remove-registry-entry",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic registry must contain the exact ordered nine-magic set."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-SQLITE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-SQLITE-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-SQLITE-REMOVE-POSITIVE-ORACLE",
+        "magic_id": "SQLite",
+        "family": "remove-positive-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic SQLite positive_fixture_id is not a dedicated formal positive oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-SQLITE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-SQLITE-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-SQLITE-REMOVE-SAFE-NEGATIVE-ORACLE",
+        "magic_id": "SQLite",
+        "family": "remove-safe-negative-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic SQLite safe_negative_fixture_id is not a dedicated formal safe-negative oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-SQLITE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-SQLITE-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-SQLITE-MODIFY-SIGNATURE",
+        "magic_id": "SQLite",
+        "family": "modify-signature",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 0,
+        "bundle_violations": [],
+        "expected_positive_case": "SCAN-MAGIC-SQLITE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-SQLITE-N",
+        "child_exit": 1,
+        "expected_case_failed": true,
+        "killed": true,
+        "output_tail": "scan-report.mjs\",\"expected_exit\":2,\"actual_exit\":2,\"expected_result\":\"FAIL\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B\",\"scanned_file_identity\":\"504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"C1C742AB638B778E6B830A2BF9AC690501C1EAAE86010EC054F3666FCEB17746\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true},{\"case_id\":\"SCAN-MAGIC-JPEG-N\",\"finding_class\":\"KNOWN_BINARY_MAGIC_DETECTED\",\"mode\":\"safe-negative\",\"magic_id\":\"JPEG\",\"production_entrypoint\":\".codex/scripts/generate-bootstrap-scan-report.mjs\",\"expected_exit\":0,\"actual_exit\":0,\"expected_result\":\"PASS\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879\",\"scanned_file_identity\":\"8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"C1C742AB638B778E6B830A2BF9AC690501C1EAAE86010EC054F3666FCEB17746\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true}]}\n\n"
+      },
+      {
+        "mutation_id": "MUT-MAGIC-SQLITE-WRONG-FINDING-CLASS",
+        "magic_id": "SQLite",
+        "family": "wrong-finding-class",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic SQLite signature/offset/class mismatch."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-SQLITE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-SQLITE-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PGDMP-REMOVE-REGISTRY-ENTRY",
+        "magic_id": "PGDMP",
+        "family": "remove-registry-entry",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic registry must contain the exact ordered nine-magic set."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PGDMP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PGDMP-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PGDMP-REMOVE-POSITIVE-ORACLE",
+        "magic_id": "PGDMP",
+        "family": "remove-positive-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic PGDMP positive_fixture_id is not a dedicated formal positive oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PGDMP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PGDMP-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PGDMP-REMOVE-SAFE-NEGATIVE-ORACLE",
+        "magic_id": "PGDMP",
+        "family": "remove-safe-negative-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic PGDMP safe_negative_fixture_id is not a dedicated formal safe-negative oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PGDMP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PGDMP-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PGDMP-MODIFY-SIGNATURE",
+        "magic_id": "PGDMP",
+        "family": "modify-signature",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 0,
+        "bundle_violations": [],
+        "expected_positive_case": "SCAN-MAGIC-PGDMP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PGDMP-N",
+        "child_exit": 1,
+        "expected_case_failed": true,
+        "killed": true,
+        "output_tail": "scan-report.mjs\",\"expected_exit\":2,\"actual_exit\":2,\"expected_result\":\"FAIL\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B\",\"scanned_file_identity\":\"504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"493782A2C2341D72D137840A175051DB65E071047E9945387C8BA319EB328C9A\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true},{\"case_id\":\"SCAN-MAGIC-JPEG-N\",\"finding_class\":\"KNOWN_BINARY_MAGIC_DETECTED\",\"mode\":\"safe-negative\",\"magic_id\":\"JPEG\",\"production_entrypoint\":\".codex/scripts/generate-bootstrap-scan-report.mjs\",\"expected_exit\":0,\"actual_exit\":0,\"expected_result\":\"PASS\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879\",\"scanned_file_identity\":\"8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"493782A2C2341D72D137840A175051DB65E071047E9945387C8BA319EB328C9A\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true}]}\n\n"
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PGDMP-WRONG-FINDING-CLASS",
+        "magic_id": "PGDMP",
+        "family": "wrong-finding-class",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic PGDMP signature/offset/class mismatch."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PGDMP-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PGDMP-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-OLE-REMOVE-REGISTRY-ENTRY",
+        "magic_id": "OLE",
+        "family": "remove-registry-entry",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic registry must contain the exact ordered nine-magic set."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-OLE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-OLE-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-OLE-REMOVE-POSITIVE-ORACLE",
+        "magic_id": "OLE",
+        "family": "remove-positive-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic OLE positive_fixture_id is not a dedicated formal positive oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-OLE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-OLE-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-OLE-REMOVE-SAFE-NEGATIVE-ORACLE",
+        "magic_id": "OLE",
+        "family": "remove-safe-negative-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic OLE safe_negative_fixture_id is not a dedicated formal safe-negative oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-OLE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-OLE-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-OLE-MODIFY-SIGNATURE",
+        "magic_id": "OLE",
+        "family": "modify-signature",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 0,
+        "bundle_violations": [],
+        "expected_positive_case": "SCAN-MAGIC-OLE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-OLE-N",
+        "child_exit": 1,
+        "expected_case_failed": true,
+        "killed": true,
+        "output_tail": "scan-report.mjs\",\"expected_exit\":2,\"actual_exit\":2,\"expected_result\":\"FAIL\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B\",\"scanned_file_identity\":\"504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"DBB9292E4B511735524D65856CD65363034CA5B3CA3F851544663B94AD0FCEE3\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true},{\"case_id\":\"SCAN-MAGIC-JPEG-N\",\"finding_class\":\"KNOWN_BINARY_MAGIC_DETECTED\",\"mode\":\"safe-negative\",\"magic_id\":\"JPEG\",\"production_entrypoint\":\".codex/scripts/generate-bootstrap-scan-report.mjs\",\"expected_exit\":0,\"actual_exit\":0,\"expected_result\":\"PASS\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879\",\"scanned_file_identity\":\"8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"DBB9292E4B511735524D65856CD65363034CA5B3CA3F851544663B94AD0FCEE3\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true}]}\n\n"
+      },
+      {
+        "mutation_id": "MUT-MAGIC-OLE-WRONG-FINDING-CLASS",
+        "magic_id": "OLE",
+        "family": "wrong-finding-class",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic OLE signature/offset/class mismatch."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-OLE-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-OLE-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PNG-REMOVE-REGISTRY-ENTRY",
+        "magic_id": "PNG",
+        "family": "remove-registry-entry",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic registry must contain the exact ordered nine-magic set."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PNG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PNG-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PNG-REMOVE-POSITIVE-ORACLE",
+        "magic_id": "PNG",
+        "family": "remove-positive-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic PNG positive_fixture_id is not a dedicated formal positive oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PNG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PNG-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PNG-REMOVE-SAFE-NEGATIVE-ORACLE",
+        "magic_id": "PNG",
+        "family": "remove-safe-negative-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic PNG safe_negative_fixture_id is not a dedicated formal safe-negative oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PNG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PNG-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PNG-MODIFY-SIGNATURE",
+        "magic_id": "PNG",
+        "family": "modify-signature",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 0,
+        "bundle_violations": [],
+        "expected_positive_case": "SCAN-MAGIC-PNG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PNG-N",
+        "child_exit": 1,
+        "expected_case_failed": true,
+        "killed": true,
+        "output_tail": "scan-report.mjs\",\"expected_exit\":2,\"actual_exit\":2,\"expected_result\":\"FAIL\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B\",\"scanned_file_identity\":\"504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"EDD130D09D4FA3292644E26FA0C61811AA06D5EC04B446117A56507FD08E3D49\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true},{\"case_id\":\"SCAN-MAGIC-JPEG-N\",\"finding_class\":\"KNOWN_BINARY_MAGIC_DETECTED\",\"mode\":\"safe-negative\",\"magic_id\":\"JPEG\",\"production_entrypoint\":\".codex/scripts/generate-bootstrap-scan-report.mjs\",\"expected_exit\":0,\"actual_exit\":0,\"expected_result\":\"PASS\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879\",\"scanned_file_identity\":\"8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"EDD130D09D4FA3292644E26FA0C61811AA06D5EC04B446117A56507FD08E3D49\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true}]}\n\n"
+      },
+      {
+        "mutation_id": "MUT-MAGIC-PNG-WRONG-FINDING-CLASS",
+        "magic_id": "PNG",
+        "family": "wrong-finding-class",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic PNG signature/offset/class mismatch."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-PNG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-PNG-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-JPEG-REMOVE-REGISTRY-ENTRY",
+        "magic_id": "JPEG",
+        "family": "remove-registry-entry",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic registry must contain the exact ordered nine-magic set."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-JPEG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-JPEG-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-JPEG-REMOVE-POSITIVE-ORACLE",
+        "magic_id": "JPEG",
+        "family": "remove-positive-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic JPEG positive_fixture_id is not a dedicated formal positive oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-JPEG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-JPEG-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-JPEG-REMOVE-SAFE-NEGATIVE-ORACLE",
+        "magic_id": "JPEG",
+        "family": "remove-safe-negative-oracle",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic JPEG safe_negative_fixture_id is not a dedicated formal safe-negative oracle."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-JPEG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-JPEG-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      },
+      {
+        "mutation_id": "MUT-MAGIC-JPEG-MODIFY-SIGNATURE",
+        "magic_id": "JPEG",
+        "family": "modify-signature",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 0,
+        "bundle_violations": [],
+        "expected_positive_case": "SCAN-MAGIC-JPEG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-JPEG-N",
+        "child_exit": 1,
+        "expected_case_failed": true,
+        "killed": true,
+        "output_tail": "can-report.mjs\",\"expected_exit\":2,\"actual_exit\":2,\"expected_result\":\"FAIL\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"59D56712AE3F1327D5155358769E2A576790D2E4AE00661083566CA985ADC59B\",\"scanned_file_identity\":\"504CF969AC03BE8B6FB0680B2DF4D3B1BB6BDB484ABC28599A7BA761CCD08B96\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"6A1457CEB24F09C3CBA4AFFF7370E0383279F47D13FFE39ABDD7AFB9E18235F3\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":false},{\"case_id\":\"SCAN-MAGIC-JPEG-N\",\"finding_class\":\"KNOWN_BINARY_MAGIC_DETECTED\",\"mode\":\"safe-negative\",\"magic_id\":\"JPEG\",\"production_entrypoint\":\".codex/scripts/generate-bootstrap-scan-report.mjs\",\"expected_exit\":0,\"actual_exit\":0,\"expected_result\":\"PASS\",\"finding_source_transform\":\"raw-bytes\",\"manifest_sha256\":\"E9838D102A32D5C24D3F5FE348E69CCE1C36ED495FA2C4F0D026531409CC1879\",\"scanned_file_identity\":\"8F72645FFFE2085E720F60C13D47B293673B05C586959D905EC07AD4A3BEE77C\",\"contract_version\":5,\"binary_magic_registry_sha256\":\"6A1457CEB24F09C3CBA4AFFF7370E0383279F47D13FFE39ABDD7AFB9E18235F3\",\"schema_set_sha256\":\"B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836\",\"pass\":true}]}\n\n"
+      },
+      {
+        "mutation_id": "MUT-MAGIC-JPEG-WRONG-FINDING-CLASS",
+        "magic_id": "JPEG",
+        "family": "wrong-finding-class",
+        "production_components": [
+          ".codex/governance/bootstrap-binary-magic-registry.yaml",
+          ".codex/tests/scanner-production-case-manifest.json",
+          ".codex/scripts/lib/governance/scanner-pipeline.mjs"
+        ],
+        "bundle_violation_count": 1,
+        "bundle_violations": [
+          "SCAN_CONTRACT binary magic JPEG signature/offset/class mismatch."
+        ],
+        "expected_positive_case": "SCAN-MAGIC-JPEG-P",
+        "expected_safe_negative_case": "SCAN-MAGIC-JPEG-N",
+        "child_exit": null,
+        "expected_case_failed": null,
+        "killed": true,
+        "output_tail": ""
+      }
+    ]
+  }
+}

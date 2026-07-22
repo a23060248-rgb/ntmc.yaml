@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A5",
+  "adversarial_reports_rejected": true,
+  "adversarial_results": [
+    {
+      "adversary": "TRUNCATED_CHILD_REPORT",
+      "violations": [
+        "FIXTURE_REPORT case count mismatch.",
+        "FIXTURE_REPORT missing case CASE-50.",
+        "FIXTURE_REPORT required hash invalid for CASE-50."
+      ]
+    },
+    {
+      "adversary": "DUPLICATE_CASE_ID",
+      "violations": [
+        "FIXTURE_REPORT duplicate case ID.",
+        "FIXTURE_REPORT missing case CASE-02."
+      ]
+    },
+    {
+      "adversary": "FORGED_PASS_WITHOUT_PROVENANCE",
+      "violations": [
+        "FIXTURE_REPORT case CASE-01 lacks invariant or production entrypoint provenance."
+      ]
+    },
+    {
+      "adversary": "TAMPERED_SUITE_HASH",
+      "violations": [
+        "FIXTURE_REPORT case manifest hash mismatch."
+      ]
+    }
+  ],
+  "result": "PASS"
+}

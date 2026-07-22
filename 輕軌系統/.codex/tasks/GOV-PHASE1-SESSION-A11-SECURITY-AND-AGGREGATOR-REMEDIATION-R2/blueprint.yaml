@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "objective": "Resolve the Security R1 path-binding and Aggregator transport-schema blockers without changing Candidate content or prior Reviewer decisions.",
+  "allowed_paths": [
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/**"
+  ],
+  "agent_assignments": [
+    {
+      "role": "root-governance-preparer",
+      "read_paths": [
+        "AGENTS.md",
+        ".agents/**",
+        ".codex/**"
+      ],
+      "write_paths": [
+        ".codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/**"
+      ]
+    }
+  ],
+  "applicable_rules": [],
+  "candidate_rules": [],
+  "phases": [
+    "freeze Candidate/history",
+    "preserve R1 wrappers",
+    "define transport v2",
+    "build Security R2 package",
+    "build Aggregator R2 package",
+    "run preparation contract tests",
+    "stop before launch"
+  ],
+  "hard_stops": [
+    "A11_R2_CANDIDATE_BINDING_CHANGED",
+    "A11_R2_PRESERVED_PAYLOAD_INVALID",
+    "A11_R2_SECURITY_PATH_BINDING_AMBIGUOUS",
+    "A11_R2_TRANSPORT_SCHEMA_AMBIGUOUS",
+    "A11_R2_MIXED_GENERATION_BINDING_INVALID",
+    "A11_R2_AGGREGATOR_SCOPE_OVERBROAD",
+    "A11_R2_QA_CONTRACT_INCOMPLETE",
+    "A11_R2_PACKAGE_HASH_INVALID",
+    "A11_R2_IDENTITY_COLLISION",
+    "A11_R2_HISTORICAL_ARTIFACT_CHANGED"
+  ]
+}

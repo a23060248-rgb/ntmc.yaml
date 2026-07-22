@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "status": "ARCHIVED",
+  "reviewer_set_outcome": "BLOCKER",
+  "reviewer_outcomes": [
+    {"reviewer": "code-reviewer", "outcome": "PASS", "reviewer_run_id": "A8-CODE-RUN-d04fc3fe-c300-450b-857d-ba3c2f13dc50", "session_id": "A8-CODE-SESSION-6c4db7fe-3808-4577-88e6-86cebdb28699", "closure_refs": ["A7-CODE-BLOCKER-001", "A7-CODE-BLOCKER-002"]},
+    {"reviewer": "security-reviewer", "outcome": "PASS", "reviewer_run_id": "A8-SEC-RUN-0ecb32f9-2578-45ef-ad3d-2c46227c316f", "session_id": "A8-SEC-SESSION-9b964674-361a-462c-b25d-ca362a7a278a", "closure_refs": ["A7-SEC-HIGH-001", "A6-SEC-HIGH-002", "A5-SEC-HIGH-002"]},
+    {"reviewer": "railway-domain-reviewer", "outcome": "BLOCKER", "governance_mechanism_outcome": "BLOCKER", "migration_320_domain_decision": "NEEDS_HUMAN_DECISION", "reviewer_run_id": "A8-DOMAIN-RUN-ee1b423f-2365-43d2-9199-29cabdb40055", "session_id": "A8-DOMAIN-SESSION-2c971a47-1f88-4a74-a880-8f97c2f7cb15", "finding_refs": ["A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001", "A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001"], "closure_refs": ["A7-DOMAIN-TYPED-SCHEMA-PARSE-001"]}
+  ],
+  "formal_metadata_valid": true,
+  "reviewer_independence_result": "PASS",
+  "severity_counts": {"BLOCKER": 2, "HIGH": 0, "MEDIUM": 0, "LOW": 0},
+  "a7_closure_counts": {"CLOSED": 4, "NOT_CLOSED": 0},
+  "a6_scanner_closure": "CLOSED",
+  "a5_security_closure": "CLOSED",
+  "authoritative_rerun_pass": true,
+  "authoritative_validator": {
+    "structural": "VALID",
+    "bootstrap_candidate_review": {"status": "NO-GO", "exit": 2},
+    "bootstrap_human_commit": {"status": "NO-GO", "exit": 2},
+    "steady_state_preparation": {"status": "DISABLED"},
+    "steady_state_execution": {"status": "DISABLED"},
+    "migration_320_execution": {"status": "NO-GO", "exit": 2},
+    "proof_assurance": "INTERNAL_CONSISTENCY_ONLY"
+  },
+  "reviewed_source_baseline_identical": true,
+  "bootstrap_candidate_review_gate": "NO-GO",
+  "eligible_to_start_session_b": false,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "session_b_started": false,
+  "git_mutation_performed": false,
+  "root_modified_reviewer_outcomes": false,
+  "conclusion": "A8 Reviewer criteria did not pass because the Railway Domain governance mechanism has two new BLOCKER findings; Session B is not eligible or authorized."
+}

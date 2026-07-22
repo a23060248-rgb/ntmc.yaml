@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-MASTER-BATCH-2D-A11-QA-FAILURE-TRIAGE",
+  "candidate_before_after_identical": true,
+  "verified_unchanged_sha256": [
+    {"path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/contract-version-negative-tests.json", "sha256": "25A8715E96A26F02F528BA87DCC275B27ABB99EA91044789891033F264D54719"},
+    {"path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/evidence-schema-negative-tests.json", "sha256": "00C581B5EE2982E223B5D45A1725A2C39F2E6BB6B31638BECAD20132586163FE"},
+    {"path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/preparation-test-summary.json", "sha256": "AF331A38E7432527D1CA3E99C6055F400E326728BB30BC17F963A92BEDE9D400"},
+    {"path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/run-security-chain-tests.mjs", "sha256": "0346A85ADD92EF8DA16D2E68A747A625DCF095F88E58AAB5D8D7F36B870F859E"},
+    {"path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/run-preparation-tests.mjs", "sha256": "8DC5E614599D0781BD8B49946B6A36BD57D7AC5845693ABCBD02DF152640968F"},
+    {"path": ".codex/tests/run-bootstrap-production-integration.mjs", "sha256": "F5CAD6A824AD23FF94AFEAA921ACCE54C6F3EA15DB7270A48DA74F8394D65E04"},
+    {"path": ".codex/tests/run-bootstrap-mutation-tests.mjs", "sha256": "3A0A44255866A173C07C376E9EB244480C99AE08E1910F5BFF107CBDE8579603"},
+    {"path": ".codex/tests/run-reviewer-binding-regressions.mjs", "sha256": "4C81448BF3D2404546A6483B2E92A066E90FB106067704D47AE54AEDAE605BA4"},
+    {"path": ".codex/tests/run-binary-magic-registry-mutations.mjs", "sha256": "3383B8C031531E5F6C79744C69CBF7DDA5309CE721DEB6EE5AC19476F898F7DF"},
+    {"path": ".codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/review-packages/aggregation-deterministic-qa-r2/deterministic-qa-command-manifest.json", "sha256": "69017477399746563B77577FCCA9296388D9A8D882044FD22FB343190D5E6995"}
+  ],
+  "tests_modified": false,
+  "package_modified": false,
+  "historical_evidence_modified": false,
+  "git_used": false,
+  "result": "PASS"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "contract_id": "R12-REVIEWER-EARLY-FAILURE",
+  "version": 1,
+  "formal_assurance": "procedural",
+  "required_payload": {
+    "review_status": "BLOCKER",
+    "failure_stage": "PRE_REVIEW_SCOPE_VALIDATION",
+    "review_started": false,
+    "candidate_content_reviewed": false,
+    "finding_id_required": true,
+    "reason_required": true,
+    "missing_paths": [],
+    "conflicting_paths": [],
+    "forbidden_access_occurred": false,
+    "completed": true,
+    "mandatory_exit_requested": true
+  },
+  "counts_as_technical_review": false,
+  "counts_as_pass": false,
+  "root_may_modify": false,
+  "immediate_exit_required": true
+}

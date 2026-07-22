@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "classification_model": [
+    "UNCHANGED_VALID",
+    "UNCHANGED_NO-GO",
+    "HISTORICAL_ONLY",
+    "EXPECTEDLY_UNSUPPORTED",
+    "INVALID_REGRESSION"
+  ],
+  "records": [
+    {
+      "subject": "A10 formal review",
+      "classification": "UNCHANGED_VALID",
+      "recorded_outcome": "PASS",
+      "candidate_gate": "GO"
+    },
+    {
+      "subject": "R9 remediation validation",
+      "classification": "UNCHANGED_VALID",
+      "recorded_outcome": "PASS_WITH_GATES_BLOCKED_AS_DESIGNED",
+      "candidate_file_count": 103
+    },
+    {
+      "subject": "pre-R9 frozen review and remediation history",
+      "classification": "HISTORICAL_ONLY",
+      "recorded_file_count": 638
+    },
+    {
+      "subject": "Migration 320",
+      "classification": "UNCHANGED_NO-GO",
+      "recorded_outcome": "NO-GO"
+    }
+  ],
+  "historical_reviewer_outcomes_reinterpreted": false,
+  "historical_blockers_rewritten_as_pass": false,
+  "historical_raw_artifacts_added_to_candidate": false,
+  "result": "PASS"
+}

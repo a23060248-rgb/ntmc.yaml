@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "total": 24,
+  "passed": 24,
+  "failed": 0,
+  "tests": [
+    {
+      "test_id": "1",
+      "name": "Reviewer wrapper with a third top-level field is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "2",
+      "name": "Reviewer wrapper missing payload_core is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "3",
+      "name": "Reviewer wrapper missing payload_core_sha256 is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "4",
+      "name": "Missing clean-context attestation is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "5",
+      "name": "Payload self-hash mismatch is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "6",
+      "name": "outcome cannot replace review_status",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "7",
+      "name": "Code closure authority NONE is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "VALID_AUTHORITY"
+    },
+    {
+      "test_id": "8",
+      "name": "Code finding_closure_forbidden true is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "VALID_AUTHORITY"
+    },
+    {
+      "test_id": "9",
+      "name": "Non-Code Reviewer closure is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "10",
+      "name": "Code PASS without closure is A11 NO-GO",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "A11_NO_GO"
+    },
+    {
+      "test_id": "11",
+      "name": "Code BLOCKER cannot close finding",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "12",
+      "name": "B2 findings are excluded from A11 required closure",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "VALID_BOUNDARY"
+    },
+    {
+      "test_id": "13",
+      "name": "Prompt path outside exact scope is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "14",
+      "name": "Envelope path outside package manifest is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID"
+    },
+    {
+      "test_id": "15",
+      "name": "Launch file hash mismatch produces Startup Blocker",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "STARTUP_BLOCKER"
+    },
+    {
+      "test_id": "16",
+      "name": "Reviewer repository write produces BLOCKER",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "BLOCKER"
+    },
+    {
+      "test_id": "17",
+      "name": "Reviewer subagent produces BLOCKER",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "BLOCKER"
+    },
+    {
+      "test_id": "18",
+      "name": "Reviewer receiving other payload produces BLOCKER",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "BLOCKER"
+    },
+    {
+      "test_id": "19",
+      "name": "Aggregator without task-local write authority is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "VALID_PACKAGE"
+    },
+    {
+      "test_id": "20",
+      "name": "Aggregator Candidate write authority is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "VALID_PACKAGE"
+    },
+    {
+      "test_id": "21",
+      "name": "Aggregator missing Fresh QA command manifest is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "VALID_PACKAGE"
+    },
+    {
+      "test_id": "22",
+      "name": "Aggregator missing one Reviewer payload is A11 NO-GO",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "A11_NO_GO"
+    },
+    {
+      "test_id": "23",
+      "name": "Aggregator modifying Reviewer outcome is invalid",
+      "expected": "INVALID_OR_NO_GO",
+      "pass": true,
+      "observed": "INVALID_IF_TRUE"
+    },
+    {
+      "test_id": "24",
+      "name": "Four PASS payloads, legal closure and Fresh QA PASS yield A11 GO",
+      "expected": "A11_GO",
+      "pass": true,
+      "observed": "A11_GO"
+    }
+  ],
+  "result": "PASS"
+}

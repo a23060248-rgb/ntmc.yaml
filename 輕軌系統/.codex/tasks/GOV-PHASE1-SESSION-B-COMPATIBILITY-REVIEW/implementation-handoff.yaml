@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+  "producer": "root-orchestrator",
+  "actor_role": "qa-engineer",
+  "agent_session_ref": "SESSION-B-ORCHESTRATOR-081CF7D3-74F3-489E-8EFC-252E2CF2514B",
+  "started_at": "2026-07-20T02:00:11.1414442+08:00",
+  "changed_files": [".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/**"],
+  "commands": ["create-task.mjs non-overwriting Session B scaffold", "exact candidate and A10 verification", "governance-only deterministic compatibility reruns", "three fresh task-specific formal read-only Reviewer contexts", "supplemental fresh formal read-only Code Reviewer required by the L3 validator", "before/after SHA256 baseline comparison", "authoritative validator structural VALID with expected Session B NO-GO"],
+  "evidence_refs": ["ART-SB-CANDIDATE", "ART-SB-GATE-REPLAY", "ART-SB-SCHEMA-WORKFLOW", "ART-SB-REMOVED-CAPABILITIES", "ART-SB-HISTORY", "ART-SB-SECURITY", "ART-SB-DOMAIN", "ART-SB-RERUNS", "ART-SB-BASELINE", "ART-SB-M320"],
+  "unverified": ["Corrected Session B v5 security-evidence package", "Fresh Security review with direct access to manifest, candidate record and scanner report", "Human exact-manifest confirmation", "Explicit first-commit authorization"],
+  "residual_risks": ["Session B Security outcome is BLOCKER.", "Candidate evidence remains INTERNAL_CONSISTENCY_ONLY.", "Migration 320 remains NEEDS_HUMAN_DECISION and NO-GO."],
+  "next_role": "human-governance-owner-to-decide-whether-to-authorize-a-separate-remediation-task"
+}

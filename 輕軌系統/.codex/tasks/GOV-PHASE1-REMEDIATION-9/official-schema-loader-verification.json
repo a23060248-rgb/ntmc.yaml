@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "finding_id": "A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001",
+  "status": "IMPLEMENTED_AWAITING_A9",
+  "production_loader": {"ref": ".codex/scripts/lib/governance/governance-schema-loader.mjs", "sha256": "1A79C7D71BBDDFE49661DD032C52847148E7568F5D01E1D470B18B3C8E11C4A5", "export": "loadAndCompileGovernanceSchemas"},
+  "fixture_runner": {"ref": ".codex/tests/run-governance-fixtures.mjs", "sha256": "D917449FA2A07AB41A4BA737C7475426ABD7A4EFA6C3D6C1F957E82AB62A51F5", "production_loader_used": true},
+  "schema_execution": {
+    "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9",
+    "railway_review_schema_id": "https://ntmc.local/codex/schemas/railway-domain-review.schema.json",
+    "railway_review_schema_version": 1,
+    "railway_review_schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+    "schema_compile_status": "PASS",
+    "manifest_binding_enabled": true,
+    "scan_contract_schema_set_hash_match": true,
+    "typed_railway_fixture_validated": true
+  },
+  "fixture_result": {"total": 68, "passed": 68, "failed": 0},
+  "integration_result": {"total": 11, "passed": 11, "failed": 0},
+  "mutation_result": {"total": 6, "killed": 6, "survived": 0},
+  "fresh_reviewer_decision_required": true
+}

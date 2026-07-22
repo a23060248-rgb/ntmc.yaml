@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "title": "Phase 1.5 Minimum Trustworthy Governance Core",
+  "task_type": "governance",
+  "objective": "Converge Phase 1 to one minimum trustworthy production validation path while removing unsupported waiver, confirmed Domain Rule promotion, broad scanner, and isolation claims.",
+  "business_reason": "Session A4 demonstrated that passing helper and fixture suites did not prevent production-path scope, proof, identity, scanner, Domain authority, and lifecycle bypasses.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "exclude": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories",
+      "frozen Session A/A2/A3/A4 and Remediation 2/3/4 records",
+      "A4 finding consolidation records",
+      "Migration 320 original external evidence"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "retained_phase1_capabilities": [
+    "governance-only Phase scope lock",
+    "six-source effective scope intersection",
+    "unique artifact and requirement reference resolution",
+    "WORKSPACE_CANDIDATE and STAGED_EXACT proof role isolation",
+    "exact manifest-bound declared scanner contract",
+    "proposed-only Domain Rule governance",
+    "deterministic lifecycle projection or explicit informational downgrade",
+    "fail-closed reviewer, evidence, approval, and hash validation",
+    "Migration 320 deterministic NO-GO"
+  ],
+  "removed_phase1_capabilities": [
+    "evidence waiver execution",
+    "confirmed Domain Rule promotion",
+    "Agent-produced human authority",
+    "unimplemented scanner claims",
+    "OS, container, DLP, or cryptographic identity guarantees"
+  ],
+  "acceptance_criteria": [
+    "All twelve A4 findings have implementation or explicit feature-removal evidence without changing A4.",
+    "Six shared authoritative components are the only production implementations for their controls.",
+    "Table, property, mutation, differential, and production-path integration tests detect the A4 bypass families.",
+    "A new exact candidate manifest and WORKSPACE_CANDIDATE snapshot are generated for the converged source set.",
+    "Migration 320 remains structural VALID, calculated NO-GO, and its five external evidence hashes remain unchanged.",
+    "Frozen historical artifacts remain byte-identical.",
+    "All governance and Migration 320 gates remain NO-GO; A5 and Session B remain unstarted."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Remediation 5 authorized to start; A5 and Session B not authorized"
+}

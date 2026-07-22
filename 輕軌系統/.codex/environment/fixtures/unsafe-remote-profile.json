@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "profile_id": "unsafe-remote-fixture",
+  "source": "negative-test-fixture",
+  "load_dotenv": true,
+  "database": {
+    "host": "db.example.invalid",
+    "port": 5432,
+    "name": "production",
+    "safety_mode": "off"
+  },
+  "allowed_operations": ["connect"]
+}

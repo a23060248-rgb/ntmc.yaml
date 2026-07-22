@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "contract_id": "GOV-EXTERNAL-DETERMINISTIC-QA-FAIL-CLOSED-001",
+  "rules": [
+    {
+      "when": "missing or extra Reviewer payload",
+      "result": "INVALID",
+      "gate": "NO-GO"
+    },
+    {
+      "when": "payload/package/transport/schema/JCS hash invalid",
+      "result": "INVALID",
+      "gate": "NO-GO"
+    },
+    {
+      "when": "duplicate assignment/run/session nonce/package identity",
+      "result": "INVALID",
+      "gate": "NO-GO"
+    },
+    {
+      "when": "forbidden access or scope violation",
+      "result": "FAIL",
+      "gate": "NO-GO"
+    },
+    {
+      "when": "any Reviewer BLOCKER",
+      "result": "FAIL",
+      "gate": "NO-GO"
+    },
+    {
+      "when": "raw deterministic report missing or incomplete",
+      "result": "INVALID",
+      "gate": "NO-GO"
+    },
+    {
+      "when": "candidate or history drift",
+      "result": "INVALID",
+      "gate": "NO-GO"
+    },
+    {
+      "when": "Aggregator attempts Reviewer judgment or outcome mutation",
+      "result": "INVALID",
+      "gate": "NO-GO"
+    },
+    {
+      "when": "all four PASS payloads and all deterministic evidence pass",
+      "result": "PASS",
+      "gate": "GO"
+    }
+  ],
+  "subjective_discretion_allowed": false
+}

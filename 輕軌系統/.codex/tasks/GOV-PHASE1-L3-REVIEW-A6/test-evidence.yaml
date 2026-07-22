@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "evidence_mode": "fresh-independent-review-and-authoritative-production-rerun",
+  "commands": [
+    "node .codex/tests/run-governance-fixtures.mjs",
+    "node .codex/tests/run-bootstrap-production-integration.mjs",
+    "node .codex/tests/run-bootstrap-mutation-tests.mjs",
+    "node .codex/tests/run-governance-fixtures-concurrency.mjs",
+    "node .codex/scripts/generate-bootstrap-scan-report.mjs 2026-07-19T01:00:00+08:00 .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/root-temp/scanner-rerun.json",
+    "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN"
+  ],
+  "requirements": [
+    {"requirement_id":"A6-CANDIDATE-BASELINE","semantic_category":"candidate-integrity","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["bootstrap-candidate"]},
+    {"requirement_id":"A6-CODE-REVIEW","semantic_category":"formal-code-review","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["read-only-review"]},
+    {"requirement_id":"A6-SECURITY-REVIEW","semantic_category":"formal-security-review","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["security"]},
+    {"requirement_id":"A6-RAILWAY-DOMAIN-REVIEW","semantic_category":"formal-domain-review","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["domain-rule"]},
+    {"requirement_id":"A6-A5-CLOSURE","semantic_category":"finding-closure","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["read-only-review"]},
+    {"requirement_id":"A6-FIXTURE-RERUN","semantic_category":"fixtures","criticality":"HIGH","required_for_levels":["L3"],"required_execution_categories":["governance-fixture"]},
+    {"requirement_id":"A6-PRODUCTION-RERUN","semantic_category":"production-integration","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["governance-validation"]},
+    {"requirement_id":"A6-MUTATION-RERUN","semantic_category":"mutation-testing","criticality":"HIGH","required_for_levels":["L3"],"required_execution_categories":["governance-fixture"]},
+    {"requirement_id":"A6-CONCURRENCY-RERUN","semantic_category":"concurrency-isolation","criticality":"HIGH","required_for_levels":["L3"],"required_execution_categories":["governance-fixture"]},
+    {"requirement_id":"A6-SCANNER-VERIFICATION","semantic_category":"scanner-contract","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["security"]},
+    {"requirement_id":"A6-RULE-CLASS-VERIFICATION","semantic_category":"rule-authority","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["domain-rule"]},
+    {"requirement_id":"A6-HISTORY-INTEGRITY","semantic_category":"historical-integrity","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["read-only-review"]},
+    {"requirement_id":"A6-M320-INTEGRITY","semantic_category":"backward-compatibility","criticality":"CRITICAL","required_for_levels":["L3"],"required_execution_categories":["backward-compatibility"]}
+  ],
+  "checks": [
+    {"check_id":"CHECK-A6-CANDIDATE","requirement_id":"A6-CANDIDATE-BASELINE","result":"PASS","note":"Exact 81-file manifest, candidate record, scanner report, file-set and after baseline all matched."},
+    {"check_id":"CHECK-A6-CODE","requirement_id":"A6-CODE-REVIEW","result":"FAIL","note":"Formal independent Code Reviewer outcome is BLOCKER with A6-CODE-BLOCKER-001."},
+    {"check_id":"CHECK-A6-SECURITY","requirement_id":"A6-SECURITY-REVIEW","result":"FAIL","note":"Formal independent Security Reviewer outcome is BLOCKER with A6-SEC-HIGH-001 and A6-SEC-HIGH-002."},
+    {"check_id":"CHECK-A6-DOMAIN","requirement_id":"A6-RAILWAY-DOMAIN-REVIEW","result":"NOT_VERIFIED","note":"Formal independent Railway Domain Reviewer outcome is NEEDS_HUMAN_DECISION; no actual business Rule was approved."},
+    {"check_id":"CHECK-A6-CLOSURE","requirement_id":"A6-A5-CLOSURE","result":"FAIL","note":"Five A5 findings are CLOSED, one is REPLACED_BY_BOOTSTRAP_BOUNDARY, and A5-SEC-HIGH-002 remains NOT_CLOSED."},
+    {"check_id":"CHECK-A6-FIXTURES","requirement_id":"A6-FIXTURE-RERUN","result":"PASS","note":"Authoritative fixture suite passed 68/68 with exact invariant and entrypoint provenance."},
+    {"check_id":"CHECK-A6-PRODUCTION","requirement_id":"A6-PRODUCTION-RERUN","result":"PASS_WITH_LIMITATION","note":"Declared production integration passed 20/20, but formal Reviewers proved missing Gate and scanner oracle invariants."},
+    {"check_id":"CHECK-A6-MUTATION","requirement_id":"A6-MUTATION-RERUN","result":"PASS_WITH_LIMITATION","note":"Declared mutations passed 10/10 killed, but formal Security Review proved unrepresented scanner-report and extension-magic mutations."},
+    {"check_id":"CHECK-A6-CONCURRENCY","requirement_id":"A6-CONCURRENCY-RERUN","result":"PASS","note":"Concurrency isolation passed and truncated, duplicate, forged, and tampered reports were rejected."},
+    {"check_id":"CHECK-A6-SCANNER","requirement_id":"A6-SCANNER-VERIFICATION","result":"FAIL","note":"Current 81-file v4 scan has zero findings, but the formal Security Reviewer proved in-contract report-binding and oracle defects."},
+    {"check_id":"CHECK-A6-RULES","requirement_id":"A6-RULE-CLASS-VERIFICATION","result":"PASS","note":"Formal Domain Review closed the A5 generic meta-rule mechanism bypass without approving any business Rule."},
+    {"check_id":"CHECK-A6-HISTORY","requirement_id":"A6-HISTORY-INTEGRITY","result":"PASS","note":"Candidate 81, frozen history 256, and R6 38 remained byte-size and SHA256 identical."},
+    {"check_id":"CHECK-A6-M320","requirement_id":"A6-M320-INTEGRITY","result":"PASS_WITH_LIMITATION","note":"Migration 320 remains structural VALID, calculated NO-GO, exit 2 with 13 plus 5 hashes intact and three original blockers retained."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": [
+    "Green declared fixtures do not override the three formal Reviewer outcomes.",
+    "Bootstrap evidence is internal-consistency-only and is not a Git trust anchor.",
+    "Session B, commit, steady-state activation, and Migration 320 execution remain unauthorized."
+  ]
+}

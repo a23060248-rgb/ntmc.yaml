@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "freeze_kind": "B6_LAYERED_STATIC_INPUT_FREEZE",
+  "static_manifest": {
+    "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/pre-review-input-manifest.json",
+    "sha256": "C99FFEF480B9911FC6952AEC0B74C47109F49B6E8EDF5E220F2C8F13E1B3E55E",
+    "byte_size": 6891
+  },
+  "frozen_input_count": 27,
+  "frozen_input_set_sha256": "625A3286276B688FFB907E26C1628B29FA2B3CFFF8B0E898C24D0E254349A15D",
+  "layering": [
+    "static inputs",
+    "pre-review freeze",
+    "capability matrix",
+    "satisfiability report",
+    "dispatch plan binding"
+  ],
+  "future_outputs_prebound": false,
+  "result": "PASS"
+}

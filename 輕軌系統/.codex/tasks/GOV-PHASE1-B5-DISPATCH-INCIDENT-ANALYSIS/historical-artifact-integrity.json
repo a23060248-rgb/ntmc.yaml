@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+  "candidate": {
+    "file_count": 103,
+    "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "result": "PASS"
+  },
+  "b5": {
+    "freshly_hashed_file_count": 28,
+    "after_file_count": 28,
+    "changed_file_count": 0,
+    "result": "PASS"
+  },
+  "r11": {
+    "freshly_hashed_file_count": 65,
+    "after_file_count": 65,
+    "changed_file_count": 0,
+    "result": "PASS"
+  },
+  "b2_b3": {
+    "frozen_record_count": 61,
+    "verification_mode": "B5 baseline records are freshly protected by the complete B5 directory hash set; underlying B2/B3 content is not reopened because it is outside this incident task's read allowlist.",
+    "record_set_unchanged_before_after": true,
+    "result": "UNCHANGED_B5_FROZEN_RECORD_ANCHOR"
+  },
+  "b4": {
+    "approved_product_root_path": ".codex/tasks/GOV-PHASE1-SESSION-B4-COMPATIBILITY-REVIEW/fresh-root-capacity-preflight.json",
+    "exists": false,
+    "artifact": null,
+    "result": "MISSING_AT_APPROVED_PATH"
+  },
+  "limitation": "B2/B3 underlying bytes and product-root-external B4 artifacts were not opened because they are outside the incident read allowlist.",
+  "git_used": false,
+  "result": "PASS_WITH_EXPLICIT_READ_BOUNDARY"
+}

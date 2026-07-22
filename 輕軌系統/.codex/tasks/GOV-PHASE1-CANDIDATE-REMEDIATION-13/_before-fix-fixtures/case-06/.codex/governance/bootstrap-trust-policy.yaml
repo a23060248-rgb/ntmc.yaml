@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "policy_type": "bootstrap-governance-trust-boundary",
+  "governance_mode": "bootstrap",
+  "validator_provenance": "untrusted-workspace",
+  "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "git_trust_anchor": false,
+  "human_decision_required": true,
+  "independent_review_required": true,
+  "bootstrap_candidate_record_type": "BOOTSTRAP_WORKSPACE_CANDIDATE",
+  "bootstrap_record_permitted_uses": [
+    "session-a8-baseline-after-separate-human-authorization",
+    "session-b-review-baseline-after-human-authorization",
+    "human-exact-manifest-comparison"
+  ],
+  "bootstrap_record_prohibited_claims": [
+    "trusted-validator-producer-identity",
+    "staged-file-set-proof",
+    "automatic-commit-approval",
+    "steady-state-execution-authority",
+    "cryptographic-attestation"
+  ],
+  "steady_state_transition_requires": [
+    "bootstrap_commit_sha256",
+    "bootstrap_manifest_sha256",
+    "human_attestation"
+  ],
+  "steady_state_transition_present": false
+}

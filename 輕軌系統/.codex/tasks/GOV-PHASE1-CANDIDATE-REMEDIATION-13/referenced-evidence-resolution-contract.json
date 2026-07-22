@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "contract_id": "GOV-REFERENCED-EVIDENCE-RESOLUTION",
+  "manifest_contract_version": 2,
+  "input_authority": "artifact-manifest evidence entries only",
+  "required_entry_fields": ["artifact_id", "path", "sha256", "artifact_class", "evidence_type", "required", "schema_id", "referenced_by"],
+  "resolution_order": ["canonicalize path", "verify scope and physical identity", "verify existence and content hash", "resolve unique evidence type", "verify declared schema ID", "verify registered schema bytes", "parse content", "validate registered schema", "derive completeness"],
+  "path_rejections": ["absolute", "traversal", "backslash or mixed separator", "case collision", "duplicate physical path", "symlink or junction", "conflicting evidence type", "outside Task root"],
+  "output_fields": ["required_count", "resolved_count", "validated_count", "invalid_count", "unresolved_count", "duplicate_count", "complete", "evidence"],
+  "derived_attestations_are_authority": false
+}

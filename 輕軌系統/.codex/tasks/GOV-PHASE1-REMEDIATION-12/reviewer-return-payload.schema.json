@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/task-local/r12/reviewer-return-payload.schema.json",
+  "x-governance-schema-version": 1,
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "reviewer_role",
+    "assignment_id",
+    "reviewer_run_id",
+    "session_id",
+    "review_status",
+    "failure_stage",
+    "review_started",
+    "candidate_content_reviewed",
+    "findings",
+    "access_log",
+    "clean_context_attestation",
+    "closure_dispositions",
+    "completed",
+    "mandatory_exit_requested",
+    "payload_self_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9-]{2,63}$"
+    },
+    "reviewer_role": {
+      "enum": [
+        "code-reviewer",
+        "security-reviewer",
+        "railway-domain-reviewer",
+        "compatibility-reviewer"
+      ]
+    },
+    "assignment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewer_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_status": {
+      "enum": [
+        "PASS",
+        "BLOCKER"
+      ]
+    },
+    "failure_stage": {
+      "enum": [
+        "NONE",
+        "PRE_REVIEW_SCOPE_VALIDATION",
+        "REVIEWER_RUNTIME_TIMEOUT",
+        "TECHNICAL_REVIEW"
+      ]
+    },
+    "review_started": {
+      "type": "boolean"
+    },
+    "candidate_content_reviewed": {
+      "type": "boolean"
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "access_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "operation",
+          "result"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "operation": {
+            "const": "read"
+          },
+          "result": {
+            "enum": [
+              "ALLOWED",
+              "BLOCKED"
+            ]
+          }
+        }
+      }
+    },
+    "clean_context_attestation": {
+      "type": "object",
+      "required": [
+        "did_not_participate_in_implementation",
+        "implementation_conversation_received",
+        "conversation_memory_used",
+        "subagent_created"
+      ],
+      "properties": {
+        "did_not_participate_in_implementation": {
+          "const": true
+        },
+        "implementation_conversation_received": {
+          "const": false
+        },
+        "conversation_memory_used": {
+          "const": false
+        },
+        "subagent_created": {
+          "const": false
+        }
+      }
+    },
+    "closure_dispositions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "completed": {
+      "const": true
+    },
+    "mandatory_exit_requested": {
+      "const": true
+    },
+    "payload_self_hash": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  }
+}

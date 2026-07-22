@@ -1,0 +1,178 @@
+{
+  "package_core": {
+    "schema_version": 1,
+    "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+    "aggregation_package_id": "A11-R1-AGGREGATION-QA-PKG-20260721-05",
+    "assignment_id": "A11-R1-AGGREGATION-QA-ASSIGN-20260721-05",
+    "aggregator_run_id": "A11-R1-AGGREGATION-QA-RUN-20260721-05",
+    "aggregator_session_nonce": "1BC14CB8E8D31BFB1F8003FC8E1FD4DB039E9215C146455B81A0FBA23A28D18B",
+    "aggregator_role": "A11_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER",
+    "candidate_binding": {
+      "candidate_file_count": 108,
+      "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+      "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+      "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+      "scanner_contract_version": 5,
+      "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+    },
+    "scope_sha256": "1F1FD8F3567100FDD54AE9282C3D7B49DE38E9E51302BC4CACADFD88C4356899",
+    "launch_entries": [
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/repository-root-binding.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/aggregator-input.schema.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/manual-transport-attestation.schema.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/reviewer-payload-import-contract.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/deterministic-qa-command-manifest.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/deterministic-qa-execution-contract.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/deterministic-qa-fail-closed-rules.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/fresh-qa-raw-evidence-contract.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/a11-gate-calculation-contract.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/aggregator-execution-attestation-contract.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/absolute-launch-envelope.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/embedded-startup-blocker-template.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/assignment.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/package-manifest.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/package-verification.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/exact-read-scope.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/capability-artifact-matrix.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/startup-contract.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/review-requirements.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/finding-ownership.json",
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/return-payload.schema.json"
+    ],
+    "core_file_hashes": [
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/assignment.json",
+        "sha256": "F4583F6140A5E28A13E49918DD74DD2C6B7077FE87AD1A4E3270514C22EBB0A8"
+      },
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/exact-read-scope.json",
+        "sha256": "BAB0713163F55C5B692DC9008397E8CC1EA0673D6C906807FA4A4BB7B4C9BE9F"
+      },
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/finding-ownership.json",
+        "sha256": "800F623BCA5AFF5F6C87D4E1E96120E1A11F9199DBF22E26F86514107154C0EE"
+      },
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/capability-artifact-matrix.json",
+        "sha256": "3B18FC0AE6321E3CF7127B81AD0A1A3DE26A76CE16FB729CF7E3C15D6FC44807"
+      },
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/startup-contract.json",
+        "sha256": "ABC0705252AB3FE0E1B37CF41258099DD6898E0DA9DC959D05B06D441E663471"
+      },
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/review-requirements.json",
+        "sha256": "293A67FB4D14E3E2ACD2396D4E402BEA058D00981ECE78EE0D4496CD6AAE37F6"
+      },
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/return-payload.schema.json",
+        "sha256": "0344E1A449CE0460A4F0AF9677AF540BDEEFF8A4DDC55311F52E99E6F5F8DB87"
+      }
+    ]
+  },
+  "package_core_sha256": "A830AD323F36057E2EFB0467AF384B6E7AC965755C714D84A1F82DF6392580EE",
+  "launch_entries": [
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/repository-root-binding.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/aggregator-input.schema.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/manual-transport-attestation.schema.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/reviewer-payload-import-contract.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/deterministic-qa-command-manifest.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/deterministic-qa-execution-contract.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/deterministic-qa-fail-closed-rules.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/fresh-qa-raw-evidence-contract.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/a11-gate-calculation-contract.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/aggregator-execution-attestation-contract.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/absolute-launch-envelope.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/embedded-startup-blocker-template.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/assignment.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/package-manifest.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/package-verification.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/exact-read-scope.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/capability-artifact-matrix.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/startup-contract.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/review-requirements.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/finding-ownership.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/return-payload.schema.json"
+  ],
+  "launch_file_hashes": [
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/repository-root-binding.json",
+      "sha256": "E8AFE19E70A5AD9715F32DCE5731E5EEC2CE5B148187A236A16148419CE2DCDA"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/aggregator-input.schema.json",
+      "sha256": "406749058BA8DF3B3D46DE94CCFB404C2DFF1EFD155749B281F152845B2E3145"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/manual-transport-attestation.schema.json",
+      "sha256": "01EF00636BD375CDD158D0AD102AC9181F8F5B842AFEC8D9514141CE87056E43"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/reviewer-payload-import-contract.json",
+      "sha256": "DE00ED8DF8007E986E265649E1273A1FD45542AB028CED8205284BCD83756EFD"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/deterministic-qa-command-manifest.json",
+      "sha256": "F2F39F2FBDDD93F609B8ED7C6965990F3E0D53A6461167CC70E2E020DC07A581"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/deterministic-qa-execution-contract.json",
+      "sha256": "085A16CE105B7D816539B930053C044E44179EEF66C73319FDEB82AEA84DA4B2"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/deterministic-qa-fail-closed-rules.json",
+      "sha256": "C3A6015DAFD2754C2E3D5DA75EF8017AC3FE3F6E90E72BEBD5C0DB848510678F"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/fresh-qa-raw-evidence-contract.json",
+      "sha256": "84749C16FE41604771E5C8FDF03F742711A97FA2E8175E3239D5DFFFD4BE7CD5"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/a11-gate-calculation-contract.json",
+      "sha256": "0213CF4DD316E1458F02859B909F6877052F007B9DE6E0DF7C96C2AF9C6DBFA5"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/aggregator-execution-attestation-contract.json",
+      "sha256": "8CF977BC4FAECEDF971DBA709ED0379AAA44C4B046A685E3C638D3357201A2CF"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/embedded-startup-blocker-template.json",
+      "sha256": "535234D7FA5339E4535795A1DA10C264FED2479D7A4D60799304424EE17D791A"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/assignment.json",
+      "sha256": "F4583F6140A5E28A13E49918DD74DD2C6B7077FE87AD1A4E3270514C22EBB0A8"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/exact-read-scope.json",
+      "sha256": "BAB0713163F55C5B692DC9008397E8CC1EA0673D6C906807FA4A4BB7B4C9BE9F"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/capability-artifact-matrix.json",
+      "sha256": "3B18FC0AE6321E3CF7127B81AD0A1A3DE26A76CE16FB729CF7E3C15D6FC44807"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/startup-contract.json",
+      "sha256": "ABC0705252AB3FE0E1B37CF41258099DD6898E0DA9DC959D05B06D441E663471"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/review-requirements.json",
+      "sha256": "293A67FB4D14E3E2ACD2396D4E402BEA058D00981ECE78EE0D4496CD6AAE37F6"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/finding-ownership.json",
+      "sha256": "800F623BCA5AFF5F6C87D4E1E96120E1A11F9199DBF22E26F86514107154C0EE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/return-payload.schema.json",
+      "sha256": "0344E1A449CE0460A4F0AF9677AF540BDEEFF8A4DDC55311F52E99E6F5F8DB87"
+    }
+  ],
+  "prompt_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/standalone-top-level-aggregator-prompt.md",
+  "prompt_sha256": "E4D6F0D5F4FB8060F34DFFD5A8B6C3BF857930535A90963B64E361FCE2A08A61",
+  "self_excluded": [
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/absolute-launch-envelope.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/package-manifest.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1/review-packages/aggregation-deterministic-qa/package-verification.json"
+  ]
+}

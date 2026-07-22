@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+  "phase": "fresh-root-capacity-preflight",
+  "classification": "EXECUTION_ROOT_PRECHECK_FAILURE",
+  "session_b6_status": "ARCHIVED / B6_PRECHECK_BLOCKER",
+  "reviewer_dispatch_status": "NO_REVIEWER_DISPATCHED",
+  "technical_review_started": false,
+  "candidate_defect_indicated": false,
+  "r12_defect_indicated": false,
+  "root_cause": "The current root is not a fresh zero-child root and exposes one existing interrupted child thread from B5.",
+  "candidate_modified": false,
+  "r12_modified": false,
+  "git_mutation_performed": false,
+  "qa_executed": false,
+  "human_approval_created": false,
+  "next_action": "Start B6 in a genuinely new top-level Codex task whose initial child-thread listing contains only /root."
+}

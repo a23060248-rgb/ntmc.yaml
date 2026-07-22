@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "subject_task_id": "GOV-M320-DRYRUN",
+  "structural": "VALID",
+  "domain_decision": "NEEDS_HUMAN_DECISION",
+  "execution_gate": "NO-GO",
+  "expected_validator_exit": 2,
+  "blockers": [
+    "formal-clone provenance/read-only evidence absent",
+    "P-to-C result_value NULL and C attachment snapshot zero",
+    "shortage/inventory linkedRows zero"
+  ],
+  "candidate_rules": [
+    "WO-P-C-LINK-001",
+    "WO-C-SHORTAGE-001",
+    "COMPAT-M320-001"
+  ],
+  "applicable_railway_rules": [],
+  "evidence_artifact_count": 5,
+  "all_evidence_hashes_bound": true,
+  "candidate_gate_affected": false,
+  "actual_maintenance_rule_approved": false,
+  "result": "PASS"
+}

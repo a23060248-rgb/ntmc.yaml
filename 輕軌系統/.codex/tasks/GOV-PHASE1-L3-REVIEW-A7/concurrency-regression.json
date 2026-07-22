@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "production_entrypoint": ".codex/tests/run-governance-fixtures-concurrency.mjs",
+  "exit_code": 0,
+  "reports_valid": true,
+  "report_errors": [
+    [],
+    []
+  ],
+  "unique_run_roots": true,
+  "caller_ids_ignored": true,
+  "unique_case_roots": true,
+  "case_roots_owned": true,
+  "adversarial_reports_rejected": true,
+  "adversarial_results": [
+    {
+      "adversary": "TRUNCATED_CHILD_REPORT",
+      "violations": [
+        "FIXTURE_REPORT case count mismatch.",
+        "FIXTURE_REPORT missing case CASE-68.",
+        "FIXTURE_REPORT required hash invalid for CASE-68."
+      ]
+    },
+    {
+      "adversary": "DUPLICATE_CASE_ID",
+      "violations": [
+        "FIXTURE_REPORT duplicate case ID.",
+        "FIXTURE_REPORT missing case CASE-02.",
+        "FIXTURE_REPORT required hash invalid for CASE-02."
+      ]
+    },
+    {
+      "adversary": "FORGED_PASS_WITHOUT_PROVENANCE",
+      "violations": [
+        "FIXTURE_REPORT case CASE-01 lacks invariant or production entrypoint provenance.",
+        "FIXTURE_REPORT case CASE-01 does not match the trusted invariant contract.",
+        "FIXTURE_REPORT case CASE-01 artifact hash mismatch."
+      ]
+    },
+    {
+      "adversary": "TAMPERED_SUITE_HASH",
+      "violations": [
+        "FIXTURE_REPORT case manifest hash mismatch."
+      ]
+    }
+  ],
+  "suite_id": "PHASE1-BOOTSTRAP-CORE",
+  "suite_version": 7,
+  "case_manifest_sha256": "6454720742D0BE4DD76D6B2F37251B906A8E8679B496A2E99ACBF176221E048E",
+  "results": [
+    {
+      "requested_run_id": "CONC-A-0f763e1c-31c1-43f5-9dc1-c7111dd6799f",
+      "exit_code": 0,
+      "fixture_run_id": "FIXTURE-26cb85b7-b86c-4ad6-924a-0c3bf9657ee9",
+      "run_root_realpath": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.codex\\tasks\\GOV-PHASE1-L3-REVIEW-A7\\root-temp\\ntmc-bootstrap-fixtures-tvUDYE",
+      "case_count": 68,
+      "cleanup_result": "PASS"
+    },
+    {
+      "requested_run_id": "CONC-B-dd7de916-186e-498e-8404-279eea2c4b35",
+      "exit_code": 0,
+      "fixture_run_id": "FIXTURE-7640a76c-d088-468d-a8b0-ce9fd5690398",
+      "run_root_realpath": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.codex\\tasks\\GOV-PHASE1-L3-REVIEW-A7\\root-temp\\ntmc-bootstrap-fixtures-fxwIoM",
+      "case_count": 68,
+      "cleanup_result": "PASS"
+    }
+  ],
+  "passed": true
+}

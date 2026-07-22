@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+  "title": "B5 Reviewer Dispatch Incident Analysis",
+  "task_type": "review",
+  "objective": "Perform a read-only reconstruction of the B5 Code Reviewer scope and startup/exit incident without modifying candidate or history.",
+  "business_reason": "B5 stopped after the first Reviewer allocation because scope defects were detected after dispatch and no minimum failure output was filed.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS/**",
+      ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/**",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**",
+      "explicitly approved candidate and production contract paths"
+    ],
+    "exclude": [
+      "candidate mutation",
+      "history mutation",
+      "Reviewer dispatch",
+      "Remediation 12",
+      "B6",
+      "Git/product/DB/migration operations"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Reconstruct exact Code scope.",
+    "Determine pre-dispatch detectability.",
+    "Classify startup/exit gaps without speculation.",
+    "Assess candidate change and next review model.",
+    "Verify before/after integrity."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "User explicitly authorized GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS only."
+}

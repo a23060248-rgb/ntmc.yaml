@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://ntmc.local/codex/schemas/artifact-manifest.schema.json", "x-governance-schema-version": 1, "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "task_id", "artifacts", "product_changes", "secrets_present"],
+  "properties": {
+    "schema_version": {"const": 1}, "task_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,63}$"},
+    "artifacts": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["artifact_id", "type", "path", "sha256", "authority", "evidence_scope", "commit_inclusion", "content_scan_status", "contains_operational_paths", "contains_dump_reference", "credential_scan_status", "redaction_status", "source_verification_status"], "properties": {"artifact_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]{2,127}$"}, "type": {"type": "string", "minLength": 1}, "path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"}, "authority": {"enum": ["authoritative", "evidence-only", "approved-binary"]}, "evidence_scope": {"enum": ["governance_artifact", "external_reference", "local_review_record"]}, "commit_inclusion": {"type": "boolean"}, "content_scan_status": {"enum": ["FULL", "PARTIAL", "NOT_SCANNED"]}, "contains_operational_paths": {"type": "boolean"}, "contains_dump_reference": {"type": "boolean"}, "credential_scan_status": {"enum": ["PASS", "FAIL", "UNKNOWN"]}, "redaction_status": {"enum": ["NOT_REDACTED", "REDACTED", "NOT_REQUIRED"]}, "source_verification_status": {"enum": ["VERIFIED", "UNVERIFIED"]}}}},
+    "product_changes": {"type": "array", "items": {"type": "string"}}, "secrets_present": {"const": false}
+  }
+}

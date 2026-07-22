@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "AUTHORIZED_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW",
+  "title": "Session B5 Four-Reviewer Compatibility Review with Deterministic QA Gate",
+  "task_type": "review",
+  "objective": "Review the unchanged 103-file Phase 1.9 candidate with four independent formal Reviewers followed by a non-Agent deterministic QA readback gate.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/**",
+      "Exact read-only candidate and frozen governance evidence"
+    ],
+    "exclude": [
+      "candidate mutation",
+      "historical outcome mutation",
+      "remediation",
+      "Git mutation",
+      "product/database/migration operations",
+      "human exact-manifest confirmation"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "review_model": {
+    "independent_formal_reviewers": 4,
+    "deterministic_qa_gate": 1,
+    "deterministic_qa_is_reviewer": false
+  },
+  "authorization": "Human governance owner authorized Session B5 in the current task."
+}

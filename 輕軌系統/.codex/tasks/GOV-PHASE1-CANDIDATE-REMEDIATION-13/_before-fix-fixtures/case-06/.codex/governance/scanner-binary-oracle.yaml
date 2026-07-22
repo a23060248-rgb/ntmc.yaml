@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "config_id": "GOV-SCANNER-BINARY-ORACLE",
+  "config_version": 2,
+  "candidate_text_extensions": [".md", ".yaml", ".yml", ".json", ".toml", ".mjs", ".js"],
+  "finding_classes": ["DISALLOWED_FILE_EXTENSION", "NUL_BYTE_DETECTED", "KNOWN_BINARY_MAGIC_DETECTED", "NON_UTF8_TEXT", "BINARY_CONTENT_RATIO_EXCEEDED"],
+  "binary_magic_registry_ref": ".codex/governance/bootstrap-binary-magic-registry.yaml",
+  "binary_control_ratio_threshold": 0.02
+}

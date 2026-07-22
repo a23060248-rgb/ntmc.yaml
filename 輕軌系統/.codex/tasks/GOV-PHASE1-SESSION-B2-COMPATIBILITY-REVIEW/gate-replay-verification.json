@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "source_task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "source_session_status": "ARCHIVED",
+  "source_reviewer_set_outcome": "PASS",
+  "bootstrap_candidate_review": {
+    "structural": "VALID",
+    "status": "GO",
+    "exit": 0
+  },
+  "session_b_original_disposition": "REMEDIATED_BY_GOV-PHASE1-REMEDIATION-10_AND_REQUIRES_FRESH_B2_REVIEW",
+  "bootstrap_human_commit": {
+    "status": "NO-GO",
+    "reason_codes": [
+      "SESSION_B2_NOT_PASS",
+      "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+      "FIRST_COMMIT_AUTHORIZATION_ABSENT"
+    ]
+  },
+  "steady_state_preparation": {
+    "status": "DISABLED"
+  },
+  "steady_state_execution": {
+    "status": "DISABLED"
+  },
+  "migration_320_execution": {
+    "status": "NO-GO"
+  },
+  "candidate_gate_independent_of_session_b2": true,
+  "candidate_gate_independent_of_final_commit": true,
+  "candidate_gate_independent_of_migration_320": true,
+  "result": "PASS"
+}

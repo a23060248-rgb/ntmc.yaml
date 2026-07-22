@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-REMEDIATION-7",
+  "task_id": "GOV-PHASE1-REMEDIATION-7",
+  "risk": {"level": "L3", "reasons": ["The Task changes formal Gate routing and security evidence semantics while resolving archived A6 blockers."]},
+  "scope": {
+    "include": ["Phase 1 bootstrap governance sources and current Remediation 7 evidence"],
+    "exclude": ["product code", "database and migration operations", "Git operations", "frozen history", "A7", "Session B"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": ["AGENTS.md", ".agents/**", ".codex/**", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md", "docs/migration-320-before-after.json", "docs/migration-320-compatibility-report.md", "docs/migration-320-data-anomalies.csv"],
+    "write": ["AGENTS.md", ".agents/**", ".codex/agents/**", ".codex/blueprints/**", ".codex/checklists/**", ".codex/domain/**", ".codex/environment/**", ".codex/governance/**", ".codex/meta-rules/**", ".codex/scripts/**", ".codex/templates/**", ".codex/tests/**", ".codex/workflows/**", ".codex/config.toml", ".codex/tasks/GOV-PHASE1-REMEDIATION-7/**"]
+  },
+  "agent_assignments": [
+    {"role": "architect", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**", "docs/cross-module-closure-report.md", "docs/go-no-go-report.md", "docs/migration-320-before-after.json", "docs/migration-320-compatibility-report.md", "docs/migration-320-data-anomalies.csv"], "allowed_write_paths": ["AGENTS.md", ".agents/**", ".codex/agents/**", ".codex/blueprints/**", ".codex/checklists/**", ".codex/domain/**", ".codex/environment/**", ".codex/governance/**", ".codex/meta-rules/**", ".codex/scripts/**", ".codex/templates/**", ".codex/tests/**", ".codex/workflows/**", ".codex/config.toml", ".codex/tasks/GOV-PHASE1-REMEDIATION-7/**"]},
+    {"role": "qa-engineer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": [".codex/tasks/GOV-PHASE1-REMEDIATION-7/**"]},
+    {"role": "code-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": []},
+    {"role": "security-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": []},
+    {"role": "railway-domain-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": []},
+    {"role": "compatibility-reviewer", "allowed_read_paths": ["AGENTS.md", ".agents/**", ".codex/**"], "allowed_write_paths": []}
+  ],
+  "applicable_rules": ["GOV-SCOPE-001", "REV-INDEP-001", "REV-L3-001", "EVD-HASH-001", "SEC-SECRET-001"],
+  "candidate_rules": [],
+  "required_agents": ["architect", "qa-engineer", "code-reviewer", "security-reviewer", "railway-domain-reviewer", "compatibility-reviewer"],
+  "execution": {
+    "parallel_groups": [],
+    "sequential_steps": [
+      "Freeze candidate sources, all named historical Tasks, Migration 320 Task artifacts, and five external evidence hashes.",
+      "Implement one production Gate Router and Domain outcome router.",
+      "Implement authoritative scanner report schema, contract bundle, binary oracle, and validator.",
+      "Run production-path scanner, Gate routing, mutation, schema, fixture, and concurrency tests.",
+      "Rebuild and scan the exact candidate manifest and candidate record.",
+      "Verify frozen history and Migration 320 NO-GO, then stop before A7."
+    ]
+  },
+  "evidence_required": ["ART-R7-A6-MATRIX", "ART-R7-GATE-MAP", "ART-R7-DOMAIN-ROUTING", "ART-R7-SCANNER-BINDING", "ART-R7-SCANNER-MATRIX", "ART-R7-PRODUCTION-TESTS", "ART-R7-MUTATION-TESTS", "ART-R7-CANDIDATE", "ART-R7-HISTORY", "ART-R7-M320", "ART-R7-PATHSPEC"],
+  "rollback_restore": {"required": false, "evidence_or_reason": "Not applicable: governance-only source edits with no product, data, service, seed, migration, database, or Git operation."},
+  "human_approval": {"required": true, "approver_roles": ["human-governance-owner"]},
+  "stop_conditions": ["A7, Session B, Git operations, unsupported authority features, and product or database operations remain prohibited.", "A6 and every frozen historical artifact remain immutable.", "The current Candidate Review, Human Commit, and Migration 320 gates remain NO-GO; steady-state gates remain DISABLED."]
+}

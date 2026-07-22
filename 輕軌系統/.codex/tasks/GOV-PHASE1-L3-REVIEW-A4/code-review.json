@@ -1,0 +1,284 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer": "code-reviewer",
+    "reviewer_run_id": "A4-CODE-RUN-f39835a7-bc76-4efe-8c57-3c9a5f41f7f3",
+    "session_id": "A4-CODE-SESSION-9a1e7e54-e667-4f3a-a716-8f27aec84c7b",
+    "did_not_participate_in_implementation": true,
+    "reviewed_candidate_baseline": "phase-1.4",
+    "candidate_snapshot_id": "CANDIDATE-d8a9b19b-db02-4f1a-a763-33f0a38d265d",
+    "candidate_manifest_sha256": "7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C",
+    "mode": "read-only"
+  },
+  "scope": {
+    "product_root": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+    "candidate_file_count": 103,
+    "manifest_verification": {
+      "expected_files": 103,
+      "actual_files": 103,
+      "unique_paths": 103,
+      "commit_inclusion_true": 103,
+      "hash_mismatches": 0,
+      "manifest_sha256": "7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C",
+      "included_file_set_sha256": "BCE28F2E0F00CE2F756C5C814954937D13D737EE2983B761FC6D45A5CF5A407C",
+      "baseline_match": true,
+      "candidate_snapshot_binding_match": true
+    },
+    "included": [
+      "AGENTS.md and the exact 103 manifest-covered governance artifacts",
+      "A4 intent, classification, blueprint and review-baseline-before",
+      "Remediation 4 candidate snapshot and root-cause remediation matrix",
+      "A3 formal code review",
+      "manifest-covered policies, schemas, scripts and tests"
+    ],
+    "excluded": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "migrations/**",
+      "product-root sibling directories",
+      "implementer conversations, reasoning and unfiled explanations"
+    ],
+    "prohibited_operations_not_performed": [
+      "Git",
+      "services",
+      "product tests",
+      "database",
+      "seed",
+      "migration"
+    ]
+  },
+  "outcome": "BLOCKER",
+  "candidate_governance_review_gate_may_pass_from_code_review_scope": false,
+  "gate_statement": "The Candidate Governance Review Gate MUST remain NO-GO from code-review scope. Absence of a STAGED_EXACT proof is normal for Candidate Review and is not itself a blocker; the blockers are that the candidate can later accept forged scope, waiver, authority and staged-proof claims as valid or GO.",
+  "findings": [
+    {
+      "finding_id": "A4-CODE-BLOCKER-001",
+      "package": "A-phase-policy-scope-intersection",
+      "severity": "BLOCKER",
+      "title": "Intent and Classification scope do not constrain Blueprint or change-scope writes",
+      "locations": [
+        ".codex/scripts/lib/governance-controls.mjs:19-29",
+        ".codex/scripts/validate-task.mjs:266-285",
+        ".codex/scripts/validate-change-scope.mjs:66-88"
+      ],
+      "evidence": "validatePhaseScope checks the Blueprint write paths against only the Phase policy, and assignment writes against only Phase plus Blueprint. It never requires Blueprint or assignment writes to be within task-intent.scope.include or classification.scope.include. validate-change-scope then uses the already-wider Blueprint or assignment paths as its authority.",
+      "reproduction": {
+        "method": "Read-only in-memory calls to the production exports",
+        "command_summary": "Call validatePhaseScope with Intent and Classification limited to .codex/tasks/APPROVED/** while Blueprint and documentation-engineer assignment allow .codex/tasks/UNAPPROVED/**; then call validateChangedPaths for product/.codex/tasks/UNAPPROVED/file.md.",
+        "observed": "phase_scope_errors=[] and changed_path_errors=[]"
+      },
+      "impact": "A structurally valid Task can bypass the human-approved Intent and Classification scope while remaining under the broad Phase and role roots. The deterministic change-scope gate accepts the unauthorized path, so a scope-approval boundary can be bypassed without hardcoding a product directory.",
+      "required_resolution": "Compute one effective read/write intersection across Phase policy, Intent, Classification, Blueprint, role policy and assignment, and make validate-change-scope consume only that computed intersection. Add an integration fixture that expects rejection for a Phase-allowed but Intent/Classification-disallowed path."
+    },
+    {
+      "finding_id": "A4-CODE-BLOCKER-002",
+      "package": "B-candidate-staged-proof-binding",
+      "severity": "BLOCKER",
+      "title": "Forged candidate and staged proof fields plus generic PASS evidence still produce GO",
+      "locations": [
+        ".codex/scripts/validate-task.mjs:9",
+        ".codex/scripts/validate-task.mjs:454-465",
+        ".codex/scripts/lib/governance-controls.mjs:53-58",
+        ".codex/scripts/validate-staged-candidate.mjs:15-20",
+        ".codex/tests/run-governance-fixtures.mjs:98-101",
+        ".codex/tests/run-governance-fixtures.mjs:118-125",
+        ".codex/tests/run-governance-fixtures.mjs:157"
+      ],
+      "evidence": "The main validator does not import or call validateCandidateBinding or validate-staged-candidate. It accepts any PASS check or artifact for scope_validation and preapproval_gate, checks only WORKSPACE_CANDIDATE/STAGED_EXACT labels plus change_scope_result, and merely requires the two evidence_ref strings to differ. The helper itself ignores candidate included_file_set_sha256 and staged file/blob set hashes. The built-in complete-GO fixture supplies constant A/B/C hashes, file_count 1, and generic EV-SCOPE/EV-PREAPP checks even though the copied governance manifest is the 103-file candidate; CASE-01 explicitly expects validateTask to return GO.",
+      "reproduction": {
+        "method": "Read-only source inspection plus in-memory production-helper call",
+        "command_summary": "Call validateCandidateBinding with the expected manifest hash/count but deliberately wrong candidate included-file-set hash and staged file/blob-set hashes.",
+        "observed": "candidate_binding_errors=[]; the manifest-covered fixture contract also defines the same class of forged proof as CASE-01 expected GO."
+      },
+      "impact": "Final commit approval can be forged without a proof produced by the actual staged-candidate validator, without exact file/blob binding, and without genuine scope or preapproval executions. This is an in-contract incorrect GO and wrong-binding path.",
+      "required_resolution": "Integrate schema-validated, hash-bound proof artifacts into validateTask; bind manifest hash, candidate path+content set, staged path set, staged blob set, file count, task ID, execution ID and execution time; require scope and preapproval evidence types produced by their designated validators, not generic PASS records. Add an integration fixture where every fake field is rejected."
+    },
+    {
+      "finding_id": "A4-CODE-BLOCKER-003",
+      "package": "C-semantic-waiver-and-requirement-identity",
+      "severity": "BLOCKER",
+      "title": "Human waiver validation is not integrated and duplicate requirement IDs can downgrade non-waivable semantics",
+      "locations": [
+        ".codex/blueprints/schemas/test-evidence.schema.json:7-8",
+        ".codex/blueprints/schemas/human-evidence-waiver.schema.json:1",
+        ".codex/scripts/validate-task.mjs:9",
+        ".codex/scripts/validate-task.mjs:338-362",
+        ".codex/scripts/lib/governance-controls.mjs:43-50",
+        ".codex/tests/run-remediation-4-contract-fixtures.mjs:13-19"
+      ],
+      "evidence": "validateWaiver exists only as a helper and contract-fixture target; validateTask neither imports it nor resolves, schema-validates, hashes or authority-checks waiver_artifact_id. A non-waivable check can also be paired with two different requirement objects sharing one requirement_id because schema uniqueItems applies to whole objects. requirementById is a Map built from the array, so the last duplicate silently becomes authoritative.",
+      "reproduction": {
+        "method": "Read-only schema validation and Map selection using production validateSchema",
+        "command_summary": "Validate test evidence containing REQ-ONE first as EVIDENCE_INTEGRITY/waiver_allowed=false and again as GENERAL/waiver_allowed=true, then a NOT_APPLICABLE check referencing waiver_artifact_id=FAKE.",
+        "observed": "schema_issues=[] and Map selected the later GENERAL/waiver_allowed=true record. A separate call showed validateWaiver would reject an agent-produced, empty-control, late waiver, proving the protection exists but is not in the authoritative path."
+      },
+      "impact": "An opaque L3 integrity requirement can be semantically downgraded and waived by a nonexistent, late or agent-authored artifact. Since NOT_APPLICABLE is allowed by the final required-evidence check, this can remove a required gate control and permit incorrect GO.",
+      "required_resolution": "Reject duplicate requirement_id values before Map construction; derive non-waivability from the unique semantic record and classification; resolve the referenced waiver artifact uniquely; validate its schema, hash, producer, approver authority, requirement/category/task binding, scope approval, alternative control and chronology in validateTask."
+    },
+    {
+      "finding_id": "A4-CODE-BLOCKER-004",
+      "package": "D-artifact-identity-authority",
+      "severity": "BLOCKER",
+      "title": "Global Domain approval lookup still uses first-match authority within each manifest",
+      "locations": [
+        ".codex/scripts/validate-task.mjs:146-156",
+        ".codex/scripts/validate-task.mjs:171-174",
+        ".codex/scripts/validate-task.mjs:307-309",
+        ".codex/tests/run-remediation-4-contract-fixtures.mjs:30-33"
+      ],
+      "evidence": "findManifestArtifacts uses Array.find, so it records at most one matching artifact per task manifest. The later artifacts.length===1 check therefore means one matching task manifest, not one matching artifact record. validateArtifactIdentities protects only the currently validated Task manifest; global authority lookup does not validate every searched manifest. The Remediation 4 fixtures exercise only the isolated helper and do not exercise this global first-match path.",
+      "reproduction": {
+        "method": "Read-only control-flow reproduction",
+        "command_summary": "Place two different artifact records with one approval artifact ID in a searched task manifest; Array.find returns the first and findManifestArtifacts pushes one match, so artifacts.length is 1.",
+        "observed": "The second conflicting artifact is invisible to the global uniqueness decision."
+      },
+      "impact": "A conflicting or forged Domain approval identity can be hidden behind the first record and accepted as globally unique authority, violating the no-first-match authority contract.",
+      "required_resolution": "Collect all matching artifacts from every manifest, reject any duplicate before authority lookup, and validate the identity field set for every searched manifest. Add a production-path integration fixture with two same-ID records in one non-current manifest."
+    },
+    {
+      "finding_id": "A4-CODE-HIGH-005",
+      "package": "E-approval-chronology-and-classification",
+      "severity": "HIGH",
+      "title": "Chronology is enforced, but not-required sensitivity is derived from only free-form trigger text",
+      "locations": [
+        ".codex/blueprints/schemas/classification.schema.json:6-13",
+        ".codex/scripts/validate-task.mjs:442-469",
+        ".codex/tests/run-governance-fixtures.mjs:211-214"
+      ],
+      "evidence": "The ordered-stage calculation now includes both approved and not-required decisions and requires the execution decision before implementation start. However, sensitiveExecution is a regex over classification.triggers only. The schema and validator do not derive or cross-check sensitivity from Intent, classification reasons/scope, Blueprint execution/scope, evidence categories or external-reference content.",
+      "impact": "A sensitive Task whose trigger list omits the magic words can use not-required execution approval. The chronology is correct for the supplied classification, but the classification-to-decision derivation remains fail-open.",
+      "required_resolution": "Use structured execution categories and semantic evidence categories to derive sensitivity, cross-check them across Intent, Classification and Blueprint, and add approved/not-required chronology fixtures for both legitimate and omitted-category cases."
+    },
+    {
+      "finding_id": "A4-CODE-HIGH-006",
+      "package": "F-fixture-proof-contract",
+      "severity": "HIGH",
+      "title": "The exact 50-case parent report contract is sound, but the 54-case suite gives false assurance about production integration",
+      "locations": [
+        ".codex/scripts/lib/governance-controls.mjs:75-92",
+        ".codex/tests/run-governance-fixtures-concurrency.mjs:18-36",
+        ".codex/tests/run-remediation-4-contract-fixtures.mjs:9-29",
+        ".codex/tests/run-remediation-4-contract-fixtures.mjs:34-45",
+        ".codex/tests/run-remediation-4-contract-fixtures.mjs:65"
+      ],
+      "evidence": "The parent validator rejects truncated, duplicate, missing, unexpected, malformed-hash, wrong-version and wrong-case-manifest reports; read-only adversarial probes returned nonzero errors for all six classes, and the recorded case-manifest hash equals the canonical hash of the exact 50 IDs. But the 54-case suite mostly calls helpers that the authoritative validator does not call. Its chronology cases R4-18 through R4-20 are tautological integer comparisons rather than production checks, and the suite emits only lines plus a count summary rather than a versioned exact-set report. Therefore 54/54 can coexist with the incorrect GO paths above.",
+      "impact": "A green 54/54 report is a false claim of integrated remediation coverage and cannot support Candidate Gate passage.",
+      "required_resolution": "Convert helper checks into end-to-end validateTask/change-scope fixtures, replace tautologies with production calls, and give the 54-case suite its own versioned exact case manifest, structured report and parent-side exact-set/hash validation."
+    }
+  ],
+  "conditions": [
+    {
+      "condition_id": "A4-CODE-COND-001",
+      "status": "open",
+      "condition": "Resolve A4-CODE-BLOCKER-001 through A4-CODE-BLOCKER-004 and independently rerun an exact candidate-bound review."
+    },
+    {
+      "condition_id": "A4-CODE-COND-002",
+      "status": "open",
+      "condition": "Close the structured sensitivity derivation and integrated fixture coverage gaps before any governance commit preparation or execution decision."
+    }
+  ],
+  "decisions_required": [
+    {
+      "decision_owner": "human-governance-owner",
+      "decision": "Keep the Candidate Governance Review Gate, Governance Commit Preparation Gate and Governance Commit Execution Gate at NO-GO; authorize remediation only if desired, followed by a fresh independent review of a new immutable candidate."
+    },
+    {
+      "decision_owner": "human-governance-owner",
+      "decision": "Keep the separate Migration 320 Gate at NO-GO. This review authorizes no product, database, migration, staging, commit, merge, push or release action."
+    }
+  ],
+  "controls_tested": [
+    {
+      "package": "A",
+      "control": "Phase/Intent/Classification/Blueprint/role/assignment/change-scope intersection",
+      "result": "FAIL-BLOCKER",
+      "note": "Broad Phase and role paths override narrower Intent and Classification scope."
+    },
+    {
+      "package": "B",
+      "control": "WORKSPACE_CANDIDATE versus STAGED_EXACT and unique proof binding",
+      "result": "FAIL-BLOCKER",
+      "note": "No staged proof is required for Candidate Review, but forged staged/candidate and generic PASS proof is accepted at final GO."
+    },
+    {
+      "package": "C",
+      "control": "Semantic waiver, human authority, chronology and unique requirement severity",
+      "result": "FAIL-BLOCKER",
+      "note": "Helper protections are not integrated; duplicate requirement IDs are last-match authoritative."
+    },
+    {
+      "package": "D",
+      "control": "Duplicate artifact identity and authority lookup",
+      "result": "FAIL-BLOCKER",
+      "note": "Current manifest duplicates are rejected, but global Domain authority still uses first-match lookup."
+    },
+    {
+      "package": "E",
+      "control": "Approved/not-required chronology and classification derivation",
+      "result": "PARTIAL-HIGH",
+      "note": "Chronology is enforced; structured sensitivity derivation is not."
+    },
+    {
+      "package": "F",
+      "control": "Exact fixture proof contract and adversarial report cases",
+      "result": "PARTIAL-HIGH",
+      "note": "The 50-case parent exact-set contract passes adversarial read-only probes; the 54-case suite is not integrated proof."
+    },
+    {
+      "package": "lifecycle",
+      "control": "Deterministic Phase lifecycle projection",
+      "result": "PASS-WITH-LIMITATION",
+      "note": "validate-phase-status returned PASS and both lifecycle source hashes match. The projection is intentionally pre-A4 and hardcodes A4/session-B/gates NO-GO, so it is not evidence that A4 completed."
+    }
+  ],
+  "read_only_checks": [
+    {
+      "check": "103-file manifest and baseline SHA-256 readback",
+      "result": "PASS",
+      "details": "103 manifest artifacts, 103 unique paths, 103 commit-included, zero manifest or baseline hash mismatches."
+    },
+    {
+      "check": "Candidate snapshot recomputation",
+      "result": "PASS",
+      "details": "manifest_sha_match=true, file_count_match=true, file_set_sha_match=true."
+    },
+    {
+      "check": "node .codex/scripts/validate-phase-status.mjs",
+      "result": "PASS",
+      "details": "PHASE_STATUS_VALIDATION result=PASS sources=2; both recorded source SHA-256 values independently matched."
+    },
+    {
+      "check": "Production export adversarial probes",
+      "result": "FAIL-CONTROLS",
+      "details": "Narrow Intent/Classification scope plus wider Blueprint path was accepted; wrong candidate/staged set hashes were accepted by the binding helper; duplicate requirement schema passed."
+    },
+    {
+      "check": "Fixture report adversarial probes",
+      "result": "PASS",
+      "details": "Truncated, duplicate, missing, unexpected, wrong-hash and wrong-version reports all returned validation errors."
+    },
+    {
+      "check": "Node syntax checks for reviewed validators and test harnesses",
+      "result": "PASS",
+      "details": "validate-task, validate-change-scope, governance-controls, concurrency harness and Remediation 4 contract harness parsed successfully."
+    }
+  ],
+  "fixture_execution": {
+    "fresh_50_case_run": "NOT_EXECUTED_BY_CODE_REVIEWER",
+    "fresh_54_case_run": "NOT_EXECUTED_BY_CODE_REVIEWER",
+    "fresh_dual_parent_concurrency_run": "NOT_EXECUTED_BY_CODE_REVIEWER",
+    "reason": "Those runners create and delete .codex/tests/.tmp workspaces. The reviewer authorization allowed only code-review.json to be written. Filed fixture claims were inspected but not trusted as a substitute for production-path review."
+  },
+  "residual_risks": [
+    "Agent path policy is not OS or container isolation.",
+    "Reviewer and human identity assurance remains procedural rather than cryptographic.",
+    "The scanner is bounded deterministic pattern detection, not full DLP or proof of global sensitive-data absence.",
+    "Remote branch protection, CI/CODEOWNERS and repository-global branch/worktree restrictions were not verified.",
+    "Complete TOCTOU and filesystem reparse protection is outside this review.",
+    "Controlled evidence storage and actual staged state were not reviewed; no staged proof is expected at Candidate Review."
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+  "classifications": [
+    {
+      "root_cause_class": "artifact_write_scope_failure",
+      "evidence": [
+        ".codex/agents/code-reviewer.toml is read-only and forbids modification.",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-assignments.json requires four direct Reviewer writes.",
+        "Registered blueprint review assignments allow zero write paths."
+      ],
+      "confidence": "HIGH",
+      "candidate_change_required": false,
+      "task_local_change_required": true,
+      "environment_change_required": false
+    },
+    {
+      "root_cause_class": "reviewer_prompt_missing_exit_contract",
+      "evidence": [
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-dispatch-plan.json has no startup, early-failure payload, timeout, or mandatory-exit contract.",
+        ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW/reviewer-dispatch-blocker.json records repeated completion requests and forced interruption."
+      ],
+      "confidence": "HIGH_FOR_PROTOCOL_GAP",
+      "candidate_change_required": false,
+      "task_local_change_required": true,
+      "environment_change_required": false
+    },
+    {
+      "root_cause_class": "root_wait_protocol_failure",
+      "evidence": [
+        "No persisted bounded wait, watchdog, early-failure receipt, or forced-close deadline exists in B5 artifacts."
+      ],
+      "confidence": "MEDIUM",
+      "candidate_change_required": false,
+      "task_local_change_required": true,
+      "environment_change_required": false
+    },
+    {
+      "root_cause_class": "unresolved_scope_prevented_output",
+      "evidence": [
+        "The Reviewer reported scope defects before completing formal review, but the defects did not technically prevent a response-channel early-failure payload."
+      ],
+      "confidence": "LOW_AS_DIRECT_CAUSE",
+      "candidate_change_required": false,
+      "task_local_change_required": true,
+      "environment_change_required": false
+    },
+    {
+      "root_cause_class": "unknown_insufficient_evidence",
+      "evidence": [
+        "No exact Reviewer prompt, child tool transcript, runtime error, or returned final payload was preserved.",
+        "Ledger terminal state is interrupted; required artifacts present: 0/4."
+      ],
+      "confidence": "HIGH_THAT_EXACT_HANG_CAUSE_IS_UNPROVEN",
+      "candidate_change_required": false,
+      "task_local_change_required": true,
+      "environment_change_required": false
+    }
+  ],
+  "excluded_root_cause": {
+    "root_cause_class": "reviewer_tool_or_runtime_failure",
+    "reason": "No tool or runtime error is preserved; do not infer one."
+  },
+  "result": "TASK_LOCAL_STARTUP_EXIT_PROTOCOL_DEFECT_WITH_EXACT_HANG_CAUSE_UNKNOWN"
+}

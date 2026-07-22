@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { CheckCircle2, Plus, Save, Search, X } from "lucide-react";
+import { Plus, Save, Search, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { EmptyState, ErrorState, LoadingState } from "../../shared/components/AsyncState";
@@ -8,13 +8,14 @@ import { formatDate } from "../../shared/utils/date";
 import { PageHeader, Panel, StatusBadge } from "../../shared/ui";
 import {
   createFaultWorkOrder,
-  finishFaultWorkOrder,
   getWorkOrder,
   getWorkOrderEvents,
+  listWorkOrderActionOptions,
   listWorkOrders,
-  updateFaultWorkOrder,
   type CreateFaultInput,
+  type UnifiedWorkOrder,
 } from "./api";
+import { CWorkOrderActions } from "./CWorkOrderActions";
 
 const workOrderTabs = [
   { value: "", label: "全部" },
@@ -28,7 +29,8 @@ const emptyFault: CreateFaultInput = { tsname: "", subsystem: "", category: "", 
 
 export function WorkOrdersPage() {
   const { hasRole } = useAuth();
-  const canEdit = hasRole(["system_admin", "maintenance_supervisor", "technician"]);
+  const canCreate = hasRole(["system_admin", "maintenance_supervisor", "technician"]);
+  const canAct = hasRole(["system_admin", "maintenance_supervisor", "technician", "warehouse_staff"]);
   const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
   const type = searchParams.get("type") || "";
@@ -36,7 +38,6 @@ export function WorkOrdersPage() {
   const [searchDraft, setSearchDraft] = useState(searchParams.get("search") || "");
   const [showCreate, setShowCreate] = useState(false);
   const [faultDraft, setFaultDraft] = useState<CreateFaultInput>(emptyFault);
-  const [finishDraft, setFinishDraft] = useState({ report: "", hasRemoval: false, removedSerial: "", installedSerial: "" });
 
   const listQuery = useQuery({
     queryKey: ["work-orders", type, searchParams.get("search") || ""],
@@ -51,6 +52,11 @@ export function WorkOrdersPage() {
     queryKey: ["work-order-events", selectedNo],
     queryFn: ({ signal }) => getWorkOrderEvents(selectedNo, signal),
     enabled: Boolean(selectedNo && detailQuery.data?.type === "C"),
+  });
+  const actionOptionsQuery = useQuery({
+    queryKey: ["work-order-action-options"],
+    queryFn: ({ signal }) => listWorkOrderActionOptions(signal),
+    enabled: Boolean(selectedNo && detailQuery.data?.type === "C" && canAct),
   });
 
   useEffect(() => {
@@ -73,31 +79,15 @@ export function WorkOrdersPage() {
       setSearchParams(next);
     },
   });
-  const statusMutation = useMutation({
-    mutationFn: (status: string) => updateFaultWorkOrder(selectedNo, { status }),
-    onSuccess: async () => {
-      await Promise.all([
-        queryClient.invalidateQueries({ queryKey: ["work-orders"] }),
-        queryClient.invalidateQueries({ queryKey: ["work-order", selectedNo] }),
-        queryClient.invalidateQueries({ queryKey: ["work-order-events", selectedNo] }),
-      ]);
-    },
-  });
-  const finishMutation = useMutation({
-    mutationFn: () => finishFaultWorkOrder(selectedNo, {
-      report: finishDraft.report,
-      removed_serial: finishDraft.hasRemoval ? finishDraft.removedSerial : undefined,
-      installed_serial: finishDraft.hasRemoval && finishDraft.installedSerial ? finishDraft.installedSerial : undefined,
-    }),
-    onSuccess: async () => {
-      setFinishDraft({ report: "", hasRemoval: false, removedSerial: "", installedSerial: "" });
-      await Promise.all([
-        queryClient.invalidateQueries({ queryKey: ["work-orders"] }),
-        queryClient.invalidateQueries({ queryKey: ["work-order", selectedNo] }),
-        queryClient.invalidateQueries({ queryKey: ["work-order-events", selectedNo] }),
-      ]);
-    },
-  });
+
+  async function refreshSelectedWorkOrder() {
+    await Promise.all([
+      queryClient.invalidateQueries({ queryKey: ["work-orders"] }),
+      queryClient.invalidateQueries({ queryKey: ["work-order", selectedNo] }),
+      queryClient.invalidateQueries({ queryKey: ["work-order-events", selectedNo] }),
+      queryClient.invalidateQueries({ queryKey: ["turnaround"] }),
+    ]);
+  }
 
   function updateParam(key: string, value: string) {
     const next = new URLSearchParams(searchParams);
@@ -111,7 +101,7 @@ export function WorkOrdersPage() {
       <PageHeader
         title="工單管理"
         description="C 故檢、R 維修、J 專案與 P 工單統一查詢。"
-        actions={canEdit ? <button className="primary-button" type="button" onClick={() => setShowCreate(true)}><Plus size={17} />新增 C 工單</button> : undefined}
+        actions={canCreate ? <button className="primary-button" type="button" onClick={() => setShowCreate(true)}><Plus size={17} />新增 C 工單</button> : undefined}
       />
 
       <div className="segmented-nav" aria-label="工單類型">
@@ -137,7 +127,7 @@ export function WorkOrdersPage() {
                   <tr key={item.workOrderNo} className={selectedNo === item.workOrderNo ? "is-selected" : ""} onClick={() => updateParam("selected", item.workOrderNo)}>
                     <td><button className="table-action" type="button">{item.workOrderNo}</button><small>{item.title}</small></td>
                     <td><StatusBadge tone={item.type === "C" ? "danger" : item.type === "R" ? "warning" : "info"}>{item.type}</StatusBadge></td>
-                    <td>{item.trainNo || item.targetCode || "—"}</td><td>{item.status}</td><td>{item.assignedTo || "未派工"}</td><td>{formatDate(item.workOrderDate)}</td>
+                    <td>{item.trainNo || item.targetCode || "—"}</td><td>{item.statusLabel || item.status}</td><td>{item.assignedTo || "未派工"}</td><td>{formatDate(item.workOrderDate)}</td>
                   </tr>
                 ))}</tbody>
               </table>
@@ -150,7 +140,7 @@ export function WorkOrdersPage() {
             {detailQuery.isError ? <ErrorState error={detailQuery.error} onRetry={() => void detailQuery.refetch()} /> : null}
             {detailQuery.data ? (
               <div className="detail-stack">
-                <header><div><small>{detailQuery.data.type} 工單</small><h2>{detailQuery.data.workOrderNo}</h2></div><StatusBadge tone="info">{detailQuery.data.status}</StatusBadge></header>
+                <header><div><small>{detailQuery.data.type} 工單</small><h2>{detailQuery.data.workOrderNo}</h2></div><StatusBadge tone="info">{detailQuery.data.statusLabel || detailQuery.data.status}</StatusBadge></header>
                 <dl className="detail-list">
                   <div><dt>標題</dt><dd>{detailQuery.data.title}</dd></div>
                   <div><dt>車號 / 對象</dt><dd>{detailQuery.data.trainNo || detailQuery.data.targetCode || "—"}</dd></div>
@@ -159,15 +149,9 @@ export function WorkOrdersPage() {
                 </dl>
                 {detailQuery.data.type === "C" ? (
                   <>
-                     {canEdit ? <>
-                       <label>狀態<select value={detailQuery.data.status} onChange={(event) => statusMutation.mutate(event.target.value)} disabled={statusMutation.isPending}>{[["0","新建立"],["1","待確認"],["2","已派工"],["3","已完工"],["4","已覆核"],["5","已結案"],["10","觀察中"]].map(([value,label]) => <option key={value} value={value} disabled={value === "3"}>{label}</option>)}</select></label>
-                       <label>完工報告<textarea value={finishDraft.report} onChange={(event) => setFinishDraft((current) => ({ ...current, report: event.target.value }))} rows={4} placeholder="填寫維修結果後確認完工" /></label>
-                       <label className="toggle-field"><input type="checkbox" checked={finishDraft.hasRemoval} onChange={(event) => setFinishDraft((current) => ({ ...current, hasRemoval: event.target.checked, removedSerial: event.target.checked ? current.removedSerial : "", installedSerial: event.target.checked ? current.installedSerial : "" }))} /><span>本次有拆下周轉件，建立 R 工單</span></label>
-                       {finishDraft.hasRemoval ? <div className="repair-link-fields"><label>拆下件序號 *<input required value={finishDraft.removedSerial} onChange={(event) => setFinishDraft((current) => ({ ...current, removedSerial: event.target.value }))} placeholder="例如 DCU-L-003" /></label><label>裝上件序號<input value={finishDraft.installedSerial} onChange={(event) => setFinishDraft((current) => ({ ...current, installedSerial: event.target.value }))} placeholder="未補件可留空" /></label></div> : null}
-                       {(statusMutation.isError || finishMutation.isError) ? <ErrorState title="工單操作失敗" error={statusMutation.error || finishMutation.error} /> : null}
-                       {finishMutation.data?.repairWorkOrder ? <p className="success-note">已建立 R 工單 {finishMutation.data.repairWorkOrder.workOrderNo}，可至周轉件管理接續處理。</p> : null}
-                       <button className="primary-button" type="button" disabled={!finishDraft.report.trim() || (finishDraft.hasRemoval && !finishDraft.removedSerial.trim()) || finishMutation.isPending} onClick={() => finishMutation.mutate()}><CheckCircle2 size={16} />確認完工</button>
-                     </> : <p className="muted-text">目前角色為唯讀，只能查看工單與歷程。</p>}
+                    <section className="original-report"><h3>原始報修</h3><p>{String(detailQuery.data.detail?.faultDescription || detailQuery.data.title)}</p><dl className="detail-list"><div><dt>報修系統</dt><dd>{String(detailQuery.data.detail?.mainSystem || "未分類")}</dd></div><div><dt>報修人</dt><dd>{String(detailQuery.data.detail?.reporter || "未填")}</dd></div><div><dt>LEVEL</dt><dd>{String(detailQuery.data.detail?.severityLevel || "未設定")}</dd></div></dl></section>
+                    <CWorkflowSummary order={detailQuery.data} />
+                    {canAct ? <CWorkOrderActions order={detailQuery.data} options={actionOptionsQuery.data} onCompleted={refreshSelectedWorkOrder} /> : <p className="muted-text">目前角色為唯讀，只能查看工單與歷程。</p>}
                     <section><h3>操作歷程</h3>{eventsQuery.data?.items.length ? <ol className="timeline">{eventsQuery.data.items.map((event, index) => <li key={`${event.date}-${index}`}><strong>{event.act}</strong><span>{event.date} · {event.actor}</span><small>{event.note}</small></li>)}</ol> : <p className="muted-text">尚無歷程。</p>}</section>
                   </>
                 ) : <pre className="detail-json">{JSON.stringify(detailQuery.data.detail, null, 2)}</pre>}
@@ -189,5 +173,19 @@ export function WorkOrdersPage() {
         </aside>
       ) : null}
     </div>
+  );
+}
+
+function CWorkflowSummary({ order }: { order: UnifiedWorkOrder }) {
+  const workflow = order.workflow;
+  if (!workflow) return null;
+  return (
+    <section className="c-workflow-summary">
+      <h3>維修處理現況</h3>
+      {workflow.activeShortage ? <article className="workflow-alert is-warning"><strong>缺料：{workflow.activeShortage.item_name}</strong><span>需求 {workflow.activeShortage.required_qty} {workflow.activeShortage.unit || ""} · {workflow.activeShortage.supply_status}</span><small>{workflow.activeShortage.expected_arrival_date ? `預計 ${formatDate(workflow.activeShortage.expected_arrival_date)} 到料 · ` : ""}{workflow.activeShortage.reason}</small></article> : null}
+      {workflow.activeObservation ? <article className="workflow-alert is-info"><strong>觀察至 {formatDate(workflow.activeObservation.due_at, "yyyy/MM/dd HH:mm")}</strong><span>{workflow.activeObservation.observation_condition}</span><small>{workflow.activeObservation.responsible_name || "未指定負責人"} · {workflow.activeObservation.reason}</small></article> : null}
+      {workflow.repairOrders.length ? <div><h4>關聯 R 工單</h4><ul className="workflow-list">{workflow.repairOrders.map((repair) => <li key={repair.work_order_no}><strong>{repair.work_order_no}</strong><span>{repair.removed_serial_no || "未綁定序號"}</span><small>{repair.disassembled_at ? formatDate(repair.disassembled_at, "yyyy/MM/dd HH:mm") : "尚無拆件時間"}</small></li>)}</ul></div> : null}
+      {workflow.assignments.length ? <div><h4>派工 / 轉單歷程</h4><ol className="timeline">{workflow.assignments.map((assignment) => <li key={assignment.id}><strong>{assignment.assignment_type === "TRANSFER" ? "轉單" : "派工"}：{assignment.to_user_name || assignment.to_system || assignment.to_unit || "未指定"}</strong><span>{formatDate(assignment.created_at, "yyyy/MM/dd HH:mm")} · {assignment.assigned_by_name || "系統"}</span><small>{assignment.reason}</small></li>)}</ol></div> : <p className="muted-text">尚無派工或轉單紀錄。</p>}
+    </section>
   );
 }

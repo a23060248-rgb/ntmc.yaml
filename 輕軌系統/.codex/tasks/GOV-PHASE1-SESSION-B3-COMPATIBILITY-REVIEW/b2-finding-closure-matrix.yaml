@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "findings": [
+    {
+      "finding_id": "B2-CODE-FORBIDDEN-READ-001",
+      "original_severity": "BLOCKER",
+      "closure_owner": "code-reviewer",
+      "closure_status": "NOT_CLOSED",
+      "evidence": [
+        "No designated fresh formal Reviewer outcome exists because live reviewer dispatch failed before Wave 1."
+      ],
+      "production_or_procedural_retest": "NOT_RUN_PRECHECK_BLOCKER",
+      "access_scope_result": "NO_REVIEWER_ACCESS_OCCURRED",
+      "remaining_risk": "The historical blocker remains open pending a separately authorized run with demonstrably available fresh Reviewer capacity.",
+      "blocks_b3_compatibility_gate": true
+    },
+    {
+      "finding_id": "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001",
+      "original_severity": "BLOCKER",
+      "closure_owner": "compatibility-reviewer",
+      "closure_status": "NOT_CLOSED",
+      "evidence": [
+        "No designated fresh formal Reviewer outcome exists because live reviewer dispatch failed before Wave 1."
+      ],
+      "production_or_procedural_retest": "NOT_RUN_PRECHECK_BLOCKER",
+      "access_scope_result": "NO_REVIEWER_ACCESS_OCCURRED",
+      "remaining_risk": "The historical blocker remains open pending a separately authorized run with demonstrably available fresh Reviewer capacity.",
+      "blocks_b3_compatibility_gate": true
+    },
+    {
+      "finding_id": "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001",
+      "original_severity": "BLOCKER",
+      "closure_owner": "compatibility-reviewer",
+      "closure_status": "NOT_CLOSED",
+      "evidence": [
+        "No designated fresh formal Reviewer outcome exists because live reviewer dispatch failed before Wave 1."
+      ],
+      "production_or_procedural_retest": "NOT_RUN_PRECHECK_BLOCKER",
+      "access_scope_result": "NO_REVIEWER_ACCESS_OCCURRED",
+      "remaining_risk": "The historical blocker remains open pending a separately authorized run with demonstrably available fresh Reviewer capacity.",
+      "blocks_b3_compatibility_gate": true
+    },
+    {
+      "finding_id": "B2-QA-THREAD-LIMIT-001",
+      "original_severity": "BLOCKER",
+      "closure_owner": "qa-engineer",
+      "closure_status": "NOT_CLOSED",
+      "evidence": [
+        "No designated fresh formal Reviewer outcome exists because live reviewer dispatch failed before Wave 1."
+      ],
+      "production_or_procedural_retest": "NOT_RUN_PRECHECK_BLOCKER",
+      "access_scope_result": "NO_REVIEWER_ACCESS_OCCURRED",
+      "remaining_risk": "The historical blocker remains open pending a separately authorized run with demonstrably available fresh Reviewer capacity.",
+      "blocks_b3_compatibility_gate": true
+    }
+  ],
+  "root_declared_closures": [],
+  "closed_count": 0,
+  "not_closed_count": 4,
+  "result": "BLOCKER"
+}

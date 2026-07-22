@@ -1,0 +1,20 @@
+{
+  "schema_version":1,
+  "task_id":"GOV-PHASE1-L3-REVIEW-A9",
+  "review_context":"Formal independent A9 review of the exact 103-file Phase 1.9 bootstrap candidate. Root aggregation preserves each Reviewer outcome without override.",
+  "reviews":[
+    {"type":"code","reviewer":"code-reviewer","formal":true,"outcome":"BLOCKER","reviewer_run_id":"A9-CODE-RUN-35132575-D0B8-44DE-A036-125230A95090","session_id":"A9-CODE-SESSION-63226E42-9DAA-40E3-A1AE-04C7E46D81B5","did_not_participate_in_implementation":true,"finding_refs":["A9-CODE-PRODUCTION-MUTATION-RERUN-001"],"conditions":[],"decisions_required":[]},
+    {"type":"security","reviewer":"security-reviewer","formal":true,"outcome":"BLOCKER","reviewer_run_id":"A9-SEC-RUN-232B7E60-D7A1-469C-8B99-9C91FA2B36DF","session_id":"A9-SEC-SESSION-E97ED2B7-A95E-438E-B6F1-F0F3B9DAD033","did_not_participate_in_implementation":true,"finding_refs":["A9-SEC-EXECUTION-HIGH-001"],"conditions":[],"decisions_required":[]},
+    {"type":"railway-domain","reviewer":"railway-domain-reviewer","formal":true,"outcome":"PASS","reviewer_run_id":"A9-DOMAIN-RUN-697099E4-0A0F-4CEC-BBFF-5D58B3A82710","session_id":"A9-DOMAIN-SESSION-B10C9029-0BE8-4050-A9E4-75430174237D","did_not_participate_in_implementation":true,"review_scope":"bootstrap_rule_governance_mechanism","reviewer_binding":{"canonical_role_id":"railway-domain-reviewer","agent_profile_reference":".codex/agents/railway-domain-reviewer.toml","agent_profile_sha256":"E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D","task_assignment_id":"ASSIGN-A9-DOMAIN-2DEBF7B2-31AD-4226-905C-D79D75B3055B","reviewer_run_id":"A9-DOMAIN-RUN-697099E4-0A0F-4CEC-BBFF-5D58B3A82710","session_id":"A9-DOMAIN-SESSION-B10C9029-0BE8-4050-A9E4-75430174237D","formal":true,"execution_mode":"read-only","implementation_participation":false,"reviewer_identity_assurance":"procedural_role_and_assignment_binding"},"governance_mechanism_outcome":{"outcome":"PASS","findings":[]},"external_decisions":[{"decision_scope":"migration_320","outcome":"NEEDS_HUMAN_DECISION","affects_gate":"migration_320_execution","decision_owner_role":"human-domain-owner","decision_question":"Resolve proposed Migration 320 candidate Rules before execution."}],"finding_refs":["A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001-CLOSED","A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001-CLOSED"],"conditions":[],"decisions_required":[]}
+  ],
+  "calculated_gate":"NO-GO",
+  "overall_gate":"NO-GO",
+  "bootstrap_candidate_review_gate":"NO-GO",
+  "eligible_to_start_session_b":false,
+  "bootstrap_human_commit_gate":"NO-GO",
+  "steady_state_preparation_gate":"DISABLED",
+  "steady_state_execution_gate":"DISABLED",
+  "migration_320_execution_gate":"NO-GO",
+  "blockers":["A9-CODE-PRODUCTION-MUTATION-RERUN-001: mandatory fresh 31-mutant report is NOT_VERIFIED.","A9-SEC-EXECUTION-HIGH-001: formal Security Reviewer clean-context requirement was violated."],
+  "conditions":[]
+}

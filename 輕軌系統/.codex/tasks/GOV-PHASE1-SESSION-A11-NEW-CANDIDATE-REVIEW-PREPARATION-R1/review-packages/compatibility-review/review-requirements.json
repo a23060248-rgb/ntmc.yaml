@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "assignment_id": "A11-R1-COMPATIBILITY-REVIEWER-ASSIGN-20260721-04",
+  "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+  "requirements": [
+    "Verify the new manifest format is versioned",
+    "Verify the old candidate is HISTORICAL_ONLY with no legacy fail-open",
+    "Verify the 103-file candidate and historical packages are unchanged",
+    "Verify the 108-file candidate binding",
+    "Verify old External packages are SUPERSEDED and A10 is old-baseline-only",
+    "Verify R1 IDs and hashes do not reuse old identities"
+  ],
+  "candidate_binding": {
+    "candidate_file_count": 108,
+    "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+    "scanner_contract_version": 5,
+    "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+  },
+  "mandatory_output": "TWO_FIELD_CANONICAL_WRAPPER_ONLY",
+  "prohibited_output_fields": [
+    "outcome",
+    "run_id",
+    "result",
+    "decision"
+  ],
+  "code_closure_prerequisites": []
+}

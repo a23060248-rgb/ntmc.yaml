@@ -1,0 +1,825 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "authoritative_function": "computeAuthoritativeGateMap",
+  "direct_gate_map": {
+    "bootstrap_candidate_review": {
+      "status": "GO",
+      "reason_codes": []
+    },
+    "bootstrap_human_commit": {
+      "status": "NO-GO",
+      "reason_codes": [
+        "FIRST_COMMIT_AUTHORIZATION_ABSENT",
+        "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+        "SESSION_B_NOT_PASS"
+      ]
+    },
+    "steady_state_preparation": {
+      "status": "DISABLED",
+      "reason_codes": [
+        "BOOTSTRAP_COMMIT_SHA_ABSENT",
+        "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+        "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+      ]
+    },
+    "steady_state_execution": {
+      "status": "DISABLED",
+      "reason_codes": [
+        "BOOTSTRAP_COMMIT_SHA_ABSENT",
+        "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+        "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+      ]
+    },
+    "migration_320_execution": {
+      "status": "NO-GO",
+      "reason_codes": [
+        "MIGRATION_320_DOMAIN_DECISION_REQUIRED"
+      ]
+    }
+  },
+  "direct_projection": {
+    "calculated_gate": "GO",
+    "overall_gate": "GO",
+    "bootstrap_candidate_review_gate": "GO",
+    "eligible_to_start_session_b": true,
+    "bootstrap_human_commit_gate": "NO-GO",
+    "steady_state_preparation_gate": "DISABLED",
+    "steady_state_execution_gate": "DISABLED",
+    "migration_320_execution_gate": "NO-GO"
+  },
+  "expected_legal_split": {
+    "bootstrap_candidate_review": "GO",
+    "bootstrap_human_commit": "NO-GO",
+    "steady_state_preparation": "DISABLED",
+    "steady_state_execution": "DISABLED",
+    "migration_320_execution": "NO-GO"
+  },
+  "legal_split_matches": true,
+  "production_gate_cases": [
+    {
+      "case_id": "PROD-GATE-01",
+      "invariant": "Candidate Review GO is legal while final commit approval is pending.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 0,
+        "candidate": "GO",
+        "human_commit": "NO-GO"
+      },
+      "exit_code": 0,
+      "calculated_gate": "GO",
+      "target_gate": "bootstrap_candidate_review",
+      "gate_results": {
+        "bootstrap_candidate_review": {
+          "status": "GO",
+          "reason_codes": []
+        },
+        "bootstrap_human_commit": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "FIRST_COMMIT_AUTHORIZATION_ABSENT",
+            "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+            "POST_REVIEW_BASELINE_NOT_APPROVED_UNCHANGED",
+            "SESSION_B_NOT_PASS"
+          ]
+        },
+        "steady_state_preparation": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "steady_state_execution": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "migration_320_execution": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+            "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+            "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+            "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+            "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+            "Migration 320 compatibility decision is BLOCKER.",
+            "Migration 320 database or compatibility evidence is not fully PASS.",
+            "Migration 320 human execution approval is pending."
+          ]
+        }
+      },
+      "errors": [],
+      "candidate_reasons": [],
+      "migration_320_reasons": [
+        "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+        "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+        "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+        "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+        "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+        "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+        "Migration 320 compatibility decision is BLOCKER.",
+        "Migration 320 human execution approval is pending.",
+        "Migration 320 database or compatibility evidence is not fully PASS.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION."
+      ]
+    },
+    {
+      "case_id": "PROD-GATE-02",
+      "invariant": "No target uses conservative aggregate exit while emitting the full distinct map.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 2,
+        "legal_combination": true
+      },
+      "exit_code": 2,
+      "calculated_gate": "GO",
+      "target_gate": null,
+      "gate_results": {
+        "bootstrap_candidate_review": {
+          "status": "GO",
+          "reason_codes": []
+        },
+        "bootstrap_human_commit": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "FIRST_COMMIT_AUTHORIZATION_ABSENT",
+            "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+            "POST_REVIEW_BASELINE_NOT_APPROVED_UNCHANGED",
+            "SESSION_B_NOT_PASS"
+          ]
+        },
+        "steady_state_preparation": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "steady_state_execution": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "migration_320_execution": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+            "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+            "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+            "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+            "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+            "Migration 320 compatibility decision is BLOCKER.",
+            "Migration 320 database or compatibility evidence is not fully PASS.",
+            "Migration 320 human execution approval is pending."
+          ]
+        }
+      },
+      "errors": [],
+      "candidate_reasons": [],
+      "migration_320_reasons": [
+        "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+        "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+        "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+        "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+        "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+        "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+        "Migration 320 compatibility decision is BLOCKER.",
+        "Migration 320 human execution approval is pending.",
+        "Migration 320 database or compatibility evidence is not fully PASS.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION."
+      ]
+    },
+    {
+      "case_id": "PROD-GATE-03",
+      "invariant": "Session B absence affects Human Commit only.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 2,
+        "candidate": "GO"
+      },
+      "exit_code": 2,
+      "calculated_gate": "GO",
+      "target_gate": "bootstrap_human_commit",
+      "gate_results": {
+        "bootstrap_candidate_review": {
+          "status": "GO",
+          "reason_codes": []
+        },
+        "bootstrap_human_commit": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "FIRST_COMMIT_AUTHORIZATION_ABSENT",
+            "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+            "POST_REVIEW_BASELINE_NOT_APPROVED_UNCHANGED",
+            "SESSION_B_NOT_PASS"
+          ]
+        },
+        "steady_state_preparation": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "steady_state_execution": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "migration_320_execution": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+            "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+            "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+            "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+            "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+            "Migration 320 compatibility decision is BLOCKER.",
+            "Migration 320 database or compatibility evidence is not fully PASS.",
+            "Migration 320 human execution approval is pending."
+          ]
+        }
+      },
+      "errors": [],
+      "candidate_reasons": [],
+      "migration_320_reasons": [
+        "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+        "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+        "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+        "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+        "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+        "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+        "Migration 320 compatibility decision is BLOCKER.",
+        "Migration 320 human execution approval is pending.",
+        "Migration 320 database or compatibility evidence is not fully PASS.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION."
+      ]
+    },
+    {
+      "case_id": "PROD-GATE-04",
+      "invariant": "Migration 320 remains independently NO-GO.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 2,
+        "migration": "NO-GO"
+      },
+      "exit_code": 2,
+      "calculated_gate": "GO",
+      "target_gate": "migration_320_execution",
+      "gate_results": {
+        "bootstrap_candidate_review": {
+          "status": "GO",
+          "reason_codes": []
+        },
+        "bootstrap_human_commit": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "FIRST_COMMIT_AUTHORIZATION_ABSENT",
+            "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+            "POST_REVIEW_BASELINE_NOT_APPROVED_UNCHANGED",
+            "SESSION_B_NOT_PASS"
+          ]
+        },
+        "steady_state_preparation": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "steady_state_execution": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "migration_320_execution": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+            "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+            "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+            "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+            "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+            "Migration 320 compatibility decision is BLOCKER.",
+            "Migration 320 database or compatibility evidence is not fully PASS.",
+            "Migration 320 human execution approval is pending."
+          ]
+        }
+      },
+      "errors": [],
+      "candidate_reasons": [],
+      "migration_320_reasons": [
+        "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+        "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+        "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+        "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+        "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+        "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+        "Migration 320 compatibility decision is BLOCKER.",
+        "Migration 320 human execution approval is pending.",
+        "Migration 320 database or compatibility evidence is not fully PASS.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION."
+      ]
+    },
+    {
+      "case_id": "PROD-GATE-05",
+      "invariant": "Final commit rejection cannot change a clean Candidate Review result.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 0,
+        "candidate": "GO"
+      },
+      "exit_code": 0,
+      "calculated_gate": "GO",
+      "target_gate": "bootstrap_candidate_review",
+      "gate_results": {
+        "bootstrap_candidate_review": {
+          "status": "GO",
+          "reason_codes": []
+        },
+        "bootstrap_human_commit": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "FIRST_COMMIT_AUTHORIZATION_ABSENT",
+            "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+            "POST_REVIEW_BASELINE_NOT_APPROVED_UNCHANGED",
+            "SESSION_B_NOT_PASS"
+          ]
+        },
+        "steady_state_preparation": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "steady_state_execution": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "migration_320_execution": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+            "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+            "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+            "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+            "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+            "Migration 320 compatibility decision is BLOCKER.",
+            "Migration 320 database or compatibility evidence is not fully PASS.",
+            "Migration 320 human execution approval is pending."
+          ]
+        }
+      },
+      "errors": [],
+      "candidate_reasons": [],
+      "migration_320_reasons": [
+        "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+        "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+        "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+        "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+        "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+        "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+        "Migration 320 compatibility decision is BLOCKER.",
+        "Migration 320 human execution approval is pending.",
+        "Migration 320 database or compatibility evidence is not fully PASS.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION."
+      ]
+    },
+    {
+      "case_id": "PROD-GATE-07",
+      "invariant": "A hand-written Candidate NO-GO is only a projection mismatch and cannot change the authoritative GO map.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "authoritative_candidate": "GO"
+      },
+      "exit_code": 1,
+      "calculated_gate": "GO",
+      "target_gate": "bootstrap_candidate_review",
+      "gate_results": {
+        "bootstrap_candidate_review": {
+          "status": "GO",
+          "reason_codes": []
+        },
+        "bootstrap_human_commit": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "FIRST_COMMIT_AUTHORIZATION_ABSENT",
+            "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+            "POST_REVIEW_BASELINE_NOT_APPROVED_UNCHANGED",
+            "SESSION_B_NOT_PASS"
+          ]
+        },
+        "steady_state_preparation": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "steady_state_execution": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "migration_320_execution": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+            "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+            "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+            "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+            "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+            "Migration 320 compatibility decision is BLOCKER.",
+            "Migration 320 database or compatibility evidence is not fully PASS.",
+            "Migration 320 human execution approval is pending."
+          ]
+        }
+      },
+      "errors": [
+        "GATE_PROJECTION calculated_gate=NO-GO disagrees with authoritative projection GO.",
+        "GATE_PROJECTION overall_gate=NO-GO disagrees with authoritative projection GO.",
+        "GATE_PROJECTION bootstrap_candidate_review_gate=NO-GO disagrees with authoritative projection GO."
+      ],
+      "candidate_reasons": [],
+      "migration_320_reasons": [
+        "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+        "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+        "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+        "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+        "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+        "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+        "Migration 320 compatibility decision is BLOCKER.",
+        "Migration 320 human execution approval is pending.",
+        "Migration 320 database or compatibility evidence is not fully PASS.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION."
+      ]
+    },
+    {
+      "case_id": "PROD-GATE-08",
+      "invariant": "A hand-written Session B eligibility projection cannot become a Candidate Gate input.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "authoritative_candidate": "GO"
+      },
+      "exit_code": 1,
+      "calculated_gate": "GO",
+      "target_gate": "bootstrap_candidate_review",
+      "gate_results": {
+        "bootstrap_candidate_review": {
+          "status": "GO",
+          "reason_codes": []
+        },
+        "bootstrap_human_commit": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "FIRST_COMMIT_AUTHORIZATION_ABSENT",
+            "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+            "POST_REVIEW_BASELINE_NOT_APPROVED_UNCHANGED",
+            "SESSION_B_NOT_PASS"
+          ]
+        },
+        "steady_state_preparation": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "steady_state_execution": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "migration_320_execution": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+            "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+            "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+            "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+            "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+            "Migration 320 compatibility decision is BLOCKER.",
+            "Migration 320 database or compatibility evidence is not fully PASS.",
+            "Migration 320 human execution approval is pending."
+          ]
+        }
+      },
+      "errors": [
+        "GATE_PROJECTION eligible_to_start_session_b=false disagrees with authoritative projection true."
+      ],
+      "candidate_reasons": [],
+      "migration_320_reasons": [
+        "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+        "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+        "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+        "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+        "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+        "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+        "Migration 320 compatibility decision is BLOCKER.",
+        "Migration 320 human execution approval is pending.",
+        "Migration 320 database or compatibility evidence is not fully PASS.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION."
+      ]
+    },
+    {
+      "case_id": "PROD-GATE-06",
+      "invariant": "Missing Candidate Reviewer makes Candidate Review NO-GO without changing other gate inputs.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 2,
+        "candidate": "NO-GO"
+      },
+      "exit_code": 2,
+      "calculated_gate": "NO-GO",
+      "target_gate": "bootstrap_candidate_review",
+      "gate_results": {
+        "bootstrap_candidate_review": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "Missing required code review."
+          ]
+        },
+        "bootstrap_human_commit": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "CANDIDATE_REVIEW_NOT_GO",
+            "FIRST_COMMIT_AUTHORIZATION_ABSENT",
+            "HUMAN_EXACT_MANIFEST_NOT_APPROVED",
+            "POST_REVIEW_BASELINE_NOT_APPROVED_UNCHANGED",
+            "SESSION_B_NOT_PASS"
+          ]
+        },
+        "steady_state_preparation": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "steady_state_execution": {
+          "status": "DISABLED",
+          "reason_codes": [
+            "BOOTSTRAP_COMMIT_SHA_ABSENT",
+            "BOOTSTRAP_MANIFEST_SHA256_ABSENT",
+            "HUMAN_BOOTSTRAP_ATTESTATION_ABSENT"
+          ]
+        },
+        "migration_320_execution": {
+          "status": "NO-GO",
+          "reason_codes": [
+            "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+            "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+            "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+            "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+            "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+            "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+            "Migration 320 compatibility decision is BLOCKER.",
+            "Migration 320 database or compatibility evidence is not fully PASS.",
+            "Migration 320 human execution approval is pending."
+          ]
+        }
+      },
+      "errors": [],
+      "candidate_reasons": [
+        "Missing required code review."
+      ],
+      "migration_320_reasons": [
+        "Migration 320 candidate Rule WO-P-C-LINK-001 lacks human business authority.",
+        "Migration 320 candidate Rule WO-C-SHORTAGE-001 lacks human business authority.",
+        "Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.",
+        "Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.",
+        "Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.",
+        "Migration 320 blocker remains: shortage/inventory linkedRows zero.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION.",
+        "Migration 320 compatibility decision is BLOCKER.",
+        "Migration 320 human execution approval is pending.",
+        "Migration 320 database or compatibility evidence is not fully PASS.",
+        "Migration 320 Domain decision is NEEDS_HUMAN_DECISION."
+      ]
+    },
+    {
+      "case_id": "PROD-CLI-01",
+      "invariant": "CLI target Candidate Review exits 0 on GO.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 0
+      },
+      "exit_code": 0,
+      "calculated_gate": null,
+      "target_gate": null,
+      "gate_results": {
+        "bootstrap_candidate_review": {
+          "status": "GO"
+        }
+      },
+      "errors": [],
+      "candidate_reasons": [],
+      "migration_320_reasons": []
+    },
+    {
+      "case_id": "PROD-CLI-02",
+      "invariant": "CLI without target is conservative and emits full Gate map.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 2
+      },
+      "exit_code": 2,
+      "calculated_gate": null,
+      "target_gate": null,
+      "gate_results": null,
+      "errors": [],
+      "candidate_reasons": [],
+      "migration_320_reasons": []
+    },
+    {
+      "case_id": "PROD-CLI-03",
+      "invariant": "Unsupported target gate exits structural invalid.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1
+      },
+      "exit_code": 1,
+      "calculated_gate": null,
+      "target_gate": null,
+      "gate_results": null,
+      "errors": [],
+      "candidate_reasons": [],
+      "migration_320_reasons": []
+    }
+  ],
+  "gate_mutations": [
+    {
+      "mutation_id": "MUT-GATE-01-CANDIDATE-REQUIRES-FINAL",
+      "expected_failed_case": "PROD-GATE-01",
+      "runner": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "targets": [
+        ".codex/scripts/validate-task.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "1 lacks human business authority.\",\"Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.\",\"Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.\",\"Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.\",\"Migration 320 blocker remains: shortage/inventory linkedRows zero.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\",\"Migration 320 compatibility decision is BLOCKER.\",\"Migration 320 human execution approval is pending.\",\"Migration 320 database or compatibility evidence is not fully PASS.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\"]},{\"case_id\":\"PROD-CLI-01\",\"invariant\":\"CLI target Candidate Review exits 0 on GO.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":0},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":{\"bootstrap_candidate_review\":{\"status\":\"GO\"}},\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-02\",\"invariant\":\"CLI without target is conservative and emits full Gate map.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":2},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-03\",\"invariant\":\"Unsupported target gate exits structural invalid.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-GATE-02-CANDIDATE-REQUIRES-SESSION-B",
+      "expected_failed_case": "PROD-GATE-01",
+      "runner": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "targets": [
+        ".codex/scripts/validate-task.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "1 lacks human business authority.\",\"Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.\",\"Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.\",\"Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.\",\"Migration 320 blocker remains: shortage/inventory linkedRows zero.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\",\"Migration 320 compatibility decision is BLOCKER.\",\"Migration 320 human execution approval is pending.\",\"Migration 320 database or compatibility evidence is not fully PASS.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\"]},{\"case_id\":\"PROD-CLI-01\",\"invariant\":\"CLI target Candidate Review exits 0 on GO.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":0},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":{\"bootstrap_candidate_review\":{\"status\":\"GO\"}},\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-02\",\"invariant\":\"CLI without target is conservative and emits full Gate map.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":2},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-03\",\"invariant\":\"Unsupported target gate exits structural invalid.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-GATE-03-CANDIDATE-REQUIRES-STEADY-ANCHOR",
+      "expected_failed_case": "PROD-GATE-01",
+      "runner": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "targets": [
+        ".codex/scripts/validate-task.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "1 lacks human business authority.\",\"Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.\",\"Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.\",\"Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.\",\"Migration 320 blocker remains: shortage/inventory linkedRows zero.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\",\"Migration 320 compatibility decision is BLOCKER.\",\"Migration 320 human execution approval is pending.\",\"Migration 320 database or compatibility evidence is not fully PASS.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\"]},{\"case_id\":\"PROD-CLI-01\",\"invariant\":\"CLI target Candidate Review exits 0 on GO.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":0},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":{\"bootstrap_candidate_review\":{\"status\":\"GO\"}},\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-02\",\"invariant\":\"CLI without target is conservative and emits full Gate map.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":2},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-03\",\"invariant\":\"Unsupported target gate exits structural invalid.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-GATE-04-M320-INTO-CANDIDATE",
+      "expected_failed_case": "PROD-GATE-01",
+      "runner": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "targets": [
+        ".codex/scripts/validate-task.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "1 lacks human business authority.\",\"Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.\",\"Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.\",\"Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.\",\"Migration 320 blocker remains: shortage/inventory linkedRows zero.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\",\"Migration 320 compatibility decision is BLOCKER.\",\"Migration 320 human execution approval is pending.\",\"Migration 320 database or compatibility evidence is not fully PASS.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\"]},{\"case_id\":\"PROD-CLI-01\",\"invariant\":\"CLI target Candidate Review exits 0 on GO.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":0},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":{\"bootstrap_candidate_review\":{\"status\":\"GO\"}},\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-02\",\"invariant\":\"CLI without target is conservative and emits full Gate map.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":2},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-03\",\"invariant\":\"Unsupported target gate exits structural invalid.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-GATE-05-CALCULATED-GATE-AS-INPUT",
+      "expected_failed_case": "PROD-GATE-07",
+      "runner": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "targets": [
+        ".codex/scripts/validate-task.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "001 lacks human business authority.\",\"Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.\",\"Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.\",\"Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.\",\"Migration 320 blocker remains: shortage/inventory linkedRows zero.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\",\"Migration 320 compatibility decision is BLOCKER.\",\"Migration 320 human execution approval is pending.\",\"Migration 320 database or compatibility evidence is not fully PASS.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\"]},{\"case_id\":\"PROD-CLI-01\",\"invariant\":\"CLI target Candidate Review exits 0 on GO.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":0},\"exit_code\":0,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":{\"bootstrap_candidate_review\":{\"status\":\"GO\"}},\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-02\",\"invariant\":\"CLI without target is conservative and emits full Gate map.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":2},\"exit_code\":2,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-03\",\"invariant\":\"Unsupported target gate exits structural invalid.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-GATE-06-ELIGIBILITY-AS-INPUT",
+      "expected_failed_case": "PROD-GATE-08",
+      "runner": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "targets": [
+        ".codex/scripts/validate-task.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "001 lacks human business authority.\",\"Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.\",\"Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.\",\"Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.\",\"Migration 320 blocker remains: shortage/inventory linkedRows zero.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\",\"Migration 320 compatibility decision is BLOCKER.\",\"Migration 320 human execution approval is pending.\",\"Migration 320 database or compatibility evidence is not fully PASS.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\"]},{\"case_id\":\"PROD-CLI-01\",\"invariant\":\"CLI target Candidate Review exits 0 on GO.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":0},\"exit_code\":0,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":{\"bootstrap_candidate_review\":{\"status\":\"GO\"}},\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-02\",\"invariant\":\"CLI without target is conservative and emits full Gate map.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":2},\"exit_code\":2,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-03\",\"invariant\":\"Unsupported target gate exits structural invalid.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-GATE-07-MISSING-ANCHOR-ENABLES-PREPARATION",
+      "expected_failed_case": "PROD-GATE-02",
+      "runner": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "targets": [
+        ".codex/scripts/lib/governance/gate-router.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "1 lacks human business authority.\",\"Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.\",\"Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.\",\"Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.\",\"Migration 320 blocker remains: shortage/inventory linkedRows zero.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\",\"Migration 320 compatibility decision is BLOCKER.\",\"Migration 320 human execution approval is pending.\",\"Migration 320 database or compatibility evidence is not fully PASS.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\"]},{\"case_id\":\"PROD-CLI-01\",\"invariant\":\"CLI target Candidate Review exits 0 on GO.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":0},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":{\"bootstrap_candidate_review\":{\"status\":\"GO\"}},\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-02\",\"invariant\":\"CLI without target is conservative and emits full Gate map.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":2},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-03\",\"invariant\":\"Unsupported target gate exits structural invalid.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]}]}\n\n"
+    },
+    {
+      "mutation_id": "MUT-GATE-08-MISSING-ANCHOR-ENABLES-EXECUTION",
+      "expected_failed_case": "PROD-GATE-02",
+      "runner": ".codex/tests/run-bootstrap-production-integration.mjs",
+      "targets": [
+        ".codex/scripts/lib/governance/gate-router.mjs"
+      ],
+      "mutation_applied": true,
+      "integration_exit": 1,
+      "expected_case_failed": true,
+      "killed": true,
+      "output_tail": "1 lacks human business authority.\",\"Migration 320 candidate Rule COMPAT-M320-001 lacks human business authority.\",\"Migration 320 blocker remains: formal-clone provenance/read-only evidence absent.\",\"Migration 320 blocker remains: P-to-C result_value NULL and C attachment snapshot zero.\",\"Migration 320 blocker remains: shortage/inventory linkedRows zero.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\",\"Migration 320 compatibility decision is BLOCKER.\",\"Migration 320 human execution approval is pending.\",\"Migration 320 database or compatibility evidence is not fully PASS.\",\"Migration 320 Domain decision is NEEDS_HUMAN_DECISION.\"]},{\"case_id\":\"PROD-CLI-01\",\"invariant\":\"CLI target Candidate Review exits 0 on GO.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":0},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":{\"bootstrap_candidate_review\":{\"status\":\"GO\"}},\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-02\",\"invariant\":\"CLI without target is conservative and emits full Gate map.\",\"production_entrypoint\":\"validateTask\",\"pass\":false,\"expected\":{\"exit\":2},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]},{\"case_id\":\"PROD-CLI-03\",\"invariant\":\"Unsupported target gate exits structural invalid.\",\"production_entrypoint\":\"validateTask\",\"pass\":true,\"expected\":{\"exit\":1},\"exit_code\":1,\"calculated_gate\":null,\"target_gate\":null,\"gate_results\":null,\"errors\":[],\"candidate_reasons\":[],\"migration_320_reasons\":[]}]}\n\n"
+    }
+  ],
+  "all_gate_cases_pass": true,
+  "all_gate_mutations_killed": true
+}

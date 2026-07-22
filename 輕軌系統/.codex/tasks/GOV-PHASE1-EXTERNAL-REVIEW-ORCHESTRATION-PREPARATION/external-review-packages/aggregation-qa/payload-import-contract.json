@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "contract_id": "GOV-EXTERNAL-PAYLOAD-IMPORT-001",
+  "required_payload_count": 4,
+  "required_roles": [
+    "EXTERNAL_CODE_REVIEWER",
+    "EXTERNAL_SECURITY_INTEGRITY_REVIEWER",
+    "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+    "EXTERNAL_GOVERNANCE_COMPATIBILITY_REVIEWER"
+  ],
+  "byte_preservation_required": true,
+  "parse_without_repair": true,
+  "required_checks": [
+    "schema",
+    "JCS payload self-hash",
+    "review package ID and package core hash",
+    "assignment, role, run and session nonce",
+    "candidate binding",
+    "transport attestation",
+    "unique identities",
+    "clean access log",
+    "completed and mandatory exit"
+  ],
+  "missing_payload_effect": {
+    "qa": "INVALID",
+    "compatibility_gate": "NO-GO"
+  },
+  "blocker_payload_effect": {
+    "qa": "FAIL",
+    "compatibility_gate": "NO-GO"
+  },
+  "aggregator_may_modify": false,
+  "aggregator_may_repair": false
+}

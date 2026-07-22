@@ -1,0 +1,19 @@
+{
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "finding_id": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+  "scope_lock_ref": "./implementation-change-manifest.json",
+  "authoritative_chain": [
+    {"order":1,"component":"versioned_authoritative_manifest","paths":[".codex/blueprints/schemas/artifact-manifest.schema.json",".codex/scripts/create-task.mjs"]},
+    {"order":2,"component":"evidence_schema_registry","paths":[".codex/governance/evidence-schema-registry.yaml",".codex/scripts/lib/governance/governance-schema-loader.mjs"]},
+    {"order":3,"component":"referenced_evidence_resolver","paths":[".codex/scripts/lib/governance/evidence-resolver.mjs",".codex/governance/referenced-evidence-validation-policy.yaml"]},
+    {"order":4,"component":"production_schema_validation","paths":[".codex/scripts/validate-task.mjs",".codex/scripts/lib/governance/governance-schema-loader.mjs"]},
+    {"order":5,"component":"gate_completeness","paths":[".codex/scripts/lib/governance/gate-router.mjs",".codex/governance/gate-dependency-matrix.yaml"]},
+    {"order":6,"component":"candidate_and_scanner_bindings","paths":[".codex/scripts/lib/governance/scanner-report.mjs",".codex/scripts/lib/governance/typed-proof.mjs",".codex/scripts/generate-bootstrap-candidate.mjs"]},
+    {"order":7,"component":"production_oracles","paths":[".codex/tests/run-referenced-evidence-production.mjs",".codex/tests/run-referenced-evidence-mutations.mjs",".codex/tests/run-bootstrap-production-integration.mjs"]}
+  ],
+  "authority_cycle_detected": false,
+  "manifest_authority": "artifact-manifest schema plus manifest bytes",
+  "schema_authority": "compiled governance schema set plus SHA-pinned evidence registry",
+  "gate_authority": "raw resolver counts consumed by computeAuthoritativeGateMap",
+  "scope_expansion_required": false
+}

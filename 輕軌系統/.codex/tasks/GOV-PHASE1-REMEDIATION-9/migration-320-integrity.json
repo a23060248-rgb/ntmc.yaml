@@ -1,0 +1,18 @@
+{
+  "schema_version":1,
+  "task_id":"GOV-PHASE1-REMEDIATION-9",
+  "migration_task_id":"GOV-M320-DRYRUN",
+  "task_file_count":13,
+  "external_evidence_file_count":5,
+  "task_hashes_expected_unchanged":true,
+  "external_evidence_hashes_expected_unchanged":true,
+  "structural_validation":"VALID",
+  "domain_decision":"NEEDS_HUMAN_DECISION",
+  "migration_320_execution_gate":"NO-GO",
+  "validator_exit":2,
+  "candidate_rules":["WO-P-C-LINK-001","WO-C-SHORTAGE-001","COMPAT-M320-001"],
+  "actual_domain_rules_approved":[],
+  "original_evidence_modified":false,
+  "validator_result":"VALIDATE_TASK_RESULT task_id=GOV-M320-DRYRUN calculated_gate=NO-GO target_gate=migration_320_execution:NO-GO structural=VALID exit=2",
+  "assurance":"INTERNAL_CONSISTENCY_ONLY"
+}

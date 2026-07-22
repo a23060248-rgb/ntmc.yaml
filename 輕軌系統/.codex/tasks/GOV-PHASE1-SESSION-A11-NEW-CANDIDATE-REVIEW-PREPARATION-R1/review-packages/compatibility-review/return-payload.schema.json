@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/a11-r1/compatibility-review-return-payload.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "payload_core",
+    "payload_core_sha256"
+  ],
+  "properties": {
+    "payload_core": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "review_package_id",
+        "review_package_core_sha256",
+        "task_id",
+        "reviewer_role",
+        "assignment_id",
+        "reviewer_run_id",
+        "reviewer_session_nonce",
+        "candidate_binding",
+        "startup",
+        "review_status",
+        "review_started",
+        "candidate_content_reviewed",
+        "completed",
+        "mandatory_exit_requested",
+        "findings",
+        "closure_dispositions",
+        "access_log",
+        "clean_context_attestation"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "review_package_id": {
+          "const": "A11-R1-COMPATIBILITY-REVIEWER-PKG-20260721-04"
+        },
+        "review_package_core_sha256": {
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "task_id": {
+          "const": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1"
+        },
+        "reviewer_role": {
+          "const": "EXTERNAL_COMPATIBILITY_REVIEWER"
+        },
+        "assignment_id": {
+          "const": "A11-R1-COMPATIBILITY-REVIEWER-ASSIGN-20260721-04"
+        },
+        "reviewer_run_id": {
+          "const": "A11-R1-COMPATIBILITY-REVIEWER-RUN-20260721-04"
+        },
+        "reviewer_session_nonce": {
+          "const": "9665AE1D01000BCB4E427C52B6ED570A74247A74D6070BCDEB76955A44148B2D"
+        },
+        "candidate_binding": {
+          "const": {
+            "candidate_file_count": 108,
+            "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+            "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+            "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+            "scanner_contract_version": 5,
+            "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+          }
+        },
+        "startup": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "reason"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "STARTUP_VALID",
+                "STARTUP_BLOCKER"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "review_status": {
+          "enum": [
+            "PASS",
+            "BLOCKER"
+          ]
+        },
+        "review_started": {
+          "type": "boolean"
+        },
+        "candidate_content_reviewed": {
+          "type": "boolean"
+        },
+        "completed": {
+          "type": "boolean"
+        },
+        "mandatory_exit_requested": {
+          "type": "boolean"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "finding_id",
+              "severity",
+              "summary",
+              "owned_by_role",
+              "evidence_paths"
+            ],
+            "properties": {
+              "finding_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "severity": {
+                "enum": [
+                  "CRITICAL",
+                  "HIGH",
+                  "MEDIUM",
+                  "LOW"
+                ]
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owned_by_role": {
+                "type": "boolean"
+              },
+              "evidence_paths": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "closure_dispositions": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 0,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "finding_id",
+              "disposition",
+              "owner_role",
+              "evidence_paths",
+              "reason"
+            ],
+            "properties": {
+              "finding_id": {
+                "const": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001"
+              },
+              "disposition": {
+                "enum": [
+                  "CLOSED",
+                  "NOT_CLOSED"
+                ]
+              },
+              "owner_role": {
+                "const": "EXTERNAL_CODE_REVIEWER"
+              },
+              "evidence_paths": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "access_log": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "read_paths",
+            "forbidden_read_count",
+            "out_of_scope_read_count"
+          ],
+          "properties": {
+            "read_paths": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "forbidden_read_count": {
+              "const": 0
+            },
+            "out_of_scope_read_count": {
+              "const": 0
+            }
+          }
+        },
+        "clean_context_attestation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "top_level_chat",
+            "subagents_created",
+            "implementation_conversation_received",
+            "other_reviewer_conversation_received",
+            "other_reviewer_payload_received",
+            "conversation_memory_used",
+            "repository_write_performed",
+            "git_used",
+            "assurance"
+          ],
+          "properties": {
+            "top_level_chat": {
+              "const": true
+            },
+            "subagents_created": {
+              "const": false
+            },
+            "implementation_conversation_received": {
+              "const": false
+            },
+            "other_reviewer_conversation_received": {
+              "const": false
+            },
+            "other_reviewer_payload_received": {
+              "const": false
+            },
+            "conversation_memory_used": {
+              "const": false
+            },
+            "repository_write_performed": {
+              "const": false
+            },
+            "git_used": {
+              "const": false
+            },
+            "assurance": {
+              "const": "procedural"
+            }
+          }
+        }
+      }
+    },
+    "payload_core_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  }
+}

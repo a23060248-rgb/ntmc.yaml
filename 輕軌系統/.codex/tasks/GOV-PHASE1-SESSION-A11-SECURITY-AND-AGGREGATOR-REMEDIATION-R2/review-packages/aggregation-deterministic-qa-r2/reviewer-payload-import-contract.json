@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "task_id": "GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R2",
+  "required_roles": [
+    "EXTERNAL_CODE_REVIEWER",
+    "EXTERNAL_SECURITY_REVIEWER",
+    "EXTERNAL_RAILWAY_DOMAIN_REVIEWER",
+    "EXTERNAL_COMPATIBILITY_REVIEWER"
+  ],
+  "required_generations": {
+    "EXTERNAL_CODE_REVIEWER": "R1",
+    "EXTERNAL_SECURITY_REVIEWER": "R2",
+    "EXTERNAL_RAILWAY_DOMAIN_REVIEWER": "R1",
+    "EXTERNAL_COMPATIBILITY_REVIEWER": "R1"
+  },
+  "security_r1_disposition": "SUPERSEDED_STARTUP_BLOCKER_HISTORY_ONLY",
+  "reviewer_payload_count": 4,
+  "transport_attestation_count": 4,
+  "wrapper_schema_required": true,
+  "payload_core_jcs_hash_required": true,
+  "wrapper_canonical_jcs_hash_required": true,
+  "package_assignment_run_session_candidate_role_bindings_required": true,
+  "raw_payload_modification_forbidden": true,
+  "aggregator_reviewer_payload_write_forbidden": true,
+  "missing_or_duplicate_role_disposition": "INVALID",
+  "security_r2_blocker_disposition": "A11_NO_GO"
+}

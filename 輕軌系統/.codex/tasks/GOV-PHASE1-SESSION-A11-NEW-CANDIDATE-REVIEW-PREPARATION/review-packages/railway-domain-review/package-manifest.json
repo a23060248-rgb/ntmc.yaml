@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "review_package_id": "A11-RAILWAY-DOMAIN-REVIEW-PKG-20260721-03",
+  "assignment_id": "A11-RAILWAY-DOMAIN-REVIEW-ASSIGNMENT-20260721-03",
+  "reviewer_run_id": "A11-RAILWAY-DOMAIN-REVIEW-RUN-20260721-03",
+  "reviewer_session_nonce": "FC7C925E831AD642AC19059FC47B3ADD2323A8935D685A2DD250136A8081C9E4",
+  "review_type": "railway_domain_review",
+  "candidate_binding": {
+    "candidate_file_count": 108,
+    "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+    "scanner_report_sha256": "8990475412230012BC4AF86FC7B08C409315814DE8EDEC4A0AB5DD56F0DA2BBF",
+    "scanner_contract_version": 5,
+    "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9",
+    "evidence_schema_registry_sha256": "2744036D841174BE94BF1D05F6EA38C2B2C410E0EB5520D3D3723135E674E142",
+    "referenced_evidence_policy_sha256": "D9406A5663164027FAA0FC762C8B2DBBAB29B0F27AEAB7310F79ED9A88F30ED5",
+    "supersedes_candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "finding_id": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+    "finding_status": "REMEDIATED_PENDING_INDEPENDENT_REVIEW"
+  },
+  "scope_sha256": "A8D37AB2F7A87D8EF5ADA2A0D7A2A0DCF190988F9F313AA81981BFC6F4F7FF44",
+  "components": [
+    {
+      "path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/assignment.json",
+      "sha256": "E8B9F7685C6703034492077EAADA57881763711D5111459F8D4C41D3940D5F68"
+    },
+    {
+      "path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/capability-artifact-matrix.json",
+      "sha256": "688D3DED9CF63DD90BAE2A58897BD847E8AA79F5A0A738A16FF519A9B24B7A60"
+    },
+    {
+      "path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/exact-read-scope.json",
+      "sha256": "4D4DCF327249638DFEA57D848FBAF8051565A83805FBD29B5EC6B96D1A4CA972"
+    },
+    {
+      "path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/finding-ownership.json",
+      "sha256": "5D7732F3A0156FBB4D5B1CB589C79EDADFC4F1B4C7F2FE27264CA7001568A31E"
+    },
+    {
+      "path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/return-payload.schema.json",
+      "sha256": "7261C4D622B8762DFB3F8C4718B896E2C6139842BA2951BB6F0D89F8E8FC32C4"
+    },
+    {
+      "path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/standalone-top-level-reviewer-prompt.md",
+      "sha256": "B23F429D3460177EC540082AED534DA7B3D2F7265FA61894747BA3F7A14B1A43"
+    },
+    {
+      "path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/startup-contract.json",
+      "sha256": "E4B68C1168AEEB1794056DA90F80A9496A8634EF7F10595569DD0B1C3EFE65A0"
+    }
+  ],
+  "self_excluded_files": [
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/package-manifest.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/package-verification.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/reviewer-launch-envelope.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION/review-packages/railway-domain-review/embedded-startup-failure-contract.json"
+  ],
+  "package_core_sha256": "327838B46C3C9F68DD7C49D433924EFC289772A950B5D6A2C71DC20A5A005EA3"
+}

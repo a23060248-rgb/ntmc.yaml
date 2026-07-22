@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+  "generated_at": "2026-07-20T11:45:00+08:00",
+  "nodes": [
+    {"id": "TASK:GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW", "type": "Task", "label": "Session B2 Final Bootstrap Compatibility Re-review", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/task-intent.yaml"},
+    {"id": "BLUEPRINT:BP-GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW", "type": "Blueprint", "label": "L3 frozen Session B2 review Blueprint", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/blueprint.yaml"},
+    {"id": "EVIDENCE:B2-FREEZE", "type": "Evidence", "label": "Pre-review frozen input manifest", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/pre-review-freeze.json"},
+    {"id": "EVIDENCE:B2-DETERMINISTIC", "type": "Evidence", "label": "Deterministic readback summary", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/deterministic-readback-summary.json"},
+    {"id": "EVIDENCE:B2-BASELINE", "type": "Evidence", "label": "Protected baseline comparison", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/baseline-comparison.json"},
+    {"id": "REVIEW:B2-CODE", "type": "Review", "label": "Code Reviewer BLOCKER", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/code-review.json"},
+    {"id": "REVIEW:B2-SECURITY", "type": "Review", "label": "Security Reviewer PASS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/security-integrity-review.json"},
+    {"id": "REVIEW:B2-DOMAIN", "type": "Review", "label": "Railway Domain Reviewer PASS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/railway-domain-review.json"},
+    {"id": "REVIEW:B2-COMPAT", "type": "Review", "label": "Compatibility Reviewer BLOCKER", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/governance-compatibility-review.json"},
+    {"id": "EVIDENCE:B2-QA-DISPATCH", "type": "Evidence", "label": "Fresh QA dispatch failure", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/qa-review-dispatch-failure.json"},
+    {"id": "EVIDENCE:B2-FINDINGS", "type": "Evidence", "label": "Fail-closed Reviewer Set findings", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-findings.yaml"}
+  ],
+  "edges": [
+    {"from": "TASK:GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW", "relation": "USES", "to": "BLUEPRINT:BP-GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/blueprint.yaml"},
+    {"from": "EVIDENCE:B2-FREEZE", "relation": "SUPPORTS", "to": "REVIEW:B2-SECURITY", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-read-scope-final.json"},
+    {"from": "EVIDENCE:B2-DETERMINISTIC", "relation": "SUPPORTS", "to": "REVIEW:B2-CODE", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/deterministic-readback-summary.json"},
+    {"from": "EVIDENCE:B2-DETERMINISTIC", "relation": "SUPPORTS", "to": "REVIEW:B2-COMPAT", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/deterministic-readback-summary.json"},
+    {"from": "EVIDENCE:B2-BASELINE", "relation": "SUPPORTS", "to": "EVIDENCE:B2-FINDINGS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/baseline-comparison.json"},
+    {"from": "REVIEW:B2-CODE", "relation": "SUPPORTS", "to": "EVIDENCE:B2-FINDINGS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/code-review.json"},
+    {"from": "REVIEW:B2-SECURITY", "relation": "SUPPORTS", "to": "EVIDENCE:B2-FINDINGS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/security-integrity-review.json"},
+    {"from": "REVIEW:B2-DOMAIN", "relation": "SUPPORTS", "to": "EVIDENCE:B2-FINDINGS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/railway-domain-review.json"},
+    {"from": "REVIEW:B2-COMPAT", "relation": "SUPPORTS", "to": "EVIDENCE:B2-FINDINGS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/governance-compatibility-review.json"},
+    {"from": "EVIDENCE:B2-QA-DISPATCH", "relation": "SUPPORTS", "to": "EVIDENCE:B2-FINDINGS", "source_ref": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/qa-review-dispatch-failure.json"}
+  ]
+}

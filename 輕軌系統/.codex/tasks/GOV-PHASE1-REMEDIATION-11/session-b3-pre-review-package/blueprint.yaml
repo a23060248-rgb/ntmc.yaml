@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "risk": {
+    "level": "L3",
+    "reasons": [
+      "Prepares formal future Session B3 evidence and Reviewer isolation."
+    ]
+  },
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**",
+      "read-only frozen governance evidence"
+    ],
+    "exclude": [
+      "candidate mutation",
+      "B3 launch",
+      "Reviewer dispatch",
+      "B3 human approval",
+      "Git/product/DB/migration operations"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/**",
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/**"
+    ],
+    "write": [
+      ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/**"
+    ]
+  },
+  "agent_assignments": [
+    {
+      "role": "architect",
+      "allowed_read_paths": [
+        "AGENTS.md",
+        ".agents/**",
+        ".codex/**"
+      ],
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**"
+      ]
+    }
+  ],
+  "review_assignments": [
+    {
+      "assignment_id": "ASSIGN-B3-CODE-82C30E8D-02B2-4CF6-A46A-9C3D7F2BEE01",
+      "required_role_id": "code-reviewer",
+      "agent_profile_reference": ".codex/agents/code-reviewer.toml",
+      "agent_profile_sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9",
+      "allowed_read_paths": [
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/code-reviewer-scope.json"
+      ],
+      "allowed_write_paths": [],
+      "required_review_scope": "bootstrap_code_and_gate_compatibility",
+      "execution_mode": "read-only",
+      "implementation_participation": false
+    },
+    {
+      "assignment_id": "ASSIGN-B3-SEC-0FB9040D-739C-4775-89C6-C592C9D184E2",
+      "required_role_id": "security-reviewer",
+      "agent_profile_reference": ".codex/agents/security-reviewer.toml",
+      "agent_profile_sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E",
+      "allowed_read_paths": [
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/security-reviewer-scope.json"
+      ],
+      "allowed_write_paths": [],
+      "required_review_scope": "bootstrap_security_integrity_closure",
+      "execution_mode": "read-only",
+      "implementation_participation": false
+    },
+    {
+      "assignment_id": "ASSIGN-B3-DOMAIN-F6C2736E-EF62-4D04-92EA-2BEB7B8D586A",
+      "required_role_id": "railway-domain-reviewer",
+      "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml",
+      "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+      "allowed_read_paths": [
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/railway-domain-reviewer-scope.json"
+      ],
+      "allowed_write_paths": [],
+      "required_review_scope": "bootstrap_rule_governance_mechanism",
+      "execution_mode": "read-only",
+      "implementation_participation": false
+    },
+    {
+      "assignment_id": "ASSIGN-B3-COMPAT-D680795B-659D-48A5-AF2A-A2BDEEA34558",
+      "required_role_id": "compatibility-reviewer",
+      "agent_profile_reference": ".codex/agents/compatibility-reviewer.toml",
+      "agent_profile_sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910",
+      "allowed_read_paths": [
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/compatibility-reviewer-scope.json"
+      ],
+      "allowed_write_paths": [],
+      "required_review_scope": "bootstrap_governance_compatibility",
+      "execution_mode": "read-only",
+      "implementation_participation": false
+    },
+    {
+      "assignment_id": "ASSIGN-B3-QA-AF5023CB-84C7-4236-A696-E87F359C4EE0",
+      "required_role_id": "qa-engineer",
+      "agent_profile_reference": ".codex/agents/qa-engineer.toml",
+      "agent_profile_sha256": "FA299A96E503652AB50B2A6139963BCA45BA034AE766D7347689CDE1F81BA003",
+      "allowed_read_paths": [
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/qa-readback-reviewer-scope.json"
+      ],
+      "allowed_write_paths": [],
+      "required_review_scope": "bootstrap_deterministic_readback",
+      "execution_mode": "read-only",
+      "implementation_participation": false
+    }
+  ],
+  "applicable_rules": [
+    "GOV-SCOPE-001",
+    "REV-INDEP-001",
+    "REV-L3-001",
+    "EVD-HASH-001",
+    "EVD-CLAIM-001"
+  ],
+  "candidate_rules": [],
+  "required_agents": [
+    "architect",
+    "qa-engineer"
+  ],
+  "execution": {
+    "parallel_groups": [],
+    "sequential_steps": [
+      "Freeze before baseline.",
+      "Build registered-schema evidence.",
+      "Build exact scopes and capacity plan.",
+      "Freeze future B3 inputs.",
+      "Run 30 preparation cases.",
+      "Capture after baseline and stop."
+    ]
+  },
+  "evidence_required": [
+    "R11-CANDIDATE",
+    "R11-SCHEMA",
+    "R11-SCOPES",
+    "R11-CAPACITY",
+    "R11-TESTS",
+    "R11-PACKAGE",
+    "R11-BASELINE",
+    "R11-READINESS"
+  ],
+  "rollback_restore": {
+    "required": false,
+    "evidence_or_reason": "Task-local additive governance artifacts only; protected sources remain immutable."
+  },
+  "human_approval": {
+    "required": true,
+    "approver_roles": [
+      "human-governance-owner"
+    ]
+  },
+  "stop_conditions": [
+    "Any candidate or protected source changes.",
+    "Any registered-schema validation fails.",
+    "Any forbidden path enters a Reviewer scope.",
+    "Capacity cannot reserve QA.",
+    "Any B3 Reviewer or B3 human approval is created."
+  ],
+  "authorization": "NOT AUTHORIZED"
+}

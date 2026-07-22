@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-4",
+  "review_context": "formal independent reviews not yet executed",
+  "reviews": [
+    {
+      "type": "code",
+      "reviewer": "unassigned",
+      "formal": false,
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "finding_refs": [
+        "Formal review is not yet available."
+      ],
+      "conditions": [],
+      "decisions_required": [
+        {
+          "decision_required": "assign-code-reviewer",
+          "decision_owner_role": "governance-owner",
+          "decision_question": "Who will perform the independent code review?",
+          "decision_deadline_or_trigger": "Before final approval."
+        }
+      ]
+    },
+    {
+      "type": "security",
+      "reviewer": "unassigned",
+      "formal": false,
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "finding_refs": [
+        "Formal review is not yet available."
+      ],
+      "conditions": [],
+      "decisions_required": [
+        {
+          "decision_required": "assign-security-reviewer",
+          "decision_owner_role": "governance-owner",
+          "decision_question": "Who will perform the independent security review?",
+          "decision_deadline_or_trigger": "Before final approval."
+        }
+      ]
+    },
+    {
+      "type": "railway-domain",
+      "reviewer": "unassigned",
+      "formal": false,
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "finding_refs": [
+        "Formal review is not yet available."
+      ],
+      "conditions": [],
+      "decisions_required": [
+        {
+          "decision_required": "assign-railway-domain-reviewer",
+          "decision_owner_role": "governance-owner",
+          "decision_question": "Who will perform the independent railway-domain review?",
+          "decision_deadline_or_trigger": "Before final approval."
+        }
+      ]
+    },
+    {
+      "type": "compatibility",
+      "reviewer": "unassigned",
+      "formal": false,
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "finding_refs": [
+        "Formal review is not yet available."
+      ],
+      "conditions": [],
+      "decisions_required": [
+        {
+          "decision_required": "assign-compatibility-reviewer",
+          "decision_owner_role": "governance-owner",
+          "decision_question": "Who will perform the independent compatibility review?",
+          "decision_deadline_or_trigger": "Before final approval."
+        }
+      ]
+    }
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "blockers": [
+    "Independent Session A4 has not been authorized or performed.",
+    "Session B, exact staged-candidate proof and final human commit approval do not exist."
+  ],
+  "conditions": [
+    {
+      "condition_id": "A4-REVIEW-REQUIRED",
+      "condition": "Complete a fresh independent Session A4 after explicit human authorization.",
+      "status": "open",
+      "owner": "task-owner",
+      "deadline_or_trigger": "Before Session B or any governance commit preparation decision.",
+      "completion_criterion": "All required A4 formal reviews are complete and recorded without modifying A3 outcomes.",
+      "resolution_evidence": [],
+      "reviewer_revalidation": false
+    }
+  ]
+}

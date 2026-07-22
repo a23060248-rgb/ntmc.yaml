@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "reviewer": "railway-domain-reviewer",
+  "formal": true,
+  "did_not_participate_in_implementation": true,
+  "reviewer_run_id": "A8-DOMAIN-RUN-ee1b423f-2365-43d2-9199-29cabdb40055",
+  "session_id": "A8-DOMAIN-SESSION-2c971a47-1f88-4a74-a880-8f97c2f7cb15",
+  "implementer_session_id": "R8-IMPLEMENTER-SESSION-7D6E38EA-6B4C-41EF-96CC-5E3AF96768FA",
+  "reviewer_session_differs_from_implementer_session": true,
+  "reviewed_candidate_baseline": "phase-1.8-bootstrap",
+  "reviewed_manifest_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9",
+  "reviewed_manifest_file_count": 97,
+  "reviewed_schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836",
+  "review_scope": "bootstrap_rule_governance_mechanism",
+  "review_scope_details": [
+    "Official Railway Domain Review schema loading and schema-set binding",
+    "Formal reviewer identity and typed review validation",
+    "Mechanism outcome versus external Migration 320 decision routing",
+    "Phase 1 proposed-only Domain Rule authority boundary",
+    "A7 finding closure and relevant fail-closed tests"
+  ],
+  "outcome": "BLOCKER",
+  "governance_mechanism_outcome": {
+    "outcome": "BLOCKER",
+    "findings": ["A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001", "A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001"]
+  },
+  "external_decisions": [
+    {
+      "decision_scope": "migration_320",
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "affects_gate": "migration_320_execution",
+      "decision_owner_role": "human-domain-owner",
+      "decision_question": "Confirm, reject, or retain WO-P-C-LINK-001, WO-C-SHORTAGE-001 and COMPAT-M320-001 as unverified before any Migration 320 business approval or execution."
+    }
+  ],
+  "summary": "A7-DOMAIN-TYPED-SCHEMA-PARSE-001 is CLOSED: the official Railway schema is valid, registered once, compiled into the reviewed schema set, bound to the candidate and scanner report, and enforced by production validation. The Domain registry remains proposed-only, while Migration 320 independently remains NEEDS_HUMAN_DECISION and NO-GO. The governance mechanism remains BLOCKER because validate-task accepts a substituted Railway reviewer identity and the 68-fixture path bypasses the official Railway schema loader.",
+  "commands_run": [
+    {"command": "node .codex/tests/run-governance-fixtures.mjs", "result": "PASS", "summary": "68/68 passed."},
+    {"command": "node .codex/tests/run-bootstrap-production-integration.mjs", "result": "PASS", "summary": "34/34 passed."},
+    {"command": "node .codex/tests/run-bootstrap-mutation-tests.mjs", "result": "PASS", "summary": "23/23 killed; survived=0."},
+    {"command": "Isolated temp-copy loadAndCompileGovernanceSchemas probes", "result": "PASS", "summary": "Missing schema, invalid JSON, duplicate $id, id/version mismatch, unresolved local reference and manifest/schema-set disagreement were rejected; 6/6 fail-closed."},
+    {"command": "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN --target-gate migration-320-execution", "result": "EXPECTED_NO_GO", "summary": "structural=VALID; migration_320_execution=NO-GO; validator exit=2."},
+    {"command": "A8 baseline candidate SHA256 comparison", "result": "PASS", "summary": "97/97 files matched review-baseline-before.json."},
+    {"command": "Isolated wrong-reviewer and malformed-fixture-schema adversarial probes", "result": "FAIL_CLOSED_DEFECTS_REPRODUCED", "summary": "Wrong reviewer was accepted by 34/34 production cases; malformed official Railway schema was accepted by 68/68 fixtures."}
+  ],
+  "rerun_results": {
+    "governance_fixtures": {"total": 68, "passed": 68, "failed": 0, "domain_cases": "CASE-57 through CASE-63 passed"},
+    "production_integration": {"total": 34, "passed": 34, "failed": 0, "domain_cases": "PROD-DOMAIN-01 through PROD-DOMAIN-05 passed", "schema_cases": "PROD-SCHEMA-01 through PROD-SCHEMA-06 passed", "separation_check": "PROD-DOMAIN-01 proved mechanism PASS plus Migration 320 NEEDS_HUMAN_DECISION is a legal Candidate Review GO and Migration 320 NO-GO split."},
+    "mutation_tests": {
+      "total": 23,
+      "killed": 23,
+      "survived": 0,
+      "relevant_cases": {
+        "MUT-DOMAIN-01-EXTERNAL-AS-MECHANISM": "KILLED",
+        "MUT-SCHEMA-01-SKIP-DOMAIN-SCHEMA": "KILLED",
+        "MUT-SCHEMA-02-ALLOW-UNKNOWN": "KILLED",
+        "MUT-DOMAIN-02-GENERIC-META-BUSINESS": "KILLED",
+        "MUT-DOMAIN-03-RAILWAY-CANDIDATE-APPLICABLE": "KILLED"
+      }
+    },
+    "isolated_schema_loader_probes": {"total": 6, "rejected": 6, "failed": 0, "cases": ["missing_schema", "invalid_json", "duplicate_id", "id_version_mismatch", "unresolved_local_ref", "manifest_schema_set_mismatch"]},
+    "supplemental_adversarial_probes": {
+      "wrong_railway_reviewer_identity": {"expected": "REJECTED", "actual": "ACCEPTED", "child_exit": 0, "production_passed": 34, "production_failed": 0},
+      "malformed_official_schema_against_fixtures": {"expected": "REJECTED", "actual": "ACCEPTED", "child_exit": 0, "fixtures_passed": 68, "fixtures_failed": 0}
+    }
+  },
+  "closure_dispositions": [
+    {
+      "finding_id": "A7-DOMAIN-TYPED-SCHEMA-PARSE-001",
+      "status": "CLOSED",
+      "original_source_locations": [".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/railway-domain-review.json:259-274", ".codex/blueprints/schemas/railway-domain-review.schema.json:8"],
+      "current_source_locations": [".codex/blueprints/schemas/railway-domain-review.schema.json:1-35", ".codex/governance/governance-schema-set.yaml:5-20", ".codex/scripts/lib/governance/governance-schema-loader.mjs:26-58", ".codex/scripts/validate-task.mjs:401-409", ".codex/tests/run-bootstrap-production-integration.mjs:202-232", ".codex/tests/run-bootstrap-mutation-tests.mjs:25"],
+      "disposition_reason": "The schema parses, has the expected identity and version, is registered and compiled, and is enforced by validate-task. Production rejects invalid, missing and duplicate-id schemas and a dedicated-schema-only typed violation; the skip-domain-schema mutation is killed.",
+      "reproducible_read_only_check": "Run loadAndCompileGovernanceSchemas(process.cwd()) from the product root and verify schema_set_sha256=B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836 and byName.has('railway-domain-review.schema.json')=true."
+    }
+  ],
+  "schema_loader_assessment": {
+    "outcome": "BLOCKER",
+    "official_schema": {"status": "PASS", "path": ".codex/blueprints/schemas/railway-domain-review.schema.json", "id": "https://ntmc.local/codex/schemas/railway-domain-review.schema.json", "version": 1, "sha256": "D0A58D4FEDF740F0EA0B53F8B42F7CE95E2459FD0985F05A095F18BD5DCB4786", "json_valid": true},
+    "compiled_schema_set": {"status": "PASS", "schema_count": 15, "schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836", "registry_sha256": "9485709A8240E22312D8C583B037C776619583F02D5D762A6B452472FCF01FC5", "manifest_exact_set_binding": true},
+    "candidate_and_scanner_binding": {"status": "PASS", "manifest_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9", "file_count": 97, "candidate_schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836", "scanner_schema_set_sha256": "B026F777F024B08D6D35811D91F3E99561790271E7E2E381F568C3A73072E836", "scanner_report_sha256_matches_candidate": true},
+    "production_path": {"status": "PASS", "loader": "loadAndCompileGovernanceSchemas", "dedicated_schema_enforced": true, "fallback_observed": false, "inline_schema_substitute_observed": false, "malformed_or_unloaded_schema_fail_closed": true},
+    "fixture_path": {"status": "BLOCKER", "loader": null, "dedicated_schema_enforced": false, "exact_failure": "An isolated malformed railway-domain-review.schema.json still produced fixture exit 0 with 68 passed and 0 failed."}
+  },
+  "domain_authority_assessment": {
+    "outcome": "PASS",
+    "source_locations": [".codex/domain/index.yaml:1-60", ".codex/scripts/lib/governance/proposed-domain-rules.mjs:1-31", ".codex/scripts/lib/governance/rule-class.mjs:1-58", ".codex/scripts/validate-task.mjs:154-176", ".codex/checklists/railway-domain-review.md:1-8"],
+    "registry_type": "proposed_rule_registry",
+    "is_complete_domain_knowledge_base": false,
+    "phase1_confirmation_supported": false,
+    "confirmed_rule_count": 0,
+    "applicable_rules": [],
+    "candidate_rule_count": 6,
+    "candidate_statuses": ["proposed"],
+    "candidate_authority_effects": ["candidate_only"],
+    "unverified_source_rule_ids": ["WO-C-MERGE-001", "PERMISSION-SEPARATION-001"],
+    "assessment": "Confirmed Domain input, authority fields and railway_domain_authority are rejected. Candidate Rules cannot enter applicable_rules, generic meta Rules cannot manufacture business authority, and implementation, migration, test, report or UNVERIFIED sources cannot promote a candidate.",
+    "actual_domain_rules_approved": []
+  },
+  "findings": [
+    {
+      "finding_id": "A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001",
+      "finding_type": "GOVERNANCE_MECHANISM_DEFECT",
+      "severity": "BLOCKER",
+      "title": "Formal Railway reviewer identity is not bound to the required reviewer role",
+      "locations": [".codex/blueprints/schemas/review-findings.schema.json:18-28", ".codex/blueprints/schemas/railway-domain-review.schema.json:7-33", ".codex/scripts/validate-task.mjs:404-407", ".codex/scripts/validate-task.mjs:423-435", ".codex/tests/run-bootstrap-production-integration.mjs:63-67"],
+      "exact_failure": "Changing only the typed Railway review reviewer from railway-domain-reviewer to fixture-implementer, while preserving the required railway-domain-reviewer role and distinct run/session identifiers, was accepted by the complete production suite: exit 0, 34 passed, 0 failed.",
+      "reproducible_read_only_check": "In an isolated temp copy, replace only the formal Railway review reviewer value in run-bootstrap-production-integration.mjs with fixture-implementer and run the production integration suite.",
+      "impact": "Any non-empty reviewer label can claim the formal railway-domain slot. The mechanism does not fail closed on reviewer-role substitution and does not complete formal reviewer identity validation.",
+      "minimum_remediation": ["Require review.reviewer to equal railway-domain-reviewer for type railway-domain.", "Validate did_not_participate_in_implementation=true or derive it from validated reviewer-assignment and handoff identities.", "Add a production negative case and mutation for reviewer substitution."]
+    },
+    {
+      "finding_id": "A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001",
+      "finding_type": "TEST_PATH_DIVERGENCE",
+      "severity": "BLOCKER",
+      "title": "The 68-fixture Domain path bypasses the official Railway schema loader",
+      "locations": [".codex/tests/run-governance-fixtures.mjs:5-14", ".codex/tests/run-governance-fixtures.mjs:115-125", ".codex/tests/run-governance-fixtures.mjs:141-155", ".codex/tests/run-bootstrap-production-integration.mjs:9", ".codex/tests/run-bootstrap-production-integration.mjs:202-232", ".codex/scripts/lib/governance/governance-schema-loader.mjs:26-58"],
+      "exact_failure": "Replacing the official Railway schema with malformed JSON in an isolated temp copy still produced fixture exit 0 with 68 passed and 0 failed.",
+      "reproducible_read_only_check": "In an isolated temp copy, replace railway-domain-review.schema.json with malformed JSON and run node .codex/tests/run-governance-fixtures.mjs.",
+      "impact": "The fixture and production paths do not use the same official schema loader. Fixtures can report complete success while the official typed Railway contract is malformed or unavailable.",
+      "minimum_remediation": ["Invoke loadAndCompileGovernanceSchemas from the fixture path or route typed fixture validation through validateTask.", "Validate the typed Railway fixture with the official schema.", "Add fixture and mutation cases proving malformed, missing and bypassed Railway schemas fail closed."]
+    }
+  ],
+  "conditions": [],
+  "residual_risks": [
+    "All candidate and validator evidence remains bootstrap INTERNAL_CONSISTENCY_ONLY evidence from an untrusted workspace and does not establish producer identity, a Git trust anchor, commit approval or release authority.",
+    "Migration 320 remains NO-GO due to absent human business authority, missing formal-clone provenance, incomplete P-to-C value and attachment evidence, absent shortage-to-inventory linkage, compatibility blockers, incomplete evidence and pending approvals.",
+    "WO-C-MERGE-001 and PERMISSION-SEPARATION-001 include UNVERIFIED report sources but remain candidate-only.",
+    "This filing copy has not been written to the workspace; the caller must persist it without changing the reviewed 97-file candidate."
+  ],
+  "prohibited_actions_confirmed": {
+    "workspace_write_performed": false,
+    "git_command_run": false,
+    "service_started": false,
+    "product_test_run": false,
+    "seed_run": false,
+    "migration_run": false,
+    "database_connection_attempted": false,
+    "environment_file_read": false,
+    "forbidden_product_or_sibling_path_read": false,
+    "remediation_8_implementer_conversation_used": false,
+    "conversation_memory_used": false,
+    "remediation_8_summary_used_as_rerun_substitute": false,
+    "only_isolated_system_temp_copies_mutated": true,
+    "actual_maintenance_rule_approved_or_invented": false,
+    "migration_320_business_go_declared": false,
+    "human_commit_go_declared": false,
+    "session_b_started": false
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "level": "L3",
+  "reasons": [
+    "Unresolved Security Reviewer startup blocker",
+    "Formal reviewer transport contract change",
+    "Release/candidate-review gate preparation"
+  ],
+  "triggers": [
+    "unresolved Reviewer blocker",
+    "security review",
+    "backward compatibility",
+    "release gate"
+  ],
+  "required_agents": [
+    "root-governance-preparer"
+  ],
+  "required_reviews": [
+    "EXTERNAL_SECURITY_REVIEWER_R2",
+    "A11_EVIDENCE_AGGREGATOR_R2_AFTER_SECURITY"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "candidate byte identity",
+    "preserved payload verification",
+    "package and envelope hashes",
+    "24 fail-closed contract tests"
+  ],
+  "human_approval": [
+    "launch Security R2",
+    "manually transport Security R2 wrapper",
+    "launch Aggregator R2"
+  ],
+  "stop_conditions": [
+    "any R2 hard stop",
+    "Candidate binding change",
+    "historical artifact change"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2/**"
+    ],
+    "exclude": [
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      ".env*"
+    ]
+  },
+  "classified_by": "root-governance-preparer",
+  "classification_status": "proposed"
+}

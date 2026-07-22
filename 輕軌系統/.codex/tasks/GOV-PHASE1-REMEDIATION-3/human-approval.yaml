@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-3",
+  "required": true,
+  "status": "pending",
+  "approvals": [
+    {"stage": "scope_approval", "status": "approved", "by": "human", "at": "2026-07-17T04:00:00+08:00", "reason": "The human authorized the governance-only Phase 1.3 remediation scope."},
+    {"stage": "execution_approval", "status": "not-required", "by": "human", "at": "2026-07-17T04:00:00+08:00", "reason": "Classification prohibits product, database, service, migration, external evidence, and Git operations."},
+    {"stage": "review_completion", "status": "pending", "by": "human-governance-owner", "at": "2026-07-17T04:00:00+08:00", "reason": "No post-remediation independent Review was launched."},
+    {"stage": "final_commit_approval", "status": "pending", "by": "human-governance-owner", "at": "2026-07-17T04:00:00+08:00", "reason": "Session A2 BLOCKER outcomes remain and final governance commit approval is prohibited."}
+  ],
+  "final_commit_prerequisites": {
+    "scope_validation": {"status": "NOT_VERIFIED", "evidence_ref": "No staged commit candidate exists."},
+    "governance_commit_manifest": {"status": "PASS", "evidence_ref": ".codex/governance/governance-commit-manifest.yaml"},
+    "preapproval_gate": {"status": "NOT_VERIFIED", "evidence_ref": "Post-remediation independent Review is pending."}
+  },
+  "prohibited_until_approved": ["stage", "commit", "push", "merge", "release", "launch Session B", "claim Governance Commit GO", "modify Migration 320 external evidence"]
+}

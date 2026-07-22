@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3",
+  "level": "L3",
+  "reasons": [
+    "The task governs an A11 release gate, backward-compatible historical interpretation, deterministic QA execution, and canonical formal evidence.",
+    "A11 remains NO-GO and the prior Aggregator R2 outcome contains unresolved QA and canonical transport blockers.",
+    "An incorrect remediation package could create an incorrect GO or improperly promote historical evidence into the active baseline."
+  ],
+  "triggers": [
+    "release-gate",
+    "backward-compatibility",
+    "unresolved-reviewer-blocker",
+    "formal-evidence-contract"
+  ],
+  "execution_categories": [
+    "governance-validation",
+    "governance-fixture",
+    "bootstrap-candidate",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "architect",
+    "qa-engineer",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "required_reviews": [
+    "code",
+    "security",
+    "railway-domain",
+    "compatibility"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "complete-master-batch-2d-authority-source",
+    "candidate-108-file-binding-before-during-after",
+    "reviewer-payload-and-transport-v2-reuse-verification",
+    "six-suite-remediation-map",
+    "historical-supersession-oracle",
+    "18-command-run-a-and-6-command-run-b-contract",
+    "canonical-aggregator-artifact-writer-verification",
+    "24-remediation-contract-tests",
+    "package-and-launch-envelope-integrity"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "aggregator_r3_launch_approval",
+      "final_a11_gate_review",
+      "human_exact_manifest_approval"
+    ],
+    "scope_approval_status": "AUTHORIZED_BY_USER_FOR_MASTER_BATCH_2E_PREPARATION"
+  },
+  "stop_conditions": [
+    "A11_R3_TRIAGE_SOURCE_CONFLICT",
+    "A11_R3_CANDIDATE_BINDING_CHANGED",
+    "A11_R3_CANDIDATE_CONTENT_CHANGE_REQUIRED",
+    "A11_R3_TRIAGE_CLASSIFICATION_INVALIDATED",
+    "A11_R3_REVIEWER_PAYLOAD_REUSE_INVALID",
+    "A11_R3_TRANSPORT_REUSE_INVALID",
+    "A11_R3_HISTORICAL_ORACLE_AMBIGUOUS",
+    "A11_R3_QA_COMMAND_NONDETERMINISTIC",
+    "A11_R3_EXPECTED_COUNT_SOURCE_MISSING",
+    "A11_R3_CANONICAL_WRITER_INVALID",
+    "A11_R3_AGGREGATOR_SCOPE_OVERBROAD",
+    "A11_R3_PACKAGE_HASH_INVALID",
+    "A11_R3_HISTORICAL_ARTIFACT_CHANGED",
+    "A11_R3_GIT_OR_PRODUCT_OPERATION_REQUIRED"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3/**",
+      ".codex/tasks/GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R3/**"
+    ],
+    "exclude": [
+      "108-file Candidate",
+      ".codex/tests/**",
+      ".codex/scripts/**",
+      ".codex/governance/**",
+      ".codex/blueprints/**",
+      ".codex/workflows/**",
+      "AGENTS.md",
+      "Reviewer packages and payload originals",
+      "Aggregator R2 Task",
+      "MASTER BATCH 2D Triage Task",
+      "historical Tasks",
+      "Migration 320",
+      "product files",
+      ".env*",
+      "Git index"
+    ]
+  },
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

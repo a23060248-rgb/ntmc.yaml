@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "status": "ARCHIVED",
+  "reviewer_set_outcome": "BLOCKER",
+  "reviewer_outcomes": [
+    {
+      "reviewer": "code-reviewer",
+      "outcome": "BLOCKER",
+      "reviewer_run_id": "A6-CODE-RUN-8e66b074-6f26-4031-a995-b9a383f5121b",
+      "session_id": "A6-CODE-SESSION-2cfc7043-ac58-45ca-97bd-46d507814558",
+      "finding_refs": [
+        "A6-CODE-BLOCKER-001"
+      ]
+    },
+    {
+      "reviewer": "security-reviewer",
+      "outcome": "BLOCKER",
+      "reviewer_run_id": "A6-SEC-RUN-aef79a44-3c80-44dd-aae8-b9f77498fddb",
+      "session_id": "A6-SEC-SESSION-c85f23f3-65e8-423e-b95f-93e8ed8a379c",
+      "finding_refs": [
+        "A6-SEC-HIGH-001",
+        "A6-SEC-HIGH-002"
+      ]
+    },
+    {
+      "reviewer": "railway-domain-reviewer",
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "reviewer_run_id": "A6-DOMAIN-RUN-fb5170c7-ec05-4457-8605-c84875d005b8",
+      "session_id": "A6-DOMAIN-SESSION-524d2bcf-f699-431f-be71-d1bad8088626",
+      "finding_refs": [
+        "A6-DOMAIN-HUMAN-DECISION-001"
+      ]
+    }
+  ],
+  "formal_metadata_valid": true,
+  "severity_counts": {
+    "BLOCKER": 1,
+    "HIGH": 2,
+    "NONE": 1
+  },
+  "a5_finding_count": 7,
+  "a5_closure_counts": {
+    "CLOSED": 5,
+    "REPLACED_BY_BOOTSTRAP_BOUNDARY": 1,
+    "NOT_CLOSED": 1
+  },
+  "all_a5_closed_or_replaced": false,
+  "authoritative_rerun_pass": true,
+  "authoritative_a6_validator": {
+    "structural_status": "VALID",
+    "calculated_gate": "NO-GO",
+    "exit_code": 2
+  },
+  "reviewed_source_baseline_identical": true,
+  "bootstrap_candidate_review_gate": "NO-GO",
+  "eligible_to_start_session_b": false,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "NO-GO",
+  "steady_state_execution_gate": "NO-GO",
+  "migration_320_execution_gate": "NO-GO",
+  "session_b_started": false,
+  "git_mutation_performed": false,
+  "root_modified_reviewer_outcomes": false,
+  "conclusion": "A6 Reviewer criteria did not pass; Session B is not eligible or authorized."
+}

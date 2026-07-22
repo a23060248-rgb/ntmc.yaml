@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "metadata": {
+    "formal": true,
+    "reviewer": "security-reviewer",
+    "reviewer_run_id": "A7-SEC-RUN-13e6e21c-5f4e-4bae-a89a-ee00d3340d59",
+    "session_id": "A7-SEC-SESSION-22c83a5a-ad58-4159-b95d-2fff536200da",
+    "did_not_participate_in_implementation": true,
+    "reviewed_candidate_baseline": "phase-1.7-bootstrap",
+    "candidate_manifest_file_count": 92,
+    "candidate_manifest_sha256": "8A76C7A6FCC8B6184AE3E0DBBB23DB6478E00EB34DD3B6A04B9F15ACB152BF51",
+    "review_task_id": "GOV-PHASE1-L3-REVIEW-A7",
+    "mode": "read-only-reviewed-sources",
+    "relied_on_implementation_conversation": false,
+    "git_commands_run": false,
+    "git_mutations_performed": false,
+    "product_tests_run": false,
+    "service_or_database_operations_run": false,
+    "subagents_used": false
+  },
+  "outcome": "BLOCKER",
+  "review_scope": {
+    "included": [
+      "AGENTS.md, task-classification skill, authoritative Phase policy, and informational Phase status",
+      "GOV-PHASE1-L3-REVIEW-A7 intent, classification, blueprint, reviewer assignment, and before-baseline",
+      "GOV-PHASE1-L3-REVIEW-A6 formal Security Review and archived Session A6 summary",
+      "A5-SEC-HIGH-002 as filed in the formal A5 Security Review",
+      "all 40 filed GOV-PHASE1-REMEDIATION-7 artifacts",
+      "the exact 92-file governance manifest, every manifested governance file, scanner v5 report, and candidate record",
+      "scanner v5 schema, semantic validator, finding registry, canonicalization configuration, binary oracle, implementation matrix, production case manifest, production entrypoint, fixtures, integration checks, and mutations"
+    ],
+    "excluded": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration source or execution",
+      "sibling directories",
+      "product programs, services, databases, seeds, and product tests",
+      "implementation conversations and unfiled explanations"
+    ],
+    "prohibited_operations_not_performed": [
+      "Git inspection or mutation",
+      "service startup",
+      "product test execution",
+      "database, seed, or migration operation",
+      "modification of reviewed sources",
+      "Session B launch",
+      "Human Commit, steady-state, or Migration 320 GO declaration"
+    ]
+  },
+  "baseline_verification": {
+    "manifest_sha256_matches": true,
+    "manifest_file_count": 92,
+    "candidate_files_present": 92,
+    "candidate_hash_mismatches": 0,
+    "candidate_size_mismatches": 0,
+    "candidate_duplicate_paths": 0,
+    "candidate_reparse_points": 0,
+    "candidate_path_escapes": 0,
+    "candidate_path_set_equals_manifest": true,
+    "included_file_set_sha256": "C8C4CD2DC1457B68436E1973DB3163D7DE4D168FB6E1244F1C06EAA749297F84",
+    "frozen_history_files_checked": 340,
+    "frozen_history_hash_mismatches": 0,
+    "remediation_7_files_checked": 40,
+    "remediation_7_hash_mismatches": 0,
+    "scanner_report_sha256": "FFF9FD0A6DF720ED5753261A0094A7AFF54BAAB661966D4F6D5BD33BC05D880D",
+    "scanner_report_payload_sha256": "DE80C5C2F492CFDBE827A0480A9F775D191749CE509708D0238CEDD5E6DFB6B4",
+    "scanner_report_payload_matches": true,
+    "candidate_record_payload_sha256": "34173D4341ABD1664878AB9F25BCFED1976D7F61B517C03887F4BC7BA00AE8B1",
+    "candidate_record_payload_matches": true,
+    "scanner_report_result": "PASS",
+    "scanner_report_finding_count": 0,
+    "reviewed_sources_match_a7_before_baseline": true
+  },
+  "commands_and_results": [
+    {
+      "command": "read-only SHA256, size, duplicate, path-boundary, and reparse verification against review-baseline-before.json and governance-commit-manifest.yaml",
+      "result": "PASS",
+      "details": "The exact 92 candidate files, 340 frozen-history files, and 40 Remediation 7 files matched the filed A7 baseline; the candidate set exactly matched the manifest."
+    },
+    {
+      "command": "node .codex/tests/run-bootstrap-scanner-production.mjs with TEMP and TMP confined to the A7 security reviewer-temp directory",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "72/72 current production scanner cases passed through .codex/scripts/generate-bootstrap-scan-report.mjs, including all five narrow binary classes and all nine currently filed magic positive/safe-negative pairs."
+    },
+    {
+      "command": "node .codex/tests/run-bootstrap-production-integration.mjs with TEMP and TMP confined to the A7 security reviewer-temp directory",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "27/27 production integration cases passed. Wrong version, contract hash, registry hash, manifest, scanned set, count, claim, unregistered finding, and payload were structurally rejected."
+    },
+    {
+      "command": "node .codex/tests/run-bootstrap-mutation-tests.mjs with TEMP and TMP confined to the A7 security reviewer-temp directory",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "17/17 filed production mutations were killed."
+    },
+    {
+      "command": "node .codex/tests/run-governance-fixtures.mjs and node .codex/tests/run-governance-fixtures-concurrency.mjs with TEMP and TMP confined to the A7 security reviewer-temp directory",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "68/68 fixtures passed; concurrent reports had unique owned roots and all four adversarial fixture-report shapes were rejected."
+    },
+    {
+      "command": "read-only A7 scanner report and candidate binding probes",
+      "result": "PASS",
+      "details": "Schema and semantic validation rejected forged contract version, all four bundle hashes, manifest hash, included set, scanned set, both counts, false execution claim, unregistered finding, false clean claim, inconsistent result/count, unknown claim, and payload. A consistent nonzero-finding report could not create a bootstrap candidate."
+    },
+    {
+      "command": "read-only production magic-coverage reduction probe in A7 reviewer-temp",
+      "result": "FAIL",
+      "details": "Removing the JPEG production positive and safe-negative pair left CASE-54 green and the reduced production runner green at 70/70. Direct semantic checks likewise accepted removal of the ELF, ZIP, PDF, SQLITE, PGDMP, OLE, PNG, or JPEG pair; only the generic MZ pair is required by the matrix."
+    }
+  ],
+  "control_results": {
+    "exact_candidate_and_report_binding": {
+      "status": "PASS",
+      "details": "The current report and candidate bind the exact manifest, included/scanned sets, counts, contract v5 identity, four bundle hashes, registered findings, claims, and canonical payloads."
+    },
+    "forged_report_failure_modes": {
+      "status": "PASS",
+      "details": "All required forged report fields were rejected and a nonzero-finding report could not create a bootstrap candidate."
+    },
+    "binary_narrow_contract": {
+      "status": "PASS_WITH_LIMITATION",
+      "finding_classes": [
+        "DISALLOWED_FILE_EXTENSION",
+        "NUL_BYTE_DETECTED",
+        "KNOWN_BINARY_MAGIC_DETECTED",
+        "NON_UTF8_TEXT",
+        "BINARY_CONTENT_RATIO_EXCEEDED"
+      ],
+      "known_magic_signatures": [
+        "MZ",
+        "ELF",
+        "ZIP",
+        "PDF",
+        "SQLITE",
+        "PGDMP",
+        "OLE",
+        "PNG",
+        "JPEG"
+      ],
+      "details": "The current implementation and 72-case file contain all five classes and all nine positive/safe-negative pairs through the manifest-bound production scanner. The formal coverage oracle does not require eight of the nine magic pairs."
+    },
+    "extension_magic_mismatch_claim": {
+      "status": "PASS",
+      "details": "No active scanner contract, registry, policy, security evidence, fixture contract, production case manifest, or checklist claims an extension-magic-mismatch finding class. Remediation evidence mentions it only to state that the earlier claim was removed."
+    },
+    "per_magic_coverage_enforcement": {
+      "status": "FAIL",
+      "details": "The implementation matrix maps KNOWN_BINARY_MAGIC_DETECTED only to the MZ positive and generic safe-negative. validateDeclaredScanContract checks case IDs named by matrix rows, but does not derive required positive/safe-negative IDs for each signature in scanner-binary-oracle.yaml. The production runner trusts the mutable case list and has no fixed 72-case identity assertion."
+    },
+    "authority_claim_boundaries": {
+      "status": "PASS_WITH_LIMITATION",
+      "details": "The current report claims only INTERNAL_CONSISTENCY_ONLY and does not claim global secret absence, DLP, producer identity, Git authority, repository-global scanning, or operating-system isolation."
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "A7-SEC-HIGH-001",
+      "severity": "HIGH",
+      "blocks_candidate_review_gate": true,
+      "title": "The formal scanner contract matrix does not require a production positive and safe-negative for every declared binary magic",
+      "locations": [
+        ".codex/governance/scanner-contract-matrix.yaml:27",
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:183",
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:185",
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:187",
+        ".codex/tests/run-bootstrap-scanner-production.mjs:64",
+        ".codex/tests/run-bootstrap-scanner-production.mjs:87",
+        ".codex/tests/run-governance-fixtures.mjs:114"
+      ],
+      "failure_condition": "One declared non-MZ magic loses both of its production positive and safe-negative cases while the binary oracle and scanner implementation still declare that magic.",
+      "reproducible_read_only_check": "In an A7 reviewer-temp copy, remove one non-MZ magic pair from scanner-production-case-manifest.json, then run the contract equality fixture and production scanner runner against that copy.",
+      "observed": "Removing the JPEG pair left CASE-54 PASS and produced a green 70/70 production scanner run. Direct contract checks returned no violation when the ELF, ZIP, PDF, SQLITE, PGDMP, OLE, PNG, or JPEG pair was removed. Removing MZ was rejected because the single KNOWN_BINARY_MAGIC_DETECTED matrix row names only the MZ pair.",
+      "expected": "The contract bundle must be invalid unless every one of the nine oracle signatures has an exact production entrypoint, positive case, and safe-negative case; the production runner must reject any case-set reduction from the trusted 72-case identity.",
+      "impact": "The filed formal oracle can stay fully green after losing the regression proof for eight declared magic signatures. This directly contradicts the R7 claim that missing per-magic matrix coverage fails and leaves the A5/A6 scanner-oracle trust boundary incomplete.",
+      "required_resolution": [
+        "Derive required per-magic production case IDs from scanner-binary-oracle.yaml or encode all nine signature pairs explicitly in the implementation matrix.",
+        "Validate exact production case identity, count, uniqueness, mode, finding class, and formal entrypoint before accepting the scanner contract bundle.",
+        "Add removal mutations for every magic positive and safe-negative pair and require both CASE-54 and the production runner to fail on any missing pair."
+      ],
+      "remaining_risk": "Until the formal oracle enforces exact per-magic coverage, a future governance change can silently narrow binary regression evidence while retaining green authoritative results.",
+      "blocks_gate": true
+    }
+  ],
+  "closure_dispositions": [
+    {
+      "finding_id": "A6-SEC-HIGH-001",
+      "closure": "CLOSED",
+      "reproducible_exploit_retest": {
+        "result": "REJECTED",
+        "observed": "Schema and semantic validation rejected forged version, all four scanner bundle hashes, manifest, included/scanned sets, counts, claims, finding registry use, and payload. Both candidate generation and Task validation fail closed, and a consistent nonzero-finding report cannot form a candidate."
+      },
+      "evidence": [
+        ".codex/blueprints/schemas/bootstrap-scan-report.schema.json:1",
+        ".codex/scripts/lib/governance/scanner-report.mjs:66",
+        ".codex/scripts/generate-bootstrap-candidate.mjs:19",
+        ".codex/scripts/validate-task.mjs:187",
+        ".codex/tests/run-bootstrap-production-integration.mjs:128"
+      ],
+      "remaining_risk": "Bootstrap report and validator code remain mutable workspace artifacts and producer identity remains procedural; those declared limitations do not reproduce the closed report-binding bypass.",
+      "blocks_gate": false
+    },
+    {
+      "finding_id": "A6-SEC-HIGH-002",
+      "closure": "NOT_CLOSED",
+      "reproducible_exploit_retest": {
+        "result": "REPRODUCED",
+        "observed": "Current binary config equality checks reject registry, entropy, and binary-oracle drift, and extension-magic-mismatch is no longer claimed. However, removing any non-MZ magic positive/safe-negative production pair is accepted by validateDeclaredScanContract; a JPEG reduction leaves CASE-54 and a 70/70 production run green."
+      },
+      "evidence": [
+        "A7-SEC-HIGH-001",
+        ".codex/governance/scanner-contract-matrix.yaml:27",
+        ".codex/scripts/lib/governance/scanner-pipeline.mjs:183",
+        ".codex/tests/run-bootstrap-scanner-production.mjs:64"
+      ],
+      "remaining_risk": "The exact current candidate contains all nine pairs, but its formal regression boundary does not prove those pairs are mandatory and therefore can remain green after evidence coverage is removed.",
+      "blocks_gate": true
+    },
+    {
+      "finding_id": "A5-SEC-HIGH-002",
+      "closure": "NOT_CLOSED",
+      "reproducible_exploit_retest": {
+        "result": "REPRODUCED",
+        "observed": "The current 72-case suite executes every declared class and all nine magics, but the filed oracle still does not enforce the full declared per-magic matrix: eight magic pairs can be removed without failing contract equality or the reduced production run."
+      },
+      "evidence": [
+        "A7-SEC-HIGH-001",
+        ".codex/tests/scanner-production-case-manifest.json:35",
+        ".codex/tests/run-governance-fixtures.mjs:114",
+        ".codex/tests/run-bootstrap-scanner-production.mjs:87"
+      ],
+      "remaining_risk": "A later regression can remove advertised binary coverage while the authoritative suite reports all remaining cases green, which is the original filed-oracle failure mode.",
+      "blocks_gate": true
+    }
+  ],
+  "severity_counts": {
+    "BLOCKER": 0,
+    "HIGH": 1,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "critical_count": 0,
+  "unresolved_high_blocker_count": 1,
+  "candidate_review_gate_recommendation": {
+    "gate": "Bootstrap Candidate Review Gate",
+    "recommendation": "NO-GO",
+    "reason": "A6-SEC-HIGH-002 and A5-SEC-HIGH-002 remain NOT_CLOSED because the formal binary oracle does not enforce every declared magic positive/safe-negative pair."
+  },
+  "later_gates": {
+    "bootstrap_human_commit_gate": "NO-GO",
+    "steady_state_governance_preparation_gate": "DISABLED",
+    "steady_state_governance_execution_gate": "DISABLED",
+    "migration_320_execution_gate": "NO-GO",
+    "session_b": "NOT_AUTHORIZED",
+    "git_mutation": "NOT_AUTHORIZED"
+  },
+  "residual_risks": [
+    "All bootstrap validators, reports, manifests, and review identities are mutable workspace artifacts with INTERNAL_CONSISTENCY_ONLY assurance and no Git trust anchor.",
+    "The scanner is bounded deterministic detection for the exact 92-file manifest, not DLP, repository-global scanning, or proof that all sensitive data is absent.",
+    "Unknown, encrypted, compressed, fragmented, split, or beyond-contract multiply encoded content remains outside the declared scanner boundary.",
+    "Current manifest paths had no reparse points and resolved inside the product root, but safeExistingPath followed by later file reads does not provide atomic TOCTOU protection.",
+    "Test runners use child processes and temporary copied workspaces for isolation checks; this is not an operating-system sandbox or proof against parent-process override.",
+    "No product, service, database, seed, migration, external executable isolation, or Railway business behavior was inspected or executed."
+  ],
+  "files_written": [
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/security-review.json"
+  ],
+  "reviewer_temp_used": [
+    ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/reviewer-temp/security/a7-security-probes.mjs"
+  ],
+  "conclusion": "A6-SEC-HIGH-001 is CLOSED: scanner v5 report and candidate bindings fail closed for the specified forged fields and nonzero findings. A6-SEC-HIGH-002 and A5-SEC-HIGH-002 are NOT_CLOSED: although the exact current candidate has 72 passing production cases, the formal contract matrix requires only the MZ magic pair and permits the other eight per-magic positive/safe-negative pairs to be removed while CASE-54 and the reduced production suite remain green. The A7 Security outcome is BLOCKER; Bootstrap Candidate Review remains NO-GO, Bootstrap Human Commit remains NO-GO, both steady-state gates remain DISABLED, Migration 320 remains NO-GO, and Session B remains unauthorized."
+}

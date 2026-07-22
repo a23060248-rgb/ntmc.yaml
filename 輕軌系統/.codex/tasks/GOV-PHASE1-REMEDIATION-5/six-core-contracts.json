@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-5",
+  "authority_model": "one production implementation per control; compatibility modules may re-export only",
+  "components": [
+    {
+      "component": "computeEffectiveScope",
+      "implementation": ".codex/scripts/lib/governance/scope-lattice.mjs",
+      "input_model": ["Phase Policy", "Task Intent", "Classification", "Blueprint", "Role Policy", "Agent Assignments"],
+      "output_model": ["effective read paths", "effective write paths", "product/database booleans", "violations"],
+      "fail_closed": ["missing layer", "empty intersection", "upstream/downstream product or database contradiction", "unsupported or ambiguous path pattern"],
+      "production_callers": [".codex/scripts/validate-task.mjs", ".codex/scripts/validate-change-scope.mjs"],
+      "removed_parallel_logic": ["Blueprint-only phase scope checks", "change-scope reconstruction from assignment or Blueprint"],
+      "test_families": ["table lattice", "scope removal property", "mutation", "production integration"]
+    },
+    {
+      "component": "resolveUniqueArtifact and resolveUniqueRequirement",
+      "implementation": ".codex/scripts/lib/governance/identity-resolver.mjs",
+      "input_model": ["complete collection", "requested identity"],
+      "output_model": ["single resolved value or null", "violations"],
+      "fail_closed": ["missing identity", "duplicate identity", "conflicting semantic category", "non-PASS verdict"],
+      "production_callers": [".codex/scripts/validate-task.mjs"],
+      "removed_parallel_logic": ["Map last-write authority", "Array first-match authority", "cross-Task Domain approval search"],
+      "test_families": ["permutation", "collision", "first-match mutation", "production integration"]
+    },
+    {
+      "component": "validateTypedProof",
+      "implementation": ".codex/scripts/lib/governance/typed-proof.mjs",
+      "input_model": ["WORKSPACE_CANDIDATE or STAGED_EXACT proof", "expected task, phase and manifest bindings"],
+      "output_model": ["frozen validated proof or null", "violations"],
+      "fail_closed": ["unknown proof type", "wrong producer", "missing exact field", "extra field", "payload hash mismatch", "role interchange"],
+      "production_callers": [".codex/scripts/validate-task.mjs", ".codex/scripts/generate-candidate-snapshot.mjs", ".codex/scripts/validate-staged-candidate.mjs"],
+      "removed_parallel_logic": ["generic PASS proof", "caller-authored proof labels", "stored staged proof treated as live Git-index receipt"],
+      "test_families": ["field mutation", "role interchange", "generic PASS mutation", "production integration"]
+    },
+    {
+      "component": "canonicalizeScannerInput",
+      "implementation": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+      "input_model": ["raw bytes or text", "bounded normalization options", "relative artifact reference"],
+      "output_model": ["canonical views with transformations", "declared-class findings"],
+      "fail_closed": ["expansion bound exceeded", "declared/implemented class mismatch", "binary signature", "extension/magic mismatch", "credential-bearing declared class"],
+      "production_callers": [".codex/scripts/validate-task.mjs"],
+      "removed_parallel_logic": ["partial JSON escape replacement", "scanner policy claim without implemented class", "pre-canonicalization-only fixture path"],
+      "test_families": ["canonicalization differential", "positive and adjacent safe negative", "scanner mutation", "manifest production scan"]
+    },
+    {
+      "component": "validateProposedDomainRules",
+      "implementation": ".codex/scripts/lib/governance/proposed-domain-rules.mjs",
+      "input_model": ["Domain registry", "Task candidate and applicable Rule selections"],
+      "output_model": ["proposed-only validation result", "violations"],
+      "fail_closed": ["registry not proposed_rule_registry", "complete knowledge claim", "nonzero confirmed count", "Domain applicable Rule", "status outside proposed/candidate/unverified"],
+      "production_callers": [".codex/scripts/validate-task.mjs"],
+      "removed_parallel_logic": ["Phase 1 confirmed Domain Rule path", "Domain approval schema and lookup", "agent promotion path"],
+      "test_families": ["proposed-only table", "confirmation mutation", "Migration 320 NO-GO wrapper"]
+    },
+    {
+      "component": "projectLifecycleState",
+      "implementation": ".codex/scripts/lib/governance/lifecycle-projection.mjs",
+      "input_model": ["ordered hash-bound lifecycle events"],
+      "output_model": ["active Task", "last completed remediation", "last archived review and outcome", "all gates NO-GO"],
+      "fail_closed": ["unknown event", "duplicate Task transition", "completion without start", "review archive without start", "non-NO-GO gate input"],
+      "production_callers": [".codex/scripts/build-phase-status.mjs", ".codex/scripts/validate-phase-status.mjs"],
+      "removed_parallel_logic": ["fixed A1-A4 boolean projection", "phase-status as gate authority"],
+      "test_families": ["arbitrary Task IDs", "event ordering", "active-state mutation", "source hash validation"]
+    }
+  ]
+}

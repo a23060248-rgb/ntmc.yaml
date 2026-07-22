@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gov:phase1:external-aggregation-output:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "role",
+    "is_reviewer",
+    "payload_import_result",
+    "deterministic_qa_result",
+    "compatibility_gate",
+    "closure_matrix_path",
+    "completed",
+    "output_core_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "task_id": {
+      "const": "GOV-PHASE1-B6EXT-AGGREGATION-QA"
+    },
+    "role": {
+      "const": "EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER"
+    },
+    "is_reviewer": {
+      "const": false
+    },
+    "payload_import_result": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "INVALID"
+      ]
+    },
+    "deterministic_qa_result": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "INVALID"
+      ]
+    },
+    "compatibility_gate": {
+      "enum": [
+        "GO",
+        "NO-GO"
+      ]
+    },
+    "closure_matrix_path": {
+      "type": "string"
+    },
+    "completed": {
+      "const": true
+    },
+    "output_core_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  }
+}

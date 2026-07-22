@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-REMEDIATION-12",
+  "title": "Phase 1.12 Reviewer Scope Satisfiability and Payload-Only Dispatch Protocol",
+  "task_type": "remediation",
+  "objective": "Prepare a task-local B6 review protocol with deterministic scope satisfiability, read-only payload return, bounded exit, and non-Agent deterministic QA without changing the 103-file candidate.",
+  "business_reason": "B5 failed because task-local scope capability coverage and Reviewer startup/exit protocol were not validated before dispatch.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-12/**",
+      "Read-only frozen governance evidence"
+    ],
+    "exclude": [
+      "candidate mutation",
+      "Reviewer dispatch",
+      "B6 execution",
+      "B2 finding closure",
+      "Git/product/DB/migration operations"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Four B6 scopes pass satisfiability.",
+    "Reviewer assignments are read-only and payload-only.",
+    "Registered task schemas have zero issues.",
+    "Thirty fail-closed tests pass.",
+    "Candidate and protected baselines remain unchanged."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "User explicitly authorized GOV-PHASE1-REMEDIATION-12 only."
+}

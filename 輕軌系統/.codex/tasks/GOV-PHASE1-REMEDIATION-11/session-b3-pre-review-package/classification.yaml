@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "level": "L3",
+  "reasons": [
+    "Unresolved Reviewer blockers require remediation.",
+    "Formal schema and backward-compatibility preparation are high risk."
+  ],
+  "triggers": [
+    "unresolved Reviewer blocker",
+    "backward compatibility",
+    "formal schema contract",
+    "reviewer scope and capacity"
+  ],
+  "execution_categories": [
+    "governance-source-edit",
+    "governance-validation",
+    "security",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "architect",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer",
+    "qa-engineer"
+  ],
+  "required_reviews": [
+    "code",
+    "security",
+    "railway-domain",
+    "compatibility",
+    "qa-readback"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "R11-CANDIDATE",
+    "R11-SCHEMA",
+    "R11-SCOPES",
+    "R11-CAPACITY",
+    "R11-TESTS",
+    "R11-PACKAGE",
+    "R11-BASELINE",
+    "R11-READINESS"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "execution_approval",
+      "review_completion",
+      "final_commit_approval"
+    ]
+  },
+  "stop_conditions": [
+    "Any candidate or protected source changes.",
+    "Any registered-schema validation fails.",
+    "Any forbidden path enters a Reviewer scope.",
+    "Capacity cannot reserve QA.",
+    "Any B3 Reviewer or B3 human approval is created."
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-11/**"
+    ],
+    "exclude": [
+      ".env*",
+      "collab/**",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "parent directories",
+      "sibling directories"
+    ]
+  },
+  "classified_by": "root-orchestrator-using-task-classification-skill",
+  "classification_status": "prepared-not-authorized"
+}

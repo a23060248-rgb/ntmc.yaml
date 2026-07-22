@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "contract_id": "R12-REVIEWER-MANDATORY-EXIT",
+  "version": 1,
+  "after_final_payload_forbidden": [
+    "wait for more instructions",
+    "continue reading",
+    "create subagent",
+    "modify payload",
+    "submit second outcome"
+  ],
+  "thread_must_close": true,
+  "next_dispatch_before_close": false,
+  "second_payload_effect": "INVALID"
+}

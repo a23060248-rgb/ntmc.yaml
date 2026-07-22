@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION",
+  "verification_mode": "DIRECT_EXACT_HISTORY_HASHES_PLUS_LAYERED_FROZEN_ANCHORS_WITH_EXPLICIT_READ_BOUNDARY",
+  "protected_anchor_count_before": 18,
+  "protected_anchor_count_after": 18,
+  "changed_anchors": [],
+  "direct_task_sets_before": [
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10",
+      "exists": true,
+      "file_count": 44,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 46,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-REMEDIATION-10",
+      "exists": true,
+      "file_count": 34,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 58,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-REMEDIATION-11",
+      "exists": true,
+      "file_count": 61,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 53,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B4-COMPATIBILITY-REVIEW",
+      "exists": false,
+      "file_count": 0,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 28,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+      "exists": true,
+      "file_count": 18,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-REMEDIATION-12",
+      "exists": true,
+      "file_count": 66,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 4,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B6R1-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 3,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    }
+  ],
+  "direct_task_sets_after": [
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10",
+      "exists": true,
+      "file_count": 44,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 46,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-REMEDIATION-10",
+      "exists": true,
+      "file_count": 34,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 58,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-REMEDIATION-11",
+      "exists": true,
+      "file_count": 61,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 53,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B4-COMPATIBILITY-REVIEW",
+      "exists": false,
+      "file_count": 0,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 28,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS",
+      "exists": true,
+      "file_count": 18,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-REMEDIATION-12",
+      "exists": true,
+      "file_count": 66,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B6-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 4,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B6R1-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 3,
+      "excluded_read_names": [
+        "HANDOFF.md",
+        "implementation-handoff.yaml",
+        "implementation-plan.md",
+        "human-approval.yaml",
+        ".env*"
+      ]
+    }
+  ],
+  "direct_history_file_changes": [],
+  "history_directory_state_changes": [],
+  "candidate_full_hash_count_before": 103,
+  "candidate_full_hash_count_after": 103,
+  "candidate_changes": [],
+  "b4_approved_product_root_artifact_status": "PRESERVED_MISSING_AS_RECORDED_BY_INCIDENT_ANCHOR",
+  "b6_and_b6r1_precheck_records_unchanged": true,
+  "unapproved_handoff_read": false,
+  "unique_writes_confined_to_preparation_task": true,
+  "git_used": false,
+  "result": "PASS_WITH_EXPLICIT_READ_BOUNDARY"
+}

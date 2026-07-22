@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "manifest_ref": ".codex/governance/governance-commit-manifest.yaml",
+  "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+  "included_file_count": 103,
+  "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+  "excluded_record_count": 22,
+  "exact_source_set_match": true,
+  "required_bindings": {
+    "railway_reviewer_profile": {"ref": ".codex/agents/railway-domain-reviewer.toml", "sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D", "entry_count": 1},
+    "railway_review_schema": {"ref": ".codex/blueprints/schemas/railway-domain-review.schema.json", "sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D", "entry_count": 1},
+    "production_schema_loader": {"ref": ".codex/scripts/lib/governance/governance-schema-loader.mjs", "sha256": "1A79C7D71BBDDFE49661DD032C52847148E7568F5D01E1D470B18B3C8E11C4A5", "entry_count": 1},
+    "reviewer_binding_validator": {"ref": ".codex/scripts/lib/governance/reviewer-identity-binding.mjs", "sha256": "3426F3D99B4A8D9835BE47E0B644723AFA4C8F126C37FE29FA373133A1582911", "entry_count": 1},
+    "official_fixture_runner": {"ref": ".codex/tests/run-governance-fixtures.mjs", "sha256": "D917449FA2A07AB41A4BA737C7475426ABD7A4EFA6C3D6C1F957E82AB62A51F5", "entry_count": 1}
+  },
+  "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9",
+  "binary_magic_registry_sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D",
+  "remediation_9_artifacts_included": false,
+  "staged_exact_included": false,
+  "confirmed_domain_authority_included": false,
+  "evidence_waiver_included": false,
+  "result": "PASS"
+}

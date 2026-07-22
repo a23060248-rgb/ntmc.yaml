@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-11",
+  "review_context": "Remediation 11 preparation completed without formal Session B3 review; future B3 remains a separate human decision.",
+  "reviews": [
+    {
+      "type": "qa-readback",
+      "reviewer": "not-dispatched-by-design",
+      "formal": false,
+      "outcome": "NEEDS_HUMAN_DECISION",
+      "finding_refs": [
+        "R11-PREPARATION-READY-NOT-B3-AUTHORIZATION"
+      ],
+      "conditions": [],
+      "decisions_required": [
+        {
+          "decision_required": "authorize-or-decline-future-session-b3",
+          "decision_owner_role": "human-governance-owner",
+          "decision_question": "Should a new clean Session B3 task be authorized using the frozen R11 package?",
+          "decision_deadline_or_trigger": "After reviewing Remediation 11 readiness."
+        }
+      ]
+    }
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "bootstrap_candidate_review_gate": "NO-GO",
+  "eligible_to_start_session_b": false,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "blockers": [],
+  "conditions": []
+}

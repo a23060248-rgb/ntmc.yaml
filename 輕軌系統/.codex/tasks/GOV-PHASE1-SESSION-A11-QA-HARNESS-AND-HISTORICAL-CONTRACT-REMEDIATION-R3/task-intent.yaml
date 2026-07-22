@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3",
+  "batch_id": "MASTER_BATCH_2E_PREPARATION",
+  "objective": "Prepare the task-local A11 QA harness, historical compatibility oracle, canonical Aggregator artifact contract, and Aggregator R3 package without changing the 108-file Candidate or rerunning Reviewers.",
+  "authorized_by": "user",
+  "authorized_at": "2026-07-22",
+  "execution_status": "HARD_STOP",
+  "hard_stop_code": "A11_R3_TRIAGE_SOURCE_CONFLICT",
+  "hard_stop_stage": "UNIQUE_AUTHORITY_TRIAGE_SOURCE_VERIFICATION",
+  "allowed_write_scope": [
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3/**",
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-AGGREGATION-DETERMINISTIC-QA-R3/**"
+  ],
+  "actual_write_scope": [
+    ".codex/tasks/GOV-PHASE1-SESSION-A11-QA-HARNESS-AND-HISTORICAL-CONTRACT-REMEDIATION-R3/**"
+  ],
+  "prohibited_operations_performed": {
+    "candidate_write": false,
+    "test_or_script_write": false,
+    "reviewer_rerun": false,
+    "reviewer_payload_write": false,
+    "historical_task_write": false,
+    "aggregator_r3_launch": false,
+    "fresh_qa_execution": false,
+    "network": false,
+    "service": false,
+    "database": false,
+    "seed": false,
+    "migration": false,
+    "env_file_read": false,
+    "child_agent": false,
+    "git": false
+  }
+}

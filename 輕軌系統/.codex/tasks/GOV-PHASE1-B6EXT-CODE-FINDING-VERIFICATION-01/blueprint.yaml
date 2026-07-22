@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "risk": {
+    "level": "L3",
+    "reasons": [
+      "Unresolved High Reviewer blocker affects a formal Candidate Gate validation path."
+    ]
+  },
+  "scope": {
+    "read": [
+      "103-file candidate",
+      "R12",
+      "External Review Preparation",
+      "Launch Bootstrap Remediation 01",
+      "named historical governance Tasks"
+    ],
+    "write": [
+      ".codex/tasks/GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01/**"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "execution": {
+    "steps": [
+      "Verify payload",
+      "Analyze authoritative contract",
+      "Run isolated 10-case matrix",
+      "Replay history",
+      "Classify impact",
+      "Recheck baselines"
+    ],
+    "production_entrypoint": ".codex/scripts/validate-task.mjs#validateTask"
+  },
+  "candidate_rules": [],
+  "applicable_rules": [
+    "GOV-SCOPE-001",
+    "EVD-HASH-001"
+  ],
+  "rollback_restore": {
+    "required": false,
+    "evidence_or_reason": "Not applicable: only new Task evidence is written; protected inputs are read-only."
+  },
+  "stop_conditions": [
+    "Any candidate/history write",
+    "Any Git/product/DB/service operation",
+    "Any child Reviewer dispatch"
+  ],
+  "final_result": "VERIFIED_CANDIDATE_PRODUCTION_PATH_DEFECT"
+}

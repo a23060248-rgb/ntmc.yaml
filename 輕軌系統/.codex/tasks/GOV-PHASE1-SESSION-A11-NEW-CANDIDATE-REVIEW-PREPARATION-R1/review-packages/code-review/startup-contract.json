@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1",
+  "review_package_id": "A11-R1-CODE-REVIEWER-PKG-20260721-01",
+  "assignment_id": "A11-R1-CODE-REVIEWER-ASSIGN-20260721-01",
+  "reviewer_run_id": "A11-R1-CODE-REVIEWER-RUN-20260721-01",
+  "reviewer_session_nonce": "33CE69E4ADF73DBD84A11A4A39E8B8861EF73A210C155EE909289950C640CA55",
+  "reviewer_role": "EXTERNAL_CODE_REVIEWER",
+  "startup_order": [
+    "repository-root-binding.json",
+    "absolute-launch-envelope.json",
+    "embedded-startup-blocker-template.json",
+    "assignment.json",
+    "package-manifest.json",
+    "package-verification.json",
+    "exact-read-scope.json",
+    "capability-artifact-matrix.json",
+    "startup-contract.json",
+    "review-requirements.json",
+    "finding-ownership.json",
+    "return-payload.schema.json"
+  ],
+  "candidate_content_review_forbidden_until_startup_valid": true,
+  "fail_closed_on_missing_path": true,
+  "fail_closed_on_hash_mismatch": true,
+  "fail_closed_on_scope_mismatch": true,
+  "output_exactly_one_wrapper": true
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "<TASK-ID>",
+  "level": "L1",
+  "reasons": ["<RISK-REASON>"],
+  "triggers": ["governance"],
+  "execution_categories": ["governance-validation"],
+  "required_agents": ["qa-engineer"],
+  "required_reviews": ["qa-readback"],
+  "parallel_allowed": false,
+  "evidence_required": ["<EVIDENCE-ID>"],
+  "human_approval": {"required": false, "stages": []},
+  "stop_conditions": ["<STOP-CONDITION>"],
+  "scope": {"include": [".codex/tasks/<TASK-ID>/**"], "exclude": [".env*", "sibling directories"]},
+  "classified_by": "root-orchestrator",
+  "classification_status": "proposed"
+}

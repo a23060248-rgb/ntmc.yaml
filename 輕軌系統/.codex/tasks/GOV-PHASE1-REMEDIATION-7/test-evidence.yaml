@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-7",
+  "evidence_mode": "bootstrap-production-path-internal-consistency",
+  "commands": ["node .codex/tasks/GOV-PHASE1-REMEDIATION-7/run-validation.mjs", "node .codex/tasks/GOV-PHASE1-REMEDIATION-7/capture-baseline.mjs baseline-after.json", "node .codex/tasks/GOV-PHASE1-REMEDIATION-7/compare-baselines.mjs"],
+  "requirements": [],
+  "checks": [
+    {"check_id":"CHECK-R7-A6","requirement_id":"a6-finding-remediation-matrix","result":"PASS","note":"Each A6 finding maps to a production component and regression invariant without altering the archived Reviewer outcome."},
+    {"check_id":"CHECK-R7-GATES","requirement_id":"five-gate-routing-invariants","result":"PASS","note":"One router emits five independent Gate results; transient production evidence proves Candidate GO can coexist with Human NO-GO, steady DISABLED, and Migration 320 NO-GO."},
+    {"check_id":"CHECK-R7-DOMAIN","requirement_id":"typed-domain-review-routing","result":"PASS","note":"Typed mechanism results route only to Candidate Review and typed Migration 320 decisions route only to Migration 320 Execution."},
+    {"check_id":"CHECK-R7-REPORT","requirement_id":"authoritative-scanner-report-binding","result":"PASS","note":"Schema and semantic validation recompute scanner bundle, manifest, file set, count, claims, findings, and payload before candidate acceptance."},
+    {"check_id":"CHECK-R7-MATRIX","requirement_id":"scanner-contract-implementation-matrix","result":"PASS","note":"The exact production case manifest covers every declared scanner family, registered class, and known binary magic with safe-negative oracles."},
+    {"check_id":"CHECK-R7-SCANNER","requirement_id":"production-path-scanner-results","result":"PASS","note":"The final runner invokes the formal scanner generator for all 72 declared cases."},
+    {"check_id":"CHECK-R7-GATE-PRODUCTION","requirement_id":"gate-routing-production-results","result":"PASS","note":"Production integration covers routed statuses, reasons, typed Domain separation, report rejection, schemas, and CLI exit semantics."},
+    {"check_id":"CHECK-R7-MUTATION","requirement_id":"production-module-mutation-results","result":"PASS","note":"All 17 production mutations are killed, including every required A6 trust-boundary regression."},
+    {"check_id":"CHECK-R7-CANDIDATE","requirement_id":"candidate-manifest-rebuild-and-content-scan","result":"PASS","note":"The final manifest, scanner report, and candidate record are regenerated after source convergence and verified by production code."},
+    {"check_id":"CHECK-R7-M320","requirement_id":"migration-320-no-go-integrity","result":"PASS","note":"Migration 320 remains structural VALID, target Gate NO-GO, exit 2, with Task and external evidence hashes unchanged."},
+    {"check_id":"CHECK-R7-HISTORY","requirement_id":"frozen-history-integrity","result":"PASS","note":"Before/after SHA256 comparison covers all frozen historical files independently of Git tracking state."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": ["Evidence is produced by mutable bootstrap workspace code and establishes internal consistency only.", "No Git state, service, product test, migration, seed, or database operation was inspected or executed.", "Independent A7 review and human commit approval remain pending."]
+}

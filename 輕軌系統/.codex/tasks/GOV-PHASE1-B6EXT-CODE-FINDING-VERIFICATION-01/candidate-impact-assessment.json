@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "finding_id": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+  "classification": "CANDIDATE_PRODUCTION_PATH_DEFECT",
+  "candidate_change_required": true,
+  "decisive_case": "CASE-04",
+  "criteria": {
+    "schema_invalid_referenced_security_evidence": true,
+    "hash_manifest_freeze_regenerated": true,
+    "authoritative_validator_used": true,
+    "validator_structural_valid": true,
+    "candidate_gate_go": true,
+    "exit_zero": true
+  },
+  "formal_task_result": "VERIFIED_CANDIDATE_PRODUCTION_PATH_DEFECT",
+  "finding_status": "OPEN"
+}

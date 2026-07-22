@@ -1,0 +1,840 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "production_entrypoint": ".codex/tests/run-bootstrap-production-integration.mjs",
+  "exit_code": 0,
+  "total": 20,
+  "passed": 20,
+  "failed": 0,
+  "layers": [
+    "schema-loader",
+    "scope-lattice",
+    "actor-resolution",
+    "identity-resolution",
+    "evidence-validation",
+    "bootstrap-candidate-binding",
+    "scanner-canonicalization",
+    "rule-class-authority",
+    "lifecycle-downgrade",
+    "gate-calculation"
+  ],
+  "results": [
+    {
+      "case_id": "PROD-01",
+      "invariant": "Complete L3 bootstrap production path is structurally valid and NO-GO pending human final decision.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 2,
+        "structural": "VALID",
+        "finding_class": null,
+        "actor": "qa-engineer",
+        "assurance": "INTERNAL_CONSISTENCY_ONLY"
+      },
+      "exit_code": 2,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-02",
+      "invariant": "A read-only Reviewer cannot be the production change actor.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "SCOPE_ACTOR"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": null,
+      "actor_binding": null,
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SCOPE_ACTOR OUTSIDE_EFFECTIVE_SCOPE .codex/tasks/GOV-BOOTSTRAP-PROD/evidence.md",
+        "SCOPE_ACTOR role code-reviewer has an empty effective write scope."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-03",
+      "invariant": "Intent narrowing constrains the same actor-bound production scope path.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "SCOPE_ACTOR"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": null,
+      "actor_binding": null,
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SCOPE_LATTICE role qa-engineer write path exceeds an upstream authority: .codex/tasks/GOV-BOOTSTRAP-PROD/**",
+        "SCOPE_ACTOR OUTSIDE_EFFECTIVE_SCOPE .codex/tasks/GOV-BOOTSTRAP-PROD/evidence.md"
+      ],
+      "gate_reasons": [
+        "SCOPE_LATTICE role code-reviewer read path exceeds an upstream authority and is not granted: .codex/tasks/GOV-BOOTSTRAP-PROD/**",
+        "SCOPE_LATTICE role qa-engineer read path exceeds an upstream authority and is not granted: .codex/tasks/GOV-BOOTSTRAP-PROD/**",
+        "SCOPE_LATTICE role railway-domain-reviewer read path exceeds an upstream authority and is not granted: .codex/tasks/GOV-BOOTSTRAP-PROD/**",
+        "SCOPE_LATTICE role security-reviewer read path exceeds an upstream authority and is not granted: .codex/tasks/GOV-BOOTSTRAP-PROD/**",
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-04",
+      "invariant": "Duplicate requirement identity is rejected by the production resolver.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "REQUIREMENT_ID"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "REQUIREMENT_ID duplicate EV-PRODUCTION at indexes 0 and 1; definitions cannot be overlaid.",
+        "REQUIREMENT_ID duplicate EV-PRODUCTION at indexes 0 and 1; definitions cannot be overlaid.",
+        "REQUIREMENT_RESOLUTION EV-PRODUCTION matched 2; exactly one is required."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-05",
+      "invariant": "Self-declared trusted producer is rejected by schema and bootstrap record validation.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "BOOTSTRAP_CANDIDATE"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SCHEMA .codex/tasks/GOV-BOOTSTRAP-PROD/bootstrap-candidate-record.json: unknown property producer",
+        "BOOTSTRAP_CANDIDATE unexpected field producer.",
+        "BOOTSTRAP_CANDIDATE payload hash mismatch."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-06",
+      "invariant": "Staged proof fields are not loadable in bootstrap mode.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "BOOTSTRAP_CANDIDATE"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SCHEMA .codex/tasks/GOV-BOOTSTRAP-PROD/bootstrap-candidate-record.json: unknown property staged_file_set_sha256",
+        "BOOTSTRAP_CANDIDATE unexpected field staged_file_set_sha256.",
+        "BOOTSTRAP_CANDIDATE payload hash mismatch."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-07",
+      "invariant": "Candidate record cannot reuse a tampered or nonzero-finding scanner report.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "BOOTSTRAP_CANDIDATE"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "BOOTSTRAP_CANDIDATE scanner report SHA256 mismatch.",
+        "BOOTSTRAP_CANDIDATE scanner report is not a zero-finding bootstrap PASS record."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-08",
+      "invariant": "Malformed percent remains fail-closed and does not suppress the adjacent encoded Basic finding.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "MALFORMED_PERCENT_ENCODING+BASIC_AUTH"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SECRET MALFORMED_PERCENT_ENCODING in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md",
+        "SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md"
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-09",
+      "invariant": "Quoted Cookie header reaches the production scanner.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "COOKIE_HEADER"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SECRET COOKIE_HEADER in .codex/tasks/GOV-BOOTSTRAP-PROD/implementation-plan.md",
+        "SECRET SESSION_COOKIE in .codex/tasks/GOV-BOOTSTRAP-PROD/implementation-plan.md"
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-10",
+      "invariant": "URL-safe entropy reaches the production scanner.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "HIGH_ENTROPY_OPAQUE_VALUE"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SECRET HIGH_ENTROPY_OPAQUE_VALUE in .codex/tasks/GOV-BOOTSTRAP-PROD/implementation-plan.md"
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-11",
+      "invariant": "Railway Domain candidate cannot enter applicable_rules in the production path.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "RULE_CLASS"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "RULE_CLASS COMPAT-M320-001 cannot be an applicable bootstrap control."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-12",
+      "invariant": "A generic confirmed meta record cannot create business authority.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "RULE_CLASS"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "RULE_CLASS GOV-SCOPE-001 business category cannot use a generic governance or technical class."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-13",
+      "invariant": "Duplicate Rule identity cannot fall through to first-match authority.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "RULE_RESOLUTION"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "RULE duplicate Rule ID GOV-SCOPE-001 resolved 2 times.",
+        "RULE_RESOLUTION GOV-SCOPE-001 matched 2; exactly one is required."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-14",
+      "invariant": "Production schema loader rejects an unknown field.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "SCHEMA"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SCHEMA classification.yaml: unknown property unloaded_schema_bypass"
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-15",
+      "invariant": "Legacy self-filled prerequisite objects are rejected instead of granting commit authority.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "SCHEMA"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SCHEMA human-approval.yaml: unknown property final_commit_prerequisites"
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-16",
+      "invariant": "An exact candidate manifest cannot omit a production control.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "GOVERNANCE_MANIFEST"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "GOVERNANCE_MANIFEST missing included path AGENTS.md.",
+        "SECURITY_EVIDENCE finding claim disagrees with deterministic manifest scan.",
+        "SECURITY_EVIDENCE manifest hash mismatch.",
+        "SECURITY_EVIDENCE scanned file set does not match the manifest.",
+        "BOOTSTRAP_CANDIDATE manifest_sha256 does not match expected subject.",
+        "BOOTSTRAP_CANDIDATE included_file_set_sha256 does not match expected subject.",
+        "BOOTSTRAP_CANDIDATE file_count does not match expected subject."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-17",
+      "invariant": "Hand-filled Gate fields cannot override recomputation.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "GATE"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "GATE overall_gate=GO disagrees with NO-GO.",
+        "GATE calculated_gate=GO disagrees with recomputation."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-18",
+      "invariant": "Lifecycle projection cannot become Gate, scope or approval authority.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "PHASE_STATUS"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "PHASE_STATUS must be informational, non-authoritative, unused for Gate/scope/approval, and product/database locked."
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    },
+    {
+      "case_id": "PROD-19",
+      "invariant": "Even a synthetic clean candidate Gate cannot make the automated Bootstrap Human Commit or steady-state Gates GO.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 0,
+        "candidate_review": "GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state": "NO-GO"
+      },
+      "exit_code": 0,
+      "calculated_gate": "GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [],
+      "gate_reasons": []
+    },
+    {
+      "case_id": "PROD-20",
+      "invariant": "JSON Unicode canonicalization reaches the production Basic detector.",
+      "production_entrypoint": "validateTask",
+      "pass": true,
+      "expected": {
+        "exit": 1,
+        "finding_class": "BASIC_AUTH"
+      },
+      "exit_code": 1,
+      "calculated_gate": "NO-GO",
+      "gate_results": {
+        "bootstrap_candidate_review": "NO-GO",
+        "bootstrap_human_commit": "NO-GO",
+        "steady_state_governance_preparation": "NO-GO",
+        "steady_state_governance_execution": "NO-GO",
+        "migration_320_execution": "NO-GO"
+      },
+      "actor_role": "qa-engineer",
+      "actor_binding": "explicit",
+      "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+      "resolved_applicable_rules": [
+        {
+          "rule_id": "GOV-SCOPE-001",
+          "rule_class": "governance_control",
+          "authority_effect": "procedural_governance"
+        },
+        {
+          "rule_id": "EVD-HASH-001",
+          "rule_class": "technical_constraint",
+          "authority_effect": "technical_constraint"
+        }
+      ],
+      "errors": [
+        "SECRET BASIC_AUTH in .codex/tasks/GOV-BOOTSTRAP-PROD/final-summary.md"
+      ],
+      "gate_reasons": [
+        "L3 final commit approval is not approved."
+      ]
+    }
+  ]
+}

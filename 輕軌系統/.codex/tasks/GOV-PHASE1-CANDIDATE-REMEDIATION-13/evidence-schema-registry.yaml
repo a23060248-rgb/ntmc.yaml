@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "registry_id": "GOV-EVIDENCE-SCHEMA-REGISTRY",
+  "registry_version": 1,
+  "entries": [
+    {"evidence_type": "security_evidence", "schema_id": "https://ntmc.local/codex/schemas/security-evidence.schema.json", "schema_path": ".codex/blueprints/schemas/security-evidence.schema.json", "schema_sha256": "59821D081386D9F379D1E1EFD48536FEE438C5A764BC6586E6C390F4564DE7B4", "schema_version": 1, "allow_multiple": false, "allowed_locations": ["task_root", "task_nested"], "authority": "registered_schema"},
+    {"evidence_type": "test_evidence", "schema_id": "https://ntmc.local/codex/schemas/test-evidence.schema.json", "schema_path": ".codex/blueprints/schemas/test-evidence.schema.json", "schema_sha256": "FB21FCDC8BF4B22B36480148C21AB2E2BD85A1D9E0E3C27209A94B310F8D9C9C", "schema_version": 1, "allow_multiple": false, "allowed_locations": ["task_root", "task_nested"], "authority": "registered_schema"},
+    {"evidence_type": "review_findings", "schema_id": "https://ntmc.local/codex/schemas/review-findings.schema.json", "schema_path": ".codex/blueprints/schemas/review-findings.schema.json", "schema_sha256": "3496820A82565B4861084FC7CB1EF694FD0B31FF57F33D734123DFE739E82809", "schema_version": 1, "allow_multiple": false, "allowed_locations": ["task_root", "task_nested"], "authority": "registered_schema"},
+    {"evidence_type": "railway_domain_review", "schema_id": "https://ntmc.local/codex/schemas/railway-domain-review.schema.json", "schema_path": ".codex/blueprints/schemas/railway-domain-review.schema.json", "schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D", "schema_version": 1, "allow_multiple": true, "allowed_locations": ["task_root", "task_nested"], "authority": "registered_schema"}
+  ]
+}

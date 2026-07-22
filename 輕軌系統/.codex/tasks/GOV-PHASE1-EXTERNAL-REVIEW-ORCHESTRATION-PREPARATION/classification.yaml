@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION",
+  "level": "L3",
+  "reasons": [
+    "Cross-chat formal review transport",
+    "Reviewer payload integrity",
+    "Deterministic compatibility gate preparation"
+  ],
+  "triggers": [
+    "environment-incompatible in-root Reviewer model",
+    "unresolved B2 findings",
+    "formal schema and evidence compatibility"
+  ],
+  "execution_categories": [
+    "governance-validation",
+    "security",
+    "backward-compatibility"
+  ],
+  "required_agents": [],
+  "required_reviews": [],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "EXTERNAL-MODEL-DECISION",
+    "EXTERNAL-PACKAGES",
+    "EXTERNAL-SCOPES",
+    "EXTERNAL-JCS",
+    "EXTERNAL-TRANSPORT",
+    "EXTERNAL-QA",
+    "EXTERNAL-TESTS",
+    "EXTERNAL-BASELINE",
+    "EXTERNAL-READINESS"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "external model approval",
+      "future per-chat launch"
+    ]
+  },
+  "stop_conditions": [
+    "Any candidate or history change.",
+    "Any Reviewer or Aggregator chat starts.",
+    "Any Git/product/DB/migration operation occurs."
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/**"
+    ],
+    "exclude": [
+      ".env*",
+      "collab/**",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "parent/sibling directories",
+      "conversation memory"
+    ]
+  },
+  "classified_by": "root-orchestrator",
+  "classification_status": "human-approved-preparation-scope"
+}

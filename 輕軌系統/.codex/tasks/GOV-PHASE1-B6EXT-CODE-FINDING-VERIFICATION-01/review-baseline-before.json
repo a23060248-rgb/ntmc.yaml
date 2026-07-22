@@ -1,0 +1,2252 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "captured_at": "2026-07-21T00:00:00+08:00",
+  "git_used": false,
+  "candidate": {
+    "file_count": 103,
+    "manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+    "expected": {
+      "candidate_file_count": 103,
+      "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+      "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+      "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9",
+      "scanner_contract_sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C",
+      "payload_core_sha256": "B5FACA5E31B42DF1DB664008A9148CBB1386495CFF8EA33EF1534D56C0E91B46"
+    },
+    "files": [
+      {
+        "path": ".agents/skills/task-classification/agents/openai.yaml",
+        "sha256": "CD552813CB719532BD7E639CF0D8958B9C4F09E8A3DE2643345839014B0C6F1F"
+      },
+      {
+        "path": ".agents/skills/task-classification/SKILL.md",
+        "sha256": "5B81BCB60822E4828F721AFE620C631B8B6C430A177D3DF30A76C6A7BDAA3F57"
+      },
+      {
+        "path": ".codex/agents/architect.toml",
+        "sha256": "B9ACFCC9F95240BC86900A1505827DE0C3FB34DC0AE28914F5B7E76D12159792"
+      },
+      {
+        "path": ".codex/agents/backend-engineer.toml",
+        "sha256": "52A5AC4008EDBBC51E3146C7BB2270C81D376D0D1C5A4549EF6565FFD9F5DF7A"
+      },
+      {
+        "path": ".codex/agents/code-reviewer.toml",
+        "sha256": "A00C0AF673C7698C0D1E46D532B4664978EAC40721B74269F96350AA8E0263D9"
+      },
+      {
+        "path": ".codex/agents/compatibility-reviewer.toml",
+        "sha256": "C08E34F5E8073CDBDD6E0F8F4C2FFE4B0B6A45A65C29655CA645271EE76DD910"
+      },
+      {
+        "path": ".codex/agents/database-engineer.toml",
+        "sha256": "FC6E509F163FC361A789F0E8E5DA602FFA3A88D1D27B59F27C89D90B5B2DA0EC"
+      },
+      {
+        "path": ".codex/agents/documentation-engineer.toml",
+        "sha256": "42EB88969BC5906ADC053490A648B7BF9AADCDC629D9A3ABADA79ED759D8D117"
+      },
+      {
+        "path": ".codex/agents/frontend-engineer.toml",
+        "sha256": "98D7C9662B451B225824A86590C12DA7D583D7191B3F57EC30A559ABD8AD3810"
+      },
+      {
+        "path": ".codex/agents/qa-engineer.toml",
+        "sha256": "FA299A96E503652AB50B2A6139963BCA45BA034AE766D7347689CDE1F81BA003"
+      },
+      {
+        "path": ".codex/agents/railway-domain-reviewer.toml",
+        "sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D"
+      },
+      {
+        "path": ".codex/agents/security-reviewer.toml",
+        "sha256": "242DAAF5F894BA9D518E5DE35500659D827A5F12817CE3EA7B2100659855C16E"
+      },
+      {
+        "path": ".codex/blueprints/schemas/artifact-manifest.schema.json",
+        "sha256": "2A60EB1AF1C806FB844E96F8C540D95378FC6B7365EC677FBC3657A65C6460B1"
+      },
+      {
+        "path": ".codex/blueprints/schemas/blueprint.schema.json",
+        "sha256": "2E1C0CF024B6C8E5982009D9C1DD8A969D491ECC409774D4EBB13FCB7A11B47A"
+      },
+      {
+        "path": ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json",
+        "sha256": "954EDA35D10557ABB88ED7D817E2F4F1805706CD3D6E99B4CE6620E0345D97CF"
+      },
+      {
+        "path": ".codex/blueprints/schemas/bootstrap-scan-report.schema.json",
+        "sha256": "B4A762A9208B3D90ADAF305068DE961E62FDE9D78D907AEBFA64CBBFB5760D67"
+      },
+      {
+        "path": ".codex/blueprints/schemas/classification.schema.json",
+        "sha256": "7F8E7FC91FC82621541C73FF4F2A1271AD4701AFFBC6199FB93E04D3F223E12D"
+      },
+      {
+        "path": ".codex/blueprints/schemas/governance-commit-manifest.schema.json",
+        "sha256": "329113CC76020CC5F7D32EBAAE0A13045E8EF65ABC436AB11E9A8B0BBF141E03"
+      },
+      {
+        "path": ".codex/blueprints/schemas/human-approval.schema.json",
+        "sha256": "1CA4B198A2767B886A4D2D739637F5E79233E566DB7B694D50EAC34C84152432"
+      },
+      {
+        "path": ".codex/blueprints/schemas/implementation-handoff.schema.json",
+        "sha256": "2EDC0D7EBABECD83A1E5EC1EA13F784C7C1DFE664333FA73A9BE9BF463EC9D6B"
+      },
+      {
+        "path": ".codex/blueprints/schemas/railway-domain-review.schema.json",
+        "sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D"
+      },
+      {
+        "path": ".codex/blueprints/schemas/review-findings.schema.json",
+        "sha256": "3496820A82565B4861084FC7CB1EF694FD0B31FF57F33D734123DFE739E82809"
+      },
+      {
+        "path": ".codex/blueprints/schemas/rule.schema.json",
+        "sha256": "1562104F1849C3E430496ECFE693CC2D47B1819016AA92B90BAE89420CD78522"
+      },
+      {
+        "path": ".codex/blueprints/schemas/security-evidence.schema.json",
+        "sha256": "59821D081386D9F379D1E1EFD48536FEE438C5A764BC6586E6C390F4564DE7B4"
+      },
+      {
+        "path": ".codex/blueprints/schemas/task-intent.schema.json",
+        "sha256": "2E5CBE747167BD56BDE47A975312B78CF129144FF2FBD52B3F0614C1B742F2EF"
+      },
+      {
+        "path": ".codex/blueprints/schemas/test-evidence.schema.json",
+        "sha256": "FB21FCDC8BF4B22B36480148C21AB2E2BD85A1D9E0E3C27209A94B310F8D9C9C"
+      },
+      {
+        "path": ".codex/blueprints/schemas/traceability.schema.json",
+        "sha256": "FD24C85A4DEECC7047EF4FCF8F08A1CD80FD355DB8A4D2EE3BD4C48253E0B16C"
+      },
+      {
+        "path": ".codex/checklists/code-review.md",
+        "sha256": "D8991059CFB784C9A7A69F742F8A8F51A5C583487324C390C3EF7830E8ACA4FF"
+      },
+      {
+        "path": ".codex/checklists/compatibility-review.md",
+        "sha256": "FECFDBBF51DF610E72FC1F27DBF55A2407017A407ADEA717BC0F012F236A602D"
+      },
+      {
+        "path": ".codex/checklists/railway-domain-review.md",
+        "sha256": "B1A2AEB2C5DC2B74EE29BE33E11BA072DA30ADF29524071CBC90610E9F80C41F"
+      },
+      {
+        "path": ".codex/checklists/security-review.md",
+        "sha256": "0FC9D0451ECD343ADE6AFF3D7DABF4FB4C9B0CF3B782D4143E61C1FE9049E1E5"
+      },
+      {
+        "path": ".codex/config.toml",
+        "sha256": "3C009A50F76570271B2A9CCEEC1077415D618A307EC02F935F8753595D397C92"
+      },
+      {
+        "path": ".codex/domain/index.yaml",
+        "sha256": "7F43F466B5E7605FE020572D1D25DF3FD6C670CCE3321D103856AFCE7A6D2F66"
+      },
+      {
+        "path": ".codex/environment/agent-safe-profile.json",
+        "sha256": "1472230406B2450F35EAA850A0B42260D7D0368706B821BF2C292BAE68E016B6"
+      },
+      {
+        "path": ".codex/governance/agent-path-policy.yaml",
+        "sha256": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1"
+      },
+      {
+        "path": ".codex/governance/bootstrap-binary-magic-registry.yaml",
+        "sha256": "816AA777D48B4DB5EFC2F3A2C4634DE42BE62144AF6BDDAD1EA127716135967D"
+      },
+      {
+        "path": ".codex/governance/bootstrap-trust-policy.yaml",
+        "sha256": "4AE5B2DEF123B71FDBDE31BEA44A1FD2A8D5E90E752EFD347D4CF79EB387F87F"
+      },
+      {
+        "path": ".codex/governance/environment-safety-evidence.json",
+        "sha256": "9453E4E7800D00C4578F36F4C0FC9E4F299404F908363027626F6A6F4C2CF608"
+      },
+      {
+        "path": ".codex/governance/evidence-requirement-policy.yaml",
+        "sha256": "12F31C736D61C2D1EA02B5C8FAD5797D5FDB76D28AA661999952181AA97FAE5D"
+      },
+      {
+        "path": ".codex/governance/evidence-scope-policy.yaml",
+        "sha256": "984D1CD15F9F54BFB4A7994586F8B93E216839AA14617F009B195E8D391CE499"
+      },
+      {
+        "path": ".codex/governance/gate-dependency-matrix.yaml",
+        "sha256": "A064223B9742B3A6190A3FE111DE5C74ED71D2D412F792A015C04F307EFEEA7F"
+      },
+      {
+        "path": ".codex/governance/gate-policy.yaml",
+        "sha256": "4A58BCAF65064DCB220A6EBBA8B865C2D36BBB3878F435B328A69A5C9486B8C1"
+      },
+      {
+        "path": ".codex/governance/governance-schema-set.yaml",
+        "sha256": "9485709A8240E22312D8C583B037C776619583F02D5D762A6B452472FCF01FC5"
+      },
+      {
+        "path": ".codex/governance/lifecycle-events.json",
+        "sha256": "D116C20FCD3FCB4861C3F07BD827C7D7A3463D838B782C34E784B462CBDC9F2C"
+      },
+      {
+        "path": ".codex/governance/phase-policy.yaml",
+        "sha256": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D"
+      },
+      {
+        "path": ".codex/governance/phase-status.json",
+        "sha256": "6509779968A820504DEB30CB4854C7EFFBF062E93BED2F233631E8B51EF21DC7"
+      },
+      {
+        "path": ".codex/governance/residual-risks.yaml",
+        "sha256": "D742B870942805445AB0DF1EF9D4F73B342F7137BB6A6A9F455F40081B549182"
+      },
+      {
+        "path": ".codex/governance/scan-contract.yaml",
+        "sha256": "6A0EF0CAEE9088D65616DA318DB895321DF4D932C7308E2522D35F8242F4816C"
+      },
+      {
+        "path": ".codex/governance/scanner-binary-oracle.yaml",
+        "sha256": "B25F552BC2379EDEB741862682277B5BA7B435A389ED162E0F297E96C066733F"
+      },
+      {
+        "path": ".codex/governance/scanner-canonicalization-config.yaml",
+        "sha256": "EBEE7CDA259B4311A5193A081F51B7D470087864BEFE56E852CEA66C2DD15AB6"
+      },
+      {
+        "path": ".codex/governance/scanner-contract-matrix.yaml",
+        "sha256": "AB93A8B3BE00569F32FABFD040CBBCEF2BA342066D38C034834A5B02743584AE"
+      },
+      {
+        "path": ".codex/governance/scanner-finding-registry.yaml",
+        "sha256": "5A9AA73FD51A8ECA8ED43D2B4AE58060053FB9F7C20CC3B4DF0D9D1AAE5DE49B"
+      },
+      {
+        "path": ".codex/meta-rules/confidentiality.yaml",
+        "sha256": "17CA80C999E5606519B089A6EBDF63F26293141AEC9B1B1FE36BA55784964576"
+      },
+      {
+        "path": ".codex/meta-rules/database.yaml",
+        "sha256": "218E6E681CE074870DDC9BED6C54CF3895DB3539841C1B37F013DBBB62621452"
+      },
+      {
+        "path": ".codex/meta-rules/evidence.yaml",
+        "sha256": "4073ED9C905C1DBB126984ACAA3F8A7BE17164F2439F58D8110A66575B9DBB97"
+      },
+      {
+        "path": ".codex/meta-rules/global.yaml",
+        "sha256": "8A60C5D36ACE2F66A51C23DF60F7B1D3E5A79CB17A6AA3CF887F003B1DF78E10"
+      },
+      {
+        "path": ".codex/meta-rules/review-independence.yaml",
+        "sha256": "76E40E11B36D7BA85B77DFC9CC5190863917756AF76EC2B7C49BDA6E46249A12"
+      },
+      {
+        "path": ".codex/meta-rules/security.yaml",
+        "sha256": "AC236E767D05A5D495AD362E96D5189DD22293B5ACF287871CCD0239816E6861"
+      },
+      {
+        "path": ".codex/scripts/build-phase-status.mjs",
+        "sha256": "EE466FE982EC5D904BA6CF0AEE2282B4C4450179EC46758C1169D4DBAF0CE6DC"
+      },
+      {
+        "path": ".codex/scripts/create-task.mjs",
+        "sha256": "BECC3FDAD3E27597E546824CA9F766692E4B01D89481B8542815E218B0F28362"
+      },
+      {
+        "path": ".codex/scripts/generate-bootstrap-candidate.mjs",
+        "sha256": "F2AFE4E006E0B06582976BA8979855D2ED49275C73A9D1190E7EFBE507C1806A"
+      },
+      {
+        "path": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+        "sha256": "F07D381562C25A56B6B8F387348E18059B6C3F5D1BE19EFB3982EFA8439F70E4"
+      },
+      {
+        "path": ".codex/scripts/generate-governance-commit-manifest.mjs",
+        "sha256": "C98B495564DBA671E3939B26C5A258096C212CB47652CB3D9B6462FBFBBFD16D"
+      },
+      {
+        "path": ".codex/scripts/lib/governance-commit-manifest.mjs",
+        "sha256": "7ABEA4A9D54C005D2D4052CBE9809B0AFE19A4379739723E30052BDE92FB4B02"
+      },
+      {
+        "path": ".codex/scripts/lib/governance-controls.mjs",
+        "sha256": "4EFD6D48498184A2166D9962810328527A297CC3E28C1BD233BC0CD5C90F296B"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/domain-review-routing.mjs",
+        "sha256": "5D9AE873E27B637594890D4D89FE13ADB058DAFEF3E217065BAD9DB82A7735AC"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/fixture-report.mjs",
+        "sha256": "2C677DD9430690DD10D708E4247A085DD82C9725F024A669E9FD65A7B2F50407"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/fixture-schema-loader-contract.mjs",
+        "sha256": "36B1D8706B9451DF97B37A93DE1DFF076FF8A7DA0574DCBF5F17DB7C844011B9"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/gate-router.mjs",
+        "sha256": "A7E5B19A95C38904788191F81B0A2C1152D25E24095D6D639268629C704E821A"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/governance-schema-loader.mjs",
+        "sha256": "1A79C7D71BBDDFE49661DD032C52847148E7568F5D01E1D470B18B3C8E11C4A5"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/identity-resolver.mjs",
+        "sha256": "C7DF670F54912F551059F39E421D751F70D0B99744A763FCBC4DF1DA252B1747"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/lifecycle-projection.mjs",
+        "sha256": "90D0EC56465FA72253C276787A5411DC0920DAC6D31AE576FBE2B1F4FECD1AA8"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/proposed-domain-rules.mjs",
+        "sha256": "CFE9EE4E094AB123A94053D62422B176C78AF0015170767163A412C6615490D0"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/reviewer-identity-binding.mjs",
+        "sha256": "3426F3D99B4A8D9835BE47E0B644723AFA4C8F126C37FE29FA373133A1582911"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/rule-class.mjs",
+        "sha256": "558D3981D2B16D4D34B88A6348367336565074DC54E61D6DE9B6E66036D7B49E"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/scanner-pipeline.mjs",
+        "sha256": "61286064DC5713AC07C743777306B25650ED5AC1362D07696633CE55020118EA"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/scanner-report.mjs",
+        "sha256": "78CA28AF7A46CC7A340E8623643E04B22A6A238F8F4CA61C60240D00B5CE414C"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/scope-lattice.mjs",
+        "sha256": "5491CF38CFE245C1674773D69B8D8B18565F5A97D866938050E346ED935F88DC"
+      },
+      {
+        "path": ".codex/scripts/lib/governance/typed-proof.mjs",
+        "sha256": "5100E4FBA5D7C53FE18387EF99D9B8B9D822891F1CD8D4EBCAD98B448CAB605E"
+      },
+      {
+        "path": ".codex/scripts/lib/lifecycle-projection.mjs",
+        "sha256": "1C82950A7C97A6EFBF4B44DBF180B71D31F4B10A54E2E25B14191C535DD10317"
+      },
+      {
+        "path": ".codex/scripts/lib/path-safety.mjs",
+        "sha256": "4D82071055D75E0E622B32623E20D005B208E388927E188A2431589A9E48920E"
+      },
+      {
+        "path": ".codex/scripts/lib/schema-validator.mjs",
+        "sha256": "F2FBE3E1673B11358570D0D612CADB48D8491AAC8B0D1FF04180F7D05797FFC7"
+      },
+      {
+        "path": ".codex/scripts/lib/secret-scanner.mjs",
+        "sha256": "C9C4594391E110BC351533D5E64C5A2AE0E7F35E30482D038FB248BF4B58982E"
+      },
+      {
+        "path": ".codex/scripts/validate-agent-environment.mjs",
+        "sha256": "8B89588899C61AEC6BE569F9A09FC71A258550E6ED84DAEC369C56A952746F1F"
+      },
+      {
+        "path": ".codex/scripts/validate-change-scope.mjs",
+        "sha256": "1C866039633FE811A18DE93B7BC2A2538268EE1ABE166827801E907919A16F7C"
+      },
+      {
+        "path": ".codex/scripts/validate-phase-status.mjs",
+        "sha256": "C5BE3CB1F9EC8CA2929F1EF7CAFF952016329AED4DFAC70A6B1418ACDC746258"
+      },
+      {
+        "path": ".codex/scripts/validate-task.mjs",
+        "sha256": "FE794A03B47722590C8D42BA6CFDC0EE70FA7BD30C49CD99B558C792BF0E32AC"
+      },
+      {
+        "path": ".codex/tests/fixture-suite-manifest.json",
+        "sha256": "88C24EAB4C29FC9860BA5593E7A5AF009EB78309EE814AB08A2D15766EC88757"
+      },
+      {
+        "path": ".codex/tests/fixtures/valid-railway-domain-review.json",
+        "sha256": "023EB0696E603654E58D3017FFFF8D9B34EC7C03C15F607A03CACA8CFED9D643"
+      },
+      {
+        "path": ".codex/tests/run-binary-magic-registry-mutations.mjs",
+        "sha256": "3383B8C031531E5F6C79744C69CBF7DDA5309CE721DEB6EE5AC19476F898F7DF"
+      },
+      {
+        "path": ".codex/tests/run-bootstrap-mutation-tests.mjs",
+        "sha256": "3A0A44255866A173C07C376E9EB244480C99AE08E1910F5BFF107CBDE8579603"
+      },
+      {
+        "path": ".codex/tests/run-bootstrap-production-integration.mjs",
+        "sha256": "35C64176E188744A0C331C22CCDE0621003C0C293F1271A4C6A21CE255E6C503"
+      },
+      {
+        "path": ".codex/tests/run-bootstrap-scanner-production.mjs",
+        "sha256": "8F3CBCAB73332AA2CDF7DCD154815C3E4739CEECDA512E9A51FA45EBE2E977C9"
+      },
+      {
+        "path": ".codex/tests/run-governance-fixtures-concurrency.mjs",
+        "sha256": "2DEB67076C2E05050ED09A217AC80CB03A95318F8D9C80B702E80475F7F5EBCE"
+      },
+      {
+        "path": ".codex/tests/run-governance-fixtures.mjs",
+        "sha256": "D917449FA2A07AB41A4BA737C7475426ABD7A4EFA6C3D6C1F957E82AB62A51F5"
+      },
+      {
+        "path": ".codex/tests/run-official-schema-loader-integration.mjs",
+        "sha256": "AF10588D1092A449F19DF241F49E2A8AAE8BF497AB59BBC3559C90A4E98F636F"
+      },
+      {
+        "path": ".codex/tests/run-official-schema-loader-mutations.mjs",
+        "sha256": "DFE76D397B74B5C930C266D3CE69FC70A36A68D3795B3E3E64A6AF8FEEBEA01F"
+      },
+      {
+        "path": ".codex/tests/run-reviewer-binding-regressions.mjs",
+        "sha256": "4C81448BF3D2404546A6483B2E92A066E90FB106067704D47AE54AEDAE605BA4"
+      },
+      {
+        "path": ".codex/tests/scanner-production-case-manifest.json",
+        "sha256": "E1D622F18B3ECA0AFD20F7CCD383B0238779671FFAEACC9023BB9B5ED5B3A4F2"
+      },
+      {
+        "path": ".codex/workflows/l1-lightweight.md",
+        "sha256": "5464A43605D3A71F036602BCB51A571B13E1D526673CBEB7AE77ABD58F0D6711"
+      },
+      {
+        "path": ".codex/workflows/l2-standard.md",
+        "sha256": "B0F536CD939F03BF9FF2E35113B8BB6E398E7D2F8DF5BACACEBC411347D699E5"
+      },
+      {
+        "path": ".codex/workflows/l3-high-risk.md",
+        "sha256": "01D2E21B79A36583544A53B2D8EAA0C056F476B5C7BA31F879C2C5D0DAF54669"
+      },
+      {
+        "path": "AGENTS.md",
+        "sha256": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E"
+      }
+    ],
+    "result": "PASS"
+  },
+  "protected_history": [
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10",
+      "exists": true,
+      "file_count": 48,
+      "tree_sha256": "88C3363CEF99C0F2FD72339BC1D2AE9136A6A700721F10D13604792EE97168F9",
+      "files": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/a9-finding-closure-matrix.yaml",
+          "sha256": "7C08D9B8605D8CBE379D0F6447AEE69FA1EEC1C72E2D8E07E34E04BDEB762EC5"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/artifact-manifest.yaml",
+          "sha256": "413862F64EEF75765835F487DFEE6EF64E8D20943521231024378C4415F2824E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/authoritative-validator-rerun.json",
+          "sha256": "C507DCD7C2260A6383CEE2FF3E5460C9A76E0C13D13C91120C6550646D563411"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/baseline-comparison.json",
+          "sha256": "1527F95E767EED0F4ECFD9C046FFC872FF159FF2319343A1AC32EAA61E98B39B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/binary-magic-mutation-rerun.json",
+          "sha256": "5EFE7934F4E22EE4F0DD489CB426116AA7FF480B936020B7D9B87069C6A9F1F5"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/blueprint.yaml",
+          "sha256": "3355522A594E5650BF4AE37027ADF8BC493DCAEDCE53869D904C18264627BC8A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/bootstrap-candidate-verification.json",
+          "sha256": "DC9B0E3D68AABF8EBDAEBD23D2682ECCFAA6FA7755E5908B35E110CA10832D28"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/build-artifact-manifest.mjs",
+          "sha256": "D9CF232C5E160C8DAD0F5130A4E38776E4DF647ABB0AC1AF0A19AC3D0586EC1F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/candidate-manifest-verification.json",
+          "sha256": "08782F96C6EF8DD159D3F2A788D431466ABA2BD5668671AA9995CA4B160334E1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/capture-review-baseline.mjs",
+          "sha256": "68EF7E2326D253D17227F2E0BDDA4124DF048A4C5ED8FB4BED6724A7D8DD29CA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/classification.yaml",
+          "sha256": "CB001F0C7E580ABCBF25CE57449B39B09F7BB01271FD128E8E27C3FA151844BB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/clean-context-attestation.yaml",
+          "sha256": "0C85237D06B66982641F967997BF03F923F2C6BC439D342F1449C2D33EB75BB1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/code-review.json",
+          "sha256": "EA237A904DC188A70EEB8C3A92A4A3FC1C7EECEA2A261D12FACA3890DD6FB463"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/compare-review-baselines.mjs",
+          "sha256": "C3DEFB7D1BCA788E6B40514449E076CEDAC35E868D83BA661F8EF5735675E723"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/concurrency-regression.json",
+          "sha256": "EE97F3C5EBC8A0F10829053BBC35D2BB71A8FA2A1338EF3DCD6ED83FFDC8B3D8"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/final-summary.md",
+          "sha256": "382E4CC05F399019AE8B0E2CD68E97BCA87BADC0D81CD6E20169C9F3F878F6C9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/fixture-rerun.json",
+          "sha256": "882F99040FC90A6CCA1CA432CC7069DEB963C8B473BF67D18974F6AA4A4C8BE8"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/generate-security-read-scope.mjs",
+          "sha256": "337FF16864893D416AAA0F6E7237EAA111645A2A8AEAABF2561384D41900EEDA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/HANDOFF.md",
+          "sha256": "C8B42C7048473EE6C6272CCEDE263AF2AC9E9485429F7F2D5F354DBADE4C33F0"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/historical-artifact-integrity.json",
+          "sha256": "6E788FCBAC5CEB840DF341A12EFB4E2F27277572B9BFDC4D6C2CE31F4A882F6E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/human-approval.yaml",
+          "sha256": "C61D65D417C36FAC6F254BDAB39233DDB8A0AA9B63EBF9159C2EFC7177938584"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/implementation-handoff.yaml",
+          "sha256": "F18803B51E486393215943BAC2C30110CFF8D6501BF97369A8C4B243C2C0DDEA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/implementation-plan.md",
+          "sha256": "541FFA8B829761FF4F0458C974BDA75319E7E94DB4452A38AADC74FEF0AF8776"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/migration-320-integrity.json",
+          "sha256": "B3350C4D3E1C5BA60C4CA0723DD0047C24F1A38985EB2EDA09D1CA033C0D5772"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/mutation-shard-reports/not-used.json",
+          "sha256": "10FCDD6A0A4B018AA30240212CD21B41605E92A0C1511D989743FBAD7C46B109"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/mutation-suite-completion-report.json",
+          "sha256": "54A3DD611D77D9845C312D47203055E7F642D27285FD0203174138580FCCE10D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/mutation-suite-manifest.json",
+          "sha256": "820A4EAC8E3D6189E2008DC2D34A2CC236D62FE23C3463ACA3223071E3B88320"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/official-schema-loader-rerun.json",
+          "sha256": "88D07142CC3AAA6AC144B1344CD673F1833A811D2C1EB38B7B4DEDE68519C11C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/production-integration-rerun.json",
+          "sha256": "43CFF5EFA1BB5EA9568AA6EE3BDB8893F514E29AE1324983A2C8C18DC8CCF564"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/production-scanner-rerun.json",
+          "sha256": "53C8090AFA2E21D162B1E3C7E07AF1725CACCDD53629CE750D629E777F418E69"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/railway-domain-review.json",
+          "sha256": "E113A702C73A21CC18B4C5498C6ECDA9D67FE4A992D28EFF508943B9F184A79A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/review-baseline-after.json",
+          "sha256": "09504D95F9CEE4C2FF22806635AE7A0AB0F3286D79E0E9150A2DFE5D503F20C7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/review-baseline-before.json",
+          "sha256": "3CE0852F0130AF375F8490A1E6F685FC4EF962C1BC8478FC90BE087813485482"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/review-findings.yaml",
+          "sha256": "A99D06F55023F9A2D17FFD439374A51CCDB7D40A184DE0BA80805B215A855598"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/reviewer-assignment-verification.json",
+          "sha256": "E329510E11EFCCF22832F3A93073C205A218C7AC344CDC34631EBFB499012521"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/reviewer-binding-rerun.json",
+          "sha256": "F804CFF4D2A2DC08F4968D3CBF6E28A408C19E8449A545B16FAEF667BBEFF64D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/reviewer-binding-verification.json",
+          "sha256": "58250F438AE61F51237B506A4AC16F113496A9C7339FAF4B404B38FB58ADFB8B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/schema-loader-mutation-rerun.json",
+          "sha256": "33C6493AC47F8BC742A6802D0AEA0EAEF6DEB5A6D80DE329FB83DB2D0F3EFFC9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-evidence.yaml",
+          "sha256": "2AA13019E56859B1E9B19502E06BC67013AB8252BD3392CB754CFD87443A17B5"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review-access-log.json",
+          "sha256": "4667BA7F14A3B21764490484D73F140C7FE707E1D76224DC59D263A26143F13A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review-read-scope.json",
+          "sha256": "A8387F4B8CBC860FB309A26B0F7B3BDCDBFDFAD9503EF977F72D8C4D2DC76EBF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/security-review.json",
+          "sha256": "BA0B0D7C9ACCAB51082B627C6D7C7A60F805D310F425D63D31779877C07C94EB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/session-a10-summary.json",
+          "sha256": "916B81A632F45AEDF6160F2AD0F58D0F05D138B2B2E734B54BA1229FF0BF18DF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/task-graph.json",
+          "sha256": "B57D3D19D70F4AB6CD11FD7ECFAA0778CB587D74271645E70B11E03BFC83B545"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/task-intent.yaml",
+          "sha256": "7038157DD8A24CA64D675E4B9A96411F56D7B578473286A7DF174F36F8C9B58F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/test-evidence.yaml",
+          "sha256": "31A4C07DE367072F6117A807592CDB1AB07CC946FCBC5048DD864F40311E24C1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/traceability.yaml",
+          "sha256": "41FFBA4AA120CBDCC0BC119570D961E5E495C3EE7482767A51D4081376561898"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A10/verify-a10-candidate.mjs",
+          "sha256": "0B7FC7E1226546365725F7F47F7F4811CEA325947992EFD40D96E0EFBB4272A5"
+        }
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 50,
+      "tree_sha256": "42C3248365E929C9DDA4DBAC75A31FB67234531AF41C4337251D2DA156EFDB84",
+      "files": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/artifact-manifest.yaml",
+          "sha256": "13F7F9F214E83E6EAFA7A6DF9A8F1B2F213D841E1A7C7C72819280480F466AD6"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/authoritative-validator-rerun.json",
+          "sha256": "6857BAD3AEC19DA3BBCF3066B65CE3D5DFEBC29D6FD046B922A1C4E9DE1EDA11"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/baseline-comparison.json",
+          "sha256": "F1AE92B0B2C56D8BC98F4EFD2A66D3BAA20B0B68B5B074834D41F083BC5DE214"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/binary-magic-mutation-rerun.json",
+          "sha256": "E51A47D4FA02D608C07A739ECA6FF2A49D7013634122ED6C0D20503F4CDDE7CD"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/blueprint.yaml",
+          "sha256": "A303DCC1B570F3C33383A514299FAD14900ADC86AD365EF65581689661A2090D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/build-artifact-manifest.mjs",
+          "sha256": "FB711E4713A9CDE66609C78A6CED39C45556A71F0702A22F70830EFD84862CA4"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/candidate-manifest-verification.json",
+          "sha256": "A1CCD19503B8B6D137DD9C1C8980E53AA95360023CFD609269D67D607284959B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/capture-review-baseline.mjs",
+          "sha256": "26F481A0B222D45D4EFB3A9E2AC6E77F9BF49FD488316C213044F422CEF052AB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/classification.yaml",
+          "sha256": "7C70B15BAD2211BDFBECFA279BBC273F3C8CC37F07549DB5AA1F8DFD5257923B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/clean-context-attestation.yaml",
+          "sha256": "5E21CE2C48260D3C0499E5F69C8768C18DA9D3B90AB23DF02EB35E25007D00E0"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/code-review.json",
+          "sha256": "074575ED984151C995B63959417F8E922D5CC5A17FDD540D8514A5F800D5D372"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/compare-review-baselines.mjs",
+          "sha256": "FAAF15BE41E9385E6E53C55248F396522676EF9CC202D6A3BE49B1DF91A1E139"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/concurrency-regression.json",
+          "sha256": "147363C4BC252F236A06E14AB4A1EC3EF13083B8AC7E13184DE4C9EA87404819"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/final-summary.md",
+          "sha256": "ECF3DC88D2F5E5CDAFA45B2CE7A4410D9F74074178ABF5A0E6B91BBDEFEE6C4F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/fixture-rerun.json",
+          "sha256": "77C65E5B4AB9A4CE96B94CA0659CE81B0DA011E176C54D81F2530472D6E6686D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/gate-replay-verification.json",
+          "sha256": "841273EA03B419B7EAC1133A241E4062DA07F3489CC7F5EAF80F5AC737C10A7A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/governance-compatibility-review.json",
+          "sha256": "2F77F834BE4EDF2E6A8B7CE72FF3AB7915A0CB6B58E91CDFD93AD416A1772472"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/HANDOFF.md",
+          "sha256": "245B562EB802B304E7D27EDBD719ADC72029EEAC9652ABE80AAC93F8F5A9C549"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/historical-artifact-integrity.json",
+          "sha256": "9121A10BADFC0CC48788A311721655C72B1479D5076656A44E0E42BE9B137A0A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/historical-task-compatibility.json",
+          "sha256": "6C284409A1080B8FC684C5DC77D0A082E6DC481316513FF8F7025C644BAD59DE"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/human-approval.yaml",
+          "sha256": "D78ACC967162051B69D6DB53382D8FA36B4A8D8B0A40D1417DD8FBEAA3996AB5"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/implementation-handoff.yaml",
+          "sha256": "23ED6A3CAD2F89F928D467F24A971A7D1B29290B8EACC6369AC32AC37D27BE98"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/implementation-plan.md",
+          "sha256": "99A13DCB10EA0BE54D3FB1AE3A66775B1BCCE3FFECDEB270FA41AC48F2227A3E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/migration-320-compatibility.json",
+          "sha256": "EF3360AA641A9816D763D4590CF70B17B95883EEFDC89C053B652C3277AEBBB5"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/official-schema-loader-rerun.json",
+          "sha256": "5B6183A051D708FDB8565EDDC34E55284E71E401BC81C9678E4C6EED7C67C4A3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/production-integration-rerun.json",
+          "sha256": "573F9D2E69FFC91819BCB480C1F989D179A42D59C221FFFE3982FE41932806DE"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/production-mutation-rerun.json",
+          "sha256": "0524BCF4E51D9CAD59CD2385EF7DED92F4A0C4699C4F29FD1A4CD1093F7C97B7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/production-scanner-rerun.json",
+          "sha256": "E242E711019B0AB795980AE76E314EEFD3F684D65DCC581C3A8C8F9F5D785F6E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/railway-workflow-review.json",
+          "sha256": "279CB049F1C3E9D3BF24559153ED9EA9624A73AC10D8DC18FDBD08C7B30DA9BF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/removed-capability-executable-scan.json",
+          "sha256": "68437EF13B9002F2157DCAC9E6559BB1A0FC79CBE7571456DA2CC450F4972710"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/review-baseline-after.json",
+          "sha256": "A8530BDFDDA8EC9BAE38003FCE2420F819DB26B2D4B44C0938E73F492CF4042A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/review-baseline-before.json",
+          "sha256": "686E6F49592026E8F2CBB6F95B5E94F7FCDE25F2C36D4D7F83D6CD6F3F60C988"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/review-findings.yaml",
+          "sha256": "2BFAE32D465D27F49AA7193C3CAA3EE5E96F6C67FDE8A19D8133CF3926284C23"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/reviewer-assignment-verification.json",
+          "sha256": "2915EFD57E7E02D6A7EF223AC18314951990D6D364086B281E5480B237D39628"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/reviewer-binding-rerun.json",
+          "sha256": "BE7637053BEB9684FBDA3897DB1170DFA33F5C0CFE3A99029CDDF7091473740F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/run-session-b-production-mutation.mjs",
+          "sha256": "0714ED08875837ADE2F557594C809C0F2484ECB25CE58F525A04A890092F4C8D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/run-session-b-quick-reruns.mjs",
+          "sha256": "FD61B7C321E94C97D4C0286599FFF0813DB8439043D1418EEC990AA80EF05DD6"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/schema-loader-mutation-rerun.json",
+          "sha256": "0B89A9F608E4067892F9B16BB11C42079C760F91491280159E2833C979522D05"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/schema-template-workflow-matrix.json",
+          "sha256": "334FDB874EC281D5493AD8E21DB5A91E2C9FD45517ED0DAA03F736FA6846086F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-evidence.yaml",
+          "sha256": "B091663A0637BCA96D62DF35577021020975C00581F441C960DF6FEE88A06F16"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-integrity-review.json",
+          "sha256": "1763F3CF03F73E4625162325C2812E95E6F53985A08D339377B02DDA6997FAD2"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-review-access-log.json",
+          "sha256": "DEA703AF0AF10F59DDB94F512F052C11F3DD72AD9FE7742B1861AB9FB2F4BA55"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/security-review-read-scope.json",
+          "sha256": "07B879D6E538035E2C860CC54DDAE6C01F65A87D7219A223DAB1C49C729050FB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/session-b-summary.json",
+          "sha256": "FD623296FF60BA4CCBC1767BCC5120746A9848DB0E0A484066D1CC5CA16042AA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/syntax-rerun.json",
+          "sha256": "38DA2BA1915E315E412F3B5281570065027D75BC162E9423E0BF8A2C942B95F1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/task-graph.json",
+          "sha256": "37A7751373379D126F726D32153C66A89443D4E3A5C1B31676C6E7C3A6E88D68"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/task-intent.yaml",
+          "sha256": "24BF80DEF73ECB23E7D81DF87882183BC05BAA7F1EA1F1A416CD75436324E4F7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/test-evidence.yaml",
+          "sha256": "BDBED5388458B79305D5EDBD047EEB682EA074E3636ABE72B2C171E482B66A97"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/traceability.yaml",
+          "sha256": "873FE6FE15914159E6E6E21829AD95D312005542FA3B38F93A8F0C7399D526A1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B-COMPATIBILITY-REVIEW/verify-session-b-candidate.mjs",
+          "sha256": "8A7659A6CE9BFF89C30B63994E0CE86EA5F7B0B5388954738B077FD8C468D1AC"
+        }
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-REMEDIATION-10",
+      "exists": true,
+      "file_count": 38,
+      "tree_sha256": "6264418D8AC9E88A798734220D1C5D55EB2E6DCCFA51ABA7C16CC370187C6581",
+      "files": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/allowlist-negative-tests.json",
+          "sha256": "7E93E46524B1B769E2BD56CBA9B484F6F24ED23AE3DB1D2AB7C94E145F0C03E9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/artifact-manifest.yaml",
+          "sha256": "BDA3B00BD9CA1E5DDA4F7D0319EA895EEC02B0BAF49643245AAA36A402C1874C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/baseline-comparison.json",
+          "sha256": "F759B123298A897EEEF139B10679D739A40031CF5ED17254DDF7C2B11A773348"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/blueprint.yaml",
+          "sha256": "E1E89EFE346B02B6110B2A604BDD174C726100469D3B5402D6886AF56D6B856A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/build-artifact-manifest.mjs",
+          "sha256": "D6EEB43EF3B9B2A810A18CBBDE7A288D5BCFF84622AFDEB605C04109C5D3C0FD"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/build-readiness.mjs",
+          "sha256": "F2C1BCF3C2C3019CFD33D5841D612F1BA265129C237B77A08FA4443E613FB706"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/build-security-chain.mjs",
+          "sha256": "C5AC21E402AE8BD78E2B7F2781F9AD5904C8DFA8FD8DBBA37E0CFB21D79D0879"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/candidate-chain-negative-tests.json",
+          "sha256": "70DF8755BE56AF81BCE4273E2117ED09895BFD21B840CE247C4A95E642156BC4"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/capture-protected-baseline.mjs",
+          "sha256": "35A307737E9DFB1BABC3523D421764D7D80A30F0D7F33B8F100E24929692483C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/classification.yaml",
+          "sha256": "5F1CEDA3FF8E4A9AD5E0B5FBFC9E4127288E62E652D2D09E33C5F4BB9A25AD65"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/classify-root-cause.mjs",
+          "sha256": "893663E7233911793E6DD8A925868FEEEF5CF3411A1B3B41FB8A88705ED228C0"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/compare-baselines.mjs",
+          "sha256": "E13365D878912E29EAA3F67D27FC826E2CBF4BE812D862BF8D5A154CA222C04B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/contract-version-negative-tests.json",
+          "sha256": "25A8715E96A26F02F528BA87DCC275B27ABB99EA91044789891033F264D54719"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/final-summary.md",
+          "sha256": "CBFA61FEC1771D4D63874B4561250F6248A4AA3BF54DD4DB74F6BB04BB257EF6"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/HANDOFF.md",
+          "sha256": "0EF896EDB8B9FC971C3CD2031AFEFD74CD9E90F5951F8BAA7065730DD181E4A5"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/historical-artifact-integrity.json",
+          "sha256": "B9C33DC742CDD101F4E036C952E80332F9A2D46364AF1B831878F28CB68D9FBA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/human-approval.yaml",
+          "sha256": "F39DDB7994473B929CC21C42B627187E13AAE0721012CDE0CD84F222469891E7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/implementation-handoff.yaml",
+          "sha256": "A07139F56203FB23A96FA27C7A1D58E42BE31BA67F41CE9C9ABFC8112EFD2D1C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/implementation-plan.md",
+          "sha256": "F0474CA7AD58708F909B4D8741151DB11BA9A14BC9B38976682E2699AFFBA354"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/migration-320-integrity.json",
+          "sha256": "3EEACC83A9B3D82DAC0862260107597FA696AE388C3E75F670163C632874A535"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/production-contract-source.json",
+          "sha256": "447F7C14A68CE1F493FF52CC0ABA3DCDB41B7E14810C4D411E86A95A1D5FF557"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/required-chain-node-verification.json",
+          "sha256": "B7368291E216A84D12A5F92449CC4D4C65467C385AEE634FE3C9C64D86EB0FA3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/review-baseline-after.json",
+          "sha256": "FA7A82E7174AF779A97F6ACD07847EBA8C2A51938C3635865DF0347D47CE2743"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/review-baseline-before.json",
+          "sha256": "6CAA3622CA45599B90878952598CCB1FD4668F3B6DBEF75EB48DABA0F95D0697"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/review-findings.yaml",
+          "sha256": "D9838918D24224FFA58978A14CAD5D228D194AE4365809E5AB1E7511F6FDBDDE"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/root-cause-classification.json",
+          "sha256": "B7E2C568A44DF3E17A3273AEEB9C093C0290F05E69B7AE38ED910F8D83839741"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/run-security-chain-tests.mjs",
+          "sha256": "0346A85ADD92EF8DA16D2E68A747A625DCF095F88E58AAB5D8D7F36B870F859E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/security-evidence.yaml",
+          "sha256": "0D153A904760A34056A78C889EDE97154867190AF74B5C215F06C678C7075F08"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/session-b2-readiness.json",
+          "sha256": "AD92C9D8E8EA61EFD0A47E61B95320FFD17CEB31E3D0C0CA2AD2337C07FB1926"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/session-b2-security-binding-chain.json",
+          "sha256": "9292676767D7C74CF8B694EECF69AFA862105F1862BEAF0DE81C11D0E5D46160"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/session-b2-security-evidence-contract.yaml",
+          "sha256": "4647F0BDD82F1DBE26400EEBF3ADC130C7472A87E3D5B1398A5DB880DE39A019"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/session-b2-security-read-scope.json",
+          "sha256": "75150127EF37CF7244FC1CC943606A062CA1F72DCB76220149EFA58AF9A9FF98"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/task-graph.json",
+          "sha256": "C6679E15FE1191543C16E5AFCEAA1EE9DB5A7AAD963EAAE3F71823BA77B1E85E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/task-intent.yaml",
+          "sha256": "1B152C91A1CCFBC5922DE29FCD24EA74AD8890BBE8D7DED98AF4E70F7DB26EAF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/test-evidence.yaml",
+          "sha256": "C56F4C9B3C51377C58B27C5E88CD81634ABFDF7CE37716BE991AE48BBA123E94"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/traceability.yaml",
+          "sha256": "E6FD6C1DA3F2E29832DB43167113F707B42BF3CEE40DB4FC9EB774C4A41C11F9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/validation-results.json",
+          "sha256": "4C11C23D5A076D235E92088E0EF16DFB8BCA61C1E2C1E0831A6D421C75FAB092"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-10/verify-protected-state.mjs",
+          "sha256": "3744FCC6792F656DBDCD91749A05DCFBC4DFC601070B984DC61D6E6E4614D703"
+        }
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW",
+      "exists": true,
+      "file_count": 61,
+      "tree_sha256": "E28DBFEEBA600A567845D49119F122B0567A9AB6BD3DDC2D809431D36EA58BB8",
+      "files": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/artifact-manifest.yaml",
+          "sha256": "61954DA8CCBB8441752FA6151748C1CBBB0CB97D65FFA3DBB2930E618E05C951"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/authoritative-validator-rerun.json",
+          "sha256": "2FE11F232C4A805782852E8609564272261B6F2D0F8F8636736A1820CCCA5685"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/baseline-comparison.json",
+          "sha256": "FF9A0F5AD4A23A610B03B6F7796AEF20F2212792CE2B6BD3AA5804E312A3C1F4"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/binary-magic-mutation-rerun.json",
+          "sha256": "7A5414B9BDE15365336EADABC7964422538DA7BDFAD06EFCD9266946DB880F59"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/blueprint.yaml",
+          "sha256": "5751F9E41B916AB63728D3DD69162DE6F9453F0AF5D4F1D32EF4DCA193175290"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/build-artifact-manifest.mjs",
+          "sha256": "A4575712D2C915673B537403AFE23FACDED373E953C0E70BE54A2DB9D26FA660"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/build-b2-compatibility-evidence.mjs",
+          "sha256": "16E61B76AE48EA1D5304CB483D105B113474D3A3217F706932ABF94E564302A1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/build-b2-deterministic-readback.mjs",
+          "sha256": "F85062F8644087632E48BC2CCD868FC61AB03F020FC866A1C3FD4EF178A555BD"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/candidate-manifest-verification.json",
+          "sha256": "5F883AAF78AE27CFFACA0A29101A123B94F92B318B123239DA7889AFE636421C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/capture-review-baseline.mjs",
+          "sha256": "AB34C7469DA9736DF78E525E2EE942B82691BC3A079F2AE640C02005365E1A30"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/classification.yaml",
+          "sha256": "280F973354D4D3F036BE06CEFF38DA3F79EB7140BD3337EE09BC62DC5581FE2D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/code-review.json",
+          "sha256": "240312D2BCE3032937FA6C51767E4773890F31C706DF6D847FC410B50EFF292D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/compare-baselines.mjs",
+          "sha256": "4582B7D386C22398D6AB37E74991BF09F76A6038DC0BCFAB1ECA1A09074BBF70"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/concurrency-regression.json",
+          "sha256": "BF38C9ADAF81EF614CAC1E55837C109DA831BBFEDC55450A34E53CB6C01AC8BA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/deterministic-readback-summary.json",
+          "sha256": "88C85AE314872B89BECB89965D911AB842FAA0B59538134D4F34F7766AF0ACC1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/final-summary.md",
+          "sha256": "194842E5085CEC933DEC5418CFFCB25C7A32DAC3F36E8F2EDDF9849542E307CB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/fixture-rerun.json",
+          "sha256": "13C7FEEC884E87A73B20D337A3E8D4BF78E778F9E8FF8E8D0F7EC90EEE69E596"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/gate-replay-verification.json",
+          "sha256": "9E41E6105855B457DD9FD6146BC92A1A3463DFF477C40FB16C04A9199E57CAB6"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/governance-compatibility-review.json",
+          "sha256": "E2A413F63160DBCC2EF377A2D28950B58562A5E4D2FA1A0FA5CE33DC19429001"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/historical-artifact-integrity.json",
+          "sha256": "13645908219D5EE1663F22BBAC22106DD9FEE120007D703ABC1D077B039EA3D1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/historical-task-compatibility.json",
+          "sha256": "7F622D54A6F9059C871C6DD1BF13E80E294E507016CFDAA92C316A185954C77E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/human-approval.yaml",
+          "sha256": "C5E72642CCF4CBA8D13A06273244ACBFE114477B57E98E955E6B73B6F9329995"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/implementation-handoff.yaml",
+          "sha256": "5A3559CCD57C77E99F010E54981B805881AF8159A3C3F321AC7EF7B83BC7A86D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/implementation-plan.md",
+          "sha256": "EDF961AC4AC74E2D08D1509F94734B13FA17A67A018CDF4972509E15C9093C60"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/migration-320-compatibility.json",
+          "sha256": "EBB67B7683D3DE08397945F666DC2CD3FF62C59EE55DBAC98FD0D74254486A84"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/official-schema-loader-rerun.json",
+          "sha256": "445E5898A0E528F7979B12364588337F9C38824FB12F1EB0433B58BE219EA95F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/pre-review-freeze-verification.json",
+          "sha256": "7DD178BDB64DD7617D6A180362CC172F1481FF648389BAC17DA5F69D7D09BA47"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/pre-review-freeze.json",
+          "sha256": "DE360DA58E08B3C61F1421FC70D3892ACAF21BC63545B04C55EEDE117865EC53"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/pre-review-input-manifest.json",
+          "sha256": "6062D856BCCB2FFDD506EB6B3215D25A66FDD15A4DEF546702B5E04856AB3D17"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/prepare-pre-review-inputs.mjs",
+          "sha256": "0FEA8D9BB84E899469CAD33AC71E149EF208C11CCD48BE98B0786FA3F7DEFB12"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/production-integration-rerun.json",
+          "sha256": "A89A86BDDABF7BD15ACF55811C6852742E3863BE40290E89AF4E65EAFC026198"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/production-mutation-rerun.json",
+          "sha256": "6871ABD1BCCD60CE6B324A5FE6E94FD2FBB8A7448CD182B46BEE66EA7794139C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/production-scanner-rerun.json",
+          "sha256": "24AAC070D71E39D43EF4450A59B3AFC172CC90E44733425A03FEE315A0A56247"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/qa-review-dispatch-failure.json",
+          "sha256": "1A6B4BEA9F4680F31BA966C85934EAE96873D99885FC34F4A5E671E396253752"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/railway-domain-review.json",
+          "sha256": "50D7DF26816B08494E1C2AF6AA77658B628DA5646A16644EBA336B9161C3D5E3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/remediation-10-chain-test-rerun.json",
+          "sha256": "8F82819CDDB063E52B9E9F0CF904CD6B0C4E4F993DAD2055D9DCF9F69FA93F90"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/removed-capability-executable-scan.json",
+          "sha256": "F5B8C31138DB510D6EE919811D87DBEA1A29B30C5D9C5CC8ACC0F852AF75F3F1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/required-chain-node-verification.json",
+          "sha256": "06B266CA6AB1028EAB55D892CD2DE911283E8263F83DEF1CFD1AE373623E3508"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-baseline-after.json",
+          "sha256": "D557BFBC5F928C809B854F00EFBB4A815923CC3A1245A684CD54A2370C1FE00A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-baseline-before.json",
+          "sha256": "7DE5CE019E70AA0BDB71A8216F5450424C0A0764798E860259634C283BA1707E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/review-findings.yaml",
+          "sha256": "7A04DA107032AF2C4BA050C24BA92E774D64CBE6DF2DF149B553F5D8696AF9D7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/reviewer-assignment-verification.json",
+          "sha256": "5EC4ACD34739B441975B83F3DE07CC39BBADACA2EE4DA5F9843DF0CE0E772BB7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/reviewer-binding-rerun.json",
+          "sha256": "F5600758E95A15FB11EDBCC7CCD2009F96E14950F0108D25E5F688E15EBFA445"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/run-remediation-10-chain-rerun.mjs",
+          "sha256": "9555315923C0EB8EB5E8E775CFF728FD316DFF053C0B76327AAABE86D562D8DB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/run-session-b2-production-mutation.mjs",
+          "sha256": "AB5DC4D6D74057B0E76DDACBF5C1F3343A99D0495FAC6FD9DCE174FD4BFDFBE2"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/run-session-b2-quick-reruns.mjs",
+          "sha256": "1910F6241D11AE1A88A6F3575D25942875FB9ECA920432A2D50CB8402643D51A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/schema-loader-mutation-rerun.json",
+          "sha256": "E3BF57D6EAA55C144651053B0FC97ADBEA68D18D2052D7E4AD97508521C068E4"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/schema-template-workflow-matrix.json",
+          "sha256": "8CF8419C84F6939F2779277143790735A416B0AD53DBC39374B4384354901BA1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/security-evidence.yaml",
+          "sha256": "ECE9E1E91EADE9C78CD4641B9BCB74340A5AE2BBD5AA09F4340047AD7E76EB11"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/security-integrity-review.json",
+          "sha256": "30A58816DE1F2CC05711749A15419BA2C4CAD6C8211A0C5D8BE4815E736D843F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-binding-chain.json",
+          "sha256": "CE263BFC6A54366D804AA1E33E1184DB30D1DE0D4CA6BCB9A26EB657B38C75BA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-evidence.yaml",
+          "sha256": "582595CFC129A6E891FB0B135A4982A342274C8BE6DFDCF92F2179C4D3ABCA03"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-security-read-scope-final.json",
+          "sha256": "33E0403B3229D0A7DF94FEC153979861D6DD401FFCBC56428C76CAD9FEEEEA19"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/session-b2-summary.json",
+          "sha256": "F5292AF11A6BAE0128127AFAB61953B028295B862A1C805BEF8C182CDCF0C363"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/syntax-rerun.json",
+          "sha256": "CA4FFFB714BFA79CF9961597A83C31E8FA6EB7F5DC77A7452A5866958084BFC9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/task-graph.json",
+          "sha256": "774368A96A931E9949347FC9FD227E9DF9DC51953F84F15258BC88CE821304EE"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/task-intent.yaml",
+          "sha256": "695215E6BDE9F626908ED11E1254E6599C710919DACCA27809887CA555972877"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/test-evidence.yaml",
+          "sha256": "40F636DE34FBB2D7DAA006B60ACF0D767F39AA9B8F7DB362BD491089EB3F075E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/traceability.yaml",
+          "sha256": "37FF4E38EAF67155F784A78F8443980CC6504F8C6F646DDFB11BEA81F3F90CE5"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/validation-results.json",
+          "sha256": "1D8BE204230BD3EB1BDB252947964D09EE4D18C926D24C641D3536C88727B38E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-SESSION-B2-COMPATIBILITY-REVIEW/verify-b2-pre-review-freeze.mjs",
+          "sha256": "34EBE9CADBA1DF912D3955589D51348233077699476AD1332258ADB6AE16F550"
+        }
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-REMEDIATION-11",
+      "exists": true,
+      "file_count": 65,
+      "tree_sha256": "7B5DF60D4958DC29FC24BEC31A64A67856238D734BA098BEA6F4720EEC62C1F1",
+      "files": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/artifact-manifest.yaml",
+          "sha256": "E1A5A5E405F19C0C4999CE96159E734CE715A5DB94B82FE63E1D0642FCC90D46"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/authoritative-validator-rerun.json",
+          "sha256": "3A0E3B3088B53B49679DF9E1967BBAFA2D8D1163DDA430AA6EBD71E5152AB1A2"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/b2-root-cause-classification.json",
+          "sha256": "8C3BEBD0B31312B16578464136C905AA2524308FEFB9C56D51566A2F548C2797"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/baseline-comparison.json",
+          "sha256": "F523A49FCB9340408F251EC8E33910FBAB8DC9EB1D6D0429727D5C79D689382E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/blueprint.yaml",
+          "sha256": "6A603D2DD89B5C25DAC3EB247F62B509B5E0565D8B1EF41AE6C1C61FC20E646F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/build-artifact-manifest.mjs",
+          "sha256": "17FDD2FA7FAD1B62ACB9A315839E608A2CAAF0C327715D983EACB9DFEA38D61F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/classification.yaml",
+          "sha256": "2CAE0C1681049601F0903783DAD5C8D4DD1430F90967ECCCC41C7BCC3FC56C04"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/code-reviewer-scope-negative-tests.json",
+          "sha256": "7F1B36F73659817169A3142E96E3FF55A28584B391994FFD2767DF9E1EA8AD4A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/evidence-schema-negative-tests.json",
+          "sha256": "00C581B5EE2982E223B5D45A1725A2C39F2E6BB6B31638BECAD20132586163FE"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/final-summary.md",
+          "sha256": "142D4C6551B904EBD1DBB52370362BFF9DAAE2BC185566E8BF2CE784683054C2"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/finalize-remediation-11.mjs",
+          "sha256": "94E6CAFCC6A543CE8F7413AFB405A4CBE292752548678CEF68B29EBB1F38A1D8"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/HANDOFF.md",
+          "sha256": "229047EFFF6B5781BCEDDDF900EDBECC59109FDB85976FAC6D58AE63F09BDDFB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/historical-artifact-integrity.json",
+          "sha256": "991C697848E1F0ECDD199A06A6CFABF7C316E7CC1ED7A94D6AEF6360A6958DBF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/human-approval-sequencing-policy.json",
+          "sha256": "04EC1858B743DE6EDC5104BBAA96F56C6B79E1B9A213416141A3E0A7300FFEB0"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/human-approval.yaml",
+          "sha256": "998B8EA658EFF65D5807AAA8CB879D80420862C526317099300C1E3C199A6475"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/implementation-handoff.yaml",
+          "sha256": "749B5F45E4C8E6577970EE0E1CAAAD3F9C1184A023E9A61AF98FFF0515AE1FE5"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/implementation-plan.md",
+          "sha256": "EE36379A4D98040691BAF45D4D348EDE3FCF111CE07637E2C35F6D644B404F3F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/migration-320-integrity.json",
+          "sha256": "C315D7DEC5BA6244368989B6B2D07A2A6212B76362B31C224D83DEF6727E5765"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/official-security-evidence-schema-verification.json",
+          "sha256": "2929EA7AE77268B5521E9111F6FF4EFA0E961D2112F809844AE58C5AB89D2C64"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/pre-review-freeze.json",
+          "sha256": "25B621BF93D3A22F0EAD82F61401C74519B1D1FBF458726AD5CCBB1E91AA1222"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/pre-review-package-verification.json",
+          "sha256": "0308DE0DFDC9046E44EE5846DE360DD628E67560A9AD1A9F4FFD52E0CE7D6B4E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/preparation-test-summary.json",
+          "sha256": "AF331A38E7432527D1CA3E99C6055F400E326728BB30BC17F963A92BEDE9D400"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/prepare-remediation-11.mjs",
+          "sha256": "87756BF5D1448BE7C92FBCA586699735C608286D7DACF51DE8ADB783A9A1DE54"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/regression-readback.json",
+          "sha256": "30A8707778F324E05755F71D6327B26D6AA2514AAF4DFB5EDFF481DFD50E845F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/required-chain-node-verification.json",
+          "sha256": "AB1481A2848F8546786D38F1D1F1FAB0EB895A9540C7280E441DE575BA976217"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/review-baseline-after.json",
+          "sha256": "23C7AC696211A9213EA42C0BD768AB38407CFC2070D89215E923B5F8DB04CFEA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/review-baseline-before.json",
+          "sha256": "50E6696ABF148203059E18F54003C21E507F607DB67A80C18E37B357EB01E257"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/review-findings.yaml",
+          "sha256": "5F92010AA5C239DAD7D7D71D668B5E3C6352FAECCBE62F0A0DDF0C6D30904B1C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-assignments.json",
+          "sha256": "14B9EFAA1407A016A4E633F7EE639B08F9E7631A03018B4A260095D8C98710FC"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-capacity-negative-tests.json",
+          "sha256": "14C1166D0FA7023712CAE1CBF83F2B02BBDBD3105D007751D23312BC4F3CD9BE"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-capacity-preflight.json",
+          "sha256": "EA1BF0E4F05B7411E6156D238A39BE5F4636F8BF3017C1F8DAE30775D0098C6E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-dispatch-plan.json",
+          "sha256": "7387CB66AC423E5A04EA6C0F89E2EA6A3503D5842A06DBA0BA13F666A4D99F90"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-read-scopes/code-reviewer-scope.json",
+          "sha256": "9B8C0C701DBCDA66FD18D9F9D65E241EC82AA96A29217C2FD71BFA142DDB4466"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-read-scopes/compatibility-reviewer-scope.json",
+          "sha256": "6F28129D6176AFF36AF1A6FA3A41AAA7F497FB8853A58F5F150DBF9DDE81B339"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-read-scopes/qa-readback-reviewer-scope.json",
+          "sha256": "9264C3F21489CFB769329D3AA2E2C2E2082DFC468F94B7F06603008C858190C6"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-read-scopes/railway-domain-reviewer-scope.json",
+          "sha256": "8B64197AEDDE618D07AF528D6ED1A85BE67E5C8C3F91D2940BDC7FC1CFCE152B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/reviewer-read-scopes/security-reviewer-scope.json",
+          "sha256": "A6D5981968EF4185352BD36CFA8782EC4D0149859BED53B645DE45EE586F319F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/run-preparation-tests.mjs",
+          "sha256": "8DC5E614599D0781BD8B49946B6A36BD57D7AC5845693ABCBD02DF152640968F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/security-allowlist-negative-tests.json",
+          "sha256": "8BC7D3DC1274544B7B16D99B0FC032FCD4AB3FB11F8AEB655DF599D1F09F4A92"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/security-evidence.yaml",
+          "sha256": "03FA3F8EF9F80683157A8470611CC0CA53565C82004085652452D985AC3E33AD"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/blueprint.yaml",
+          "sha256": "2758B79CAAE9CACFFC2E433728E22386BDBE61C85EA3D2CBC766F9D3606C0D65"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/classification.yaml",
+          "sha256": "FC25EFEABFDA79657E5437CA75A5BBCA0FC0C785EA58991B4E54846D3E2B2B64"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/pre-review-input-manifest.json",
+          "sha256": "C9ECAD01F48B26455192A0C3EFE8B1C4439925199F154C22F89F517849DA6198"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/required-chain-node-verification.json",
+          "sha256": "AB1481A2848F8546786D38F1D1F1FAB0EB895A9540C7280E441DE575BA976217"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-assignments.json",
+          "sha256": "14B9EFAA1407A016A4E633F7EE639B08F9E7631A03018B4A260095D8C98710FC"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-capacity-preflight.json",
+          "sha256": "EA1BF0E4F05B7411E6156D238A39BE5F4636F8BF3017C1F8DAE30775D0098C6E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-dispatch-plan.json",
+          "sha256": "7387CB66AC423E5A04EA6C0F89E2EA6A3503D5842A06DBA0BA13F666A4D99F90"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/code-reviewer-scope.json",
+          "sha256": "9B8C0C701DBCDA66FD18D9F9D65E241EC82AA96A29217C2FD71BFA142DDB4466"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/compatibility-reviewer-scope.json",
+          "sha256": "6F28129D6176AFF36AF1A6FA3A41AAA7F497FB8853A58F5F150DBF9DDE81B339"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/qa-readback-reviewer-scope.json",
+          "sha256": "9264C3F21489CFB769329D3AA2E2C2E2082DFC468F94B7F06603008C858190C6"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/railway-domain-reviewer-scope.json",
+          "sha256": "8B64197AEDDE618D07AF528D6ED1A85BE67E5C8C3F91D2940BDC7FC1CFCE152B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/reviewer-read-scopes/security-reviewer-scope.json",
+          "sha256": "A6D5981968EF4185352BD36CFA8782EC4D0149859BED53B645DE45EE586F319F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/session-b3-security-binding-chain.json",
+          "sha256": "5A05483ED738E4D611EE164F6ADA7BA298A8DA5C4AA440748191C9A650B2B14E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/session-b3-security-evidence.yaml",
+          "sha256": "09BF3EC496C5815D03779CD8D31A11BD1AD40743BF0C878EE0F42C17CE73B48E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/session-b3-security-read-scope.json",
+          "sha256": "C063B9475F441A4032A5BA0936AE87B018B58BAED992087D76ECF56076F29487"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-pre-review-package/task-intent.yaml",
+          "sha256": "A3446816BE469C937880B9C503DE1E3723CA025DBC761B4EE8CE434EB8979B74"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-readiness.json",
+          "sha256": "183FAF78EB882F788DBDEF66D54D3B5A2FEE11393EBA2216C19930F0E69960DE"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-security-binding-chain.json",
+          "sha256": "5A05483ED738E4D611EE164F6ADA7BA298A8DA5C4AA440748191C9A650B2B14E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-security-evidence.yaml",
+          "sha256": "09BF3EC496C5815D03779CD8D31A11BD1AD40743BF0C878EE0F42C17CE73B48E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/session-b3-security-read-scope.json",
+          "sha256": "C063B9475F441A4032A5BA0936AE87B018B58BAED992087D76ECF56076F29487"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/task-graph.json",
+          "sha256": "5D0B30859CAAE26687BDA39CB1F655C5EBE66D64014F3AA4725B1A6D4A0EC82F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/task-intent.yaml",
+          "sha256": "19B773B29236A8F337F9652435A7BCCC1249F0BBE3B0A8842B9853D3ED96E8BF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/test-evidence.yaml",
+          "sha256": "F20D2F6DD419C87E1D7A476B2B0D57E658F7D4D768DF549393BA9EA04147202E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/traceability.yaml",
+          "sha256": "4539B0A30AF8BCA9992ED28A6BE795236623111E3DF883E251CF1F6E09B9877D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-11/validation-results.json",
+          "sha256": "B4C27B1F1B4B6D1F1214A1A4F0CA55F22C92A3A7F42284A026C6705CCEF0B0A6"
+        }
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-REMEDIATION-12",
+      "exists": true,
+      "file_count": 67,
+      "tree_sha256": "84F7DB4FCE8E9474B0B3822AFDF5787FFE531B45544720DE66ED06387CD58375",
+      "files": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/b6-review-protocol.mjs",
+          "sha256": "2539580E3DF7386EE31C2256433E3C6C5D04A6E33BEFDFF083A6E93CFA6141AD"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/baseline-comparison.json",
+          "sha256": "C9B6F763E618719B71219F1E1621AA9CD086C0017BF07C42C99F22473DF07813"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/blueprint.yaml",
+          "sha256": "E2020B0105223F6021C05B3E1A158CB1A714F64B00E3F10525EA0A9023EFACFF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/capture-r12-baseline.mjs",
+          "sha256": "2DAC13DA48EA140AA626FA69A7B3A113BDE9D33D02079FECA8E20CA5C12308F6"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/classification.yaml",
+          "sha256": "9D29313CA57C45CDD7A7C7C3BBC0FA57D6FB169182E5D7E9D39A54708A0AFDF7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/deterministic-qa-contract-tests.json",
+          "sha256": "CAD031C74F7DBC9E7AE17152A408FE7FF58356FDE2DAFCE6EECF7406BA082707"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/deterministic-qa-fail-closed-rules.json",
+          "sha256": "5C7D9CEBF79A87A0C2BA70A707AA88335C35F2DF0D2EB07BA53934A61ED2525D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/deterministic-qa-input-contract.json",
+          "sha256": "11E52D17875EE79AE99FD8E7CAFB3E5AFF0D6B61AC48DCC9441E04732F4EAB6C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/deterministic-qa-output.schema.json",
+          "sha256": "0BB247CFDDA49D39E05E3864FB57A8772F1B467843CA2C55751CDC7E7B4E645F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/final-summary.md",
+          "sha256": "299B94F8C3E5ABCDE2289DC4BBA07792333B942E435E03099E828876CBC5BFA1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/finalize-remediation-12.mjs",
+          "sha256": "33F076E60CE23B51E41BFD61FC856A6D9DC346EB51F798BA39A896B8A0B042EB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/gate-dependency-matrix.json",
+          "sha256": "55D392820461CB70217076AC9F96635B3D8FD65D22B24D06259BC57091980C4F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/HANDOFF.md",
+          "sha256": "A642F467C1F7710C5202FB8C596F7692A74A766D993EAB3A9F57AD13F0EC821A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/historical-artifact-integrity.json",
+          "sha256": "EF85C7404FA23E3390F57A6BF36A5AC5EE36138AD4D93C5AEAA1C33DA2F7AE1C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/migration-320-integrity.json",
+          "sha256": "B25932F9C6ADA7B628F22184CC638B220CECA884747E959E2644B59D5444C118"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/preparation-test-summary.json",
+          "sha256": "D77A186970180102EDCA8999B528189FB5EB389563622726EE4350FD97540B32"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/prepare-remediation-12.mjs",
+          "sha256": "42DB05A7407425E5023C753DA390654BF24A6678B8FD84BFE064E800D5E684BC"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/refresh-r12-package.mjs",
+          "sha256": "4F97AE1F10D3EA5DBD13E99A55626E3523887E8DAA31C0B8FFDD9F196B3642E0"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/revalidate-r12-scopes.mjs",
+          "sha256": "B322C8245E8F55286C2C08D47B761A9C4BC95A90CB546F92835C09DD1474F767"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/review-baseline-after.json",
+          "sha256": "319A543DB9BAFB0F59EE27C497D172DDEB0CB89B09323554FB5572B2688AF6D3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/review-baseline-before.json",
+          "sha256": "231BAA9459870E0848141CE40ACBC83D391638532728A5E5C786879464D6F5EB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-capability-artifact-matrix.json",
+          "sha256": "A115AF0E7AE6032FDF34ABCBA3C60CBE0656DFDF2C761362749E8FAA56F23B8E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-completion-contract.json",
+          "sha256": "1F0947DEE0C9BF057A2F3DB0596E5E742046621C3DEF54E268FB57F77CB1ABDF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-early-failure-contract.json",
+          "sha256": "7FB9A2EA05094EF1602FD4B025FBC32C4149F0B242CDB1FA6FE35D8947EC0667"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-protocol-tests.json",
+          "sha256": "92BF08FD619541F0C7E4FF720A231287B7045FD407A36FCE61556ADC1C06AAA3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-return-payload.schema.json",
+          "sha256": "3B01532F75CB7DA8D0E179A60B49E21B878DC4FCDBDBF7331343A64DEEC41854"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-scope-satisfiability-contract.json",
+          "sha256": "E09457E8B6DF6D3FD198CFB7A85977B00862473D7DA2D61C91EF9A216D2679C7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-scope-satisfiability-report.json",
+          "sha256": "3191809DAD11FD2DCCB35098C4DD671F6F32C54FD58C41BA96577DC0E671C1D2"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-startup-contract.json",
+          "sha256": "935F9237526C6CC289A72DA654FB0838F6BE394DA92E36DB7F221017B450BCFA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-thread-exit-contract.json",
+          "sha256": "60099336AEEC9728D5605F6DF16610FC57F0F748D10DAA5E577A6282BB6B943A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/reviewer-timeout-policy.json",
+          "sha256": "4954F49B5BB30ED0BA6709B80C7635D317D6C73F367AA8211E891E52EA7B34DF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/run-remediation-12-tests.mjs",
+          "sha256": "3578A612175BA9B409E09132F6EDD874689FF82B908013256E2B14252CE4F049"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/scope-satisfiability-tests.json",
+          "sha256": "12470795752D2B0BE7A0C11930EC3108B8293C9798C86163727458B54A8A6D6E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/blueprint.yaml",
+          "sha256": "075BA386351FA99404314966EA7F2CDF966B0BCE0AF3D750D7D700DE6CBD1F1C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/classification.yaml",
+          "sha256": "18BE4814BE44E561A33FB19D95D9CC33B5F9115474D481E7655CD72CB87B4E7B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/deterministic-qa-fail-closed-rules.json",
+          "sha256": "5C7D9CEBF79A87A0C2BA70A707AA88335C35F2DF0D2EB07BA53934A61ED2525D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/deterministic-qa-input-contract.json",
+          "sha256": "11E52D17875EE79AE99FD8E7CAFB3E5AFF0D6B61AC48DCC9441E04732F4EAB6C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/deterministic-qa-output.schema.json",
+          "sha256": "0BB247CFDDA49D39E05E3864FB57A8772F1B467843CA2C55751CDC7E7B4E645F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/fresh-root-preflight.json",
+          "sha256": "1F6C72E9FA882E10B3020683291E1AC52B63105E9CC4B8D46ADFA0C513789558"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/gate-dependency-matrix.json",
+          "sha256": "55D392820461CB70217076AC9F96635B3D8FD65D22B24D06259BC57091980C4F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/pre-review-freeze.json",
+          "sha256": "014044BB1E2A2883B5213E487436788368A9833C29623B4A814F0184C31DF9B7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/pre-review-input-manifest.json",
+          "sha256": "C99FFEF480B9911FC6952AEC0B74C47109F49B6E8EDF5E220F2C8F13E1B3E55E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/required-chain-node-verification.json",
+          "sha256": "5901B8E165C8C6ED4031DEA3D16FC67BAEDAAAF768F2B1B561D85CFA3B53A1FD"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-assignments.json",
+          "sha256": "F5CC8ECB8F53D989B66D93F20ECE9D47AFA5D7ACA451C974D1A5AE8B45B53F95"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-capability-artifact-matrix.json",
+          "sha256": "A115AF0E7AE6032FDF34ABCBA3C60CBE0656DFDF2C761362749E8FAA56F23B8E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-completion-contract.json",
+          "sha256": "1F0947DEE0C9BF057A2F3DB0596E5E742046621C3DEF54E268FB57F77CB1ABDF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-dispatch-plan.json",
+          "sha256": "1343961FAD178C094A082A36DACA6C27A43D089F10696245BAB97F35D5B0071D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-early-failure-contract.json",
+          "sha256": "7FB9A2EA05094EF1602FD4B025FBC32C4149F0B242CDB1FA6FE35D8947EC0667"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-return-payload.schema.json",
+          "sha256": "3B01532F75CB7DA8D0E179A60B49E21B878DC4FCDBDBF7331343A64DEEC41854"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scope-satisfiability-contract.json",
+          "sha256": "E09457E8B6DF6D3FD198CFB7A85977B00862473D7DA2D61C91EF9A216D2679C7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scope-satisfiability-report.json",
+          "sha256": "3191809DAD11FD2DCCB35098C4DD671F6F32C54FD58C41BA96577DC0E671C1D2"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/code-reviewer-scope.json",
+          "sha256": "47701C4ADA958BAD5F66A68903F71C194BAB95B779AE6A754F7CA404484514C6"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/compatibility-reviewer-scope.json",
+          "sha256": "D6AC22659E6B60229EE5F7EB8497BDEA4357A93DDCD784939ECC11A041590DFB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/railway-domain-reviewer-scope.json",
+          "sha256": "A3F9CCCBF621305F137436B4F0276F1373EEB58B5D4B7B90844E450A9DDCC94F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-scopes/security-reviewer-scope.json",
+          "sha256": "DAA3F5819926A6E72A34BB3B255F633155EF849135E720B59C2817A5EB93FB72"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-startup-contract.json",
+          "sha256": "935F9237526C6CC289A72DA654FB0838F6BE394DA92E36DB7F221017B450BCFA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-thread-exit-contract.json",
+          "sha256": "60099336AEEC9728D5605F6DF16610FC57F0F748D10DAA5E577A6282BB6B943A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-timeout-policy.json",
+          "sha256": "4954F49B5BB30ED0BA6709B80C7635D317D6C73F367AA8211E891E52EA7B34DF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/session-b6-security-binding-chain.json",
+          "sha256": "EE6A0124D58673F2FBDE55203C9B920AEE02362AEC782F15BDABDF9CF0C24A92"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/session-b6-security-evidence.yaml",
+          "sha256": "B579CBF8E2AF21DD5FE90E44E144BADC4AE34C45C6E11C90EA2EA3F4C7445215"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/session-b6-security-read-scope.json",
+          "sha256": "E2A6575FD7BA61B9B02BCA7EB295D15B9815B4401519136E4CFAF3BCE5217D4A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/task-intent.yaml",
+          "sha256": "C9F68740E490D8D3861D79AA6F00C3BFAA7F648B04F9C7112AEF80EE7C8F6E3C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-readiness.json",
+          "sha256": "AA5682DD975CC12AEF17A4E940BA44ADB3C0C43F6C0B87963515B4964C953B9D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/task-intent.yaml",
+          "sha256": "CA93F29244B3E319EF45C5817583929E3953B6B9C49DDCE987278ADA6B0513E1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/task-local-schema-tests.json",
+          "sha256": "4984A3FC65EC67B08ED403BC90EADCAEA81DAC99D1C9C83E2C833D5205FFCF2C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/task-local-schema-verification.json",
+          "sha256": "9BE4BFC059A074C72978B5F51A0C1A2A43EE8577D9DF1C3A91BAF3DD7556DC51"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/validation-results.json",
+          "sha256": "EDE93278B35BF96B14AD5E9DD5DAFDAE14EDD2B5DA05261E72D3FFFA58B719B7"
+        }
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION",
+      "exists": true,
+      "file_count": 81,
+      "tree_sha256": "1AEE7124E7E6992634D58927E2F51EEC64E85492056A65AF0516ABF6D9AE0B59",
+      "files": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/baseline-comparison.json",
+          "sha256": "0EA18C9E65D3FC6E2E7173647590A7078DF698A8DBCAE7FB814B5CDCE8E65407"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/blueprint.yaml",
+          "sha256": "B47A879F607F59B78472EB2561682FEA94D0845CAD279B0D51D0C947D4527B15"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/canonicalization-contract.json",
+          "sha256": "003E2E8F077D93E22F685B52B9F27738098B5BB5C5EB65A84A04E55DF28C487D"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/classification.yaml",
+          "sha256": "A079A23EECA9FD06CDC20E1324A42181B4421D34DD9ACFEF25826BB589E70AC9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/execution-model-decision.yaml",
+          "sha256": "6766108F422F84323183435EBF83E330DA5A3514C84301F65EFFC12A0415E20F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/aggregation-input.schema.json",
+          "sha256": "BAD71B670A5FA8C3667B0AB4A6E8EC195E2A4973E58E25A3310B0C3460012518"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/aggregation-output.schema.json",
+          "sha256": "8438BE776CCD7950B32957728ED3827F6F4E6CE9F8EBB15F8666E80242031D4C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/aggregator-prompt.md",
+          "sha256": "0FA4E72F8752675B5E10DB3BF43AC3DEA8228E95B381DC378F518DA8D7A049F0"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/assignment.json",
+          "sha256": "1A52B480295E3E223767D8BF0358DB04B4206ABD52AEFA593C0C3174E6A844AE"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/deterministic-qa-fail-closed-rules.json",
+          "sha256": "3D63436577D4D1EDF9F926FB862587B2275F6682FE5E606C9592207E67CEA609"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/deterministic-qa-input-contract.json",
+          "sha256": "466BE92124BC1EF0EBE388C4F1105F65EDE7761CFC0CDC00EA8894645712F531"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/exact-read-scope.json",
+          "sha256": "00A939D13F44A281509FB0F1B4CF6586E1534424F68556E48FEE281AA746CA49"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/gate-dependency-matrix.json",
+          "sha256": "30ACF6F2353259799B4F81E65C7088FED9545DF44125E69BCB0669B1C1A9793A"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/manual-transport-attestation.schema.json",
+          "sha256": "78B58C4041382D193DC0C04F5F1C80E4898185123304A6C05CF70E62DADD87DD"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/package-manifest.json",
+          "sha256": "7BF871F4D67D5F9673D9B7654120A28546B79A02DFC9A5D807579D90EDA70469"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/package-verification.json",
+          "sha256": "647D14EF92ED1C7B90708BCBDB9072D113FAE3B9853A2706448E6518EF9872B7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/aggregation-qa/payload-import-contract.json",
+          "sha256": "8D45AA0C45CEFACFBE9EA1319C8E6DBB4FBC522133BF8AC1F247EDBE8942A3A1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/assignment.json",
+          "sha256": "02E28DDFEC2343BE8A608EFB43017926E0703A21C9A9B77D8D284519947B676C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/capability-artifact-matrix.json",
+          "sha256": "581B25F1E773EF3AB0FF690F81FAD46EFEF26601002C45B378107A9D13D8B72E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/exact-read-scope.json",
+          "sha256": "BE5F1B50265AF859C7A4703EAD8636CAE904C5C338D1744BC3D243BF68736051"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/finding-ownership.json",
+          "sha256": "BAA6C1652A30627FBD69D4C2364FF8A82B4610AF0F88E174DD9426A51D54B6E1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/package-manifest.json",
+          "sha256": "2D8E58EEA50F30D170DF58FAA13EAE35D70A6C16159E8FCCEF3086AE0AE201EC"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/package-verification.json",
+          "sha256": "DA970CF7527127E168A14105CC4FC41362C2C6AE2C0378F803ECCC8890DDB080"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/return-payload.schema.json",
+          "sha256": "03129A6A000EBC0393D1FF82672D8F277BA77BE33E37D5EB413130AFF9AA99D1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/review-requirements.json",
+          "sha256": "64550FB315C41B8793516440030EED15DE19C73C1A039D114236F753DAC59F61"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/reviewer-prompt.md",
+          "sha256": "3E208CAAD41CFC7A078D13A2C78C0F389E93B2C61175F54B6848C9C8BF02FA51"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/startup-contract.json",
+          "sha256": "BB84EC8D881BE07BB37EF9AECE774E68EBDB384783F312DC3DF3EA86194E8BD3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/code-review/transport-contract.json",
+          "sha256": "C4823604B18BCB777B6076CCF468C6C83518F81CB0EB49838B5C2A692946A67E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/assignment.json",
+          "sha256": "CC0E8EAE2CA2103F3991F62A515F49BA0C2EA0C9C5B29352602C2B2E19F89F70"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/capability-artifact-matrix.json",
+          "sha256": "13FA3604BCD03AC84DAB78B03B7244DD23E84F7DCC15C78AEB81C9E952654201"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/exact-read-scope.json",
+          "sha256": "CC2E1F39571613834D55019CBC1194934D485BFB12665054AE0E78ADDB737EBA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/finding-ownership.json",
+          "sha256": "E48356CC8879DAA9B86BD51B7949E0BA2B784899980A814D38935880084D8D62"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/package-manifest.json",
+          "sha256": "4B2AD883F919003375B68F9C672CE3D692E2A559FF63ED4EC185D2D8281DCD02"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/package-verification.json",
+          "sha256": "18612D139A2C4C34F3276636854256B948FA5EA2CFCE1ABC16008F15C19A28C3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/return-payload.schema.json",
+          "sha256": "03129A6A000EBC0393D1FF82672D8F277BA77BE33E37D5EB413130AFF9AA99D1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/review-requirements.json",
+          "sha256": "00819BC30834A3B261A45D0807181A8FC167D9AE2C93E26DF66852642AB34F20"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/reviewer-prompt.md",
+          "sha256": "551842BAB4E03684DAE9777F0866872CDD80A112379D38C2B2FD657E20DE759E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/startup-contract.json",
+          "sha256": "B68629AF274E1D8B136BE5544A50052FAB9F90B780DF96C4D94F6E6583A0FC0B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/compatibility-review/transport-contract.json",
+          "sha256": "8DF3490621C7CD39E2E708E8ED503AEEAAF675E5CA0DFF54B3B0D1960BC99802"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/assignment.json",
+          "sha256": "C1CC95B3CFF3936ED8F6F435C31B0F5475405C691AA3807BECCCBD5063F5BB19"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/capability-artifact-matrix.json",
+          "sha256": "9EDF54452AF521290BFC05C61C9EB9EDCB2A0FC2F42DBB880C106D9437BB12ED"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/exact-read-scope.json",
+          "sha256": "1730E326BE205FC193834FD53A495E67A865F46BA633701D29E16F893FAEDE5C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/finding-ownership.json",
+          "sha256": "7D7745D730E3E6A46340C74F22A3D16F6B10A39781D7CEA53D6B4F8F6F0504C3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/package-manifest.json",
+          "sha256": "F8D46A4982A5C4264B3D4AC412DBF780C52DFAD176A91F1B61D2FDFD9A33A366"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/package-verification.json",
+          "sha256": "D15211AFA75FBEDC713ECEFE934059EB6BCFA87680E79D2527B76661C1B05A04"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/return-payload.schema.json",
+          "sha256": "03129A6A000EBC0393D1FF82672D8F277BA77BE33E37D5EB413130AFF9AA99D1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/review-requirements.json",
+          "sha256": "A1DB6E123BE09E726DDD59302C73715993CEC358FF4C6D689F83D443A0176064"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/reviewer-prompt.md",
+          "sha256": "4DEBEC65CB6C0433A2DAEB0485D014962DFADD9A7E62D0954ACB6B813236F4B7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/startup-contract.json",
+          "sha256": "5E5112C6DAA3024977458EFB941F1AFAB167F35DCFC720B9A14302F3A029ACFD"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/railway-domain-review/transport-contract.json",
+          "sha256": "E973DB4AC6560A41F393C14D078393F212AF015B721D2822AA12A668882137C9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/assignment.json",
+          "sha256": "D78D264A54A187C323880F6E65E1DF183A329880B3882863C091BD93AE05C4F3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/capability-artifact-matrix.json",
+          "sha256": "5365A23B7D98C726BD59448114F73D4DF79942F7C7A50230D5ADDD545DB7C4E1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/exact-read-scope.json",
+          "sha256": "EFA001FFEE21F690059AC94465D9D9C63D933F79CFBF9E9B946F1E6536FF15E6"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/finding-ownership.json",
+          "sha256": "74C7B74FFE06B01211C0D7F88A8CFBFAEDF57FAA0CF510D4CE784CB975E0A5FB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/package-manifest.json",
+          "sha256": "115FD65A7B39B0228872A0BFC9F394807EA006FAB49E2D48ECE27ABE71C7B839"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/package-verification.json",
+          "sha256": "F9C637C09CFF54C44CF87A2CAC2750EFB60FCA4555235081E90324B860A160E1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/return-payload.schema.json",
+          "sha256": "03129A6A000EBC0393D1FF82672D8F277BA77BE33E37D5EB413130AFF9AA99D1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/review-requirements.json",
+          "sha256": "DD60A3F54BFC14B025A7F2B5A3F0B364AD1FE3BC62C2AC9B8D861AD9857477E9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/reviewer-prompt.md",
+          "sha256": "1D546F6B58B5D856D6AC356E2C7498EFEC1CCE4A46EE3B5AE4BFF459BD82A351"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/startup-contract.json",
+          "sha256": "FBE2B9325028C13DE2919E86FE0EE2D314B0DF8557D86661A6C2F242DD87E77B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-packages/security-review/transport-contract.json",
+          "sha256": "DED2C566B755594835405DA81D3BF89BA9314228A439734A4613081DD21ADE1B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-protocol-tests.json",
+          "sha256": "E4D477F7020EF5FEB48FC5B2C5EC1FCEF6E15772C2FB6C205E2E8FEA0B6B3FF4"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/external-review-readiness.json",
+          "sha256": "6D6E3DF7C65164A67B3FE65DF683AB8C2C6D0E790B722DD8FA97739D7710BBD3"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/final-summary.md",
+          "sha256": "3B6070D1F3D87A5F466AEA28862BD4238AF7777F5C5DA46718CA8E4044AE57F9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/HANDOFF.md",
+          "sha256": "21E54B8BA2983395DB9A3F8DD017E2A0BBE8F75B45517C4CAF5A1516367329B1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/historical-artifact-integrity.json",
+          "sha256": "4741DC4D804B1E5E961BB615D42E23236DEDA995264992F8995E0183EBF4E492"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/human-launch-sequence.json",
+          "sha256": "170DBCEEDA6E0CDCB4283757AECD5F749803A24F0B90D8B202F0CA0E1EDDB547"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/manual-review-payload-transport-contract.json",
+          "sha256": "55AE3C9FE360B96321BFBB902B654EC05554C849A217FFF4816534C7EE92252E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/migration-320-integrity.json",
+          "sha256": "586584BFCA437E55CFFCBB81724CA12B29A4D443C9EFD9A4095277FE6F47C911"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/package-integrity-report.json",
+          "sha256": "F08BF1AB95DDD0316A078C81F05AF956B78D8A8762CC2B430F14EDEFA510BC75"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/package-scope-satisfiability-report.json",
+          "sha256": "24C3118C47A3C56192237A3C830B40B7703C5DB82E2B429E21C16F8F395B4598"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/prepare-external-review.mjs",
+          "sha256": "995573A35115861E6CC63060DAD3FA7941DBAEE60937CE91E0DDE9DE275064A7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/review-baseline-after.json",
+          "sha256": "61180552C84244EE6C85357F1E3EE3780D75BF41235C92CB55D4047C6F330795"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/review-baseline-before.json",
+          "sha256": "A75AFAA47E5A11DD2D51B237D5DBE0204A10FC3E58C35700B4A3E609B709F2DF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/schemas/aggregation-input.schema.json",
+          "sha256": "BAD71B670A5FA8C3667B0AB4A6E8EC195E2A4973E58E25A3310B0C3460012518"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/schemas/aggregation-output.schema.json",
+          "sha256": "8438BE776CCD7950B32957728ED3827F6F4E6CE9F8EBB15F8666E80242031D4C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/schemas/external-review-payload.schema.json",
+          "sha256": "03129A6A000EBC0393D1FF82672D8F277BA77BE33E37D5EB413130AFF9AA99D1"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/schemas/manual-transport-attestation.schema.json",
+          "sha256": "78B58C4041382D193DC0C04F5F1C80E4898185123304A6C05CF70E62DADD87DD"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/task-intent.yaml",
+          "sha256": "176B4BCD636B4E5F73D2114827ED49F6BBD6D00354C1E6E727B73EE60465999F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/validation-results.json",
+          "sha256": "4E508A8FE28677F08406F1785CE65393D55E6EFB870524D3AF7B4F928EBA96B9"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION/verify-external-review.mjs",
+          "sha256": "3FCC1C550546DDB9CD47010D3EF82B7D0E847C23E101FD04ABFE5B976A7483EF"
+        }
+      ]
+    },
+    {
+      "directory": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01",
+      "exists": true,
+      "file_count": 28,
+      "tree_sha256": "AB7047883CB296D250445BF5686C70C98EEF4B1DA51FE5162ACFB4140328525F",
+      "files": [
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/baseline-comparison.json",
+          "sha256": "8A5D8BF73033E94E9EB7911608D05E6B996DF7ED8D66AEA2D21536B391AD7D6B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/blueprint.yaml",
+          "sha256": "BA0F96AF6D9C1E9403CA19238077AB30BC3CAB97CE39086A4B75E42E4DF1D4DA"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/build-and-verify.mjs",
+          "sha256": "EFEF19B60305B3CFB169EDC19E4D040950A90B63230FF956B61E68FBEF435263"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/classification.yaml",
+          "sha256": "9FF54E9A7FD32A76A6D80184C64DFFC5FE5B30D32A3F5F9CA59E20E531ECDBC5"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/code-review-attempt-1-disposition.json",
+          "sha256": "34D5F318C74A811D608D9781B370A7DF2A739AF07D9F8D80EDEC6E2A4D20D4DB"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/embedded-startup-failure-contract.json",
+          "sha256": "1BCC477A8546E865B715707A62F61B515FF7FCB561C57979B12FC260A3C8DC61"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/external-code-review-attempt-1-classification.json",
+          "sha256": "E5CF72584F4B2070F2E92055C495EEC4742662D909725423418E191EC82B5A4B"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/external-review-launch-protocol-tests.json",
+          "sha256": "1C607230E8BA00C5A113D883C1BF87294BB6F65EE8C565AEE56C606A14AB8C95"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/external-review-launch-readiness.json",
+          "sha256": "C6E0FA34B410B57FCB4D9C789EC216A931FB324930998368E960F3F7DEADC1C7"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/final-summary.md",
+          "sha256": "5767F3CB3AF595E4D9004023F672AA1B63B07775E0652EA2CF45200826B0C278"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/HANDOFF.md",
+          "sha256": "5C9C53FAFFFB5C268BFE8F84A221CE51D3029510E07C77B399A00738FC373071"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/historical-artifact-integrity.json",
+          "sha256": "4DE8E259ED163F40E30ABF9B8345AE7B41B60FEB8DADB1C1F83CCC775CF9989E"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/migration-320-integrity.json",
+          "sha256": "AD8CECF5ADD58E21FB1D91BD4F4EFF1EBCF21C4DF594818B1854F15B20EB03E2"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/repository-root-binding.json",
+          "sha256": "C733493985F0D360558C3EC51ADFB239E6AA2DBE2451E62EEDF0136F4E66EA9C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/repository-root-verification.json",
+          "sha256": "D808F55020EDDE86146BC858ADC7C4FAADBDEF205F38ACD68721C5D05A2A9823"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/review-baseline-after.json",
+          "sha256": "63716E5AB8447A9750C2A850DA9293D8CB5FD12D7DBDB284112DBB9707F0519C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/review-baseline-before.json",
+          "sha256": "63716E5AB8447A9750C2A850DA9293D8CB5FD12D7DBDB284112DBB9707F0519C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-launch-envelopes/code-review-launch-envelope.json",
+          "sha256": "7860753F7D6FC06FB68E21F09737C4F620D38336EB192472FE60C12FFFE39B45"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-launch-envelopes/compatibility-review-launch-envelope.json",
+          "sha256": "B53BBA9FE2064C1662D27C8E7A5A34AAD6F8B97878A4841F9907F2D4763E112F"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-launch-envelopes/railway-review-launch-envelope.json",
+          "sha256": "35AF17A89D9E3D4FF6128DEDFB2320849498A8E53DA90D2ED6FFF3FA9D58E771"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-launch-envelopes/security-review-launch-envelope.json",
+          "sha256": "676480B218B76254BF7132A53A14AF67C4359BE915C0F71F21D4EA0A78DC9678"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-prompts-v2/code-reviewer-prompt-v2.md",
+          "sha256": "1C45B6736BE084187965EAD5FD1579EDEC2D9303F602E63F7C59D656442AFB7C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-prompts-v2/compatibility-reviewer-prompt-v2.md",
+          "sha256": "B7805568C4A07FC6A3DC4E407EEC0EDB12434A603551B28B4652D2EC21986F9C"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-prompts-v2/railway-reviewer-prompt-v2.md",
+          "sha256": "E0959DCC4844A7B100135311C4F13B3C1072B3FBD0B1B703A46DB67D2FF3CA03"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/reviewer-prompts-v2/security-reviewer-prompt-v2.md",
+          "sha256": "52BF439DDB2C86CCFB1FABD52AECDC0D70695E01CABF68D6C707F59F9BD1C9BF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/task-intent.yaml",
+          "sha256": "7C6FD063C25D86C9556BB3B6D1E0EAAA0532337E39F42DFEC7DCB92E78DCE3A8"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/validation-results.json",
+          "sha256": "841EDA93BD9D11556C61A82C5F40FBCF2B30553D945EF6FD7A3DD16512D193CF"
+        },
+        {
+          "path": ".codex/tasks/GOV-PHASE1-EXTERNAL-REVIEW-LAUNCH-BOOTSTRAP-REMEDIATION-01/working-directory-independence-tests.json",
+          "sha256": "3BB909544715A21BB9AAA69E5880118D2837E0ED71F5A0821D50916E40D5DDCF"
+        }
+      ]
+    }
+  ]
+}

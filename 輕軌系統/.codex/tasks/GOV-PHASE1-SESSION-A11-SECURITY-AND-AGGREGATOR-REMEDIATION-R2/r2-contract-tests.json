@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-SECURITY-AND-AGGREGATOR-REMEDIATION-R2",
+  "total": 24,
+  "passed": 24,
+  "failed": 0,
+  "tests": [
+    {
+      "test_id": "01",
+      "name": "Legacy R1 five-field attestation is invalid under R2",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "02",
+      "name": "Conflicting five-field master input is invalid under R2",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "03",
+      "name": "Wrong schema_version",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "04",
+      "name": "payload_modified=true",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "05",
+      "name": "transported_by_human=false",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "06",
+      "name": "Reviewer role mismatch",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "07",
+      "name": "source_thread_id missing",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "08",
+      "name": "review_package_id mismatch",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "09",
+      "name": "payload_core_sha256 mismatch",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "10",
+      "name": "wrapper_canonical_sha256 mismatch",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "11",
+      "name": "Security R1 cannot be imported as successful Security review",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "12",
+      "name": "Security R2 must supersede Security R1",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "13",
+      "name": "Duplicate Reviewer role",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "14",
+      "name": "Missing Reviewer role",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "15",
+      "name": "Candidate binding mismatch",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "16",
+      "name": "Code closure owner mismatch",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "17",
+      "name": "Code closure missing",
+      "expected": "NO-GO",
+      "observed": "NO-GO",
+      "pass": true
+    },
+    {
+      "test_id": "18",
+      "name": "Security R2 Startup Blocker",
+      "expected": "NO-GO",
+      "observed": "NO-GO",
+      "pass": true
+    },
+    {
+      "test_id": "19",
+      "name": "Aggregator modification of Reviewer wrapper",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "20",
+      "name": "Aggregator write scope overbroad",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "21",
+      "name": "Fresh QA command missing",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "pass": true
+    },
+    {
+      "test_id": "22",
+      "name": "Fresh QA failure",
+      "expected": "NO-GO",
+      "observed": "NO-GO",
+      "pass": true
+    },
+    {
+      "test_id": "23",
+      "name": "Four formal PASS payloads and fresh QA PASS",
+      "expected": "GO",
+      "observed": "GO",
+      "pass": true
+    },
+    {
+      "test_id": "24",
+      "name": "Candidate integrity changes",
+      "expected": "NO-GO",
+      "observed": "NO-GO",
+      "pass": true
+    }
+  ],
+  "result": "PASS"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "command": "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-REMEDIATION-9 --target-gate bootstrap-candidate-review",
+  "structural": "VALID",
+  "calculated_gate": "NO-GO",
+  "target_gate": "bootstrap_candidate_review:NO-GO",
+  "emitted_exit": 2,
+  "bootstrap_candidate_review": "NO-GO",
+  "bootstrap_human_commit": "NO-GO",
+  "steady_state_preparation": "DISABLED",
+  "steady_state_execution": "DISABLED",
+  "migration_320_execution": "NO-GO",
+  "proof_assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "expected_blocking_basis": [
+    "A9 is not authorized or started.",
+    "Code, Security, Railway Domain, and Compatibility reviews are nonformal NEEDS_HUMAN_DECISION placeholders.",
+    "A8 remains archived BLOCKER and no finding is declared closed by R9."
+  ]
+}

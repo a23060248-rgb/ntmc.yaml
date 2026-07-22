@@ -1,0 +1,20 @@
+{
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "verified_before_candidate_modification": true,
+  "candidate_modification_started": false,
+  "implementation_change_manifest": "./implementation-change-manifest.json",
+  "declared_candidate_change_count": 24,
+  "unique_candidate_path_count": 24,
+  "duplicate_candidate_paths": [],
+  "all_modify_paths_present": true,
+  "all_add_paths_absent": true,
+  "before_hashes_match": true,
+  "candidate_membership_expectations_consistent": true,
+  "authority_cycle_detected": false,
+  "authority_cycle_explanation": "Task-local contracts declare requirements; candidate registry and policy are authoritative production inputs; schemas remain independently pinned by bytes and SHA-256.",
+  "historical_tree_modification_authorized": false,
+  "external_package_modification_authorized": false,
+  "git_operations_authorized": false,
+  "scope_status": "LOCKED",
+  "scope_expansion_rule": "STOP_AND_REPORT_SCOPE_EXPANSION_REQUIRED"
+}

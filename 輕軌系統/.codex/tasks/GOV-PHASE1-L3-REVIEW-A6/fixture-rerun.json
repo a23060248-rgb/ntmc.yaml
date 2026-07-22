@@ -1,0 +1,491 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "production_entrypoint": ".codex/tests/run-governance-fixtures.mjs",
+  "exit_code": 0,
+  "suite_id": "PHASE1-BOOTSTRAP-CORE",
+  "suite_version": 6,
+  "case_manifest_sha256": "68551ABA28759B377188913D99BB3B0DEBEAE1A36962BB4F4793CDB78A863666",
+  "total": 68,
+  "passed": 68,
+  "failed": 0,
+  "exact_invariant_and_entrypoint_verified": true,
+  "cases": [
+    {
+      "case_id": "CASE-01",
+      "pass": true,
+      "asserted_invariant": "valid six-operand actor-bound scope",
+      "production_entrypoint": "computeEffectiveScope/resolveActorScope",
+      "artifact_hash": "083176A78F90CAA3071FE8C63F9321D8EEAD98271D83F14E299B067CA45AF692"
+    },
+    {
+      "case_id": "CASE-02",
+      "pass": true,
+      "asserted_invariant": "missing Phase operand fails closed",
+      "production_entrypoint": "computeEffectiveScope",
+      "artifact_hash": "6E063AEAD9854E1F010A3703485AD308BF9E103F71B501F01675CACCA661124D"
+    },
+    {
+      "case_id": "CASE-03",
+      "pass": true,
+      "asserted_invariant": "missing Intent operand fails closed",
+      "production_entrypoint": "computeEffectiveScope",
+      "artifact_hash": "0DD17C9E9625F888CAABC8A53DF998209E4B60DDE7FF39E4E4FE1E87E9CBA432"
+    },
+    {
+      "case_id": "CASE-04",
+      "pass": true,
+      "asserted_invariant": "missing Classification operand fails closed",
+      "production_entrypoint": "computeEffectiveScope",
+      "artifact_hash": "A7823FFB82E6DB9D4AB05BD1BDDFF9CECE2D3F7349A4267A680CA94AEE0DD05F"
+    },
+    {
+      "case_id": "CASE-05",
+      "pass": true,
+      "asserted_invariant": "missing Blueprint operand fails closed",
+      "production_entrypoint": "computeEffectiveScope",
+      "artifact_hash": "F13D0765E017B372D1C47104DDC566D652F4F758F0E7385C57958D2CC65F3619"
+    },
+    {
+      "case_id": "CASE-06",
+      "pass": true,
+      "asserted_invariant": "missing Role Policy operand fails closed",
+      "production_entrypoint": "computeEffectiveScope",
+      "artifact_hash": "1022910C93EAB26592341E7C4019586A11E34695697E85BA152403952B2202E2"
+    },
+    {
+      "case_id": "CASE-07",
+      "pass": true,
+      "asserted_invariant": "missing Assignment operand fails closed",
+      "production_entrypoint": "computeEffectiveScope",
+      "artifact_hash": "CC32BA3CFA12D17AC52331F6B37E85ED979D72F0F8C64BF2A48CF4D877BD792C"
+    },
+    {
+      "case_id": "CASE-08",
+      "pass": true,
+      "asserted_invariant": "empty Task write scope grants no authority",
+      "production_entrypoint": "computeEffectiveScope",
+      "artifact_hash": "C4DA6C928D9169B02542CF8837CA10F450E59535D3BBD290DA2644FA02905BE4"
+    },
+    {
+      "case_id": "CASE-09",
+      "pass": true,
+      "asserted_invariant": "empty role write scope grants no authority",
+      "production_entrypoint": "computeEffectiveScope/resolveActorScope",
+      "artifact_hash": "64DF4DE9D78B411011801F16940B59828982DA6681DFDCDD43AA006C211398C2"
+    },
+    {
+      "case_id": "CASE-10",
+      "pass": true,
+      "asserted_invariant": "single validated assignment derives actor",
+      "production_entrypoint": "resolveActorScope",
+      "artifact_hash": "EEE4D9F64139494188218A8BE082AD9921FEACD1E5B2EF29E61A66ABA76F792C"
+    },
+    {
+      "case_id": "CASE-11",
+      "pass": true,
+      "asserted_invariant": "ambiguous actor derivation rejected",
+      "production_entrypoint": "resolveActorScope",
+      "artifact_hash": "ECFED0547A432D8B30965B723EEA51FD2109D45F56F12CF31AC9F72149FCFA2D"
+    },
+    {
+      "case_id": "CASE-12",
+      "pass": true,
+      "asserted_invariant": "effective write scope never exceeds any operand",
+      "production_entrypoint": "computeEffectiveScope",
+      "artifact_hash": "62FFF861D3A1C5012CF4C8C4C9061C55BA44B634B1367958C79F2FA8A0284E28"
+    },
+    {
+      "case_id": "CASE-13",
+      "pass": true,
+      "asserted_invariant": "unique artifact resolves exactly once",
+      "production_entrypoint": "resolveUniqueArtifact",
+      "artifact_hash": "71107615AC7781315EA93CC4C1CDBD8A39E7DC4864705648DEAAFD5ADD351588"
+    },
+    {
+      "case_id": "CASE-14",
+      "pass": true,
+      "asserted_invariant": "duplicate artifact rejected",
+      "production_entrypoint": "resolveUniqueArtifact",
+      "artifact_hash": "3DDDBB160C71254DE5F352F8CD6E2459479C278E5307417E6BA643F4770A8374"
+    },
+    {
+      "case_id": "CASE-15",
+      "pass": true,
+      "asserted_invariant": "missing artifact rejected",
+      "production_entrypoint": "resolveUniqueArtifact",
+      "artifact_hash": "A4056F316743709630003F4FD2EE39573C07F38E96789266C12BC5B9533645BB"
+    },
+    {
+      "case_id": "CASE-16",
+      "pass": true,
+      "asserted_invariant": "artifact semantic type mismatch rejected",
+      "production_entrypoint": "resolveUniqueArtifact",
+      "artifact_hash": "878600C5A5A24BB2760331E5494CBE643F7EFC33CC0FADD90E2D034842AAD6F3"
+    },
+    {
+      "case_id": "CASE-17",
+      "pass": true,
+      "asserted_invariant": "unique requirement resolves exactly once",
+      "production_entrypoint": "resolveUniqueRequirement",
+      "artifact_hash": "5408F25A57D4B76819334F3C66AE5728E4747B582BD4F6E4B75DF8B5E3F29B42"
+    },
+    {
+      "case_id": "CASE-18",
+      "pass": true,
+      "asserted_invariant": "duplicate requirement rejected",
+      "production_entrypoint": "resolveUniqueRequirement",
+      "artifact_hash": "6545844A690E70029CE6204B3200784D2624D139DF8E5447A9296F99CE51185A"
+    },
+    {
+      "case_id": "CASE-19",
+      "pass": true,
+      "asserted_invariant": "required NOT_APPLICABLE verdict rejected",
+      "production_entrypoint": "resolveRequirementVerdict",
+      "artifact_hash": "0B497746EA6424F25DE216D45F7A07E7FF87A4D0944C6B4A2D16A53C4D66A726"
+    },
+    {
+      "case_id": "CASE-20",
+      "pass": true,
+      "asserted_invariant": "requirement collision permutation property",
+      "production_entrypoint": "resolveUniqueRequirement",
+      "artifact_hash": "AEC95B70C7912F58D0D97FA69E41B323BCAD8AFBCDA790E57965C479290FD51A"
+    },
+    {
+      "case_id": "CASE-21",
+      "pass": true,
+      "asserted_invariant": "bootstrap candidate record valid",
+      "production_entrypoint": "validateBootstrapCandidateRecord",
+      "artifact_hash": "A02413C37B41C94AE8AF50002AC6F75E2057309BDED8B45BAA61F94C6237D139"
+    },
+    {
+      "case_id": "CASE-22",
+      "pass": true,
+      "asserted_invariant": "bootstrap assurance cannot be elevated",
+      "production_entrypoint": "validateBootstrapCandidateRecord",
+      "artifact_hash": "0956574DCED14999BEDE6BE8BE2FB6513FA4CEAFECC325D7CBBB3AF0B9593FE1"
+    },
+    {
+      "case_id": "CASE-23",
+      "pass": true,
+      "asserted_invariant": "generic PASS is not a candidate record",
+      "production_entrypoint": "validateBootstrapCandidateRecord",
+      "artifact_hash": "010ECDFBE0D3A11CA97940763DAF1067C3F188FD7FBBD80FFFFB3089DA0B4A98"
+    },
+    {
+      "case_id": "CASE-24",
+      "pass": true,
+      "asserted_invariant": "self-declared producer field rejected",
+      "production_entrypoint": "validateBootstrapCandidateRecord",
+      "artifact_hash": "4994FAF7748C14C07687D96C8C59861CD114636C3BC4DA7C8DDA0B76880F328D"
+    },
+    {
+      "case_id": "CASE-25",
+      "pass": true,
+      "asserted_invariant": "staged fields rejected",
+      "production_entrypoint": "validateBootstrapCandidateRecord",
+      "artifact_hash": "B3C39C6EF3C8806FEAF0B0A6BE2DC9BCFE58A7A704A33ABA9D05F263DD501602"
+    },
+    {
+      "case_id": "CASE-26",
+      "pass": true,
+      "asserted_invariant": "candidate payload mutation rejected",
+      "production_entrypoint": "validateBootstrapCandidateRecord",
+      "artifact_hash": "638618AC68B8D109F986D899AB36521E0C03A0CA177D9832ED47316441DDAEB4"
+    },
+    {
+      "case_id": "CASE-27",
+      "pass": true,
+      "asserted_invariant": "manifest replay mismatch rejected",
+      "production_entrypoint": "validateBootstrapCandidateRecord",
+      "artifact_hash": "05817249ED082CEE981F4FA65982C2078763F01CF63F2A84F90383C17619E37C"
+    },
+    {
+      "case_id": "CASE-28",
+      "pass": true,
+      "asserted_invariant": "scanner report replay mismatch rejected",
+      "production_entrypoint": "validateBootstrapCandidateRecord",
+      "artifact_hash": "AD02A15D0C28BFEEDB5380B8244FD29C437338732B44CEBCB3A24916EADCDEC8"
+    },
+    {
+      "case_id": "CASE-29",
+      "pass": true,
+      "asserted_invariant": "file count mismatch rejected",
+      "production_entrypoint": "validateBootstrapCandidateRecord",
+      "artifact_hash": "DF7AC8C187FFAC88EF319FB8BBF22860F6DEC8F887FE7F95A65DC8AB9ED216D1"
+    },
+    {
+      "case_id": "CASE-30",
+      "pass": true,
+      "asserted_invariant": "staged proof API absent",
+      "production_entrypoint": "typed-proof module exports",
+      "artifact_hash": "9CDA7B74CF6EBF0F4800B9E311F8D92DF9176D88CCE70FF45AD3481E5AAB2339"
+    },
+    {
+      "case_id": "CASE-31",
+      "pass": true,
+      "asserted_invariant": "JSON Unicode escape reaches Basic detector",
+      "production_entrypoint": "canonicalizeScannerInput/scanCanonicalContent",
+      "artifact_hash": "80B4917283B5B0419B4C64BE43A029B554D8CA67E4606A35753122FD6D5B4D2B"
+    },
+    {
+      "case_id": "CASE-32",
+      "pass": true,
+      "asserted_invariant": "bounded double URL decode reaches credential URI detector",
+      "production_entrypoint": "canonicalizeScannerInput/scanCanonicalContent",
+      "artifact_hash": "06DBE1FE0A372FEBE77D6434E39A7C14C51EAAF57147C585708502785851D1E0"
+    },
+    {
+      "case_id": "CASE-33",
+      "pass": true,
+      "asserted_invariant": "malformed percent is a finding without suppressing adjacent credential",
+      "production_entrypoint": "canonicalizeScannerInput/scanCanonicalContent",
+      "artifact_hash": "2FBEC9233768376FAC3CF058AD815012B5955F736B221EDB7A50BE7DA1BAC49A"
+    },
+    {
+      "case_id": "CASE-34",
+      "pass": true,
+      "asserted_invariant": "credential URI detected",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "CC139C5B80EDDC89FBA07A1419D5808C5478D631A766A6265F2536E4A3E44F5D"
+    },
+    {
+      "case_id": "CASE-35",
+      "pass": true,
+      "asserted_invariant": "Bearer header detected",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "E61B8D36D0DDCE9BD510140003A1D28F3199D4C5EF50C83869AD3E6652B40607"
+    },
+    {
+      "case_id": "CASE-36",
+      "pass": true,
+      "asserted_invariant": "Basic header detected",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "5A36011B8D8B17153455BDEA6E8D1862EF0A51E63ED89B2C279EB2DB1C2BE113"
+    },
+    {
+      "case_id": "CASE-37",
+      "pass": true,
+      "asserted_invariant": "quoted Cookie header detected",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "F12F089129E18F9B12F6A48D66512740F9390361BDD80C8BEDFB21A49A63A75A"
+    },
+    {
+      "case_id": "CASE-38",
+      "pass": true,
+      "asserted_invariant": "quoted Set-Cookie header detected",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "4E7EB2F7FE6108DA993FAD35F97A4E0B2A0B331B6A1E42EDA367A2D31D137609"
+    },
+    {
+      "case_id": "CASE-39",
+      "pass": true,
+      "asserted_invariant": "session value detected",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "C9FA94A248EE7A377A205E74B63AF904182D175B779D5C852ACEC53BB64157B5"
+    },
+    {
+      "case_id": "CASE-40",
+      "pass": true,
+      "asserted_invariant": "JWT detected",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "484EC3B8C3679DD65F8540532A9C8E3487E24FC98DAC9E06D7F21AEA13867B0E"
+    },
+    {
+      "case_id": "CASE-41",
+      "pass": true,
+      "asserted_invariant": "known token detected",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "5D95F284572A74C83A3DA46EA1BE95EDB5FFF52C493F3452417BD0C2C118F598"
+    },
+    {
+      "case_id": "CASE-42",
+      "pass": true,
+      "asserted_invariant": "URL-safe entropy detected",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "DBBCB47ABE7C16B54FF52134D119C66CC392BE15EAB1AF324D16023E331ABAC5"
+    },
+    {
+      "case_id": "CASE-43",
+      "pass": true,
+      "asserted_invariant": "benign content remains finding-free",
+      "production_entrypoint": "scanCanonicalContent",
+      "artifact_hash": "59A569C04F31B8A523EE1FC62597BB5E4B1ACF1B6102DA5933207BB6CD9281CD"
+    },
+    {
+      "case_id": "CASE-44",
+      "pass": true,
+      "asserted_invariant": "MZ signature and extension mismatch detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "11455AAEB6557DEB84EC21F4818960ECC1890219205A0811E6B1F695C8EAEB6B"
+    },
+    {
+      "case_id": "CASE-45",
+      "pass": true,
+      "asserted_invariant": "ELF signature and extension mismatch detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "6E56C3750F8E1073E4DE5E05D12DFE3D62E6EC3BB742F0140941A9CAD855FF40"
+    },
+    {
+      "case_id": "CASE-46",
+      "pass": true,
+      "asserted_invariant": "ZIP signature and extension mismatch detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "39A18D979B40850F41177C6C40C570053D4D0498707BD4360969A42534CA6166"
+    },
+    {
+      "case_id": "CASE-47",
+      "pass": true,
+      "asserted_invariant": "PDF signature and extension mismatch detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "4280282E7C9A5D9CE9104CE1929548CE6C13EEECF3CA201DE08939F3C05C7561"
+    },
+    {
+      "case_id": "CASE-48",
+      "pass": true,
+      "asserted_invariant": "SQLite signature and extension mismatch detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "17A2E0F9EFD8AD03AF4BB56B11578AE5338A06FDF4B78844ACB09EB5E76F0E7E"
+    },
+    {
+      "case_id": "CASE-49",
+      "pass": true,
+      "asserted_invariant": "PGDMP signature and extension mismatch detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "A0F6D14B656AE6540E60B95AE7F45B59B924F455B3F7916F1B225CCD6C1252CE"
+    },
+    {
+      "case_id": "CASE-50",
+      "pass": true,
+      "asserted_invariant": "OLE signature and extension mismatch detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "59EE7D5D14ED16F4D0C496428EAFB6F399A6B7D694768434A4D6E130BDD9963A"
+    },
+    {
+      "case_id": "CASE-51",
+      "pass": true,
+      "asserted_invariant": "PNG signature and extension mismatch detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "AD24A4F72B5259FBF74B516879E11650491F77B9B04D14C24AEDC1EF2F6079EC"
+    },
+    {
+      "case_id": "CASE-52",
+      "pass": true,
+      "asserted_invariant": "JPEG signature and extension mismatch detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "3888DAA771A5EAD04F0B967704660EFA273FB84E4490DB6CAEE4C822AC19FEB9"
+    },
+    {
+      "case_id": "CASE-53",
+      "pass": true,
+      "asserted_invariant": "NUL byte detected",
+      "production_entrypoint": "scanBinaryContent",
+      "artifact_hash": "ADA5A057D73A9DF2895992C8C5CCB705834ED068F09471360A68624F75A94FA3"
+    },
+    {
+      "case_id": "CASE-54",
+      "pass": true,
+      "asserted_invariant": "declared scanner contract equals emitters",
+      "production_entrypoint": "validateDeclaredScanContract",
+      "artifact_hash": "8FCB404801337089A0FFC22810B562F56B664C65BDDAD4145444092BE0A4A338"
+    },
+    {
+      "case_id": "CASE-55",
+      "pass": true,
+      "asserted_invariant": "JavaScript candidate extension allowed",
+      "production_entrypoint": "assertCandidateTextArtifact",
+      "artifact_hash": "2C509B4FA9756B5B865B63867BB8E934A4F130FD666A5BE5E155B71CE7E6A1ED"
+    },
+    {
+      "case_id": "CASE-56",
+      "pass": true,
+      "asserted_invariant": "executable candidate extension rejected",
+      "production_entrypoint": "assertCandidateTextArtifact",
+      "artifact_hash": "9CCBAA318855CA7A7F14CCD8981412E8FF53C4FB14FCEB724EFA425B0A3CECF3"
+    },
+    {
+      "case_id": "CASE-57",
+      "pass": true,
+      "asserted_invariant": "candidate-only Domain registry valid",
+      "production_entrypoint": "validateProposedDomainRegistry/validateRuleClassification",
+      "artifact_hash": "9AD0BCB15EFB34571112269A82D1ADAFC3156996AB9B4EB28F842CA19DF908BB"
+    },
+    {
+      "case_id": "CASE-58",
+      "pass": true,
+      "asserted_invariant": "confirmed Domain input rejected",
+      "production_entrypoint": "validateProposedDomainRegistry",
+      "artifact_hash": "A1B348CA4A0CB8CC69982EFF2C33FB4EC3923D59BD48D631C55F579E5F003474"
+    },
+    {
+      "case_id": "CASE-59",
+      "pass": true,
+      "asserted_invariant": "railway candidate cannot enter applicable rules",
+      "production_entrypoint": "validateTaskRuleSelection",
+      "artifact_hash": "9A8129B8F7C718CBFD83138AD15D7FD3E569B383A48B4696590C6E27248F3010"
+    },
+    {
+      "case_id": "CASE-60",
+      "pass": true,
+      "asserted_invariant": "generic meta record cannot create business authority",
+      "production_entrypoint": "validateRuleClassification",
+      "artifact_hash": "5F51EFE24CD1DABE3FB4E11D3614AF75CBF65C4BA7FB205B6F83F71C29CE078A"
+    },
+    {
+      "case_id": "CASE-61",
+      "pass": true,
+      "asserted_invariant": "railway domain authority class unsupported",
+      "production_entrypoint": "validateRuleClassification",
+      "artifact_hash": "88B136D9B8C912C9990295531FC1B3D2CEF3908D3C69A1AE72480F0406AE4532"
+    },
+    {
+      "case_id": "CASE-62",
+      "pass": true,
+      "asserted_invariant": "governance and technical classes are applicable",
+      "production_entrypoint": "validateTaskRuleSelection",
+      "artifact_hash": "5079C967334D6733C9A105A2083C3AA60E6FAC9265D91DFCEF3877B771DB9709"
+    },
+    {
+      "case_id": "CASE-63",
+      "pass": true,
+      "asserted_invariant": "duplicate Rule identity rejected",
+      "production_entrypoint": "resolveUniqueRule",
+      "artifact_hash": "BA2B5A594A583E71070CC073951F58F74801BEADDBDF87D9D04E2A66E9DA1B55"
+    },
+    {
+      "case_id": "CASE-64",
+      "pass": true,
+      "asserted_invariant": "lifecycle is dynamic informational and collision-aware",
+      "production_entrypoint": "projectLifecycleState",
+      "artifact_hash": "611B997185D60E66F9538486F2C3152E8984FD1FF6B632BC134B7223F2C1C17F"
+    },
+    {
+      "case_id": "CASE-65",
+      "pass": true,
+      "asserted_invariant": "Windows absolute path detected",
+      "production_entrypoint": "classifyOperationalContent",
+      "artifact_hash": "61F8D31FFCFCDACB90182DEEFF6C92A2D7138F20E9EC924267E1463DE1B1768E"
+    },
+    {
+      "case_id": "CASE-66",
+      "pass": true,
+      "asserted_invariant": "UNC path detected",
+      "production_entrypoint": "classifyOperationalContent",
+      "artifact_hash": "9AC8667BE6E4D08B75B472898E53B9322401FE9946F1980A86418A643ABBE863"
+    },
+    {
+      "case_id": "CASE-67",
+      "pass": true,
+      "asserted_invariant": "file URI detected",
+      "production_entrypoint": "classifyOperationalContent",
+      "artifact_hash": "AF19DF09A36572C81B2591783E768202D19F32C6852485BB03FBB50A72633A1F"
+    },
+    {
+      "case_id": "CASE-68",
+      "pass": true,
+      "asserted_invariant": "dump reference detected",
+      "production_entrypoint": "classifyOperationalContent",
+      "artifact_hash": "0FC6C9E12347FA0FB7FE99A705824F79F2B7D82BEC573F445E9D13DA5389F7EA"
+    }
+  ]
+}

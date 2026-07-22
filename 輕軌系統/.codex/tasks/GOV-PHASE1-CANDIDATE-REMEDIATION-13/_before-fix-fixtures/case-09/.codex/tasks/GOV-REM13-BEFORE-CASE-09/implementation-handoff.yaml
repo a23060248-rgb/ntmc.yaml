@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-REM13-BEFORE-CASE-09",
+  "producer": "fixture-builder",
+  "actor_role": "qa-engineer",
+  "agent_session_ref": "IMPLEMENTER-GOV-REM13-BEFORE-CASE-09",
+  "started_at": "2026-07-21T00:30:00Z",
+  "changed_files": [
+    ".codex/tasks/GOV-REM13-BEFORE-CASE-09/evidence.md"
+  ],
+  "commands": [
+    "validateTask production API"
+  ],
+  "evidence_refs": [
+    "EV-PRODUCTION"
+  ],
+  "unverified": [
+    "human commit decision"
+  ],
+  "residual_risks": [
+    "Isolated fixture only."
+  ],
+  "next_role": "remediation-owner"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-M320-DRYRUN",
+  "evidence_mode": "static-governance-replay",
+  "commands": ["Get-FileHash -Algorithm SHA256 for five scoped docs", "node --check for three governance scripts", "create-task.mjs positive create", "create-task.mjs duplicate no-overwrite rejection", "validate-agent-environment.mjs safe-profile positive case", "validate-agent-environment.mjs unsafe-profile negative case", "validate-task.mjs --write-graph", "validate-task.mjs current-graph check", "validate-task.mjs unsafe task-id rejection", "Python tomllib parse for config and 10 Agent files"],
+  "checks": [
+    {"check_id": "M320-HASHES", "requirement_id": "M320-HASHES", "result": "PASS", "note": "Five current evidence files match the manifest."},
+    {"check_id": "M320-DECISION", "requirement_id": "M320-DECISION", "result": "PASS", "note": "The dry run preserves NO-GO; this is not a business GO."},
+    {"check_id": "M320-BLOCKERS", "requirement_id": "M320-BLOCKERS", "result": "PASS", "note": "All three blocking gates remain represented."},
+    {"check_id": "M320-FORMAL-CLONE", "requirement_id": "M320-FORMAL-CLONE", "result": "FAIL", "note": "No formal-clone provenance or read-only evidence exists; expected blocker."},
+    {"check_id": "GOV-SCRIPT-SYNTAX", "requirement_id": "GOV-SCRIPT-SYNTAX", "result": "PASS", "note": "All three governance scripts pass node --check."},
+    {"check_id": "GOV-CREATE-NO-OVERWRITE", "requirement_id": "GOV-CREATE-NO-OVERWRITE", "result": "PASS", "note": "A duplicate Task ID is rejected without overwriting files."},
+    {"check_id": "GOV-ENV-NEGATIVE", "requirement_id": "GOV-ENV-NEGATIVE", "result": "PASS", "note": "The unsafe remote fixture is rejected by seven safety checks."},
+    {"check_id": "GOV-TASK-ID-NEGATIVE", "requirement_id": "GOV-TASK-ID-NEGATIVE", "result": "PASS", "note": "A traversal-style Task ID is rejected before filesystem access."},
+    {"check_id": "GOV-SKILL-VALIDATION", "requirement_id": "GOV-SKILL-VALIDATION", "result": "PASS_WITH_LIMITATION", "note": "validate-task.mjs checks frontmatter, unfinished-marker absence and UI metadata; official quick_validate.py could not start because bundled Python lacks PyYAML."}
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": ["No fresh product behavior was tested.", "No API was started.", "No database connection was attempted.", "Formal independent L3 review is pending."]
+}

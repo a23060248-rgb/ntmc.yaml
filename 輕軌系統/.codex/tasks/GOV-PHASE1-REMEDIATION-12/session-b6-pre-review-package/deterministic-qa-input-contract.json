@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "contract_id": "R12-DETERMINISTIC-QA-INPUT",
+  "version": 1,
+  "reviewer_count": 4,
+  "required_per_reviewer": [
+    "raw payload exists",
+    "payload schema valid",
+    "self-hash valid",
+    "stored bytes identical",
+    "transport envelope hash valid",
+    "outcome frozen",
+    "thread closed"
+  ],
+  "required_raw_evidence": [
+    "access logs",
+    "candidate manifest and hashes",
+    "test reports",
+    "before/after baseline",
+    "gate dependency matrix"
+  ],
+  "execution_mode": "non-agent",
+  "root_may_fill_result": false
+}

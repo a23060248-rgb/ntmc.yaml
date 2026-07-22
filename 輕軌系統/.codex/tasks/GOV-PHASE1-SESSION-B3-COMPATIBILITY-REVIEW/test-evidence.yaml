@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW",
+  "evidence_mode": "precheck_blocker_read_only_governance_evidence",
+  "commands": [
+    "node --check .codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/prepare-session-b3.mjs",
+    "node .codex/tasks/GOV-PHASE1-SESSION-B3-COMPATIBILITY-REVIEW/prepare-session-b3.mjs",
+    "collaboration spawn_agent for fresh B3 Code Reviewer"
+  ],
+  "checks": [
+    {
+      "check_id": "B3-PRECHECK-INPUTS",
+      "requirement_id": "B3-R11-PACKAGE",
+      "result": "PASS",
+      "note": "R11 source package 15/15 and B3 materialized pre-review freeze were hash verified."
+    },
+    {
+      "check_id": "B3-PRECHECK-CANDIDATE",
+      "requirement_id": "B3-CANDIDATE-BASELINE",
+      "result": "PASS",
+      "note": "The exact 103-file candidate and manifest/file-set hashes were recomputed."
+    },
+    {
+      "check_id": "B3-PRECHECK-SECURITY",
+      "requirement_id": "B3-SECURITY-SCHEMA",
+      "result": "PASS",
+      "note": "Registered production schema validation returned zero issues and the 124-entry allowlist contained zero prohibited M320 paths."
+    },
+    {
+      "check_id": "B3-PRECHECK-CAPACITY",
+      "requirement_id": "B3-EXACT-SCOPES",
+      "result": "FAIL",
+      "note": "The first fresh Reviewer spawn was rejected with agent thread limit reached; QA capacity is therefore not proven."
+    },
+    {
+      "check_id": "B3-FRESH-RERUN",
+      "requirement_id": "B3-FRESH-RERUN",
+      "result": "NOT_VERIFIED",
+      "note": "Fresh deterministic suites were not run because the explicit precheck stop condition fired before Wave 1."
+    }
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": [
+    "No formal B3 Reviewer executed.",
+    "No deterministic fresh rerun executed after the precheck blocker.",
+    "Git state was not inspected because all Git operations were prohibited."
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer": "code-reviewer",
+    "reviewer_run_id": "CR-A2-019F6BCD-2001",
+    "session_id": "CRS-A2-019F6BCD-3001",
+    "did_not_participate_in_implementation": true,
+    "mode": "read-only",
+    "review_scope": "Phase 1.2 gate/schema/fixture isolation remediation"
+  },
+  "outcome": "BLOCKER",
+  "findings": [
+    {
+      "id": "CR-A2-BLOCKER-001",
+      "severity": "BLOCKER",
+      "location": ".codex/scripts/validate-task.mjs:262",
+      "evidence": "Lines 262-263 treat a required evidence ID as satisfied solely when the ID exists in either manifest.artifacts or test-evidence.checks. Line 289 adds a gate reason only for result=FAIL. test-evidence.schema.json:7 explicitly permits NOT_APPLICABLE and PASS_WITH_LIMITATION, so either result can satisfy classification/Blueprint evidence_required and still leave the recomputed gate GO.",
+      "reproduction": "In a disposable isolated fixture copy of the complete L3 case at .codex/tests/run-governance-fixtures.mjs:86, change EV-FIXTURE at .codex/tests/run-governance-fixtures.mjs:58 from PASS to NOT_APPLICABLE (or PASS_WITH_LIMITATION), retain the declared GO values, and run validateTask. The check ID remains in availableEvidence and no gateReason is added because .codex/scripts/validate-task.mjs:289 tests only FAIL; the expected secure result is NO-GO.",
+      "impact": "A Task can receive GO while mandatory evidence is explicitly unavailable or limited. Evidence therefore does not jointly control the gate, and a passing 21/21 suite does not cover this bypass."
+    },
+    {
+      "id": "CR-A2-BLOCKER-002",
+      "severity": "BLOCKER",
+      "location": ".codex/scripts/validate-task.mjs:310",
+      "evidence": "Lines 310-316 inspect open per-review conditions only when outcome is PASS_WITH_CONDITIONS. A review with outcome=PASS plus an open condition is ignored, while PASS_WITH_CONDITIONS plus an empty conditions array also passes because Array.some returns false. review-findings.schema.json:6 permits both combinations and does not encode their semantic consistency.",
+      "reproduction": "In a disposable isolated copy of the complete L3 fixture, set the code review to outcome=PASS and conditions=[{condition:\"unresolved\",status:\"open\"}], leaving top-level conditions empty; alternatively set outcome=PASS_WITH_CONDITIONS and conditions=[]. Run validateTask. Neither combination produces a structural error or NO-GO reason, although an invalid gate combination is required to exit 1 and an open condition is required to block GO.",
+      "impact": "An unresolved reviewer condition can be hidden behind PASS, and a conditional pass can carry no condition. Review outcome/condition semantics are not fail-closed and can authorize GO incorrectly."
+    },
+    {
+      "id": "CR-A2-BLOCKER-003",
+      "severity": "BLOCKER",
+      "location": ".codex/scripts/validate-task.mjs:337",
+      "evidence": "Lines 337-340 require the three artifacts to say approval is required, but then verify only human-approval.status=approved and the existence of one approved final-stage record. classification.human_approval.stages is never reconciled with human-approval.approvals, even though classification.schema.json:10 records the required stages and the L3 workflow requires scope and final approval.",
+      "reproduction": "In a disposable isolated copy of the complete L3 fixture, remove the scope approval record from human-approval.yaml while retaining status=approved and the approved final record. Keep classification.human_approval.stages=[\"scope\",\"final\"]. Run validateTask; the missing required scope-stage approval is not detected and the Task can remain GO.",
+      "impact": "L3 can bypass the required human scope gate by presenting final approval alone. The approval artifacts do not jointly control the recomputed gate."
+    },
+    {
+      "id": "CR-A2-BLOCKER-004",
+      "severity": "BLOCKER",
+      "location": ".codex/tests/run-governance-fixtures.mjs:12",
+      "evidence": "fixtureRunId accepts GOV_FIXTURE_RUN_ID without validation at line 12, runRoot incorporates it at line 14, and the cleanup guard at line 33 uses a string-prefix test rather than a resolved path-boundary test. A read-only path calculation with run ID ../.tmp-outside resolved runRoot to .codex/tests/.tmp-outside and guard_passes=true; line 34 would recursively delete that sibling. Cleanup is also only reached at line 127, without try/finally, so an exception leaves an orphaned run root.",
+      "reproduction": "Safe read-only reproduction: from the product root evaluate Node path.join(testsDir,'.tmp','../.tmp-outside') and compare startsWith(path.join(testsDir,'.tmp')); it returns true for a path outside the intended .tmp directory. Do not execute the fixture with that run ID, because line 34 performs recursive deletion.",
+      "impact": "Caller-controlled run IDs can collide with or remove a sibling .tmp-prefixed workspace, and crashes do not perform owned cleanup. The fixture isolation/cleanup contract is not safe enough for formal concurrent regression evidence."
+    },
+    {
+      "id": "CR-A2-HIGH-005",
+      "severity": "HIGH",
+      "location": ".codex/tests/run-governance-fixtures-concurrency.mjs:9",
+      "evidence": "Lines 9-16 reduce each child result to exitCode plus two unstructured regex matches. Lines 19-23 prove only that the input runId strings differ; they do not parse FIXTURE_REPORT, verify each reported fixture_run_id equals the supplied ID, compare run_root/case_workspace paths, or verify that cleanup removed both roots. The concurrency report itself contains no started_at, execution_mode, run_root, or case_workspace fields.",
+      "reproduction": "Statically replace the child implementation with any process that prints GOVERNANCE_FIXTURES total=21 passed=21 failed=0 and a JSON fragment containing cleanup_result=PASS, then exits 0. The concurrency harness reports passed=true even if the child ignores GOV_FIXTURE_RUN_ID and both invocations use a shared workspace.",
+      "impact": "The two-run check can report isolation success without proving separate graph, manifest, Task, or temporary roots and without complete report fields. It is insufficient evidence that parallel runs cannot pollute each other."
+    }
+  ],
+  "checks": {
+    "validator_recomputes_gate": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:353 computes GO only from the validator's accumulated structural errors and gate reasons."
+    },
+    "declared_overall_final_summary_and_task_graph_are_not_gate_authority": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:353-369 computes the gate before comparing declared gates and before writing or comparing the derived task graph; mismatches become structural errors rather than granting GO."
+    },
+    "classification_draft_and_proposed_fail_closed": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:336 makes DRAFT intent or proposed classification a NO-GO reason."
+    },
+    "required_evidence_jointly_gates": {
+      "result": "FAIL",
+      "evidence": "CR-A2-BLOCKER-001; .codex/scripts/validate-task.mjs:262-263 and 289 allow required NOT_APPLICABLE or PASS_WITH_LIMITATION evidence to coexist with GO."
+    },
+    "blocker_dominance_and_human_decision": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:314-315 turns BLOCKER and NEEDS_HUMAN_DECISION into NO-GO reasons; top-level blockers also gate at line 334."
+    },
+    "missing_review_formal_run_and_session_identity": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:320-330 requires each calculated review type, formal=true, L3 reviewer_run_id/session_id, implementer separation, and uniqueness, and maps absence/collision to NO-GO."
+    },
+    "review_conditions_and_invalid_combinations": {
+      "result": "FAIL",
+      "evidence": "CR-A2-BLOCKER-002; .codex/scripts/validate-task.mjs:316 does not gate open conditions attached to PASS and does not reject PASS_WITH_CONDITIONS with no conditions."
+    },
+    "l3_approval_stages": {
+      "result": "FAIL",
+      "evidence": "CR-A2-BLOCKER-003; .codex/scripts/validate-task.mjs:337-340 enforces final approval but not every stage declared by classification.human_approval.stages. Pending final approval does correctly remain NO-GO."
+    },
+    "hash_mismatch_exit_1": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:264-270 records a SHA256 mismatch as a structural error, and lines 353 and 372 map it to calculated NO-GO and exit 1. A read-only validation of GOV-PHASE1-L3-REVIEW-A2 observed this behavior: artifact-manifest.yaml:9 records 2438BEB6..., while the current task-intent.yaml SHA256 is 85CAAAD2...."
+    },
+    "confirmed_and_candidate_rule_separation": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:247-258 rejects non-confirmed Rules in applicable_rules, confirmed Rules in candidate_rules, and adds a NO-GO reason for candidate Rules; line 333 also requires Railway Domain NEEDS_HUMAN_DECISION."
+    },
+    "schemas_applied_and_basic_empty_enum_marker_checks": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/validate-task.mjs:14-24, 191-209 applies nine Task schemas, while lines 144-160 apply rule.schema.json. .codex/scripts/lib/schema-validator.mjs:21-40 enforces const, enum, minLength, minItems, uniqueness, required fields, and additionalProperties; validate-task.mjs:57-61 and 192-209 reject TBD, TODO, PLACEHOLDER, and <TASK-ID>."
+    },
+    "create_task_is_draft_no_go": {
+      "result": "PASS",
+      "evidence": ".codex/scripts/create-task.mjs:61-104 emits DRAFT intent, proposed classification, non-formal unresolved reviews, pending L3 approval, and declared NO-GO."
+    },
+    "fixture_unique_owned_workspace_and_cleanup": {
+      "result": "FAIL",
+      "evidence": "CR-A2-BLOCKER-004; ordinary generated UUID runs use a per-run root, but caller-supplied IDs are unvalidated, the cleanup boundary is prefix-based, and exceptional cleanup is absent."
+    },
+    "parallel_fixture_non_pollution_and_report_completeness": {
+      "result": "FAIL",
+      "evidence": "CR-A2-HIGH-005; the concurrency harness does not validate child run roots/case workspaces or parse complete reports."
+    },
+    "governance_script_syntax": {
+      "result": "PASS",
+      "evidence": "Read-only node --check completed with exit 0 for validate-task.mjs, schema-validator.mjs, create-task.mjs, run-governance-fixtures.mjs, and run-governance-fixtures-concurrency.mjs."
+    },
+    "migration_320_remains_fail_closed": {
+      "result": "PASS",
+      "evidence": "Read-only execution of node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN reported calculated_gate=NO-GO, structural=VALID, internal exit=2, including candidate Rule, FAIL evidence, compatibility BLOCKER, missing formal identities, open conditions/blockers, and pending final approval reasons."
+    },
+    "current_a2_task_fails_closed": {
+      "result": "PASS_WITH_LIMITATION",
+      "evidence": "Read-only validation reported calculated_gate=NO-GO, structural=INVALID, internal exit=1 because EV-A2 evidence records are not yet present and artifact-manifest.yaml:9 no longer matches task-intent.yaml. This confirms fail-closed behavior but means the A2 Task is not currently structurally valid."
+    }
+  },
+  "limitations": [
+    "Review was restricted to the explicitly allowed governance, schema, fixture, Rule, workflow, and named Task artifacts. No .env*, frontend, erp-api, db-design, sibling directory, service, product test, database operation, or Git mutation was accessed or performed.",
+    "The Reviewer did not read implementer conversations and did not participate in implementation.",
+    "Because mode=read-only and the only authorized write is this artifact, the fixture and concurrency suites were not executed: they create and recursively remove .codex/tests/.tmp workspaces. Their previously recorded 21/21 result was treated only as historical evidence, not as proof of the reviewed mechanisms.",
+    "Static inspection confirms distinct generated run roots for ordinary concurrency inputs, but the checked-in concurrency harness does not produce enough structured evidence to independently prove absence of cross-run pollution.",
+    "No source, graph, manifest, baseline, prior review, Session A artifact, remediation artifact, or Migration 320 artifact was modified."
+  ]
+}

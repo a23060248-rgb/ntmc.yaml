@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "matrix_id": "GOV-SCANNER-CONTRACT-IMPLEMENTATION",
+  "matrix_version": 1,
+  "formal_invocation": ".codex/scripts/generate-bootstrap-scan-report.mjs",
+  "finding_classes": [
+    ["PRIVATE_KEY", "scanCanonicalContent", "SCAN-PRIVATE-KEY-P", "SCAN-PRIVATE-KEY-N"],
+    ["CREDENTIAL_URI", "scanCanonicalContent", "SCAN-CREDENTIAL-URI-P", "SCAN-CREDENTIAL-URI-N"],
+    ["BEARER_TOKEN", "scanCanonicalContent", "SCAN-BEARER-P", "SCAN-BEARER-N"],
+    ["BASIC_AUTH", "scanCanonicalContent", "SCAN-BASIC-P", "SCAN-BASIC-N"],
+    ["COOKIE_HEADER", "scanCanonicalContent", "SCAN-COOKIE-P", "SCAN-COOKIE-N"],
+    ["SESSION_COOKIE", "scanCanonicalContent", "SCAN-SESSION-P", "SCAN-SESSION-N"],
+    ["JWT", "scanCanonicalContent", "SCAN-JWT-P", "SCAN-JWT-N"],
+    ["KNOWN_TOKEN", "scanCanonicalContent", "SCAN-KNOWN-TOKEN-P", "SCAN-KNOWN-TOKEN-N"],
+    ["SECRET_VALUE", "scanCanonicalContent", "SCAN-SECRET-VALUE-P", "SCAN-SECRET-VALUE-N"],
+    ["CREDENTIAL_FILE", "scanCanonicalContent", "SCAN-CREDENTIAL-FILE-P", "SCAN-CREDENTIAL-FILE-N"],
+    ["HIGH_ENTROPY_OPAQUE_VALUE", "scanCanonicalContent", "SCAN-ENTROPY-P", "SCAN-ENTROPY-N"],
+    ["MALFORMED_PERCENT_ENCODING", "canonicalizeScannerInput", "SCAN-MALFORMED-PERCENT-P", "SCAN-MALFORMED-PERCENT-N"],
+    ["WINDOWS_ABSOLUTE_PATH", "classifyOperationalContent", "SCAN-WINDOWS-PATH-P", "SCAN-WINDOWS-PATH-N"],
+    ["UNC_PATH", "classifyOperationalContent", "SCAN-UNC-PATH-P", "SCAN-UNC-PATH-N"],
+    ["FILE_URI", "classifyOperationalContent", "SCAN-FILE-URI-P", "SCAN-FILE-URI-N"],
+    ["UNIX_LOCAL_PATH", "classifyOperationalContent", "SCAN-UNIX-PATH-P", "SCAN-UNIX-PATH-N"],
+    ["HOME_EXPANSION", "classifyOperationalContent", "SCAN-HOME-PATH-P", "SCAN-HOME-PATH-N"],
+    ["DUMP_REFERENCE", "classifyOperationalContent", "SCAN-DUMP-P", "SCAN-DUMP-N"],
+    ["DISALLOWED_FILE_EXTENSION", "scanCandidateArtifact", "SCAN-EXTENSION-P", "SCAN-EXTENSION-N"],
+    ["NUL_BYTE_DETECTED", "scanBinaryContent", "SCAN-NUL-P", "SCAN-NUL-N"],
+    ["KNOWN_BINARY_MAGIC_DETECTED", "scanBinaryContent", "SCAN-MAGIC-MZ-P", "SCAN-MAGIC-MZ-N"],
+    ["NON_UTF8_TEXT", "scanBinaryContent", "SCAN-NON-UTF8-P", "SCAN-NON-UTF8-N"],
+    ["BINARY_CONTENT_RATIO_EXCEEDED", "scanBinaryContent", "SCAN-BINARY-RATIO-P", "SCAN-BINARY-RATIO-N"],
+    ["MANIFEST_HASH_MISMATCH", "generateBootstrapScanReport", "SCAN-MANIFEST-HASH-P", "SCAN-MANIFEST-HASH-N"]
+  ]
+}

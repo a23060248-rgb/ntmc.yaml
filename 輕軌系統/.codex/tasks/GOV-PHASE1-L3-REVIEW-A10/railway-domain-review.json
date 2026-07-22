@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "reviewer": "railway-domain-reviewer",
+  "formal": true,
+  "did_not_participate_in_implementation": true,
+  "reviewer_run_id": "A10-DOMAIN-RUN-E0486A9D-394A-4568-8257-CDB23E78159D",
+  "session_id": "A10-DOMAIN-SESSION-994938BC-6E74-4AA3-A226-2B2A29BB87D0",
+  "assignment_id": "ASSIGN-A10-DOMAIN-4F88F054-3EA6-4CA9-BA3B-55DD4E9FC3C3",
+  "reviewed_candidate_baseline": "phase-1.9-bootstrap",
+  "candidate_manifest_file_count": 103,
+  "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+  "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB",
+  "schema_set_sha256": "F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9",
+  "railway_review_schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+  "railway_reviewer_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+  "review_scope": "bootstrap_rule_governance_mechanism",
+  "execution_mode": "read-only",
+  "implementation_participation": false,
+  "reviewer_binding": {
+    "canonical_role_id": "railway-domain-reviewer",
+    "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml",
+    "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "task_assignment_id": "ASSIGN-A10-DOMAIN-4F88F054-3EA6-4CA9-BA3B-55DD4E9FC3C3",
+    "reviewer_run_id": "A10-DOMAIN-RUN-E0486A9D-394A-4568-8257-CDB23E78159D",
+    "session_id": "A10-DOMAIN-SESSION-994938BC-6E74-4AA3-A226-2B2A29BB87D0",
+    "formal": true,
+    "execution_mode": "read-only",
+    "implementation_participation": false,
+    "reviewer_identity_assurance": "procedural_role_and_assignment_binding"
+  },
+  "outcome": "PASS",
+  "governance_mechanism_outcome": {"outcome":"PASS","findings":[]},
+  "external_decisions": [{"decision_scope":"migration_320","outcome":"NEEDS_HUMAN_DECISION","affects_gate":"migration_320_execution","decision_owner_role":"human-domain-owner","decision_question":"Confirm, reject, or retain the proposed Migration 320 candidate Rules before any business approval or execution."}],
+  "closure_dispositions": {
+    "a8": [
+      {"finding_id":"A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001","status":"CLOSED","production_retest":"PASS","evidence":{"production_path":true,"passed":14,"total":14,"substituted_reviewer_rejected":true},"blocks_bootstrap_candidate_gate":false},
+      {"finding_id":"A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001","status":"CLOSED","production_retest":"PASS","evidence":{"production_path":true,"integration_passed":11,"integration_total":11,"mutants_killed":6,"mutants_total":6,"malformed_schema_fails_at_startup":true,"fixture_success_report_on_malformed_schema":false},"blocks_bootstrap_candidate_gate":false}
+    ],
+    "a9": [{"review_artifact":".codex/tasks/GOV-PHASE1-L3-REVIEW-A9/railway-domain-review.json","prior_outcome":"PASS","disposition":"INDEPENDENTLY_REVALIDATED","current_outcome":"PASS","candidate_unchanged":true,"migration_320_decision_unchanged":true}]
+  },
+  "schema_loader_assessment": {
+    "outcome":"PASS", "official_loader_production_path_used":true, "schema_count":15, "unique_id_count":15, "schema_set_sha256":"F3101FFD0B7ABB22D26F65B2DB8522F60C2D0A8C45513DAAEF87725F81CF15E9", "fixture_production_loader_used":true, "typed_fixture_validated":true, "inline_schema_observed":false, "fallback_schema_observed":false, "malformed_schema_fails_at_startup":true, "malformed_schema_can_report_fixture_success":false, "integration_result":"PASS", "integration_passed":11, "integration_total":11, "mutation_result":"PASS", "mutants_killed":6, "mutants_total":6, "mutants_survived":0
+  },
+  "domain_authority_assessment": {
+    "outcome":"PASS", "registry_type":"proposed_rule_registry", "registry_authority":"candidate_only", "is_complete_domain_knowledge_base":false, "phase1_confirmation_supported":false, "confirmed_rule_count":0, "applicable_rules_policy":"confirmed_only", "applicable_domain_rules":[], "candidate_rules_status":"proposed_or_unverified_only", "candidate_rules":["WO-P-C-LINK-001","WO-C-R-LINK-001","WO-C-SHORTAGE-001","WO-C-MERGE-001","PERMISSION-SEPARATION-001","COMPAT-M320-001"], "migration_320_candidate_rules":["WO-P-C-LINK-001","WO-C-SHORTAGE-001","COMPAT-M320-001"], "generic_meta_rules_are_business_authority":false, "generic_meta_rule_assessment":"Confirmed governance controls and technical constraints provide procedural governance only and do not constitute Railway business authority.", "agent_promotion_authority":false, "actual_domain_rules_approved":[], "migration_320_domain_decision":"NEEDS_HUMAN_DECISION", "migration_320_execution_gate":"NO-GO", "mechanism_outcome_separated_from_external_migration_decision":true
+  },
+  "findings": [],
+  "conditions": [],
+  "residual_risks": ["Reviewer identity assurance is procedural role and assignment binding, not cryptographic or unforgeable identity.", "The candidate remains bootstrap evidence with INTERNAL_CONSISTENCY_ONLY assurance; hashes establish byte integrity but not business truth or producer authority.", "The Domain registry is intentionally incomplete and contains zero confirmed Railway Domain Rules.", "Generic governance controls and technical constraints must not be interpreted as Railway business authority.", "Migration 320 retains unresolved formal-clone provenance, P-to-C evidence, and shortage-to-inventory linkage blockers.", "Migration 320 remains NEEDS_HUMAN_DECISION and NO-GO."],
+  "prohibited_actions_confirmed": {"forbidden_read_occurred":false,"workspace_write_performed":false,"git_command_run":false,"service_started":false,"product_test_run":false,"seed_run":false,"migration_run":false,"database_connection_attempted":false,"environment_file_read":false,"frontend_read":false,"erp_api_read":false,"db_design_read":false,"migration_source_read":false,"collab_read":false,"parent_or_sibling_directory_read":false,"implementation_conversation_used":false,"conversation_memory_used":false,"attachment_used":false,"actual_maintenance_rule_approved_or_invented":false,"candidate_rule_promoted":false,"migration_320_business_go_declared":false,"human_commit_go_declared":false,"session_b_started":false}
+}

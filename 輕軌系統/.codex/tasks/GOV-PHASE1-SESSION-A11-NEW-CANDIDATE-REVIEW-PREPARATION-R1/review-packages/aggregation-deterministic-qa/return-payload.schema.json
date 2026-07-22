@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ntmc.local/codex/a11-r1/aggregator-output.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "payload_core",
+    "payload_core_sha256"
+  ],
+  "properties": {
+    "payload_core": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "aggregation_package_id",
+        "aggregation_package_core_sha256",
+        "task_id",
+        "assignment_id",
+        "aggregator_run_id",
+        "aggregator_session_nonce",
+        "candidate_binding",
+        "imported_payload_count",
+        "formal_payloads_accepted",
+        "reviewer_outcomes",
+        "finding_closure_matrix",
+        "deterministic_qa",
+        "calculated_gate",
+        "completed",
+        "mandatory_exit_requested",
+        "execution_attestation"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "aggregation_package_id": {
+          "const": "A11-R1-AGGREGATION-QA-PKG-20260721-05"
+        },
+        "aggregation_package_core_sha256": {
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "task_id": {
+          "const": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION-R1"
+        },
+        "assignment_id": {
+          "const": "A11-R1-AGGREGATION-QA-ASSIGN-20260721-05"
+        },
+        "aggregator_run_id": {
+          "const": "A11-R1-AGGREGATION-QA-RUN-20260721-05"
+        },
+        "aggregator_session_nonce": {
+          "const": "1BC14CB8E8D31BFB1F8003FC8E1FD4DB039E9215C146455B81A0FBA23A28D18B"
+        },
+        "candidate_binding": {
+          "const": {
+            "candidate_file_count": 108,
+            "candidate_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+            "included_file_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+            "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+            "scanner_contract_version": 5,
+            "scanner_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9"
+          }
+        },
+        "imported_payload_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "formal_payloads_accepted": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "reviewer_outcomes": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "finding_closure_matrix": {
+          "type": "array",
+          "minItems": 1
+        },
+        "deterministic_qa": {
+          "type": "object"
+        },
+        "calculated_gate": {
+          "enum": [
+            "GO",
+            "NO-GO"
+          ]
+        },
+        "completed": {
+          "const": true
+        },
+        "mandatory_exit_requested": {
+          "const": true
+        },
+        "execution_attestation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "top_level_chat",
+            "subagents_created",
+            "conversation_memory_used",
+            "reviewer_role_assumed",
+            "reviewer_outcome_modified",
+            "task_local_writes_performed",
+            "writes_outside_allowed_scope",
+            "candidate_write_performed",
+            "package_write_performed",
+            "historical_artifact_write_performed",
+            "git_used",
+            "assurance"
+          ],
+          "properties": {
+            "top_level_chat": {
+              "const": true
+            },
+            "subagents_created": {
+              "const": false
+            },
+            "conversation_memory_used": {
+              "const": false
+            },
+            "reviewer_role_assumed": {
+              "const": false
+            },
+            "reviewer_outcome_modified": {
+              "const": false
+            },
+            "task_local_writes_performed": {
+              "const": true
+            },
+            "writes_outside_allowed_scope": {
+              "const": false
+            },
+            "candidate_write_performed": {
+              "const": false
+            },
+            "package_write_performed": {
+              "const": false
+            },
+            "historical_artifact_write_performed": {
+              "const": false
+            },
+            "git_used": {
+              "const": false
+            },
+            "assurance": {
+              "const": "procedural"
+            }
+          }
+        }
+      }
+    },
+    "payload_core_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  }
+}

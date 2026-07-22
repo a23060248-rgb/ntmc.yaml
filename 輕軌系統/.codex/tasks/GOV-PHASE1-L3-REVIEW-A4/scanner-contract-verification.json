@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A4",
+  "scan_contract_id": "GOV-DETERMINISTIC-SCAN",
+  "scan_contract_version": 2,
+  "max_url_decode_passes": 2,
+  "manifest_sha256": "7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C",
+  "scanned_file_count": 103,
+  "scanned_file_set_sha256": "BCE28F2E0F00CE2F756C5C814954937D13D737EE2983B761FC6D45A5CF5A407C",
+  "deterministic_pattern_scan_completed": true,
+  "no_findings_within_declared_contract": true,
+  "manifest_scan_findings": [],
+  "uri_positive": {
+    "postgres": true,
+    "postgresql": true,
+    "mysql": true,
+    "mongodb": true,
+    "mongodb+srv": true,
+    "redis": true,
+    "rediss": true,
+    "amqp": true,
+    "amqps": true
+  },
+  "uri_safe_negative": {
+    "postgres": true,
+    "postgresql": true,
+    "mysql": true,
+    "mongodb": true,
+    "mongodb+srv": true,
+    "redis": true,
+    "rediss": true,
+    "amqp": true,
+    "amqps": true
+  },
+  "text_probes": {
+    "percent_encoded_uri": true,
+    "json_escaped_uri": true,
+    "cookie": true,
+    "set_cookie": true,
+    "authorization_bearer": true,
+    "session_names": true,
+    "pem_private_key": true,
+    "jwt": true,
+    "known_service_token": true,
+    "high_entropy": true,
+    "safe_cookie": true,
+    "safe_bearer": true,
+    "safe_labelled_values": true
+  },
+  "binary_positive": {
+    "MZ": true,
+    "ELF": true,
+    "ZIP": true,
+    "PDF": true,
+    "SQLITE": true,
+    "PGDMP": true,
+    "OLE": true,
+    "PNG": true,
+    "JPEG": true,
+    "NUL": true,
+    "binary_control_ratio": true
+  },
+  "binary_safe_negative": {
+    "MZ": true,
+    "ELF": true,
+    "ZIP": true,
+    "PDF": true,
+    "SQLITE": true,
+    "PGDMP": true,
+    "OLE": true,
+    "PNG": true,
+    "JPEG": true,
+    "NUL": true,
+    "binary_control_ratio": true
+  },
+  "claim_boundary": {
+    "global_secret_absence_verified": false,
+    "scanner_is_dlp": false,
+    "os_or_container_isolation_verified": false
+  },
+  "result": "PASS"
+}

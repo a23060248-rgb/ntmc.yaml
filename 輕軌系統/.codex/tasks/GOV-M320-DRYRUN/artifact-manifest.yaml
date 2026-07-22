@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-M320-DRYRUN",
+  "artifacts": [
+    {"artifact_id": "ART-M320-COMPAT-REPORT", "type": "existing-report", "path": "docs/migration-320-compatibility-report.md", "sha256": "3F78871002ECD422EBA1EF05D63BE7A54940B12ED020E2423667D036A7091BC1", "authority": "evidence-only", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REDACTED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-M320-BEFORE-AFTER", "type": "existing-structured-evidence", "path": "docs/migration-320-before-after.json", "sha256": "2C751A478FCE04C03E61CE909215498D4D378B767AFE3A726855D7890F12B988", "authority": "evidence-only", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": true, "contains_dump_reference": true, "credential_scan_status": "PASS", "redaction_status": "NOT_REDACTED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-M320-ANOMALIES", "type": "existing-anomaly-list", "path": "docs/migration-320-data-anomalies.csv", "sha256": "8E552DFA9524995E05B918EC8B87810E1889CDFC8E1694E79C0FA41863700B4D", "authority": "evidence-only", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REQUIRED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-M320-CLOSURE", "type": "existing-report", "path": "docs/cross-module-closure-report.md", "sha256": "1AAA1E6D7C9BDEBF4762E6EDEC0EE4A9A6C7800B47ECEB3239F31231321594F4", "authority": "evidence-only", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REDACTED", "source_verification_status": "VERIFIED"},
+    {"artifact_id": "ART-M320-NO-GO", "type": "existing-gate-report", "path": "docs/go-no-go-report.md", "sha256": "743E1B4473B67298228CFB047C0EA6043A97F3F29EBF71083A7A96F76367BBDA", "authority": "evidence-only", "evidence_scope": "external_reference", "commit_inclusion": false, "content_scan_status": "PARTIAL", "contains_operational_paths": false, "contains_dump_reference": false, "credential_scan_status": "PASS", "redaction_status": "NOT_REQUIRED", "source_verification_status": "VERIFIED"}
+  ],
+  "product_changes": [],
+  "secrets_present": false
+}

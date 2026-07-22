@@ -132,7 +132,7 @@
       "sequence": 220,
       "id": "work-order-integrity",
       "file": "migration-work-order-integrity.sql",
-      "verifySql": "SELECT EXISTS (SELECT 1 FROM pg_indexes WHERE schemaname='public' AND indexname='uq_repair_work_order_source_removed') AS ok"
+      "verifySql": "SELECT EXISTS (SELECT 1 FROM pg_indexes WHERE schemaname='public' AND indexname IN ('uq_repair_work_order_source_removed','uq_repair_work_order_source_event_asset')) AS ok"
     },
     {
       "sequence": 230,
@@ -169,6 +169,30 @@
       "id": "pm-attachment-library",
       "file": "migration-pm-attachment-library.sql",
       "verifySql": "SELECT to_regclass('public.pm_attachment_definition') IS NOT NULL AND to_regclass('public.pm_attachment_definition_version') IS NOT NULL AND EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='pm_template_attachment' AND column_name='attachment_definition_version_id') AS ok"
+    },
+    {
+      "sequence": 290,
+      "id": "master-data-import-staging",
+      "file": "migration-master-data-import-staging.sql",
+      "verifySql": "SELECT to_regclass('public.master_data_import_batch') IS NOT NULL AND to_regclass('public.master_data_import_row') IS NOT NULL AND EXISTS (SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname='v_master_data_import_batch_summary' AND c.relkind='v') AS ok"
+    },
+    {
+      "sequence": 300,
+      "id": "master-data-import-row-quality",
+      "file": "migration-master-data-import-row-quality.sql",
+      "verifySql": "SELECT is_nullable = 'YES' AND EXISTS (SELECT 1 FROM pg_indexes WHERE schemaname='public' AND indexname='idx_master_data_import_row_natural_key') AND NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conrelid='public.master_data_import_row'::regclass AND contype='u' AND pg_get_constraintdef(oid) LIKE '%(batch_id, natural_key)%') AS ok FROM information_schema.columns WHERE table_schema='public' AND table_name='master_data_import_row' AND column_name='natural_key'"
+    },
+    {
+      "sequence": 310,
+      "id": "master-data-import-issue-resolution",
+      "file": "migration-master-data-import-issue-resolution.sql",
+      "verifySql": "SELECT to_regclass('public.master_data_import_issue_resolution') IS NOT NULL AND EXISTS (SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname='v_master_data_import_issue_resolution_summary' AND c.relkind='v') AS ok"
+    },
+    {
+      "sequence": 320,
+      "id": "c-work-order-workflow",
+      "file": "migration-c-work-order-workflow.sql",
+      "verifySql": "SELECT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='work_order' AND column_name='version') AND to_regclass('public.fault_work_order_assignment') IS NOT NULL AND to_regclass('public.fault_work_order_shortage') IS NOT NULL AND to_regclass('public.fault_work_order_observation') IS NOT NULL AND EXISTS (SELECT 1 FROM pg_indexes WHERE schemaname='public' AND indexname='uq_repair_work_order_source_event_asset') AS ok"
     }
   ]
 }

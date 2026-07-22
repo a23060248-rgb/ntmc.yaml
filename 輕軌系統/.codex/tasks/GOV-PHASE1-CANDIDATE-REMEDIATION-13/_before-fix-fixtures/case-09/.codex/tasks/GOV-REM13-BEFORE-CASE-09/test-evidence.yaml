@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-REM13-BEFORE-CASE-09",
+  "evidence_mode": "production-path-integration",
+  "commands": [
+    "validateTask production API"
+  ],
+  "requirements": [
+    {
+      "requirement_id": "EV-PRODUCTION",
+      "semantic_category": "EVIDENCE_INTEGRITY",
+      "criticality": "CRITICAL",
+      "required_for_levels": [
+        "L3"
+      ],
+      "required_execution_categories": [
+        "governance-validation"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "CHECK-PRODUCTION",
+      "requirement_id": "EV-PRODUCTION",
+      "result": "PASS",
+      "note": "Fixture construction completed."
+    }
+  ],
+  "product_tests_run": false,
+  "database_operations_run": false,
+  "limitations": [
+    "No product, database, Git, service, seed, or migration operation."
+  ]
+}

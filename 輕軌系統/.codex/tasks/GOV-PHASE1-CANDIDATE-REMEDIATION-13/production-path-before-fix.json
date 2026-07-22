@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "run_phase": "BEFORE_FIX",
+  "production_entrypoint": ".codex/scripts/validate-task.mjs#validateTask",
+  "git_used": false,
+  "product_operations_performed": false,
+  "case_count": 4,
+  "cases": [
+    {
+      "case_id": "CASE-04",
+      "title": "Nested arbitrary-name schema-invalid Security evidence is required by manifest",
+      "referenced_evidence_path": ".codex/tasks/GOV-REM13-BEFORE-CASE-04/nested/session-b6-security-evidence.yaml",
+      "all_bindings_regenerated_before_validation": true,
+      "independent_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "observed": {
+        "structural": "VALID",
+        "gate": "GO",
+        "exit_code": 0
+      },
+      "defect_reproduced": true,
+      "errors": [],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-06",
+      "title": "Nested Security evidence declares an unregistered schema version",
+      "referenced_evidence_path": ".codex/tasks/GOV-REM13-BEFORE-CASE-06/nested/session-b6-security-evidence.yaml",
+      "all_bindings_regenerated_before_validation": true,
+      "independent_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "observed": {
+        "structural": "VALID",
+        "gate": "GO",
+        "exit_code": 0
+      },
+      "defect_reproduced": true,
+      "errors": [],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-08",
+      "title": "Two Security evidence files exist and the required nested one is invalid",
+      "referenced_evidence_path": ".codex/tasks/GOV-REM13-BEFORE-CASE-08/nested/session-b6-security-evidence.yaml",
+      "all_bindings_regenerated_before_validation": true,
+      "independent_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "observed": {
+        "structural": "VALID",
+        "gate": "GO",
+        "exit_code": 0
+      },
+      "defect_reproduced": true,
+      "errors": [],
+      "candidate_reasons": []
+    },
+    {
+      "case_id": "CASE-09",
+      "title": "Manifest marks required nested Security evidence VERIFIED although schema-invalid",
+      "referenced_evidence_path": ".codex/tasks/GOV-REM13-BEFORE-CASE-09/nested/session-b6-security-evidence.yaml",
+      "all_bindings_regenerated_before_validation": true,
+      "independent_oracle": {
+        "structural": "INVALID",
+        "gate": "NO-GO",
+        "exit_code": 1
+      },
+      "observed": {
+        "structural": "VALID",
+        "gate": "GO",
+        "exit_code": 0
+      },
+      "defect_reproduced": true,
+      "errors": [],
+      "candidate_reasons": []
+    }
+  ],
+  "all_four_defect_cases_reproduced": true,
+  "finding_id": "B6EXT-CODE-TASK-LOCAL-SCHEMA-BYPASS-001",
+  "finding_status": "OPEN"
+}

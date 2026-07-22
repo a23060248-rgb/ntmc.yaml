@@ -1,0 +1,92 @@
+import { spawnSync } from "node:child_process";
+import { createHash } from "node:crypto";
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import manifest from "./scanner-production-case-manifest.json" with { type: "json" };
+import { canonicalSha256, sha256 } from "../scripts/lib/governance/typed-proof.mjs";
+
+const sourceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
+const runRoot = await mkdtemp(path.join(os.tmpdir(), "ntmc-scanner-production-"));
+for (const ref of [".codex/scripts", ".codex/governance", ".codex/blueprints"]) await cp(path.join(sourceRoot, ...ref.split("/")), path.join(runRoot, ...ref.split("/")), {recursive: true});
+await mkdir(path.join(runRoot, ".codex", "tests"), {recursive: true});
+await cp(path.join(sourceRoot, ".codex", "tests", "scanner-production-case-manifest.json"), path.join(runRoot, ".codex", "tests", "scanner-production-case-manifest.json"));
+await mkdir(path.join(runRoot, ".codex", "test-output"), {recursive: true});
+const binaryMagicRegistry = JSON.parse(await readFile(path.join(sourceRoot, ".codex", "governance", "bootstrap-binary-magic-registry.yaml"), "utf8"));
+const magicFixtureMap = new Map(binaryMagicRegistry.entries.flatMap((entry) => [[entry.positive_fixture_id, entry.magic_id], [entry.safe_negative_fixture_id, entry.magic_id]]));
+
+const joined = (...parts) => parts.join("");
+const credentialUri = joined("post", "gresql://fixture_user:", "Synthetic9Value@host.invalid/db");
+const basic = joined("Author", "ization: Ba", "sic QWxhZGRpbjpvcGVuIHNlc2FtZQ==");
+const bearer = joined("Author", "ization: Bear", "er abcdefghijklmnopqrstuvwxyz123456");
+const cookie = joined('{"Coo', 'kie": "session=', 'Ab9Cd8Ef7Gh6Ij5Kl4Mn5Op6Qr"}');
+const setCookie = joined('{"Set-Coo', 'kie": "auth=', 'Zx8Cv7Bn6Mm5Lk4Jh3Gf2Ds1Aa"}');
+const entropy = joined("aB3dE5fG7hJ9kL2m", "N4pQ6rS8tV1xY0z_", "-Aa9");
+const safe = "bootstrap governance documentation";
+const magic = {
+  MZ: Buffer.from("4D5A", "hex"), ELF: Buffer.from("7F454C46", "hex"), ZIP: Buffer.from("504B0304", "hex"), PDF: Buffer.from("255044462D", "hex"), SQLITE: Buffer.from("53514C69746520666F726D6174203300", "hex"), PGDMP: Buffer.from("5047444D50", "hex"), OLE: Buffer.from("D0CF11E0", "hex"), PNG: Buffer.from("89504E470D0A1A0A", "hex"), JPEG: Buffer.from("FFD8FF", "hex")
+};
+const definitions = new Map();
+const pair = (positiveId, negativeId, findingClass, positiveBytes, negativeBytes = safe, options = {}) => {
+  definitions.set(positiveId, {findingClass, mode: "positive", bytes: Buffer.isBuffer(positiveBytes) ? positiveBytes : Buffer.from(positiveBytes), ref: options.positiveRef ?? "probe.md", transform: options.transform ?? null, manifestMismatch: options.manifestMismatch ?? false});
+  definitions.set(negativeId, {findingClass, mode: "safe-negative", bytes: Buffer.isBuffer(negativeBytes) ? negativeBytes : Buffer.from(negativeBytes), ref: options.negativeRef ?? "probe.md", transform: null, manifestMismatch: false});
+};
+pair("SCAN-PRIVATE-KEY-P", "SCAN-PRIVATE-KEY-N", "PRIVATE_KEY", joined("-----BEGIN ", "PRIVATE KEY-----"));
+pair("SCAN-CREDENTIAL-URI-P", "SCAN-CREDENTIAL-URI-N", "CREDENTIAL_URI", credentialUri);
+pair("SCAN-BEARER-P", "SCAN-BEARER-N", "BEARER_TOKEN", bearer);
+pair("SCAN-BASIC-P", "SCAN-BASIC-N", "BASIC_AUTH", basic);
+pair("SCAN-COOKIE-P", "SCAN-COOKIE-N", "COOKIE_HEADER", cookie);
+pair("SCAN-SESSION-P", "SCAN-SESSION-N", "SESSION_COOKIE", joined("session=", "Ab9Cd8Ef7Gh6Ij5Kl4Mn5Op6Qr"));
+pair("SCAN-JWT-P", "SCAN-JWT-N", "JWT", joined("eyJabcdefghijk", ".Abcdefghijkl", ".Zyxwvutsrqpo"));
+pair("SCAN-KNOWN-TOKEN-P", "SCAN-KNOWN-TOKEN-N", "KNOWN_TOKEN", joined("gh", "p_", "AbCdEfGhIjKlMnOpQrStUvWxYz12"));
+pair("SCAN-SECRET-VALUE-P", "SCAN-SECRET-VALUE-N", "SECRET_VALUE", joined("pass", "word=", "Synthetic9Value"), "password=example");
+pair("SCAN-CREDENTIAL-FILE-P", "SCAN-CREDENTIAL-FILE-N", "CREDENTIAL_FILE", joined("fixture", ".pem"), "fixture.md");
+pair("SCAN-ENTROPY-P", "SCAN-ENTROPY-N", "HIGH_ENTROPY_OPAQUE_VALUE", entropy, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+pair("SCAN-MALFORMED-PERCENT-P", "SCAN-MALFORMED-PERCENT-N", "MALFORMED_PERCENT_ENCODING", joined("%", "ZZ", encodeURIComponent(basic)), joined("%", "20safe"));
+pair("SCAN-WINDOWS-PATH-P", "SCAN-WINDOWS-PATH-N", "WINDOWS_ABSOLUTE_PATH", joined("C", ":\\Users\\fixture\\report.md"), "relative/report.md");
+pair("SCAN-UNC-PATH-P", "SCAN-UNC-PATH-N", "UNC_PATH", joined("\\", "\\host", "\\share\\report.md"), "host/share/report.md");
+pair("SCAN-FILE-URI-P", "SCAN-FILE-URI-N", "FILE_URI", joined("fi", "le:///", "tmp/fixture/report.md"), "https://example.invalid/report");
+pair("SCAN-UNIX-PATH-P", "SCAN-UNIX-PATH-N", "UNIX_LOCAL_PATH", joined("/", "tmp/fixture/report.md"), "relative/report.md");
+pair("SCAN-HOME-PATH-P", "SCAN-HOME-PATH-N", "HOME_EXPANSION", joined("$", "{HOME}/fixture"), "HOME/fixture");
+pair("SCAN-DUMP-P", "SCAN-DUMP-N", "DUMP_REFERENCE", joined("fixture", ".dump"), "fixture.json");
+pair("SCAN-EXTENSION-P", "SCAN-EXTENSION-N", "DISALLOWED_FILE_EXTENSION", safe, safe, {positiveRef: "probe.exe"});
+pair("SCAN-NUL-P", "SCAN-NUL-N", "NUL_BYTE_DETECTED", Buffer.from([0x41, 0x00, 0x42]));
+pair("SCAN-MAGIC-MZ-P", "SCAN-MAGIC-MZ-N", "KNOWN_BINARY_MAGIC_DETECTED", magic.MZ, "not-mz-magic");
+pair("SCAN-NON-UTF8-P", "SCAN-NON-UTF8-N", "NON_UTF8_TEXT", Buffer.from([0xC3, 0x28]));
+pair("SCAN-BINARY-RATIO-P", "SCAN-BINARY-RATIO-N", "BINARY_CONTENT_RATIO_EXCEEDED", Buffer.alloc(100, 0x01));
+pair("SCAN-MANIFEST-HASH-P", "SCAN-MANIFEST-HASH-N", "MANIFEST_HASH_MISMATCH", safe, safe, {manifestMismatch: true});
+pair("SCAN-UNICODE-CREDENTIAL-P", "SCAN-UNICODE-CREDENTIAL-N", "CREDENTIAL_URI", `\\u0070${credentialUri.slice(1)}`, safe, {transform: "json-unescape-once"});
+pair("SCAN-BACKSLASH-CREDENTIAL-P", "SCAN-BACKSLASH-CREDENTIAL-N", "CREDENTIAL_URI", credentialUri.replaceAll("/", "\\/"), safe, {transform: "json-unescape-once"});
+pair("SCAN-PERCENT-CREDENTIAL-P", "SCAN-PERCENT-CREDENTIAL-N", "CREDENTIAL_URI", encodeURIComponent(credentialUri), encodeURIComponent(safe), {transform: "url-decode-1"});
+pair("SCAN-SET-COOKIE-P", "SCAN-SET-COOKIE-N", "COOKIE_HEADER", setCookie);
+for (const id of ["ELF", "ZIP", "PDF", "SQLITE", "PGDMP", "OLE", "PNG", "JPEG"]) pair(`SCAN-MAGIC-${id}-P`, `SCAN-MAGIC-${id}-N`, "KNOWN_BINARY_MAGIC_DETECTED", magic[id], `not-${id.toLowerCase()}-magic`);
+
+const results = [];
+for (const [caseId, findingClass, mode] of manifest.cases) {
+  const test = definitions.get(caseId);
+  if (!test || test.findingClass !== findingClass || test.mode !== mode) throw new Error(`Case definition mismatch: ${caseId}`);
+  const artifactPath = path.join(runRoot, test.ref);
+  await mkdir(path.dirname(artifactPath), {recursive: true});
+  await writeFile(artifactPath, test.bytes);
+  const actualHash = sha256(test.bytes);
+  const declaredHash = test.manifestMismatch ? "A".repeat(64) : actualHash;
+  const manifestDocument = {schema_version: 1, manifest_type: "governance-only-exact-pathspec", task_id: "GOV-SCANNER-PRODUCTION", artifacts: [{path: test.ref, sha256: declaredHash}], excluded_records: []};
+  const manifestBytes = Buffer.from(`${JSON.stringify(manifestDocument, null, 2)}\n`);
+  await writeFile(path.join(runRoot, ".codex", "governance", "governance-commit-manifest.yaml"), manifestBytes);
+  const outputRef = `.codex/test-output/${caseId}.json`;
+  const child = spawnSync(process.execPath, [path.join(runRoot, ".codex", "scripts", "generate-bootstrap-scan-report.mjs"), "2026-07-19T00:00:00Z", outputRef], {cwd: runRoot, encoding: "utf8", windowsHide: true, maxBuffer: 8 * 1024 * 1024});
+  const report = JSON.parse(await readFile(path.join(runRoot, ...outputRef.split("/")), "utf8"));
+  const matching = report.results.findings.filter((item) => item.finding_class === findingClass && item.ref === test.ref);
+  const expectedExit = mode === "positive" ? 2 : 0;
+  const expectedResult = mode === "positive" ? "FAIL" : "PASS";
+  const included = [{path: test.ref, sha256: declaredHash}], scanned = [{path: test.ref, sha256: actualHash}];
+  const pass = child.status === expectedExit && report.scan_contract.contract_version === 5 && report.candidate_binding.manifest_sha256 === sha256(manifestBytes) && report.candidate_binding.included_file_set_sha256 === canonicalSha256(included) && report.candidate_binding.scanned_file_set_sha256 === canonicalSha256(scanned) && report.results.result === expectedResult && (mode === "positive" ? matching.length > 0 : matching.length === 0 && report.results.finding_count === 0) && (!test.transform || matching.some((item) => item.transformations.includes(test.transform)));
+  results.push({case_id: caseId, finding_class: findingClass, mode, magic_id: magicFixtureMap.get(caseId) ?? null, production_entrypoint: manifest.production_entrypoint, expected_exit: expectedExit, actual_exit: child.status, expected_result: expectedResult, finding_source_transform: test.transform ?? (findingClass.startsWith("KNOWN_BINARY") || findingClass.includes("UTF8") || findingClass.includes("BINARY") || findingClass.includes("NUL") || findingClass.includes("EXTENSION") ? "raw-bytes" : "raw-text"), manifest_sha256: report.candidate_binding.manifest_sha256, scanned_file_identity: report.candidate_binding.scanned_file_set_sha256, contract_version: report.scan_contract.contract_version, binary_magic_registry_sha256: report.scan_contract.binary_magic_registry_sha256, schema_set_sha256: report.scan_contract.schema_set_sha256, pass});
+}
+const failed = results.filter((item) => !item.pass);
+const binary_magic_oracle_results = binaryMagicRegistry.entries.map((entry) => ({magic_id: entry.magic_id, positive_fixture_id: entry.positive_fixture_id, positive_pass: results.find((item) => item.case_id === entry.positive_fixture_id)?.pass === true, safe_negative_fixture_id: entry.safe_negative_fixture_id, safe_negative_pass: results.find((item) => item.case_id === entry.safe_negative_fixture_id)?.pass === true}));
+for (const item of results) console.log(`${item.pass ? "PASS" : "FAIL"} ${item.case_id} ${item.finding_class} ${item.mode} exit=${item.actual_exit}`);
+console.log(`BOOTSTRAP_SCANNER_PRODUCTION ${JSON.stringify({suite_id: manifest.suite_id, suite_version: manifest.suite_version, total: results.length, passed: results.length - failed.length, failed: failed.length, production_entrypoint: manifest.production_entrypoint, binary_magic_registry_sha256: results[0]?.binary_magic_registry_sha256 ?? null, schema_set_sha256: results[0]?.schema_set_sha256 ?? null, binary_magic_oracle_results, results})}`);
+await rm(runRoot, {recursive: true, force: true});
+process.exit(failed.length ? 1 : 0);

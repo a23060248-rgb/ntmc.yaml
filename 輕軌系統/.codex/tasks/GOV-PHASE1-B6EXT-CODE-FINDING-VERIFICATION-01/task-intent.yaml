@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01",
+  "status": "COMPLETED_AT_STOP_POINT",
+  "title": "External Code Finding Verification 01",
+  "objective": "Formally verify Code R1 payload, reproduce or reject the finding through the authoritative production path, and classify remediation scope.",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-PHASE1-B6EXT-CODE-FINDING-VERIFICATION-01/**"
+    ],
+    "exclude": [
+      "103-file candidate writes",
+      "R12 writes",
+      "External Review package writes",
+      ".env*",
+      "collab/**",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "Git",
+      "services",
+      "databases",
+      "seeds",
+      "Migration 320 operations"
+    ]
+  },
+  "fixed_candidate": {
+    "candidate_file_count": 103,
+    "candidate_manifest_sha256": "29F4F947DEF79A633F63E28FA2444F4734D7E6BB9612B96154A302464255531D",
+    "included_file_set_sha256": "739DAC633946266BCD28A71BE236D3748C57550AB1749A29C4F5E59421F993CB"
+  },
+  "acceptance_criteria": [
+    "Formal payload verification",
+    "10-case authoritative production-path matrix",
+    "historical compatibility replay",
+    "candidate and protected-history integrity"
+  ],
+  "result": "VERIFIED_CANDIDATE_PRODUCTION_PATH_DEFECT"
+}

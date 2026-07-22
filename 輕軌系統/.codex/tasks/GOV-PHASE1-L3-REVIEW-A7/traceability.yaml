@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A7",
+  "generated_at": "2026-07-19T10:00:00+08:00",
+  "nodes": [
+    {"id":"TASK:A7","type":"Task","label":"Independent Session A7","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/task-intent.yaml"},
+    {"id":"REVIEW:A7-CODE","type":"FormalReview","label":"A7 Code BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/code-review.json"},
+    {"id":"REVIEW:A7-SEC","type":"FormalReview","label":"A7 Security BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/security-review.json"},
+    {"id":"REVIEW:A7-DOMAIN","type":"FormalReview","label":"A7 Domain mechanism BLOCKER","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/railway-domain-review.json"},
+    {"id":"GATE:CANDIDATE","type":"Gate","label":"Bootstrap Candidate Review NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/review-findings.yaml"},
+    {"id":"GATE:HUMAN","type":"Gate","label":"Bootstrap Human Commit NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/human-approval.yaml"},
+    {"id":"GATE:STEADY","type":"Gate","label":"Steady-state DISABLED","source_ref":".codex/governance/gate-policy.yaml"},
+    {"id":"GATE:M320","type":"Gate","label":"Migration 320 NO-GO","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/migration-320-integrity.json"}
+  ],
+  "edges": [
+    {"from":"TASK:A7","relation":"collects","to":"REVIEW:A7-CODE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/code-review.json"},
+    {"from":"TASK:A7","relation":"collects","to":"REVIEW:A7-SEC","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/security-review.json"},
+    {"from":"TASK:A7","relation":"collects","to":"REVIEW:A7-DOMAIN","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/railway-domain-review.json"},
+    {"from":"REVIEW:A7-CODE","relation":"blocks","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/review-findings.yaml"},
+    {"from":"REVIEW:A7-SEC","relation":"blocks","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/review-findings.yaml"},
+    {"from":"REVIEW:A7-DOMAIN","relation":"blocks","to":"GATE:CANDIDATE","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/review-findings.yaml"},
+    {"from":"GATE:CANDIDATE","relation":"precedes","to":"GATE:HUMAN","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/session-a7-summary.json"},
+    {"from":"GATE:HUMAN","relation":"cannot-enable","to":"GATE:STEADY","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/session-a7-summary.json"},
+    {"from":"REVIEW:A7-DOMAIN","relation":"routes-external-decision","to":"GATE:M320","source_ref":".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/railway-domain-review.json"}
+  ]
+}

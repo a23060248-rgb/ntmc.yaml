@@ -1,0 +1,257 @@
+{
+  "metadata": {
+    "formal": true,
+    "reviewer": "security-reviewer",
+    "reviewer_run_id": "A4-SEC-RUN-8e5dc897-36a0-428d-8031-f050f33838e7",
+    "session_id": "A4-SEC-SESSION-78b78888-9a55-4a86-90c9-937b8c6cbc0e",
+    "did_not_participate_in_implementation": true,
+    "reviewed_candidate_baseline": "phase-1.4",
+    "candidate_snapshot_id": "CANDIDATE-d8a9b19b-db02-4f1a-a763-33f0a38d265d",
+    "candidate_manifest_sha256": "7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C",
+    "mode": "read-only",
+    "independence_basis": "Used only filed governance artifacts and read-only in-memory probes. No implementer conversation, reasoning, unfiled explanation, Git state, product content, service, product test, database, seed or migration execution was used."
+  },
+  "scope": {
+    "product_root": "${PRODUCT_ROOT}",
+    "reviewed": [
+      "AGENTS.md",
+      ".codex/governance/phase-status.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/task-intent.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/classification.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/blueprint.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/review-baseline-before.json",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-4/candidate-snapshot.json",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-4/root-cause-remediation-matrix.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A3/security-review.json",
+      "declared scan policy and contract",
+      "exact 103-file governance commit manifest and binding code",
+      "scanner sources and filed scanner fixtures",
+      "filed lifecycle projection and residual-risk artifacts"
+    ],
+    "excluded": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "migrations/**",
+      "product-root sibling directories",
+      "manifest-external document contents",
+      "Git, services, product tests, database, seed and migration execution"
+    ],
+    "governance_sources_modified": false,
+    "authorized_review_record_written": ".codex/tasks/GOV-PHASE1-L3-REVIEW-A4/security-review.json"
+  },
+  "outcome": "BLOCKER",
+  "findings": [
+    {
+      "finding_id": "SEC-A4-001",
+      "severity": "HIGH",
+      "blocking_basis": "in-contract false negative",
+      "location": ".codex/governance/scan-contract.yaml:5; .codex/scripts/lib/secret-scanner.mjs:38-46; .codex/tests/run-remediation-4-contract-fixtures.mjs:48-49; .codex/tasks/GOV-PHASE1-REMEDIATION-4/security-evidence.yaml:1",
+      "evidence": "The structured contract promises json-string-unescape-once. The implementation manually replaces only escaped slash, quote and backslash, while its JSON.parse branch first re-escapes every backslash and therefore preserves a legal JSON Unicode escape rather than unescaping it. A credential URI whose initial scheme character is represented as a JSON Unicode escape returns no finding. The filed fixture covers escaped slashes only, yet the filed security evidence claims completion of the declared contract.",
+      "reproduction": "node --input-type=module -e \"import {scanText} from './.codex/scripts/lib/secret-scanner.mjs'; const b=String.fromCharCode(92); const v=b+'u0070ostgresql:'+b+'/'+b+'/fixture_user:'+'Synthetic9Value'+'@host.invalid/db'; console.log(scanText(v,'probe'));\"",
+      "observed": "[]",
+      "expected": "A CREDENTIAL_URI finding under json-string-unescape-once.",
+      "impact": "A manifest-included governance text file can contain an in-contract JSON-escaped credential URI while the exact-manifest scan reports no finding. This invalidates the declared-contract clean claim."
+    },
+    {
+      "finding_id": "SEC-A4-002",
+      "severity": "HIGH",
+      "blocking_basis": "in-contract false negative",
+      "location": ".codex/governance/scan-contract.yaml:7; .codex/scripts/lib/secret-scanner.mjs:9-11; .codex/tests/run-remediation-4-contract-fixtures.mjs:50-56; .codex/tasks/GOV-PHASE1-REMEDIATION-4/security-evidence.yaml:1",
+      "evidence": "The contract lists Authorization, Cookie and Set-Cookie as covered header classes, separately from the token-pattern list. The scanner detects only Authorization Bearer and rejects a generic Cookie only when its value is unquoted. Read-only probes returned no finding for a Basic Authorization credential and for a quoted generic Cookie value. The filed fixtures exercise Bearer, one unquoted Cookie, one unquoted Set-Cookie and a short safe Cookie; they do not close these declared header variants.",
+      "reproduction": [
+        "node --input-type=module -e \"import {scanText} from './.codex/scripts/lib/secret-scanner.mjs'; const v='Authorization: Basic '+Buffer.from(['user','Synthetic9Value'].join(':')).toString('base64'); console.log(scanText(v,'probe'));\"",
+        "node --input-type=module -e \"import {scanText} from './.codex/scripts/lib/secret-scanner.mjs'; const q=String.fromCharCode(34); const v='Coo'+'kie: id='+q+['Ab9Cd8','Ef7Gh6','Ij5Kl4Mn'].join('')+q; console.log(scanText(v,'probe'));\""
+      ],
+      "observed": ["[]", "[]"],
+      "expected": "A declared Authorization or Cookie header finding for each credential-bearing vector.",
+      "impact": "Credential-bearing declared header classes can enter a manifest-included text artifact without invalidating the no-findings claim."
+    },
+    {
+      "finding_id": "SEC-A4-003",
+      "severity": "HIGH",
+      "blocking_basis": "in-contract false negative",
+      "location": ".codex/governance/scan-contract.yaml:8-9; .codex/scripts/lib/secret-scanner.mjs:49-60; .codex/tests/run-remediation-4-contract-fixtures.mjs:52,55-56; .codex/tasks/GOV-PHASE1-REMEDIATION-4/security-evidence.yaml:1",
+      "evidence": "The contract declares opaque-high-entropy-value with minimum length 32 and threshold 4.2. Candidate extraction accepts only contiguous standard Base64 characters. A synthetic mixed-case, numeric, URL-safe opaque value split by an underscore has no 32-character contiguous standard-Base64 segment and returns no finding despite meeting the declared opaque-value class. Only one standard-alphanumeric entropy positive is filed, with no adjacent URL-safe positive or entropy-specific safe negative.",
+      "reproduction": "node --input-type=module -e \"import {scanText} from './.codex/scripts/lib/secret-scanner.mjs'; const v=['aB3dE5fG7hJ9kL2m','N4pQ6rS8tV1xY0zC'].join('_'); console.log(scanText(v,'probe'));\"",
+      "observed": "[]",
+      "expected": "A HIGH_ENTROPY_OPAQUE_VALUE finding or an explicit structured contract restriction excluding URL-safe opaque values.",
+      "impact": "An in-contract high-entropy opaque value can evade the deterministic manifest scan, so the filed no-findings-within-declared-contract claim is not trustworthy."
+    },
+    {
+      "finding_id": "SEC-A4-004",
+      "severity": "HIGH",
+      "blocking_basis": "false governance/security claim",
+      "location": ".codex/governance/scan-contract.yaml:10; .codex/scripts/lib/secret-scanner.mjs:24-29,71-81; .codex/tests/run-remediation-4-contract-fixtures.mjs:53-56; .codex/tasks/GOV-PHASE1-REMEDIATION-4/root-cause-remediation-matrix.json:1; .codex/tasks/GOV-PHASE1-REMEDIATION-4/security-evidence.yaml:1",
+      "evidence": "The contract lists extension-magic-mismatch, but scanBinaryContent never compares ref extension or manifest artifact_type with detected magic and never emits that class. A PDF signature in probe.txt is rejected as PDF_SIGNATURE, but the claimed extension-magic-mismatch control is absent. The filed binary fixtures cover only MZ and ELF positives and do not provide the declared signature matrix or adjacent safe negatives. Remediation 4 nevertheless marks the scanner root cause IMPLEMENTED and the deterministic contract scan completed.",
+      "reproduction": "node --input-type=module -e \"import {scanBinaryContent} from './.codex/scripts/lib/secret-scanner.mjs'; console.log(scanBinaryContent(Buffer.from('%'+'PDF-1.7'),'probe.txt'));\"",
+      "observed": "PDF_SIGNATURE is emitted; EXTENSION_MAGIC_MISMATCH is not emitted.",
+      "expected": "The declared mismatch control is implemented and tested, or removed from the structured contract. Positive and safe-negative fixtures cover MZ, ELF, ZIP, PDF, SQLite, PGDMP, OLE, PNG, JPEG, NUL, binary ratio and extension/type mismatch.",
+      "impact": "Known binary signatures are presently rejected, but the structured capability and regression-coverage claim is materially broader than the implemented control. The A3 completion criterion for deterministic rejection fixtures plus adjacent safe negatives is not met."
+    }
+  ],
+  "conditions": [
+    {
+      "condition_id": "SEC-A4-C01",
+      "status": "open",
+      "condition": "Implement a real single-pass JSON string unescape and apply the declared bounded canonicalization consistently, then add positive and adjacent safe-negative regression vectors.",
+      "completion_criterion": "The SEC-A4-001 vector deterministically rejects, legal safe JSON escapes remain accepted, and the refreshed exact-manifest scan passes."
+    },
+    {
+      "condition_id": "SEC-A4-C02",
+      "status": "open",
+      "condition": "Make Authorization, Cookie and Set-Cookie behavior match the structured contract, including credential-bearing non-Bearer Authorization and quoted cookie values, or narrowly revise the contract before regenerating evidence.",
+      "completion_criterion": "Both SEC-A4-002 vectors reject, adjacent harmless header/cookie negatives pass, and filed fixtures enumerate the supported variants."
+    },
+    {
+      "condition_id": "SEC-A4-C03",
+      "status": "open",
+      "condition": "Align opaque entropy candidate extraction with the declared minimum-length contract, including URL-safe characters, with bounded false-positive handling expressed as findings rather than silent omission.",
+      "completion_criterion": "The SEC-A4-003 vector produces a finding and safe hash, identifier, placeholder and prose negatives remain accepted."
+    },
+    {
+      "condition_id": "SEC-A4-C04",
+      "status": "open",
+      "condition": "Implement or remove the extension-magic-mismatch claim and add a complete positive/safe-negative binary matrix for every declared signature and ratio control.",
+      "completion_criterion": "The filed contract, implementation finding classes and fixture assertions agree exactly for MZ, ELF, ZIP, PDF, SQLite, PGDMP, OLE, PNG, JPEG, NUL, binary-control-ratio and extension/type mismatch."
+    },
+    {
+      "condition_id": "SEC-A4-C05",
+      "status": "open",
+      "condition": "After any scanner, contract, fixture or evidence change, regenerate the governance commit manifest, candidate snapshot and A4 before baseline, then obtain a new clean-context Security Review.",
+      "completion_criterion": "The replacement baseline has exact included paths and hashes, no unscanned included file, no hash drift, and no unresolved formal Security finding."
+    }
+  ],
+  "decisions_required": [
+    {
+      "decision_id": "SEC-A4-D01",
+      "owner_role": "human-security-owner",
+      "question": "Choose the bounded mandatory header, canonicalization, entropy and extension/type contract. The current false negatives cannot be accepted while retaining the current structured contract and no-findings claim."
+    }
+  ],
+  "reproducible_read_only_checks": [
+    {
+      "check_id": "A4-SEC-MANIFEST-103",
+      "method": "Import collectGovernanceCommitRefs and scanner functions in Node memory; compare the collected set to every manifest entry; hash every listed file; canonicalize the path/hash file set; compare manifest, candidate snapshot and before baseline; scan every listed byte buffer and UTF-8 text.",
+      "observed": "manifest_sha256=7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C; expected=103; listed=103; duplicates=0; missing=0; unexpected=0; scan_required_false=0; binary_allowed_true=0; missing_files=0; hash_mismatches=0; scan_findings=0; included_file_set_sha256=BCE28F2E0F00CE2F756C5C814954937D13D737EE2983B761FC6D45A5CF5A407C; snapshot_match=true; baseline_match=true.",
+      "evidence": ".codex/blueprints/schemas/governance-commit-manifest.schema.json:1; .codex/scripts/lib/governance-commit-manifest.mjs:4-8,22-37; .codex/scripts/validate-task.mjs:118-143; .codex/tasks/GOV-PHASE1-L3-REVIEW-A4/capture-candidate-baseline.mjs:16-34; .codex/tasks/GOV-PHASE1-L3-REVIEW-A4/review-baseline-before.json:5-12; .codex/tasks/GOV-PHASE1-REMEDIATION-4/candidate-snapshot.json:3-11"
+    },
+    {
+      "check_id": "A4-SEC-SCANNER-MATRIX",
+      "method": "Import scanText and scanBinaryContent in Node memory and apply synthetic positive and safe-negative vectors without filesystem writes.",
+      "observed": "Raw credential userinfo passed for postgres, postgresql, mysql, mongodb, mongodb+srv, redis, rediss, amqp, amqps, http, https, ftp, sftp and ssh. One-pass and two-pass URL decoding passed. Escaped-slash JSON passed; legal JSON Unicode unescape failed. Bearer, unquoted Cookie/Set-Cookie, session, sessionid, connect.sid, jwt, access_token, refresh_token, private key, JWT, known service token and standard-alphanumeric entropy passed; Basic Authorization, quoted Cookie and URL-safe entropy failed. MZ, ELF, ZIP, PDF, SQLite, PGDMP, OLE, PNG, JPEG, NUL and binary-control-ratio passed; safe plain text passed; extension-magic-mismatch class failed.",
+      "evidence": ".codex/governance/scan-contract.yaml:3-12; .codex/scripts/lib/secret-scanner.mjs:3-81"
+    },
+    {
+      "check_id": "A4-SEC-FIXTURE-SOURCE-COVERAGE",
+      "command": "rg -n \"CREDENTIAL_URI|COOKIE_HEADER|SESSION_COOKIE|JWT|KNOWN_TOKEN|PRIVATE_KEY|HIGH_ENTROPY|NUL_BYTE|BINARY_CONTROL_RATIO|MZ|ELF|ZIP|PDF|SQLite|PGDMP|OLE|PNG|JPEG|safe .*negative|extension|magic|Bearer|Cookie|Set-Cookie|sessionid|connect.sid|access_token|refresh_token\" .codex/tests/run-governance-fixtures.mjs .codex/tests/run-remediation-4-contract-fixtures.mjs",
+      "observed": "The filed scanner-specific remediation cases cover rediss, amqps, sftp, percent encoding, escaped slash JSON, Cookie, Set-Cookie, one entropy positive, MZ, ELF and only URI/Cookie safe negatives; the 50-case suite adds Bearer, one PostgreSQL URI and PDF. It does not provide complete declared-class positive and adjacent safe-negative coverage.",
+      "evidence": ".codex/tests/run-remediation-4-contract-fixtures.mjs:46-56; .codex/tests/run-governance-fixtures.mjs:215-218; .codex/tasks/GOV-PHASE1-REMEDIATION-4/fixture-results.json:1"
+    },
+    {
+      "check_id": "A4-SEC-LIFECYCLE",
+      "command": "node .codex/scripts/validate-phase-status.mjs",
+      "observed": "PHASE_STATUS_VALIDATION result=PASS sources=2",
+      "evidence": ".codex/scripts/lib/lifecycle-projection.mjs:5-43; .codex/scripts/validate-phase-status.mjs:6-12; .codex/governance/phase-status.json:5-28"
+    }
+  ],
+  "scan_results": {
+    "exact_103_file_manifest_binding": {
+      "result": "PASS",
+      "manifest_sha256": "7F234EAA894454AD46AD5A24469A87AB6E11F26F01218607397BE1FE4CE3335C",
+      "included_file_set_sha256": "BCE28F2E0F00CE2F756C5C814954937D13D737EE2983B761FC6D45A5CF5A407C",
+      "expected_count": 103,
+      "listed_count": 103,
+      "duplicates": 0,
+      "missing": [],
+      "unexpected": [],
+      "unscanned_included_files": [],
+      "hash_mismatches": [],
+      "candidate_snapshot_match": true,
+      "before_baseline_match": true
+    },
+    "exact_candidate_content_scan": {
+      "result": "PASS_WITH_LIMITATION",
+      "actual_manifest_files_with_deterministic_findings": 0,
+      "limitation": "This establishes only no findings from the current implementation over the exact 103 included files; it cannot cure the declared-contract false negatives."
+    },
+    "normalization": {
+      "raw_text": "PASS",
+      "json_escaped_slash": "PASS",
+      "json_string_unicode_unescape": "FAIL",
+      "bounded_url_decode_one_pass": "PASS",
+      "bounded_url_decode_two_passes": "PASS"
+    },
+    "credential_uri_userinfo": {
+      "result": "PASS",
+      "schemes_passed": ["postgres", "postgresql", "mysql", "mongodb", "mongodb+srv", "redis", "rediss", "amqp", "amqps", "http", "https", "ftp", "sftp", "ssh"]
+    },
+    "headers_cookies_and_tokens": {
+      "result": "FAIL",
+      "passed": ["Authorization Bearer", "Cookie unquoted", "Set-Cookie unquoted", "session", "sessionid", "connect.sid", "jwt", "access_token", "refresh_token", "PEM private key", "JWT", "known service token", "standard-alphanumeric high entropy"],
+      "failed": ["Authorization Basic", "quoted generic Cookie", "URL-safe opaque high-entropy value"]
+    },
+    "binary_and_type_boundary": {
+      "result": "FAIL",
+      "passed": ["MZ", "ELF", "ZIP", "PDF", "SQLite", "PGDMP", "OLE", "PNG", "JPEG", "NUL", "binary-control-ratio", "safe plain-text negative"],
+      "failed": ["extension-magic-mismatch implementation and fixture assertion"]
+    },
+    "positive_and_safe_negative_fixture_coverage": {
+      "result": "FAIL",
+      "reason": "Filed fixtures do not enumerate every declared scanner class with adjacent safe negatives and do not expose the reproduced false negatives."
+    },
+    "manifest_external_boundary": {
+      "result": "PASS_WITH_LIMITATION",
+      "statement": "The exact clean-scan claim is limited to the 103 manifest-included files. Local review records and hash-bound external references marked commit_inclusion=false are not claimed as scanned or globally clean. commit_inclusion=false is classification metadata, not proof of Git isolation, staging, branch protection or remote controls.",
+      "evidence": ".codex/governance/evidence-scope-policy.yaml:5-8; .codex/governance/governance-commit-manifest.yaml:864-885; .codex/governance/gate-policy.yaml:5-9; .codex/governance/residual-risks.yaml:10,15-17"
+    },
+    "lifecycle": {
+      "result": "PASS",
+      "source_count": 2,
+      "last_completed_review": "GOV-PHASE1-L3-REVIEW-A3",
+      "last_review_outcome": "BLOCKER",
+      "candidate_governance_review_gate": "NO-GO",
+      "governance_commit_preparation_gate": "NO-GO",
+      "governance_commit_execution_gate": "NO-GO",
+      "migration_320_execution_gate": "NO-GO"
+    },
+    "security_statement_boundary": {
+      "exact_103_current_files_have_no_current_scanner_findings": true,
+      "declared_deterministic_contract_adequate": false,
+      "external_evidence_globally_clean": false,
+      "global_sensitive_data_absence_verified": false,
+      "git_isolation_verified": false,
+      "governance_commit_go_granted": false,
+      "migration_320_go_granted": false
+    }
+  },
+  "residual_risks": [
+    {"risk_id": "RR-ENV-001", "status": "open", "statement": "No .env content was read; OS permissions still do not deny reads of ignored .env files, and the safe profile is not runtime isolation."},
+    {"risk_id": "RR-CMD-001", "status": "open", "statement": "Node child_process can bypass profile validation and execute commands outside the profile contract."},
+    {"risk_id": "RR-CMD-002", "status": "open", "statement": "PowerShell and cmd.exe can bypass profile validation; no command interception or executable allowlist is enforced."},
+    {"risk_id": "RR-CMD-003", "status": "open", "statement": "Arbitrary executables and a parent permission override may bypass or broaden the Agent profile."},
+    {"risk_id": "RR-DB-001", "status": "open", "statement": "Product start and test scripts are not wired to the safety validator while product roots remain Phase 1 locked."},
+    {"risk_id": "RR-GIT-001", "status": "open", "statement": "Branch, commit and worktree are repository-global human operations; branch protection, CODEOWNERS, required review, CI, remote state and actual staging were not established."},
+    {"risk_id": "RR-REVIEW-001", "status": "open", "statement": "Clean reviewer context and human identity assurance are procedural rather than cryptographic."},
+    {"risk_id": "RR-AGENT-001", "status": "open", "statement": "Agent path policy and change-scope validation are not an OS-level filesystem sandbox."},
+    {"risk_id": "RR-PATH-001", "status": "open", "statement": "Canonical path and reparse checks reduce but cannot eliminate Windows reparse and filesystem TOCTOU risks."},
+    {"risk_id": "RR-DOMAIN-001", "status": "open", "statement": "The Domain index remains an incomplete proposed Rule registry; candidate Rules are not confirmed by this review."},
+    {"risk_id": "RR-EVIDENCE-001", "status": "open", "statement": "No controlled external artifact store or retention policy is configured."},
+    {"risk_id": "RR-SECRET-001", "status": "open", "statement": "Pattern scanning can produce false positives and cannot prove absence of every novel, fragmented, compressed, encrypted, renamed, unknown or multiply encoded secret; it is not DLP."},
+    {"risk_id": "RR-EVIDENCE-002", "status": "open", "statement": "External Migration 320 evidence is manifest-external, includes operational path and dump-reference classifications, and was not verified globally clean."},
+    {"risk_id": "RR-FIXTURE-001", "status": "open", "statement": "Fixture isolation reduces known cleanup collisions, but a hard crash can retain a run and no lock proves immunity from every filesystem race."},
+    {"risk_id": "RR-GRAPH-001", "status": "accepted-phase1", "statement": "Phase 1 provides a traceability projection, not a complete Knowledge Graph backend."},
+    {"risk_id": "RR-M320-001", "status": "blocker", "statement": "Migration 320 remains NO-GO; no product, database, seed or migration evidence was expanded by this review."}
+  ],
+  "candidate_review_gate_implication": {
+    "candidate_governance_review_gate": "NO-GO",
+    "reason": "A formal Security Reviewer returned BLOCKER with demonstrated in-contract false negatives and a false structured scanner capability claim.",
+    "session_b_authorized": false,
+    "governance_commit_preparation_authorized": false,
+    "governance_commit_execution_authorized": false,
+    "migration_320_execution_authorized": false,
+    "required_next_step": "Remediate the scanner and fixture contract, regenerate the exact candidate baseline, and obtain a fresh independent A4 Security Review. Do not rewrite this Reviewer outcome."
+  }
+}

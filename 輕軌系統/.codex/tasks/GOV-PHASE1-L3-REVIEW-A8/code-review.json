@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A8",
+  "reviewer": "code-reviewer",
+  "formal": true,
+  "did_not_participate_in_implementation": true,
+  "reviewer_run_id": "A8-CODE-RUN-d04fc3fe-c300-450b-857d-ba3c2f13dc50",
+  "session_id": "A8-CODE-SESSION-6c4db7fe-3808-4577-88e6-86cebdb28699",
+  "implementer_session_id": "R8-IMPLEMENTER-SESSION-7D6E38EA-6B4C-41EF-96CC-5E3AF96768FA",
+  "reviewer_session_differs_from_implementer": true,
+  "reviewed_candidate_baseline": "phase-1.8-bootstrap",
+  "reviewed_manifest_sha256": "12073691E85308C8E47A36555EBA07B3F4F12FF416E7DF651A5CFD9B2A0A40A9",
+  "reviewed_manifest_file_count": 97,
+  "review_scope": {
+    "product_root": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+    "mode": "clean-context-read-only",
+    "included": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex governance policies, schemas, production scripts, production tests, and manifest-listed governance sources",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A7/code-review.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/review-baseline-before.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A8/reviewer-assignments.json"
+    ],
+    "excluded": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration product source",
+      "sibling directories",
+      "Remediation 8 implementer conversation, reasoning, unfiled explanation, and summaries as substitutes for direct reruns"
+    ],
+    "focus": [
+      "single authoritative five-Gate computation",
+      "derived projection non-authority",
+      "dependency matrix fail-closed behavior",
+      "Session B and steady-state anchor isolation",
+      "target-Gate exit semantics",
+      "A7 Code finding closure"
+    ],
+    "baseline_integrity": {"manifest_hash_match": true, "candidate_files_checked": 97, "missing": 0, "size_mismatches": 0, "hash_mismatches": 0},
+    "reviewer_independence": {"assignment_matches_requested_metadata": true, "reviewer_run_id_unique": true, "session_id_unique": true}
+  },
+  "outcome": "PASS",
+  "summary": "The 97-file candidate has exactly one computeAuthoritativeGateMap implementation. validateTask computes the authoritative five-Gate map before checking calculated, overall, Candidate, eligibility, final-summary, or task-graph projections; those derived outputs may cause a structural consistency error but cannot replace or alter the Gate map. The legal transient production case was structural VALID with Candidate GO and target exit 0, while Human Commit remained NO-GO, both steady-state Gates remained DISABLED, and Migration 320 remained NO-GO. Unknown, reverse, and derived dependency mutations failed closed. Direct reruns passed 68/68 fixtures, 34/34 production integration cases, and killed 23/23 production mutations. A7-CODE-BLOCKER-001 and A7-CODE-BLOCKER-002 are CLOSED. This PASS does not grant Bootstrap Human Commit GO, authorize Session B, or change Migration 320 NO-GO.",
+  "commands_run": [
+    {"command": "PowerShell SHA256 and byte-size recomputation over the A8 before-baseline and governance manifest", "result": "PASS", "evidence": "97/97 candidate files matched; manifest SHA256 matched."},
+    {"command": "node .codex/tests/run-governance-fixtures.mjs", "result": "PASS", "exit_code": 0},
+    {"command": "node .codex/tests/run-bootstrap-production-integration.mjs", "result": "PASS", "exit_code": 0},
+    {"command": "node .codex/tests/run-bootstrap-mutation-tests.mjs", "result": "PASS", "exit_code": 0},
+    {"command": "Read-only stdin probes importing computeAuthoritativeGateMap, validateGateDependencyMatrix, and validateSchema", "result": "PASS", "evidence": "Verified legal split, unknown-input rejection, dependency fail-closed behavior, and Session B/anchor rejection behavior."}
+  ],
+  "rerun_results": {
+    "fixtures": {"total": 68, "passed": 68, "failed": 0, "exit_code": 0, "execution_mode": "production-module-contracts"},
+    "production_integration": {"total": 34, "passed": 34, "failed": 0, "exit_code": 0},
+    "production_mutations": {"total": 23, "killed": 23, "survived": 0, "exit_code": 0, "all_mutations_applied": true, "all_expected_cases_failed": true},
+    "authoritative_gate_function": {
+      "definition_count": 1,
+      "definition": ".codex/scripts/lib/governance/gate-router.mjs:40",
+      "compatibility_alias_only": ".codex/scripts/lib/governance/gate-router.mjs:77-78",
+      "normal_production_call": ".codex/scripts/validate-task.mjs:507-521",
+      "derived_projection_checks": ".codex/scripts/validate-task.mjs:522-526",
+      "task_graph_consistency_check": ".codex/scripts/validate-task.mjs:527-535",
+      "exit_semantics": ".codex/scripts/validate-task.mjs:538-539"
+    },
+    "direct_legal_gate_split": {
+      "structural": "VALID",
+      "bootstrap_candidate_review": "GO",
+      "bootstrap_human_commit": "NO-GO",
+      "steady_state_preparation": "DISABLED",
+      "steady_state_execution": "DISABLED",
+      "migration_320_execution": "NO-GO",
+      "target_gate": "bootstrap_candidate_review",
+      "target_exit_code": 0,
+      "production_case": "PROD-GATE-01"
+    },
+    "dependency_matrix": {
+      "current_matrix_valid": true,
+      "unknown_gate_rejected": true,
+      "reverse_edge_rejected": true,
+      "derived_dependency_rejected": true,
+      "forbidden_edge_removal_rejected": true,
+      "evidence": [".codex/scripts/lib/governance/gate-router.mjs:7-37", ".codex/governance/gate-dependency-matrix.yaml:1-20", ".codex/scripts/validate-task.mjs:92-97"]
+    },
+    "gate_related_mutations": {
+      "candidate_final_contamination_killed": true,
+      "session_b_coupling_killed": true,
+      "steady_anchor_coupling_killed": true,
+      "migration_320_coupling_killed": true,
+      "derived_calculated_gate_coupling_killed": true,
+      "derived_eligibility_coupling_killed": true,
+      "missing_anchor_preparation_enablement_killed": true,
+      "missing_anchor_execution_enablement_killed": true,
+      "domain_external_decision_coupling_killed": true
+    }
+  },
+  "closure_dispositions": [
+    {
+      "finding_id": "A7-CODE-BLOCKER-001",
+      "historical_severity": "BLOCKER",
+      "closure_status": "CLOSED",
+      "title": "Derived Gate summaries and graph can reverse-influence the authoritative target Gate",
+      "affected_control": "Calculated, overall, Candidate, eligibility, final-summary, and task-graph projections must not replace or reroute the authoritative five-Gate map.",
+      "precise_source_locations": [".codex/scripts/validate-task.mjs:507-538", ".codex/scripts/lib/governance/gate-router.mjs:40-103", ".codex/tests/run-bootstrap-production-integration.mjs:107-132"],
+      "reproduction_command": "node .codex/tests/run-bootstrap-production-integration.mjs",
+      "reproduction_result": "PROD-GATE-07 and PROD-GATE-08 passed: derived projection mutations produced structural consistency errors while the authoritative Candidate Gate remained GO. Source order confirms final-summary and task-graph checks also occur only after computeAuthoritativeGateMap and never replace gateResults.",
+      "evidence": ["Exactly one authoritative implementation exists at gate-router.mjs:40.", "validateTask computes gateResults once at lines 507-521.", "Projection, final-summary, and graph checks occur at lines 522-535.", "exitForGateMap receives the unchanged gateResults at line 538.", "MUT-GATE-05 and MUT-GATE-06 were applied and killed."],
+      "blocks_bootstrap_candidate_gate": false
+    },
+    {
+      "finding_id": "A7-CODE-BLOCKER-002",
+      "historical_severity": "BLOCKER",
+      "closure_status": "CLOSED",
+      "title": "Mandatory production mutation coverage omits Session B and steady-state anchor isolation",
+      "affected_control": "Production mutations must kill Candidate coupling to Session B and steady-state anchors and missing-anchor enablement of both steady-state Gates.",
+      "precise_source_locations": [".codex/tests/run-bootstrap-mutation-tests.mjs:15-23", ".codex/tests/run-bootstrap-mutation-tests.mjs:45-71", ".codex/tests/run-bootstrap-production-integration.mjs:91-104"],
+      "reproduction_command": "node .codex/tests/run-bootstrap-mutation-tests.mjs",
+      "reproduction_result": "23/23 mutations were applied and killed. MUT-GATE-02 killed Candidate dependence on Session B; MUT-GATE-03 killed Candidate dependence on a steady-state anchor; MUT-GATE-07 and MUT-GATE-08 killed missing-anchor enablement of preparation and execution.",
+      "evidence": ["MUT-GATE-02-CANDIDATE-REQUIRES-SESSION-B: killed=true.", "MUT-GATE-03-CANDIDATE-REQUIRES-STEADY-ANCHOR: killed=true.", "MUT-GATE-07-MISSING-ANCHOR-ENABLES-PREPARATION: killed=true.", "MUT-GATE-08-MISSING-ANCHOR-ENABLES-EXECUTION: killed=true.", "The runner counts a mutant as killed only when mutation_applied is true, the integration exits nonzero, and the declared expected case fails."],
+      "blocks_bootstrap_candidate_gate": false
+    }
+  ],
+  "findings": [],
+  "conditions": [],
+  "residual_risks": [
+    {"risk": "The validator, manifest, scanner, and candidate remain mutable workspace artifacts without a Git trust anchor.", "classification": "approved-bootstrap-limitation", "effect": "Assurance remains INTERNAL_CONSISTENCY_ONLY; this review does not authorize Human Commit or steady-state execution."},
+    {"risk": "Human and reviewer identities are procedural rather than cryptographically authenticated.", "classification": "approved-bootstrap-limitation", "effect": "Bootstrap Human Commit remains a separate human-exclusive decision."},
+    {"risk": "A stale derived projection, final summary, or task graph remains a structural consistency error and exits 1, although it cannot alter the authoritative Gate map.", "classification": "intentional-fail-closed-consistency-behavior", "effect": "The output must be corrected before structural validation passes; Candidate status itself is not rerouted."},
+    {"risk": "The review does not establish OS isolation, repository-global path enforcement, staging identity, commit identity, or remote protection.", "classification": "out-of-scope-bootstrap-limitation", "effect": "No Git, commit, release, or production authority is inferred."}
+  ],
+  "prohibited_actions_confirmed": {
+    "workspace_files_written": false,
+    "a8_review_output_written": false,
+    "git_commands_run": false,
+    "services_started": false,
+    "product_tests_run": false,
+    "database_accessed": false,
+    "seed_run": false,
+    "migration_run": false,
+    "env_files_read": false,
+    "frontend_contents_read": false,
+    "erp_api_contents_read": false,
+    "db_design_contents_read": false,
+    "migration_product_contents_read": false,
+    "sibling_contents_read": false,
+    "remediation_8_implementer_conversation_used": false,
+    "remediation_8_summary_used_as_evidence": false,
+    "human_commit_go_declared": false,
+    "session_b_started": false
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-L3-REVIEW-A6",
+  "metadata": {
+    "formal": true,
+    "reviewer": "code-reviewer",
+    "reviewer_run_id": "A6-CODE-RUN-8e66b074-6f26-4031-a995-b9a383f5121b",
+    "session_id": "A6-CODE-SESSION-2cfc7043-ac58-45ca-97bd-46d507814558",
+    "did_not_participate_in_implementation": true,
+    "reviewed_candidate_baseline": "phase-1.6-bootstrap",
+    "candidate_manifest_file_count": 81,
+    "candidate_manifest_sha256": "52CE2A476C2D29BBE1AA1461D8D62B41502381FF776007580F23B2ED0D77AA33",
+    "bootstrap_candidate_record_id": "30A21CDB600B2738B0F8BD38F0E1A3AEB748F8B6F79368E8599ACE31ACFB8D01"
+  },
+  "review_scope": {
+    "product_root": "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統",
+    "mode": "read-only-reviewed-sources",
+    "included": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/task-intent.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/classification.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/blueprint.yaml",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-assignments.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A6/review-baseline-before.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/code-review.json",
+      ".codex/tasks/GOV-PHASE1-L3-REVIEW-A5/session-a5-summary.json",
+      ".codex/tasks/GOV-PHASE1-REMEDIATION-6/**",
+      ".codex/governance/governance-commit-manifest.yaml and its exact 81 candidate sources"
+    ],
+    "excluded": [
+      ".env*",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "migration/**",
+      "sibling directories",
+      "implementation conversations",
+      "unfiled explanations"
+    ],
+    "prohibited_operations_not_performed": [
+      "Git inspection or mutation",
+      "service startup",
+      "product tests",
+      "database access",
+      "seed",
+      "migration",
+      "modification of any existing reviewed source"
+    ],
+    "baseline_verification": {
+      "manifest": {
+        "expected_sha256": "52CE2A476C2D29BBE1AA1461D8D62B41502381FF776007580F23B2ED0D77AA33",
+        "actual_sha256": "52CE2A476C2D29BBE1AA1461D8D62B41502381FF776007580F23B2ED0D77AA33",
+        "match": true
+      },
+      "candidate": { "expected": 81, "missing": 0, "hash_mismatches": 0 },
+      "frozen_history": { "expected": 256, "missing": 0, "hash_mismatches": 0 },
+      "remediation_6": { "expected": 38, "missing": 0, "hash_mismatches": 0 },
+      "migration_320_task": { "expected": 13, "missing": 0, "hash_mismatches": 0 },
+      "migration_320_external_hashes_only": { "expected": 5, "missing": 0, "hash_mismatches": 0 },
+      "scanner_report_exact_recomputation": {
+        "sha256": "F6053AED94CE150948E22221F747B9DF13C4C06173D954920311551CB60E5D40",
+        "exact_match": true,
+        "file_count": 81,
+        "findings": 0
+      },
+      "bootstrap_candidate_exact_recomputation": {
+        "file_sha256": "F8984DCAF22E09A69104AE4B1DD65450361942B563469777767F3662BB36AD87",
+        "record_payload_sha256": "30A21CDB600B2738B0F8BD38F0E1A3AEB748F8B6F79368E8599ACE31ACFB8D01",
+        "exact_match": true,
+        "assurance": "INTERNAL_CONSISTENCY_ONLY"
+      }
+    }
+  },
+  "methods_and_commands": [
+    {
+      "method": "SHA256 baseline recomputation without Git",
+      "command": "PowerShell Get-FileHash over review-baseline-before.json candidate, frozen_history, remediation_6, migration_320_task, and migration_320_external entries",
+      "result": "PASS",
+      "details": "81/81 candidate, 256/256 frozen history, 38/38 R6, 13/13 Migration 320 Task, and 5/5 external hash entries were present with zero mismatches."
+    },
+    {
+      "method": "Exact scanner and candidate regeneration",
+      "command": "node .codex/scripts/generate-bootstrap-scan-report.mjs 2026-07-18T08:06:00+08:00 <reviewer-temp-output>; node .codex/scripts/generate-bootstrap-candidate.mjs GOV-PHASE1-REMEDIATION-6 2026-07-18T08:07:00+08:00 <recomputed-scanner> <reviewer-temp-output>",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "The regenerated scanner report and candidate record were byte-for-byte matches to the filed R6 artifacts; scanner covered 81 files with zero findings."
+    },
+    {
+      "method": "Authoritative fixture rerun",
+      "command": "node .codex/tests/run-governance-fixtures.mjs",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "68/68; cleanup PASS; fixture suite PHASE1-BOOTSTRAP-CORE version 6."
+    },
+    {
+      "method": "Production integration rerun",
+      "command": "node .codex/tests/run-bootstrap-production-integration.mjs",
+      "result": "PASS_WITH_BLOCKING_ORACLE_GAP",
+      "exit_code": 0,
+      "details": "20/20 declared cases passed, but PROD-01 identifies pending final commit approval as the only Gate reason and PROD-19 approves final commit before expecting Bootstrap Candidate Review GO."
+    },
+    {
+      "method": "Production-module mutation rerun",
+      "command": "node .codex/tests/run-bootstrap-mutation-tests.mjs",
+      "result": "PASS_WITH_BLOCKING_ORACLE_GAP",
+      "exit_code": 0,
+      "details": "10/10 mutations killed; none mutates or asserts separation of candidate review from final commit approval."
+    },
+    {
+      "method": "Concurrent fixture and adversarial report rerun",
+      "command": "node .codex/tests/run-governance-fixtures-concurrency.mjs",
+      "result": "PASS",
+      "exit_code": 0,
+      "details": "Two unique owned run roots and case roots; caller IDs ignored; truncated, duplicate-ID, provenance-free forged PASS, and tampered-suite-hash reports all rejected."
+    },
+    {
+      "method": "Original A5 role-scope exploit retest against production exports",
+      "command": "node .codex/tasks/GOV-PHASE1-L3-REVIEW-A6/reviewer-temp/code/retest-a5-role-exploit.mjs",
+      "result": "PASS_EXPLOIT_REJECTED",
+      "exit_code": 0,
+      "details": "The task-level four-layer scope would accept the unassigned path, but explicit actor scope rejected it with SCOPE_ACTOR OUTSIDE_EFFECTIVE_SCOPE, missing actor derivation matched zero roles, and validateChangedPaths rejected it with OUTSIDE_EFFECTIVE_SCOPE."
+    },
+    {
+      "method": "Lifecycle projection validation",
+      "command": "node .codex/scripts/validate-phase-status.mjs",
+      "result": "PASS_INFORMATIONAL",
+      "exit_code": 0,
+      "details": "authority=informational, sources=7, violations=0."
+    },
+    {
+      "method": "Filed R6 production validation",
+      "command": "node .codex/scripts/validate-task.mjs --task-id GOV-PHASE1-REMEDIATION-6",
+      "result": "PASS_EXPECTED_NO_GO",
+      "exit_code": 2,
+      "details": "structural=VALID; proof_assurance=INTERNAL_CONSISTENCY_ONLY; every reported Gate remained NO-GO."
+    },
+    {
+      "method": "Candidate-only staged-capability search",
+      "command": "Search all 81 manifest-listed sources for STAGED_EXACT, liveStagedProofValidated, staged_file_set_sha256, and staged_blob_set_sha256",
+      "result": "PASS_ABSENT_OR_NEGATIVE_TEST_ONLY",
+      "details": "Matches were limited to AGENTS policy text and negative test inputs; no schema, proof export, generator, validator input, or executable staged-proof path was present."
+    },
+    {
+      "method": "Initial inline role probe",
+      "command": "node --input-type=module -e <PowerShell-embedded-probe>",
+      "result": "COMMAND_ERROR_RETRIED",
+      "exit_code": 1,
+      "details": "PowerShell stripped JavaScript quote characters. No reviewed source was written; the same probe was rerun successfully from the permitted reviewer-temp path."
+    }
+  ],
+  "control_results": [
+    {
+      "control": "Exact 81-file candidate and R6 baseline integrity",
+      "result": "PASS",
+      "evidence": [
+        ".codex/governance/governance-commit-manifest.yaml:1-655",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-6/bootstrap-candidate-record.json:1-14",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-6/bootstrap-scanner-report.json:1-19"
+      ]
+    },
+    {
+      "control": "Six mandatory scope operands and exact actor-bound production scope",
+      "result": "PASS",
+      "evidence": [
+        ".codex/scripts/lib/governance/scope-lattice.mjs:88-168",
+        ".codex/scripts/lib/governance/scope-lattice.mjs:195-218",
+        ".codex/scripts/validate-task.mjs:222-235",
+        ".codex/scripts/validate-change-scope.mjs:45-54"
+      ]
+    },
+    {
+      "control": "Bootstrap proof boundary and STAGED_EXACT unloadability",
+      "result": "PASS_APPROVED_BOOTSTRAP_BOUNDARY",
+      "evidence": [
+        ".codex/scripts/lib/governance/typed-proof.mjs:3-5",
+        ".codex/scripts/lib/governance/typed-proof.mjs:47-69",
+        ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json:3-18",
+        ".codex/tests/run-bootstrap-production-integration.mjs:150-160"
+      ]
+    },
+    {
+      "control": "Unique identity, exact-one required evidence, PASS-only verdict, and no waiver",
+      "result": "PASS",
+      "evidence": [
+        ".codex/scripts/lib/governance/identity-resolver.mjs:9-30",
+        ".codex/scripts/lib/governance/identity-resolver.mjs:33-63",
+        ".codex/scripts/validate-task.mjs:280-303",
+        ".codex/governance/evidence-requirement-policy.yaml:3-11"
+      ]
+    },
+    {
+      "control": "Official fixtures, production integration, mutation, concurrency, and adversarial report rejection",
+      "result": "PASS_WITH_BLOCKING_GATE_ORACLE_GAP",
+      "evidence": [
+        ".codex/tests/run-governance-fixtures.mjs:1-154",
+        ".codex/tests/run-bootstrap-production-integration.mjs:126-263",
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:10-96",
+        ".codex/tests/run-governance-fixtures-concurrency.mjs:25-46"
+      ]
+    },
+    {
+      "control": "Lifecycle is deterministic and informational only",
+      "result": "PASS_INFORMATIONAL_ONLY",
+      "evidence": [
+        ".codex/scripts/lib/governance/lifecycle-projection.mjs:46-75",
+        ".codex/governance/phase-status.json:3-9",
+        ".codex/scripts/validate-task.mjs:78-79"
+      ]
+    },
+    {
+      "control": "Bootstrap Candidate Review Gate is separate from Bootstrap Human Commit and final approval",
+      "result": "FAIL_BLOCKER",
+      "evidence": [
+        ".codex/governance/gate-policy.yaml:6-17",
+        ".codex/scripts/validate-task.mjs:367-387",
+        ".codex/scripts/validate-task.mjs:426-432",
+        ".codex/tests/run-bootstrap-production-integration.mjs:117-127",
+        ".codex/tests/run-bootstrap-production-integration.mjs:245-252"
+      ]
+    },
+    {
+      "control": "Later Gate separation and fail-closed state",
+      "result": "PASS_NO_GO",
+      "evidence": [
+        ".codex/governance/gate-policy.yaml:13-37",
+        ".codex/scripts/validate-task.mjs:426-432",
+        ".codex/governance/phase-status.json:42-46"
+      ],
+      "details": "Bootstrap Human Commit, both steady-state Gates, and Migration 320 execution remain NO-GO; this does not cure the candidate-review/final-approval input conflation."
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "A6-CODE-BLOCKER-001",
+      "severity": "BLOCKER",
+      "title": "Bootstrap Candidate Review GO incorrectly requires final commit approval",
+      "affected_control": "Production Gate calculation and separation of Bootstrap Candidate Review from Bootstrap Human Commit",
+      "affected_files_and_lines": [
+        ".codex/governance/gate-policy.yaml:6-17",
+        ".codex/scripts/validate-task.mjs:367-387",
+        ".codex/scripts/validate-task.mjs:426-432",
+        ".codex/tests/run-bootstrap-production-integration.mjs:117-127",
+        ".codex/tests/run-bootstrap-production-integration.mjs:245-252"
+      ],
+      "exact_failure_condition": "A structurally valid L3 bootstrap Task has an exact valid candidate and scanner record, exact actor-bound scope, all required evidence PASS, all required formal Reviews PASS, no blockers or open conditions, scope/execution approvals approved, and review_completion approved, while the human-exclusive final_commit_approval and top-level approval status correctly remain pending. validateTask adds 'L3 final commit approval is not approved.' to the shared gateReasons and assigns the resulting calculatedGate to gateResults.bootstrap_candidate_review. The declared production fixture reproduces NO-GO with that sole reason; it obtains candidate-review GO only after changing final_commit_approval and the top-level approval status to approved.",
+      "reproducible_read_only_check": {
+        "command": "$env:TEMP='<A6 reviewer-temp code path>'; $env:TMP=$env:TEMP; node .codex/tests/run-bootstrap-production-integration.mjs",
+        "expected_observation": "PROD-01 is structural VALID/NO-GO with gate_reasons exactly including L3 final commit approval is not approved; source lines 245-252 then approve final_commit_approval before PROD-19 expects bootstrap_candidate_review=GO."
+      },
+      "impact": "The production consumer cannot represent a completed clean Bootstrap Candidate Review while the separate human commit decision remains pending. It either leaves the candidate review Gate incorrectly NO-GO or pressures the workflow to record premature final commit approval merely to clear the earlier Gate. The later commit and steady-state outputs remain hard-coded NO-GO, so this is a gate-integrity and sequencing blocker rather than an unauthorized commit execution path.",
+      "blocks_bootstrap_candidate_gate": true
+    }
+  ],
+  "a5_closure": [
+    {
+      "finding_id": "A5-CODE-BLOCKER-001",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/scripts/lib/governance/scope-lattice.mjs:88-168",
+        ".codex/scripts/lib/governance/scope-lattice.mjs:195-218",
+        ".codex/scripts/validate-change-scope.mjs:45-54",
+        "A6 read-only role-scope retest: explicit actor OUTSIDE_EFFECTIVE_SCOPE; absent actor matched zero roles; validateChangedPaths OUTSIDE_EFFECTIVE_SCOPE"
+      ],
+      "reason": "Every production consumer reviewed here uses the actor-bound role scope. The original Task-allowed but Assignment-disallowed path no longer passes the production handoff or change-scope path."
+    },
+    {
+      "finding_id": "A5-CODE-BLOCKER-002",
+      "closure_status": "REPLACED_BY_BOOTSTRAP_BOUNDARY",
+      "evidence": [
+        ".codex/governance/bootstrap-trust-policy.yaml:4-28",
+        ".codex/scripts/lib/governance/typed-proof.mjs:3-5",
+        ".codex/scripts/lib/governance/typed-proof.mjs:47-69",
+        ".codex/blueprints/schemas/bootstrap-candidate-record.schema.json:3-18",
+        ".codex/tests/run-bootstrap-production-integration.mjs:150-160",
+        ".codex/scripts/validate-task.mjs:426-432"
+      ],
+      "reason": "The approved bootstrap contract removed commit-execution proof authority, STAGED_EXACT, caller proof booleans, and generic final prerequisites. The retained record proves internal consistency only; Bootstrap Human Commit and steady-state execution remain outside validator authority and NO-GO."
+    },
+    {
+      "finding_id": "A5-CODE-HIGH-003",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/tests/run-governance-fixtures.mjs:1-154",
+        ".codex/tests/run-bootstrap-production-integration.mjs:126-263",
+        ".codex/tests/run-bootstrap-mutation-tests.mjs:10-96",
+        ".codex/tests/run-governance-fixtures-concurrency.mjs:25-46",
+        "A6 rerun: fixtures 68/68; production 20/20; mutations 10/10; four adversarial report forms rejected"
+      ],
+      "reason": "The two exact A5 bypass families are now covered by actor-bound production cases and mutations or removed under the approved bootstrap boundary. The newly identified candidate-review/final-approval conflation is recorded separately as A6-CODE-BLOCKER-001."
+    },
+    {
+      "finding_id": "A5-CODE-MEDIUM-004",
+      "closure_status": "CLOSED",
+      "evidence": [
+        ".codex/scripts/lib/governance/lifecycle-projection.mjs:46-75",
+        ".codex/governance/phase-status.json:3-9",
+        ".codex/tasks/GOV-PHASE1-REMEDIATION-6/lifecycle-downgrade.md:3-14",
+        "A6 rerun: PHASE_STATUS_VALIDATION result=PASS authority=informational sources=7 violations=0"
+      ],
+      "reason": "The filed contract was narrowed to a deterministic informational projection that may be stale and is explicitly excluded from Gate, scope, and approval inputs; it no longer claims a transition automaton."
+    }
+  ],
+  "production_exploit_retest": {
+    "a5_role_scope_exploit": {
+      "result": "REJECTED_CLOSED",
+      "construction": "Task scope .codex/tasks/GOV-PROBE/**; sole qa-engineer Role Policy and Assignment scope .codex/tasks/GOV-PROBE/allowed/**; changed path .codex/tasks/GOV-PROBE/unassigned.txt.",
+      "observed": {
+        "six_operand_violations": [],
+        "task_level_four_layer_scope_would_accept": true,
+        "explicit_actor_scope": "SCOPE_ACTOR OUTSIDE_EFFECTIVE_SCOPE",
+        "absent_actor_derivation": "matched 0 roles",
+        "validate_change_scope": "OUTSIDE_EFFECTIVE_SCOPE"
+      }
+    },
+    "a5_commit_forgery_exploit": {
+      "result": "UNLOADABLE_REPLACED_BY_BOOTSTRAP_BOUNDARY",
+      "observed": [
+        "BOOTSTRAP_WORKSPACE_CANDIDATE is the sole proof record type exported by typed-proof.mjs.",
+        "The bootstrap candidate schema rejects additional staged fields.",
+        "No liveStagedProofValidated or executable STAGED_EXACT production path exists in the exact 81-file candidate.",
+        "PROD-06 rejects a staged_file_set_sha256 field.",
+        "Bootstrap Human Commit and steady-state execution remain NO-GO."
+      ]
+    },
+    "a6_gate_separation_retest": {
+      "result": "FAIL_BLOCKER",
+      "observed": [
+        "PROD-01 returns structural VALID and bootstrap_candidate_review=NO-GO solely because final_commit_approval is pending.",
+        "PROD-19 first changes final_commit_approval and top-level approval to approved, then expects bootstrap_candidate_review=GO.",
+        "validateTask uses one shared calculatedGate for bootstrap_candidate_review after adding final commit approval to gateReasons."
+      ]
+    }
+  },
+  "remaining_risk": [
+    {
+      "risk": "Candidate review and final commit approval are not independently calculable in the production Gate consumer.",
+      "classification": "blocking-control-defect",
+      "disposition": "A6-CODE-BLOCKER-001; Bootstrap Candidate Review Gate remains NO-GO."
+    },
+    {
+      "risk": "The bootstrap validator and scanner are mutable uncommitted workspace artifacts without a Git trust anchor.",
+      "classification": "approved-bootstrap-limitation",
+      "disposition": "Not a Bootstrap Candidate Review blocker; human commit and steady-state Gates remain NO-GO."
+    },
+    {
+      "risk": "Role, Reviewer, and human identities are procedural rather than cryptographic.",
+      "classification": "approved-bootstrap-limitation",
+      "disposition": "Not a Bootstrap Candidate Review blocker."
+    },
+    {
+      "risk": "Agent path policy is not OS/container isolation and scanner v4 is not DLP or repository-global assurance.",
+      "classification": "approved-bootstrap-limitation",
+      "disposition": "Not a Bootstrap Candidate Review blocker within the declared boundary."
+    }
+  ],
+  "blocks_bootstrap_candidate_gate": true,
+  "limitations": [
+    "No STAGED_EXACT proof was expected, created, or required for Bootstrap Candidate Review; its approved absence is not a blocker.",
+    "No Git trust anchor or trusted validator provenance was expected or established; this is an approved bootstrap limitation and not a blocker.",
+    "No OS sandbox or repository-global path enforcement was claimed or tested; this is an approved limitation and not a blocker.",
+    "Reviewer and human identity are not cryptographically attested; this is an approved limitation and not a blocker.",
+    "Scanner v4 proves only no findings within its declared exact-candidate contract; it is not DLP and does not prove global sensitive-data absence.",
+    "The review did not read .env*, product source, implementation conversations, or unfiled explanations and did not run Git, services, product tests, database, seed, or migration operations."
+  ],
+  "outcome": "BLOCKER",
+  "severity_counts": {
+    "BLOCKER": 1,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "conclusion": "The exact phase-1.6 bootstrap candidate is internally consistent and closes or deliberately replaces all four A5 Code findings under the approved bootstrap boundary. However, the production Gate consumer still assigns final_commit_approval to the shared calculation used as Bootstrap Candidate Review, and the green production oracle encodes that conflation. A6-CODE-BLOCKER-001 therefore blocks the Bootstrap Candidate Review Gate. Bootstrap Human Commit, both steady-state Gates, Session B, and Migration 320 execution remain NO-GO and unauthorized."
+}

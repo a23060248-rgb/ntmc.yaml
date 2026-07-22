@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-10",
+  "review_context": "Remediation construction is complete but no fresh independent Reviewer Set was authorized for this Task; Session B findings remain open until a separately authorized Session B2 review.",
+  "reviews": [
+    {"type": "code", "reviewer": "unassigned", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["R10-CODE-REVIEW-NOT-STARTED"], "conditions": [], "decisions_required": [{"decision_required": "authorize-session-b2-code-review", "decision_owner_role": "human-governance-owner", "decision_question": "Should a fresh Session B2 Code Reviewer be authorized?", "decision_deadline_or_trigger": "After Remediation 10 is accepted."}]},
+    {"type": "security", "reviewer": "unassigned", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["SB-SEC-EVIDENCE-CONTRACT-VERSION-001", "SB-SEC-ALLOWLIST-EVIDENCE-GAP-001"], "conditions": [], "decisions_required": [{"decision_required": "authorize-session-b2-security-review", "decision_owner_role": "human-governance-owner", "decision_question": "Should a fresh Session B2 Security Reviewer directly re-evaluate the two open findings using the new exact input contract?", "decision_deadline_or_trigger": "After Remediation 10 is accepted."}]},
+    {"type": "railway-domain", "reviewer": "unassigned", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["R10-RAILWAY-REVIEW-NOT-STARTED"], "conditions": [], "decisions_required": [{"decision_required": "authorize-session-b2-railway-review", "decision_owner_role": "human-governance-owner", "decision_question": "Should a fresh Session B2 Railway Domain Reviewer verify that governance mechanism PASS remains separated from Migration 320 NEEDS_HUMAN_DECISION?", "decision_deadline_or_trigger": "After Remediation 10 is accepted."}]},
+    {"type": "compatibility", "reviewer": "unassigned", "formal": false, "outcome": "NEEDS_HUMAN_DECISION", "finding_refs": ["R10-COMPATIBILITY-REVIEW-NOT-STARTED"], "conditions": [], "decisions_required": [{"decision_required": "authorize-session-b2-compatibility-review", "decision_owner_role": "human-governance-owner", "decision_question": "Should a fresh Session B2 Compatibility Reviewer be authorized?", "decision_deadline_or_trigger": "After Remediation 10 is accepted."}]}
+  ],
+  "calculated_gate": "NO-GO",
+  "overall_gate": "NO-GO",
+  "bootstrap_candidate_review_gate": "NO-GO",
+  "eligible_to_start_session_b": false,
+  "bootstrap_human_commit_gate": "NO-GO",
+  "steady_state_preparation_gate": "DISABLED",
+  "steady_state_execution_gate": "DISABLED",
+  "migration_320_execution_gate": "NO-GO",
+  "blockers": ["Fresh Session B2 Reviewer Set is not authorized or started.", "SB-SEC-EVIDENCE-CONTRACT-VERSION-001 remains open pending independent B2 review.", "SB-SEC-ALLOWLIST-EVIDENCE-GAP-001 remains open pending independent B2 review."],
+  "conditions": []
+}

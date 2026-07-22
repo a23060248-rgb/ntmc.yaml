@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-CANDIDATE-REMEDIATION-13",
+  "manifest_path": ".codex/governance/governance-commit-manifest.yaml",
+  "report_path": ".codex/tasks/GOV-PHASE1-CANDIDATE-REMEDIATION-13/new-candidate-scanner-report.json",
+  "record_path": ".codex/tasks/GOV-PHASE1-CANDIDATE-REMEDIATION-13/new-candidate-record.json",
+  "checks": {
+    "manifest_schema_identity": true,
+    "file_count_108": true,
+    "all_manifest_hashes_match": true,
+    "included_set_binding": true,
+    "manifest_binding": true,
+    "scanner_report_binding": true,
+    "schema_loader": true,
+    "scanner_report_schema": true,
+    "candidate_record_schema": true,
+    "candidate_record_semantics": true,
+    "schema_set_binding": true,
+    "registry_binding": true,
+    "scanner_result_pass": true,
+    "explicit_supersession": true,
+    "breaking_change_declared": true
+  },
+  "schema_load_violations": [],
+  "report_schema_violations": [],
+  "record_schema_violations": [],
+  "record_semantic_violations": [],
+  "candidate": {
+    "included_artifact_count": 108,
+    "governance_commit_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "included_set_sha256": "0BBFB09D13E7C6F3E28315EF09231C66093856ABABF5B85D25957F7F2CBC1C8B",
+    "schema_set_sha256": "3020E683DBFAF79D02A0174CC9C2D8F1AF2234C40F956E6BA42937F1FF1E32FE",
+    "scan_contract_version": 5,
+    "scan_contract_sha256": "E9179C2A52751153D26E8CE604E4CFA860948511944DE16C4DB8BE7E44B077C9",
+    "evidence_schema_registry_sha256": "2744036D841174BE94BF1D05F6EA38C2B2C410E0EB5520D3D3723135E674E142",
+    "referenced_evidence_policy_sha256": "D9406A5663164027FAA0FC762C8B2DBBAB29B0F27AEAB7310F79ED9A88F30ED5",
+    "scanner_report_sha256": "8990475412230012BC4AF86FC7B08C409315814DE8EDEC4A0AB5DD56F0DA2BBF"
+  },
+  "result": "PASS"
+}

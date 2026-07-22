@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-EXTERNAL-REVIEW-ORCHESTRATION-PREPARATION",
+  "verification_mode": "APPROVED_LAYERED_INTEGRITY_ANCHORS_ONLY",
+  "incident_anchor": {
+    "path": ".codex/tasks/GOV-PHASE1-B5-DISPATCH-INCIDENT-ANALYSIS/migration-320-integrity.json",
+    "sha256": "87F397E7E074959A3D614B2B5DC975630A9DA7DB89BBCF4650ED834D1E16655C",
+    "byte_size": 5458,
+    "purpose": "Layered frozen-history or precheck integrity anchor"
+  },
+  "r12_anchor": {
+    "path": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/migration-320-integrity.json",
+    "sha256": "B25932F9C6ADA7B628F22184CC638B220CECA884747E959E2644B59D5444C118",
+    "byte_size": 667,
+    "purpose": "Layered frozen-history or precheck integrity anchor"
+  },
+  "anchors_unchanged": true,
+  "direct_migration_evidence_read": false,
+  "implementation_handoff_read": false,
+  "implementation_plan_read": false,
+  "migration_320_status": "NEEDS_HUMAN_DECISION / NO-GO",
+  "business_rule_approved": false,
+  "result": "PASS_WITH_EXACT_READ_BOUNDARY"
+}

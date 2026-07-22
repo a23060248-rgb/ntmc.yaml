@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-B5-COMPATIBILITY-REVIEW",
+  "findings": [
+    {
+      "finding_id": "B2-CODE-FORBIDDEN-READ-001",
+      "closure_owner": "Code Reviewer",
+      "closure_status": "NOT_CLOSED",
+      "evidence": [
+        "reviewer-dispatch-blocker.json"
+      ],
+      "reviewer_outcome_reference": null,
+      "access_scope_result": "FORMAL_ACCESS_LOG_NOT_PRODUCED",
+      "remaining_risk": "Fresh formal Code Reviewer outcome is absent.",
+      "blocks_b5_compatibility_gate": true
+    },
+    {
+      "finding_id": "B2-COMPAT-OFFICIAL-SECURITY-EVIDENCE-SCHEMA-001",
+      "closure_owner": "Governance Compatibility Reviewer",
+      "closure_status": "NOT_CLOSED",
+      "evidence": [],
+      "reviewer_outcome_reference": null,
+      "access_scope_result": "REVIEWER_NOT_DISPATCHED",
+      "remaining_risk": "Compatibility Reviewer was not dispatched.",
+      "blocks_b5_compatibility_gate": true
+    },
+    {
+      "finding_id": "B2-COMPAT-SECURITY-ALLOWLIST-FORBIDDEN-READ-001",
+      "closure_owner": "Governance Compatibility Reviewer",
+      "closure_status": "NOT_CLOSED",
+      "evidence": [],
+      "reviewer_outcome_reference": null,
+      "access_scope_result": "REVIEWER_NOT_DISPATCHED",
+      "remaining_risk": "Compatibility Reviewer was not dispatched.",
+      "blocks_b5_compatibility_gate": true
+    },
+    {
+      "finding_id": "B2-QA-THREAD-LIMIT-001",
+      "closure_owner": "Governance Compatibility Reviewer + Deterministic QA Gate",
+      "closure_status": "NOT_CLOSED",
+      "evidence": [],
+      "reviewer_outcome_reference": null,
+      "access_scope_result": "COMPATIBILITY_REVIEW_AND_QA_NOT_EXECUTED",
+      "remaining_risk": "Replacement control was not formally reviewed or executed.",
+      "blocks_b5_compatibility_gate": true
+    }
+  ],
+  "closed_count": 0,
+  "replaced_count": 0,
+  "not_closed_count": 4,
+  "result": "BLOCKER"
+}

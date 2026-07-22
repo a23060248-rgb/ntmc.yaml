@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-M320-DRYRUN",
+  "producer": "root-orchestrator",
+  "agent_session_ref": "phase1-mvp-root-task",
+  "started_at": "2026-07-17T00:01:00+08:00",
+  "changed_files": [".codex/tasks/GOV-M320-DRYRUN/**"],
+  "commands": ["Get-FileHash for five scoped evidence files", "node .codex/scripts/create-task.mjs", "node .codex/scripts/validate-task.mjs"],
+  "evidence_refs": ["ART-M320-COMPAT-REPORT", "ART-M320-BEFORE-AFTER", "ART-M320-ANOMALIES", "ART-M320-CLOSURE", "ART-M320-NO-GO"],
+  "unverified": ["deidentified formal clone", "formal read-only account", "formal ledger/key-data hashes", "independent new-session L3 final review"],
+  "residual_risks": ["P-to-C abnormal value is NULL", "C attachment snapshot count is zero", "shortage/inventory linkedRows is zero", "Domain Rules are proposed only"],
+  "next_role": "new-session-l3-reviewers-and-human-owners"
+}

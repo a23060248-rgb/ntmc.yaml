@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-SESSION-A11-NEW-CANDIDATE-REVIEW-PREPARATION",
+  "assignment_id": "A11-AGGREGATION-QA-ASSIGNMENT-20260721-05",
+  "review_type": "aggregation_qa",
+  "owned_findings": [
+    "Verify four reviewer payload schemas and self-hashes",
+    "Reject missing, duplicate, mismatched, or blocker payloads",
+    "Aggregate without closing findings or granting Human approval"
+  ],
+  "excluded_findings": [
+    "Performing a reviewer role",
+    "Closing findings",
+    "Human exact-manifest approval",
+    "Human Commit",
+    "Migration 320 approval"
+  ],
+  "closure_authority": "NONE",
+  "result_rule": "Report only findings owned by this role; do not close pre-existing findings."
+}

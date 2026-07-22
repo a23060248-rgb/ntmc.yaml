@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "CLOSED",
+  "task_id": "GOV-PHASE1-L3-REVIEW-A10",
+  "title": "Phase 1.9 Independent L3 Review Session A10",
+  "task_type": "review",
+  "objective": "Independently re-review the unchanged exact 103-file Phase 1.9 bootstrap candidate, complete the formal 31-mutant production mutation evidence, replace the procedurally invalid A9 Security context, and determine the Bootstrap Candidate Review Gate without modifying candidate or historical artifacts.",
+  "business_reason": "A9 found execution-evidence and Reviewer-context defects rather than a defect in the frozen candidate source; the human authorized a fresh A10 Reviewer set and explicitly declined Remediation 10.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "collab/**", "collab/HANDOFF.md", "parent directories", "sibling directories", "STAGED_EXACT", "confirmed Domain Rule promotion", "Session B", "Git mutation"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Three fresh independent formal Reviewer contexts produce unmodified outcomes with unique run and session IDs.",
+    "The exact Phase 1.9 candidate manifest remains 103 files and all candidate bindings and hashes match Remediation 9.",
+    "The Code Reviewer obtains a complete fresh production-path 31-mutant report or records NOT_VERIFIED and BLOCKER.",
+    "The Security Reviewer reads only the predeclared allowlist and supplies an access log plus procedural clean-context attestation; any violation is BLOCKER.",
+    "The Railway Domain Reviewer independently re-evaluates the mechanism while keeping Migration 320 NEEDS_HUMAN_DECISION and NO-GO separate.",
+    "Before and after SHA256 baselines prove the 103 candidate files, 425 frozen-history files, R8, A8, R9, A9, Migration 320 Task and five external evidence files are unchanged.",
+    "The authoritative validator recalculates the Bootstrap Candidate Review Gate and no root-authored summary overrides Reviewer outcomes.",
+    "Session B, Bootstrap Human Commit, steady-state activation, Git mutation and Migration 320 execution remain outside this Task."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Human explicitly authorized GOV-PHASE1-L3-REVIEW-A10 against the unchanged Phase 1.9 candidate and prohibited Remediation 10."
+}

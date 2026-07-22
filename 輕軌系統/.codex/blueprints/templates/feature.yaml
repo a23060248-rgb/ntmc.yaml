@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "template": "feature",
+  "task_type": "feature",
+  "required_sections": ["intent", "scope", "allowed_paths", "agent_assignments", "acceptance_criteria", "risk", "applicable_rules", "candidate_rules", "required_agents", "evidence_required", "rollback_restore", "human_approval", "stop_conditions"],
+  "default_exclusions": [".env*", "sibling directories", "formal database", "automatic merge or release"]
+}

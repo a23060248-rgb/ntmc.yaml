@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-12",
+  "production_loader": "loadAndCompileGovernanceSchemas",
+  "assignment_schema_source": ".codex/blueprints/schemas/blueprint.schema.json#/properties/review_assignments",
+  "inline_schema_used": false,
+  "fallback_schema_used": false,
+  "checks": [
+    {
+      "artifact": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/task-intent.yaml",
+      "schema": ".codex/blueprints/schemas/task-intent.schema.json",
+      "issue_count": 0,
+      "issues": [],
+      "result": "PASS"
+    },
+    {
+      "artifact": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/classification.yaml",
+      "schema": ".codex/blueprints/schemas/classification.schema.json",
+      "issue_count": 0,
+      "issues": [],
+      "result": "PASS"
+    },
+    {
+      "artifact": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/blueprint.yaml",
+      "schema": ".codex/blueprints/schemas/blueprint.schema.json",
+      "issue_count": 0,
+      "issues": [],
+      "result": "PASS"
+    },
+    {
+      "artifact": ".codex/tasks/GOV-PHASE1-REMEDIATION-12/session-b6-pre-review-package/reviewer-assignments.json",
+      "schema": ".codex/blueprints/schemas/blueprint.schema.json#/properties/review_assignments",
+      "issue_count": 0,
+      "issues": [],
+      "result": "PASS"
+    }
+  ],
+  "task_intent_issues": 0,
+  "classification_issues": 0,
+  "blueprint_issues": 0,
+  "reviewer_assignment_issues": 0,
+  "result": "PASS"
+}

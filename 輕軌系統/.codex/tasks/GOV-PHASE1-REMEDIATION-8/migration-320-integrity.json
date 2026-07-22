@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-PHASE1-REMEDIATION-8",
+  "migration_task_file_count": 13,
+  "migration_task_identical": true,
+  "external_evidence_file_count": 5,
+  "external_evidence_identical": true,
+  "validation_command": "node .codex/scripts/validate-task.mjs --task-id GOV-M320-DRYRUN --target-gate migration-320-execution",
+  "structural": "VALID",
+  "target_gate": "migration_320_execution",
+  "gate_status": "NO-GO",
+  "exit": 2,
+  "candidate_rules_status": "proposed/unverified",
+  "domain_external_decision": "NEEDS_HUMAN_DECISION",
+  "human_execution_approval": "pending",
+  "original_evidence_modified": false,
+  "business_rule_approval_granted": false,
+  "execution_authorized": false
+}

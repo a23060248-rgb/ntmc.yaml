@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_REVIEW",
+  "task_id": "GOV-PHASE1-REMEDIATION-9",
+  "title": "Phase 1.9 Formal Railway Reviewer Binding and Official Fixture Schema Loader",
+  "task_type": "governance",
+  "objective": "Remediate only A8-DOMAIN-REVIEWER-IDENTITY-BINDING-001 and A8-DOMAIN-FIXTURE-SCHEMA-LOADER-001 through fail-closed production identity binding and the official production Schema loader.",
+  "business_reason": "Session A8 proved two remaining bootstrap trust-boundary defects after Code and Security formally passed.",
+  "scope": {
+    "include": ["AGENTS.md", ".agents/**", ".codex/**"],
+    "exclude": [".env*", "frontend/**", "erp-api/**", "db-design/**", "migration/**", "sibling directories", "named frozen historical Tasks", "Migration 320 original evidence", "Gate Router redesign", "Scanner v5 or binary redesign", "Domain or Migration 320 authority changes", "bootstrap or steady-state semantic changes", "Git state"],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false,
+    "git_mutation_allowed": false
+  },
+  "acceptance_criteria": [
+    "Formal typed Railway reviews are procedurally bound to one blueprint assignment, the canonical Railway reviewer profile, exact role, profile hash, run, session, read-only mode, no write paths, and no implementation participation.",
+    "Reviewer substitution, aliases, case changes, duplicate or missing assignments, profile/hash/scope mismatches, write paths, and run/session mismatches fail closed.",
+    "The assurance claim remains procedural_role_and_assignment_binding and is not described as cryptographic or unforgeable identity.",
+    "The official 68-case fixture suite invokes loadAndCompileGovernanceSchemas and reports the compiled schema-set and Railway Schema identity/hash.",
+    "Malformed, missing, duplicate-ID, identity/version-mismatched, manifest/schema-set-mismatched, alternate-loader, and invalid typed Railway artifacts fail closed at suite startup.",
+    "Dedicated reviewer-binding regressions and official Schema-loader integration/mutation suites exercise transient copied roots only.",
+    "All retained Gate, scanner, concurrency, production, mutation, and binary regressions continue to pass without reopening A8 Code or Security PASS findings.",
+    "The exact bootstrap candidate is rebuilt after convergence and binds the canonical profile, official loader, schemas, controls, and tests.",
+    "A8 and all named history remain byte-identical; Migration 320 remains structural VALID, NEEDS_HUMAN_DECISION, NO-GO, exit 2.",
+    "A9 and Session B are not started, and no Candidate GO, Human Commit GO, Git mutation, or Domain Rule confirmation is declared."
+  ],
+  "requested_by": "human-governance-owner",
+  "authorization": "Remediation 9 implementation and governance-only validation are explicitly authorized; A9, Session B, Git mutation, product operations, and Migration 320 execution remain prohibited."
+}
