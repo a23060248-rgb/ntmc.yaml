@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "baseline_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02",
+  "baseline_status": "FROZEN_AS_REJECTED_CANDIDATE_IMMUTABLE",
+  "baseline_task_manifest_external_sha256": "29DED06B1D5F21F96940425BFD37821F344FD517FF81FDECFEABC9BAE84861A7",
+  "baseline_task_manifest_internal_sha256": "4B8BE553B86E300010F1A3939A580953DF75603CBF4EE99D4456DFAE33D4A1BE",
+  "existing_file_modification_count": 0,
+  "allowed_semantic_delta": {
+    "finding_id": "B-01",
+    "before": {
+      "status": "BLOCKING_NOT_CLOSED",
+      "problem": "Proposal-02 used non-authoritative role_profile_binding and canonical_profile_binding structures and did not express the schema-authoritative reviewer_binding contract."
+    },
+    "after_candidate": {
+      "status": "CANDIDATE_CORRECTED_AWAITING_INDEPENDENT_WORK_VALIDATION",
+      "resolution": "Treat procedural_role_and_assignment_binding as the reviewer_identity_assurance const, use the exact nine-field Blueprint assignment, and require a future fully populated ten-field reviewer_binding."
+    },
+    "supporting_artifacts": [
+      "canonical-role-resolution.json",
+      "procedural-binding-schema-resolution.json",
+      "role-and-review-bindings.json",
+      "procedural-binding-validation-results.json"
+    ]
+  },
+  "non_targeted_findings": {
+    "B-02": {
+      "proposal_02_work_outcome": "PASS_CLOSED",
+      "proposal_03_change": "NONE"
+    },
+    "B-03": {
+      "proposal_02_work_outcome": "PASS_CLOSED",
+      "proposal_03_change": "NONE"
+    }
+  },
+  "non_targeted_invariant_proof": {
+    "current_147_exact_path_count": 147,
+    "current_147_line_manifest_sha256": "2C01A85E3348B174B7BFB1F3F1D0A26CAB485423297252C7C7F4F35C65702E5D",
+    "current_147_entries_jcs_sha256": "3619690515D3AA4F9675BAB5783664447A58426D76F352521914BBE82E1130FD",
+    "scope_hash": "852EB9B5FEE08ED5B63BB1B7B2A7486CC16564994904CF0F30B5145C57AEA1EB",
+    "work_order_exact_bytes_sha256": "A84CD484810741B0B1EF037B8864BB247491292B50FF12AF272E5A87499BA434",
+    "scope_core_or_work_order_file_modified": false,
+    "result": "UNCHANGED"
+  },
+  "forbidden_semantic_delta_checks": {
+    "path_scope_changed": false,
+    "allowed_or_forbidden_path_changed": false,
+    "trust_anchor_decision_changed": false,
+    "classification_changed": false,
+    "formal_review_role_requirement_changed": false,
+    "domain_rule_changed_or_introduced": false,
+    "downstream_authorization_changed": false,
+    "product_database_migration_api_service_test_scope_changed": false
+  },
+  "delta_result": "ONLY_B_01_AUTHORITATIVE_RESOLUTION_PLUS_TASK_LOCAL_EVIDENCE"
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "level": "L3",
+  "classification_status": "human-approved-preparation-scope",
+  "execution_mode": "PROPOSAL_PREPARATION_ONLY",
+  "reasons": [
+    "The proposal concerns a Git trust-anchor and release-gate evidence model.",
+    "The predecessor has unresolved reviewer blockers and is closed as failed and frozen.",
+    "The proposed target requires formal Code, Security, Railway Domain, and Compatibility reviews plus Human gates."
+  ],
+  "triggers": [
+    "release_gate",
+    "unresolved_reviewer_blocker",
+    "unknown_environment_provenance",
+    "trust_anchor_evidence"
+  ],
+  "required_agents": [
+    "architect",
+    "qa-engineer",
+    "documentation-engineer"
+  ],
+  "required_reviews": [
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "exact_head_branch_tree_binding",
+    "current_147_path_binding",
+    "frozen_predecessor_byte_identity",
+    "canonical_role_and_review_assignments",
+    "proposal_scope_and_work_order_hashes",
+    "task_artifact_manifest"
+  ],
+  "human_approval": {
+    "scope_approval": "RECEIVED_FOR_PROPOSAL_PREPARATION_ONLY",
+    "execution_approval": "NOT_AUTHORIZED",
+    "review_completion": "NOT_STARTED",
+    "final_commit_approval": "NOT_AUTHORIZED",
+    "human_exact_trust_anchor_adoption": "NOT_AUTHORIZED"
+  },
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/**"
+    ],
+    "exclude": [
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/**",
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03/**",
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/**",
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01/**",
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/**",
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/governance/**",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "database/**",
+      "migrations/**",
+      "tests/**",
+      ".env*"
+    ]
+  },
+  "rollback_restore_evidence": {
+    "status": "NOT_APPLICABLE",
+    "reason": "Proposal preparation creates only new Task-local governance artifacts and performs no product, database, Git, adoption, or target REMEDIATION-04 mutation."
+  },
+  "stop_conditions": [
+    "BOUND_STATE_MISMATCH",
+    "PROPOSAL_SCOPE_ESCAPE",
+    "PREDECESSOR_BYTE_IDENTITY_MISMATCH",
+    "CURRENT_147_BINDING_MISMATCH",
+    "NONCANONICAL_ROLE_ASSIGNMENT",
+    "FORBIDDEN_GIT_MUTATION",
+    "TARGET_REMEDIATION_DIRECTORY_CREATED"
+  ],
+  "classified_by": "task-classification",
+  "maximum_candidate_verdict": "READY_FOR_WORK_READ_ONLY_REVIEW"
+}

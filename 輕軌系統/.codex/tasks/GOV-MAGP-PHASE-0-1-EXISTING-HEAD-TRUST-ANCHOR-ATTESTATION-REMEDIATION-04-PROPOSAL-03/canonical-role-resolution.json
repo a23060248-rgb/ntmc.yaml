@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "finding_id": "B-01",
+  "candidate_disposition": "CANDIDATE_CORRECTED_AWAITING_INDEPENDENT_WORK_VALIDATION",
+  "authoritative_resolution": {
+    "term": "procedural_role_and_assignment_binding",
+    "authoritative_meaning": "CONST_VALUE_OF_REVIEWER_BINDING_REVIEWER_IDENTITY_ASSURANCE",
+    "standalone_object_or_field_name": false,
+    "literal_role_profile_binding_field_authoritative": false,
+    "literal_role_profile_binding_interpretation": "SCHEMA_INVALID",
+    "canonical_equivalent": "A non-null agent_profile_reference plus agent_profile_sha256 in the Blueprint assignment and, only at actual review time, a fully populated non-null reviewer_binding."
+  },
+  "canonical_role": {
+    "required_role_id": "railway-domain-reviewer",
+    "profile_path": ".codex/agents/railway-domain-reviewer.toml",
+    "profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "governance_manifest_path": ".codex/governance/governance-commit-manifest.yaml",
+    "governance_manifest_file_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+    "matching_manifest_profile_entry_count": 1,
+    "matching_manifest_profile_entry_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "identity_assurance": "PROCEDURAL_NOT_CRYPTOGRAPHIC"
+  },
+  "canonical_blueprint_assignment": {
+    "assignment_id": "REM04-FORMAL-REVIEW-03-RAILWAY-DOMAIN-REVIEWER",
+    "required_role_id": "railway-domain-reviewer",
+    "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml",
+    "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "allowed_read_paths": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/**"
+    ],
+    "allowed_write_paths": [],
+    "required_review_scope": "bootstrap_rule_governance_mechanism",
+    "execution_mode": "read-only",
+    "implementation_participation": false
+  },
+  "blueprint_assignment_field_contract": {
+    "required_exact_fields": [
+      "assignment_id",
+      "required_role_id",
+      "agent_profile_reference",
+      "agent_profile_sha256",
+      "allowed_read_paths",
+      "allowed_write_paths",
+      "required_review_scope",
+      "execution_mode",
+      "implementation_participation"
+    ],
+    "additional_properties_allowed": false,
+    "railway_role_assignment_cardinality": 1,
+    "allowed_read_paths_non_empty": true,
+    "allowed_read_paths_policy_subset": true,
+    "allowed_write_paths_exactly_empty": true
+  },
+  "future_formal_record": {
+    "status": "NOT_CREATED",
+    "reason": "Actual unique run, session, assignment and exact review scope do not exist and formal review launch is not authorized.",
+    "required_binding_object": "reviewer_binding",
+    "required_identity_assurance_value": "procedural_role_and_assignment_binding",
+    "actual_review_pass_claimed": false
+  },
+  "deprecated_or_historical_non_authoritative_fields": [
+    "role_profile_binding",
+    "manifest_profile_entry_sha256",
+    "authoritative_manifest_file_sha256",
+    "canonical_profile_binding"
+  ]
+}

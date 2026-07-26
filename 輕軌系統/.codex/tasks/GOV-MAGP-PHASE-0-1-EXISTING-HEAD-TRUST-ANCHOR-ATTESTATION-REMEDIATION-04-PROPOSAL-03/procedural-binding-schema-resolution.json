@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "resolution_status": "AUTHORITATIVE_SCHEMA_AND_PRODUCTION_VALIDATOR_CONSISTENT",
+  "blueprint_assignment_schema": {
+    "source_path": ".codex/blueprints/schemas/blueprint.schema.json",
+    "source_sha256": "2E1C0CF024B6C8E5982009D9C1DD8A969D491ECC409774D4EBB13FCB7A11B47A",
+    "object_path": "$.properties.review_assignments.items",
+    "additional_properties": false,
+    "required_fields": [
+      "assignment_id",
+      "required_role_id",
+      "agent_profile_reference",
+      "agent_profile_sha256",
+      "allowed_read_paths",
+      "allowed_write_paths",
+      "required_review_scope",
+      "execution_mode",
+      "implementation_participation"
+    ],
+    "canonical_specimen_schema_issue_count": 0
+  },
+  "dedicated_typed_review_schema": {
+    "source_path": ".codex/blueprints/schemas/railway-domain-review.schema.json",
+    "source_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+    "review_scope_const": "bootstrap_rule_governance_mechanism",
+    "reviewer_binding_additional_properties": false,
+    "reviewer_binding_required_fields": [
+      "canonical_role_id",
+      "agent_profile_reference",
+      "agent_profile_sha256",
+      "task_assignment_id",
+      "reviewer_run_id",
+      "session_id",
+      "formal",
+      "execution_mode",
+      "implementation_participation",
+      "reviewer_identity_assurance"
+    ],
+    "reviewer_identity_assurance_const": "procedural_role_and_assignment_binding",
+    "canonical_specimen_schema_issue_count": 0
+  },
+  "review_findings_schema": {
+    "source_path": ".codex/blueprints/schemas/review-findings.schema.json",
+    "source_sha256": "3496820A82565B4861084FC7CB1EF694FD0B31FF57F33D734123DFE739E82809",
+    "object_path": "$.$defs.reviewer_binding",
+    "canonical_specimen_schema_issue_count": 0,
+    "deprecated_assurance_specimen_rejected": true,
+    "deprecated_assurance_rejection": "reviewer_identity_assurance const mismatch"
+  },
+  "production_validator": {
+    "source_path": ".codex/scripts/lib/governance/reviewer-identity-binding.mjs",
+    "source_sha256": "3426F3D99B4A8D9835BE47E0B644723AFA4C8F126C37FE29FA373133A1582911",
+    "entrypoint": "validateFormalRailwayReviewerBinding",
+    "canonical_in_memory_specimen_issue_count": 0,
+    "deprecated_assurance_in_memory_specimen_rejected": true,
+    "deprecated_assurance_rejection": "binding assurance must equal procedural_role_and_assignment_binding.",
+    "test_boundary": "HYPOTHETICAL_CONTRACT_SPECIMEN_ONLY_NOT_AN_ACTUAL_FORMAL_REVIEW"
+  },
+  "production_workflow": {
+    "source_path": ".codex/scripts/validate-task.mjs",
+    "source_sha256": "C155793588410F3BDF326FED0589AC6CB823277489D2C19D627A5FB0FA0E7CD9",
+    "dedicated_schema_validation_required": true,
+    "formal_binding_validator_required": true,
+    "both_must_pass_for_future_actual_review": true
+  },
+  "future_actual_review_invariants": [
+    "Outer reviewer_run_id equals reviewer_binding.reviewer_run_id.",
+    "Outer session_id equals reviewer_binding.session_id.",
+    "Reviewer session differs from implementer session.",
+    "task_assignment_id resolves exactly once.",
+    "railway-domain-reviewer resolves to exactly one Blueprint review assignment.",
+    "Blueprint assignment and reviewer_binding profile hashes equal the current canonical profile bytes.",
+    "Governance manifest contains exactly one matching canonical profile entry.",
+    "Formal=true, execution_mode=read-only, implementation participation=false, allowed writes empty.",
+    "Dedicated typed schema validation and validateFormalRailwayReviewerBinding both pass."
+  ],
+  "actual_formal_review_record_created": false,
+  "formal_review_launched": false
+}

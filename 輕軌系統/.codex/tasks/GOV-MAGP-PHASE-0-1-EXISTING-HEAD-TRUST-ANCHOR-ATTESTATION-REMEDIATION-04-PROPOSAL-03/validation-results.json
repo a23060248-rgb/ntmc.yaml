@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "evidence_authority": "NON_AUTHORITATIVE_TASK_LOCAL_CORRECTION_CANDIDATE_EVIDENCE",
+  "validation_stage": "PRE_FINAL_MANIFEST_FREEZE",
+  "candidate_verdict": "READY_FOR_INDEPENDENT_WORK_VALIDATION",
+  "maximum_verdict_enforced": true,
+  "startup_gate": {
+    "product_root_nfc_exact": true,
+    "head_match": true,
+    "branch_match": true,
+    "tree_match": true,
+    "proposal_03_absent_before_creation": true,
+    "target_remediation_04_absent": true,
+    "proposal_02_frozen_identity_match": true,
+    "proposal_01_frozen_identity_match": true,
+    "remediation_03_frozen_identity_match": true,
+    "scoped_tracked_unstaged_count": 0,
+    "scoped_staged_count": 0,
+    "existing_proposal_01_02_untracked_baseline_only": true,
+    "result": "PASS"
+  },
+  "B_01_validation": {
+    "authoritative_term_resolved_as_const_value": true,
+    "authoritative_blueprint_assignment_exact_field_contract": true,
+    "authoritative_formal_record_uses_reviewer_binding": true,
+    "deprecated_fields_excluded_from_canonical_objects": true,
+    "canonical_profile_hash_match": true,
+    "governance_manifest_exactly_one_profile_entry": true,
+    "assignment_policy_subset": true,
+    "positive_schema_and_production_validator_mechanism_test": true,
+    "deprecated_assurance_safe_rejection_test": true,
+    "actual_formal_review_created": false,
+    "formal_review_launched": false,
+    "candidate_status": "CANDIDATE_CORRECTED_AWAITING_INDEPENDENT_WORK_VALIDATION",
+    "result": "PASS_FOR_CANDIDATE_PREPARATION_ONLY"
+  },
+  "non_targeted_invariant_validation": {
+    "current_147_count": 147,
+    "current_147_entry_mismatch_count": 0,
+    "current_147_line_manifest_sha256_match": true,
+    "current_147_entries_jcs_sha256_match": true,
+    "scope_hash_match": true,
+    "work_order_exact_bytes_sha256_match": true,
+    "scope_core_or_work_order_modified": false,
+    "classification_or_review_requirements_changed": false,
+    "domain_rule_or_downstream_authority_changed": false,
+    "result": "PASS_UNCHANGED"
+  },
+  "task_local_file_set_pre_manifest": {
+    "expected_count": 13,
+    "expected_files": [
+      "HANDOFF.md",
+      "authority-source-inventory.json",
+      "canonical-role-resolution.json",
+      "final-summary.md",
+      "git-readonly-observation.json",
+      "hash-recomputation-results.json",
+      "procedural-binding-schema-resolution.json",
+      "procedural-binding-validation-results.json",
+      "proposal-02-frozen-input-verification.json",
+      "proposal-02-to-03-delta.json",
+      "role-and-review-bindings.json",
+      "task-definition.json",
+      "validation-results.json"
+    ],
+    "final_expected_physical_count": 14,
+    "final_expected_manifest_entry_count": 13,
+    "manifest_generation": "PENDING_FINAL_WRITE"
+  },
+  "pre_manifest_full_rebound": {
+    "bound_head_branch_tree_match": true,
+    "proposal_02_01_and_remediation_03_full_manifest_validation": true,
+    "current_147_full_entry_recomputation_match": true,
+    "scope_hash_and_work_order_hash_match": true,
+    "authority_source_byte_hash_match": true,
+    "exact_13_file_pre_manifest_set": true,
+    "scoped_tracked_unstaged_count": 0,
+    "scoped_staged_count": 0,
+    "other_scoped_status_count": 0,
+    "target_remediation_04_absent": true,
+    "result": "PASS"
+  },
+  "scope_and_action_validation": {
+    "writes_outside_exact_task_path": 0,
+    "preexisting_file_modifications": 0,
+    "target_remediation_04_created": false,
+    "formal_reviews_launched": false,
+    "case_43_cycle_run": false,
+    "product_tests_run": false,
+    "database_migration_api_service_operations_run": false,
+    "git_write_commands_run": 0,
+    "trust_anchor_adopted": false,
+    "downstream_authority_granted": false,
+    "result": "PASS"
+  },
+  "unverified_items": [
+    "Independent Work validation has not run.",
+    "Human acceptance of Proposal-03 has not occurred.",
+    "The future REMEDIATION-04 Blueprint, exact review scope, reviewer run ID, reviewer session ID, formal review return and reviewer_binding do not exist.",
+    "No actual formal Railway review credit is claimed.",
+    "Agent-context access to the default global ignore source remains warning-limited and is not used as full ignore evidence.",
+    "Repository-wide Git mutation absence is not claimed beyond the explicit bindings and scoped pathspec evidence."
+  ],
+  "prohibited_verdicts_not_emitted": [
+    "REMEDIATION-04_AUTHORIZED",
+    "TRUST_ANCHOR_ADOPTED",
+    "READY_FOR_8A-0GC",
+    "READY_FOR_PRODUCT_IMPLEMENTATION",
+    "GIT_WRITE_AUTHORIZED"
+  ]
+}

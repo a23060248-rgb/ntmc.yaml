@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "recomputation_status": "PASS",
+  "git_binding": {
+    "head": "f4c293467a9e3249631574947de8bdc93b18a51c",
+    "branch": "codex/precheck-template-maintenance",
+    "tree": "5860873bc183cfd915d09815f0bc52a471499cfa",
+    "result": "MATCH"
+  },
+  "current_147": {
+    "source_file": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/proposed-147-scope-manifest.json",
+    "source_file_bytes": 125082,
+    "source_file_sha256": "89646B9D7E816618EC2C6643FB23A9610B05B32A095126B3817DE4FB920C9F36",
+    "path_count": 147,
+    "unique_nfc_path_count": 147,
+    "tracked_count": 147,
+    "missing_count": 0,
+    "working_tree_changed_count": 0,
+    "index_changed_count": 0,
+    "per_entry_bytes_sha_blob_index_attribute_mismatch_count": 0,
+    "partition_counts": {
+      "SOURCE_7A_2": 106,
+      "ATTEMPT_1": 41
+    },
+    "line_manifest_contract": "ORDINAL_SORT_REPOSITORY_RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_LF_JOIN_WITHOUT_TRAILING_NEWLINE_SHA256",
+    "line_manifest_sha256_stored": "2C01A85E3348B174B7BFB1F3F1D0A26CAB485423297252C7C7F4F35C65702E5D",
+    "line_manifest_sha256_recomputed": "2C01A85E3348B174B7BFB1F3F1D0A26CAB485423297252C7C7F4F35C65702E5D",
+    "entries_jcs_contract": "SHA256_OF_RFC8785_JCS_OVER_EXACT_ENTRIES_ARRAY",
+    "entries_jcs_sha256_stored": "3619690515D3AA4F9675BAB5783664447A58426D76F352521914BBE82E1130FD",
+    "entries_jcs_sha256_recomputed": "3619690515D3AA4F9675BAB5783664447A58426D76F352521914BBE82E1130FD",
+    "result": "UNCHANGED"
+  },
+  "non_targeted_scope_and_work_order": {
+    "scope_core_source": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/remediation-requirements.json#scope_binding_core",
+    "scope_hash_contract": "SHA256_OF_RFC8785_JCS_OVER_COMPLETE_SCOPE_BINDING_CORE",
+    "scope_hash_stored": "852EB9B5FEE08ED5B63BB1B7B2A7486CC16564994904CF0F30B5145C57AEA1EB",
+    "scope_hash_recomputed": "852EB9B5FEE08ED5B63BB1B7B2A7486CC16564994904CF0F30B5145C57AEA1EB",
+    "work_order_source": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/proposed-remediation-04-authorization.md",
+    "work_order_bytes": 3786,
+    "work_order_exact_bytes_sha256_stored": "A84CD484810741B0B1EF037B8864BB247491292B50FF12AF272E5A87499BA434",
+    "work_order_exact_bytes_sha256_recomputed": "A84CD484810741B0B1EF037B8864BB247491292B50FF12AF272E5A87499BA434",
+    "result": "UNCHANGED"
+  },
+  "frozen_packages": {
+    "proposal_02": {
+      "physical_file_count": 18,
+      "manifest_entry_count": 17,
+      "external_manifest_sha256": "29DED06B1D5F21F96940425BFD37821F344FD517FF81FDECFEABC9BAE84861A7",
+      "internal_manifest_sha256": "4B8BE553B86E300010F1A3939A580953DF75603CBF4EE99D4456DFAE33D4A1BE",
+      "entry_mismatch_count": 0
+    },
+    "proposal_01": {
+      "physical_file_count": 17,
+      "manifest_entry_count": 16,
+      "external_manifest_sha256": "213E399C6AF9F4DF6DF1B1169DE9F46B27FD72DD5311349E32CC76A36F0469F4",
+      "internal_manifest_sha256": "8125972A74D78548980807E96E4263A8CC0FD9419F9B5E426996A2182123744F",
+      "entry_mismatch_count": 0
+    },
+    "remediation_03": {
+      "physical_file_count": 64,
+      "manifest_entry_count": 63,
+      "external_manifest_sha256": "571CF4209CE81C5D05AF16B32B75C39F3715C9FB21751770460A8759C4474188",
+      "internal_manifest_sha256": "5CDAD71141605A905B91FAC72599EEA7E7A737FA21F505F87C465A4A8F78E957",
+      "entry_mismatch_count": 0
+    }
+  },
+  "hash_algorithm": "SHA256_UPPERCASE_HEX",
+  "json_canonicalization": "RFC8785_JCS"
+}

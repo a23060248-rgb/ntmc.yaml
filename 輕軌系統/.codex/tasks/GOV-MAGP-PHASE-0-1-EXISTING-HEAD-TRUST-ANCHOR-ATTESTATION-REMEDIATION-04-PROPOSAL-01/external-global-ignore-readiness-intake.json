@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "evidence_labels": [
+    "HUMAN_SUPPLIED_EXTERNAL_CONTEXT",
+    "NOT_AGENT_REPRODUCED",
+    "PREREQUISITE_ONLY"
+  ],
+  "source_path": "C:/Users/a2306/.config/git/ignore",
+  "human_interactive_observation": {
+    "exists": "PASS",
+    "read": "PASS",
+    "utf8_valid": true,
+    "acl_current_user_full_control": true,
+    "deny_observed": false,
+    "bytes": 31,
+    "sha256": "1A377E8E10315D1E8B44CAF5BFE181DA8320A024E4F3316B1CF1D91F9DB274B3",
+    "core_excludes_file": "NOT_EXPLICITLY_CONFIGURED",
+    "config_query_exit_code": 1,
+    "config_query_stdout": "",
+    "single_probe": "輕軌系統/.codex/tasks/example-ignore-probe.tmp",
+    "check_ignore_exit_code": 1,
+    "check_ignore_stdout": "",
+    "permission_warning_observed": false,
+    "semantic_result": "NOT_IGNORED"
+  },
+  "agent_environment_observation": {
+    "global_ignore_access_warning_observed": true,
+    "warning_disposition": "ENVIRONMENT_LIMITATION_RECORDED",
+    "repair_attempted": false
+  },
+  "prohibited_interpretations": [
+    "FULL_147_PATH_EFFECTIVE_IGNORE_PASS",
+    "REMEDIATION_03_REPAIRED",
+    "TRUST_ANCHOR_ADOPTED",
+    "AGENT_REPRODUCED_EXTERNAL_EVIDENCE"
+  ],
+  "future_remediation_04_requirement": {
+    "path_count": 147,
+    "method": "TRACKED_PATH_CAPABLE_GIT_CHECK_IGNORE_NO_INDEX_VERBOSE_EQUIVALENT",
+    "same_freeze_binding_required": true,
+    "required_bindings": [
+      "decisive ignore sources",
+      "exact 147 path-set hash",
+      "HEAD",
+      "branch",
+      "tree",
+      "command contract",
+      "stdout",
+      "stderr",
+      "exit status",
+      "per-path outcome"
+    ],
+    "acceptance": "147_OF_147_NOT_IGNORED",
+    "absence_or_conflict_result": "BLOCKER"
+  }
+}

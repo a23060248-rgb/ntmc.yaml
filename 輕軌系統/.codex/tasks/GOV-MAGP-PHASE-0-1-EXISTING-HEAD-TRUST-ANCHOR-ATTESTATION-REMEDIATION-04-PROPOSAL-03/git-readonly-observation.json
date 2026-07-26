@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "observation_mode": "READ_ONLY_EXPLICIT_PATHSPECS",
+  "product_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統",
+  "git_root": "C:/Users/a2306/Desktop/code/ntmc.yaml",
+  "opening_binding": {
+    "head": "f4c293467a9e3249631574947de8bdc93b18a51c",
+    "branch": "codex/precheck-template-maintenance",
+    "tree": "5860873bc183cfd915d09815f0bc52a471499cfa",
+    "result": "MATCH"
+  },
+  "scoped_delta_observation": {
+    "scope": "The exact 147 paths, authorized authority sources, Proposal-01, Proposal-02, REMEDIATION-03, proposed Proposal-03 path, and absent target REMEDIATION-04 path.",
+    "tracked_unstaged_count": 0,
+    "staged_count": 0,
+    "proposal_01_and_02_allowed_untracked_file_count": 35,
+    "other_scoped_status_count_before_proposal_03_creation": 0,
+    "repository_wide_mutation_absence_claimed": false
+  },
+  "current_147_git_evidence": {
+    "ls_tree_head_entry_count": 147,
+    "ls_files_stage_entry_count": 147,
+    "head_index_oid_mismatch_count": 0,
+    "worktree_diff_count": 0,
+    "cached_diff_count": 0,
+    "attribute_binding_mismatch_count": 0
+  },
+  "pre_manifest_rebound": {
+    "head": "f4c293467a9e3249631574947de8bdc93b18a51c",
+    "branch": "codex/precheck-template-maintenance",
+    "tree": "5860873bc183cfd915d09815f0bc52a471499cfa",
+    "frozen_predecessor_manifest_error_count": 0,
+    "current_147_entry_mismatch_count": 0,
+    "authority_source_mismatch_count": 0,
+    "proposal_03_pre_manifest_file_count": 13,
+    "scoped_tracked_unstaged_count": 0,
+    "scoped_staged_count": 0,
+    "allowed_proposal_01_02_03_untracked_file_count": 48,
+    "other_scoped_status_count": 0,
+    "target_remediation_04_exists": false,
+    "result": "PASS"
+  },
+  "readonly_command_contracts": [
+    "git -c safe.directory=C:/Users/a2306/Desktop/code/ntmc.yaml -C <exact-git-root> rev-parse HEAD",
+    "git -c safe.directory=C:/Users/a2306/Desktop/code/ntmc.yaml -C <exact-git-root> branch --show-current",
+    "git -c safe.directory=C:/Users/a2306/Desktop/code/ntmc.yaml -C <exact-git-root> rev-parse HEAD^{tree}",
+    "git -c safe.directory=C:/Users/a2306/Desktop/code/ntmc.yaml -C <exact-git-root> ls-tree -z HEAD -- <chunked exact top-literal 147 pathspecs>",
+    "git -c safe.directory=C:/Users/a2306/Desktop/code/ntmc.yaml -C <exact-git-root> ls-files --stage -z -- <chunked exact top-literal 147 pathspecs>",
+    "git -c safe.directory=C:/Users/a2306/Desktop/code/ntmc.yaml -C <exact-git-root> diff --name-only -z -- <chunked exact top-literal scoped pathspecs>",
+    "git -c safe.directory=C:/Users/a2306/Desktop/code/ntmc.yaml -C <exact-git-root> diff --cached --name-only -z -- <chunked exact top-literal scoped pathspecs>",
+    "git -c safe.directory=C:/Users/a2306/Desktop/code/ntmc.yaml -C <exact-git-root> check-attr -z text eol filter working-tree-encoding -- <chunked exact 147 paths>",
+    "git -c safe.directory=C:/Users/a2306/Desktop/code/ntmc.yaml -C <exact-git-root> status --porcelain=v1 -z --untracked-files=all -- <exact Task pathspecs>"
+  ],
+  "environment_limitation": {
+    "status": "AGENT_CONTEXT_GLOBAL_IGNORE_ACCESS_WARNING",
+    "stderr": "warning: unable to access 'C:\\Users\\a2306/.config/git/ignore': Permission denied",
+    "treatment": "RECORDED_ONLY_NOT_REPAIRED_NOT_USED_AS_FULL_IGNORE_EVIDENCE",
+    "external_state_mutation_attempted": false
+  },
+  "git_write_commands_run": [],
+  "git_mutation_claim": "NOT_CLAIMED_BEYOND_PRESERVED_EXPLICIT_PATHSPEC_AND_BINDING_EVIDENCE"
+}

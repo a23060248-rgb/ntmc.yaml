@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02",
+  "forbidden_now": [
+    "modify any Proposal-01 file",
+    "modify any pre-existing Task",
+    "create target REMEDIATION-04 before separate Human authorization",
+    "execute target REMEDIATION-04",
+    "execute any of the 43 formal target cases",
+    "launch any formal target review",
+    "Trust Anchor adoption",
+    "git add or stage",
+    "git commit or push",
+    "git branch worktree checkout switch merge rebase stash reset restore clean or tag",
+    "8A-0GC",
+    "Product Implementation",
+    "migration seed database API service or product test",
+    "ACL elevation or repair",
+    "Git configuration mutation",
+    "read any .env-prefixed file",
+    "inspect or reference sibling directories"
+  ],
+  "prohibited_path_rules": [
+    {
+      "kind": "EXACT_FILE",
+      "value": "AGENTS.md"
+    },
+    {
+      "kind": "PREFIX",
+      "value": ".agents/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": ".codex/governance/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": ".codex/agents/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": "frontend/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": "erp-api/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": "db-design/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": "database/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": "migration/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": "migrations/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": "tests/"
+    },
+    {
+      "kind": "PREFIX",
+      "value": "docs/"
+    },
+    {
+      "kind": "GIT_ROOT_PREFIX",
+      "value": ".git/"
+    },
+    {
+      "kind": "BASENAME_PREFIX",
+      "value": ".env"
+    },
+    {
+      "kind": "RULE",
+      "value": "ALL_WRITES_OUTSIDE_EXACT_TARGET_TASK_ROOT"
+    }
+  ],
+  "forbidden_verdicts": [
+    "READY_FOR_HUMAN_EXACT_TRUST_ANCHOR_ADOPTION_DECISION",
+    "TRUST_ANCHOR_ADOPTED",
+    "READY_FOR_8A-0GC",
+    "READY_FOR_PRODUCT_IMPLEMENTATION",
+    "READY_FOR_GIT_WRITE"
+  ],
+  "maximum_proposal_verdict": "READY_FOR_WORK_READ_ONLY_REVIEW"
+}

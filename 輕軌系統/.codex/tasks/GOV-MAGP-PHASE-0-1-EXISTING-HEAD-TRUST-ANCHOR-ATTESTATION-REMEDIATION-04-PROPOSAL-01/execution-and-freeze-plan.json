@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "target_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+  "target_execution_authorized": false,
+  "proposed_sequence": [
+    {
+      "stage": "0",
+      "name": "NO_WRITE_STARTUP_REBOUND",
+      "requirements": [
+        "Exact product and Git roots",
+        "Human-bound HEAD branch tree",
+        "Phase policy and canonical role policies",
+        "Target Task path absent",
+        "Frozen predecessor byte identity",
+        "Precisely scoped status diff and index observations"
+      ],
+      "failure": "HARD_STOP"
+    },
+    {
+      "stage": "A1",
+      "name": "CURRENT_147_AND_IGNORE_EVIDENCE",
+      "requirements": [
+        "147 current HEAD tree and index entries",
+        "147 working-tree bytes and SHA256",
+        "attributes and raw/filter identity",
+        "147/147 same-freeze effective-ignore outcomes",
+        "No permission warning or incomplete decisive source"
+      ],
+      "failure": "BLOCKER"
+    },
+    {
+      "stage": "A2",
+      "name": "VERIFICATION_SUBJECT_FREEZE",
+      "requirements": [
+        "All validator, runner, fixture, case, ignore, candidate, policy, and predecessor inputs listed",
+        "Deterministic internal subject hash",
+        "No subject write after freeze"
+      ],
+      "failure": "COMPLETE_STAGE_A_RERUN_REQUIRED"
+    },
+    {
+      "stage": "A3",
+      "name": "FULL_43_CASE_CYCLE_AND_PRODUCTION_OBSERVATION",
+      "requirements": [
+        "Exact ordered 43 cases",
+        "43 expected rejections confirmed",
+        "0 unexpected acceptance",
+        "0 execution error",
+        "0 not verified",
+        "Observation bound to identical subject hash"
+      ],
+      "failure": "BLOCKER"
+    },
+    {
+      "stage": "A4",
+      "name": "CLOSING_REBOUND",
+      "requirements": [
+        "HEAD branch tree unchanged",
+        "Candidate bytes OIDs and scoped Git evidence unchanged",
+        "Predecessor remains byte-identical",
+        "Claims limited to preserved pathspec evidence"
+      ],
+      "failure": "HARD_STOP_OR_BLOCKER"
+    },
+    {
+      "stage": "R",
+      "name": "FORMAL_L3_REVIEWS",
+      "requirements": [
+        "Fresh Code Review",
+        "Fresh Security Review",
+        "Fresh typed Railway Domain Review",
+        "Fresh Compatibility Review",
+        "Unique run and session IDs",
+        "All conditions cleared"
+      ],
+      "failure": "BLOCKER_DOMINANCE"
+    },
+    {
+      "stage": "B",
+      "name": "FINAL_PACKAGE_FREEZE",
+      "requirements": [
+        "Summary and HANDOFF completed before manifest",
+        "Manifest generated last and self-excludes only itself",
+        "Zero writes after manifest",
+        "Read-only post-freeze verification only"
+      ],
+      "failure": "COMPLETE_REGENERATION_AND_REVALIDATION_REQUIRED"
+    }
+  ],
+  "maximum_target_verdict": "READY_FOR_HUMAN_EXACT_TRUST_ANCHOR_ADOPTION_DECISION",
+  "adoption_performed": false,
+  "git_mutation_performed": false
+}

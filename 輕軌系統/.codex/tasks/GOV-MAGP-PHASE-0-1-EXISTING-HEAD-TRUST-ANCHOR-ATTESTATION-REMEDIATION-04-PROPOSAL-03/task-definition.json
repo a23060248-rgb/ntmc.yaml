@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "task_type": "TASK_LOCAL_TARGETED_CORRECTION_CANDIDATE",
+  "classification": "L3",
+  "classification_status": "HUMAN_AUTHORIZED_TASK_LOCAL_TARGETED_CORRECTION_CANDIDATE",
+  "execution_mode": "PROPOSAL_PREPARATION_ONLY",
+  "purpose": "Correct only B-01 by resolving the authoritative typed procedural role and assignment binding for a future formal Railway Domain Review.",
+  "exact_product_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統",
+  "exact_git_root": "C:/Users/a2306/Desktop/code/ntmc.yaml",
+  "bound_head": "f4c293467a9e3249631574947de8bdc93b18a51c",
+  "bound_branch": "codex/precheck-template-maintenance",
+  "bound_tree": "5860873bc183cfd915d09815f0bc52a471499cfa",
+  "predecessor_proposal_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02",
+  "predecessor_disposition": "FROZEN_AS_REJECTED_CANDIDATE_IMMUTABLE",
+  "target_remediation_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+  "target_remediation_status": "NOT_AUTHORIZED_NOT_STARTED",
+  "exact_allowed_write_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03/**",
+  "authorized_semantic_delta": [
+    "B-01_AUTHORITATIVE_TYPED_PROCEDURAL_ROLE_AND_ASSIGNMENT_BINDING_RESOLUTION",
+    "PROPOSAL_03_LOCAL_EVIDENCE_HASHES_AND_REFERENCES"
+  ],
+  "non_targeted_invariants": {
+    "current_147_line_manifest_sha256": "2C01A85E3348B174B7BFB1F3F1D0A26CAB485423297252C7C7F4F35C65702E5D",
+    "current_147_entries_jcs_sha256": "3619690515D3AA4F9675BAB5783664447A58426D76F352521914BBE82E1130FD",
+    "proposal_02_scope_hash": "852EB9B5FEE08ED5B63BB1B7B2A7486CC16564994904CF0F30B5145C57AEA1EB",
+    "proposal_02_work_order_exact_bytes_sha256": "A84CD484810741B0B1EF037B8864BB247491292B50FF12AF272E5A87499BA434",
+    "status": "FRESHLY_RECOMPUTED_UNCHANGED"
+  },
+  "human_gates": {
+    "proposal_03_preparation": "AUTHORIZED",
+    "remediation_04_execution": "NOT_AUTHORIZED",
+    "formal_review_launch": "NOT_AUTHORIZED",
+    "human_exact_trust_anchor_adoption": "NOT_AUTHORIZED",
+    "git_write": "NOT_AUTHORIZED",
+    "8A_0GC": "NOT_AUTHORIZED",
+    "product_implementation": "NOT_AUTHORIZED"
+  },
+  "maximum_candidate_verdict": "READY_FOR_INDEPENDENT_WORK_VALIDATION",
+  "rollback_restore_evidence": {
+    "status": "NOT_APPLICABLE",
+    "reason": "Only a new Task-local proposal package is created; no product, database, Git, adoption, predecessor, policy, schema, validator, role profile, or target Task mutation is authorized."
+  }
+}

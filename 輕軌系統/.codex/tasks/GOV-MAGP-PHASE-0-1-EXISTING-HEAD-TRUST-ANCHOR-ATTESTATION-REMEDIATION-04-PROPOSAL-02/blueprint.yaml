@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02",
+  "level": "L3",
+  "classification_status": "human-approved-correction-preparation-scope",
+  "execution_mode": "CORRECTION_PROPOSAL_PREPARATION_ONLY",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/**"
+  ],
+  "agent_assignments": [
+    {
+      "actor_role": "architect",
+      "assignment": "Define correction scope bindings review contract and freeze plan.",
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/classification.yaml",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/task-intent.yaml",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/blueprint.yaml",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/actual-state-binding.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/frozen-predecessor-bindings.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/work-finding-disposition.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/remediation-requirements.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/role-and-review-bindings.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/execution-and-freeze-plan.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/forbidden-actions.json"
+      ]
+    },
+    {
+      "actor_role": "qa-engineer",
+      "assignment": "Recompute current bindings validate the package and generate the final manifest.",
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/external-global-ignore-readiness-intake.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/proposed-147-scope-manifest.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/proposal-validation-results.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/task-artifact-manifest.json"
+      ]
+    },
+    {
+      "actor_role": "documentation-engineer",
+      "assignment": "Prepare acceptance risk work order and Work handoff.",
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/acceptance-criteria.md",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/risk-register.md",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/proposed-remediation-04-authorization.md",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/HANDOFF.md"
+      ]
+    }
+  ],
+  "review_assignments": [
+    {
+      "assignment_target_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+      "assignment_id": "REM04-FORMAL-REVIEW-01-CODE-REVIEWER",
+      "actor_role": "code-reviewer",
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "fresh_context_required": true,
+      "run_id": null,
+      "session_id": null,
+      "binding_status": "NOT_STARTED_NOT_HASH_BOUND",
+      "required_at_review_launch": true,
+      "review_scope_binding_contract": {
+        "review_candidate_manifest_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/review-candidate-manifest.json",
+        "review_candidate_manifest_file_sha256": null,
+        "review_candidate_manifest_entry_count": null,
+        "review_candidate_manifest_entries": null,
+        "review_candidate_manifest_self_rule": null,
+        "policy_input_bindings": null,
+        "role_profile_binding": null,
+        "actual_run_id": null,
+        "actual_session_id": null,
+        "binding_status": "NOT_STARTED_NOT_HASH_BOUND",
+        "required_at_review_launch": true
+      },
+      "raw_return_capture_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/raw-review-returns/code-reviewer-return.json"
+    },
+    {
+      "assignment_target_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+      "assignment_id": "REM04-FORMAL-REVIEW-02-SECURITY-REVIEWER",
+      "actor_role": "security-reviewer",
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "fresh_context_required": true,
+      "run_id": null,
+      "session_id": null,
+      "binding_status": "NOT_STARTED_NOT_HASH_BOUND",
+      "required_at_review_launch": true,
+      "review_scope_binding_contract": {
+        "review_candidate_manifest_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/review-candidate-manifest.json",
+        "review_candidate_manifest_file_sha256": null,
+        "review_candidate_manifest_entry_count": null,
+        "review_candidate_manifest_entries": null,
+        "review_candidate_manifest_self_rule": null,
+        "policy_input_bindings": null,
+        "role_profile_binding": null,
+        "actual_run_id": null,
+        "actual_session_id": null,
+        "binding_status": "NOT_STARTED_NOT_HASH_BOUND",
+        "required_at_review_launch": true
+      },
+      "raw_return_capture_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/raw-review-returns/security-reviewer-return.json"
+    },
+    {
+      "assignment_target_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+      "assignment_id": "REM04-FORMAL-REVIEW-03-RAILWAY-DOMAIN-REVIEWER",
+      "actor_role": "railway-domain-reviewer",
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "fresh_context_required": true,
+      "run_id": null,
+      "session_id": null,
+      "binding_status": "NOT_STARTED_NOT_HASH_BOUND",
+      "required_at_review_launch": true,
+      "review_scope_binding_contract": {
+        "review_candidate_manifest_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/review-candidate-manifest.json",
+        "review_candidate_manifest_file_sha256": null,
+        "review_candidate_manifest_entry_count": null,
+        "review_candidate_manifest_entries": null,
+        "review_candidate_manifest_self_rule": null,
+        "policy_input_bindings": null,
+        "role_profile_binding": null,
+        "actual_run_id": null,
+        "actual_session_id": null,
+        "binding_status": "NOT_STARTED_NOT_HASH_BOUND",
+        "required_at_review_launch": true
+      },
+      "raw_return_capture_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/raw-review-returns/railway-domain-reviewer-return.json",
+      "canonical_profile_binding": {
+        "profile_path": ".codex/agents/railway-domain-reviewer.toml",
+        "profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+        "authoritative_manifest_path": ".codex/governance/governance-commit-manifest.yaml",
+        "authoritative_manifest_file_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+        "manifest_profile_entry_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+        "identity_assurance": "PROCEDURAL_NOT_CRYPTOGRAPHIC"
+      }
+    },
+    {
+      "assignment_target_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+      "assignment_id": "REM04-FORMAL-REVIEW-04-COMPATIBILITY-REVIEWER",
+      "actor_role": "compatibility-reviewer",
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "fresh_context_required": true,
+      "run_id": null,
+      "session_id": null,
+      "binding_status": "NOT_STARTED_NOT_HASH_BOUND",
+      "required_at_review_launch": true,
+      "review_scope_binding_contract": {
+        "review_candidate_manifest_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/review-candidate-manifest.json",
+        "review_candidate_manifest_file_sha256": null,
+        "review_candidate_manifest_entry_count": null,
+        "review_candidate_manifest_entries": null,
+        "review_candidate_manifest_self_rule": null,
+        "policy_input_bindings": null,
+        "role_profile_binding": null,
+        "actual_run_id": null,
+        "actual_session_id": null,
+        "binding_status": "NOT_STARTED_NOT_HASH_BOUND",
+        "required_at_review_launch": true
+      },
+      "raw_return_capture_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/raw-review-returns/compatibility-reviewer-return.json"
+    }
+  ],
+  "review_scope_lifecycle": {
+    "review_candidate_manifest_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/review-candidate-manifest.json",
+    "generate_after": "ACTUAL_REMEDIATION_04_STAGE_A_AND_A4_EVIDENCE_COMPLETE",
+    "freeze_before_review_launch": true,
+    "launch_required_bindings": [
+      "exact review-candidate-manifest file SHA256",
+      "exact entry count",
+      "exact repository-relative entry path list",
+      "exact manifest self rule",
+      "fixed policy input file hashes",
+      "unique actual run_id",
+      "unique actual session_id",
+      "actor role",
+      "canonical profile where applicable",
+      "scope",
+      "read_only=true",
+      "write_paths empty",
+      "participated_in_implementation=false"
+    ],
+    "launch_prohibited_conditions": [
+      "any null binding field",
+      "NOT_STARTED_NOT_HASH_BOUND",
+      "symbolic path",
+      "zero matching assignment",
+      "more than one matching assignment"
+    ],
+    "raw_review_returns": [
+      {
+        "actor_role": "code-reviewer",
+        "capture_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/raw-review-returns/code-reviewer-return.json",
+        "capture_contract": "BYTE_IDENTICAL"
+      },
+      {
+        "actor_role": "security-reviewer",
+        "capture_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/raw-review-returns/security-reviewer-return.json",
+        "capture_contract": "BYTE_IDENTICAL"
+      },
+      {
+        "actor_role": "railway-domain-reviewer",
+        "capture_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/raw-review-returns/railway-domain-reviewer-return.json",
+        "capture_contract": "BYTE_IDENTICAL"
+      },
+      {
+        "actor_role": "compatibility-reviewer",
+        "capture_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/raw-review-returns/compatibility-reviewer-return.json",
+        "capture_contract": "BYTE_IDENTICAL"
+      }
+    ],
+    "stage_b_prerequisites": [
+      "all four formal reviews completed",
+      "all review conditions cleared",
+      "four raw returns captured byte-identically"
+    ],
+    "stage_b_manifest_rule": "GENERATE_LAST_AFTER_REVIEW_COMPLETION_AND_CONDITION_CLEARANCE",
+    "work_layer": {
+      "model": "EXTERNAL_INDEPENDENT_READ_ONLY_ACCEPTANCE_LAYER",
+      "actor_role": false,
+      "substitutes_for_formal_reviews": false,
+      "occurs_after_final_freeze": true
+    }
+  },
+  "applicable_rules": [],
+  "candidate_rules": [],
+  "domain_rule_authority_introduced": false,
+  "work_acceptance_layer": {
+    "model": "EXTERNAL_INDEPENDENT_READ_ONLY_ACCEPTANCE_LAYER",
+    "encoded_as_actor_role": false,
+    "satisfies_review_completion": false
+  },
+  "review_binding_contract_complete": true,
+  "actual_review_binding_complete": false,
+  "formal_review_pass_claimed": false
+}

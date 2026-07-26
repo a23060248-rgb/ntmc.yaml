@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "policy_bindings": {
+    "phase_policy_path": ".codex/governance/phase-policy.yaml",
+    "phase_policy_sha256": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+    "agent_path_policy_path": ".codex/governance/agent-path-policy.yaml",
+    "agent_path_policy_sha256": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+    "governance_commit_manifest_path": ".codex/governance/governance-commit-manifest.yaml",
+    "governance_commit_manifest_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A"
+  },
+  "proposal_producer_roles": [
+    {
+      "actor_role": "architect",
+      "assignment_binding": "blueprint.yaml#agent_assignments/0",
+      "assignment_is_subset_of_agent_path_policy": true
+    },
+    {
+      "actor_role": "qa-engineer",
+      "assignment_binding": "blueprint.yaml#agent_assignments/1",
+      "assignment_is_subset_of_agent_path_policy": true
+    },
+    {
+      "actor_role": "documentation-engineer",
+      "assignment_binding": "blueprint.yaml#agent_assignments/2",
+      "assignment_is_subset_of_agent_path_policy": true
+    }
+  ],
+  "proposed_target_formal_reviews": [
+    {
+      "actor_role": "code-reviewer",
+      "blueprint_assignment_binding": "blueprint.yaml#proposed_target_review_assignments/0",
+      "run_id": "rem04-code-review-run-001",
+      "session_id": "rem04-code-review-session-001",
+      "fresh_context": true,
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "status": "PROPOSED_NOT_LAUNCHED"
+    },
+    {
+      "actor_role": "security-reviewer",
+      "blueprint_assignment_binding": "blueprint.yaml#proposed_target_review_assignments/1",
+      "run_id": "rem04-security-review-run-001",
+      "session_id": "rem04-security-review-session-001",
+      "fresh_context": true,
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "status": "PROPOSED_NOT_LAUNCHED"
+    },
+    {
+      "actor_role": "railway-domain-reviewer",
+      "blueprint_assignment_binding": "blueprint.yaml#proposed_target_review_assignments/2",
+      "procedural_role_and_assignment_binding": {
+        "exactly_one_blueprint_assignment": true,
+        "canonical_role_id": "railway-domain-reviewer",
+        "profile_path": ".codex/agents/railway-domain-reviewer.toml",
+        "profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+        "profile_manifest_path": ".codex/governance/governance-commit-manifest.yaml",
+        "profile_manifest_file_sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+        "manifest_profile_entry_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+        "run_id": "rem04-railway-review-run-001",
+        "session_id": "rem04-railway-review-session-001",
+        "read_only": true,
+        "write_paths": [],
+        "participated_in_implementation": false,
+        "identity_assurance": "PROCEDURAL_NOT_CRYPTOGRAPHIC"
+      },
+      "fresh_context": true,
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "status": "PROPOSED_NOT_LAUNCHED"
+    },
+    {
+      "actor_role": "compatibility-reviewer",
+      "blueprint_assignment_binding": "blueprint.yaml#proposed_target_review_assignments/3",
+      "run_id": "rem04-compatibility-review-run-001",
+      "session_id": "rem04-compatibility-review-session-001",
+      "fresh_context": true,
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "status": "PROPOSED_NOT_LAUNCHED"
+    }
+  ],
+  "run_id_unique_count": 4,
+  "session_id_unique_count": 4,
+  "formal_review_pass_claimed": false,
+  "work_layer": {
+    "model": "EXTERNAL_INDEPENDENT_READ_ONLY_ACCEPTANCE_LAYER",
+    "encoded_as_actor_role": false,
+    "satisfies_review_completion": false
+  }
+}

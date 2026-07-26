@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "evidence_authority": "NON_AUTHORITATIVE_PROPOSAL_CANDIDATE_EVIDENCE",
+  "validation_stage": "PRE_FINAL_MANIFEST_FREEZE",
+  "candidate_verdict": "READY_FOR_WORK_READ_ONLY_REVIEW",
+  "maximum_verdict_enforced": true,
+  "bound_state": {
+    "head": "f4c293467a9e3249631574947de8bdc93b18a51c",
+    "branch": "codex/precheck-template-maintenance",
+    "tree": "5860873bc183cfd915d09815f0bc52a471499cfa",
+    "result": "MATCH"
+  },
+  "proposal_scope_hash": {
+    "contract": "SHA256_OF_RFC8785_JCS_SCOPE_BINDING_CORE",
+    "source": "remediation-requirements.json#scope_binding_core",
+    "sha256": "53176C299E95B13B108329708630C869F7E729B43AFB7C240AEF026CE6498601"
+  },
+  "proposed_work_order_hash": {
+    "contract": "SHA256_OF_EXACT_UTF8_FILE_BYTES",
+    "source": "proposed-remediation-04-authorization.md",
+    "bytes": 3307,
+    "sha256": "878550AF1619F1988D8DE9DA473FD2BEF90839C7A4CBBF4348B171CBF3C02122"
+  },
+  "input_hash_checks": [
+    {
+      "input": "PROPOSAL02_PATH_SOURCE",
+      "expected_sha256": "5CE80FC02491E66701D9D5573DB3123561FE41C74BABE7C0D0F5496404207685",
+      "actual_sha256": "5CE80FC02491E66701D9D5573DB3123561FE41C74BABE7C0D0F5496404207685",
+      "result": "PASS"
+    },
+    {
+      "input": "PROPOSAL02_DEPENDENCY_CLOSURE",
+      "expected_sha256": "B320CEC8FAC46723D6BFD2D9726357A959DA14D1E8C06FD01D27037928F619E6",
+      "actual_sha256": "B320CEC8FAC46723D6BFD2D9726357A959DA14D1E8C06FD01D27037928F619E6",
+      "result": "PASS"
+    },
+    {
+      "input": "REMEDIATION03_TASK_MANIFEST_EXTERNAL",
+      "expected_sha256": "571CF4209CE81C5D05AF16B32B75C39F3715C9FB21751770460A8759C4474188",
+      "actual_sha256": "571CF4209CE81C5D05AF16B32B75C39F3715C9FB21751770460A8759C4474188",
+      "result": "PASS"
+    },
+    {
+      "input": "REMEDIATION03_TASK_MANIFEST_INTERNAL",
+      "expected_sha256": "5CDAD71141605A905B91FAC72599EEA7E7A737FA21F505F87C465A4A8F78E957",
+      "actual_sha256": "5CDAD71141605A905B91FAC72599EEA7E7A737FA21F505F87C465A4A8F78E957",
+      "result": "PASS"
+    },
+    {
+      "input": "REMEDIATION02_AUTHORITATIVE_43_CASE_SOURCE",
+      "expected_sha256": "2ECD72BAF53115D59BDE242AF84F465734F51016BDFF888B139F9EA0D1EA2598",
+      "actual_sha256": "2ECD72BAF53115D59BDE242AF84F465734F51016BDFF888B139F9EA0D1EA2598",
+      "result": "PASS"
+    }
+  ],
+  "current_147_validation": {
+    "proposed_scope_manifest_file_sha256": "AD9A9B0ABBFD5D01AAF1D8738082041E0FE9DD396C395ED1401A46E4AABDE02E",
+    "current_147_manifest_sha256": "2C01A85E3348B174B7BFB1F3F1D0A26CAB485423297252C7C7F4F35C65702E5D",
+    "exact_path_count": 147,
+    "unique_path_count": 147,
+    "tracked_count": 147,
+    "missing_count": 0,
+    "worktree_changed_count": 0,
+    "index_changed_count": 0,
+    "source_7a_2_count": 106,
+    "attempt_1_count": 41,
+    "result": "PASS"
+  },
+  "predecessor_identity_validation": {
+    "remediation_03_physical_file_count": 64,
+    "remediation_03_manifest_entry_count": 63,
+    "manifest_entry_hash_or_size_mismatch_count": 0,
+    "manifest_self_exclusion_valid": true,
+    "internal_hash_recomputed": true,
+    "result": "PASS"
+  },
+  "role_and_review_validation": {
+    "producer_roles": [
+      "architect",
+      "qa-engineer",
+      "documentation-engineer"
+    ],
+    "formal_reviewer_roles": [
+      "code-reviewer",
+      "security-reviewer",
+      "railway-domain-reviewer",
+      "compatibility-reviewer"
+    ],
+    "all_roles_authorized_by_phase_policy": true,
+    "all_assignments_subset_of_agent_path_policy": true,
+    "review_run_id_unique_count": 4,
+    "review_session_id_unique_count": 4,
+    "railway_procedural_binding_complete": true,
+    "formal_review_pass_claimed": false,
+    "result": "PASS"
+  },
+  "approval_state_validation": {
+    "classification_status": "human-approved-preparation-scope",
+    "scope_approval": "RECEIVED_FOR_PROPOSAL_PREPARATION_ONLY",
+    "execution_approval": "NOT_AUTHORIZED",
+    "review_completion": "NOT_STARTED",
+    "final_commit_approval": "NOT_AUTHORIZED",
+    "human_exact_trust_anchor_adoption": "NOT_AUTHORIZED",
+    "mutually_consistent": true,
+    "result": "PASS"
+  },
+  "file_set_pre_manifest": {
+    "expected_count": 16,
+    "actual_count_after_HANDOFF_creation": 16,
+    "final_expected_physical_count": 17,
+    "final_expected_manifest_entry_count": 16,
+    "manifest_generated_last": "PENDING_NEXT_AND_FINAL_WRITE"
+  },
+  "git_evidence_claim": {
+    "result": "SCOPED_OBSERVATIONS_CLEAN",
+    "repository_wide_git_mutation_absence_claimed": false,
+    "claim_boundary": "Only explicit light-rail governance and 147 candidate pathspec observations were preserved."
+  },
+  "environment_limitations": [
+    "Agent-context Git emitted a global-ignore access warning; the Human-supplied normal-interactive result is prerequisite-only.",
+    "The distinct 190-byte Human authorization attachment was not available as a local file; its Hash and byte count are transcribed Human bindings, not cryptographic identity."
+  ],
+  "target_remediation_04_created": false,
+  "formal_43_case_cycle_executed": false,
+  "trust_anchor_adopted": false,
+  "downstream_authority_granted": false
+}

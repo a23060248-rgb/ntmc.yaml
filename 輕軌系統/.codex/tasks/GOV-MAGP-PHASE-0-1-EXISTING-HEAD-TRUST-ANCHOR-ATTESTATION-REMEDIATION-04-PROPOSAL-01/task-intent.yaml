@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "target_remediation_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+  "objective": "Prepare a Task-local exact-bound proposal for a future complete REMEDIATION-04 validation cycle without creating or executing that target Task.",
+  "execution_mode": "PROPOSAL_PREPARATION_ONLY",
+  "classification": "L3",
+  "allowed_write_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/**",
+  "proposed_target_write_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/**",
+  "proposed_target_write_path_authorized_now": false,
+  "formal_validation_cycle_started": false,
+  "authoritative_43_cases_executed": false,
+  "trust_anchor_status": "PROPOSED_NOT_ADOPTED",
+  "human_exact_trust_anchor_adoption": "NOT_AUTHORIZED",
+  "git_write_authorized": false,
+  "product_implementation_authorized": false,
+  "migration_database_service_tests_authorized": false,
+  "assurance": "PROPOSAL_INTERNAL_CONSISTENCY_ONLY",
+  "maximum_candidate_verdict": "READY_FOR_WORK_READ_ONLY_REVIEW",
+  "next_human_gate": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_EXACT_REMEDIATION_04_SCOPE_AND_HASH_DECISION"
+}

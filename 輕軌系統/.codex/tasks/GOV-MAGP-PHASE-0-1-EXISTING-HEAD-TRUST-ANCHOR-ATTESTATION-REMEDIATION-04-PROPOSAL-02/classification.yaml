@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02",
+  "level": "L3",
+  "classification_status": "human-approved-correction-preparation-scope",
+  "execution_mode": "CORRECTION_PROPOSAL_PREPARATION_ONLY",
+  "reasons": [
+    "Git trust-anchor release-gate proposal correction",
+    "Unresolved Work blockers B-01 B-02 B-03",
+    "Exact Human scope and Hash decision preparation"
+  ],
+  "triggers": [
+    "release_gate",
+    "unresolved_reviewer_blocker",
+    "unknown_environment_provenance",
+    "trust_anchor_evidence"
+  ],
+  "required_agents": [
+    "architect",
+    "qa-engineer",
+    "documentation-engineer"
+  ],
+  "required_reviews": [
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "typed review assignment contract",
+    "single current_147_entries_jcs_sha256 binding",
+    "fully materialized scope_binding_core",
+    "Scope Hash",
+    "Work Order Hash",
+    "frozen predecessor identity",
+    "final Task artifact manifest"
+  ],
+  "human_approval": {
+    "scope_approval": "RECEIVED_FOR_CORRECTION_PROPOSAL_PREPARATION_ONLY",
+    "execution_approval": "NOT_AUTHORIZED",
+    "review_completion": "NOT_STARTED",
+    "final_commit_approval": "NOT_AUTHORIZED",
+    "human_exact_trust_anchor_adoption": "NOT_AUTHORIZED"
+  },
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/**"
+    ],
+    "exclude": [
+      "all paths outside .codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/"
+    ]
+  },
+  "rollback_restore_evidence": {
+    "status": "NOT_APPLICABLE",
+    "reason": "Only new Proposal-02 Task-local artifacts are created; no Git product database adoption or target mutation occurs."
+  },
+  "stop_conditions": [
+    "BOUND_STATE_MISMATCH",
+    "PROPOSAL01_BYTE_IDENTITY_MISMATCH",
+    "CURRENT_147_BINDING_MISMATCH",
+    "NONCANONICAL_REVIEW_ASSIGNMENT",
+    "CONFLICTING_JCS_BINDING",
+    "SCOPE_CORE_NOT_FULLY_MATERIALIZED",
+    "FORBIDDEN_WRITE_OR_ACTION"
+  ],
+  "classified_by": "task-classification",
+  "maximum_candidate_verdict": "READY_FOR_WORK_READ_ONLY_REVIEW"
+}

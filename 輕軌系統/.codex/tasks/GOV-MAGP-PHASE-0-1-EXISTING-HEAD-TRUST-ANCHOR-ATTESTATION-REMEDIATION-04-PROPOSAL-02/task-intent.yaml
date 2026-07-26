@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02",
+  "predecessor_proposal_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "target_remediation_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+  "objective": "Prepare a new exact-bound correction proposal that addresses only Work blockers B-01 B-02 and B-03.",
+  "execution_mode": "CORRECTION_PROPOSAL_PREPARATION_ONLY",
+  "classification": "L3",
+  "classification_status": "human-approved-correction-preparation-scope",
+  "allowed_write_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02/**",
+  "target_write_authorized_now": false,
+  "formal_target_cycle_started": false,
+  "formal_target_reviews_started": false,
+  "trust_anchor_status": "PROPOSED_NOT_ADOPTED",
+  "git_write_authorized": false,
+  "product_or_database_execution_authorized": false,
+  "corrected_findings": [
+    "B-01",
+    "B-02",
+    "B-03"
+  ],
+  "preserved_controls": "ALL_OTHER_ACCEPTED_PROPOSAL_01_CONTROLS_AND_PROHIBITIONS",
+  "maximum_candidate_verdict": "READY_FOR_WORK_READ_ONLY_REVIEW"
+}

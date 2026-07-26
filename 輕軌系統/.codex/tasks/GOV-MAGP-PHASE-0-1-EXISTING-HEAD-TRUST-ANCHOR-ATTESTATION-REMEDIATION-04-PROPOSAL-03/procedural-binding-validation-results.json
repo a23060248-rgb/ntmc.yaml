@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "evidence_authority": "NON_AUTHORITATIVE_TASK_LOCAL_CORRECTION_CANDIDATE_EVIDENCE",
+  "validation_subject": "AUTHORITATIVE_B_01_TYPED_CONTRACT",
+  "canonical_blueprint_assignment_validation": {
+    "schema_source": ".codex/blueprints/schemas/blueprint.schema.json",
+    "exact_required_field_count": 9,
+    "additional_property_count": 0,
+    "required_role_id_match": true,
+    "profile_reference_match": true,
+    "profile_bytes_hash_match": true,
+    "allowed_read_paths_non_empty": true,
+    "allowed_read_paths_policy_subset": true,
+    "allowed_write_paths_empty": true,
+    "review_scope_match": true,
+    "execution_mode_read_only": true,
+    "implementation_participation_false": true,
+    "schema_issue_count": 0,
+    "result": "PASS_FOR_CANDIDATE_CONTRACT_STRUCTURE"
+  },
+  "canonical_profile_validation": {
+    "profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "manifest_profile_entry_count": 1,
+    "manifest_profile_entry_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "profile_and_manifest_match": true,
+    "result": "PASS"
+  },
+  "in_memory_positive_contract_test": {
+    "test_subject": "HYPOTHETICAL_FULLY_POPULATED_NON_ACTUAL_FORMAL_REVIEW_SPECIMEN",
+    "dedicated_typed_schema_issue_count": 0,
+    "reviewer_binding_schema_issue_count": 0,
+    "blueprint_assignment_schema_issue_count": 0,
+    "production_validate_formal_railway_reviewer_binding_issue_count": 0,
+    "result": "PASS_FOR_CONTRACT_MECHANISM_ONLY",
+    "formal_review_credit": "NONE"
+  },
+  "in_memory_safe_rejection_test": {
+    "mutation": "reviewer_identity_assurance=role_profile_binding",
+    "same_production_validator_entrypoint_used": true,
+    "schema_rejected": true,
+    "production_validator_rejected": true,
+    "schema_reason": "reviewer_identity_assurance const mismatch",
+    "production_reason": "binding assurance must equal procedural_role_and_assignment_binding.",
+    "result": "EXPECTED_REJECTION_CONFIRMED"
+  },
+  "proposal_stage_assertions": {
+    "review_binding_contract_complete": true,
+    "actual_review_binding_complete": false,
+    "formal_review_pass_claimed": false,
+    "railway_procedural_binding_complete_claimed": false,
+    "actual_formal_review_record_created": false,
+    "formal_review_launched": false
+  },
+  "finding_disposition": {
+    "finding_id": "B-01",
+    "candidate_status": "CANDIDATE_CORRECTED_AWAITING_INDEPENDENT_WORK_VALIDATION",
+    "work_acceptance": "NOT_STARTED",
+    "human_acceptance": "NOT_STARTED"
+  }
+}

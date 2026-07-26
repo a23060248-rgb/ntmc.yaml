@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02",
+  "predecessor_work_verdict": "TARGETED_RETURN_REQUIRED",
+  "predecessor_disposition": "FROZEN_AS_REJECTED_PROPOSAL_CANDIDATE",
+  "findings": [
+    {
+      "finding_id": "B-01",
+      "title": "TYPED_RAILWAY_REVIEW_BINDING_STRUCTURALLY_INCOMPLETE",
+      "candidate_status": "CANDIDATE_CORRECTED_AWAITING_WORK_REVIEW",
+      "supporting_artifacts": [
+        "blueprint.yaml#review_assignments",
+        "role-and-review-bindings.json#formal_review_contract",
+        "remediation-requirements.json#scope_binding_core/formal_review_contract"
+      ]
+    },
+    {
+      "finding_id": "B-02",
+      "title": "CONFLICTING_147_JCS_ENTRY_BINDING",
+      "candidate_status": "CANDIDATE_CORRECTED_AWAITING_WORK_REVIEW",
+      "supporting_artifacts": [
+        "proposed-147-scope-manifest.json#current_147_entries_jcs_sha256",
+        "actual-state-binding.json#current_147_entries_jcs_sha256",
+        "remediation-requirements.json#scope_binding_core/current_147/current_147_entries_jcs_sha256"
+      ]
+    },
+    {
+      "finding_id": "B-03",
+      "title": "SCOPE_HASH_NOT_EXACT_BOUND",
+      "candidate_status": "CANDIDATE_CORRECTED_AWAITING_WORK_REVIEW",
+      "supporting_artifacts": [
+        "remediation-requirements.json#scope_binding_core",
+        "remediation-requirements.json#proposed_scope_hash",
+        "proposed-remediation-04-authorization.md"
+      ]
+    }
+  ],
+  "other_predecessor_controls_changed": false,
+  "formal_acceptance_claimed": false
+}

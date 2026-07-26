@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "level": "L3",
+  "classification_status": "human-approved-preparation-scope",
+  "execution_mode": "PROPOSAL_PREPARATION_ONLY",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/**"
+  ],
+  "agent_assignments": [
+    {
+      "actor_role": "architect",
+      "assignment": "Define proposal scope, bindings, requirements, review model, and freeze plan.",
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/classification.yaml",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/task-intent.yaml",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/blueprint.yaml",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/actual-state-binding.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/frozen-predecessor-bindings.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/remediation-requirements.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/role-and-review-bindings.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/execution-and-freeze-plan.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/forbidden-actions.json"
+      ]
+    },
+    {
+      "actor_role": "qa-engineer",
+      "assignment": "Materialize and validate current state, 147-path evidence, proposal consistency, and final artifact manifest.",
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/external-global-ignore-readiness-intake.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/proposed-147-scope-manifest.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/proposal-validation-results.json",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/task-artifact-manifest.json"
+      ]
+    },
+    {
+      "actor_role": "documentation-engineer",
+      "assignment": "Prepare acceptance criteria, risk register, proposed authorization text, and Work handoff.",
+      "allowed_write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/acceptance-criteria.md",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/risk-register.md",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/proposed-remediation-04-authorization.md",
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01/HANDOFF.md"
+      ]
+    }
+  ],
+  "proposed_target_review_assignments": [
+    {
+      "actor_role": "code-reviewer",
+      "run_id": "rem04-code-review-run-001",
+      "session_id": "rem04-code-review-session-001",
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "status": "PROPOSED_NOT_LAUNCHED"
+    },
+    {
+      "actor_role": "security-reviewer",
+      "run_id": "rem04-security-review-run-001",
+      "session_id": "rem04-security-review-session-001",
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "status": "PROPOSED_NOT_LAUNCHED"
+    },
+    {
+      "actor_role": "railway-domain-reviewer",
+      "run_id": "rem04-railway-review-run-001",
+      "session_id": "rem04-railway-review-session-001",
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "status": "PROPOSED_NOT_LAUNCHED"
+    },
+    {
+      "actor_role": "compatibility-reviewer",
+      "run_id": "rem04-compatibility-review-run-001",
+      "session_id": "rem04-compatibility-review-session-001",
+      "read_only": true,
+      "write_paths": [],
+      "participated_in_implementation": false,
+      "status": "PROPOSED_NOT_LAUNCHED"
+    }
+  ],
+  "applicable_rules": [],
+  "candidate_rules": [],
+  "domain_rule_authority_introduced": false,
+  "work_acceptance_layer": {
+    "encoded_as_actor_role": false,
+    "role": "EXTERNAL_INDEPENDENT_READ_ONLY_ACCEPTANCE_LAYER"
+  },
+  "stop_conditions": [
+    "Any write outside allowed_paths",
+    "Any Git mutation",
+    "Any creation of target REMEDIATION-04",
+    "Any attempt to promote proposal evidence to Human adoption"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "remediation_03": {
+    "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03",
+    "status": "CLOSED_AS_FAILED_AND_FROZEN",
+    "task_manifest_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03/task-artifact-manifest.json",
+    "task_manifest_external_sha256": "571CF4209CE81C5D05AF16B32B75C39F3715C9FB21751770460A8759C4474188",
+    "task_manifest_internal_sha256": "5CDAD71141605A905B91FAC72599EEA7E7A737FA21F505F87C465A4A8F78E957",
+    "physical_file_count": 64,
+    "manifest_entry_count": 63,
+    "manifest_self_excluded": true,
+    "all_manifest_entries_current_bytes_verified": true,
+    "current_entry_mismatch_count": 0,
+    "internal_manifest_hash_recomputed": true,
+    "historical_results_promoted_to_fresh_evidence": false
+  },
+  "remediation_02_authoritative_case_source": {
+    "path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/production-rejection-matrix-results.json",
+    "bytes": 19502,
+    "sha256": "2ECD72BAF53115D59BDE242AF84F465734F51016BDFF888B139F9EA0D1EA2598",
+    "ordered_case_count": 43,
+    "permitted_use": "CASE_ID_ORDER_AND_MEANING_SOURCE_ONLY"
+  },
+  "proposal_02_path_source": {
+    "path": ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/exact-commit-paths.json",
+    "bytes": 271802,
+    "sha256": "5CE80FC02491E66701D9D5573DB3123561FE41C74BABE7C0D0F5496404207685",
+    "permitted_use": "PATH_SET_INPUT_ONLY",
+    "status": "HISTORICAL_ONLY_NOT_CURRENT_HEAD_EVIDENCE"
+  },
+  "proposal_02_dependency_closure": {
+    "path": ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/dependency-closure.json",
+    "bytes": 641368,
+    "sha256": "B320CEC8FAC46723D6BFD2D9726357A959DA14D1E8C06FD01D27037928F619E6",
+    "direct_replay_input_count": 147,
+    "transitive_provenance_group_count": 17,
+    "transitive_provenance_entry_count": 1190,
+    "external_reference_metadata_count": 11,
+    "external_content_read": false
+  },
+  "immutability_requirement": "All listed predecessor sources are read-only and must remain byte-identical before and after any future REMEDIATION-04 cycle.",
+  "proposal_preparation_mutated_predecessors": false
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-02",
+  "target_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+  "target_execution_authorized": false,
+  "stages": [
+    {
+      "stage": "0",
+      "name": "NO_WRITE_STARTUP_REBOUND",
+      "failure": "HARD_STOP"
+    },
+    {
+      "stage": "A1",
+      "name": "CURRENT_147_AND_EFFECTIVE_IGNORE_SAME_FREEZE",
+      "required_outcome": "147_OF_147_NOT_IGNORED",
+      "failure": "BLOCKER"
+    },
+    {
+      "stage": "A2",
+      "name": "VERIFICATION_SUBJECT_FREEZE",
+      "subject_change_rule": "COMPLETE_RERUN_REQUIRED"
+    },
+    {
+      "stage": "A3",
+      "name": "EXACT_ORDERED_43_CASE_CYCLE",
+      "required_counts": {
+        "total": 43,
+        "confirmed": 43,
+        "unexpected": 0,
+        "error": 0,
+        "not_verified": 0
+      },
+      "failure": "BLOCKER"
+    },
+    {
+      "stage": "A4",
+      "name": "CLOSING_REBOUND_AND_REVIEW_CANDIDATE_MANIFEST_FREEZE",
+      "review_candidate_manifest_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04/review-candidate-manifest.json"
+    },
+    {
+      "stage": "R",
+      "name": "FOUR_FRESH_FORMAL_REVIEWS",
+      "assignments": [
+        "REM04-FORMAL-REVIEW-01-CODE-REVIEWER",
+        "REM04-FORMAL-REVIEW-02-SECURITY-REVIEWER",
+        "REM04-FORMAL-REVIEW-03-RAILWAY-DOMAIN-REVIEWER",
+        "REM04-FORMAL-REVIEW-04-COMPATIBILITY-REVIEWER"
+      ],
+      "null_binding_launch_prohibited": true
+    },
+    {
+      "stage": "B",
+      "name": "RAW_RETURN_CAPTURE_CONDITION_CLEARANCE_AND_FINAL_MANIFEST",
+      "manifest_generated_last": true
+    },
+    {
+      "stage": "W",
+      "name": "WORK_EXTERNAL_READ_ONLY_ACCEPTANCE_AFTER_FREEZE",
+      "substitutes_for_formal_review": false
+    }
+  ],
+  "maximum_target_verdict": "READY_FOR_HUMAN_EXACT_TRUST_ANCHOR_ADOPTION_DECISION",
+  "target_self_adoption": false
+}

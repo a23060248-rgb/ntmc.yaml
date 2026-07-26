@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-01",
+  "observation_type": "READ_ONLY_STARTUP_AND_PROPOSAL_BINDING",
+  "product_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統",
+  "product_root_nfc_exact": true,
+  "git_root": "C:/Users/a2306/Desktop/code/ntmc.yaml",
+  "bound_head": "f4c293467a9e3249631574947de8bdc93b18a51c",
+  "actual_head": "f4c293467a9e3249631574947de8bdc93b18a51c",
+  "head_binding": "MATCH",
+  "bound_branch": "codex/precheck-template-maintenance",
+  "actual_branch": "codex/precheck-template-maintenance",
+  "branch_binding": "MATCH",
+  "bound_tree": "5860873bc183cfd915d09815f0bc52a471499cfa",
+  "actual_tree": "5860873bc183cfd915d09815f0bc52a471499cfa",
+  "tree_binding": "MATCH",
+  "proposal_path_preexisting": false,
+  "target_remediation_path_created": false,
+  "scoped_git_evidence": {
+    "git_root_working_directory": "C:/Users/a2306/Desktop/code/ntmc.yaml",
+    "pathspecs": [
+      "輕軌系統/AGENTS.md",
+      "輕軌系統/.agents",
+      "輕軌系統/.codex"
+    ],
+    "status_porcelain_count": 0,
+    "unstaged_diff_name_count": 0,
+    "staged_diff_name_count": 0,
+    "empty_output_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "claim_boundary": "Only the listed light-rail governance pathspecs and the explicit 147 candidate paths were observed; no repository-wide mutation claim is made."
+  },
+  "environment_limitations": [
+    {
+      "code": "AGENT_CONTEXT_GLOBAL_IGNORE_ACCESS_WARNING",
+      "message": "Git warned that C:/Users/a2306/.config/git/ignore was inaccessible in this agent environment.",
+      "disposition": "RECORDED_NOT_REPAIRED",
+      "effect": "Human external readiness intake is prerequisite-only; future REMEDIATION-04 must capture same-freeze full-set effective-ignore evidence."
+    }
+  ],
+  "current_147_binding": {
+    "path_count": 147,
+    "unique_count": 147,
+    "tracked_count": 147,
+    "missing_count": 0,
+    "worktree_changed_count": 0,
+    "index_changed_count": 0,
+    "source_7a_2_count": 106,
+    "attempt_1_count": 41,
+    "manifest_hash_contract": "ORDINAL_SORT_REPOSITORY_RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_LF_JOIN_WITHOUT_TRAILING_NEWLINE_SHA256",
+    "manifest_sha256": "2C01A85E3348B174B7BFB1F3F1D0A26CAB485423297252C7C7F4F35C65702E5D",
+    "legacy_jcs_entry_binding_sha256": "566D583E2B060B3597BB764689C222416030F11A1D013E39DA3FCABFE7D8CB4B",
+    "status": "MATCH"
+  },
+  "input_file_bindings": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 10453,
+      "sha256": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E"
+    },
+    {
+      "path": ".agents/skills/task-classification/SKILL.md",
+      "bytes": 4894,
+      "sha256": "5B81BCB60822E4828F721AFE620C631B8B6C430A177D3DF30A76C6A7BDAA3F57"
+    },
+    {
+      "path": ".codex/governance/phase-policy.yaml",
+      "bytes": 1162,
+      "sha256": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D"
+    },
+    {
+      "path": ".codex/governance/phase-status.json",
+      "bytes": 3763,
+      "sha256": "6509779968A820504DEB30CB4854C7EFFBF062E93BED2F233631E8B51EF21DC7"
+    },
+    {
+      "path": ".codex/governance/agent-path-policy.yaml",
+      "bytes": 4460,
+      "sha256": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1"
+    },
+    {
+      "path": ".codex/agents/railway-domain-reviewer.toml",
+      "bytes": 1063,
+      "sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D"
+    },
+    {
+      "path": ".codex/governance/governance-commit-manifest.yaml",
+      "bytes": 36842,
+      "sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A"
+    }
+  ],
+  "human_authorization_text_binding": {
+    "nfc_sha256": "EBD5EDB95B065F3A3642E9C04CAA78F08430AF53611CCC1C1FA3C0352C3CBA6B",
+    "utf8_bytes": 190,
+    "authority": "HUMAN_SUPPLIED_EXACT_BINDING",
+    "cryptographic_human_identity": false,
+    "independent_attachment_bytes_available_to_agent": false
+  }
+}

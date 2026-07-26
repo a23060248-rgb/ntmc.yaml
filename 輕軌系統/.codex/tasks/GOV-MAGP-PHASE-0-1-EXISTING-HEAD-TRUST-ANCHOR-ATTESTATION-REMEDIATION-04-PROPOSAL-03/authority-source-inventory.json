@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "inventory_status": "READ_ONLY_BYTES_AND_SHA256_RECOMPUTED",
+  "sources": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 10453,
+      "sha256": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E",
+      "authority_use": "Typed Railway Domain Review governance requirement, including line 69."
+    },
+    {
+      "path": ".codex/agents/railway-domain-reviewer.toml",
+      "bytes": 1063,
+      "sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+      "authority_use": "Canonical reviewer role, profile, read-only mode, scope, empty writes, implementation exclusion, and procedural assurance."
+    },
+    {
+      "path": ".codex/blueprints/schemas/blueprint.schema.json",
+      "bytes": 4536,
+      "sha256": "2E1C0CF024B6C8E5982009D9C1DD8A969D491ECC409774D4EBB13FCB7A11B47A",
+      "authority_use": "Exact review_assignments item fields and additionalProperties=false."
+    },
+    {
+      "path": ".codex/blueprints/schemas/railway-domain-review.schema.json",
+      "bytes": 2436,
+      "sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+      "authority_use": "Dedicated typed Railway record and exact reviewer_binding fields."
+    },
+    {
+      "path": ".codex/blueprints/schemas/review-findings.schema.json",
+      "bytes": 4818,
+      "sha256": "3496820A82565B4861084FC7CB1EF694FD0B31FF57F33D734123DFE739E82809",
+      "authority_use": "Outer formal review identity and reviewer_binding schema."
+    },
+    {
+      "path": ".codex/checklists/railway-domain-review.md",
+      "bytes": 1542,
+      "sha256": "B1A2AEB2C5DC2B74EE29BE33E11BA072DA30ADF29524071CBC90610E9F80C41F",
+      "authority_use": "Direct Railway review checklist for role, profile, assignment, run, session, scope, read-only and participation checks."
+    },
+    {
+      "path": ".codex/governance/agent-path-policy.yaml",
+      "bytes": 4460,
+      "sha256": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "authority_use": "Canonical railway-domain-reviewer read/write path policy."
+    },
+    {
+      "path": ".codex/governance/evidence-schema-registry.yaml",
+      "bytes": 1700,
+      "sha256": "2744036D841174BE94BF1D05F6EA38C2B2C410E0EB5520D3D3723135E674E142",
+      "authority_use": "Registered review-findings and railway-domain-review schema identities."
+    },
+    {
+      "path": ".codex/governance/governance-commit-manifest.yaml",
+      "bytes": 36842,
+      "sha256": "5D728252106E52C1FC998F0517066DD6421A4083833F7987A52D955F9A49DC0A",
+      "authority_use": "Exactly-one canonical railway reviewer profile artifact entry."
+    },
+    {
+      "path": ".codex/governance/phase-policy.yaml",
+      "bytes": 1162,
+      "sha256": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "authority_use": "L3 governance-only phase, canonical roles, product/database write prohibition, and Git mutation prohibition."
+    },
+    {
+      "path": ".codex/scripts/lib/governance/reviewer-identity-binding.mjs",
+      "bytes": 8668,
+      "sha256": "3426F3D99B4A8D9835BE47E0B644723AFA4C8F126C37FE29FA373133A1582911",
+      "authority_use": "Production validateFormalRailwayReviewerBinding implementation and constants."
+    },
+    {
+      "path": ".codex/scripts/validate-task.mjs",
+      "bytes": 50553,
+      "sha256": "C155793588410F3BDF326FED0589AC6CB823277489D2C19D627A5FB0FA0E7CD9",
+      "authority_use": "Production workflow routing through dedicated schema validation and validateFormalRailwayReviewerBinding."
+    }
+  ],
+  "registry_bindings": {
+    "review_findings_schema_sha256": "3496820A82565B4861084FC7CB1EF694FD0B31FF57F33D734123DFE739E82809",
+    "railway_domain_review_schema_sha256": "D11200E500D7C87AB0E9762BF81FCB2D32315E770D8A16CA81F87B6C439FE66D",
+    "registry_matches_current_bytes": true
+  },
+  "canonical_profile_manifest_binding": {
+    "profile_path": ".codex/agents/railway-domain-reviewer.toml",
+    "profile_file_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "matching_manifest_entry_count": 1,
+    "manifest_entry_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "result": "MATCH"
+  },
+  "read_boundary": {
+    "sibling_directory_read": false,
+    "env_prefixed_file_read": false,
+    "external_ignore_content_read": false,
+    "unauthorized_product_database_migration_read": false
+  }
+}

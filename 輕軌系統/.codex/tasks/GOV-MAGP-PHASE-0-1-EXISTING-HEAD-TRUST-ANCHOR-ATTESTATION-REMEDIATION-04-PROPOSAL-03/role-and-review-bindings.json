@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04-PROPOSAL-03",
+  "binding_status": "PROPOSED_TYPED_CONTRACT_NOT_LAUNCHED_NOT_HUMAN_ADOPTED",
+  "assignment_target_task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-04",
+  "non_targeted_formal_review_requirements": {
+    "required_role_count": 4,
+    "required_roles": [
+      "code-reviewer",
+      "security-reviewer",
+      "railway-domain-reviewer",
+      "compatibility-reviewer"
+    ],
+    "unchanged_from_proposal_02": true
+  },
+  "authoritative_railway_blueprint_assignment": {
+    "assignment_id": "REM04-FORMAL-REVIEW-03-RAILWAY-DOMAIN-REVIEWER",
+    "required_role_id": "railway-domain-reviewer",
+    "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml",
+    "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+    "allowed_read_paths": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/**"
+    ],
+    "allowed_write_paths": [],
+    "required_review_scope": "bootstrap_rule_governance_mechanism",
+    "execution_mode": "read-only",
+    "implementation_participation": false
+  },
+  "future_formal_reviewer_binding_contract": {
+    "object_name": "reviewer_binding",
+    "required_exact_fields": [
+      "canonical_role_id",
+      "agent_profile_reference",
+      "agent_profile_sha256",
+      "task_assignment_id",
+      "reviewer_run_id",
+      "session_id",
+      "formal",
+      "execution_mode",
+      "implementation_participation",
+      "reviewer_identity_assurance"
+    ],
+    "constants": {
+      "canonical_role_id": "railway-domain-reviewer",
+      "agent_profile_reference": ".codex/agents/railway-domain-reviewer.toml",
+      "agent_profile_sha256": "E79CD3EE7667CB41267FDBAAED7AAE679F0EEC0D4B2B917962B4EFE98BE99A6D",
+      "task_assignment_id": "REM04-FORMAL-REVIEW-03-RAILWAY-DOMAIN-REVIEWER",
+      "formal": true,
+      "execution_mode": "read-only",
+      "implementation_participation": false,
+      "reviewer_identity_assurance": "procedural_role_and_assignment_binding"
+    },
+    "runtime_values": {
+      "reviewer_run_id": "MUST_BE_NON_EMPTY_UNIQUE_AND_EQUAL_OUTER_REVIEW_AT_LAUNCH",
+      "session_id": "MUST_BE_NON_EMPTY_UNIQUE_EQUAL_OUTER_REVIEW_AND_DIFFER_FROM_IMPLEMENTER_AT_LAUNCH"
+    },
+    "additional_properties_allowed": false
+  },
+  "launch_contract": {
+    "status": "NOT_STARTED",
+    "launch_authorized": false,
+    "actual_run_id_materialized": false,
+    "actual_session_id_materialized": false,
+    "actual_review_scope_materialized": false,
+    "actual_reviewer_binding_created": false,
+    "launch_prohibited_until": [
+      "The future target Blueprint contains exactly one Railway assignment matching the authoritative assignment above.",
+      "The exact review-candidate scope exists and is frozen.",
+      "A unique actual reviewer run ID and session ID exist.",
+      "The reviewer session differs from the implementer session.",
+      "Canonical profile bytes and exactly-one governance manifest entry match.",
+      "The formal record validates against the dedicated schema and validateFormalRailwayReviewerBinding returns no issues."
+    ]
+  },
+  "historical_proposal_02_fields_not_part_of_authoritative_typed_contract": [
+    "role_profile_binding",
+    "canonical_profile_binding",
+    "manifest_profile_entry_sha256",
+    "authoritative_manifest_file_sha256"
+  ],
+  "identity_claim_boundary": "PROCEDURAL_ROLE_AND_ASSIGNMENT_BINDING_ONLY_NOT_CRYPTOGRAPHIC_NOT_UNFORGEABLE"
+}
