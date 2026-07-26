@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Logical Error Envelope Proposal",
+  "type": "object",
+  "required": [
+    "error_code",
+    "error_class",
+    "subject",
+    "safe_message",
+    "retryability",
+    "remediation",
+    "audit_severity"
+  ],
+  "properties": {
+    "error_code": {
+      "enum": [
+        "STRUCTURAL_VALIDATION_ERROR",
+        "SEMANTIC_VALIDATION_ERROR",
+        "AUTHORITY_DENIED",
+        "HUMAN_APPROVAL_REQUIRED",
+        "INVALID_LIFECYCLE_TRANSITION",
+        "STALE_REVISION",
+        "CONFLICTING_DECISION",
+        "MISSING_EVIDENCE",
+        "EVIDENCE_INTEGRITY_FAILURE",
+        "LINEAGE_INCOMPLETE",
+        "CONTAMINATION_DETECTED",
+        "ASSURANCE_DISCLOSURE_REQUIRED",
+        "IDEMPOTENCY_CONFLICT",
+        "AGGREGATE_INVARIANT_VIOLATION"
+      ]
+    },
+    "error_class": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "safe_message": {
+      "type": "string"
+    },
+    "internal_detail": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "retryability": {
+      "type": "string"
+    },
+    "remediation": {
+      "type": "array"
+    },
+    "required_evidence": {
+      "type": "array"
+    },
+    "audit_severity": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

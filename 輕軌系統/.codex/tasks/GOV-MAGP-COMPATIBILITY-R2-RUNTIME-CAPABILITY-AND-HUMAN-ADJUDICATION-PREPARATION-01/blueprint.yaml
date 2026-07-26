@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+  "level": "L3",
+  "execution_mode": "ROOT_ORCHESTRATOR_SEQUENTIAL_NO_SUBAGENTS",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01/**"
+  ],
+  "applicable_rules": [
+    "PHASE1_GOVERNANCE_ONLY",
+    "FAIL_CLOSED_RUNTIME_CAPABILITY",
+    "NO_REPEATED_RETRY_WITHOUT_VERIFIABLE_RUNTIME_CHANGE",
+    "NO_AUTOMATIC_HUMAN_DECISION",
+    "HUMAN_FINDING_ADJUDICATION_ONLY",
+    "REDUCED_ASSURANCE_MUST_BE_EXPLICIT",
+    "NO_DOWNSTREAM_AUTHORIZATION_IN_PREPARATION_TASK",
+    "PRESERVE_EXISTING_RETRY_AND_FAILURE_HISTORY"
+  ],
+  "candidate_rules": [],
+  "agent_assignments": [
+    {
+      "actor_role": "architect",
+      "assignment": "Runtime capability, Human decision, assurance, and downstream boundary design",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_WITHIN_ROLE_POLICY"
+    },
+    {
+      "actor_role": "qa-engineer",
+      "assignment": "Deterministic positive, negative, and immutable-history validation",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_WITHIN_ROLE_POLICY"
+    },
+    {
+      "actor_role": "documentation-engineer",
+      "assignment": "Protocol, decision records, final summary, and task-local handoff",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_WITHIN_ROLE_POLICY"
+    }
+  ],
+  "execution_sequence": [
+    "capture_immutable_retry_and_failure_history_baselines",
+    "record_clean_room_runtime_capability",
+    "create_pending_two_path_human_decision_gate",
+    "prepare_inactive_human_adjudicated_protocol",
+    "define_finding_and_downstream_authorization_boundaries",
+    "run_positive_negative_and_after_hash_validation",
+    "finalize_summary_and_handoff"
+  ],
+  "review_assignments": [],
+  "reviewer_launch_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "aggregator_launch_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "architecture_reconciliation_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "rollback_restore_evidence": {
+    "status": "NOT_APPLICABLE",
+    "reason": "Only new task-local governance artifacts are created; no product, database, service, migration, seed, Reviewer, Aggregator, or external system state is changed."
+  },
+  "human_decision_gate": {
+    "decision_status": "PENDING",
+    "next_authorized_action": "WAIT_FOR_HUMAN_DECISION"
+  },
+  "gate_state": "NO-GO"
+}

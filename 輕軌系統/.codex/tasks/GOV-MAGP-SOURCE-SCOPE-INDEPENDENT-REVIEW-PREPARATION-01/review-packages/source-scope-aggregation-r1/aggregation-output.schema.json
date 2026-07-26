@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:source-scope-aggregation-output:r1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "payload_core",
+    "payload_core_sha256"
+  ],
+  "properties": {
+    "payload_core": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "task_id",
+        "aggregator_role",
+        "review_package_id",
+        "assignment_id",
+        "aggregator_run_id",
+        "aggregator_session_nonce",
+        "review_target_binding",
+        "reviewer_results",
+        "deterministic_qa",
+        "blocking_findings",
+        "source_target_unchanged",
+        "product_and_governance_baseline_unchanged",
+        "git_used",
+        "source_scope_lock_review_gate",
+        "ready_for"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "task_id": {
+          "const": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1"
+        },
+        "aggregator_role": {
+          "const": "SOURCE_SCOPE_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER_R1"
+        },
+        "review_package_id": {
+          "const": "MAGP-SSR1-AGGREGATOR-231432EB-B136-47F9-9AAD-8465FE4477A4"
+        },
+        "assignment_id": {
+          "const": "ASSIGN-ED8F300D-6C44-4C56-B013-AF1BD80D277A"
+        },
+        "aggregator_run_id": {
+          "const": "RUN-BBE5D50A-030C-4385-8BDE-0A638D7A741D"
+        },
+        "aggregator_session_nonce": {
+          "const": "D326CE8BDE66D79CDC62D1DF555F2CE2636166247EBC785012CB5B5468DDAAF9"
+        },
+        "review_target_binding": {
+          "type": "object"
+        },
+        "reviewer_results": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object"
+          }
+        },
+        "deterministic_qa": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "pass_count",
+            "total_count",
+            "status",
+            "raw_evidence_path",
+            "raw_evidence_sha256"
+          ],
+          "properties": {
+            "pass_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 30
+            },
+            "total_count": {
+              "const": 30
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL"
+              ]
+            },
+            "raw_evidence_path": {
+              "type": "string"
+            },
+            "raw_evidence_sha256": {
+              "type": "string",
+              "pattern": "^[A-F0-9]{64}$"
+            }
+          }
+        },
+        "blocking_findings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "source_target_unchanged": {
+          "type": "boolean"
+        },
+        "product_and_governance_baseline_unchanged": {
+          "type": "boolean"
+        },
+        "git_used": {
+          "const": false
+        },
+        "source_scope_lock_review_gate": {
+          "enum": [
+            "GO",
+            "NO-GO"
+          ]
+        },
+        "ready_for": {
+          "enum": [
+            "READY_FOR_HUMAN_SOURCE_SCOPE_ADOPTION",
+            "SOURCE_SCOPE_REMEDIATION_REQUIRED"
+          ]
+        }
+      }
+    },
+    "payload_core_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  }
+}

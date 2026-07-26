@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "event metadata contract",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "required_fields": [
+    "event_type",
+    "event_version",
+    "producer",
+    "aggregate_id",
+    "aggregate_revision",
+    "correlation_id",
+    "causation_id",
+    "occurred_time",
+    "recorded_time",
+    "authority_context",
+    "payload_schema",
+    "payload_hash",
+    "ordering_scope",
+    "delivery_expectation",
+    "retry_behavior",
+    "duplicate_handling",
+    "retention",
+    "sensitive_fields",
+    "audit_class"
+  ],
+  "ordering_scope": "per aggregate",
+  "duplicate_handling_required": true
+}

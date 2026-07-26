@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-PRELAUNCH-BOUNDARY-AND-RELAUNCH-01",
+  "canonicalization_method": "RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_NEWLINE",
+  "exclusions": [
+    "task-artifact-manifest.json",
+    "deterministic-stage-1-result.json"
+  ],
+  "file_count": 57,
+  "manifest_sha256": "B53BC509343873C1414DAD95A64200D697A51698114AA35DEF7FA3518AACD4A9",
+  "entries": [
+    {
+      "relative_path": "HANDOFF.md",
+      "sha256": "B34D5CE54DD2710C23EC759236F8DA7A9E6B6CAE22F565F979845FA5954E8A76",
+      "bytes": 1405
+    },
+    {
+      "relative_path": "blueprint.yaml",
+      "sha256": "E8580F0BDAFC58F25EC7F814D7288579459AB9A24AE5932F1BAE4C9209A1138B",
+      "bytes": 723
+    },
+    {
+      "relative_path": "change-collision-analysis/baseline-reproducibility-analysis.json",
+      "sha256": "721420D15254E967A78C1EBD7E8F283B0FAFA70ADF83803C86CEAC46C7620E62",
+      "bytes": 908
+    },
+    {
+      "relative_path": "change-collision-analysis/candidate-path-collision-analysis.json",
+      "sha256": "CE3E7453CE3DAE57CE31FC810BCE0DB1196A452F026BCB26C6C4E7C8813934F4",
+      "bytes": 539
+    },
+    {
+      "relative_path": "change-collision-analysis/case-insensitive-path-analysis.json",
+      "sha256": "A592098E41DB96049569722FFD28A8496F824F6C3DB375784A47F6A8EE169064",
+      "bytes": 142
+    },
+    {
+      "relative_path": "change-collision-analysis/collision-result.json",
+      "sha256": "A527466ACC270F33850250A44D7C0A6E8FC8548EC53BA3CED453CFF3EDC83574",
+      "bytes": 268
+    },
+    {
+      "relative_path": "change-collision-analysis/existing-worktree-inventory.json",
+      "sha256": "452AC5336826875A5DD4DC3BF6A234ED5E55471958AD8F8CAE874DE9FE374F62",
+      "bytes": 271
+    },
+    {
+      "relative_path": "change-collision-analysis/symlink-boundary-analysis.json",
+      "sha256": "764355D790A1737C9586A3CE4DE72B4D004D4721F2CD83CE7C47532234DBE9EF",
+      "bytes": 186
+    },
+    {
+      "relative_path": "change-collision-analysis/tracked-change-inventory.json",
+      "sha256": "C0AB5883632C93CB815B8EDF1E8D852588A52899A403CB8CDBA352C8A7EC27DE",
+      "bytes": 113
+    },
+    {
+      "relative_path": "change-collision-analysis/untracked-file-inventory.json",
+      "sha256": "AE8F15C6CD47BA04CA48E4B5674F61E0235DFD29424565564F0D4979CBE36521",
+      "bytes": 189411
+    },
+    {
+      "relative_path": "classification.yaml",
+      "sha256": "96047A93CF5D6227E99F37944DCF5B6D749C118BFC45C1230D9391B6C5862F37",
+      "bytes": 1480
+    },
+    {
+      "relative_path": "final-summary.md",
+      "sha256": "E445BC9B3AF844F5255FC66114C361CABCB15B255DD42C717C0122BB18EA4A65",
+      "bytes": 821
+    },
+    {
+      "relative_path": "findings/worktree-baseline-not-reproducible.json",
+      "sha256": "973B7429AFA05FDC609413709085B3D2C5D77722B99BF35E8C36FC0BA5CFC449",
+      "bytes": 911
+    },
+    {
+      "relative_path": "historical-artifact-integrity.json",
+      "sha256": "79AA90CBA7CE9C3C927BEBD557C43DB557E0931B9FE4387827841C7C128DD9CE",
+      "bytes": 775
+    },
+    {
+      "relative_path": "human-prelaunch-decision-package/not-issued.json",
+      "sha256": "9919D4AAAC452B72E962638BFAF7AC557E5C6348CF2C84BFA778C5D3CA815643",
+      "bytes": 250
+    },
+    {
+      "relative_path": "original-hard-stop-binding.json",
+      "sha256": "CA35283C2F25C84AD0BBFAD7FFE195411CFE5DD8F51C147AD27734F5815A2A0D",
+      "bytes": 36891
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/allowed-create-paths.json",
+      "sha256": "8DF35CE1922C7EA06C4562DDD41E3232E5248B424E12E84AE43C8CD601EAB354",
+      "bytes": 3963
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/allowed-modify-paths.json",
+      "sha256": "A48A957EEF5CEA934EC097C2CC1727814D053EC1C3B52FA8F91FEB8A183090FB",
+      "bytes": 265
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/boundary-context.json",
+      "sha256": "5A65CE16C872F8A5B3ACB9C89B27C2DE6BAC8FB00A21AB2856C22782B4A9E026",
+      "bytes": 242
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/boundary-enforcement-policy.yaml",
+      "sha256": "8278DD86D70812A4B69F2D339F1966CF8E62E7A57BE5A0E243C6825DF61E3520",
+      "bytes": 261
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/boundary-risk-register.json",
+      "sha256": "A7A7D2D3E5DEA21713735D0F89CFF878A58F6FFB99D02FE99665280EE907B57F",
+      "bytes": 432
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/boundary-summary.md",
+      "sha256": "A99BB4D955F380BAA296AAA0E3D3EFEBECD5126B44743802B67AE669DA92407E",
+      "bytes": 416
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/boundary-validation-cases.json",
+      "sha256": "1A4898C9F595517AF011F9C2F78D5402A1EAFB629943CF87A645BAC2B589D098",
+      "bytes": 556
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/candidate-boundary-options.json",
+      "sha256": "4356E0CC76FA4C03D0F6288DA36733B5AD038BD350C1CA2E8F43F788BB3CB60B",
+      "bytes": 820
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/existing-change-protection-policy.json",
+      "sha256": "88C2004CA12CD1D27BA1870176BD7BE6B834BB8F5A133511947B58DACD7EC676",
+      "bytes": 166
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/generated-output-paths.json",
+      "sha256": "D832097678F0A141905746A8B03574BDD452280AE3B6D0EE0B9FE47288823D3E",
+      "bytes": 172
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/git-path-boundary.json",
+      "sha256": "B67D9EA18E973689C4330262F2C2058D2C50D975BB120EBD4947EFF00D5D4A7D",
+      "bytes": 268
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/path-normalization-policy.json",
+      "sha256": "91EE30C7643E9ADA9D555FC693042758BF50D9231062760D7F67423CE0D7B2BD",
+      "bytes": 273
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/prohibited-paths.json",
+      "sha256": "E649BD535271E2B5EE419A6368D1C07720383FC7950D28F1C61BC19AE2E77789",
+      "bytes": 5397
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/read-only-paths.json",
+      "sha256": "83BDF9533C8122F8F337337395109FB64D3001DAB8C50863062BAF40AA5212C1",
+      "bytes": 3139
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/recommended-write-boundary.json",
+      "sha256": "60D18E9B93D08204D41E93574A6AC0241A589D3EE71C8FEAA0F1F1F274BF272B",
+      "bytes": 305
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/symlink-policy.json",
+      "sha256": "4A6D99A5DE9B4434EC8F8C1C31AF2C6BED4AE5429661B666FA2031A93EE32CBC",
+      "bytes": 120
+    },
+    {
+      "relative_path": "prelaunch-boundary-proposal/temporary-paths.json",
+      "sha256": "8FE60BB04BDE2F54CF5582D2831E45688C15433EF2977BE5B179A75A04E699CC",
+      "bytes": 72
+    },
+    {
+      "relative_path": "repository-discovery/ci-root-candidates.json",
+      "sha256": "07AB2B1B88385E04ECACBFFF1BAB9CE46065ECAF25A5B259C803EA5244B9580E",
+      "bytes": 251
+    },
+    {
+      "relative_path": "repository-discovery/contract-root-candidates.json",
+      "sha256": "00ED79049FABCDC6CA955D1DEABE83B4D3D721B0143CFB43662EE5848578B822",
+      "bytes": 245
+    },
+    {
+      "relative_path": "repository-discovery/deployment-root-inventory.json",
+      "sha256": "D7399E400F3FDF9F47E28A047028CBBC482A2AA022DA3789555647F63E8430B9",
+      "bytes": 253
+    },
+    {
+      "relative_path": "repository-discovery/documentation-root-candidates.json",
+      "sha256": "3A0448FEA01FB344FCB070A99D0754F8B7620A5A3D50CDA418C48180DD644AF5",
+      "bytes": 236
+    },
+    {
+      "relative_path": "repository-discovery/evidence-root-candidates.json",
+      "sha256": "9FF7AB5C436FEAA904A118E599215A080E65B431EE45DB386CD0C937ACDEBABC",
+      "bytes": 240
+    },
+    {
+      "relative_path": "repository-discovery/existing-magp-artifact-inventory.json",
+      "sha256": "0367FFBB8BDB1FC944E69A4A7CE8DA76674BDA3D8D321AAC4BA8D2CF988AC0F3",
+      "bytes": 283
+    },
+    {
+      "relative_path": "repository-discovery/migration-root-inventory.json",
+      "sha256": "C13391FDAA7BED48FDD7451CB6C81C381512073049665C24041F5BB2952CF3B9",
+      "bytes": 256
+    },
+    {
+      "relative_path": "repository-discovery/project-root-candidates.json",
+      "sha256": "4356E0CC76FA4C03D0F6288DA36733B5AD038BD350C1CA2E8F43F788BB3CB60B",
+      "bytes": 820
+    },
+    {
+      "relative_path": "repository-discovery/repository-discovery-summary.md",
+      "sha256": "1CCC8BFF9FC694C524EC32C09B2800BEF934BA68A4673AE9963EDAC26A98E4FC",
+      "bytes": 561
+    },
+    {
+      "relative_path": "repository-discovery/repository-root.json",
+      "sha256": "CA1EBEDBCA0EC83881116DEB1CC5B4662DF7D9D7785AF02026C39A2BB105C17A",
+      "bytes": 489
+    },
+    {
+      "relative_path": "repository-discovery/schema-root-candidates.json",
+      "sha256": "698468323AFD068567813CD3791C6F877120F83FE66520DD74E2473C908855B8",
+      "bytes": 239
+    },
+    {
+      "relative_path": "repository-discovery/source-root-candidates.json",
+      "sha256": "EDD685FF89B23777792AACF25A43357591983703DDC87CAFFADDAD3F66C1AEF1",
+      "bytes": 561
+    },
+    {
+      "relative_path": "repository-discovery/test-root-candidates.json",
+      "sha256": "C8A1827F5498B2BEB52287EBAC722E06F92B33C24506CA97313DB6F02F484949",
+      "bytes": 237
+    },
+    {
+      "relative_path": "repository-discovery/tooling-root-candidates.json",
+      "sha256": "C3A184C705BCD9FDB2985A970AE0CA3ACC5379B0AFCFECF5DABEA6A439C3C043",
+      "bytes": 237
+    },
+    {
+      "relative_path": "repository-discovery/top-level-inventory.json",
+      "sha256": "A7B5D74291C82AB1E457198BFB6F07125F9B6EA3F066FD07F727550FEFD360A5",
+      "bytes": 1603
+    },
+    {
+      "relative_path": "scripts/run-stage-1-prelaunch-discovery.mjs",
+      "sha256": "9B17E08D89427048E2600D443A31CA477C2665DF538584A293A28EC50445EBCA",
+      "bytes": 40420
+    },
+    {
+      "relative_path": "scripts/validate-stage-1-hard-stop.mjs",
+      "sha256": "00E74252E4F29F12DF3442F1FDD1C72E6103103C46495825DB64FF771CFF628B",
+      "bytes": 5815
+    },
+    {
+      "relative_path": "secret-safety-discovery.json",
+      "sha256": "122A1FB6E5019109A2E18A78F613B80A169E84C7BB4BB879F850BB9D6E64BEE6",
+      "bytes": 1700
+    },
+    {
+      "relative_path": "seven-baseline-binding.json",
+      "sha256": "2285BB545D143F8492E9CDBAEFC09343B5DFD023327D896C34DBF38E177B5F7B",
+      "bytes": 4501
+    },
+    {
+      "relative_path": "stage-1-result.json",
+      "sha256": "4F99D82888F2100985A8AB909630FD4E2CC93AA6E2434B82C550DCA635C1C3D7",
+      "bytes": 766
+    },
+    {
+      "relative_path": "task-intent.yaml",
+      "sha256": "6F7ED2CA0995084B294E00B83D5567947BF7221E2DB263BFC154C0158D20A16B",
+      "bytes": 513
+    },
+    {
+      "relative_path": "tech-stack-discovery/not-evaluated.json",
+      "sha256": "497DDDDE7E0B77F662910F7EB7FFAEF52F643FDDCFCBEA5115EC26E503BCE165",
+      "bytes": 344
+    },
+    {
+      "relative_path": "tech-stack-resolution-proposal/not-issued.json",
+      "sha256": "980C5FC7A2BBABD10494D848F43D828F4AAEAA9D24CACFC3FBF4E1426072CC6C",
+      "bytes": 161
+    },
+    {
+      "relative_path": "validation-results.json",
+      "sha256": "B64F007B86AB6F2579B4EA1CABEBDC677994B9FAAA58937F537F7534DB6C4A03",
+      "bytes": 4791
+    }
+  ]
+}

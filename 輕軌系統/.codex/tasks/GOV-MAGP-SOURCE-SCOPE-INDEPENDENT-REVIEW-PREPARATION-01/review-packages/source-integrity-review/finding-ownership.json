@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+  "owned_finding_categories": [
+    "SOURCE_IDENTITY_MISMATCH",
+    "SOURCE_DRIFT",
+    "SOURCE_HASH_OR_SIZE_MISMATCH",
+    "MAGIC_OR_MEDIA_TYPE_MISMATCH",
+    "HUMAN_IDENTITY_DECISION_CONFLICT"
+  ],
+  "not_owned": [
+    "SOURCE_AUTHORITY_CONFLICT",
+    "AUTOMATIC_NORMATIVE_PROMOTION",
+    "AUTHORITY_HIERARCHY_VIOLATION",
+    "EXCLUDED_SOURCE_CLAIM_AUTHORITY",
+    "CLAIM_ELIGIBILITY_CONFLICT",
+    "VETC_CORE_CONTAMINATION",
+    "HEALTH_TO_RAILWAY_CONTAMINATION",
+    "DOMAIN_SPECIFIC_NORMATIVE_PROMOTION",
+    "PATTERN_AUTHORITY_ESCALATION",
+    "CONTAMINATION_POLICY_GAP",
+    "HISTORICAL_ARTIFACT_MUTATION",
+    "BASELINE_COMPATIBILITY_CONFLICT",
+    "PREMATURE_DOWNSTREAM_AUTHORIZATION",
+    "GOVERNANCE_REPLACEMENT",
+    "GATE_STATUS_OVERCLAIM"
+  ],
+  "severity_enum": [
+    "CRITICAL",
+    "HIGH",
+    "MEDIUM",
+    "LOW"
+  ],
+  "status_enum": [
+    "OPEN",
+    "CLOSED"
+  ],
+  "escalation_rule": "Record out-of-role observations only when they constitute an immediate CRITICAL/HIGH boundary breach; otherwise do not review another role's domain."
+}

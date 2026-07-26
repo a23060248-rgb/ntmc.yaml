@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "decision_count": 7,
+  "all_status": "PENDING_HUMAN_DECISION",
+  "decisions": [
+    {
+      "decision_id": "HAD-001",
+      "decision_title": "Canonical engineering grouping model",
+      "competing_options": [
+        "OPTION_A_RETAIN_14_VOLUMES_AS_CANONICAL_ENGINEERING_GROUPS",
+        "OPTION_B_USE_6_LAYERS_WITH_RISK_BASED_COMPONENT_PACKAGES"
+      ],
+      "source_support": [
+        "ARC-CLM-006",
+        "ARC-CLM-019",
+        "ARC-CLM-034"
+      ],
+      "authority_analysis": "Six layers have conceptual support; fourteen volumes are lower-authority derived architecture proposals.",
+      "advantages": {
+        "option_a": "Retains detailed source indexing and planned module coverage.",
+        "option_b": "Reduces name-based conflation and allows component boundaries to evolve under Human decisions."
+      },
+      "risks": {
+        "option_a": "May freeze an unvalidated work breakdown as architecture.",
+        "option_b": "Requires a deliberate mapping from source RFC numbers to the adopted component model."
+      },
+      "downstream_impact": "Determines architecture documentation hierarchy and future work-package layout.",
+      "codex_recommendation": "ADOPT_MODIFIED_OPTION: retain six responsibility layers as canonical and preserve fourteen volumes as a non-normative traceable planning view.",
+      "available_human_decisions": [
+        "ADOPT_OPTION_A",
+        "ADOPT_OPTION_B",
+        "ADOPT_MODIFIED_OPTION",
+        "DEFER_DECISION",
+        "REJECT_ALL_OPTIONS"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HAD-002",
+      "decision_title": "Volume and Package semantics",
+      "competing_options": [
+        "OPTION_A_VOLUME_IS_DEPLOYABLE_MODULE_AND_PACKAGE_IS_EXECUTABLE_UNIT",
+        "OPTION_B_VOLUME_IS_GOVERNED_RESPONSIBILITY_PORTFOLIO_AND_PACKAGE_IS_VERSIONABLE_DELIVERY_UNIT"
+      ],
+      "source_support": [
+        "ARC-CLM-035",
+        "ARC-CLM-036"
+      ],
+      "authority_analysis": "Derived sources use overlapping module, boundary, documentation, and deployability language; source governance cannot select one.",
+      "advantages": {
+        "option_a": "Simple one-to-one mapping to deployables.",
+        "option_b": "Separates governance ownership from physical deployment and permits modular monolith or service deployment later."
+      },
+      "risks": {
+        "option_a": "Prematurely fixes deployment topology.",
+        "option_b": "Requires explicit deployment contracts later."
+      },
+      "downstream_impact": "Affects ownership, versioning, deployment topology, and dependency governance.",
+      "codex_recommendation": "ADOPT_OPTION_B.",
+      "available_human_decisions": [
+        "ADOPT_OPTION_A",
+        "ADOPT_OPTION_B",
+        "ADOPT_MODIFIED_OPTION",
+        "DEFER_DECISION",
+        "REJECT_ALL_OPTIONS"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HAD-003",
+      "decision_title": "RFC document-set policy",
+      "competing_options": [
+        "OPTION_A_FIXED_EIGHT_RFC_FILES_PER_PACKAGE",
+        "OPTION_B_RISK_BASED_RFC_WITH_REQUIRED_SECTIONS_AND_SEPARATE_TEST_EVIDENCE"
+      ],
+      "source_support": [
+        "ARC-CLM-018",
+        "ARC-CLM-037"
+      ],
+      "authority_analysis": "The fixed-eight pattern is detailed but derived; the optional source supports lean controls only as a non-authoritative pattern.",
+      "advantages": {
+        "option_a": "Uniform indexing and predictable file roles.",
+        "option_b": "Avoids document multiplication while preserving mandatory decisions and evidence."
+      },
+      "risks": {
+        "option_a": "Governance bloat and duplicated authority.",
+        "option_b": "Requires a deterministic trigger classifier and section completeness validation."
+      },
+      "downstream_impact": "Controls the size, review load, and authority semantics of future architecture records.",
+      "codex_recommendation": "ADOPT_MODIFIED_OPTION: risk-based RFC trigger with mandatory content contract; allow eight-file expansion only for high-complexity packages.",
+      "available_human_decisions": [
+        "ADOPT_OPTION_A",
+        "ADOPT_OPTION_B",
+        "ADOPT_MODIFIED_OPTION",
+        "DEFER_DECISION",
+        "REJECT_ALL_OPTIONS"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HAD-004",
+      "decision_title": "Agent Registry placement",
+      "competing_options": [
+        "OPTION_A_FACTORY_INTERNAL_REGISTRY",
+        "OPTION_B_INDEPENDENT_CONTROL_PLANE_REGISTRY"
+      ],
+      "source_support": [
+        "ARC-CLM-024"
+      ],
+      "authority_analysis": "Registry is not demonstrated by the thesis and appears only as a derived implementation element.",
+      "advantages": {
+        "option_a": "Simple initial ownership.",
+        "option_b": "Independent lineage and compatibility across Factory versions and runtimes."
+      },
+      "risks": {
+        "option_a": "Factory may become lifecycle authority.",
+        "option_b": "Adds a distributed consistency and service-boundary problem."
+      },
+      "downstream_impact": "Affects package identity, deployment status, capability lookup, and rollback.",
+      "codex_recommendation": "DEFER_DECISION until deployment topology and multi-project scope are separately designed; keep the logical Registry contract independent meanwhile.",
+      "available_human_decisions": [
+        "ADOPT_OPTION_A",
+        "ADOPT_OPTION_B",
+        "ADOPT_MODIFIED_OPTION",
+        "DEFER_DECISION",
+        "REJECT_ALL_OPTIONS"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HAD-005",
+      "decision_title": "Runtime Governance placement",
+      "competing_options": [
+        "OPTION_A_AGENT_OS_INTERNAL_GOVERNANCE_SUBSYSTEM",
+        "OPTION_B_SEPARATE_GOVERNANCE_RUNTIME_CONTROL_PLANE"
+      ],
+      "source_support": [
+        "ARC-CLM-023",
+        "ARC-CLM-033"
+      ],
+      "authority_analysis": "Sources support evaluation and runtime enforcement but do not uniquely determine physical placement.",
+      "advantages": {
+        "option_a": "Lower latency and simpler deployment.",
+        "option_b": "Stronger separation of execution and authority with independent evidence."
+      },
+      "risks": {
+        "option_a": "Executor may accumulate governance authority.",
+        "option_b": "Availability, latency, and split-brain risks must be designed."
+      },
+      "downstream_impact": "Affects control-plane availability, policy distribution, and fail-closed runtime behavior.",
+      "codex_recommendation": "ADOPT_MODIFIED_OPTION: logical separation is mandatory; defer physical separation until runtime non-functional requirements exist.",
+      "available_human_decisions": [
+        "ADOPT_OPTION_A",
+        "ADOPT_OPTION_B",
+        "ADOPT_MODIFIED_OPTION",
+        "DEFER_DECISION",
+        "REJECT_ALL_OPTIONS"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HAD-006",
+      "decision_title": "Evidence Ledger deployment form",
+      "competing_options": [
+        "OPTION_A_STANDALONE_APPEND_ONLY_LEDGER",
+        "OPTION_B_SHARED_EVIDENCE_CONTRACT_OVER_EXISTING_STORES"
+      ],
+      "source_support": [
+        "ARC-CLM-025"
+      ],
+      "authority_analysis": "Traceability is strongly supported; a standalone ledger component is new design.",
+      "advantages": {
+        "option_a": "Clear immutability, query, and audit boundary.",
+        "option_b": "Lower implementation complexity and avoids premature infrastructure."
+      },
+      "risks": {
+        "option_a": "Premature infrastructure and false trust in storage alone.",
+        "option_b": "Evidence may fragment across stores."
+      },
+      "downstream_impact": "Affects audit, provenance, review packages, retention, and cross-runtime traceability.",
+      "codex_recommendation": "DEFER_DECISION; adopt the evidence record contract before selecting physical storage.",
+      "available_human_decisions": [
+        "ADOPT_OPTION_A",
+        "ADOPT_OPTION_B",
+        "ADOPT_MODIFIED_OPTION",
+        "DEFER_DECISION",
+        "REJECT_ALL_OPTIONS"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HAD-007",
+      "decision_title": "Governance artifact authority hierarchy",
+      "competing_options": [
+        "OPTION_A_RFC_AS_UNIVERSAL_ENGINEERING_CONSTITUTION",
+        "OPTION_B_EXPLICIT_HIERARCHY_HUMAN_CONSTITUTION_POLICY_ARCHITECTURE_RFC_BLUEPRINT_SPEC_SCHEMA_WITH_EVIDENCE_SEPARATE"
+      ],
+      "source_support": [
+        "ARC-CLM-038",
+        "ARC-CLM-040"
+      ],
+      "authority_analysis": "Sources use Constitution and RFC metaphors inconsistently; an explicit hierarchy is required to prevent parallel authority.",
+      "advantages": {
+        "option_a": "Simple rhetoric and uniform source-of-truth rule.",
+        "option_b": "Separates adoption authority, design decisions, implementation contracts, and proof."
+      },
+      "risks": {
+        "option_a": "RFC may override higher adopted policy by accident.",
+        "option_b": "Requires transition rules and validators."
+      },
+      "downstream_impact": "Determines conflict resolution, change approval, and traceability semantics.",
+      "codex_recommendation": "ADOPT_OPTION_B.",
+      "available_human_decisions": [
+        "ADOPT_OPTION_A",
+        "ADOPT_OPTION_B",
+        "ADOPT_MODIFIED_OPTION",
+        "DEFER_DECISION",
+        "REJECT_ALL_OPTIONS"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01",
+  "recommendation_count": 18,
+  "recommendations": [
+    {
+      "decision_id": "HCD-001",
+      "decision_title": "Aggregate Root boundary",
+      "exact_options": [
+        "ADOPT_PROPOSED_11_AGGREGATES",
+        "MODIFY_AGGREGATE_ROOTS"
+      ],
+      "recommended_option": "ADOPT_PROPOSED_11_AGGREGATES",
+      "rationale": "Defines the eleven proposed aggregate roots.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-002",
+      "decision_title": "Policy and Rule aggregate relationship",
+      "exact_options": [
+        "SAME_AGGREGATE",
+        "SEPARATE_AGGREGATES"
+      ],
+      "recommended_option": "SAME_AGGREGATE",
+      "rationale": "Keeps Policy as root for Governance Rule.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-003",
+      "decision_title": "Evidence and Review aggregate relationship",
+      "exact_options": [
+        "SAME_AGGREGATE",
+        "SEPARATE_AGGREGATES"
+      ],
+      "recommended_option": "SAME_AGGREGATE",
+      "rationale": "Keeps Evidence and Review in one assurance aggregate.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-004",
+      "decision_title": "Finding and Remediation transaction boundary",
+      "exact_options": [
+        "SINGLE_AGGREGATE",
+        "WORKFLOW_ACROSS_AGGREGATES"
+      ],
+      "recommended_option": "SINGLE_AGGREGATE",
+      "rationale": "Uses one Finding root with remediation workflow state.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-005",
+      "decision_title": "Human Approval aggregate independence",
+      "exact_options": [
+        "GOVERNANCE_AUTHORITY_AGGREGATE",
+        "INDEPENDENT_AGGREGATE"
+      ],
+      "recommended_option": "GOVERNANCE_AUTHORITY_AGGREGATE",
+      "rationale": "Keeps Human Approval under Governance Authority aggregate.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-006",
+      "decision_title": "Event delivery guarantee",
+      "exact_options": [
+        "AT_LEAST_ONCE_WITH_IDEMPOTENCY",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "recommended_option": "AT_LEAST_ONCE_WITH_IDEMPOTENCY",
+      "rationale": "Adopts at-least-once delivery with idempotent consumers.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-007",
+      "decision_title": "Event ordering scope",
+      "exact_options": [
+        "PER_AGGREGATE",
+        "PER_SUBJECT",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "recommended_option": "PER_AGGREGATE",
+      "rationale": "Orders events per aggregate.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-008",
+      "decision_title": "Logical deletion model",
+      "exact_options": [
+        "TOMBSTONE_AND_SUPERSESSION",
+        "ARCHIVE_ONLY",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "recommended_option": "TOMBSTONE_AND_SUPERSESSION",
+      "rationale": "Uses tombstone plus supersession; no destructive delete.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-009",
+      "decision_title": "Temporal query scope",
+      "exact_options": [
+        "GOVERNANCE_AND_EVIDENCE_ONLY",
+        "ALL_LOGICAL_ENTITIES",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "recommended_option": "GOVERNANCE_AND_EVIDENCE_ONLY",
+      "rationale": "Enables temporal query for governance and evidence entities first.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-010",
+      "decision_title": "Optimistic concurrency granularity",
+      "exact_options": [
+        "PER_AGGREGATE_REVISION",
+        "PER_OBJECT_VERSION",
+        "HYBRID"
+      ],
+      "recommended_option": "PER_AGGREGATE_REVISION",
+      "rationale": "Uses per-aggregate optimistic revision.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-011",
+      "decision_title": "Idempotency scope",
+      "exact_options": [
+        "COMMAND_AND_EVENT_PER_NAMESPACE",
+        "PER_AGGREGATE",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "recommended_option": "COMMAND_AND_EVENT_PER_NAMESPACE",
+      "rationale": "Scopes idempotency to command/event identity within namespace.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-012",
+      "decision_title": "Evidence retention classes",
+      "exact_options": [
+        "RISK_CLASS_PENDING_LEGAL_SCHEDULE",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "recommended_option": "RISK_CLASS_PENDING_LEGAL_SCHEDULE",
+      "rationale": "Uses risk classes while exact legal durations remain a later Human policy.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-013",
+      "decision_title": "Runtime telemetry versus Evidence boundary",
+      "exact_options": [
+        "TELEMETRY_NOT_EVIDENCE_UNTIL_REGISTERED",
+        "DIRECT_EVIDENCE_PROFILE"
+      ],
+      "recommended_option": "TELEMETRY_NOT_EVIDENCE_UNTIL_REGISTERED",
+      "rationale": "Telemetry is not Evidence until explicitly registered and bound.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-014",
+      "decision_title": "Authority Grant validity and expiry",
+      "exact_options": [
+        "TYPE_AND_RISK_EXPIRY_OR_REVIEW",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "recommended_option": "TYPE_AND_RISK_EXPIRY_OR_REVIEW",
+      "rationale": "Uses type/risk expiry or mandatory review date for Authority Grants.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-015",
+      "decision_title": "Command Query separation granularity",
+      "exact_options": [
+        "STRICT_CQRS_LOGICAL_BOUNDARY",
+        "SHARED_SERVICE_SEPARATE_CONTRACTS"
+      ],
+      "recommended_option": "STRICT_CQRS_LOGICAL_BOUNDARY",
+      "rationale": "Uses strict logical Command/Query separation with shared implementation undecided.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-016",
+      "decision_title": "Event schema evolution",
+      "exact_options": [
+        "VERSIONED_COMPATIBILITY_PROFILES",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "recommended_option": "VERSIONED_COMPATIBILITY_PROFILES",
+      "rationale": "Uses explicit event versions and compatibility profiles.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-017",
+      "decision_title": "Cross-volume reference mode",
+      "exact_options": [
+        "EXACT_REFERENCE_NO_AUTHORITY_COPY",
+        "CONTROLLED_MIRROR"
+      ],
+      "recommended_option": "EXACT_REFERENCE_NO_AUTHORITY_COPY",
+      "rationale": "Uses exact cross-volume reference without authority copy.",
+      "recommendation_is_human_decision": false
+    },
+    {
+      "decision_id": "HCD-018",
+      "decision_title": "Cross-package dependency mode",
+      "exact_options": [
+        "ACYCLIC_EXACT_VERSION_HASH_PINNING",
+        "LOCKFILE_WITH_BOUNDED_DEV_CYCLES"
+      ],
+      "recommended_option": "ACYCLIC_EXACT_VERSION_HASH_PINNING",
+      "rationale": "Uses acyclic exact-version/hash-pinned runtime dependencies.",
+      "recommendation_is_human_decision": false
+    }
+  ],
+  "bulk_mode_effect": "ADOPT_EACH_RECOMMENDED_OPTION_WITHOUT_EXCEPTION",
+  "status": "ADVISORY_READY"
+}

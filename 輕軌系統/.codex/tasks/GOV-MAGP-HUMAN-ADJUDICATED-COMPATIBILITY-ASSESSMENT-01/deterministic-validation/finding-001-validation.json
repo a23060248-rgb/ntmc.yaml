@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "finding_id": "COMPAT-R1-001",
+  "validator_role": "EVIDENCE_AND_BINDING_VALIDATOR",
+  "required_conditions": [
+    {"condition":"source_authority_status=PROPOSED_NOT_ADOPTED","status":"PASS"},
+    {"condition":"downstream_policy_use_allowed=false","status":"PASS"},
+    {"condition":"normative_effect=false","status":"PASS"},
+    {"condition":"human_adoption_status=NOT_STARTED","status":"PASS"},
+    {"condition":"historical premature wording has no effective Authority","status":"PASS"},
+    {"condition":"Base Artifact bytes unchanged 20/20","status":"PASS"},
+    {"condition":"Corrective Overlay valid and unchanged 7/7","status":"PASS"}
+  ],
+  "pass_count": 7,
+  "fail_count": 0,
+  "insufficient_evidence_count": 0,
+  "validation_result": "VALIDATION_PASS",
+  "recommend_human_close_permitted": true,
+  "finding_closed": false
+}

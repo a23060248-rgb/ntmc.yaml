@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01",
+  "source_task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "source_task_expected": {
+    "file_count": 106,
+    "manifest_sha256": "CB760B18A41C67EF2978506FE3BE409E7003B28186F2ACFBB56B77D6ED7F68D8"
+  },
+  "source_task_actual": {
+    "file_count": 106,
+    "manifest_sha256": "CB760B18A41C67EF2978506FE3BE409E7003B28186F2ACFBB56B77D6ED7F68D8"
+  },
+  "launch_package": {
+    "file_count": 16,
+    "status": "READY_FOR_SEPARATE_HUMAN_LAUNCH",
+    "binding": {
+      "file_count": 16,
+      "manifest_sha256": "73CE88269F9A1A01588BDCC218152902FE3A24B8BADFAD7A88606A227932FEDD",
+      "entries": [
+        {
+          "relative_path": "adopted-baseline-bindings.json",
+          "sha256": "9A375FCA06BAB3924D390067A293286BA25ED8C3276262D3F458497D2C749FA8",
+          "bytes": 2501
+        },
+        {
+          "relative_path": "database-execution-boundary.json",
+          "sha256": "5AE411439487336FD8F0244F3BB9E1AF8D1B9724AC35B9A5B59E06BCF062483A",
+          "bytes": 280
+        },
+        {
+          "relative_path": "evidence-requirements.json",
+          "sha256": "21D1A5BD484D1B706A671512896D2E87A15F20E0DA2D5E4FE8BB80DA1B94D272",
+          "bytes": 374
+        },
+        {
+          "relative_path": "exact-phase-scope.json",
+          "sha256": "1234092D9A884F5316A6BA49995DA6CA64B85EE49FFCC74E8E4EE3A58D0B6C48",
+          "bytes": 1848
+        },
+        {
+          "relative_path": "human-gate-requirements.json",
+          "sha256": "9F4E29792CBBDEEA2FBBAD859FF17B1E0DB50C59445963242B03EEFBF9C35867",
+          "bytes": 582
+        },
+        {
+          "relative_path": "implementation-go-no-go.schema.json",
+          "sha256": "EE7435195D7A2B075BB58152A8E029D8FF427DD7C5C3F894F4BBD6F84ADFA9EA",
+          "bytes": 1644
+        },
+        {
+          "relative_path": "implementation-task-prompt.md",
+          "sha256": "023F238CF61BCCC639F3D2DA504796ADF7F1C875F8592748A62E5E51893EDD84",
+          "bytes": 787
+        },
+        {
+          "relative_path": "launch-readiness-manifest.json",
+          "sha256": "ADA1F75F788830B73E6DADC4FD10DC9E5D6F4AD0D7FDE8D8AD6C18FD0968AA9D",
+          "bytes": 376
+        },
+        {
+          "relative_path": "migration-boundary.json",
+          "sha256": "1E84B0F29A5E315A38F92296F3D49A36A0D80EAF6F9F8E7DB5A470781C99EA0A",
+          "bytes": 275
+        },
+        {
+          "relative_path": "prohibited-scope.json",
+          "sha256": "58E91AE55F4F0B5BDEEDFCB64125917CC5851F9D79F23F152221FC75A76084B0",
+          "bytes": 579
+        },
+        {
+          "relative_path": "repository-write-boundary.json",
+          "sha256": "3A849B535CC83AB629080FC54396A0ABD959A1D0D5D66D6D0ABCB91DE5BFDCC1",
+          "bytes": 386
+        },
+        {
+          "relative_path": "review-requirements.json",
+          "sha256": "D18A32822FB8852A9D83CD64BD2B96910114C9223987B57D57CB297C25F8CE67",
+          "bytes": 337
+        },
+        {
+          "relative_path": "rollback-requirements.json",
+          "sha256": "21D41AD1134820F94FC00793146D153A6CE74AA7557AC7FAC5AF660B5B837458",
+          "bytes": 360
+        },
+        {
+          "relative_path": "security-requirements.json",
+          "sha256": "C0AA8665846082CE6A8D52972913E3D2295E7F83BCF2EA35DB62388A39EFF79A",
+          "bytes": 358
+        },
+        {
+          "relative_path": "test-requirements.json",
+          "sha256": "8EFB726D2C5767C6E9E341E81BFED84B4C238C642808B61F9C29C32BAF86036C",
+          "bytes": 430
+        },
+        {
+          "relative_path": "work-package-sequence.json",
+          "sha256": "93E9F25F9DEB700B2B49AAA9366CE75D7C802A50258B89505EF4A32A2C51CB9C",
+          "bytes": 414
+        }
+      ]
+    }
+  },
+  "match": true,
+  "status": "BOUND_AND_VALID"
+}

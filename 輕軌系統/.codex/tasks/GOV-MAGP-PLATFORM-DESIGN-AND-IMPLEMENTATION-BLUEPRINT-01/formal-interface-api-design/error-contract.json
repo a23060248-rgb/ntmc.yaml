@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "error-contract",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "envelope_fields": [
+    "error_code",
+    "message",
+    "correlation_id",
+    "details",
+    "retryable",
+    "authority_denial_reason"
+  ],
+  "classes": [
+    "validation",
+    "not_found",
+    "conflict",
+    "authority_denied",
+    "human_gate_required",
+    "integrity_failure",
+    "rate_limited"
+  ]
+}

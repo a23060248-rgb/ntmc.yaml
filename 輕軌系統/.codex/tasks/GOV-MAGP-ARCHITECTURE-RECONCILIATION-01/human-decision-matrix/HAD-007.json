@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "decision_id": "HAD-007",
+  "decision_title": "Governance artifact authority hierarchy",
+  "competing_options": [
+    "OPTION_A_RFC_AS_UNIVERSAL_ENGINEERING_CONSTITUTION",
+    "OPTION_B_EXPLICIT_HIERARCHY_HUMAN_CONSTITUTION_POLICY_ARCHITECTURE_RFC_BLUEPRINT_SPEC_SCHEMA_WITH_EVIDENCE_SEPARATE"
+  ],
+  "source_support": [
+    "ARC-CLM-038",
+    "ARC-CLM-040"
+  ],
+  "authority_analysis": "Sources use Constitution and RFC metaphors inconsistently; an explicit hierarchy is required to prevent parallel authority.",
+  "advantages": {
+    "option_a": "Simple rhetoric and uniform source-of-truth rule.",
+    "option_b": "Separates adoption authority, design decisions, implementation contracts, and proof."
+  },
+  "risks": {
+    "option_a": "RFC may override higher adopted policy by accident.",
+    "option_b": "Requires transition rules and validators."
+  },
+  "downstream_impact": "Determines conflict resolution, change approval, and traceability semantics.",
+  "codex_recommendation": "ADOPT_OPTION_B.",
+  "available_human_decisions": [
+    "ADOPT_OPTION_A",
+    "ADOPT_OPTION_B",
+    "ADOPT_MODIFIED_OPTION",
+    "DEFER_DECISION",
+    "REJECT_ALL_OPTIONS"
+  ],
+  "current_status": "PENDING_HUMAN_DECISION",
+  "human_decision": "PENDING_HUMAN_DECISION",
+  "codex_filled_human_decision": false
+}

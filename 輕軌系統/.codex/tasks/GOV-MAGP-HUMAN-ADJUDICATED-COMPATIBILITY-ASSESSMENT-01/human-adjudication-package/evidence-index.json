@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "evidence_groups": [
+    {
+      "group": "ORIGINAL_FINDINGS",
+      "artifacts": [
+        {"absolute_path":"C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/compatibility-r1.raw.txt","sha256":"E0C92CFDFA495D5EB57D75B849B5B77C130BCE0F8122C1A8EE2F4858A4FF2702"}
+      ]
+    },
+    {
+      "group": "BASE_TARGET",
+      "artifacts": [
+        {"absolute_path":"C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-target-manifest.json","binding_sha256":"C156854BA326194C5E26FB05C69849DC81784FC33E5713340D1E06DF0FF5F3D4"},
+        {"absolute_path":"C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/integrity-validation/base-target-integrity.json","status":"UNCHANGED_20_OF_20"}
+      ]
+    },
+    {
+      "group": "SOURCE_ROOT",
+      "artifacts": [
+        {"absolute_path":"C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/integrity-validation/source-root-integrity.json","status":"UNCHANGED_11_OF_11_CLASSIFICATION_4_1_6","source_hash_binding_sha256":"B763A29E4615FE837DDADA3963927DDF7140C3AE925AB67198C72E9C6AEB6EB8"}
+      ]
+    },
+    {
+      "group": "CORRECTIVE_OVERLAY",
+      "artifacts": [
+        {"absolute_path":"C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/correction-integrity-record.json","record_core_sha256":"77EA27B9441E1E966CD39F2CD3CBA278326C70E55780470DD2EB372CC3025F42"},
+        {"absolute_path":"C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/integrity-validation/corrective-overlay-integrity.json","status":"UNCHANGED_7_OF_7"}
+      ]
+    },
+    {
+      "group": "TECHNICAL_AND_DETERMINISTIC_RESULTS",
+      "artifacts": [
+        {"absolute_path":"C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/technical-assessment/compat-r1-001-assessment.json","finding_id":"COMPAT-R1-001"},
+        {"absolute_path":"C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/technical-assessment/compat-r1-002-assessment.json","finding_id":"COMPAT-R1-002"},
+        {"absolute_path":"C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/deterministic-validation/validation-summary.json","overall_result":"VALIDATION_PASS"}
+      ]
+    }
+  ],
+  "task_local_artifact_hash_binding": "RECORDED_IN_VALIDATION_RESULTS_JSON",
+  "git_used": false
+}

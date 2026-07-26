@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "abuse-case-register",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "abuse_cases": [
+    {
+      "abuse_case_id": "ABUSE-001",
+      "scenario": "Agent self-authorization",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-002",
+      "scenario": "Privilege escalation",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-003",
+      "scenario": "Policy tampering",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-004",
+      "scenario": "Evidence tampering",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-005",
+      "scenario": "Finding deletion",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-006",
+      "scenario": "Approval replay",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-007",
+      "scenario": "Stale approval",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-008",
+      "scenario": "Idempotency abuse",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-009",
+      "scenario": "Event spoofing",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-010",
+      "scenario": "Event replay",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-011",
+      "scenario": "Audit deletion",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-012",
+      "scenario": "Lineage forgery",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-013",
+      "scenario": "Cross-volume access",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-014",
+      "scenario": "Package substitution",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-015",
+      "scenario": "Deployment artifact substitution",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-016",
+      "scenario": "Prompt or context contamination",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-017",
+      "scenario": "Sensitive evidence leakage",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    },
+    {
+      "abuse_case_id": "ABUSE-018",
+      "scenario": "Runtime mutation of Design-Time Policy",
+      "expected_control": "fail closed, record audit evidence, alert Human authority"
+    }
+  ]
+}

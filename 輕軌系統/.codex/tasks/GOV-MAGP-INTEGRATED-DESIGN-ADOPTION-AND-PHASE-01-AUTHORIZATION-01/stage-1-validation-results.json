@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "stage": 1,
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "Four Adoption Packages are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Every package Decision Form is pending",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Physical Design remains proposed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "API Event Design remains proposed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Security Deployment remains proposed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Implementation Blueprint remains proposed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Three existing Baseline hashes are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "SQL Proposal was not executed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Migration was not executed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Database was not connected",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Formal API was not implemented",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Product Code was not modified",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Product Implementation was not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "All pending decisions have unique IDs",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Every decision traces to exact proposal artifacts",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 15,
+  "pass_count": 15,
+  "fail_count": 0,
+  "status": "PASS_15_OF_15",
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "database_connected": false,
+    "sql_executed": false,
+    "migration_executed": false,
+    "service_started": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "package_installed": false,
+    "product_code_modified": false,
+    "product_implementation_started": false,
+    "design_adopted": false,
+    "phase_0_authorized": false,
+    "phase_1_authorized": false,
+    "writes_outside_task_root": 0
+  }
+}

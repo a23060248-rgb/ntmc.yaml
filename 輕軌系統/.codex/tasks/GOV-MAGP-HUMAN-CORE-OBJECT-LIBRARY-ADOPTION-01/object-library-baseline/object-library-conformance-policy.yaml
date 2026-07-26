@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "policy_status": "HUMAN_ADOPTED_WITH_OBJECT_LIBRARY_BASELINE",
+  "conformance_scope": [
+    "CORE_OBJECT_TYPE_DEFINITIONS",
+    "CANONICAL_OBJECT_ENVELOPE",
+    "OBJECT_IDENTITY_RULES",
+    "OBJECT_VERSIONING_RULES",
+    "OBJECT_LIFECYCLE_AND_FSM",
+    "OBJECT_AUTHORITY_CEILINGS",
+    "HUMAN_APPROVAL_REQUIREMENTS",
+    "EVIDENCE_AND_LINEAGE_REQUIREMENTS",
+    "CROSS_OBJECT_RELATIONSHIPS",
+    "PROHIBITED_RELATIONSHIPS",
+    "VALIDATION_PROFILES",
+    "FUTURE_DATABASE_MAPPING_BOUNDARY",
+    "FUTURE_API_CONTRACT_BOUNDARY",
+    "FUTURE_IMPLEMENTATION_CONFORMANCE_BOUNDARY"
+  ],
+  "future_database_mapping_must_preserve_governance_semantics": true,
+  "future_api_contract_must_preserve_governance_semantics": true,
+  "future_implementation_must_trace_to_object_baseline": true,
+  "validation_creates_approval": false,
+  "current_implementation_conformance_claim": "NOT_EVALUATED_IMPLEMENTATION_NOT_AUTHORIZED"
+}

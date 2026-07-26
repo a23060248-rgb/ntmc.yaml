@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+  "review_questions": [
+    {
+      "requirement_id": "SOURCE_AUTHORITY-REQ-01",
+      "question": "Is SOURCE-MAGP-01 correctly bounded as PRIMARY_METHODOLOGY_SOURCE without automatically creating Railway Domain Rules?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_AUTHORITY-REQ-02",
+      "question": "Is SOURCE-MAGP-02 correctly bounded as SECONDARY_CONCEPTUAL_INTERPRETATION without overriding the primary source or becoming Normative?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_AUTHORITY-REQ-03",
+      "question": "Is SOURCE-MAGP-03 correctly bounded as DERIVED_IMPLEMENTATION_GUIDANCE, with technology and class choices remaining PROPOSED_IMPLEMENTATION_OPTION?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_AUTHORITY-REQ-04",
+      "question": "Is SOURCE-MAGP-04 correctly bounded as DERIVED_ARCHITECTURE_PROPOSAL, with volumes, phases, RFCs, and packages remaining proposals?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_AUTHORITY-REQ-05",
+      "question": "Is SOURCE-PATTERN-01 limited to OPTIONAL_NON_AUTHORITATIVE_PROCESS_PATTERN?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_AUTHORITY-REQ-06",
+      "question": "Are all six excluded sources denied current MAGP Core claim authority and effective-reference status?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_AUTHORITY-REQ-07",
+      "question": "Does the authority hierarchy preserve explicit Human adoption as mandatory before normative effect?",
+      "mandatory": true
+    }
+  ],
+  "explicitly_out_of_scope": [
+    "rewriting source policy",
+    "approving architecture",
+    "creating product classes",
+    "promoting source content to Normative"
+  ],
+  "source_content_review_expected": true,
+  "decision_enum": [
+    "PASS",
+    "BLOCKER"
+  ],
+  "blocker_rules": [
+    "Any CRITICAL or HIGH open finding requires BLOCKER.",
+    "Any source identity mismatch, source authority conflict, VET-C Core contamination, Health-to-Railway contamination, historical artifact mutation, forbidden read, or out-of-scope read requires BLOCKER.",
+    "Any startup binding, package hash, target hash, exact-scope, or clean-context failure requires BLOCKER before substantive review.",
+    "PASS requires every assigned question answered, startup valid, review completed, no open CRITICAL/HIGH finding, and zero forbidden or out-of-scope reads."
+  ],
+  "mandatory_exit_requested_value": true
+}

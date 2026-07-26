@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "baseline_type": "EXACT_NON_GIT_ORDINAL_FILE_TREE_MANIFEST",
+  "captured_on": "2026-07-22",
+  "canonical_manifest_format": "normalized_relative_path|uppercase_sha256|byte_length joined by LF after ordinal relative-path sort",
+  "historical_tasks": [
+    {
+      "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+      "file_count": 20,
+      "manifest_sha256": "4AE6076249F43B432F8CC5F34E897785DBA57298B195F33000CDBCD0D7849DAF",
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+      "file_count": 89,
+      "manifest_sha256": "7AA336B801CAE6E3B074DDFD3AF21F60209DCE220E526BFEF05398D53C2183AC",
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+      "file_count": 51,
+      "manifest_sha256": "BD7B7B77A2289F95C4A8FBA92A3E9AC903D44FAF91F4C592F56B321A1F286B16",
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01",
+      "file_count": 10,
+      "manifest_sha256": "2600EAC26826B4C2F6B6D8514A58E0E9A0729EB14AD681FE5755580855C2A185",
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+      "file_count": 62,
+      "manifest_sha256": "DB5D8F5CB6E6C4E2C2EA4C996B03AF32301DB16F2655C58C3B4A98AEC4BDEC2F",
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+      "file_count": 21,
+      "manifest_sha256": "9C6B439A1CB2F65A81ABA1E361490481EA105D6E90F4FB43FEDB5C8EFE61E410",
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+      "file_count": 40,
+      "manifest_sha256": "1C38E0B9F0DF409E4B41AFD92571098DD1DB6386D780EE57AB04F855E1FCBD8D",
+      "status": "UNCHANGED"
+    }
+  ],
+  "reviewer_payloads": [
+    {
+      "name": "source-integrity-r1.raw.txt",
+      "sha256": "8546BD1DCE083A94D57DE06CD6F179696E1E3828E7E7299580AB431637A909F0",
+      "review_status": "PASS",
+      "role": "FORMAL_PASS_INPUT"
+    },
+    {
+      "name": "source-authority-r1.raw.txt",
+      "sha256": "BB1FAC2470EDBD5C322A509752E359AA076DFB015E9A0367270C6840C3959EFA",
+      "review_status": "PASS",
+      "role": "FORMAL_PASS_INPUT"
+    },
+    {
+      "name": "scope-contamination-r1.raw.txt",
+      "sha256": "44CDDB53A09ECCDCFCA9B8D94829D1CBBCF8730B6C587B02B95862B711A5033F",
+      "review_status": "PASS",
+      "role": "FORMAL_PASS_INPUT"
+    },
+    {
+      "name": "compatibility-r1.raw.txt",
+      "sha256": "E0C92CFDFA495D5EB57D75B849B5B77C130BCE0F8122C1A8EE2F4858A4FF2702",
+      "review_status": "BLOCKER",
+      "role": "ORIGINAL_FINDING_SOURCE"
+    }
+  ],
+  "all_historical_tasks_unchanged": true,
+  "historical_startup_failure_evidence_preserved": true,
+  "git_used": false
+}

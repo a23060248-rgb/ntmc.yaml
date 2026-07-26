@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01",
+  "stage": 2,
+  "validator_script": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01/scripts/run-stage-2-logical-contract-adoption.mjs",
+    "sha256": "985952CFCB2CF13AE832037AB5E2A6A126FEB446A89448FE12EFEF33D1E23202",
+    "bytes": 32794
+  },
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "Pending Decision count was 18",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Decision Register complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Recommendation Matrix complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Decision Register hash valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Recommendation Matrix hash valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Proposal hash valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Human Decision is exact Human input",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "Human Decision schema valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Human Authority Attestation valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Decision bindings match",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "All 18 decisions resolved",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "No blocking decision remains",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "No deferred decision remains",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Reduced Assurance disclosed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Architecture Baseline valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Object Library Baseline valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Logical Contract Proposal unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Logical Contract is HUMAN_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Normative Logical Contract is true",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Logical Contract Baseline hash valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "Change Control exists",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "7A-1 Readiness Package complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "Physical Database not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Migration not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Formal API not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Product Implementation not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "7A-1 not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Git not used",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 28,
+  "required_pass_count": 28,
+  "required_fail_count": 0,
+  "required_status": "PASS_28_OF_28",
+  "hard_stop_codes_triggered": [],
+  "open_active_critical": 0,
+  "open_active_high": 0,
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "database_used": false,
+    "sql_executed": false,
+    "migration_used": false,
+    "service_used": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "physical_database_created": false,
+    "formal_api_created": false,
+    "product_implementation_started": false,
+    "planning_7a1_started": false,
+    "writes_outside_task_root": 0
+  }
+}

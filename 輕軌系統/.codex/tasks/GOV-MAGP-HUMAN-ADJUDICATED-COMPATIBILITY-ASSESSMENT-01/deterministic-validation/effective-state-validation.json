@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "validator_role": "EVIDENCE_AND_BINDING_VALIDATOR",
+  "validation_scope": "CURRENT_EFFECTIVE_SOURCE_SCOPE_AND_REVIEW_STATE",
+  "precedence": [
+    "CURRENT_EXPLICIT_HUMAN_REVIEW_PATH_DECISION",
+    "RUNTIME_CAPABILITY_AND_HUMAN_ADJUDICATION_PROTOCOL",
+    "COMPATIBILITY_CORRECTIVE_OVERLAY",
+    "FROZEN_BASE_TARGET_AS_HISTORICAL_EVIDENCE"
+  ],
+  "effective_state": {
+    "source_scope_lock_status": "COMPLETE",
+    "underlying_source_scope_lock_review_gate": "PENDING",
+    "current_source_scope_review_gate": "NO-GO",
+    "source_authority_status": "PROPOSED_NOT_ADOPTED",
+    "source_policy_normative": false,
+    "downstream_policy_use_allowed": false,
+    "human_source_scope_adoption_status": "NOT_STARTED",
+    "architecture_reconciliation_status": "NOT_AUTHORIZED",
+    "architecture_reconciliation_started": false,
+    "core_object_library_status": "NOT_AUTHORIZED",
+    "core_object_library_created_by_this_task": false,
+    "next_currently_authorized_action": "HUMAN_FINDING_ADJUDICATION"
+  },
+  "historical_premature_wording_authority_effect": "NONE",
+  "validation_result": "VALIDATION_PASS"
+}

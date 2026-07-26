@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gov-magp:human-authorize-architecture-reconciliation:v1",
+  "title": "Human Architecture Reconciliation Launch Decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "decision_type",
+    "decision_status",
+    "human_decision",
+    "architecture_reconciliation_authorized",
+    "architecture_reconciliation_started",
+    "human_actor",
+    "decision_timestamp",
+    "rationale",
+    "codex_filled_human_decision"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "task_id": {
+      "const": "GOV-MAGP-HUMAN-SOURCE-SCOPE-EXACT-MANIFEST-ADOPTION-01"
+    },
+    "decision_type": {
+      "const": "HUMAN_AUTHORIZE_ARCHITECTURE_RECONCILIATION"
+    },
+    "decision_status": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "RECORDED"
+      ]
+    },
+    "human_decision": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "AUTHORIZE_ARCHITECTURE_RECONCILIATION_WITH_ADOPTED_SOURCE_SCOPE",
+        "DO_NOT_AUTHORIZE_ARCHITECTURE_RECONCILIATION"
+      ]
+    },
+    "architecture_reconciliation_authorized": {
+      "type": "boolean"
+    },
+    "architecture_reconciliation_started": {
+      "const": false
+    },
+    "human_actor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision_timestamp": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rationale": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "codex_filled_human_decision": {
+      "const": false
+    }
+  }
+}

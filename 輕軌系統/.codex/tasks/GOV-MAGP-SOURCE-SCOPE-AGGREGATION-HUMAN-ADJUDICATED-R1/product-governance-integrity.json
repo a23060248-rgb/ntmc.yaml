@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "baseline_type": "EXACT_NON_GIT_BEFORE_AFTER_FILE_HASH_BASELINE",
+  "files": [
+    {
+      "relative_path": "AGENTS.md",
+      "expected_sha256": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E",
+      "expected_bytes": 10453,
+      "actual_sha256_before": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E",
+      "actual_bytes_before": 10453,
+      "actual_sha256_after": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E",
+      "actual_bytes_after": 10453,
+      "status": "UNCHANGED"
+    },
+    {
+      "relative_path": ".codex/governance/phase-policy.yaml",
+      "expected_sha256": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "expected_bytes": 1162,
+      "actual_sha256_before": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "actual_bytes_before": 1162,
+      "actual_sha256_after": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "actual_bytes_after": 1162,
+      "status": "UNCHANGED"
+    },
+    {
+      "relative_path": ".codex/governance/agent-path-policy.yaml",
+      "expected_sha256": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "expected_bytes": 4460,
+      "actual_sha256_before": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "actual_bytes_before": 4460,
+      "actual_sha256_after": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "actual_bytes_after": 4460,
+      "status": "UNCHANGED"
+    }
+  ],
+  "product_files_written": 0,
+  "governance_baseline_files_written": 0,
+  "writes_outside_task_root": 0,
+  "status": "PASS_UNCHANGED_3_OF_3",
+  "git_used": false
+}

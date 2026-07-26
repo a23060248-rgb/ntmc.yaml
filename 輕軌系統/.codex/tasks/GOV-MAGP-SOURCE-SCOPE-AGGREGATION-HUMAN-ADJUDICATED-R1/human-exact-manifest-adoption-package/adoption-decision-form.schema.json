@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gov-magp:human-source-scope-exact-manifest-adoption-decision:v1",
+  "title": "Human Source Scope Exact-Manifest Adoption Decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "decision_type",
+    "decision_status",
+    "human_decision",
+    "source_scope_exact_manifest_adoption",
+    "source_authority",
+    "normative_authority",
+    "architecture_reconciliation",
+    "human_actor",
+    "decision_timestamp",
+    "rationale",
+    "codex_filled_human_decision"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "task_id": {
+      "const": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1"
+    },
+    "decision_type": {
+      "const": "HUMAN_SOURCE_SCOPE_EXACT_MANIFEST_ADOPTION"
+    },
+    "decision_status": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "RECORDED"
+      ]
+    },
+    "human_decision": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "ADOPT_EXACT_MANIFEST",
+        "REJECT_EXACT_MANIFEST"
+      ]
+    },
+    "source_scope_exact_manifest_adoption": {
+      "enum": [
+        "NOT_STARTED",
+        "ADOPTED",
+        "REJECTED"
+      ]
+    },
+    "source_authority": {
+      "enum": [
+        "PROPOSED_NOT_ADOPTED",
+        "ADOPTED",
+        "REJECTED"
+      ]
+    },
+    "normative_authority": {
+      "type": "boolean"
+    },
+    "architecture_reconciliation": {
+      "const": "NOT_AUTHORIZED"
+    },
+    "human_actor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision_timestamp": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rationale": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "codex_filled_human_decision": {
+      "const": false
+    }
+  }
+}

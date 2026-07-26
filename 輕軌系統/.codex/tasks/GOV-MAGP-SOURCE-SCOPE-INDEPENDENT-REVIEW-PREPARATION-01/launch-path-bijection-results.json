@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "expected_launch_count": 5,
+  "reviewer_launches": [
+    {
+      "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+      "package_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/source-integrity-review",
+      "package_core_sha256": "EAB328089A7C1F05AFB95061071A2C19F7C39D807E5A939AA760227CBE05E81E",
+      "launch_core_sha256": "66E9FE99C1111DAFB6ABDE64866E6C2A20AD1484BEEA90006E0E6EDA50253ACD",
+      "package_to_prompt_to_scope_bijection": true
+    },
+    {
+      "reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+      "package_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/source-authority-review",
+      "package_core_sha256": "7473CA7BA921DFF4279387E04F9CFA7C7288568ADDA62A41AFB7EF21E70A7E11",
+      "launch_core_sha256": "C5A9E937977AA5FA8325896AA5ADAF7535FE04DFCCC40499729C60428CEE2314",
+      "package_to_prompt_to_scope_bijection": true
+    },
+    {
+      "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+      "package_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/scope-contamination-review",
+      "package_core_sha256": "D848273E0DE6CD1B9FC5BD2CDE7F7E66C195F48FF739A90D7F52134439B8D229",
+      "launch_core_sha256": "268361FA89A454F8DE1069DC94AAF3B0583B03D2CE23A91879072CCB84C1286C",
+      "package_to_prompt_to_scope_bijection": true
+    },
+    {
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "package_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/compatibility-review",
+      "package_core_sha256": "47A05C9C127F502C1491FD5527DE6FC34CD337D1774DEDC1FA03DFB846A39318",
+      "launch_core_sha256": "130627E25883A2666E800715FC195ADE1136E3B3C909DE3ED711E00E793449AC",
+      "package_to_prompt_to_scope_bijection": true
+    }
+  ],
+  "aggregator_launch": {
+    "aggregator_role": "SOURCE_SCOPE_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER_R1",
+    "package_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/source-scope-aggregation-r1",
+    "package_core_sha256": "B7E645F669F1112934D2DE7B1D7A026E0FC893D20E0C584B5A3D1342EC53CBF2",
+    "launch_core_sha256": "58BD92AF17D45E1994226FDDC26E4032D391CB035E4E1D76AC258EF81F57C890",
+    "package_to_prompt_to_scope_bijection": true
+  },
+  "unique_package_core_sha256_count": 5,
+  "unique_launch_core_sha256_count": 5,
+  "pass_count": 5,
+  "total_count": 5,
+  "status": "PASS"
+}

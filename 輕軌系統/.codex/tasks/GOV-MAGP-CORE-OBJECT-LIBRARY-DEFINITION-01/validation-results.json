@@ -1,0 +1,406 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "run_id": "MAGP-CORE-OBJECT-LIBRARY-DEFINITION-20260723-R1",
+  "validator": "TASK_LOCAL_CORE_OBJECT_LIBRARY_DEFINITION_VALIDATOR",
+  "validator_script": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/scripts/run-core-object-library-definition.mjs",
+    "sha256": "903239E6944836923B9E27B3FE4E0A4637A29E332B061C16497A4BBAFF7ADDC6",
+    "bytes": 111955
+  },
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "Human Core Object Library Definition authorization is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Architecture Baseline binding is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Normative Architecture is true",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Core Object candidate inventory is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Five Object Categories are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Canonical Envelope is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Identity Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "Versioning Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Design-Time FSM is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Runtime FSM is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Constitution Schema Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Policy Schema Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "RFC Schema Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Blueprint Schema Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Specification Schema Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Schema Object Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Ontology Class Relation Proposals are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Evidence Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Finding Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Review Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "Volume Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "Package Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "Agent Definition Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Agent Instance Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Runtime Event Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Deployment Artifact Proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Authority Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Evidence Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Lineage Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 30,
+      "requirement": "Cross-Object Relationships are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 31,
+      "requirement": "Prohibited Relationships are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 32,
+      "requirement": "Cycle Detection rules are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 33,
+      "requirement": "Validation Profiles are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 34,
+      "requirement": "Every potentially Normative Object has a Human Gate",
+      "status": "PASS"
+    },
+    {
+      "test_id": 35,
+      "requirement": "Agent cannot self-authorize",
+      "status": "PASS"
+    },
+    {
+      "test_id": 36,
+      "requirement": "Runtime cannot modify Normative Policy",
+      "status": "PASS"
+    },
+    {
+      "test_id": 37,
+      "requirement": "Evidence cannot self-approve",
+      "status": "PASS"
+    },
+    {
+      "test_id": 38,
+      "requirement": "Human Decisions remain PENDING",
+      "status": "PASS"
+    },
+    {
+      "test_id": 39,
+      "requirement": "Core Object Library is PROPOSED_NOT_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 40,
+      "requirement": "Database Model is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 41,
+      "requirement": "API Contract is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 42,
+      "requirement": "Product Implementation is not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 43,
+      "requirement": "Architecture Baseline is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 44,
+      "requirement": "Product/Governance baseline is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 45,
+      "requirement": "Historical Tasks are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 46,
+      "requirement": "Reduced-Assurance Disclosure is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 47,
+      "requirement": "Git was not used",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 47,
+  "required_pass_count": 47,
+  "required_fail_count": 0,
+  "required_status": "PASS_47_OF_47",
+  "negative_fail_closed_tests": [
+    {
+      "test_id": "NEG-01",
+      "requirement": "Reject missing exact Human Definition authorization",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-02",
+      "requirement": "Reject changed Architecture Baseline",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-03",
+      "requirement": "Reject unauthorized object type",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-04",
+      "requirement": "Reject missing canonical identity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-05",
+      "requirement": "Reject filename-only identity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-06",
+      "requirement": "Reject missing versioning model",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-07",
+      "requirement": "Reject incomplete lifecycle model",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-08",
+      "requirement": "Reject FSM transition without actor authority",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-09",
+      "requirement": "Reject missing Human Gate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-10",
+      "requirement": "Reject authority cycle",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-11",
+      "requirement": "Reject approval-authority overlap",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-12",
+      "requirement": "Reject evidence self-validation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-13",
+      "requirement": "Reject Agent self-authorization",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-14",
+      "requirement": "Reject Runtime Policy mutation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-15",
+      "requirement": "Reject Finding self-closure",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-16",
+      "requirement": "Reject missing claim or architecture lineage",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-17",
+      "requirement": "Reject incomplete relationship definition",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-18",
+      "requirement": "Reject prefilled Human object decision",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-19",
+      "requirement": "Reject early Core Object Library adoption",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-20",
+      "requirement": "Reject Database Model creation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-21",
+      "requirement": "Reject API Contract creation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-22",
+      "requirement": "Reject Product implementation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-23",
+      "requirement": "Reject historical/product mutation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-24",
+      "requirement": "Reject Git requirement",
+      "status": "PASS"
+    }
+  ],
+  "negative_test_count": 24,
+  "negative_pass_count": 24,
+  "negative_status": "PASS_24_OF_24",
+  "object_type_count": 21,
+  "schema_proposal_count": 21,
+  "validation_profile_count": 21,
+  "pending_human_decision_count": 15,
+  "open_active_critical": 0,
+  "open_active_high": 0,
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "service_used": false,
+    "database_used": false,
+    "seed_used": false,
+    "migration_used": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "core_object_library_adopted": false,
+    "normative_object_library": false,
+    "database_model_created": false,
+    "api_contract_created": false,
+    "agent_runtime_created": false,
+    "product_implementation_started": false,
+    "deployment_started": false,
+    "historical_artifact_rewritten": false,
+    "writes_outside_task_root": 0
+  }
+}

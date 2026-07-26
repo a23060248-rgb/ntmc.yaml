@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "architecture_status": "PROPOSED_NOT_ADOPTED",
+  "component_count": 13,
+  "components": [
+    {
+      "component_id": "CMP-001",
+      "name": "BGE",
+      "layer": "L5",
+      "responsibility": "Own the build-time bounded context that turns approved structured intent and validated knowledge into candidate Blueprints.",
+      "inputs": [
+        "Blueprint Prompt Set",
+        "adopted policy snapshot",
+        "validated knowledge"
+      ],
+      "outputs": [
+        "candidate Blueprint",
+        "validation report"
+      ],
+      "authority": "PROPOSAL_ONLY",
+      "lifecycle_owner": "CANDIDATE_BLUEPRINT_COMPILATION",
+      "evidence": "compiler step trace and validation results",
+      "prohibited": [
+        "manufacture Agent",
+        "execute Agent",
+        "adopt Blueprint",
+        "modify policy"
+      ],
+      "plane": "CONTROL_PLANE"
+    },
+    {
+      "component_id": "CMP-002",
+      "name": "Blueprint Compiler",
+      "layer": "L5",
+      "responsibility": "Act as the internal parser, normalizer, validator, and assembler pipeline within BGE.",
+      "inputs": [
+        "BGE compilation job"
+      ],
+      "outputs": [
+        "normalized candidate Blueprint artifact"
+      ],
+      "authority": "NONE_INTERNAL_PROCESSOR",
+      "lifecycle_owner": "SUBCOMPONENT_OF_BGE_NOT_SEPARATE_LIFECYCLE_OWNER",
+      "evidence": "deterministic envelope plus semantic-generation provenance",
+      "prohibited": [
+        "operate as a second BGE",
+        "adopt output",
+        "execute runtime work"
+      ],
+      "plane": "CONTROL_PLANE"
+    },
+    {
+      "component_id": "CMP-003",
+      "name": "Agent Factory",
+      "layer": "L5",
+      "responsibility": "Manufacture a deployable Agent package from an adopted Blueprint and resolved dependency set.",
+      "inputs": [
+        "adopted Blueprint",
+        "approved templates",
+        "policy bindings"
+      ],
+      "outputs": [
+        "DeployableAgentPackage",
+        "manufacturing evidence"
+      ],
+      "authority": "MANUFACTURING_ONLY",
+      "lifecycle_owner": "DEPLOYABLE_PACKAGE_MANUFACTURE",
+      "evidence": "blueprint-to-package trace and conformance results",
+      "prohibited": [
+        "execute Agent",
+        "schedule workflow",
+        "retrieve runtime memory",
+        "grant permission",
+        "change Blueprint"
+      ],
+      "plane": "CONTROL_PLANE"
+    },
+    {
+      "component_id": "CMP-004",
+      "name": "Agent Registry",
+      "layer": "L5",
+      "responsibility": "Maintain immutable Agent/package identity, version, lineage, declared capabilities, policy bindings, compatibility, and deployment status.",
+      "inputs": [
+        "Factory package record",
+        "Human or release-gate decision"
+      ],
+      "outputs": [
+        "versioned registry record",
+        "compatibility lookup"
+      ],
+      "authority": "IDENTITY_AND_STATUS_RECORD_ONLY",
+      "lifecycle_owner": "AGENT_PACKAGE_IDENTITY_AND_VERSION_STATUS",
+      "evidence": "append-only registry history",
+      "prohibited": [
+        "execute Agent",
+        "manufacture Agent",
+        "grant capability",
+        "approve deployment by itself"
+      ],
+      "plane": "CONTROL_PLANE",
+      "human_decision_required": true
+    },
+    {
+      "component_id": "CMP-005",
+      "name": "Agent OS",
+      "layer": "L6",
+      "responsibility": "Schedule and execute approved Agent packages and coordinate runtime resources under governance decisions.",
+      "inputs": [
+        "approved package",
+        "runtime context",
+        "policy decisions"
+      ],
+      "outputs": [
+        "execution result",
+        "runtime evidence",
+        "approval request"
+      ],
+      "authority": "EXECUTION_ONLY",
+      "lifecycle_owner": "RUNTIME_EXECUTION",
+      "evidence": "execution context and audit events",
+      "prohibited": [
+        "generate Blueprint",
+        "manufacture package",
+        "modify Normative Policy",
+        "self-grant access",
+        "adopt architecture"
+      ],
+      "plane": "DATA_PLANE_ORCHESTRATOR"
+    },
+    {
+      "component_id": "CMP-006",
+      "name": "Runtime Governance",
+      "layer": "L4_L6_BRIDGE",
+      "responsibility": "Orchestrate policy evaluation, approval holds, violation response, and evidence requirements around runtime actions.",
+      "inputs": [
+        "adopted policy snapshot",
+        "runtime proposal",
+        "context",
+        "evidence"
+      ],
+      "outputs": [
+        "allow",
+        "deny",
+        "require Human approval",
+        "violation record"
+      ],
+      "authority": "ENFORCES_ADOPTED_POLICY_NO_POLICY_AUTHORSHIP",
+      "lifecycle_owner": "RUNTIME_GOVERNANCE_DECISION_ORCHESTRATION",
+      "evidence": "decision explanation and rule-version binding",
+      "prohibited": [
+        "perform product action",
+        "author policy",
+        "approve own policy",
+        "silently waive"
+      ],
+      "plane": "CONTROL_PLANE",
+      "human_decision_required": true
+    },
+    {
+      "component_id": "CMP-007",
+      "name": "Policy Engine",
+      "layer": "L4",
+      "responsibility": "Provide a pure, explainable evaluation function for adopted rules against typed context.",
+      "inputs": [
+        "policy version",
+        "typed context"
+      ],
+      "outputs": [
+        "policy evaluation result",
+        "matched rule trace"
+      ],
+      "authority": "PURE_EVALUATOR",
+      "lifecycle_owner": "SUBCOMPONENT_OF_META_GOVERNANCE",
+      "evidence": "input, policy hash, result, explanation",
+      "prohibited": [
+        "author rule",
+        "adopt rule",
+        "execute product action",
+        "store hidden override"
+      ],
+      "plane": "CONTROL_PLANE"
+    },
+    {
+      "component_id": "CMP-008",
+      "name": "Evidence Ledger",
+      "layer": "L4_L6_CROSS_CUTTING",
+      "responsibility": "Append evidence records for sources, transformations, decisions, executions, reviews, and approvals with immutable lineage.",
+      "inputs": [
+        "signed or bound evidence event"
+      ],
+      "outputs": [
+        "evidence record",
+        "trace query"
+      ],
+      "authority": "EVIDENCE_NOT_DECISION_AUTHORITY",
+      "lifecycle_owner": "EVIDENCE_RECORD_LIFECYCLE",
+      "evidence": "self-describing provenance and integrity binding",
+      "prohibited": [
+        "decide policy",
+        "adopt architecture",
+        "rewrite history",
+        "infer approval from success"
+      ],
+      "plane": "EVIDENCE_PLANE",
+      "human_decision_required": true
+    },
+    {
+      "component_id": "CMP-009",
+      "name": "Knowledge Lake",
+      "layer": "L2_L3_L5_CROSS_CUTTING",
+      "responsibility": "Preserve raw and intermediate knowledge artifacts, source lineage, transformation versions, and validation status.",
+      "inputs": [
+        "authorized source",
+        "derived artifact",
+        "validation record"
+      ],
+      "outputs": [
+        "versioned knowledge artifact",
+        "lineage lookup"
+      ],
+      "authority": "KNOWLEDGE_STORAGE_NO_POLICY_AUTHORITY",
+      "lifecycle_owner": "KNOWLEDGE_ARTIFACT_HISTORY",
+      "evidence": "source and transformation lineage",
+      "prohibited": [
+        "promote candidate to verified",
+        "invent missing source",
+        "execute domain action"
+      ],
+      "plane": "KNOWLEDGE_PLANE"
+    },
+    {
+      "component_id": "CMP-010",
+      "name": "Knowledge Graph",
+      "layer": "L2_L3",
+      "responsibility": "Expose a validated structured projection of knowledge units, semantic relations, provenance, and current validation state.",
+      "inputs": [
+        "validated knowledge unit",
+        "validated relation"
+      ],
+      "outputs": [
+        "queryable graph projection",
+        "traceable relation path"
+      ],
+      "authority": "STRUCTURED_VIEW_NO_POLICY_AUTHORITY",
+      "lifecycle_owner": "KNOWLEDGE_RELATION_PROJECTION",
+      "evidence": "edge and node source lineage",
+      "prohibited": [
+        "treat graph presence as truth",
+        "self-validate relation",
+        "promote domain rules"
+      ],
+      "plane": "KNOWLEDGE_PLANE"
+    },
+    {
+      "component_id": "CMP-011",
+      "name": "Knowledge Engineering Pipeline",
+      "layer": "L5",
+      "responsibility": "Run the thesis-derived governed transformation from source artifacts to candidate and validated knowledge structures.",
+      "inputs": [
+        "authorized sources",
+        "domain blueprint",
+        "meta rules"
+      ],
+      "outputs": [
+        "clauses",
+        "units",
+        "packages",
+        "links",
+        "validation requests"
+      ],
+      "authority": "TRANSFORMATION_ONLY",
+      "lifecycle_owner": "SOURCE_TO_KNOWLEDGE_TRANSFORMATION",
+      "evidence": "complete source-to-artifact trace",
+      "prohibited": [
+        "mark LLM completion verified",
+        "promote health content to Railway",
+        "adopt domain rules"
+      ],
+      "plane": "CONTROL_AND_KNOWLEDGE_PLANE"
+    },
+    {
+      "component_id": "CMP-012",
+      "name": "Human Review Console",
+      "layer": "L1_L4_INTERFACE",
+      "responsibility": "Present evidence, options, scope, and risks and record an authenticated Human decision without substituting for the Human.",
+      "inputs": [
+        "decision package",
+        "evidence links",
+        "available choices"
+      ],
+      "outputs": [
+        "Human decision record",
+        "request for revision"
+      ],
+      "authority": "INTERFACE_TO_HUMAN_AUTHORITY",
+      "lifecycle_owner": "DECISION_PRESENTATION_AND_RECORDING",
+      "evidence": "actor, decision, scope, rationale, timestamp",
+      "prohibited": [
+        "auto-select decision",
+        "infer consent",
+        "hide unresolved items",
+        "become a separate authority"
+      ],
+      "plane": "CONTROL_PLANE"
+    },
+    {
+      "component_id": "CMP-013",
+      "name": "Railway Domain Extension",
+      "layer": "L6_DOMAIN_ADAPTER",
+      "responsibility": "Provide separately adopted Railway-domain schemas, policies, tools, workflows, and adapters without changing MAGP Core.",
+      "inputs": [
+        "separately adopted Railway authority",
+        "Core extension interfaces"
+      ],
+      "outputs": [
+        "Railway domain package",
+        "domain runtime adapter"
+      ],
+      "authority": "SEPARATE_RAILWAY_DOMAIN_AUTHORITY_REQUIRED",
+      "lifecycle_owner": "RAILWAY_DOMAIN_EXTENSION",
+      "evidence": "domain-owner approval and Core compatibility",
+      "prohibited": [
+        "import health judgments",
+        "import VET-C Core concepts",
+        "modify Core authority",
+        "self-confirm Railway rules"
+      ],
+      "plane": "DOMAIN_EXTENSION",
+      "contamination": "PASS_POLICY_BOUND"
+    }
+  ]
+}

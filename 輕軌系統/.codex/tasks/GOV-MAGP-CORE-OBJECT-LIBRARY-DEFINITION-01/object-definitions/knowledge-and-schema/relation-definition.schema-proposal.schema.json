@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:relation-definition:v0",
+  "title": "Relation Definition Schema Proposal",
+  "description": "Candidate schema proposal; not adopted and not a database schema.",
+  "allOf": [
+    {
+      "$ref": "../../../canonical-object-envelope/canonical-object-envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "object_type": {
+              "const": "RELATION_DEFINITION"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "relation_identity",
+            "source_class",
+            "target_class",
+            "cardinality",
+            "direction",
+            "temporal_semantics",
+            "authority_semantics",
+            "lineage_semantics",
+            "deletion_behavior"
+          ],
+          "properties": {
+            "relation_identity": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "source_class": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "target_class": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "cardinality": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "direction": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "temporal_semantics": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "authority_semantics": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "lineage_semantics": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "deletion_behavior": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    }
+  ],
+  "x-magp-object-type-id": "OBJ-TYPE-012",
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true,
+  "x-magp-database-schema": false
+}

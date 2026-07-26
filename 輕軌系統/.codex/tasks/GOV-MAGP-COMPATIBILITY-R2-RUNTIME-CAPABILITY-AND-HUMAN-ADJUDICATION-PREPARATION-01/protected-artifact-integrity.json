@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "verification_type": "EXACT_NON_GIT_BEFORE_AFTER_FILE_TREE_HASH_COMPARISON",
+  "canonical_manifest_format": "normalized_relative_path|uppercase_sha256|byte_length joined by LF after ordinal relative-path sort",
+  "protected_artifacts": [
+    {
+      "artifact_id": "COMPATIBILITY_R2_RETRY_01_PACKAGE",
+      "file_count_before": 15,
+      "file_count_after": 15,
+      "manifest_sha256_before": "7F40410C56EF206C67778809BCB8D953EE201F94DEFC8446A808953A66FBC481",
+      "manifest_sha256_after": "7F40410C56EF206C67778809BCB8D953EE201F94DEFC8446A808953A66FBC481",
+      "status": "UNCHANGED"
+    },
+    {
+      "artifact_id": "AGGREGATOR_R2_RETRY_01_PACKAGE",
+      "file_count_before": 9,
+      "file_count_after": 9,
+      "manifest_sha256_before": "2C0F26F88B7D3000C60166C8BD825D3AE52B878414CD841B6684CC9F28091630",
+      "manifest_sha256_after": "2C0F26F88B7D3000C60166C8BD825D3AE52B878414CD841B6684CC9F28091630",
+      "status": "UNCHANGED"
+    },
+    {
+      "artifact_id": "RETURN_AND_TRANSPORT_V2_SCHEMAS",
+      "file_count_before": 3,
+      "file_count_after": 3,
+      "manifest_sha256_before": "2BDB5920A0894A9AB626B5336FC9EE1993BB2798B7787C40B04DAB433D27E638",
+      "manifest_sha256_after": "2BDB5920A0894A9AB626B5336FC9EE1993BB2798B7787C40B04DAB433D27E638",
+      "status": "UNCHANGED"
+    },
+    {
+      "artifact_id": "ATTEMPT_1_V2_ADMISSION_HISTORY",
+      "file_count_before": 5,
+      "file_count_after": 5,
+      "manifest_sha256_before": "3C93AF3026D562270CF7221F14AE8A7BB72300F16DC00E5F73A87A86A3859596",
+      "manifest_sha256_after": "3C93AF3026D562270CF7221F14AE8A7BB72300F16DC00E5F73A87A86A3859596",
+      "status": "UNCHANGED"
+    },
+    {
+      "artifact_id": "ATTEMPT_1_STARTUP_BLOCKER_HISTORY_TASK",
+      "file_count_before": 10,
+      "file_count_after": 10,
+      "manifest_sha256_before": "2600EAC26826B4C2F6B6D8514A58E0E9A0729EB14AD681FE5755580855C2A185",
+      "manifest_sha256_after": "2600EAC26826B4C2F6B6D8514A58E0E9A0729EB14AD681FE5755580855C2A185",
+      "status": "UNCHANGED"
+    }
+  ],
+  "attempt_1_raw_wrapper": {
+    "sha256_before": "B4C186FDABE327136D338FBBE60B653B4E3256E887C03B88B097818727252E71",
+    "sha256_after": "B4C186FDABE327136D338FBBE60B653B4E3256E887C03B88B097818727252E71",
+    "bytes_before": 4742,
+    "bytes_after": 4742,
+    "status": "UNCHANGED"
+  },
+  "product_governance_baseline": [
+    {
+      "relative_path": "AGENTS.md",
+      "sha256_before": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E",
+      "sha256_after": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E",
+      "status": "UNCHANGED"
+    },
+    {
+      "relative_path": ".codex/governance/phase-policy.yaml",
+      "sha256_before": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "sha256_after": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "status": "UNCHANGED"
+    },
+    {
+      "relative_path": ".codex/governance/agent-path-policy.yaml",
+      "sha256_before": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "sha256_after": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "status": "UNCHANGED"
+    }
+  ],
+  "overall_status": "PASS_ALL_PROTECTED_ARTIFACTS_UNCHANGED",
+  "git_used": false
+}

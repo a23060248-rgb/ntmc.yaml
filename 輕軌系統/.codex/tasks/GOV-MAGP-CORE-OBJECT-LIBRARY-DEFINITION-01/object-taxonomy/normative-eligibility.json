@@ -1,0 +1,136 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "rule": "No object is Normative merely because it conforms to a schema or passes validation.",
+  "entries": [
+    {
+      "object_type": "META_CONSTITUTION",
+      "normative_eligibility": "NORMATIVE_AFTER_EXPLICIT_HUMAN_ADOPTION",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_APPROVAL_EFFECTIVENESS_AMENDMENT_SUSPENSION_SUPERSESSION",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "POLICY",
+      "normative_eligibility": "NORMATIVE_AFTER_EXPLICIT_HUMAN_ADOPTION",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_EFFECT_AUTHORITY_OR_SECURITY_CHANGE",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "GOVERNANCE_RULE",
+      "normative_eligibility": "NORMATIVE_ONLY_WHEN_AUTHORIZED_BY_EFFECTIVE_POLICY",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_WHEN_RULE_CREATES_OR_CHANGES_NORMATIVE_OBLIGATION",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "RFC",
+      "normative_eligibility": "DECISION_EFFECT_ONLY_AFTER_REQUIRED_HUMAN_APPROVAL",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_BREAKING_CROSS_BOUNDARY_HIGH_RISK_CHANGE",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "BLUEPRINT",
+      "normative_eligibility": "GOVERNED_DESIGN_AFTER_REQUIRED_APPROVAL_BELOW_HIGHER_AUTHORITY",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_WHEN_BLUEPRINT_ACTIVATES_NORMATIVE_OR_HIGH_RISK_DESIGN",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "SPECIFICATION",
+      "normative_eligibility": "NORMATIVE_REQUIREMENTS_ONLY_WITHIN_APPROVED_PARENT_SCOPE",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_WHEN_SPECIFICATION_CHANGES_NORMATIVE_PUBLIC_OR_SECURITY_CONTRACT",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "DECISION",
+      "normative_eligibility": "NORMATIVE_ONLY_WHEN_DECISION_AUTHORITY_IS_HUMAN_OR_VALIDLY_DELEGATED",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_OR_HIGH_RISK_DECISION",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "HUMAN_APPROVAL",
+      "normative_eligibility": "NORMATIVE_DECISION_EVIDENCE_WITHIN_APPROVER_AUTHORITY",
+      "human_gate_requirement": "OBJECT_IS_THE_HUMAN_GATE_RECORD_AND_REQUIRES_REAL_HUMAN_ACTOR",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "SCHEMA",
+      "normative_eligibility": "VALIDATION_AUTHORITY_ONLY_AFTER_PARENT_APPROVAL",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_BREAKING_OR_AUTHORITY_CRITICAL_SCHEMA",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "ONTOLOGY",
+      "normative_eligibility": "SEMANTIC_AUTHORITY_ONLY_AFTER_HUMAN_ADOPTION_WHEN_NORMATIVE",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CONCEPT_RELATION_OR_INFERENCE_CHANGE",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "CLASS_DEFINITION",
+      "normative_eligibility": "SEMANTIC_AUTHORITY_ONLY_AFTER_APPROVED_ONTOLOGY_BINDING",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CLASS_IDENTITY_OR_INVARIANT_CHANGE",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "RELATION_DEFINITION",
+      "normative_eligibility": "RELATION_AUTHORITY_ONLY_AFTER_APPROVED_ONTOLOGY_BINDING",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CARDINALITY_AUTHORITY_OR_DELETION_CHANGE",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "EVIDENCE",
+      "normative_eligibility": "NON_NORMATIVE_PROOF_AXIS",
+      "human_gate_requirement": "HUMAN_GATE_REQUIRED_WHEN_EVIDENCE_IS_USED_FOR_HUMAN_ADJUDICATED_CLOSURE_OR_NORMATIVE_ADOPTION",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "FINDING",
+      "normative_eligibility": "NON_NORMATIVE_ASSURANCE_RECORD_WITH_GATING_EFFECT",
+      "human_gate_requirement": "HUMAN_OR_INDEPENDENT_CLOSURE_REQUIRED_FOR_CRITICAL_HIGH_UNLESS_POLICY_EXPLICITLY_ALLOWS_OTHERWISE",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "REVIEW",
+      "normative_eligibility": "NON_NORMATIVE_ASSURANCE_RECORD_WITH_GATING_EFFECT",
+      "human_gate_requirement": "HUMAN_GATE_REQUIRED_FOR_HUMAN_ADJUDICATED_REVIEW_OR_WHEN_REVIEW_POLICY_REQUIRES",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "VOLUME",
+      "normative_eligibility": "GOVERNANCE_ORGANIZATION_BOUNDARY_AFTER_APPROVAL",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_AUTHORITY_SOURCE_ACCESS_OR_CROSS_BOUNDARY_CHANGE",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "PACKAGE",
+      "normative_eligibility": "DELIVERY_BOUNDARY_WITH_SEPARATE_RELEASE_AND_DEPLOYMENT_APPROVAL",
+      "human_gate_requirement": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_RELEASE_AND_DEPLOYMENT_ELIGIBILITY",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "AGENT_DEFINITION",
+      "normative_eligibility": "EXECUTABLE_DEFINITION_ONLY_AFTER_REQUIRED_APPROVAL_AND_PACKAGE_BINDING",
+      "human_gate_requirement": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_ACTIVATION_CAPABILITY_TOOL_OR_AUTHORITY_CHANGE",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "AGENT_INSTANCE",
+      "normative_eligibility": "NON_NORMATIVE_RUNTIME_INSTANCE",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_HIGH_RISK_ACTION_SCOPE_OR_PERMISSION_EXPANSION",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "RUNTIME_EVENT",
+      "normative_eligibility": "NON_NORMATIVE_RUNTIME_EVIDENCE",
+      "human_gate_requirement": "HUMAN_GATE_REQUIRED_ONLY_FOR_EVENT_TRIGGERED_HIGH_RISK_APPROVAL_NOT_FOR_EVENT_CREATION",
+      "proposal_instances_normative": false
+    },
+    {
+      "object_type": "DEPLOYMENT_ARTIFACT",
+      "normative_eligibility": "NON_NORMATIVE_IMMUTABLE_IMPLEMENTATION_ARTIFACT_WITH_SEPARATE_DEPLOYMENT_APPROVAL",
+      "human_gate_requirement": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_ENVIRONMENT_DEPLOYMENT_ELIGIBILITY",
+      "proposal_instances_normative": false
+    }
+  ]
+}

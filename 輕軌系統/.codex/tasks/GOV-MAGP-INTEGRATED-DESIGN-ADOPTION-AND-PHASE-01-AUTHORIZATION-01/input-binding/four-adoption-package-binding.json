@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "package_count": 4,
+  "packages": [
+    {
+      "package_name": "physical-persistence-adoption-package",
+      "package_tree": {
+        "file_count": 12,
+        "manifest_sha256": "9F05BE0B19E990102C3908BFD5A682F2703BF2EB5401148CB6D64E1457AF98E7",
+        "entries": [
+          {
+            "relative_path": "adoption-scope.json",
+            "sha256": "CDFD229F29123811CABDDB3A9934B16ABCA7FF4554788798DACA82711E61EE18",
+            "bytes": 448
+          },
+          {
+            "relative_path": "assurance-disclosure.json",
+            "sha256": "2FE9BF7C32C384E7807E0BDD51E86C0F5CCCDCD0AAC6666CF3CAB452F6A622A5",
+            "bytes": 522
+          },
+          {
+            "relative_path": "baseline-bindings.json",
+            "sha256": "A743E821C31DB708AED647535EDDF252B058FFE2641A11F80AC4AE5376384F1C",
+            "bytes": 814
+          },
+          {
+            "relative_path": "conformance-report.json",
+            "sha256": "1A5A94237CC4FFB8D9B775ACF10A82C1744797A3CE8F16AA1855A33D485FF8DE",
+            "bytes": 313
+          },
+          {
+            "relative_path": "decision-form.json",
+            "sha256": "30E5D7AD89C30AC60D42C1CFD971C92D0834C354D64EBC86204AC884B693D89E",
+            "bytes": 594
+          },
+          {
+            "relative_path": "decision-form.schema.json",
+            "sha256": "F290180B4937ABE79D30C024440F069DE1E8CA85C4C5917681B6E1002B1BE936",
+            "bytes": 975
+          },
+          {
+            "relative_path": "decision-summary.json",
+            "sha256": "592608E241FCAB9D1CED246160B15F075035782D375A4678FBA50C29653B359D",
+            "bytes": 361
+          },
+          {
+            "relative_path": "design-summary.json",
+            "sha256": "C5B5C07118625E0E1D3F3534A029F608A5A8D2BB4A9F6CBA3DED9094C7C00065",
+            "bytes": 535
+          },
+          {
+            "relative_path": "prohibited-next-actions.json",
+            "sha256": "63FE820D45D7C005255A4E9B932D9D127E8939012AC0639CEC67211658797B47",
+            "bytes": 397
+          },
+          {
+            "relative_path": "proposal-manifest.json",
+            "sha256": "BFAF16A93B4F0A29BE3144991397219F44A255E58BF0064ED7C0DE0FA0B21021",
+            "bytes": 7545
+          },
+          {
+            "relative_path": "risk-register.json",
+            "sha256": "85FEC5239B58F3DBE21E8E695383A43474A8142DCFBAA14342E0A90572808B1B",
+            "bytes": 771
+          },
+          {
+            "relative_path": "unresolved-human-decisions.json",
+            "sha256": "BAFD1F0D98A0E4210C154C6E12B8062AC9619BA9FCD69BCFBA3C36FC86DD3FFC",
+            "bytes": 3618
+          }
+        ]
+      },
+      "decision_form": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01/human-adoption-packages/physical-persistence-adoption-package/decision-form.json",
+        "sha256": "30E5D7AD89C30AC60D42C1CFD971C92D0834C354D64EBC86204AC884B693D89E",
+        "bytes": 594
+      },
+      "proposal_manifest": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01/human-adoption-packages/physical-persistence-adoption-package/proposal-manifest.json",
+        "sha256": "BFAF16A93B4F0A29BE3144991397219F44A255E58BF0064ED7C0DE0FA0B21021",
+        "bytes": 7545
+      },
+      "status": "COMPLETE_AND_PENDING_HUMAN_DECISION"
+    },
+    {
+      "package_name": "formal-api-event-adoption-package",
+      "package_tree": {
+        "file_count": 12,
+        "manifest_sha256": "13132BFFFED9657C0BA2AD80F56C8D990DCB89352193E4E11171D3086F750CE9",
+        "entries": [
+          {
+            "relative_path": "adoption-scope.json",
+            "sha256": "418617AF6D051763B55327AF9E858F458999425D7EA5AB194DB187279886AADF",
+            "bytes": 482
+          },
+          {
+            "relative_path": "assurance-disclosure.json",
+            "sha256": "3936C4320BE6D459CEE48F89259E001140D4D9B59069B909C0B4971502476F19",
+            "bytes": 518
+          },
+          {
+            "relative_path": "baseline-bindings.json",
+            "sha256": "6F9F964FC3AA06EE8FECBFA0804793DEE091B121F4F5286F03C7A2AB36D07B60",
+            "bytes": 810
+          },
+          {
+            "relative_path": "conformance-report.json",
+            "sha256": "724FD6385AE0101A86EE0643022AAEFDD4892872AA77642CECA1BA8D40AFED26",
+            "bytes": 309
+          },
+          {
+            "relative_path": "decision-form.json",
+            "sha256": "FE5BDF8879A2912A7F3A2B4D7084E434828D31A23B964DFD89378E6669BB083D",
+            "bytes": 515
+          },
+          {
+            "relative_path": "decision-form.schema.json",
+            "sha256": "A521F88E260426375A1BAD877FEBFEBEF8DCEDB0891CBF98442B4A95FE26C8EF",
+            "bytes": 971
+          },
+          {
+            "relative_path": "decision-summary.json",
+            "sha256": "4D5704EE31D0991CF441C49FA4D3B68F4681A68E40B6B821630D172AF23112DF",
+            "bytes": 282
+          },
+          {
+            "relative_path": "design-summary.json",
+            "sha256": "A0B37F03E6FF0606C22D1545706A35CC3C2D0130EA50E0378720E4C8953C85B2",
+            "bytes": 569
+          },
+          {
+            "relative_path": "prohibited-next-actions.json",
+            "sha256": "17C6D4F2E57E9873C4BB0B2C32D7BDD877020C6AF87F03F90D8916A75BD0E4DD",
+            "bytes": 393
+          },
+          {
+            "relative_path": "proposal-manifest.json",
+            "sha256": "683AF912D4A92C1C5D5561AAF18D552529F0FA32BA1C806BD64245556EDA0851",
+            "bytes": 7517
+          },
+          {
+            "relative_path": "risk-register.json",
+            "sha256": "3842E7BC3B2B1C8C77109615DDAD0719EC5F6945620DFBBCC275CD852C30BB64",
+            "bytes": 1127
+          },
+          {
+            "relative_path": "unresolved-human-decisions.json",
+            "sha256": "1935E5E33B7F8970201FC4A5EBBA548814BDD667B44F7B91CE13BF58CC527D5A",
+            "bytes": 1542
+          }
+        ]
+      },
+      "decision_form": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01/human-adoption-packages/formal-api-event-adoption-package/decision-form.json",
+        "sha256": "FE5BDF8879A2912A7F3A2B4D7084E434828D31A23B964DFD89378E6669BB083D",
+        "bytes": 515
+      },
+      "proposal_manifest": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01/human-adoption-packages/formal-api-event-adoption-package/proposal-manifest.json",
+        "sha256": "683AF912D4A92C1C5D5561AAF18D552529F0FA32BA1C806BD64245556EDA0851",
+        "bytes": 7517
+      },
+      "status": "COMPLETE_AND_PENDING_HUMAN_DECISION"
+    },
+    {
+      "package_name": "security-deployment-adoption-package",
+      "package_tree": {
+        "file_count": 12,
+        "manifest_sha256": "0ABC5ED82F834E3E05C6F2A7D45260ACFF17654DE3ECFC27E8B31AB82486D2CF",
+        "entries": [
+          {
+            "relative_path": "adoption-scope.json",
+            "sha256": "F038C5373E3FF7B7AB3443DF5B4C378E2D9D519CB47E374EBD9BBD6FEFCD96D7",
+            "bytes": 483
+          },
+          {
+            "relative_path": "assurance-disclosure.json",
+            "sha256": "7E85EF2BAAD80E60F2EE9E9FBE97B61B3CE40BA7C642D0A932E17396711B7A6C",
+            "bytes": 521
+          },
+          {
+            "relative_path": "baseline-bindings.json",
+            "sha256": "15F0CEF6FB53003192091209F120D8076211AD15128B0D704A9381EBC9EB6B8E",
+            "bytes": 813
+          },
+          {
+            "relative_path": "conformance-report.json",
+            "sha256": "A60E3DC85539FEEBA5FF1DA35AB39E49519DB1BB0ED2AB4DEEDD73464FB07487",
+            "bytes": 312
+          },
+          {
+            "relative_path": "decision-form.json",
+            "sha256": "5F840A1231F57B914D44AB112D92AF0C326936009DF3A182CF2FD746C0930BC0",
+            "bytes": 593
+          },
+          {
+            "relative_path": "decision-form.schema.json",
+            "sha256": "0AB558F2925369D8E08AD21CED0D61A7C327395FFD757953CFFD166EF860D5BA",
+            "bytes": 974
+          },
+          {
+            "relative_path": "decision-summary.json",
+            "sha256": "AA271E382965187E3F084BEF3089C9F1A00A15D4CEAFD55676606A670EA9CD0A",
+            "bytes": 360
+          },
+          {
+            "relative_path": "design-summary.json",
+            "sha256": "B1F0AF5CC884939181F90A975A702E887C9CB98749FF0079173FFC60D9673DB6",
+            "bytes": 570
+          },
+          {
+            "relative_path": "prohibited-next-actions.json",
+            "sha256": "4BBC713C32050A8FD4E20D163A4DB69F8F12248E57B3C798DC1E48936523B037",
+            "bytes": 396
+          },
+          {
+            "relative_path": "proposal-manifest.json",
+            "sha256": "AA091A38B0EBAE92A2019900F337DD48AEB06EFF0C964077EEC78CC855DD246D",
+            "bytes": 5668
+          },
+          {
+            "relative_path": "risk-register.json",
+            "sha256": "F30EC87D5DABC27DA6496F24AC2883120A6DD8639B2127335A75BD1CB7C1D158",
+            "bytes": 1108
+          },
+          {
+            "relative_path": "unresolved-human-decisions.json",
+            "sha256": "43E30299F167CA913DD44F97768D0796E81B67D3BD2565FC7FFAB6A06F83F9EF",
+            "bytes": 3753
+          }
+        ]
+      },
+      "decision_form": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01/human-adoption-packages/security-deployment-adoption-package/decision-form.json",
+        "sha256": "5F840A1231F57B914D44AB112D92AF0C326936009DF3A182CF2FD746C0930BC0",
+        "bytes": 593
+      },
+      "proposal_manifest": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01/human-adoption-packages/security-deployment-adoption-package/proposal-manifest.json",
+        "sha256": "AA091A38B0EBAE92A2019900F337DD48AEB06EFF0C964077EEC78CC855DD246D",
+        "bytes": 5668
+      },
+      "status": "COMPLETE_AND_PENDING_HUMAN_DECISION"
+    },
+    {
+      "package_name": "implementation-blueprint-adoption-package",
+      "package_tree": {
+        "file_count": 12,
+        "manifest_sha256": "14461A854943BC3D5C8EF4CFC97A261A332310D43C94F0B8F3D11A2F5EDFE27F",
+        "entries": [
+          {
+            "relative_path": "adoption-scope.json",
+            "sha256": "B9A4240B052323EEDF71CC92DA6F027342B5E19E9398367B3DFA46D3BC2E8365",
+            "bytes": 539
+          },
+          {
+            "relative_path": "assurance-disclosure.json",
+            "sha256": "833D0639B4ACEB14A6A2A93715867019BD82FFB83B3BDC6946FCC97DDBEBC535",
+            "bytes": 526
+          },
+          {
+            "relative_path": "baseline-bindings.json",
+            "sha256": "62D707C96E4FDD5461A0AB297FB54FBDFF07167316538AE5CBA9452896BA637A",
+            "bytes": 818
+          },
+          {
+            "relative_path": "conformance-report.json",
+            "sha256": "9BB3C00B58494F08F7347F434F66D9A6C7DFA7097C17CCCD6F372AAFC6881CB2",
+            "bytes": 317
+          },
+          {
+            "relative_path": "decision-form.json",
+            "sha256": "36A2C98BECBA2C90793127050E563AD74C547939ADD73946E134FCD560A4BF96",
+            "bytes": 508
+          },
+          {
+            "relative_path": "decision-form.schema.json",
+            "sha256": "109FF1A8D667EDB97EB1D78DCC381F11418D9A9118A3954ECCEFEE0CE95911C1",
+            "bytes": 979
+          },
+          {
+            "relative_path": "decision-summary.json",
+            "sha256": "FF0ABFD1FF8F8A614C9B0C3575FD0168B91A2CE8D984696A3A862B81428D760D",
+            "bytes": 275
+          },
+          {
+            "relative_path": "design-summary.json",
+            "sha256": "F07FA259CD10FF10500DD95F2268ECECCCD369867F433E64B8B63ADD7B2826DD",
+            "bytes": 626
+          },
+          {
+            "relative_path": "prohibited-next-actions.json",
+            "sha256": "75C7F7BEA693A0A375B9E698766ACD1280DC7C1DE2917AC364987ACEB3EC5524",
+            "bytes": 401
+          },
+          {
+            "relative_path": "proposal-manifest.json",
+            "sha256": "F05CE50E0B8718A548DB9F725C85B7426D1D583808FCB29248C007EDE3B4BD26",
+            "bytes": 6515
+          },
+          {
+            "relative_path": "risk-register.json",
+            "sha256": "F40B8C07F0D7AD6C6B5EB2B1D57ED84C23EEF1AE7D6FC07A68143EDEF865E34F",
+            "bytes": 785
+          },
+          {
+            "relative_path": "unresolved-human-decisions.json",
+            "sha256": "F9A72DDE2F07657CC9CD3B6DFCDD907CB6B22D92069B0295ABEA415B385CDC42",
+            "bytes": 1130
+          }
+        ]
+      },
+      "decision_form": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01/human-adoption-packages/implementation-blueprint-adoption-package/decision-form.json",
+        "sha256": "36A2C98BECBA2C90793127050E563AD74C547939ADD73946E134FCD560A4BF96",
+        "bytes": 508
+      },
+      "proposal_manifest": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01/human-adoption-packages/implementation-blueprint-adoption-package/proposal-manifest.json",
+        "sha256": "F05CE50E0B8718A548DB9F725C85B7426D1D583808FCB29248C007EDE3B4BD26",
+        "bytes": 6515
+      },
+      "status": "COMPLETE_AND_PENDING_HUMAN_DECISION"
+    }
+  ],
+  "all_complete": true,
+  "all_pending_human_decision": true,
+  "status": "PASS_4_OF_4"
+}

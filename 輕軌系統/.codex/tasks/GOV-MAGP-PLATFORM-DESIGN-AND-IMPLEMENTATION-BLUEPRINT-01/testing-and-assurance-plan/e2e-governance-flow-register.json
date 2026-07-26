@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "E2E governance flows",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "flow_count": 6,
+  "flows": [
+    {
+      "flow_id": "E2E-1",
+      "name": "Policy Proposal to Activation",
+      "human_gate_included": true,
+      "evidence_chain_verified": true,
+      "planned_only": true
+    },
+    {
+      "flow_id": "E2E-2",
+      "name": "RFC to Human Decision",
+      "human_gate_included": true,
+      "evidence_chain_verified": true,
+      "planned_only": true
+    },
+    {
+      "flow_id": "E2E-3",
+      "name": "Evidence to Finding Closure",
+      "human_gate_included": true,
+      "evidence_chain_verified": true,
+      "planned_only": true
+    },
+    {
+      "flow_id": "E2E-4",
+      "name": "Blueprint to Package Release",
+      "human_gate_included": true,
+      "evidence_chain_verified": true,
+      "planned_only": true
+    },
+    {
+      "flow_id": "E2E-5",
+      "name": "Agent Definition to Violation Termination",
+      "human_gate_included": true,
+      "evidence_chain_verified": true,
+      "planned_only": true
+    },
+    {
+      "flow_id": "E2E-6",
+      "name": "Package Validation to Deployment Rollback",
+      "human_gate_included": true,
+      "evidence_chain_verified": true,
+      "planned_only": true
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "excluded_count": 6,
+  "full_claim_indexes_created": 0,
+  "sources": [
+    {
+      "source_id": "SOURCE-EXCLUDED-01",
+      "classification": "EXCLUDE_SUPERSEDED",
+      "actual_filename": "VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_DRAFT_v1.md",
+      "minimal_read_evidence": "Metadata block, title, first 60 lines, and first 25 headings only.",
+      "evidence": [
+        "The document declares VERSION DRAFT_v1.",
+        "The document declares AUTHORITY_STATUS NON_AUTHORITATIVE_REPORT and DIRECT_PROJECT_EFFECT NONE.",
+        "An identified DRAFT_v2 exists and is the only optional pattern source."
+      ],
+      "exclusion_reason": "Superseded v1 with no direct Project Authority.",
+      "effective_reference_allowed": false,
+      "effective_reference_count": 0
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-02",
+      "classification": "EXCLUDE_OUT_OF_SCOPE_MODEL_IMPLEMENTATION",
+      "actual_filename": "VET-C 模型工程實作.pdf",
+      "minimal_read_evidence": "PDF metadata and pages 1-3 only.",
+      "evidence": [
+        "The title states VET-C model engineering implementation manual.",
+        "The volume list covers sensor pipelines, V-JEPA, RSSM, Projection Head, proxy signals, evidence fusion, terrain, and UAV model implementation."
+      ],
+      "exclusion_reason": "VET-C model engineering and UAV implementation are outside MAGP Core source authority.",
+      "effective_reference_allowed": false
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-03",
+      "classification": "EXCLUDE_OUT_OF_SCOPE_EDGE_MODEL_AND_RUNTIME",
+      "actual_filename": "VET-C邊緣模型建置指南(續).pdf",
+      "minimal_read_evidence": "PDF metadata and pages 1-3 only.",
+      "evidence": [
+        "The title and subtitle cover an edge-model continuation from sensor input to UAV motor control.",
+        "The RFC tree covers training, datasets, simulation, PX4, memory, dreaming, density flow, and UCFT."
+      ],
+      "exclusion_reason": "VET-C edge model, training, runtime, and project-specific RFC content are outside MAGP Core.",
+      "effective_reference_allowed": false
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-04",
+      "classification": "EXCLUDE_OUT_OF_SCOPE_EDGE_DEPLOYMENT",
+      "actual_filename": "VET-C 邊緣模型建置指南-第二版.pdf",
+      "minimal_read_evidence": "PDF metadata and pages 1-3 only.",
+      "evidence": [
+        "The title identifies the VET-C edge-model guide.",
+        "The opening describes Jetson Orin Nano edge deployment, sensor-to-UAV-control pipeline, PyTorch implementation, latent tensors, RSSM, and flight-control output."
+      ],
+      "exclusion_reason": "Edge deployment and UAV model execution do not determine MAGPObject, Core Taxonomy, Rule hierarchy, lifecycle, BGE, Agent Factory, Agent OS, or Railway rules.",
+      "future_optional_use": "FUTURE_EXTERNAL_MODEL_OR_EDGE_AGENT_REFERENCE_ONLY",
+      "effective_reference_allowed": false
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-05",
+      "classification": "EXCLUDE_FROM_MAGP_CORE",
+      "actual_filename": "使用 Codex 開發 MAGP 平台 VET-C整合.pdf",
+      "minimal_read_evidence": "PDF metadata and pages 1-3 only.",
+      "evidence": [
+        "The title explicitly describes MAGP-VET-C integration.",
+        "The opening maps VET-C theory, implementation, training, dataset, simulation, memory, dream, and UCFT RFCs into proposed MAGP phases."
+      ],
+      "exclusion_reason": "The document is a VET-C integration proposal and cannot define current MAGP Core.",
+      "future_optional_use": "FUTURE_VETC_DOMAIN_OR_PLUGIN_PROPOSAL",
+      "effective_reference_allowed": false
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-06",
+      "classification": "EXCLUDE_REDUNDANT_PROJECT_SPECIFIC_WORKFLOW",
+      "actual_filename": "VET-C 多人分工開發工作流程指南.pdf",
+      "minimal_read_evidence": "PDF metadata and pages 1-3 only.",
+      "evidence": [
+        "The guide prescribes a VET-C-specific seven-day schedule and four parallel engineering groups.",
+        "It relies on RFC-1000-1015, feature branches, pytest, PR integration, and VET-C core-file freeze."
+      ],
+      "exclusion_reason": "The workflow is redundant and project-specific and may not override the existing Codex governance controls.",
+      "controls_it_may_not_override": [
+        "L1/L2/L3",
+        "Candidate freeze",
+        "Exact Manifest",
+        "Independent Review",
+        "Deterministic QA",
+        "Human Gate",
+        "Scope Control",
+        "Historical Integrity"
+      ],
+      "effective_reference_allowed": false
+    }
+  ]
+}

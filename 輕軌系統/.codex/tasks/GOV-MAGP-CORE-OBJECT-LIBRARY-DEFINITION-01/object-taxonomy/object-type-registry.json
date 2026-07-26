@@ -1,0 +1,628 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_count": 21,
+  "object_types": [
+    {
+      "object_type_id": "OBJ-TYPE-001",
+      "object_type": "META_CONSTITUTION",
+      "canonical_name": "Meta Constitution",
+      "type_prefix": "mcon",
+      "object_category": "CONSTITUTIONAL_AND_POLICY_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "NORMATIVE_AFTER_EXPLICIT_HUMAN_ADOPTION",
+      "authority_level": "CONSTITUTIONAL_AUTHORITY_UNDER_HUMAN_SOVEREIGN_AUTHORITY",
+      "lifecycle_owner": "META_CONSTITUTION_AND_HUMAN_AUTHORITY",
+      "evidence_owner": "EVIDENCE_LEDGER_WITH_INDEPENDENT_REVIEW",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_APPROVAL_EFFECTIVENESS_AMENDMENT_SUSPENSION_SUPERSESSION",
+      "allowed_mutations": [
+        "draft clarification",
+        "Human-approved amendment",
+        "supersession metadata"
+      ],
+      "prohibited_mutations": [
+        "Agent-authored effective amendment",
+        "runtime mutation",
+        "silent waiver"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-002",
+      "object_type": "POLICY",
+      "canonical_name": "Policy",
+      "type_prefix": "pol",
+      "object_category": "CONSTITUTIONAL_AND_POLICY_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "NORMATIVE_AFTER_EXPLICIT_HUMAN_ADOPTION",
+      "authority_level": "POLICY_AUTHORITY_BELOW_CONSTITUTION",
+      "lifecycle_owner": "META_GOVERNANCE_WITH_HUMAN_ADOPTION",
+      "evidence_owner": "EVIDENCE_LEDGER",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_EFFECT_AUTHORITY_OR_SECURITY_CHANGE",
+      "allowed_mutations": [
+        "draft scope clarification",
+        "versioned compatible addition",
+        "Human-approved change"
+      ],
+      "prohibited_mutations": [
+        "runtime rewrite",
+        "rule-driven reverse authorization",
+        "silent exception"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-003",
+      "object_type": "GOVERNANCE_RULE",
+      "canonical_name": "Governance Rule",
+      "type_prefix": "grule",
+      "object_category": "CONSTITUTIONAL_AND_POLICY_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME_AND_RUNTIME_EVALUATION",
+      "normative_eligibility": "NORMATIVE_ONLY_WHEN_AUTHORIZED_BY_EFFECTIVE_POLICY",
+      "authority_level": "RUNTIME_ENFORCEMENT_AUTHORITY_NO_POLICY_ADOPTION",
+      "lifecycle_owner": "POLICY_ENGINE_UNDER_POLICY_OWNER",
+      "evidence_owner": "POLICY_ENGINE_EMITS_EVIDENCE_LEDGER_PRESERVES",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_WHEN_RULE_CREATES_OR_CHANGES_NORMATIVE_OBLIGATION",
+      "allowed_mutations": [
+        "test case addition",
+        "non-semantic optimization",
+        "policy-authorized version change"
+      ],
+      "prohibited_mutations": [
+        "exceed parent Policy",
+        "self-adoption",
+        "hidden override"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-004",
+      "object_type": "RFC",
+      "canonical_name": "RFC",
+      "type_prefix": "rfc",
+      "object_category": "DESIGN_AND_DECISION_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "DECISION_EFFECT_ONLY_AFTER_REQUIRED_HUMAN_APPROVAL",
+      "authority_level": "RFC_DECISION_AUTHORITY_WITHIN_APPROVED_SCOPE",
+      "lifecycle_owner": "ARCHITECTURE_OR_POLICY_OWNER",
+      "evidence_owner": "RFC_AUTHOR_AND_REVIEWERS_EMIT_EVIDENCE_LEDGER_PRESERVES",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_BREAKING_CROSS_BOUNDARY_HIGH_RISK_CHANGE",
+      "allowed_mutations": [
+        "draft iteration",
+        "review correction",
+        "Human-approved supersession"
+      ],
+      "prohibited_mutations": [
+        "post-approval silent edit",
+        "automatic decision from tests",
+        "scope expansion"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-005",
+      "object_type": "BLUEPRINT",
+      "canonical_name": "Blueprint",
+      "type_prefix": "bp",
+      "object_category": "DESIGN_AND_DECISION_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "GOVERNED_DESIGN_AFTER_REQUIRED_APPROVAL_BELOW_HIGHER_AUTHORITY",
+      "authority_level": "BLUEPRINT_AUTHORITY_BELOW_ARCHITECTURE_AND_RFC",
+      "lifecycle_owner": "BGE_WITH_HUMAN_OR_RELEASE_GATE",
+      "evidence_owner": "BGE_EMITS_EVIDENCE_LEDGER_PRESERVES",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_WHEN_BLUEPRINT_ACTIVATES_NORMATIVE_OR_HIGH_RISK_DESIGN",
+      "allowed_mutations": [
+        "draft compilation",
+        "validated refinement",
+        "approved version supersession"
+      ],
+      "prohibited_mutations": [
+        "override Constitution",
+        "override Policy",
+        "override approved RFC",
+        "override adopted Architecture"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-006",
+      "object_type": "SPECIFICATION",
+      "canonical_name": "Specification",
+      "type_prefix": "spec",
+      "object_category": "DESIGN_AND_DECISION_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "NORMATIVE_REQUIREMENTS_ONLY_WITHIN_APPROVED_PARENT_SCOPE",
+      "authority_level": "SPECIFICATION_AUTHORITY_BELOW_BLUEPRINT",
+      "lifecycle_owner": "SPECIFICATION_OWNER",
+      "evidence_owner": "VALIDATOR_AND_REVIEWERS",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_WHEN_SPECIFICATION_CHANGES_NORMATIVE_PUBLIC_OR_SECURITY_CONTRACT",
+      "allowed_mutations": [
+        "compatible clarification",
+        "versioned requirement addition",
+        "approved breaking change"
+      ],
+      "prohibited_mutations": [
+        "self-authorize implementation",
+        "expand Blueprint scope",
+        "silently weaken invariant"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-007",
+      "object_type": "DECISION",
+      "canonical_name": "Decision",
+      "type_prefix": "dec",
+      "object_category": "DESIGN_AND_DECISION_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME_OR_GOVERNED_RUNTIME",
+      "normative_eligibility": "NORMATIVE_ONLY_WHEN_DECISION_AUTHORITY_IS_HUMAN_OR_VALIDLY_DELEGATED",
+      "authority_level": "BOUNDED_DECISION_AUTHORITY",
+      "lifecycle_owner": "DECISION_AUTHORITY",
+      "evidence_owner": "DECISION_RECORDER_AND_EVIDENCE_LEDGER",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_OR_HIGH_RISK_DECISION",
+      "allowed_mutations": [
+        "draft rationale correction",
+        "explicit revocation",
+        "versioned supersession"
+      ],
+      "prohibited_mutations": [
+        "change selected option after effect",
+        "infer Human decision",
+        "erase rejected options"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-008",
+      "object_type": "HUMAN_APPROVAL",
+      "canonical_name": "Human Approval",
+      "type_prefix": "hap",
+      "object_category": "DESIGN_AND_DECISION_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME_OR_GOVERNED_RUNTIME",
+      "normative_eligibility": "NORMATIVE_DECISION_EVIDENCE_WITHIN_APPROVER_AUTHORITY",
+      "authority_level": "HUMAN_APPROVAL_AUTHORITY",
+      "lifecycle_owner": "HUMAN_APPROVER",
+      "evidence_owner": "HUMAN_REVIEW_CONSOLE_AND_EVIDENCE_LEDGER",
+      "human_gate_requirement": "OBJECT_IS_THE_HUMAN_GATE_RECORD_AND_REQUIRES_REAL_HUMAN_ACTOR",
+      "allowed_mutations": [
+        "revocation record",
+        "expiry review record",
+        "superseding approval"
+      ],
+      "prohibited_mutations": [
+        "machine-created approval",
+        "ambiguous artifact reference",
+        "hashless approval",
+        "scope expansion"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-009",
+      "object_type": "SCHEMA",
+      "canonical_name": "Schema",
+      "type_prefix": "sch",
+      "object_category": "KNOWLEDGE_AND_SCHEMA_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "VALIDATION_AUTHORITY_ONLY_AFTER_PARENT_APPROVAL",
+      "authority_level": "SCHEMA_VALIDATION_AUTHORITY_NO_APPROVAL_AUTHORITY",
+      "lifecycle_owner": "META_ONTOLOGY_SCHEMA_OWNER",
+      "evidence_owner": "SCHEMA_VALIDATOR",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_BREAKING_OR_AUTHORITY_CRITICAL_SCHEMA",
+      "allowed_mutations": [
+        "compatible optional field",
+        "validation clarification",
+        "approved major version"
+      ],
+      "prohibited_mutations": [
+        "adopt parent Specification",
+        "equate database table with ontology class",
+        "silent breaking change"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-010",
+      "object_type": "ONTOLOGY",
+      "canonical_name": "Ontology",
+      "type_prefix": "onto",
+      "object_category": "KNOWLEDGE_AND_SCHEMA_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "SEMANTIC_AUTHORITY_ONLY_AFTER_HUMAN_ADOPTION_WHEN_NORMATIVE",
+      "authority_level": "ONTOLOGY_SEMANTIC_AUTHORITY_UNDER_ARCHITECTURE",
+      "lifecycle_owner": "META_ONTOLOGY_OWNER",
+      "evidence_owner": "KNOWLEDGE_ENGINEERING_PIPELINE_AND_REVIEW",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CONCEPT_RELATION_OR_INFERENCE_CHANGE",
+      "allowed_mutations": [
+        "compatible concept addition",
+        "annotation",
+        "approved breaking semantic change"
+      ],
+      "prohibited_mutations": [
+        "hidden domain promotion",
+        "prohibited inference",
+        "database-derived authority"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-011",
+      "object_type": "CLASS_DEFINITION",
+      "canonical_name": "Class Definition",
+      "type_prefix": "class",
+      "object_category": "KNOWLEDGE_AND_SCHEMA_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "SEMANTIC_AUTHORITY_ONLY_AFTER_APPROVED_ONTOLOGY_BINDING",
+      "authority_level": "CLASS_SEMANTIC_AUTHORITY_BELOW_ONTOLOGY",
+      "lifecycle_owner": "META_ONTOLOGY_OWNER",
+      "evidence_owner": "ONTOLOGY_VALIDATOR",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CLASS_IDENTITY_OR_INVARIANT_CHANGE",
+      "allowed_mutations": [
+        "compatible property addition",
+        "annotation",
+        "approved superclass change"
+      ],
+      "prohibited_mutations": [
+        "self-inheritance",
+        "unbounded superclass mutation",
+        "database table equivalence"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-012",
+      "object_type": "RELATION_DEFINITION",
+      "canonical_name": "Relation Definition",
+      "type_prefix": "rel",
+      "object_category": "KNOWLEDGE_AND_SCHEMA_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "RELATION_AUTHORITY_ONLY_AFTER_APPROVED_ONTOLOGY_BINDING",
+      "authority_level": "RELATION_SEMANTIC_AUTHORITY_BELOW_ONTOLOGY",
+      "lifecycle_owner": "META_RELATION_OWNER",
+      "evidence_owner": "RELATION_VALIDATOR",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CARDINALITY_AUTHORITY_OR_DELETION_CHANGE",
+      "allowed_mutations": [
+        "compatible relation annotation",
+        "approved cardinality change",
+        "versioned temporal clarification"
+      ],
+      "prohibited_mutations": [
+        "hidden relation",
+        "authority inference from similarity",
+        "unreviewed cascade delete"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-013",
+      "object_type": "EVIDENCE",
+      "canonical_name": "Evidence",
+      "type_prefix": "evid",
+      "object_category": "EVIDENCE_AND_ASSURANCE_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME_AND_RUNTIME",
+      "normative_eligibility": "NON_NORMATIVE_PROOF_AXIS",
+      "authority_level": "EVIDENCE_PRODUCTION_AUTHORITY_NO_DECISION_AUTHORITY",
+      "lifecycle_owner": "EVIDENCE_LEDGER",
+      "evidence_owner": "INDEPENDENT_INTEGRITY_VALIDATOR",
+      "human_gate_requirement": "HUMAN_GATE_REQUIRED_WHEN_EVIDENCE_IS_USED_FOR_HUMAN_ADJUDICATED_CLOSURE_OR_NORMATIVE_ADOPTION",
+      "allowed_mutations": [
+        "append validation",
+        "append limitation",
+        "superseding evidence link"
+      ],
+      "prohibited_mutations": [
+        "rewrite content",
+        "self-validate integrity",
+        "create approval"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-014",
+      "object_type": "FINDING",
+      "canonical_name": "Finding",
+      "type_prefix": "find",
+      "object_category": "EVIDENCE_AND_ASSURANCE_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME_AND_RUNTIME",
+      "normative_eligibility": "NON_NORMATIVE_ASSURANCE_RECORD_WITH_GATING_EFFECT",
+      "authority_level": "FINDING_RECORD_AUTHORITY_CLOSURE_SEPARATE",
+      "lifecycle_owner": "REVIEW_OWNER",
+      "evidence_owner": "REVIEWER_AND_EVIDENCE_LEDGER",
+      "human_gate_requirement": "HUMAN_OR_INDEPENDENT_CLOSURE_REQUIRED_FOR_CRITICAL_HIGH_UNLESS_POLICY_EXPLICITLY_ALLOWS_OTHERWISE",
+      "allowed_mutations": [
+        "status progression",
+        "remediation evidence append",
+        "authorized closure record"
+      ],
+      "prohibited_mutations": [
+        "deletion by reviewed object",
+        "self-closure by reviewed object",
+        "severity downgrade without authority"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-015",
+      "object_type": "REVIEW",
+      "canonical_name": "Review",
+      "type_prefix": "revw",
+      "object_category": "EVIDENCE_AND_ASSURANCE_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME_AND_RUNTIME",
+      "normative_eligibility": "NON_NORMATIVE_ASSURANCE_RECORD_WITH_GATING_EFFECT",
+      "authority_level": "REVIEW_AUTHORITY_WITHIN_SCOPE_NO_ADOPTION_AUTHORITY",
+      "lifecycle_owner": "REVIEW_OWNER",
+      "evidence_owner": "REVIEWER_AND_EVIDENCE_LEDGER",
+      "human_gate_requirement": "HUMAN_GATE_REQUIRED_FOR_HUMAN_ADJUDICATED_REVIEW_OR_WHEN_REVIEW_POLICY_REQUIRES",
+      "allowed_mutations": [
+        "append finding",
+        "completion record",
+        "limitation disclosure"
+      ],
+      "prohibited_mutations": [
+        "reviewed-object self-approval",
+        "scope expansion",
+        "independence overclaim"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-016",
+      "object_type": "VOLUME",
+      "canonical_name": "Volume",
+      "type_prefix": "vol",
+      "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "GOVERNANCE_ORGANIZATION_BOUNDARY_AFTER_APPROVAL",
+      "authority_level": "ORGANIZATION_SCOPE_AUTHORITY_NO_DEPLOYMENT_AUTHORITY",
+      "lifecycle_owner": "VOLUME_OWNER",
+      "evidence_owner": "PACKAGE_AND_VOLUME_CUSTODIAN",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_AUTHORITY_SOURCE_ACCESS_OR_CROSS_BOUNDARY_CHANGE",
+      "allowed_mutations": [
+        "contained object reference update",
+        "retention annotation",
+        "approved scope change"
+      ],
+      "prohibited_mutations": [
+        "automatic deployment interpretation",
+        "implicit authority expansion",
+        "silent source boundary change"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-017",
+      "object_type": "PACKAGE",
+      "canonical_name": "Package",
+      "type_prefix": "pkg",
+      "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME_TO_RUNTIME_HANDOFF",
+      "normative_eligibility": "DELIVERY_BOUNDARY_WITH_SEPARATE_RELEASE_AND_DEPLOYMENT_APPROVAL",
+      "authority_level": "PACKAGE_INTEGRITY_AND_DELIVERY_AUTHORITY_NO_AUTO_DEPLOYMENT",
+      "lifecycle_owner": "AGENT_FACTORY_OR_PACKAGE_OWNER",
+      "evidence_owner": "PACKAGE_VALIDATOR_AND_EVIDENCE_LEDGER",
+      "human_gate_requirement": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_RELEASE_AND_DEPLOYMENT_ELIGIBILITY",
+      "allowed_mutations": [
+        "new immutable package version",
+        "dependency metadata correction before approval",
+        "supersession link"
+      ],
+      "prohibited_mutations": [
+        "in-place released content rewrite",
+        "auto-deploy after tests",
+        "unbound dependency"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-018",
+      "object_type": "AGENT_DEFINITION",
+      "canonical_name": "Agent Definition",
+      "type_prefix": "adef",
+      "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME",
+      "normative_eligibility": "EXECUTABLE_DEFINITION_ONLY_AFTER_REQUIRED_APPROVAL_AND_PACKAGE_BINDING",
+      "authority_level": "DECLARED_CAPABILITY_CEILING_NO_SELF_AUTHORIZATION",
+      "lifecycle_owner": "AGENT_FACTORY_AND_REGISTRY_WITH_EXTERNAL_GATE",
+      "evidence_owner": "FACTORY_REGISTRY_AND_EVIDENCE_LEDGER",
+      "human_gate_requirement": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_ACTIVATION_CAPABILITY_TOOL_OR_AUTHORITY_CHANGE",
+      "allowed_mutations": [
+        "new definition version",
+        "capability reduction",
+        "approved capability change"
+      ],
+      "prohibited_mutations": [
+        "self-modification",
+        "self-authority elevation",
+        "self-tool addition",
+        "self-output approval",
+        "finding deletion",
+        "Normative Policy mutation"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-019",
+      "object_type": "AGENT_INSTANCE",
+      "canonical_name": "Agent Instance",
+      "type_prefix": "ainst",
+      "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+      "design_time_or_runtime": "RUNTIME",
+      "normative_eligibility": "NON_NORMATIVE_RUNTIME_INSTANCE",
+      "authority_level": "RUNTIME_EXECUTION_WITHIN_DEFINITION_AND_ACTIVE_PERMISSION",
+      "lifecycle_owner": "AGENT_OS",
+      "evidence_owner": "AGENT_OS_EMITS_EVIDENCE_LEDGER_PRESERVES",
+      "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_HIGH_RISK_ACTION_SCOPE_OR_PERMISSION_EXPANSION",
+      "allowed_mutations": [
+        "runtime state transition",
+        "permission reduction",
+        "termination record"
+      ],
+      "prohibited_mutations": [
+        "modify Agent Definition",
+        "raise authority ceiling",
+        "add tool",
+        "approve own output",
+        "clear Finding",
+        "modify Normative Policy"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-020",
+      "object_type": "RUNTIME_EVENT",
+      "canonical_name": "Runtime Event",
+      "type_prefix": "evt",
+      "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+      "design_time_or_runtime": "RUNTIME",
+      "normative_eligibility": "NON_NORMATIVE_RUNTIME_EVIDENCE",
+      "authority_level": "EVIDENCE_PRODUCTION_AUTHORITY_NO_POLICY_MUTATION",
+      "lifecycle_owner": "AGENT_OS_AND_RUNTIME_GOVERNANCE",
+      "evidence_owner": "EVIDENCE_LEDGER",
+      "human_gate_requirement": "HUMAN_GATE_REQUIRED_ONLY_FOR_EVENT_TRIGGERED_HIGH_RISK_APPROVAL_NOT_FOR_EVENT_CREATION",
+      "allowed_mutations": [
+        "append handling status",
+        "correction event",
+        "archival metadata"
+      ],
+      "prohibited_mutations": [
+        "rewrite payload hash",
+        "modify Policy",
+        "self-approve triggered action"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    },
+    {
+      "object_type_id": "OBJ-TYPE-021",
+      "object_type": "DEPLOYMENT_ARTIFACT",
+      "canonical_name": "Deployment Artifact",
+      "type_prefix": "dart",
+      "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+      "design_time_or_runtime": "DESIGN_TIME_TO_RUNTIME_HANDOFF",
+      "normative_eligibility": "NON_NORMATIVE_IMMUTABLE_IMPLEMENTATION_ARTIFACT_WITH_SEPARATE_DEPLOYMENT_APPROVAL",
+      "authority_level": "IMPLEMENTATION_ARTIFACT_NO_ARCHITECTURE_OR_DEPLOYMENT_AUTHORITY",
+      "lifecycle_owner": "BUILD_AND_RELEASE_CONTROL_PLANE",
+      "evidence_owner": "BUILD_SYSTEM_AND_EVIDENCE_LEDGER",
+      "human_gate_requirement": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_ENVIRONMENT_DEPLOYMENT_ELIGIBILITY",
+      "allowed_mutations": [
+        "new immutable build",
+        "status update",
+        "rollback linkage"
+      ],
+      "prohibited_mutations": [
+        "rewrite Architecture",
+        "self-deploy",
+        "change approved Package",
+        "fabricate conformance"
+      ],
+      "architecture_lineage": [
+        "MAGP-ARCH-BASELINE-V1",
+        "MAGP_COMPONENT_RESPONSIBILITY",
+        "CORE_OBJECT_LIBRARY_INPUT_BOUNDARY"
+      ],
+      "source_lineage_mode": "TRANSITIVE_THROUGH_ADOPTED_ARCHITECTURE_CLAIM_BINDINGS"
+    }
+  ]
+}

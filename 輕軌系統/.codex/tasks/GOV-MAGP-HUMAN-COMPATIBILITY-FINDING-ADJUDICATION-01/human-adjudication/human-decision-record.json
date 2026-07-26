@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01",
+  "decision_authority": "HUMAN_USER",
+  "decision_source": "CURRENT_HUMAN_INSTRUCTION",
+  "decision_recorded_on": "2026-07-22",
+  "reviewed_inputs": {
+    "COMPAT-R1-001_deterministic_validation": "VALIDATION_PASS",
+    "COMPAT-R1-001_technical_recommendation": "RECOMMEND_HUMAN_CLOSE",
+    "COMPAT-R1-002_deterministic_validation": "VALIDATION_PASS",
+    "COMPAT-R1-002_technical_recommendation": "RECOMMEND_HUMAN_CLOSE"
+  },
+  "decisions": [
+    {
+      "finding_id": "COMPAT-R1-001",
+      "human_decision": "HUMAN_CLOSED",
+      "effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "rationale": "Corrective Overlay已將Source Authority有效狀態固定為PROPOSED_NOT_ADOPTED，並禁止Pending／NO-GO狀態的政策被下游視為Active或Normative。原歷史Artifact保持不變，其過早敘述已被正式降級為HISTORICAL_PREMATURE_DIRECTION，不得產生下游授權效果。"
+    },
+    {
+      "finding_id": "COMPAT-R1-002",
+      "human_decision": "HUMAN_CLOSED",
+      "effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "rationale": "Corrective Overlay已將Architecture Reconciliation有效狀態固定為NOT_AUTHORIZED，原先過早指示Architecture Reconciliation為下一步的敘述，已被降級為歷史性、非授權性內容。Architecture Reconciliation仍須等待後續Review Gate、Human Exact-Manifest Adoption及另行Human授權。"
+    }
+  ],
+  "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "assurance_level": "REDUCED_ASSURANCE",
+  "clean_room_review_completed": false,
+  "independent_external_review_completed": false,
+  "deterministic_validation_completed": true,
+  "human_final_adjudication_completed": true,
+  "codex_role": "DECISION_RECORDER_AND_DETERMINISTIC_VALIDATOR",
+  "codex_decision_authority": "NONE",
+  "status": "FINAL_HUMAN_ADJUDICATION_RECORDED"
+}

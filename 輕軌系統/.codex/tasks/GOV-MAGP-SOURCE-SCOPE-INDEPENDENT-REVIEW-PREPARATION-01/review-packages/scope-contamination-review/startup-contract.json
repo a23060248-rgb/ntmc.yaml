@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+  "mandatory_first_read": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/scope-contamination-review/absolute-launch-envelope.json",
+  "startup_sequence": [
+    "Verify this is a brand-new top-level Codex chat with no inherited review, preparation, implementation, or reviewer payload context.",
+    "Recompute the RFC 8785 JCS hash of launch_core and compare launch_core_sha256.",
+    "Verify assignment, package, role, generation, run, nonce, target, and exact-read-scope bindings.",
+    "Recompute every package-manifest artifact SHA-256 and the package_core RFC 8785 JCS SHA-256.",
+    "Verify the frozen review target and source bindings before any substantive review.",
+    "If any startup check fails, do not perform substantive review; return a schema-valid BLOCKER wrapper and request exit."
+  ],
+  "startup_valid_requires": [
+    "assignment_valid",
+    "package_valid",
+    "target_valid",
+    "scope_valid",
+    "clean_context_valid"
+  ],
+  "content_review_allowed_before_startup_valid": false,
+  "fail_closed": true
+}

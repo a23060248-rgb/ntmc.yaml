@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-SOURCE-SCOPE-EXACT-MANIFEST-ADOPTION-01",
+  "exact_manifest_status": "HUMAN_ADOPTED",
+  "source_authority_status": "HUMAN_ADOPTED",
+  "normative_authority": true,
+  "normative_scope": [
+    "SOURCE_SELECTION",
+    "SOURCE_CITATION",
+    "CLAIM_ELIGIBILITY",
+    "SOURCE_PRECEDENCE",
+    "CONTAMINATION_PREVENTION",
+    "ARCHITECTURE_RECONCILIATION_INPUT_BOUNDARY"
+  ],
+  "normative_scope_classification": "SOURCE_GOVERNANCE_ONLY",
+  "authority_decides_only": [
+    "WHICH_SOURCES_MAY_BE_USED",
+    "SOURCE_PRECEDENCE",
+    "ELIGIBLE_CLAIM_TYPES",
+    "CONTENT_EXCLUSION_OR_DOWNGRADE"
+  ],
+  "authority_does_not_decide": [
+    "MAGP_ARCHITECTURE",
+    "ARCHITECTURE_RECONCILIATION_OUTCOMES",
+    "CORE_OBJECT_LIBRARY",
+    "PRODUCT_DESIGN",
+    "PRODUCT_IMPLEMENTATION"
+  ],
+  "manifest_mutation_allowed": false,
+  "manifest_change_requirement": "NEW_SOURCE_SCOPE_CHANGE_TASK_AND_NEW_HUMAN_GATE"
+}

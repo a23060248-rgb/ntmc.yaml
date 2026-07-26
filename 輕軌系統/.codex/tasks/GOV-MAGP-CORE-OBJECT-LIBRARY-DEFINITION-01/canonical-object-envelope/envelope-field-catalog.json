@@ -1,0 +1,30 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "required_sections": [
+    "identity",
+    "versioning",
+    "lifecycle",
+    "authority",
+    "ownership",
+    "lineage",
+    "evidence",
+    "integrity",
+    "temporal",
+    "assurance",
+    "payload"
+  ],
+  "mandatory_invariants": [
+    "canonical identity",
+    "version",
+    "lifecycle state",
+    "authority ceiling",
+    "lineage",
+    "integrity binding"
+  ],
+  "filename_is_canonical_identity": false,
+  "omission_allowed": false
+}

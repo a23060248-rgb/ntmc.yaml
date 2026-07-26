@@ -1,0 +1,66 @@
+{
+  "package_core": {
+    "schema_version": 2,
+    "aggregation_generation": "R2",
+    "aggregation_attempt": "RETRY_01",
+    "aggregator_task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R2-RETRY-01",
+    "preparation_task_id": "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+    "aggregation_package_id": "MAGP-SSR2-AGGREGATION-RETRY01-31734821-D328-493C-A438-DE69CFA15576",
+    "assignment_id": "ASSIGN-F0A9ACAC-50DA-42D8-AED4-C419AC0ABA07",
+    "aggregator_run_id": "RUN-D5772AA2-414C-47A1-BCE8-FCB41CD6AF6E",
+    "aggregator_session_nonce": "880A7EEAA598A507DF6CAC085772A00F921FAAF80A0424F714ED34BC0359EABD",
+    "formal_intake_results_core_sha256": "8883F733D76475717BBC345BE81CE934FCB474FF489BEC3DBA72F138DE5F0761",
+    "correction_integrity_record_core_sha256": "77EA27B9441E1E966CD39F2CD3CBA278326C70E55780470DD2EB372CC3025F42",
+    "reviewer_reuse_record_core_sha256": "42BBD03EF090AF123D6A062C00D39F9FB864F6288A922E2BCCB034E6257EBF2E",
+    "compatibility_retry_package_core_sha256": "C9E4A17CCCE89C9E8D61D52AEAB48B0D6D0D1F0AA0B21C4D38FBC484053A3EDF",
+    "compatibility_retry_package_id": "MAGP-SSR2-COMPATIBILITY-RETRY01-95E57850-56B4-4FCE-9E56-855C5464AD6D",
+    "compatibility_retry_payload_status": "NOT_RECEIVED",
+    "required_compatibility_validation_branch": "STARTUP_VALID_REVIEW_RESULT",
+    "attempt_1_classification": "FAILED_STARTUP_EVIDENCE_HISTORY",
+    "startup_failure_evidence_accepted_as_success_input": false,
+    "package_status": "CONDITIONALLY_READY",
+    "launch_authorized": false,
+    "exact_read_scope_sha256": "43470D209524C420F3D61915ECADB2BCB3D79C95848FD04189BFE510B03CA0EA",
+    "artifacts": [
+      {
+        "normalized_relative_path": "assignment.json",
+        "file_size_bytes": 709,
+        "sha256": "2A1340A47C7F85C577B71CA68847C335B8DC3263EFE429D1C586AC5193A3B6F5"
+      },
+      {
+        "normalized_relative_path": "aggregation-input-contract.json",
+        "file_size_bytes": 2972,
+        "sha256": "659FE4256F4C6EE8DE258CFF503F961C35E5D21A3483CD98BE058A9D90FD5C75"
+      },
+      {
+        "normalized_relative_path": "prerequisites.json",
+        "file_size_bytes": 372,
+        "sha256": "05410D6FEBF543C7173E813D8F54A9BAE385277116E1A0F90CD2F9A1FBC23F33"
+      },
+      {
+        "normalized_relative_path": "exact-read-scope.json",
+        "file_size_bytes": 6251,
+        "sha256": "43470D209524C420F3D61915ECADB2BCB3D79C95848FD04189BFE510B03CA0EA"
+      },
+      {
+        "normalized_relative_path": "prohibited-actions.json",
+        "file_size_bytes": 376,
+        "sha256": "6925B86BFF7BE993916D689FE4D072C2C33764D41138CFD6559E1695AE9226A4"
+      },
+      {
+        "normalized_relative_path": "embedded-not-authorized-template.json",
+        "file_size_bytes": 195,
+        "sha256": "81FE193A439AA8214C561B3CC469AD4901CEBEEA44A76220E35D9FC79447D6EB"
+      },
+      {
+        "normalized_relative_path": "standalone-top-level-aggregator-prompt.md",
+        "file_size_bytes": 644,
+        "sha256": "5DE8F60D6C17418E5BA80388242A8F2BAE44BA47387126B75011AE8E40D76D82"
+      }
+    ]
+  },
+  "package_core_sha256": "544CA6FA38974584ADFFA6F6624165A99FDA4AD087440CD8B483989A3E3CCDB2",
+  "canonicalization": "RFC8785_JCS",
+  "hash_algorithm": "SHA-256",
+  "hash_encoding": "UPPERCASE_HEX"
+}

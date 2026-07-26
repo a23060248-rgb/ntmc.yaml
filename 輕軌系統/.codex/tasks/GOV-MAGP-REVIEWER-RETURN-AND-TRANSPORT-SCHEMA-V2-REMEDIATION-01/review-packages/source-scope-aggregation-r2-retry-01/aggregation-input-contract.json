@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "legal_success_inputs": [
+    {
+      "reviewer_key": "source_integrity_r1",
+      "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+      "review_status": "PASS",
+      "formal_intake_status": "FORMALLY_ACCEPTED_PASS",
+      "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-integrity-r1.raw.txt",
+      "raw_payload_sha256": "8546BD1DCE083A94D57DE06CD6F179696E1E3828E7E7299580AB431637A909F0",
+      "payload_core_sha256": "AB8A39ABA06428A17BE17E0B51E9172040207D36D558826ADA9540FF5AC3F6D3"
+    },
+    {
+      "reviewer_key": "source_authority_r1",
+      "reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+      "review_status": "PASS",
+      "formal_intake_status": "FORMALLY_ACCEPTED_PASS",
+      "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-authority-r1.raw.txt",
+      "raw_payload_sha256": "BB1FAC2470EDBD5C322A509752E359AA076DFB015E9A0367270C6840C3959EFA",
+      "payload_core_sha256": "8D7DF16EBD93FB6791D7FD795BACC712F61A6075C554B96F9D7119BBAE512834"
+    },
+    {
+      "reviewer_key": "scope_contamination_r1",
+      "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+      "review_status": "PASS",
+      "formal_intake_status": "FORMALLY_ACCEPTED_PASS",
+      "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/scope-contamination-r1.raw.txt",
+      "raw_payload_sha256": "44CDDB53A09ECCDCFCA9B8D94829D1CBBCF8730B6C587B02B95862B711A5033F",
+      "payload_core_sha256": "27D73701954A3A83F78EAE2343ECD42217782E1B0CFEE3166280912DF523D976"
+    },
+    {
+      "reviewer_key": "compatibility_r2_retry_01",
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R2-RETRY-01",
+      "review_package_id": "MAGP-SSR2-COMPATIBILITY-RETRY01-95E57850-56B4-4FCE-9E56-855C5464AD6D",
+      "required_payload_validation_branch": "STARTUP_VALID_REVIEW_RESULT",
+      "required_review_status": "PASS",
+      "required_substantive_review_credit": "FULL",
+      "required_aggregator_eligible": true,
+      "required_closed_findings": [
+        "COMPAT-R1-001",
+        "COMPAT-R1-002"
+      ],
+      "current_payload_status": "NOT_RECEIVED"
+    }
+  ],
+  "prohibited_success_inputs": [
+    "Compatibility R1 BLOCKER",
+    "Compatibility R2 Attempt 1",
+    "STARTUP_BLOCKER_FAILURE_EVIDENCE",
+    "substantive_review_credit=NONE",
+    "aggregator_eligible=false"
+  ],
+  "attempt_1_classification": "FAILED_STARTUP_EVIDENCE_HISTORY",
+  "compatibility_retry_formal_intake_required": true,
+  "launch_authorization_rule": "ALL_FOUR_LEGAL_SUCCESS_INPUTS_FORMALLY_ACCEPTED_AND_RECOMPUTED"
+}

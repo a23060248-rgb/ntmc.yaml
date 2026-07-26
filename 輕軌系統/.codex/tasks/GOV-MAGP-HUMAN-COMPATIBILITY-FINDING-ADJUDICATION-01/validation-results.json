@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01",
+  "validation_status": "PASS_59_OF_59",
+  "executed_on": "2026-07-22",
+  "validator": {
+    "path": "scripts/validate-adjudication.mjs",
+    "sha256": "397F7697168C12B5751E191760A1C5828650A9F1F9484813C2D812E3F2CB9362",
+    "bytes": 27215,
+    "syntax_check": "PASS",
+    "execution_result": "PASS_59_OF_59"
+  },
+  "tree_digest_helper": {
+    "path": "scripts/compute-tree-digest.mjs",
+    "sha256": "F9B6BD9556F21C257C05DDF4BE18F0EADECF6F3FBCA56CB803301602AF062033",
+    "bytes": 1434,
+    "syntax_check": "PASS"
+  },
+  "check_groups": [
+    {
+      "name": "HUMAN_MINIMUM_AND_PROTECTED_INTEGRITY",
+      "check_range": "1-25",
+      "passed": 25,
+      "total": 25,
+      "status": "PASS"
+    },
+    {
+      "name": "CLOSURE_GATE_ASSURANCE_AND_PACKAGE_BOUNDARIES",
+      "check_range": "26-43",
+      "passed": 18,
+      "total": 18,
+      "status": "PASS"
+    },
+    {
+      "name": "FORMAL_R1_INPUTS_AND_AGGREGATOR_MAXIMUM",
+      "check_range": "44-49",
+      "passed": 6,
+      "total": 6,
+      "status": "PASS"
+    },
+    {
+      "name": "NEGATIVE_FAIL_CLOSED_CASES",
+      "check_range": "50-59",
+      "passed": 10,
+      "total": 10,
+      "status": "PASS"
+    }
+  ],
+  "evidence_counts": {
+    "human_adjudication_inputs": "10_OF_10",
+    "base_target": "20_OF_20",
+    "corrective_overlay": "7_OF_7",
+    "source_root": "11_OF_11",
+    "source_classification": "4_CORE_1_OPTIONAL_6_EXCLUDED",
+    "historical_tasks": "7_OF_7",
+    "human_adjudication_records": "5_OF_5",
+    "aggregator_launch_package": "8_OF_8",
+    "aggregator_readiness_conditions": "16_OF_16"
+  },
+  "key_artifact_bindings": [
+    {
+      "path": "human-adjudication-input-manifest.json",
+      "sha256": "F7830C999082193637F9AEAC9E34AD792D5CEB4CBAC9AC6454B746A4D20ED0BB",
+      "bytes": 2568
+    },
+    {
+      "path": "human-adjudication/adjudication-integrity.json",
+      "sha256": "13B9895C8C2DFA9C90B753EE869DAF0841F0D63267241859BD7786374EC520DA",
+      "bytes": 1179
+    },
+    {
+      "path": "compatibility-review-model-result.json",
+      "sha256": "97754C1A82EE9AFD09582C35B492B39A5A1FB787633315440047F5715D4E4151",
+      "bytes": 620
+    },
+    {
+      "path": "finding-final-status.json",
+      "sha256": "F2FB5EB8431210FAF9B37BC24456B240E8CC4F2C886E5754978242261DBE875E",
+      "bytes": 965
+    },
+    {
+      "path": "aggregator-input-manifest.json",
+      "sha256": "C5C7AA72FE9B92910998AA06D016DDDB04F3C449E42A69FF4A3F9D7A5AFD0683",
+      "bytes": 5882
+    },
+    {
+      "path": "aggregator-launch-readiness.json",
+      "sha256": "2243ADC76E8EA658D2A5CC7435D248097BDC870761A6820D4E3C17CD76C6A5C0",
+      "bytes": 1595
+    },
+    {
+      "path": "aggregator-launch-package/package-manifest.json",
+      "sha256": "0707416532B1565AD1BE1A30E6A475661367DA4B8989FCC7D7662FA70BD016D9",
+      "bytes": 1647
+    }
+  ],
+  "verified_state": {
+    "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+    "assurance_level": "REDUCED_ASSURANCE",
+    "clean_room_independent_review": "NOT_COMPLETED",
+    "COMPAT-R1-001": "CLOSED_BY_HUMAN_ADJUDICATION",
+    "COMPAT-R1-002": "CLOSED_BY_HUMAN_ADJUDICATION",
+    "open_compatibility_critical": 0,
+    "open_compatibility_high": 0,
+    "base_review_target": "UNCHANGED",
+    "corrective_overlay": "UNCHANGED",
+    "source_authority": "PROPOSED_NOT_ADOPTED",
+    "compatibility_gate": "GO_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+    "source_scope_lock_review_gate": "PENDING_AGGREGATOR",
+    "aggregator": "NOT_STARTED",
+    "aggregator_launch_readiness": "READY_FOR_HUMAN_TO_LAUNCH_HUMAN_ADJUDICATED_SOURCE_SCOPE_AGGREGATOR",
+    "architecture_reconciliation": "NOT_AUTHORIZED",
+    "git_used": false
+  },
+  "prohibited_action_attestation": {
+    "network_used": false,
+    "service_used": false,
+    "database_used": false,
+    "seed_used": false,
+    "migration_used": false,
+    "dot_env_read": false,
+    "subagents_used": false,
+    "reviewer_launched": false,
+    "aggregator_launched": false,
+    "source_scope_adoption_started": false,
+    "architecture_reconciliation_started": false,
+    "writes_outside_task_root": false
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "path_count": 18,
+  "paths": [
+    {
+      "path": ".git",
+      "permission": "PROHIBITED",
+      "reason": "Git internal directory",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/**/.env",
+      "permission": "PROHIBITED",
+      "reason": "Environment secret material",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/**/.env.*",
+      "permission": "PROHIBITED",
+      "reason": "Environment secret material",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/**/credentials*",
+      "permission": "PROHIBITED",
+      "reason": "Credential material",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/**/*private*key*",
+      "permission": "PROHIBITED",
+      "reason": "Private key material",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/**/*secret*",
+      "permission": "PROHIBITED",
+      "reason": "Secret material",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/db-design",
+      "permission": "PROHIBITED",
+      "reason": "Existing database migration and schema area",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/.local-rehearsal",
+      "permission": "PROHIBITED",
+      "reason": "Existing database/rehearsal data",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/erp-api/src",
+      "permission": "PROHIBITED",
+      "reason": "Existing ERP API and business logic",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/erp-api/scripts",
+      "permission": "PROHIBITED",
+      "reason": "Existing product and migration scripts",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/frontend/src",
+      "permission": "PROHIBITED",
+      "reason": "Existing frontend business UI",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/frontend/dist",
+      "permission": "PROHIBITED",
+      "reason": "Existing built product output",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/啟動輕軌維修系統.cmd",
+      "permission": "PROHIBITED",
+      "reason": "Existing runtime launcher",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/停止輕軌維修系統.cmd",
+      "permission": "PROHIBITED",
+      "reason": "Existing runtime control",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+      "permission": "PROHIBITED",
+      "reason": "Historical adopted governance task",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01",
+      "permission": "PROHIBITED",
+      "reason": "Historical implementation attempt",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "<REPOSITORY_EXTERNAL_PATHS>",
+      "permission": "PROHIBITED",
+      "reason": "Any path outside the repository",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    },
+    {
+      "path": "<USER_HOME_PATHS>",
+      "permission": "PROHIBITED",
+      "reason": "Any user-home path",
+      "prohibited_operations": [
+        "DELETE",
+        "MOVE",
+        "RENAME",
+        "OVERWRITE",
+        "FORMAT",
+        "AUTO_FIX"
+      ]
+    }
+  ],
+  "status": "CANDIDATE"
+}

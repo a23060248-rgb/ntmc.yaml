@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human Core Object Library Launch Decision",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "decision_type",
+    "decision_status",
+    "human_decision",
+    "core_object_library_definition_authorized",
+    "codex_filled_human_decision"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "task_id": {
+      "const": "GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01"
+    },
+    "decision_type": {
+      "const": "HUMAN_AUTHORIZE_CORE_OBJECT_LIBRARY_DEFINITION"
+    },
+    "decision_status": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "HUMAN_APPROVED",
+        "HUMAN_REJECTED"
+      ]
+    },
+    "human_decision": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "AUTHORIZE_CORE_OBJECT_LIBRARY_DEFINITION_WITH_ADOPTED_ARCHITECTURE",
+        "DO_NOT_AUTHORIZE_CORE_OBJECT_LIBRARY_DEFINITION"
+      ]
+    },
+    "core_object_library_definition_authorized": {
+      "type": "boolean"
+    },
+    "codex_filled_human_decision": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

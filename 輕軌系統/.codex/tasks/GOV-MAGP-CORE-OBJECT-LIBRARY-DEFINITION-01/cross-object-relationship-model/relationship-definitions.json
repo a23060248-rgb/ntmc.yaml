@@ -1,0 +1,352 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "relationship_count": 18,
+  "relationships": [
+    {
+      "relationship_id": "REL-001",
+      "relation": "GOVERNS",
+      "source_type": "META_CONSTITUTION",
+      "target_type": "POLICY",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "1_TO_MANY",
+      "authority_effect": "Policy validity is bounded by Constitution",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-002",
+      "relation": "AUTHORIZES",
+      "source_type": "POLICY",
+      "target_type": "GOVERNANCE_RULE",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "1_TO_MANY",
+      "authority_effect": "Rule enforcement cannot exceed Policy",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-003",
+      "relation": "DECIDES",
+      "source_type": "RFC",
+      "target_type": "DECISION",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "1_TO_MANY",
+      "authority_effect": "Decision effect requires applicable approval",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-004",
+      "relation": "CHANGES",
+      "source_type": "DECISION",
+      "target_type": "POLICY",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "MANY_TO_MANY",
+      "authority_effect": "Only within explicit decision and Human approval scope",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-005",
+      "relation": "CHANGES",
+      "source_type": "DECISION",
+      "target_type": "BLUEPRINT",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "MANY_TO_MANY",
+      "authority_effect": "Only within adopted Architecture and higher authority",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-006",
+      "relation": "CONSTRAINS",
+      "source_type": "DECISION",
+      "target_type": "BLUEPRINT",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "MANY_TO_MANY",
+      "authority_effect": "Architecture decision constrains design",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-007",
+      "relation": "REQUIRES",
+      "source_type": "BLUEPRINT",
+      "target_type": "SPECIFICATION",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "1_TO_MANY",
+      "authority_effect": "Specification cannot exceed Blueprint",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-008",
+      "relation": "BINDS",
+      "source_type": "SPECIFICATION",
+      "target_type": "SCHEMA",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "1_TO_MANY",
+      "authority_effect": "Schema validates without approving Specification",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-009",
+      "relation": "VALIDATES",
+      "source_type": "SCHEMA",
+      "target_type": "ANY_CORE_OBJECT",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "MANY_TO_MANY",
+      "authority_effect": "Validation has no approval effect",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-010",
+      "relation": "SUPPORTS",
+      "source_type": "EVIDENCE",
+      "target_type": "REVIEW",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "MANY_TO_MANY",
+      "authority_effect": "Evidence supports but does not decide Review result",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-011",
+      "relation": "PRODUCES",
+      "source_type": "REVIEW",
+      "target_type": "FINDING",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "1_TO_MANY",
+      "authority_effect": "Finding closure remains separate",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-012",
+      "relation": "REQUIRES_REMEDIATION",
+      "source_type": "FINDING",
+      "target_type": "DECISION",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "MANY_TO_MANY",
+      "authority_effect": "Closure requires authority and evidence",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-013",
+      "relation": "ACTIVATES",
+      "source_type": "HUMAN_APPROVAL",
+      "target_type": "ANY_POTENTIALLY_NORMATIVE_OBJECT",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "MANY_TO_MANY",
+      "authority_effect": "Exact artifact hash and scope required",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-014",
+      "relation": "CONTAINS",
+      "source_type": "PACKAGE",
+      "target_type": "ANY_VERSIONED_OBJECT",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "MANY_TO_MANY",
+      "authority_effect": "Exact version and hash binding required",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-015",
+      "relation": "ORGANIZES",
+      "source_type": "VOLUME",
+      "target_type": "PACKAGE_OR_OBJECT",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "1_TO_MANY",
+      "authority_effect": "Organization does not imply deployment",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-016",
+      "relation": "INSTANTIATES",
+      "source_type": "AGENT_DEFINITION",
+      "target_type": "AGENT_INSTANCE",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "1_TO_MANY",
+      "authority_effect": "Instance cannot mutate Definition",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-017",
+      "relation": "PRODUCES",
+      "source_type": "AGENT_INSTANCE",
+      "target_type": "RUNTIME_EVENT",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "1_TO_MANY",
+      "authority_effect": "Event cannot mutate Policy",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    },
+    {
+      "relationship_id": "REL-018",
+      "relation": "IMPLEMENTS",
+      "source_type": "DEPLOYMENT_ARTIFACT",
+      "target_type": "PACKAGE",
+      "direction": "SOURCE_TO_TARGET",
+      "cardinality": "MANY_TO_ONE",
+      "authority_effect": "Artifact cannot self-deploy or rewrite Architecture",
+      "lifecycle_effect": "target validity follows exact source/version binding where applicable; supersession never rewrites history",
+      "deletion_supersession_behavior": "no cascade deletion of authoritative history; use supersession or archival",
+      "evidence_requirements": [
+        "source identity",
+        "target identity",
+        "relation version",
+        "integrity hash",
+        "actor",
+        "timestamp"
+      ]
+    }
+  ]
+}

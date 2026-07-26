@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "artifact_type": "ADOPTED_OBJECT_AUTHORITY_INDEX",
+  "adoption_status": "HUMAN_ADOPTED",
+  "normative_object_library": true,
+  "object_library_baseline": "MAGP-OBJECT-LIBRARY-BASELINE-V1",
+  "adoption_method": "EXACT_5A_1_PROPOSAL_REFERENCE_WITH_SEPARATE_HUMAN_EFFECTIVE_STATE",
+  "original_proposal_references": [
+    {
+      "relative_path": "core-object-library-proposal/object-authority-index.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/core-object-library-proposal/object-authority-index.json",
+      "sha256": "AA5E77C887995F86D6D0AA7117E9385404D524EE2516E18F64961241970614D4",
+      "bytes": 1171
+    },
+    {
+      "relative_path": "object-authority-model/authority-classes.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-authority-model/authority-classes.json",
+      "sha256": "A228BE3281ECEF5B39271CDBCE3573ACD746B1FE78C1998B89364CC538C3F812",
+      "bytes": 2619
+    },
+    {
+      "relative_path": "object-authority-model/authority-action-matrix.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-authority-model/authority-action-matrix.json",
+      "sha256": "9A0C5CA9CBDD62A74B0340DB4EA330C54255E2CD5422B58E3738EE2E73026DDC",
+      "bytes": 11405
+    },
+    {
+      "relative_path": "object-authority-model/human-gate-requirements.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-authority-model/human-gate-requirements.json",
+      "sha256": "AEF0B00ED1894E1109CA86CE5F24740B5DC54C58F874C1FF6B9F34B57C2215E8",
+      "bytes": 9099
+    },
+    {
+      "relative_path": "object-authority-model/separation-of-duties.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-authority-model/separation-of-duties.json",
+      "sha256": "80BDE8A504F8F176BA96C64FAD4388B66D8DD9A08A8ED5E62FC39DC306C5DD7E",
+      "bytes": 1063
+    },
+    {
+      "relative_path": "object-authority-model/finding-closure-authority.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-authority-model/finding-closure-authority.json",
+      "sha256": "55FA8214B8B33159D883C03F0C84FBF6DCADA2E3FD37052C5C6F6BE0D8205EF7",
+      "bytes": 542
+    },
+    {
+      "relative_path": "object-authority-model/authority-cycle-detection.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-authority-model/authority-cycle-detection.json",
+      "sha256": "E1780AA3777A034C72360B39DDD2178BE35B417BC110CE6DD51D6083D6E2386F",
+      "bytes": 574
+    }
+  ],
+  "original_proposal_bytes_modified": false,
+  "human_decision_reference": {
+    "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+    "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+    "bytes": 27044
+  },
+  "resolved_decisions": [
+    "HOD-007",
+    "HOD-009",
+    "HOD-013",
+    "HOD-014"
+  ],
+  "actions": [
+    "CREATE",
+    "PROPOSE",
+    "REVIEW",
+    "VALIDATE",
+    "APPROVE",
+    "ACTIVATE",
+    "ENFORCE",
+    "SUSPEND",
+    "SUPERSEDE",
+    "ARCHIVE",
+    "REVOKE"
+  ],
+  "invariants": [
+    "VALIDATION_AUTHORITY_NOT_APPROVAL_AUTHORITY",
+    "RUNTIME_ENFORCEMENT_NOT_POLICY_ADOPTION",
+    "EVIDENCE_PRODUCTION_NOT_EVIDENCE_ACCEPTANCE",
+    "TECHNICAL_RECOMMENDATION_NOT_HUMAN_DECISION"
+  ],
+  "authority_cycles_detected": 0
+}

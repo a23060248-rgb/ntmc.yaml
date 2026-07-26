@@ -1,0 +1,51 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-017",
+  "object_type": "PACKAGE",
+  "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+  "canonical_name": "Package",
+  "type_prefix": "pkg",
+  "design_time_or_runtime": "DESIGN_TIME_TO_RUNTIME_HANDOFF",
+  "normative_or_non_normative": "DELIVERY_BOUNDARY_WITH_SEPARATE_RELEASE_AND_DEPLOYMENT_APPROVAL",
+  "current_normative_effect": false,
+  "authority_level": "PACKAGE_INTEGRITY_AND_DELIVERY_AUTHORITY_NO_AUTO_DEPLOYMENT",
+  "lifecycle_owner": "AGENT_FACTORY_OR_PACKAGE_OWNER",
+  "evidence_owner": "PACKAGE_VALIDATOR_AND_EVIDENCE_LEDGER",
+  "human_gate_requirement": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_RELEASE_AND_DEPLOYMENT_ELIGIBILITY",
+  "accountable_human_role": "PACKAGE_OWNER",
+  "responsible_machine_role": "AGENT_FACTORY_AND_PACKAGE_VALIDATOR",
+  "allowed_mutations": [
+    "new immutable package version",
+    "dependency metadata correction before approval",
+    "supersession link"
+  ],
+  "prohibited_mutations": [
+    "in-place released content rewrite",
+    "auto-deploy after tests",
+    "unbound dependency"
+  ],
+  "required_payload_fields": [
+    "package_identity",
+    "package_version",
+    "manifest",
+    "included_object_versions",
+    "dependency_bindings",
+    "schema_bindings",
+    "integrity_hashes",
+    "validation_results",
+    "approval_status",
+    "release_status",
+    "deployment_eligibility"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "package.schema-proposal.schema.json",
+  "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+}

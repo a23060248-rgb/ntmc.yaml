@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-PRELAUNCH-BOUNDARY-AND-RELAUNCH-01",
+  "finding_id": "WORKTREE_BASELINE_NOT_REPRODUCIBLE",
+  "severity": "CRITICAL",
+  "source_task_tracked_files": 0,
+  "source_task_required_files": 106,
+  "attempt_1_tracked_files": 0,
+  "attempt_1_required_files": 41,
+  "total_historical_untracked_files": 147,
+  "current_head": "187ca36a2ef2c4be991e2f94956eae151b417217",
+  "effect": "A new Worktree from HEAD cannot reproduce adopted Baselines, original Launch Package, Attempt 1, or a future untracked Launch Package V2.",
+  "prohibited_workaround": "Do not copy uncommitted Baselines into a new Worktree and do not mutate historical tasks.",
+  "required_resolution": "A separate Human-authorized governance commit or equivalent immutable Git trust anchor must include the exact adopted governance artifacts before Worktree-based Attempt 2.",
+  "status": "OPEN"
+}

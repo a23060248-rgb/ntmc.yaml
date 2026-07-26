@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01",
+  "level": "L3",
+  "execution_status": "HARD_STOPPED_AT_FORMAL_INTAKE",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01/**"
+  ],
+  "applicable_rules": [
+    "PHASE1_GOVERNANCE_ONLY",
+    "FAIL_CLOSED_REVIEW_INTAKE",
+    "NO_REVIEW_CREDIT_FOR_STARTUP_BLOCKER",
+    "NO_DOWNSTREAM_LAUNCH_BEFORE_VALID_RETRY"
+  ],
+  "candidate_rules": [],
+  "agent_assignments": [
+    {
+      "role": "documentation-engineer",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01/**"
+      ],
+      "status": "ROOT_EXECUTION_ONLY_NO_SUBAGENT_DISPATCH"
+    },
+    {
+      "role": "qa-engineer",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01/**"
+      ],
+      "status": "NOT_STARTED_DUE_TO_INTAKE_HARD_STOP"
+    }
+  ],
+  "execution_sequence": [
+    "preserve_human_raw_wrapper",
+    "parse_without_repair",
+    "validate_formal_return_schema",
+    "validate_rfc8785_jcs_and_identity",
+    "hard_stop_on_any_intake_failure",
+    "prepare_retry_only_if_all_intake_gates_pass"
+  ],
+  "current_step": "hard_stop_on_any_intake_failure",
+  "blocked_downstream_steps": [
+    "transport_attestation",
+    "failed_attempt_substantive_disposition",
+    "retry_identity_generation",
+    "compatibility_r2_retry_01_package",
+    "aggregator_r2_retry_01_package",
+    "30_of_30_contract_tests",
+    "reviewer_launch",
+    "aggregator_launch"
+  ],
+  "rollback_restore_evidence": {
+    "status": "NOT_APPLICABLE",
+    "reason": "Task-local governance evidence only; no product, database, seed, migration, service, or external state operation was authorized or performed."
+  },
+  "gate_state": "NO-GO"
+}

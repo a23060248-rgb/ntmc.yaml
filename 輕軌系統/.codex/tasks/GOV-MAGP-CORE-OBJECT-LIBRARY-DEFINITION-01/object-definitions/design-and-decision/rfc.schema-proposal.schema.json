@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:rfc:v0",
+  "title": "RFC Schema Proposal",
+  "description": "Candidate schema proposal; not adopted and not a database schema.",
+  "allOf": [
+    {
+      "$ref": "../../../canonical-object-envelope/canonical-object-envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "object_type": {
+              "const": "RFC"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "problem_statement",
+            "context",
+            "options_considered",
+            "source_architecture_support",
+            "authority_impact",
+            "security_impact",
+            "evidence_impact",
+            "compatibility_impact",
+            "migration_impact",
+            "decision_request",
+            "approval_requirements",
+            "implementation_constraints",
+            "rollback_strategy"
+          ],
+          "properties": {
+            "problem_statement": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "context": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "options_considered": {
+              "type": "array",
+              "items": {}
+            },
+            "source_architecture_support": {
+              "type": "array",
+              "items": {}
+            },
+            "authority_impact": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "security_impact": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "evidence_impact": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "compatibility_impact": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "migration_impact": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "decision_request": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "approval_requirements": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "implementation_constraints": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "rollback_strategy": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    }
+  ],
+  "x-magp-object-type-id": "OBJ-TYPE-004",
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true,
+  "x-magp-database-schema": false
+}

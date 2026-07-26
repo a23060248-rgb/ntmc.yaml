@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gov-magp:human-magp-architecture-adoption:v1",
+  "title": "Human MAGP Architecture Adoption Decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "decision_type",
+    "decision_status",
+    "human_decision",
+    "human_actor",
+    "decision_timestamp",
+    "rationale",
+    "resolved_human_decisions",
+    "architecture_adopted",
+    "normative_architecture",
+    "core_object_library_authorized",
+    "product_implementation_authorized",
+    "codex_filled_human_decision"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "task_id": {
+      "const": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01"
+    },
+    "decision_type": {
+      "const": "HUMAN_MAGP_ARCHITECTURE_ADOPTION"
+    },
+    "decision_status": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "RECORDED"
+      ]
+    },
+    "human_decision": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "ADOPT_CANONICAL_ARCHITECTURE_WITH_REDUCED_ASSURANCE",
+        "ADOPT_CANONICAL_ARCHITECTURE_WITH_MODIFICATIONS",
+        "DEFER_ARCHITECTURE_ADOPTION",
+        "REJECT_CANONICAL_ARCHITECTURE_PROPOSAL"
+      ]
+    },
+    "human_actor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision_timestamp": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rationale": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resolved_human_decisions": {
+      "type": "array"
+    },
+    "architecture_adopted": {
+      "type": "boolean"
+    },
+    "normative_architecture": {
+      "type": "boolean"
+    },
+    "core_object_library_authorized": {
+      "const": false
+    },
+    "product_implementation_authorized": {
+      "const": false
+    },
+    "codex_filled_human_decision": {
+      "const": false
+    }
+  }
+}

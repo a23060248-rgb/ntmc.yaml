@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "phase_0": {
+    "id": "GOVERNANCE_AND_PROJECT_BOOTSTRAP",
+    "authorized": true,
+    "item_count": 15,
+    "allowed": [
+      "project directory skeleton",
+      "empty Backend Frontend Shared Contract projects",
+      "test directories and test tool configuration",
+      "configuration templates without secrets",
+      "Architecture Object Logical Contract Baseline references",
+      "CI proposal and local validation scripts",
+      "Schema Registry skeleton",
+      "Evidence output directories",
+      "static analysis configuration",
+      "formatting and linting configuration",
+      "README Developer Guide Governance Guide",
+      "empty Database Migration skeleton without execution",
+      "OpenAPI AsyncAPI files placed",
+      "Security Baseline configuration skeleton",
+      "Work Package and Evidence Ledger skeleton"
+    ]
+  },
+  "phase_1": {
+    "id": "CANONICAL_OBJECT_AND_VALIDATION_KERNEL",
+    "authorized": true,
+    "item_count": 20,
+    "allowed": [
+      "Canonical Object Envelope",
+      "Object Identity Value Objects",
+      "Object Version model",
+      "Lifecycle State types",
+      "Authority Class types",
+      "Evidence Binding types",
+      "Lineage Binding types",
+      "Integrity Hash model",
+      "Assurance Disclosure model",
+      "Canonicalization Utility",
+      "Schema Validation Kernel",
+      "Structural Validation",
+      "Authority Ceiling Validation",
+      "Lifecycle Transition Validation",
+      "Lineage Validation",
+      "Evidence Binding Validation",
+      "Baseline Binding Validation",
+      "Positive Negative Boundary Tests",
+      "Contract Conformance Tests",
+      "Evidence output and test reports"
+    ]
+  },
+  "phase_2_or_later": {
+    "authorized": false
+  }
+}

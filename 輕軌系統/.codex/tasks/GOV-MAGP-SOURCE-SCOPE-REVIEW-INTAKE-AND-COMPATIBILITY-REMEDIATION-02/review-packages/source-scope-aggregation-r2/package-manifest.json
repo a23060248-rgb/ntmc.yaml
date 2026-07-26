@@ -1,0 +1,59 @@
+{
+  "package_core": {
+    "schema_version": 1,
+    "aggregation_generation": "R2",
+    "aggregator_task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R2",
+    "aggregation_package_id": "MAGP-SSR2-AGGREGATION-6F05A79C-A02C-4735-B51D-7BF4E940D740",
+    "assignment_id": "ASSIGN-13FCF5E4-BE08-4E0A-BD7D-EA6D12018446",
+    "aggregator_run_id": "RUN-3AF5B8AC-4D61-4E9B-B737-84F0CC9D25C2",
+    "aggregator_session_nonce": "65B1785C35589BE3CDE79A93DFD60BBC62285A77B538C3EB571A634B0D98E0D0",
+    "preparation_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+    "formal_intake_results_core_sha256": "8883F733D76475717BBC345BE81CE934FCB474FF489BEC3DBA72F138DE5F0761",
+    "correction_integrity_record_core_sha256": "77EA27B9441E1E966CD39F2CD3CBA278326C70E55780470DD2EB372CC3025F42",
+    "reviewer_reuse_record_core_sha256": "42BBD03EF090AF123D6A062C00D39F9FB864F6288A922E2BCCB034E6257EBF2E",
+    "compatibility_r2_package_core_sha256": "13C466C5C48A8B3B4A90DCF299BC52B0946606D8937CD74D846105D0B08E1AB2",
+    "compatibility_r2_payload_status": "NOT_RECEIVED",
+    "launch_authorized": false,
+    "artifacts": [
+      {
+        "normalized_relative_path": "assignment.json",
+        "file_size_bytes": 726,
+        "sha256": "1B235402D789C3DE652BE116FCF25E9B82F2F1232D017040EDB6EC7CFA70A969"
+      },
+      {
+        "normalized_relative_path": "aggregation-input-contract.json",
+        "file_size_bytes": 2082,
+        "sha256": "285B570BEB346C99B7773490D310AE749AAA2DC5A54C9E6060BAFA0D83951E2A"
+      },
+      {
+        "normalized_relative_path": "prerequisites.json",
+        "file_size_bytes": 403,
+        "sha256": "CD19F26F5A4B43B34AD1D44A4BA652D2A3874093532601E207F72D99C3AC4B67"
+      },
+      {
+        "normalized_relative_path": "exact-read-scope.json",
+        "file_size_bytes": 7078,
+        "sha256": "897CDAD0D84F865F8CF7365FC5363E08D0C45D0C25FB8841ECEC8B86444E72C8"
+      },
+      {
+        "normalized_relative_path": "prohibited-actions.json",
+        "file_size_bytes": 443,
+        "sha256": "E63A260CFE10D4C057759F1593F9018FA6B77F8FA0F040648968D71BBC62C660"
+      },
+      {
+        "normalized_relative_path": "embedded-not-authorized-template.json",
+        "file_size_bytes": 151,
+        "sha256": "807C20288AA305270F21A0879F7A8A318626DC110D6FD2DA691144BA17424D99"
+      },
+      {
+        "normalized_relative_path": "standalone-top-level-aggregator-prompt.md",
+        "file_size_bytes": 777,
+        "sha256": "B853950997071AE3218EDDAC877984316B9F672F5F9DC4E66311938DB4CFC43C"
+      }
+    ]
+  },
+  "package_core_sha256": "D633F4D689F8B5BD56F1DD76F9856022E599F6657B3D8D5E6DCDE9C3CD1344F1",
+  "canonicalization": "RFC8785_JCS",
+  "hash_algorithm": "SHA-256",
+  "hash_encoding": "UPPERCASE_HEX"
+}

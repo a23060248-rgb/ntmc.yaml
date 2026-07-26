@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "policy_status": "ENFORCED",
+  "protected_targets": [
+    "MAGPObject",
+    "MAGP Core Taxonomy",
+    "Rule Hierarchy",
+    "MAGP Lifecycle",
+    "BGE Core",
+    "Agent Factory Core",
+    "Agent OS Core",
+    "Railway Domain Rule"
+  ],
+  "vetc_specific_concepts_not_allowed_as_core_authority": [
+    "V-JEPA",
+    "RSSM",
+    "Tensor Shape",
+    "Projection Head",
+    "Proxy Signals",
+    "Evidence Fusion",
+    "Terrain",
+    "Future Cone",
+    "UCFT",
+    "Memory/Dream",
+    "Jetson",
+    "ArduPilot",
+    "PX4",
+    "UAV control",
+    "UAV training",
+    "VET-C RFC numbering",
+    "VET-C seven-day staffing plan"
+  ],
+  "source_controls": {
+    "SOURCE-PATTERN-01": "GENERAL_PROCESS_PATTERN_ONLY_AND_ALWAYS_NON_AUTHORITATIVE",
+    "SOURCE-EXCLUDED-01": "NO_EFFECTIVE_REFERENCE",
+    "SOURCE-EXCLUDED-02": "EXCLUDED_MODEL_IMPLEMENTATION",
+    "SOURCE-EXCLUDED-03": "EXCLUDED_EDGE_MODEL_AND_RUNTIME",
+    "SOURCE-EXCLUDED-04": "EXCLUDED_EDGE_DEPLOYMENT",
+    "SOURCE-EXCLUDED-05": "FUTURE_PLUGIN_OR_ADAPTER_PROPOSAL_ONLY",
+    "SOURCE-EXCLUDED-06": "EXCLUDED_PROJECT_SPECIFIC_WORKFLOW"
+  },
+  "future_use_requires_new_authorization": true,
+  "vetc_specific_normative_claim_count": 0,
+  "validation_basis": "No VET-C-specific source is eligible to produce a Normative MAGP Core claim in the source-scope register or claim-eligibility policy."
+}

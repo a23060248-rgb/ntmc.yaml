@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "models": [
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "model_name": "THESIS_KNOWLEDGE_GOVERNANCE_METHOD_AND_MAGP_LIFECYCLE_POSITION",
+      "model_type": "IMPLEMENTED_METHOD_BOUNDARY",
+      "elements": [
+        "Meta-level definition as theoretical basis",
+        "Meta-to-Domain instantiation as thesis focus",
+        "Blueprint-to-Runtime deployment as future work",
+        "Knowledge definition layer",
+        "Knowledge task layer"
+      ],
+      "evidence": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            50,
+            53,
+            54,
+            55
+          ],
+          "anchor": "MAGP lifecycle and thesis scope",
+          "evidence_note": "The thesis limits implementation to blueprint-driven knowledge governance and treats Factory, Agent OS, and Runtime Governance as future work."
+        },
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            52,
+            55,
+            57,
+            59,
+            116,
+            117,
+            118,
+            119
+          ],
+          "anchor": "source-to-knowledge-graph pipeline",
+          "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+        }
+      ],
+      "reconciliation_use": "Defines demonstrated methodology and the hard post-thesis boundary; not a full platform layer model."
+    },
+    {
+      "source_id": "SOURCE-MAGP-02",
+      "model_name": "SIX_CONCEPTUAL_RESPONSIBILITY_LAYERS",
+      "model_type": "CONCEPTUAL_LAYER_MODEL",
+      "elements": [
+        "META_CONSTITUTION_AND_HUMAN_AUTHORITY",
+        "META_ONTOLOGY",
+        "META_RELATION",
+        "META_GOVERNANCE",
+        "META_PROCESS_AND_BUILD_TIME",
+        "META_RUNTIME"
+      ],
+      "evidence": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            5
+          ],
+          "anchor": "six core layers and semantic taxonomy",
+          "evidence_note": "The conceptual source defines six responsibility layers and distinguishes them from object taxonomy."
+        },
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            8
+          ],
+          "anchor": "knowledge granularity, blueprint validation, and runtime groups",
+          "evidence_note": "The source describes traceable knowledge units, blueprint validation, and runtime governance groups."
+        }
+      ],
+      "reconciliation_use": "Primary conceptual candidate for canonical responsibility layers, qualified by secondary authority."
+    },
+    {
+      "source_id": "SOURCE-MAGP-03",
+      "model_name": "IMPLEMENTATION_GUIDANCE_VOLUME_AND_PHASE_MAP",
+      "model_type": "DERIVED_ENGINEERING_WORK_BREAKDOWN",
+      "elements": [
+        "Core Objects",
+        "Agent Factory",
+        "BGE",
+        "Agent OS",
+        "Knowledge",
+        "Meta Constitution",
+        "KPGF",
+        "Meta Agent",
+        "Persistence",
+        "API",
+        "Deployment",
+        "Testing",
+        "Example Domains",
+        "Prompt OS"
+      ],
+      "evidence": [
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            103,
+            132,
+            133,
+            135,
+            136,
+            184,
+            185
+          ],
+          "anchor": "engineering knowledge base and volume tree",
+          "evidence_note": "The guidance proposes an engineering knowledge-base hierarchy and 14-volume tree."
+        },
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            23,
+            32,
+            101,
+            103,
+            201
+          ],
+          "anchor": "planning completeness and bounded package cycle",
+          "evidence_note": "The implementation-guidance source repeatedly states that planning is incomplete and recommends package-by-package review and tests rather than one-shot generation."
+        }
+      ],
+      "reconciliation_use": "Traceable engineering planning view; not conceptual-layer authority or implementation evidence."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "model_name": "ARCHITECTURE_PROPOSAL_VOLUME_PACKAGE_RFC_MAP",
+      "model_type": "DERIVED_ARCHITECTURE_AND_DOCUMENTATION_MODEL",
+      "elements": [
+        "Volume responsibility",
+        "Package functional unit",
+        "RFC specification role",
+        "Code realization"
+      ],
+      "evidence": [
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            23,
+            24,
+            25,
+            28,
+            29,
+            30,
+            31
+          ],
+          "anchor": "Volume Package RFC hierarchy",
+          "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            9,
+            48,
+            61,
+            62,
+            63,
+            64,
+            65,
+            79
+          ],
+          "anchor": "architecture description not implementation",
+          "evidence_note": "The source explicitly classifies the volume map as architecture description that requires later specification, Human review, code generation, and testing."
+        }
+      ],
+      "reconciliation_use": "Candidate work-breakdown and artifact hierarchy; requires Human decisions for canonical use."
+    }
+  ]
+}

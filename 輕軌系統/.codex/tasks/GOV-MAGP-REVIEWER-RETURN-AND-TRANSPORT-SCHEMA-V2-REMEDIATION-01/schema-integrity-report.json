@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "v1_return_schema": {
+    "before": {
+      "sha256": "9425D1AB3B451E0F11B8130E8DE9010A4F02BD0E3ACBFDF7E0D4FE42A69130BA",
+      "bytes": 9492
+    },
+    "after": {
+      "sha256": "9425D1AB3B451E0F11B8130E8DE9010A4F02BD0E3ACBFDF7E0D4FE42A69130BA",
+      "bytes": 9492
+    },
+    "unchanged": true
+  },
+  "v1_transport_schema": {
+    "before": {
+      "sha256": "42ED977653D161538AB73E160651DF9FFBF2D8CF4CC1CA75ECF9BB382A0988AF",
+      "bytes": 1061
+    },
+    "after": {
+      "sha256": "42ED977653D161538AB73E160651DF9FFBF2D8CF4CC1CA75ECF9BB382A0988AF",
+      "bytes": 1061
+    },
+    "unchanged": true
+  },
+  "v2_schemas": [
+    {
+      "schema_id": "urn:magp:source-scope-reviewer-return-payload:v2",
+      "sha256": "EF4A55A46B2E4442FFDEC2E4C2464C49A44507BD431F1A971BEE07FBD66BA5BA",
+      "lint": {
+        "valid": true,
+        "errors": [],
+        "local_ref_count": 10,
+        "schema_ids": [
+          {
+            "path": "#",
+            "id": "urn:magp:source-scope-reviewer-return-payload:v2"
+          }
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:magp:startup-failure-evidence-admission:v2",
+      "sha256": "DB5E6C8265FBB7364208BD818182675365C1D20E9C4AF0ECFE92959939B78A29",
+      "lint": {
+        "valid": true,
+        "errors": [],
+        "local_ref_count": 6,
+        "schema_ids": [
+          {
+            "path": "#",
+            "id": "urn:magp:startup-failure-evidence-admission:v2"
+          }
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:magp:manual-reviewer-transport-attestation:r2:v2",
+      "sha256": "6E1E33CF066107849E2CBC6DF1D4367230D75597FDB7AE9F42DFC6D4BBDED0BE",
+      "lint": {
+        "valid": true,
+        "errors": [],
+        "local_ref_count": 0,
+        "schema_ids": [
+          {
+            "path": "#",
+            "id": "urn:magp:manual-reviewer-transport-attestation:r2:v2"
+          }
+        ]
+      }
+    }
+  ],
+  "unique_schema_id_count": 5,
+  "expected_schema_id_count": 5,
+  "status": "PASS"
+}

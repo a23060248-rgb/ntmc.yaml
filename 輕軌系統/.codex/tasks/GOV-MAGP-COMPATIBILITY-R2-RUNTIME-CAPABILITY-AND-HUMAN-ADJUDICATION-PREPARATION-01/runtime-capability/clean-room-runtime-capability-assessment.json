@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "assessment_id": "MAGP-COMPAT-R2-CLEAN-ROOM-RUNTIME-ASSESSMENT-20260722-01",
+  "assessed_runtime": "CURRENT_CODEX_DESKTOP_TASK_CREATION_AND_AUTOMATION_SURFACE",
+  "assessment_status": "CLEAN_ROOM_RUNTIME_NOT_AVAILABLE",
+  "reviewer_outcome": "NOT_APPLICABLE_REVIEWER_NOT_STARTED",
+  "assessment_basis": {
+    "fresh_top_level_projectless_task_supported": true,
+    "conversation_history_non_inheritance_supported": true,
+    "memory_disable_control_exposed": false,
+    "git_automatic_check_disable_control_exposed": false,
+    "automatic_repository_read_disable_control_exposed": false,
+    "agents_handoff_preload_disable_control_exposed": false,
+    "codex_desktop_ui_automation_permitted": false
+  },
+  "failed_required_capabilities": [
+    "VERIFIABLE_MEMORY_DISABLED",
+    "VERIFIABLE_GIT_AUTOMATIC_CHECKS_DISABLED",
+    "VERIFIABLE_AUTOMATIC_REPOSITORY_READS_DISABLED",
+    "VERIFIABLE_AGENTS_AND_HANDOFF_PRELOAD_DISABLED"
+  ],
+  "disposition": "HARD_STOP_BEFORE_REVIEWER_TASK_CREATION",
+  "compatibility_r2_retry_01": "READY_BUT_NOT_LAUNCHABLE",
+  "repeatability_scope": "CURRENT_RUNTIME_CAPABILITY_SET_ONLY",
+  "reassessment_requirement": "A future launch requires machine-verifiable evidence that every failed required capability is now controllable before any Reviewer prompt is sent.",
+  "fixed_downstream_state": {
+    "compat_r1_001": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "compat_r1_002": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "aggregator_r2": "NOT_AUTHORIZED",
+    "source_scope_review_gate": "NO-GO",
+    "architecture_reconciliation": "NOT_AUTHORIZED"
+  }
+}

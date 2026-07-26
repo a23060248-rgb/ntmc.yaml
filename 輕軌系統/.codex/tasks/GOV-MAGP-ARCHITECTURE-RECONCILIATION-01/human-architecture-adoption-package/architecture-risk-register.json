@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "open_active_critical": 0,
+  "open_active_high": 0,
+  "risks": [
+    {
+      "risk_id": "ARC-RISK-001",
+      "risk": "Reduced assurance may be mistaken for clean-room independent review.",
+      "initial_level": "MEDIUM",
+      "mitigation": "Preserve reduced-assurance disclosure in every gate and package.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    },
+    {
+      "risk_id": "ARC-RISK-002",
+      "risk": "Six layers and fourteen volumes may be conflated.",
+      "initial_level": "MEDIUM",
+      "mitigation": "Maintain distinct semantic-layer and engineering-group views with explicit mappings.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    },
+    {
+      "risk_id": "ARC-RISK-003",
+      "risk": "Derived guidance may be mislabeled as thesis implementation.",
+      "initial_level": "MEDIUM",
+      "mitigation": "Bind every capability to thesis boundary category A-F.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    },
+    {
+      "risk_id": "ARC-RISK-004",
+      "risk": "BGE semantic generation may be mislabeled deterministic.",
+      "initial_level": "MEDIUM",
+      "mitigation": "Claim determinism only for schemas, validation envelopes, hashes, and replayable inputs.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    },
+    {
+      "risk_id": "ARC-RISK-005",
+      "risk": "Runtime executor may accumulate policy authority.",
+      "initial_level": "MEDIUM",
+      "mitigation": "Separate Policy Engine and Human gates; prohibit self-authorization.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    },
+    {
+      "risk_id": "ARC-RISK-006",
+      "risk": "Evidence storage may be treated as decision authority.",
+      "initial_level": "LOW",
+      "mitigation": "State that Evidence Ledger records proof and never adopts policy or architecture.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    },
+    {
+      "risk_id": "ARC-RISK-007",
+      "risk": "Health or VET-C concepts may contaminate Railway or MAGP Core.",
+      "initial_level": "MEDIUM",
+      "mitigation": "Enforce adopted contamination policies and zero domain promotion.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    },
+    {
+      "risk_id": "ARC-RISK-008",
+      "risk": "Registry may grant capabilities instead of recording them.",
+      "initial_level": "MEDIUM",
+      "mitigation": "Registry records Human/release decisions and cannot create them.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    },
+    {
+      "risk_id": "ARC-RISK-009",
+      "risk": "Runtime evidence may reverse-modify design artifacts.",
+      "initial_level": "MEDIUM",
+      "mitigation": "Allow change proposals only; require design-time Human adoption for modification.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    },
+    {
+      "risk_id": "ARC-RISK-010",
+      "risk": "Architecture description may be mistaken for implementation readiness.",
+      "initial_level": "MEDIUM",
+      "mitigation": "Keep architecture PROPOSED_NOT_ADOPTED and explicitly prohibit implementation.",
+      "effective_status": "CONTAINED_IN_PROPOSAL",
+      "open_critical_or_high_finding": false
+    }
+  ]
+}

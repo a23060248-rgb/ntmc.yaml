@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "domain": "PHYSICAL_PERSISTENCE",
+  "unresolved_count": 8,
+  "decisions": [
+    {
+      "decision_id": "HID-001",
+      "title": "Primary System of Record",
+      "options": [
+        "PostgreSQL",
+        "Alternative transactional store"
+      ],
+      "codex_recommendation": "PostgreSQL candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-002",
+      "title": "Graph Store",
+      "options": [
+        "No initial graph store",
+        "Dedicated graph projection"
+      ],
+      "codex_recommendation": "No initial graph store",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-003",
+      "title": "Evidence Blob Storage",
+      "options": [
+        "Object storage",
+        "Database large objects",
+        "Filesystem not recommended"
+      ],
+      "codex_recommendation": "Object storage candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-004",
+      "title": "Event Store",
+      "options": [
+        "Outbox plus audit",
+        "Dedicated event store"
+      ],
+      "codex_recommendation": "Outbox first candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-005",
+      "title": "Search Projection",
+      "options": [
+        "No initial search engine",
+        "Dedicated search projection"
+      ],
+      "codex_recommendation": "Incremental projection",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-006",
+      "title": "Temporal mode",
+      "options": [
+        "Append history",
+        "System-versioned temporal",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Hybrid governance-only candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-007",
+      "title": "Row-Level Security",
+      "options": [
+        "Application enforcement",
+        "Database RLS plus application",
+        "RLS selective"
+      ],
+      "codex_recommendation": "Selective defense in depth",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-008",
+      "title": "Partition mode",
+      "options": [
+        "No initial partition",
+        "Time partition",
+        "Volume partition",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Defer until measured",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    }
+  ],
+  "status": "PENDING_HUMAN_DECISION"
+}

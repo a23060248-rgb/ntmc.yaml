@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-PRELAUNCH-BOUNDARY-AND-RELAUNCH-01",
+  "level": "L3",
+  "reasons": [
+    "Inherited unresolved implementation blocker",
+    "Prelaunch boundary and controlled Git relaunch governance",
+    "Backward compatibility and historical-artifact integrity"
+  ],
+  "triggers": [
+    "unresolved_reviewer_or_gate_blocker",
+    "controlled_git_relaunch",
+    "baseline_reproducibility"
+  ],
+  "required_agents": [
+    "root-governance-orchestrator"
+  ],
+  "required_reviews": [
+    "code-reviewer",
+    "security-reviewer",
+    "compatibility-reviewer"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "historical digests",
+    "repository binding",
+    "collision analysis",
+    "worktree reproducibility"
+  ],
+  "human_approval": [
+    "Human prelaunch decision after a PASS Stage 1",
+    "Human final acceptance after implementation"
+  ],
+  "stop_conditions": [
+    "WORKTREE_BASELINE_NOT_REPRODUCIBLE",
+    "SECRET_READ_ATTEMPTED",
+    "GIT_WRITE_OPERATION_USED",
+    "PRODUCT_FILE_MODIFIED_DURING_DISCOVERY"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-PRELAUNCH-BOUNDARY-AND-RELAUNCH-01/**"
+    ],
+    "exclude": [
+      "product files",
+      "historical tasks",
+      ".env*",
+      "Git writes",
+      "network",
+      "database",
+      "migration",
+      "deployment"
+    ]
+  },
+  "classified_by": "task-classification",
+  "classification_status": "HUMAN_APPROVED_STAGE_1_SCOPE"
+}

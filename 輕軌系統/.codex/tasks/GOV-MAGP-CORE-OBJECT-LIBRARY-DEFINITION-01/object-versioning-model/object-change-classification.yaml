@@ -1,0 +1,51 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "classes": [
+    {
+      "change_class": "PATCH",
+      "breaking": false,
+      "human_gate": "CONDITIONAL",
+      "baseline_update": false
+    },
+    {
+      "change_class": "MINOR",
+      "breaking": false,
+      "human_gate": "WHEN_NORMATIVE_SCOPE_OR_CAPABILITY_CHANGES",
+      "baseline_update": "CONDITIONAL"
+    },
+    {
+      "change_class": "MAJOR",
+      "breaking": true,
+      "human_gate": "REQUIRED",
+      "baseline_update": true
+    },
+    {
+      "change_class": "NON_NORMATIVE_CLARIFICATION",
+      "breaking": false,
+      "human_gate": "NOT_UNLESS_SCOPE_DISPUTED",
+      "baseline_update": false
+    },
+    {
+      "change_class": "BREAKING",
+      "breaking": true,
+      "human_gate": "REQUIRED",
+      "baseline_update": true
+    },
+    {
+      "change_class": "AUTHORITY_CRITICAL",
+      "breaking": true,
+      "human_gate": "REQUIRED_HUMAN_ONLY",
+      "baseline_update": true
+    },
+    {
+      "change_class": "SECURITY_CRITICAL",
+      "breaking": "POSSIBLE",
+      "human_gate": "REQUIRED_HUMAN_ONLY",
+      "baseline_update": "REQUIRED_WHEN_ARCHITECTURE_AFFECTED"
+    }
+  ]
+}

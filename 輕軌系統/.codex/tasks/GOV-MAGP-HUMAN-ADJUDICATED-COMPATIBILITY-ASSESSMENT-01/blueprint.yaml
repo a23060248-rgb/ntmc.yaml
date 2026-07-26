@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+  "level": "L3",
+  "execution_mode": "ROOT_ORCHESTRATOR_SEQUENTIAL_NO_SUBAGENTS",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/**"
+  ],
+  "applicable_rules": [
+    "PHASE1_GOVERNANCE_ONLY",
+    "HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+    "CODEX_TECHNICAL_RECOMMENDATION_ONLY",
+    "HUMAN_FINAL_FINDING_AUTHORITY",
+    "DETERMINISTIC_EVIDENCE_AND_BINDING_VALIDATION",
+    "PRESERVE_FROZEN_TARGET_AND_OVERLAY",
+    "NO_DOWNSTREAM_AUTHORIZATION_IN_THIS_TASK"
+  ],
+  "candidate_rules": [],
+  "agent_assignments": [
+    {
+      "actor_role": "architect",
+      "assignment": "Non-independent Compatibility assessment and assurance/downstream boundary design",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_AS_NON_INDEPENDENT_TECHNICAL_ASSESSOR"
+    },
+    {
+      "actor_role": "qa-engineer",
+      "assignment": "Evidence, hash, binding, effective-state, and negative-boundary validation",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_AS_EVIDENCE_AND_BINDING_VALIDATOR"
+    },
+    {
+      "actor_role": "documentation-engineer",
+      "assignment": "Human decision package, disclosures, final summary, and handoff",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_WITHIN_ROLE_POLICY"
+    }
+  ],
+  "execution_sequence": [
+    "record_human_review_path_decision",
+    "capture_and_verify_all_protected_baselines",
+    "evaluate_compat_r1_001",
+    "evaluate_compat_r1_002",
+    "run_deterministic_evidence_and_binding_validation",
+    "prepare_pending_human_adjudication_package",
+    "reverify_protected_artifacts_and_finalize"
+  ],
+  "review_assignments": [],
+  "formal_independent_review_status": "NOT_COMPLETED",
+  "finding_closure_authority": "HUMAN_ONLY",
+  "codex_finding_closure_authority": "NONE",
+  "aggregator_launch_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "architecture_reconciliation_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "rollback_restore_evidence": {
+    "status": "NOT_APPLICABLE",
+    "reason": "Read-only assessment of existing artifacts plus creation of new task-local governance evidence; no product, database, service, migration, seed, Reviewer, Aggregator, or external state is changed."
+  },
+  "gate_state": "NO-GO_PENDING_HUMAN_ADJUDICATION"
+}

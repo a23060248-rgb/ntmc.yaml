@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "identity_kinds": [
+    "CANONICAL_OBJECT_ID",
+    "OBJECT_VERSION_ID",
+    "AGGREGATE_ID",
+    "RUNTIME_INSTANCE_ID",
+    "EXECUTION_ID",
+    "EVENT_ID",
+    "EVIDENCE_ID",
+    "APPROVAL_ID",
+    "EXTERNAL_REFERENCE_ID"
+  ],
+  "canonical_format_binding": "5A-2:HOD-001:URN_WITH_TYPE_PREFIX_AND_ULID",
+  "global_uniqueness": true,
+  "namespace_scope": [
+    "organization",
+    "platform",
+    "domain",
+    "volume",
+    "package"
+  ],
+  "immutable_identity": true,
+  "alias_requires_evidence": true,
+  "rename_preserves_identity": true,
+  "supersession_preserves_history": true,
+  "reference_kinds": [
+    "STRONG",
+    "SOFT",
+    "TEMPORAL",
+    "UNRESOLVED",
+    "CROSS_VOLUME",
+    "CROSS_PACKAGE"
+  ],
+  "filename_identity_allowed": false,
+  "cascade_delete_lineage_allowed": false,
+  "reference_authority_copy_allowed": false,
+  "unresolved_decisions": [
+    "HCD-017",
+    "HCD-018"
+  ],
+  "physical_key_type_selected": false
+}

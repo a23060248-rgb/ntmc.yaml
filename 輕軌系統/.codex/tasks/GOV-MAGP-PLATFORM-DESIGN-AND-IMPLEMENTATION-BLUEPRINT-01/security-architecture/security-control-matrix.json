@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "security-control-matrix",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "controls": [
+    {
+      "control_id": "CTRL-001",
+      "control": "strong identity",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-002",
+      "control": "scoped grants",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-003",
+      "control": "Human approval binding",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-004",
+      "control": "immutable evidence hashes",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-005",
+      "control": "append-only audit",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-006",
+      "control": "anti-replay",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-007",
+      "control": "idempotency",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-008",
+      "control": "artifact signing",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-009",
+      "control": "runtime isolation",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-010",
+      "control": "redaction",
+      "preventive": true,
+      "detective": true
+    },
+    {
+      "control_id": "CTRL-011",
+      "control": "backup integrity",
+      "preventive": true,
+      "detective": true
+    }
+  ]
+}

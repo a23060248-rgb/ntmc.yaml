@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "baseline_type": "EXACT_NON_GIT_FILE_TREE_HASH_BASELINE",
+  "captured_at": "2026-07-22T19:57:29+08:00",
+  "canonical_manifest_format": "normalized_relative_path|uppercase_sha256|byte_length joined by LF after ordinal relative-path sort",
+  "protected_trees": [
+    {
+      "artifact_id": "COMPATIBILITY_R2_RETRY_01_PACKAGE",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/compatibility-review-r2-retry-01",
+      "file_count": 15,
+      "canonical_manifest_sha256": "7F40410C56EF206C67778809BCB8D953EE201F94DEFC8446A808953A66FBC481"
+    },
+    {
+      "artifact_id": "AGGREGATOR_R2_RETRY_01_PACKAGE",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01",
+      "file_count": 9,
+      "canonical_manifest_sha256": "2C0F26F88B7D3000C60166C8BD825D3AE52B878414CD841B6684CC9F28091630"
+    },
+    {
+      "artifact_id": "RETURN_AND_TRANSPORT_V2_SCHEMAS",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/schemas",
+      "file_count": 3,
+      "canonical_manifest_sha256": "2BDB5920A0894A9AB626B5336FC9EE1993BB2798B7787C40B04DAB433D27E638"
+    },
+    {
+      "artifact_id": "ATTEMPT_1_V2_ADMISSION_HISTORY",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/attempt-1-v2-admission",
+      "file_count": 5,
+      "canonical_manifest_sha256": "3C93AF3026D562270CF7221F14AE8A7BB72300F16DC00E5F73A87A86A3859596"
+    },
+    {
+      "artifact_id": "ATTEMPT_1_STARTUP_BLOCKER_HISTORY_TASK",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01",
+      "file_count": 10,
+      "canonical_manifest_sha256": "2600EAC26826B4C2F6B6D8514A58E0E9A0729EB14AD681FE5755580855C2A185"
+    }
+  ],
+  "attempt_1_raw_wrapper": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01/compatibility-r2-attempt-1/raw-wrapper.txt",
+    "sha256": "B4C186FDABE327136D338FBBE60B653B4E3256E887C03B88B097818727252E71",
+    "bytes": 4742
+  },
+  "governance_baseline": [
+    {
+      "relative_path": "AGENTS.md",
+      "sha256": "6FB922BB9CF5D25FDCCDF64C8D0DB2BE622B581914E2CF6D059EB76CEB6CD76E",
+      "bytes": 10453
+    },
+    {
+      "relative_path": ".codex/governance/phase-policy.yaml",
+      "sha256": "A0E4354C5D5F0059658F6A34B7E86A29653B91CCB9B2FDD74798B29CEF408D3D",
+      "bytes": 1162
+    },
+    {
+      "relative_path": ".codex/governance/agent-path-policy.yaml",
+      "sha256": "C1FF1DD1C74585E61060155878E19370D1854B691420394A13DAABB3EE78B7F1",
+      "bytes": 4460
+    }
+  ],
+  "git_used": false
+}

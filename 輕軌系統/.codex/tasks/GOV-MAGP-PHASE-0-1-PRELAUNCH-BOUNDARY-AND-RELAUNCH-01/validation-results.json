@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-PRELAUNCH-BOUNDARY-AND-RELAUNCH-01",
+  "stage": "STAGE_1",
+  "required_core_test_count": 36,
+  "additional_fail_closed_test_count": 1,
+  "pass_count": 23,
+  "fail_count": 1,
+  "not_run_count": 13,
+  "tests": [
+    {
+      "test_id": 1,
+      "requirement": "Original HARD STOP Artifact exists",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Original Task remains unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Seven Baselines are valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Repository Root is unique",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Project Root candidates explored",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Candidate paths are repository-relative",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "No absolute path proposed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "No path traversal proposed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "No root-wide wildcard proposed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "No symlink escape",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Windows case-insensitive collision checked",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Existing tracked changes inventoried",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Existing untracked files inventoried",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Worktrees inventoried",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Collision analysis completed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Candidate allowed_create_paths is nonempty",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Candidate allowed_modify_paths is exact or empty",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Candidate read_only_paths complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Candidate prohibited_paths complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Phase 0 path mapping complete",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 21,
+      "requirement": "Phase 1 path mapping complete",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 22,
+      "requirement": "Tech Stack discovery complete",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 23,
+      "requirement": "Runtime availability confirmed",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Dependency offline availability confirmed",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Test tool available",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Coverage tool available",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Lint format and type-check tools available",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Schema validator available",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Hash implementation available",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 30,
+      "requirement": "No network or install required",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 31,
+      "requirement": "Decision Register complete",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 32,
+      "requirement": "Hash Binding complete",
+      "status": "NOT_RUN_DUE_TO_HARD_STOP"
+    },
+    {
+      "test_id": 33,
+      "requirement": "Human Decision remains pending",
+      "status": "PASS"
+    },
+    {
+      "test_id": 34,
+      "requirement": "Product File not modified",
+      "status": "PASS"
+    },
+    {
+      "test_id": 35,
+      "requirement": "Git Write not used",
+      "status": "PASS"
+    },
+    {
+      "test_id": 36,
+      "requirement": "Secret content not read",
+      "status": "PASS"
+    },
+    {
+      "test_id": 37,
+      "requirement": "Required Baselines reproducible from current HEAD",
+      "status": "FAIL"
+    }
+  ],
+  "required_result": "36/36 PASS",
+  "actual_result": "HARD_STOP_BEFORE_COMPLETION",
+  "status": "BLOCKER"
+}

@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:finding:v0",
+  "title": "Finding Schema Proposal",
+  "description": "Candidate schema proposal; not adopted and not a database schema.",
+  "allOf": [
+    {
+      "$ref": "../../../canonical-object-envelope/canonical-object-envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "object_type": {
+              "const": "FINDING"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "finding_id",
+            "subject",
+            "severity",
+            "status",
+            "affected_policy_requirement",
+            "evidence_references",
+            "impact",
+            "required_remediation",
+            "owner",
+            "closure_authority",
+            "closure_evidence",
+            "historical_status"
+          ],
+          "properties": {
+            "finding_id": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "subject": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "severity": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "affected_policy_requirement": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "evidence_references": {
+              "type": "array",
+              "items": {}
+            },
+            "impact": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "required_remediation": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "owner": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "closure_authority": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "closure_evidence": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "historical_status": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    }
+  ],
+  "x-magp-object-type-id": "OBJ-TYPE-014",
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true,
+  "x-magp-database-schema": false
+}

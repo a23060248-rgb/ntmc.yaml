@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "stages": [
+    {
+      "stage": 0,
+      "name": "REPOSITORY_AND_GIT_BOUNDARY_VERIFICATION",
+      "mutation": "TASK_LOCAL_ARTIFACTS_ONLY",
+      "git_operations": "READ_ONLY"
+    },
+    {
+      "stage": 1,
+      "name": "EXACT_TRUST_ANCHOR_PROPOSAL",
+      "candidate_source": "8A0R original-hard-stop-binding exact entries",
+      "final_gate": "HARD_STOP_FOR_HUMAN_DECISION"
+    }
+  ],
+  "direct_replay_inputs": [
+    "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+    "GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01"
+  ],
+  "evidence_only_inputs": [
+    "GOV-MAGP-PHASE-0-1-PRELAUNCH-BOUNDARY-AND-RELAUNCH-01"
+  ],
+  "selection_rule": "Commit only files consumed by 8A0R Stage 1. Preserve exact upstream provenance as a separately enumerated non-commit closure."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "artifact_type": "ADOPTED_OBJECT_VERSIONING_MODEL",
+  "adoption_status": "HUMAN_ADOPTED",
+  "normative_object_library": true,
+  "object_library_baseline": "MAGP-OBJECT-LIBRARY-BASELINE-V1",
+  "adoption_method": "EXACT_5A_1_PROPOSAL_REFERENCE_WITH_SEPARATE_HUMAN_EFFECTIVE_STATE",
+  "original_proposal_references": [
+    {
+      "relative_path": "object-versioning-model/object-versioning-policy.yaml",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-versioning-model/object-versioning-policy.yaml",
+      "sha256": "2E22CEE79000E0D0CB7307813B2D99207F99E3161E307CC6A4E7CA33453367B1",
+      "bytes": 928
+    },
+    {
+      "relative_path": "object-versioning-model/object-change-classification.yaml",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-versioning-model/object-change-classification.yaml",
+      "sha256": "0A7F0D43B106B2B40B34EB679997CDCC59EFFF229159C198F70D6848BDE47279",
+      "bytes": 1321
+    },
+    {
+      "relative_path": "object-versioning-model/object-supersession-policy.yaml",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-versioning-model/object-supersession-policy.yaml",
+      "sha256": "03819C3CA9C1D95F0621A08A4F56FECE98178A951C6A6E2594AA4603D972247A",
+      "bytes": 705
+    }
+  ],
+  "original_proposal_bytes_modified": false,
+  "human_decision_reference": {
+    "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+    "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+    "bytes": 27044
+  },
+  "resolved_decisions": [
+    "HOD-003",
+    "HOD-015"
+  ],
+  "version_model": "SEMVER_PLUS_MONOTONIC_REVISION",
+  "breaking_change_process": [
+    "RFC",
+    "IMPACT_ANALYSIS",
+    "ARCHITECTURE_CONFORMANCE_REVIEW",
+    "EVIDENCE_REVIEW",
+    "HUMAN_APPROVAL",
+    "BASELINE_VERSION_INCREMENT"
+  ],
+  "silent_replacement_allowed": false
+}

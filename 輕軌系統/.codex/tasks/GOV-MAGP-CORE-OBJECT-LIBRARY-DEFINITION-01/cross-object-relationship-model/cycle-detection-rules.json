@@ -1,0 +1,46 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "rules": [
+    {
+      "cycle_type": "AUTHORITY_CYCLE",
+      "graph": "authority grants and approvals",
+      "result": "BLOCKER"
+    },
+    {
+      "cycle_type": "APPROVAL_CYCLE",
+      "graph": "approval dependencies",
+      "result": "BLOCKER"
+    },
+    {
+      "cycle_type": "EVIDENCE_SELF_REFERENCE_CYCLE",
+      "graph": "evidence validates evidence",
+      "result": "BLOCKER"
+    },
+    {
+      "cycle_type": "PACKAGE_DEPENDENCY_CYCLE",
+      "graph": "required package dependencies",
+      "result": "BLOCKER_UNLESS_EXPLICIT_NON_RUNTIME_DEV_CYCLE_POLICY"
+    },
+    {
+      "cycle_type": "ONTOLOGY_INHERITANCE_CYCLE",
+      "graph": "subclass inheritance",
+      "result": "BLOCKER"
+    },
+    {
+      "cycle_type": "LIFECYCLE_CYCLE_WITHOUT_EXIT",
+      "graph": "state transitions",
+      "result": "BLOCKER"
+    },
+    {
+      "cycle_type": "POLICY_RULE_CIRCULAR_AUTHORIZATION",
+      "graph": "Policy authorizes Rule and Rule authorizes Policy",
+      "result": "BLOCKER"
+    }
+  ],
+  "algorithm_requirement": "directed strongly connected components plus self-loop detection and explicit exit analysis",
+  "cycles_detected_in_proposal": 0
+}

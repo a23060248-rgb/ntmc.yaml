@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "overall_status": "PASS",
+  "source_scope_lock_status": "COMPLETE",
+  "hard_stop_code": null,
+  "resolved_hard_stop": "SOURCE_IDENTITY_RESOLUTION_FAILED",
+  "checks": [
+    {"requirement": "Source root exists", "status": "PASS"},
+    {"requirement": "Top-level regular files = 11", "status": "PASS", "actual": 11},
+    {"requirement": "11/11 SHA256 complete", "status": "PASS", "actual": "11/11"},
+    {"requirement": "11/11 format checks complete", "status": "PASS", "actual": "11/11"},
+    {"requirement": "11/11 unique source identities", "status": "PASS", "actual": "11/11"},
+    {"requirement": "SOURCE-MAGP-03 approved exact normalized stem", "status": "PASS", "actual": "HUMAN_APPROVED_EXACT_NORMALIZED_STEM"},
+    {"requirement": "CORE_INCLUDED = 4 uniquely verified", "status": "PASS", "actual": 4},
+    {"requirement": "OPTIONAL_PATTERN_ONLY = 1 uniquely verified", "status": "PASS", "actual": 1},
+    {"requirement": "EXCLUDED = 6 uniquely verified", "status": "PASS", "actual": 6},
+    {"requirement": "Second Edition Edge Guide identified as SOURCE-EXCLUDED-04", "status": "PASS"},
+    {"requirement": "SOURCE-MAGP-01 through SOURCE-MAGP-04 exist", "status": "PASS", "actual": "4/4"},
+    {"requirement": "SOURCE-PATTERN-01 exists", "status": "PASS", "actual": "1/1"},
+    {"requirement": "SOURCE-EXCLUDED-01 through SOURCE-EXCLUDED-06 exist", "status": "PASS", "actual": "6/6"},
+    {"requirement": "v1 effective reference count = 0", "status": "PASS", "actual": 0},
+    {"requirement": "VET-C Core contamination = 0", "status": "PASS", "actual": 0},
+    {"requirement": "Health-to-Railway contamination = 0", "status": "PASS", "actual": 0},
+    {"requirement": "Implementation proposal mislabelled Normative = 0", "status": "PASS", "actual": 0},
+    {"requirement": "Source files modified = 0", "status": "PASS", "actual": 0},
+    {"requirement": "Product code changed = NO", "status": "PASS", "actual": "NO"},
+    {"requirement": "Governance baseline changed = NO", "status": "PASS", "actual": "NO; task-local evidence only"},
+    {"requirement": "Git used = NO", "status": "PASS", "actual": "NO"}
+  ],
+  "resolved_identity": {
+    "source_id": "SOURCE-MAGP-03",
+    "approved_identity_method": "HUMAN_APPROVED_EXACT_NORMALIZED_STEM",
+    "approved_exact_stem": "使用Codex去開發MAGP平台前置設計與策剠規劃",
+    "semantic_document_title": "使用 Codex 開發 MAGP 平台前置設計與策略規劃",
+    "actual_stem": "使用Codex去開發MAGP平台前置設計與策剠規劃",
+    "actual_codepoint": "U+5260",
+    "identity_match_status": "RESOLVED",
+    "source_file_renamed": false,
+    "source_file_modified": false
+  },
+  "content_processing_status": {
+    "core_sources": "4/4_FULL_DOCUMENT_PROCESSED",
+    "optional_pattern_sources": "1/1_GENERAL_PATTERN_SCOPE_PROCESSED",
+    "excluded_sources": "6/6_MINIMAL_SCOPE_EVIDENCE_PROCESSED"
+  },
+  "machine_readable_artifact_parse_failures": 0,
+  "formal_l3_independent_review_status": "NOT_PERFORMED_IN_THIS_TASK",
+  "downstream_architecture_reconciliation_ready": true,
+  "ready_for_task": "GOV-MAGP-SOURCE-AUTHORITY-AND-ARCHITECTURE-RECONCILIATION-01"
+}

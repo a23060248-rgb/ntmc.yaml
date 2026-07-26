@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "verification_model": "DIRECT_BYTE_SHA256_NFC_IDENTITY_AND_ORDINAL_TASK_TREE_RECOMPUTATION",
+  "checks": [
+    {
+      "id": 1,
+      "requirement": "Base Review Target 20/20 and hash set unchanged",
+      "status": "PASS",
+      "evidence": "20_OF_20"
+    },
+    {
+      "id": 2,
+      "requirement": "Source Directory 11/11 and hash set unchanged",
+      "status": "PASS",
+      "evidence": "11_OF_11"
+    },
+    {
+      "id": 3,
+      "requirement": "Source Identity 11/11 unchanged",
+      "status": "PASS",
+      "evidence": "11_OF_11_UNIQUE_AND_RESOLVED"
+    },
+    {
+      "id": 4,
+      "requirement": "Classification 4/1/6 unchanged",
+      "status": "PASS",
+      "evidence": {
+        "CORE": 4,
+        "OPTIONAL": 1,
+        "EXCLUDED": 6
+      }
+    },
+    {
+      "id": 5,
+      "requirement": "Source Authority Policy unchanged",
+      "status": "PASS",
+      "evidence_sha256": "90EC4DB425276908D3943078ACEF940345BD6E4C7AC5EE4CBFC1D31157CEF012"
+    },
+    {
+      "id": 6,
+      "requirement": "Claim Eligibility Policy unchanged",
+      "status": "PASS",
+      "evidence_sha256": "CAAA9410C194979FBAA99AC4C8ED0AD5A3EB7C1D1948E432FED0596815133B5C"
+    },
+    {
+      "id": 7,
+      "requirement": "VET-C Contamination Policy unchanged",
+      "status": "PASS",
+      "evidence_sha256": "E5D5F01F11E9973C8E02EDAA5E30B20A70C090EC99E13432952ECEFDAA32D70B"
+    },
+    {
+      "id": 8,
+      "requirement": "Health-Domain Contamination Policy unchanged",
+      "status": "PASS",
+      "evidence_sha256": "1E8BD38737413574CBEEF9A053ABF9E8A8EE43777D033E5ADFE3F33E3E248B8E"
+    },
+    {
+      "id": 9,
+      "requirement": "Corrective Overlay unchanged",
+      "status": "PASS",
+      "evidence": "7_OF_7"
+    },
+    {
+      "id": 10,
+      "requirement": "Integrity R1 Payload Hash and Identity valid",
+      "status": "PASS",
+      "evidence_sha256": "8546BD1DCE083A94D57DE06CD6F179696E1E3828E7E7299580AB431637A909F0"
+    },
+    {
+      "id": 11,
+      "requirement": "Authority R1 Payload Hash and Identity valid",
+      "status": "PASS",
+      "evidence_sha256": "BB1FAC2470EDBD5C322A509752E359AA076DFB015E9A0367270C6840C3959EFA"
+    },
+    {
+      "id": 12,
+      "requirement": "Contamination R1 Payload Hash and Identity valid",
+      "status": "PASS",
+      "evidence_sha256": "44CDDB53A09ECCDCFCA9B8D94829D1CBBCF8730B6C587B02B95862B711A5033F"
+    },
+    {
+      "id": 13,
+      "requirement": "Compatibility R1 historical Payload preserved",
+      "status": "PASS",
+      "evidence_sha256": "E0C92CFDFA495D5EB57D75B849B5B77C130BCE0F8122C1A8EE2F4858A4FF2702"
+    },
+    {
+      "id": 14,
+      "requirement": "COMPAT-R1-001 Human Closure valid",
+      "status": "PASS"
+    },
+    {
+      "id": 15,
+      "requirement": "COMPAT-R1-002 Human Closure valid",
+      "status": "PASS"
+    },
+    {
+      "id": 16,
+      "requirement": "Historical Startup Failure Evidence preserved",
+      "status": "PASS",
+      "evidence_sha256": "B4C186FDABE327136D338FBBE60B653B4E3256E887C03B88B097818727252E71"
+    },
+    {
+      "id": 17,
+      "requirement": "Product/Governance baseline unchanged",
+      "status": "PASS",
+      "evidence": "3_OF_3"
+    },
+    {
+      "id": 18,
+      "requirement": "Historical Tasks unchanged",
+      "status": "PASS",
+      "evidence": "7_OF_7_BASELINES_PLUS_HUMAN_ADJUDICATION_TASK"
+    }
+  ],
+  "pass_count": 18,
+  "fail_count": 0,
+  "status": "PASS_18_OF_18",
+  "hard_stop_code": null
+}

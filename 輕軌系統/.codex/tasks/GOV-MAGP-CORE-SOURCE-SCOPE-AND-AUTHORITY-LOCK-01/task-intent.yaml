@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "objective": "Lock the identities, classifications, authority levels, and contamination boundaries of the 11 top-level MAGP reference sources without modifying source files, product code, or the governance baseline.",
+  "correction_authority": "USER_INSTRUCTION_REPLACING_PRIOR_10_SOURCE_ASSUMPTION",
+  "expected_counts": {
+    "total": 11,
+    "core_included": 4,
+    "optional_pattern_only": 1,
+    "excluded": 6
+  },
+  "external_source_root": "C:/Users/a2306/Desktop/MAGP-Reference-Sources",
+  "external_source_access": "READ_ONLY_TOP_LEVEL_REGULAR_FILES",
+  "write_scope": [
+    ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"
+  ],
+  "prohibited_operations": [
+    "external-source write",
+    "product-code change",
+    "governance-baseline change",
+    "database",
+    "migration",
+    "seed",
+    "service",
+    "network",
+    ".env read",
+    "Git"
+  ],
+  "execution_status": "COMPLETE",
+  "hard_stop_code": null,
+  "prior_hard_stop": {
+    "code": "SOURCE_IDENTITY_RESOLUTION_FAILED",
+    "stage": "SOURCE_IDENTITY_RESOLUTION",
+    "resolution": "SOURCE-MAGP-03 resolved by source-identity-human-decision.json"
+  },
+  "source_scope_lock_status": "COMPLETE",
+  "formal_l3_independent_review_status": "NOT_PERFORMED_IN_THIS_TASK"
+}

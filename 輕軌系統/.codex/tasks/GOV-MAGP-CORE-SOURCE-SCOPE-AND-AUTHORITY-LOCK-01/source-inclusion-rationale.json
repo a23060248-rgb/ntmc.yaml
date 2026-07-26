@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "core_included_count": 4,
+  "optional_pattern_only_count": 1,
+  "sources": [
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "classification": "CORE_INCLUDED",
+      "authority_level": "PRIMARY_METHODOLOGY_SOURCE",
+      "read_evidence": {
+        "method": "FULL_PDF_TEXT_EXTRACTION",
+        "page_count": 195,
+        "pages_processed": 195,
+        "nonempty_pages": 194,
+        "extracted_character_count": 130001
+      },
+      "eligible_topics": [
+        "blueprint-driven knowledge engineering",
+        "source traceability and trustworthy-source handling",
+        "knowledge definition and knowledge task layers",
+        "knowledge clauses, knowledge items, hierarchical and logical links",
+        "knowledge lake and knowledge graph separation",
+        "Human-in-the-Loop validation"
+      ],
+      "rationale": "It is the primary methodology source and provides the most direct research basis for governable, traceable, and verifiable knowledge construction.",
+      "boundary": "The blood-glucose and health-management case validates the methodology only; its domain values, judgments, ranges, and recommendations are not MAGP Core or Railway rules.",
+      "automatic_normative_effect": false
+    },
+    {
+      "source_id": "SOURCE-MAGP-02",
+      "classification": "CORE_INCLUDED",
+      "authority_level": "SECONDARY_CONCEPTUAL_INTERPRETATION",
+      "read_evidence": {
+        "method": "FULL_PDF_TEXT_EXTRACTION",
+        "page_count": 12,
+        "pages_processed": 12,
+        "nonempty_pages": 12,
+        "extracted_character_count": 16482
+      },
+      "eligible_topics": [
+        "MAGP meta-level positioning",
+        "six-layer conceptual architecture",
+        "MAGPObject semantic classification",
+        "rule hierarchy and execution boundary concepts",
+        "knowledge-source-to-item traceability",
+        "Agent OS and Human Approval conceptual roles"
+      ],
+      "rationale": "It is a compact conceptual interpretation useful for explaining MAGP boundaries and relationships during reconciliation.",
+      "boundary": "It cannot override the primary methodology or independently establish formal MAGP classes, schemas, lifecycle states, or rules.",
+      "automatic_normative_effect": false
+    },
+    {
+      "source_id": "SOURCE-MAGP-03",
+      "classification": "CORE_INCLUDED",
+      "authority_level": "DERIVED_IMPLEMENTATION_GUIDANCE",
+      "identity_method": "HUMAN_APPROVED_EXACT_NORMALIZED_STEM",
+      "read_evidence": {
+        "method": "FULL_PDF_TEXT_EXTRACTION",
+        "page_count": 201,
+        "pages_processed": 201,
+        "nonempty_pages": 201,
+        "extracted_character_count": 272519
+      },
+      "eligible_topics": [
+        "structured guidance for Codex-assisted MAGP implementation",
+        "BGE, Agent Factory, and Agent OS implementation decomposition",
+        "architecture, specification, FSM, schema, test, implementation, and unit-test artifact planning",
+        "dependency-aware RFC and validation planning"
+      ],
+      "rationale": "It is detailed implementation guidance that can supply candidate decomposition and engineering sequencing for later reconciliation.",
+      "boundary": "Detail and executability do not make the content Normative. Health, Railway, VET-C, and example-domain sections remain examples or proposals and require separate authority.",
+      "automatic_normative_effect": false
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "classification": "CORE_INCLUDED",
+      "authority_level": "DERIVED_ARCHITECTURE_PROPOSAL",
+      "read_evidence": {
+        "method": "FULL_PDF_TEXT_EXTRACTION",
+        "page_count": 79,
+        "pages_processed": 79,
+        "nonempty_pages": 79,
+        "extracted_character_count": 177163
+      },
+      "eligible_topics": [
+        "Volume, Package, and RFC separation",
+        "MAGP architectural layering proposals",
+        "BGE, Agent Factory, Agent OS, Knowledge Layer, and Meta Constitution package planning",
+        "traceability from architecture through RFC, code, and tests",
+        "human checkpoints and staged Codex development planning"
+      ],
+      "rationale": "It provides a broad architecture proposal and document decomposition useful as a candidate design map.",
+      "boundary": "The proposed volumes, package counts, RFC numbering, example domains, and implementation sequence require reconciliation and Human adoption; they are not current Normative architecture.",
+      "automatic_normative_effect": false
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "classification": "OPTIONAL_PATTERN_ONLY",
+      "authority_level": "OPTIONAL_NON_AUTHORITATIVE_PROCESS_PATTERN",
+      "read_evidence": {
+        "method": "GENERAL_PATTERN_STRUCTURE_AND_HEADING_REVIEW",
+        "document_declared_authority": "NON_AUTHORITATIVE_REPORT",
+        "direct_project_effect": "NONE",
+        "file_size_bytes": 73306
+      },
+      "eligible_topics": [
+        "role-authority separation pattern",
+        "artifact-mediated handoff pattern",
+        "single active control state pattern",
+        "evidence-bound completion pattern",
+        "dependency window and controlled return pattern"
+      ],
+      "rationale": "The v2 report explicitly describes itself as non-authoritative and can be considered only for generic collaboration-process patterns.",
+      "required_claim_label": "NON_AUTHORITATIVE_PATTERN",
+      "may_decide_magp_core": false,
+      "automatic_normative_effect": false
+    }
+  ]
+}

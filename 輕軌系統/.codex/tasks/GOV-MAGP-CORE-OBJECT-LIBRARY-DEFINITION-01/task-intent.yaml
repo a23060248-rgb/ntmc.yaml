@@ -1,0 +1,30 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "task_type": "MAGP_CORE_OBJECT_LIBRARY_DEFINITION_AND_HUMAN_ADOPTION_PACKAGE_PREPARATION",
+  "human_authorization": "AUTHORIZE_CORE_OBJECT_LIBRARY_DEFINITION_WITH_ADOPTED_ARCHITECTURE",
+  "allowed_write_paths": [
+    ".codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/**"
+  ],
+  "prohibited_actions": [
+    "HUMAN_CORE_OBJECT_LIBRARY_ADOPTION",
+    "DATABASE_SCHEMA",
+    "DATABASE_MIGRATION",
+    "API_CONTRACT",
+    "BACKEND_FRONTEND_IMPLEMENTATION",
+    "AGENT_RUNTIME_IMPLEMENTATION",
+    "PRODUCT_IMPLEMENTATION",
+    "DEPLOYMENT",
+    "GIT",
+    "NETWORK",
+    "SERVICE",
+    "DATABASE",
+    "SEED",
+    "DOT_ENV",
+    "SUBAGENT",
+    "HISTORICAL_ARTIFACT_REWRITE"
+  ]
+}

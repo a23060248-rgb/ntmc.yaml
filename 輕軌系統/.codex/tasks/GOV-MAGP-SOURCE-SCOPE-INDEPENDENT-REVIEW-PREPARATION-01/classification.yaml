@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+  "level": "L3",
+  "task_type": "SOURCE_GOVERNANCE_REVIEW_PREPARATION",
+  "reasons": [
+    "The task prepares independent review of source identity, authority, contamination boundaries, compatibility, and a formal Source Scope Lock Review Gate.",
+    "Incorrect package, scope, transport, or aggregation contracts could promote proposed source authority into an adopted MAGP architecture without valid independent review.",
+    "The task must preserve historical artifacts, external source bytes, product and governance baselines, and the existing Migration 320 gate."
+  ],
+  "triggers": [
+    "formal-source-authority-review-gate",
+    "external-source-integrity",
+    "backward-compatibility",
+    "railway-domain-contamination-boundary",
+    "independent-review-and-human-adoption"
+  ],
+  "execution_categories": [
+    "governance-source-edit",
+    "governance-validation",
+    "governance-fixture",
+    "read-only-review",
+    "security",
+    "domain-rule",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "architect",
+    "documentation-engineer",
+    "qa-engineer",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "required_reviews": [
+    "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+    "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+    "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+    "EXTERNAL_COMPATIBILITY_REVIEWER"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "byte-derived review-target manifest",
+    "RFC8785 JCS review-target canonical binding",
+    "11-source filename-size-hash-magic revalidation",
+    "four collision-free reviewer packages",
+    "single canonical reviewer return contract",
+    "single manual transport attestation schema",
+    "Aggregator R1 canonical artifact contract",
+    "30-check deterministic QA contract",
+    "five launch-envelope bijections",
+    "product-governance-historical no-write evidence"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "reviewer_launch_approval",
+      "review_completion",
+      "human_source_scope_exact_manifest_adoption"
+    ],
+    "scope_approval_status": "AUTHORIZED_BY_USER",
+    "source_authority_adoption_status": "NOT_ADOPTED"
+  },
+  "stop_conditions": [
+    "SOURCE_REVIEW_TARGET_DRIFT",
+    "SOURCE_ROOT_DRIFT",
+    "SOURCE_IDENTITY_AMBIGUITY",
+    "SOURCE_HASH_MISMATCH",
+    "SOURCE_SCOPE_TASK_MUTATION_REQUIRED",
+    "REVIEW_PACKAGE_SCHEMA_CONFLICT",
+    "REVIEW_TRANSPORT_SCHEMA_CONFLICT",
+    "REVIEW_SCOPE_NOT_EXACT",
+    "REVIEWER_IDENTITY_COLLISION",
+    "AGGREGATOR_CANONICAL_WRITER_MISSING",
+    "PRODUCT_OR_GOVERNANCE_MUTATION_REQUIRED",
+    "HISTORICAL_ARTIFACT_REWRITE_REQUIRED",
+    "GIT_OPERATION_REQUIRED",
+    "ARCHITECTURE_RECONCILIATION_STARTED_EARLY",
+    "CORE_OBJECT_IMPLEMENTATION_STARTED_EARLY"
+  ],
+  "scope": {
+    "include": [
+      "READ_ONLY: C:/Users/a2306/Desktop/MAGP-Reference-Sources top-level regular files",
+      "READ_ONLY: .codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**",
+      "WRITE: .codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/**"
+    ],
+    "exclude": [
+      "external source writes",
+      "Source Scope Lock Task writes",
+      "108-file Candidate and all later Candidates",
+      ".codex/governance/**",
+      ".codex/meta-rules/**",
+      ".codex/domain/**",
+      ".codex/scripts/**",
+      ".codex/tests/**",
+      "AGENTS.md",
+      "product code",
+      "database, Migration 320, seed, service, network, and .env",
+      "Reviewer execution and payloads",
+      "Git index and Git working tree",
+      "Architecture Reconciliation and Core Object implementation"
+    ]
+  },
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

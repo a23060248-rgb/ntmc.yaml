@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:manual-reviewer-transport-attestation:r1",
+  "title": "MAGP Source Scope Manual Reviewer Transport Attestation R1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","reviewer_role","review_generation","source_thread_id","review_package_id","reviewer_run_id","payload_sha256","payload_modified","transported_by_human"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "reviewer_role": {"enum": ["EXTERNAL_SOURCE_INTEGRITY_REVIEWER","EXTERNAL_SOURCE_AUTHORITY_REVIEWER","EXTERNAL_SCOPE_CONTAMINATION_REVIEWER","EXTERNAL_COMPATIBILITY_REVIEWER"]},
+    "review_generation": {"const": "R1"},
+    "source_thread_id": {"type": "string", "minLength": 16},
+    "review_package_id": {"type": "string", "minLength": 16},
+    "reviewer_run_id": {"type": "string", "minLength": 16},
+    "payload_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "payload_modified": {"const": false},
+    "transported_by_human": {"const": true}
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "registry_id": "MAGP-SOURCE-SCOPE-R1-REVIEWER-IDENTITY-REGISTRY",
+  "preparation_task_id": "GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+  "review_generation": "R1",
+  "entries": [
+    {
+      "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTEGRITY-R1",
+      "review_package_id": "MAGP-SSR1-SOURCE_INTEGRITY-20D126E7-1008-4D9B-B517-E42573E4DC6D",
+      "assignment_id": "ASSIGN-0F9626DE-66B1-494D-BF0A-C8DA8DA0D153",
+      "reviewer_run_id": "RUN-6BE018C5-E990-4B21-AE1E-9FBD2A564DE2",
+      "reviewer_session_nonce": "FD56D725E03199C86B2505819C7E70C91B9D0EEE6D52BB87CA3DEA78F2E9C05D",
+      "package_core_sha256": "EAB328089A7C1F05AFB95061071A2C19F7C39D807E5A939AA760227CBE05E81E",
+      "launch_core_sha256": "66E9FE99C1111DAFB6ABDE64866E6C2A20AD1484BEEA90006E0E6EDA50253ACD",
+      "package_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/source-integrity-review"
+    },
+    {
+      "reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-AUTHORITY-R1",
+      "review_package_id": "MAGP-SSR1-SOURCE_AUTHORITY-E30F2944-B4AB-4D3A-B657-662219383437",
+      "assignment_id": "ASSIGN-E1CF0AAD-3C40-4218-B905-2EA0EA899FB6",
+      "reviewer_run_id": "RUN-0A17D678-EC74-4C45-BF46-F3AF26ED18DC",
+      "reviewer_session_nonce": "27928763DBA0D6B5EC35EB0EDDACEB113C26BCD20FF3B30BF8931ED0C0574A1A",
+      "package_core_sha256": "7473CA7BA921DFF4279387E04F9CFA7C7288568ADDA62A41AFB7EF21E70A7E11",
+      "launch_core_sha256": "C5A9E937977AA5FA8325896AA5ADAF7535FE04DFCCC40499729C60428CEE2314",
+      "package_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/source-authority-review"
+    },
+    {
+      "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-CONTAMINATION-R1",
+      "review_package_id": "MAGP-SSR1-SCOPE_CONTAMINATION-EF4EFD42-9E1D-4876-A288-8932113F0A29",
+      "assignment_id": "ASSIGN-3E2982FA-3C3A-4B10-BD79-1E15B31AF580",
+      "reviewer_run_id": "RUN-A10A0959-2FA2-4045-A5B7-931EC8194FA1",
+      "reviewer_session_nonce": "1BB602C2FFF9EEF10543BB8893600DC80EFE7ECDE96566E7C463E1DE7020484B",
+      "package_core_sha256": "D848273E0DE6CD1B9FC5BD2CDE7F7E66C195F48FF739A90D7F52134439B8D229",
+      "launch_core_sha256": "268361FA89A454F8DE1069DC94AAF3B0583B03D2CE23A91879072CCB84C1286C",
+      "package_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/scope-contamination-review"
+    },
+    {
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R1",
+      "review_package_id": "MAGP-SSR1-COMPATIBILITY-C1E24EA9-7DB7-4D9A-B7F1-F3BB2B347B7D",
+      "assignment_id": "ASSIGN-EFD3C34D-D7DD-4562-B942-4283B5DADC28",
+      "reviewer_run_id": "RUN-CF3E09ED-220D-4DB9-B8E6-74F50A9D3BC8",
+      "reviewer_session_nonce": "55448A73F4FED1B83299F2026E9632B98A57129686B49BD329E7D6F348DCD07A",
+      "package_core_sha256": "47A05C9C127F502C1491FD5527DE6FC34CD337D1774DEDC1FA03DFB846A39318",
+      "launch_core_sha256": "130627E25883A2666E800715FC195ADE1136E3B3C909DE3ED711E00E793449AC",
+      "package_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/compatibility-review"
+    }
+  ],
+  "collision_checks": {
+    "expected_reviewer_count": 4,
+    "unique_role_count": 4,
+    "unique_task_id_count": 4,
+    "unique_review_package_id_count": 4,
+    "unique_assignment_id_count": 4,
+    "unique_reviewer_run_id_count": 4,
+    "unique_reviewer_session_nonce_count": 4,
+    "unique_package_core_sha256_count": 4,
+    "collision_count": 0,
+    "status": "PASS"
+  },
+  "reviewer_execution_status": "NOT_STARTED_0_OF_4"
+}

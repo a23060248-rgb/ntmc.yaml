@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "policy_status": "ACTIVE_FOR_NEXT_TASK_INPUT",
+  "authority_order": [
+    "EXPLICIT_HUMAN_DECISION",
+    "PRIMARY_METHODOLOGY_SOURCE",
+    "SECONDARY_CONCEPTUAL_INTERPRETATION",
+    "DERIVED_IMPLEMENTATION_GUIDANCE",
+    "DERIVED_ARCHITECTURE_PROPOSAL",
+    "OPTIONAL_NON_AUTHORITATIVE_PROCESS_PATTERN",
+    "EXCLUDED_NO_CURRENT_AUTHORITY"
+  ],
+  "rules": [
+    "A lower authority source may not override a higher authority source or an explicit Human decision.",
+    "Source identity approval binds filename, path, size, and hash only; it does not promote content authority.",
+    "CORE_INCLUDED means eligible for architecture reconciliation, not automatically adopted or Normative.",
+    "PRIMARY_METHODOLOGY_SOURCE may support generalized methodology candidates, but health case details remain domain-specific evidence.",
+    "SECONDARY_CONCEPTUAL_INTERPRETATION may clarify concepts but may not override the primary methodology or create formal classes or rules by itself.",
+    "DERIVED_IMPLEMENTATION_GUIDANCE and DERIVED_ARCHITECTURE_PROPOSAL remain proposals requiring reconciliation, validation, independent review, and Human adoption.",
+    "OPTIONAL_PATTERN_ONLY content must be labeled NON_AUTHORITATIVE_PATTERN and may not decide MAGP Core.",
+    "EXCLUDED sources have no current effective-reference or architecture-reconciliation authority.",
+    "No source content becomes a confirmed Railway Domain Rule without a separate authorized Domain process and Human approval."
+  ],
+  "conflict_resolution": {
+    "automatic_resolution_allowed": false,
+    "required_action": "Record conflict and request Human decision during architecture reconciliation.",
+    "semantic_similarity_is_authority": false,
+    "newer_filename_alone_is_authority": false
+  },
+  "source_id_binding_required": true,
+  "sha256_binding_required": true,
+  "human_adoption_required_for_normative_effect": true,
+  "phase1_confirmed_domain_rule_promotion_supported": false
+}

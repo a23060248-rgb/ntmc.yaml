@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+  "review_generation": "R2",
+  "review_attempt": "RETRY_01",
+  "finding_closure_authority": [
+    "COMPAT-R1-001",
+    "COMPAT-R1-002"
+  ],
+  "review_questions": [
+    "Is COMPAT-R1-001 closed by the bound Corrective Overlay?",
+    "Is COMPAT-R1-002 closed by the bound Corrective Overlay?",
+    "Is a pending review gate distinct from an active policy?",
+    "Does Source Authority remain PROPOSED_NOT_ADOPTED?",
+    "Is Normative Authority false before Human adoption?",
+    "Does Architecture Reconciliation remain NOT_AUTHORIZED?",
+    "Are the original Source Scope Lock bytes unchanged?",
+    "Does the overlay leave source classifications unchanged?",
+    "Does the overlay leave Source Authority content unchanged?",
+    "Does the overlay leave Claim Eligibility content unchanged?",
+    "Does the overlay leave contamination policies unchanged?",
+    "Can Integrity, Authority, and Contamination R1 PASS payloads still be reused?"
+  ],
+  "pass_contract": "STARTUP_VALID_REVIEW_RESULT with PASS, COMPAT-R1-001 CLOSED, COMPAT-R1-002 CLOSED, and zero OPEN CRITICAL or HIGH findings.",
+  "startup_blocker_contract": "STARTUP_BLOCKER_FAILURE_EVIDENCE has no finding closure authority, no substantive credit, and no Aggregator eligibility.",
+  "current_finding_state": "REMEDIATED_PENDING_COMPATIBILITY_R2"
+}

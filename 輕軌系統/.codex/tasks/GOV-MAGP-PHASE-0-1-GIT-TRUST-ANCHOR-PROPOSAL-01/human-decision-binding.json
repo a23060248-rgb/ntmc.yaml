@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "decision_status": "PENDING_HUMAN_DECISION",
+  "binding_canonicalization": "EXACT_FILE_BYTES_SHA256_UPPERCASE_HEX",
+  "exact_commit_paths": {
+    "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01/exact-commit-paths.json",
+    "bytes": 245641,
+    "sha256": "E8A5650A85D0DDADA08483493D866BF9A815F4EBAF1BE07987E8EBB7885E8FC3"
+  },
+  "dependency_closure": {
+    "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01/dependency-closure.json",
+    "bytes": 1159037,
+    "sha256": "23FD1B0236CC19E69147B0ACF49DD617B55DCFC679241919237B5E2953684A71"
+  },
+  "trust_anchor_commit_plan": {
+    "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01/trust-anchor-commit-plan.json",
+    "bytes": 2807,
+    "sha256": "A768CBF9D8AEF7736DDEB4FE617D53BF18FCD3C027A8BD857E683490AF3F19A2"
+  },
+  "parent_head": "187ca36a2ef2c4be991e2f94956eae151b417217",
+  "parent_head_binding_sha256": "69755381E38A36390CC49ED8F83F9451B5FCF8537F34E278473A71B4FBAA759B",
+  "independent_sha256_bindings": {
+    "exact_commit_paths_sha256": "E8A5650A85D0DDADA08483493D866BF9A815F4EBAF1BE07987E8EBB7885E8FC3",
+    "dependency_closure_sha256": "23FD1B0236CC19E69147B0ACF49DD617B55DCFC679241919237B5E2953684A71",
+    "trust_anchor_commit_plan_sha256": "A768CBF9D8AEF7736DDEB4FE617D53BF18FCD3C027A8BD857E683490AF3F19A2",
+    "parent_head_binding_sha256": "69755381E38A36390CC49ED8F83F9451B5FCF8537F34E278473A71B4FBAA759B"
+  },
+  "self_referential_hash_present": false,
+  "human_must_not_approve_by_directory_wildcard": true,
+  "trust_anchor_commit_authorized": false
+}

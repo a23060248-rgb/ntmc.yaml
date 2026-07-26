@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-SOURCE-SCOPE-EXACT-MANIFEST-ADOPTION-01",
+  "execution_mode": "ROOT_ONLY_SEQUENTIAL_NO_SUBAGENTS",
+  "input_task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "input_package": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1/human-exact-manifest-adoption-package",
+  "phases": [
+    "VERIFY_HUMAN_DECISION_AND_AGGREGATOR_GATE",
+    "VERIFY_EXACT_PACKAGE_SOURCE_POLICY_AND_HISTORY_BINDINGS",
+    "RECORD_HUMAN_ADOPTION_AND_EFFECTIVE_SOURCE_GOVERNANCE_STATE",
+    "PREPARE_ARCHITECTURE_RECONCILIATION_READINESS_ONLY",
+    "RUN_35_CHECK_QA_AND_POST_WRITE_INTEGRITY"
+  ],
+  "manifest_adoption_method": "REFERENCE_ORIGINAL_ARTIFACT_AND_EXACT_SHA256_NO_CONTENT_RECONSTRUCTION",
+  "normative_scope": [
+    "SOURCE_SELECTION",
+    "SOURCE_CITATION",
+    "CLAIM_ELIGIBILITY",
+    "SOURCE_PRECEDENCE",
+    "CONTAMINATION_PREVENTION",
+    "ARCHITECTURE_RECONCILIATION_INPUT_BOUNDARY"
+  ],
+  "architecture_reconciliation_status_after_completion": "READY_FOR_SEPARATE_HUMAN_AUTHORIZATION",
+  "architecture_reconciliation_authorized": false,
+  "architecture_reconciliation_started": false
+}

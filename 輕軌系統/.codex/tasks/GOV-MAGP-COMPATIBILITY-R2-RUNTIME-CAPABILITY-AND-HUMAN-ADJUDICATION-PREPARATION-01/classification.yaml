@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+  "level": "L3",
+  "reasons": [
+    "The task governs an unresolved Compatibility Reviewer blocker without closing it.",
+    "The task records unknown or unavailable runtime provenance and isolation controls.",
+    "The task defines backward-compatibility review assurance, Review Gate semantics, and downstream Aggregator eligibility boundaries."
+  ],
+  "triggers": [
+    "unresolved_reviewer_blocker",
+    "unknown_environment_provenance",
+    "backward_compatibility",
+    "formal_review_gate",
+    "downstream_authorization_boundary"
+  ],
+  "required_agents": [
+    "architect",
+    "qa-engineer",
+    "documentation-engineer"
+  ],
+  "required_reviews": [
+    "FUTURE_ROUTE_SPECIFIC_REVIEW_AFTER_HUMAN_DECISION"
+  ],
+  "review_launches_in_this_task": "PROHIBITED",
+  "parallel_allowed": false,
+  "evidence_required": [
+    "clean_room_runtime_capability_assessment",
+    "unavailable_control_inventory",
+    "attempted_launch_disposition",
+    "immutable_retry_and_failure_history_hash_baseline",
+    "repeated_retry_prohibition",
+    "two_path_human_decision_gate",
+    "human_adjudicated_assurance_boundary",
+    "finding_adjudication_schema",
+    "positive_and_negative_protocol_validation",
+    "protected_artifact_after_hash_verification"
+  ],
+  "human_approval": {
+    "scope_approval": "APPROVED_IN_CURRENT_HUMAN_INSTRUCTION",
+    "review_path_selection": "PENDING",
+    "finding_adjudication": "NOT_PERFORMED",
+    "reviewer_launch": "NOT_AUTHORIZED",
+    "aggregator_launch": "NOT_AUTHORIZED",
+    "architecture_reconciliation": "NOT_AUTHORIZED",
+    "final_commit_approval": "NOT_GRANTED"
+  },
+  "stop_conditions": [
+    "EXISTING_RETRY_OR_HISTORY_MUTATION_DETECTED",
+    "HUMAN_PATH_DECISION_AUTO_SELECTED",
+    "REVIEWER_PACKAGE_CREATED_BEFORE_HUMAN_DECISION",
+    "FINDING_CLOSURE_ATTEMPTED_BY_CODEX",
+    "CLEAN_ROOM_OR_INDEPENDENT_ASSURANCE_FALSELY_CLAIMED",
+    "AGGREGATOR_AUTHORIZATION_ATTEMPTED",
+    "ARCHITECTURE_RECONCILIATION_ATTEMPTED",
+    "GIT_OPERATION_REQUIRED"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01/**"
+    ],
+    "exclude": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/governance/**",
+      ".codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/**",
+      ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01/**",
+      "all_other_historical_task_roots",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "docs/**"
+    ]
+  },
+  "classified_by": "ROOT_META_GOVERNANCE_ORCHESTRATOR",
+  "classification_status": "HUMAN_SCOPE_APPROVED"
+}

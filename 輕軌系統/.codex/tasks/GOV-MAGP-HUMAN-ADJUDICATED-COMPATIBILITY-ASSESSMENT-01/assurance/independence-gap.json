@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "clean_room_independence": false,
+  "external_reviewer_independence": false,
+  "runtime_control_guarantee": false,
+  "codex_assessment_non_independent": true,
+  "deterministic_artifact_validation": true,
+  "independence_gap_closed": false,
+  "gap_may_be_hidden_by_validation": false,
+  "gap_disposition": "EXPLICITLY_ACCEPTED_AS_REDUCED_ASSURANCE_BY_HUMAN_PATH_DECISION",
+  "forbidden_claims": [
+    "CLEAN_ROOM_REVIEW_PASS",
+    "INDEPENDENT_REVIEW_PASS",
+    "FULL_L3_REVIEW_PASS",
+    "EXTERNAL_REVIEWER_PASS"
+  ]
+}

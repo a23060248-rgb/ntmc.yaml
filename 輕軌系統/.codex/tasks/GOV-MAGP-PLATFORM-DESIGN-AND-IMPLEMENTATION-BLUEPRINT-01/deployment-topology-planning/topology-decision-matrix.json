@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "deployment topology",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "criteria": [
+    "consistency",
+    "security",
+    "auditability",
+    "complexity",
+    "operational burden",
+    "scaling",
+    "failure isolation",
+    "deployment risk",
+    "team capability",
+    "migration path"
+  ],
+  "candidates": [
+    {
+      "name": "Modular Monolith",
+      "selected": false,
+      "human_decision": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "name": "Service-Oriented",
+      "selected": false,
+      "human_decision": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "name": "Hybrid",
+      "selected": false,
+      "human_decision": "PENDING_HUMAN_DECISION"
+    }
+  ]
+}

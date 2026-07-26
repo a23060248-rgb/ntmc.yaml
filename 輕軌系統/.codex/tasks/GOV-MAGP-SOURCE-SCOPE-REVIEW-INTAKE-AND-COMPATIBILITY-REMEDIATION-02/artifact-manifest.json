@@ -1,0 +1,259 @@
+{
+  "manifest_core": {
+    "schema_version": 1,
+    "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+    "generated_at": "2026-07-22T16:34:28+08:00",
+    "artifact_count": 49,
+    "artifacts": [
+      {
+        "normalized_relative_path": "HANDOFF.md",
+        "file_size_bytes": 1919,
+        "sha256": "C1C910D62AFD9A1F51DFE644BEB7064D323E8BD961C797C1FA9A85EE43753F5C"
+      },
+      {
+        "normalized_relative_path": "blueprint.yaml",
+        "file_size_bytes": 1090,
+        "sha256": "2671E4E80C63C4EDD3D88A7610FB235E5C7E1FC6CF931EC10ECB5AB8041FDCBF"
+      },
+      {
+        "normalized_relative_path": "build-and-validate.mjs",
+        "file_size_bytes": 65862,
+        "sha256": "4E3F2DCEE07C92247A8E6E5BA5B419DF35EFD0EB7D344FCD05322504386D1759"
+      },
+      {
+        "normalized_relative_path": "classification.yaml",
+        "file_size_bytes": 565,
+        "sha256": "17E30D5F09939AF0DC808A06D97D35103B2CD117855317D37D2F8D689279ECF5"
+      },
+      {
+        "normalized_relative_path": "compatibility-remediation/architecture-reconciliation-authorization-state.json",
+        "file_size_bytes": 702,
+        "sha256": "7E79EF70B16214EB49C0AD2BC799C647A9430F7104F5921F6CF7274F7914A26C"
+      },
+      {
+        "normalized_relative_path": "compatibility-remediation/compatibility-finding-remediation-matrix.json",
+        "file_size_bytes": 1527,
+        "sha256": "C1D16361DA48E313F2C60EF0371761CE5F858D1D5B8749C8EB5B04B12638CA69"
+      },
+      {
+        "normalized_relative_path": "compatibility-remediation/correction-integrity-record.json",
+        "file_size_bytes": 6717,
+        "sha256": "F6E1F8DD91C6F9EDDAC2B7D9A0AE4EEA10256B8534D584FB7FF44926D34A89D2"
+      },
+      {
+        "normalized_relative_path": "compatibility-remediation/corrective-record-authority.json",
+        "file_size_bytes": 991,
+        "sha256": "6E5D85FE47D5C41CC6122A05BC6203FB57008DD762CA63CBB32188B0B74A2A08"
+      },
+      {
+        "normalized_relative_path": "compatibility-remediation/downstream-policy-consumption-prohibition.yaml",
+        "file_size_bytes": 940,
+        "sha256": "58BE7B14852E2FF2994E38001DD460424A3A451F9DDB98F9F5969744433563F4"
+      },
+      {
+        "normalized_relative_path": "compatibility-remediation/original-premature-statements-disposition.json",
+        "file_size_bytes": 2089,
+        "sha256": "9430544DFE378B814018FA4056644CC8DB5962F7D9363803A97FFDE0CCE725DE"
+      },
+      {
+        "normalized_relative_path": "compatibility-remediation/source-authority-effective-state.json",
+        "file_size_bytes": 685,
+        "sha256": "E62815FC36BED898303E63AA47777B13C701DF7AFC869DC18AB7EDED466182A5"
+      },
+      {
+        "normalized_relative_path": "compatibility-remediation/source-scope-status-correction.json",
+        "file_size_bytes": 790,
+        "sha256": "6BB5ECD14FF14330B5940AA4F70B21EE5C4A37579529EB8482734641D3E93B5D"
+      },
+      {
+        "normalized_relative_path": "final-summary.md",
+        "file_size_bytes": 772,
+        "sha256": "5BF669AABCBD4A765C9D12832C9A5EF2E2CD572374584B1A3D3C3C88448544EA"
+      },
+      {
+        "normalized_relative_path": "formal-intake-results.json",
+        "file_size_bytes": 10696,
+        "sha256": "86DB506B9068CE055A30A71C1F394396D83FF2074AC029E1DC22595C8509D02E"
+      },
+      {
+        "normalized_relative_path": "package-build-result.json",
+        "file_size_bytes": 847,
+        "sha256": "739359309837FC1912642CE00F5E7148F29FDF88CAF6E68A7543E518EBD3A76A"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/absolute-launch-envelope.json",
+        "file_size_bytes": 3452,
+        "sha256": "0C812531CC8138F7127E96BECE90CCBEBB0D67F4792DDA965E99358AEB45B7D0"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/assignment.json",
+        "file_size_bytes": 1605,
+        "sha256": "9E2364BE3E9207C38670A39C99FE1BD0AABF453F683DB6A9AA12A1C606525D91"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/embedded-startup-blocker-template.json",
+        "file_size_bytes": 1007,
+        "sha256": "437367297407BB8427ABE6157F102C934CF5C70CB77A72DA420F1D3DF173A0E1"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/exact-read-scope.json",
+        "file_size_bytes": 21243,
+        "sha256": "A21B37E66151B873F3D75F70D058231B0C0BAD7C44BD3235929ACBEE4E74C34B"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/finding-ownership.json",
+        "file_size_bytes": 293,
+        "sha256": "47446CD8B173109A2D7089F50B378D61EF7E41AAA239A3C699E5820AE2F743DE"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/package-manifest.json",
+        "file_size_bytes": 3961,
+        "sha256": "A7B023F062B483B9749E6CD84D806F6BD262F68C9F65847584D1C15B2464567D"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/package-verification.json",
+        "file_size_bytes": 793,
+        "sha256": "6C5B96FB079ABFF9B93F4948B01A4986208A86D2C489DD8CB6EC9B65E3E08F1A"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/prohibited-actions.json",
+        "file_size_bytes": 626,
+        "sha256": "4F3D607F358EC5DC7860DDBA4068AF088C4FBF4CEE56EF673AF962BC1EDE8431"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/return-payload.schema.json",
+        "file_size_bytes": 179,
+        "sha256": "6CF1B0E28F8F8FB33BBAF6A28617A2A5B610E61D2BE0F6F818ACD0589007696D"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/review-requirements.json",
+        "file_size_bytes": 1937,
+        "sha256": "887248942B298B814D009965D441E7D541C27AF1BA381A2D26D5C6CA39F63210"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/standalone-top-level-reviewer-prompt.md",
+        "file_size_bytes": 1377,
+        "sha256": "CFFB0729FCE76F8A602EF2BB0AD624269A33451FF1F1C330834FD6D436BC3C06"
+      },
+      {
+        "normalized_relative_path": "review-packages/compatibility-review-r2/startup-contract.json",
+        "file_size_bytes": 1070,
+        "sha256": "B15FC64F5D6340C67C310976BA5F49D1ABAC31A5E72296256F9A5B3B6521B76F"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/aggregation-input-contract.json",
+        "file_size_bytes": 2082,
+        "sha256": "285B570BEB346C99B7773490D310AE749AAA2DC5A54C9E6060BAFA0D83951E2A"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/assignment.json",
+        "file_size_bytes": 726,
+        "sha256": "1B235402D789C3DE652BE116FCF25E9B82F2F1232D017040EDB6EC7CFA70A969"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/conditional-launch-envelope.json",
+        "file_size_bytes": 2681,
+        "sha256": "1C2865008C17B25883B8F914C46E088D22B5A42C5BED70CC2445B41B24442B48"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/embedded-not-authorized-template.json",
+        "file_size_bytes": 151,
+        "sha256": "807C20288AA305270F21A0879F7A8A318626DC110D6FD2DA691144BA17424D99"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/exact-read-scope.json",
+        "file_size_bytes": 7078,
+        "sha256": "897CDAD0D84F865F8CF7365FC5363E08D0C45D0C25FB8841ECEC8B86444E72C8"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/package-manifest.json",
+        "file_size_bytes": 2742,
+        "sha256": "96C96D5B5A7CDC3BCAF53821A948463E010E176CC80830678B6FC27F1D6D28A4"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/package-verification.json",
+        "file_size_bytes": 513,
+        "sha256": "38DD870560BF6597EE3EA2FE96E82000158FA594C1CAB3B185DFED526F51612E"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/prerequisites.json",
+        "file_size_bytes": 403,
+        "sha256": "CD19F26F5A4B43B34AD1D44A4BA652D2A3874093532601E207F72D99C3AC4B67"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/prohibited-actions.json",
+        "file_size_bytes": 443,
+        "sha256": "E63A260CFE10D4C057759F1593F9018FA6B77F8FA0F040648968D71BBC62C660"
+      },
+      {
+        "normalized_relative_path": "review-packages/source-scope-aggregation-r2/standalone-top-level-aggregator-prompt.md",
+        "file_size_bytes": 777,
+        "sha256": "B853950997071AE3218EDDAC877984316B9F672F5F9DC4E66311938DB4CFC43C"
+      },
+      {
+        "normalized_relative_path": "reviewer-payloads/compatibility-r1.raw.txt",
+        "file_size_bytes": 15052,
+        "sha256": "E0C92CFDFA495D5EB57D75B849B5B77C130BCE0F8122C1A8EE2F4858A4FF2702"
+      },
+      {
+        "normalized_relative_path": "reviewer-payloads/scope-contamination-r1.raw.txt",
+        "file_size_bytes": 16512,
+        "sha256": "44CDDB53A09ECCDCFCA9B8D94829D1CBBCF8730B6C587B02B95862B711A5033F"
+      },
+      {
+        "normalized_relative_path": "reviewer-payloads/source-authority-r1.raw.txt",
+        "file_size_bytes": 21126,
+        "sha256": "BB1FAC2470EDBD5C322A509752E359AA076DFB015E9A0367270C6840C3959EFA"
+      },
+      {
+        "normalized_relative_path": "reviewer-payloads/source-integrity-r1.raw.txt",
+        "file_size_bytes": 12421,
+        "sha256": "8546BD1DCE083A94D57DE06CD6F179696E1E3828E7E7299580AB431637A909F0"
+      },
+      {
+        "normalized_relative_path": "reviewer-return-payload.schema.json",
+        "file_size_bytes": 9492,
+        "sha256": "9425D1AB3B451E0F11B8130E8DE9010A4F02BD0E3ACBFDF7E0D4FE42A69130BA"
+      },
+      {
+        "normalized_relative_path": "reviewer-reuse-preservation.json",
+        "file_size_bytes": 3003,
+        "sha256": "98113CDE1A742FDF124EBD632A5CC3259A8F477D39D95A98462777090CC202D8"
+      },
+      {
+        "normalized_relative_path": "scope-integrity.json",
+        "file_size_bytes": 826,
+        "sha256": "630A71FD17AC1A45D41C027744C6774BE05979E7CD47658D919C844C2A623EDF"
+      },
+      {
+        "normalized_relative_path": "task-intent.yaml",
+        "file_size_bytes": 901,
+        "sha256": "80A1B47F3F6508D04B89970502B8D2A50CFA167512E0CF3B201353933277394B"
+      },
+      {
+        "normalized_relative_path": "transport-attestations/compatibility_r1.json",
+        "file_size_bytes": 472,
+        "sha256": "7CA76CC18CEDF8FE70CE7392305FB92C9AB15B4F6641E69B6540C56BC8BE23AB"
+      },
+      {
+        "normalized_relative_path": "transport-attestations/scope_contamination_r1.json",
+        "file_size_bytes": 484,
+        "sha256": "2435BE5E37F9EC2DF2C0CB80C84B05E05AC03DE3895AD7A023FE81D6E72B6695"
+      },
+      {
+        "normalized_relative_path": "transport-attestations/source_authority_r1.json",
+        "file_size_bytes": 478,
+        "sha256": "29390DBDB7CDE556B50D9C959F629F4D2B692E4F4C1434A68CCB7CD154D9741E"
+      },
+      {
+        "normalized_relative_path": "transport-attestations/source_integrity_r1.json",
+        "file_size_bytes": 478,
+        "sha256": "D4B718DF71AFDDB763752C530B9C81E2302502CF6A5E7DCBC77F5E66F11CA206"
+      }
+    ]
+  },
+  "manifest_core_sha256": "76C37DC823EA0BA826B5B0D0CEFD4050E0EFFC19FC5B105969A9BE1A6EAEEB42",
+  "canonicalization": "RFC8785_JCS",
+  "hash_algorithm": "SHA-256",
+  "hash_encoding": "UPPERCASE_HEX"
+}

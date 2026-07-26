@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "conflict_count": 10,
+  "open_active_critical": 0,
+  "open_active_high": 0,
+  "contained_pending_human_decision_count": 4,
+  "conflicts": [
+    {
+      "conflict_id": "ARC-CONFLICT-001",
+      "title": "Thesis scope versus full-platform proposals",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_BY_EXPLICIT_SCOPE_BOUNDARY",
+      "competing_claim_ids": [
+        "ARC-CLM-002",
+        "ARC-CLM-005",
+        "ARC-CLM-019"
+      ],
+      "resolution": "Treat thesis outputs as demonstrated methodology and later full-platform structures as post-thesis proposals.",
+      "human_decision_required": false
+    },
+    {
+      "conflict_id": "ARC-CONFLICT-002",
+      "title": "Six conceptual layers versus fourteen engineering volumes",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_AS_DIFFERENT_MODEL_DIMENSIONS",
+      "competing_claim_ids": [
+        "ARC-CLM-006",
+        "ARC-CLM-019",
+        "ARC-CLM-034"
+      ],
+      "resolution": "Retain the six conceptual responsibility layers; map volumes as subordinate engineering groupings rather than layer equivalents.",
+      "human_decision_required": false
+    },
+    {
+      "conflict_id": "ARC-CONFLICT-003",
+      "title": "Deterministic BGE wording versus LLM semantic reasoning",
+      "severity": "MEDIUM",
+      "status": "CONTAINED_BY_MODIFIED_PROPOSAL",
+      "competing_claim_ids": [
+        "ARC-CLM-011",
+        "ARC-CLM-032"
+      ],
+      "resolution": "Require deterministic schemas, validation, and audit envelopes while treating semantic generation as non-deterministic candidate production subject to validation.",
+      "human_decision_required": false
+    },
+    {
+      "conflict_id": "ARC-CONFLICT-004",
+      "title": "Meta software hierarchy versus Human authority",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_BY_HUMAN_SUPREMACY",
+      "competing_claim_ids": [
+        "ARC-CLM-008",
+        "ARC-CLM-038"
+      ],
+      "resolution": "Human remains the sole adoption authority; software layers may only propose, validate, or enforce adopted decisions.",
+      "human_decision_required": false
+    },
+    {
+      "conflict_id": "ARC-CONFLICT-005",
+      "title": "Fixed eight-RFC pattern versus risk-based governance",
+      "severity": "MEDIUM",
+      "status": "CONTAINED_PENDING_HUMAN_DECISION",
+      "competing_claim_ids": [
+        "ARC-CLM-018",
+        "ARC-CLM-037"
+      ],
+      "resolution": "Present fixed and risk-based options without selecting either as Normative Architecture.",
+      "human_decision_required": true,
+      "human_decision_id": "HAD-003"
+    },
+    {
+      "conflict_id": "ARC-CONFLICT-006",
+      "title": "Agent Registry ownership and scope",
+      "severity": "MEDIUM",
+      "status": "CONTAINED_PENDING_HUMAN_DECISION",
+      "competing_claim_ids": [
+        "ARC-CLM-024"
+      ],
+      "resolution": "Bound the Registry to identity and lineage; defer whether it is a Factory subcomponent or independent control-plane service.",
+      "human_decision_required": true,
+      "human_decision_id": "HAD-004"
+    },
+    {
+      "conflict_id": "ARC-CONFLICT-007",
+      "title": "Runtime Governance placement",
+      "severity": "MEDIUM",
+      "status": "CONTAINED_PENDING_HUMAN_DECISION",
+      "competing_claim_ids": [
+        "ARC-CLM-023",
+        "ARC-CLM-033"
+      ],
+      "resolution": "Preserve logical separation from Product Runtime; defer physical/component placement.",
+      "human_decision_required": true,
+      "human_decision_id": "HAD-005"
+    },
+    {
+      "conflict_id": "ARC-CONFLICT-008",
+      "title": "Evidence Ledger as standalone service",
+      "severity": "LOW",
+      "status": "CONTAINED_PENDING_HUMAN_DECISION",
+      "competing_claim_ids": [
+        "ARC-CLM-025"
+      ],
+      "resolution": "Define evidence responsibility but defer standalone versus shared-service placement.",
+      "human_decision_required": true,
+      "human_decision_id": "HAD-006"
+    },
+    {
+      "conflict_id": "ARC-CONFLICT-009",
+      "title": "Trustworthy Prompt OS versus Agent OS naming",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_BY_RESPONSIBILITY_ALIAS_BOUNDARY",
+      "competing_claim_ids": [
+        "ARC-CLM-003",
+        "ARC-CLM-013",
+        "ARC-CLM-032"
+      ],
+      "resolution": "Use Blueprint Compiler/BGE for design-time knowledge compilation and Agent OS for runtime execution; do not treat the thesis compiler as a complete Agent OS.",
+      "human_decision_required": false
+    },
+    {
+      "conflict_id": "ARC-CONFLICT-010",
+      "title": "VET-C and health-domain contamination risk",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_BY_ADOPTED_CONTAMINATION_POLICIES",
+      "competing_claim_ids": [
+        "ARC-CLM-027"
+      ],
+      "boundary_evidence": "source-architecture-claims/exclusion-and-contamination-boundary-evidence.json",
+      "resolution": "Use only generalized thesis methodology and optional general process patterns; prohibit VET-C-specific and health-specific domain promotion.",
+      "human_decision_required": false
+    }
+  ]
+}

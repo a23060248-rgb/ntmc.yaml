@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "human_decision": {
+    "reviewer_return_schema_v2_creation": "APPROVED",
+    "r2_transport_schema_v2_creation": "APPROVED",
+    "existing_v1_schema_mutation": "PROHIBITED",
+    "attempt_1_wrapper_modification": "PROHIBITED",
+    "historical_v1_result_reclassification": "PROHIBITED"
+  },
+  "selected_design": "DISCRIMINATED_UNION_WITH_SEPARATE_LEGACY_FAILURE_EVIDENCE_ADMISSION",
+  "v1_history_preserved": true,
+  "v2_return_schema_id": "urn:magp:source-scope-reviewer-return-payload:v2",
+  "v2_admission_schema_id": "urn:magp:startup-failure-evidence-admission:v2",
+  "v2_transport_schema_id": "urn:magp:manual-reviewer-transport-attestation:r2:v2"
+}

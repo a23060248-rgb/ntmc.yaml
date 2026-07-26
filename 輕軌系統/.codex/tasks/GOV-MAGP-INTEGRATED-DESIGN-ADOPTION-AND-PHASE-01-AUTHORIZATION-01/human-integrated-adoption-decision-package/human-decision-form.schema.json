@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MASTER BATCH 7A-2 Integrated Human Decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "human_decision_type",
+    "decision_register_sha256",
+    "recommendation_matrix_sha256",
+    "proposal_binding_sha256",
+    "total_decision_count",
+    "adopt_physical_persistence_design",
+    "adopt_formal_api_event_contract",
+    "adopt_security_deployment_architecture",
+    "adopt_implementation_blueprint",
+    "authorize_phase_0",
+    "authorize_phase_1",
+    "authorize_phase_2_or_later",
+    "authorize_database_execution",
+    "authorize_migration_execution",
+    "authorize_product_code_modification_phase_0_1_only",
+    "authorize_deployment",
+    "assurance_level",
+    "human_authority_attestation",
+    "decision_timestamp",
+    "human_rationale"
+  ],
+  "properties": {
+    "human_decision_type": {
+      "enum": [
+        "BULK_ADOPT_ALL_RECOMMENDATIONS_AND_AUTHORIZE_PHASE_0_1",
+        "ITEMIZED_INTEGRATED_DECISIONS",
+        "ADOPT_DESIGNS_WITHOUT_IMPLEMENTATION_AUTHORIZATION"
+      ]
+    },
+    "decision_register_sha256": {
+      "const": "9054408EC82C51914FAC3212CFCCE8601930FC9F761F06A4DB62644BED483FEC"
+    },
+    "recommendation_matrix_sha256": {
+      "const": "8CA636ECA40FE2E3DA0A1CDA3A3F118290DDB57714FC3911A4F78B157171437D"
+    },
+    "proposal_binding_sha256": {
+      "const": "28342E6B8ABA66D366A9F7C6E0F33BE50AB5B3EC1EEC47498A6D48EA27AD84D3"
+    },
+    "total_decision_count": {
+      "const": 56
+    },
+    "adopt_physical_persistence_design": {
+      "type": "boolean"
+    },
+    "adopt_formal_api_event_contract": {
+      "type": "boolean"
+    },
+    "adopt_security_deployment_architecture": {
+      "type": "boolean"
+    },
+    "adopt_implementation_blueprint": {
+      "type": "boolean"
+    },
+    "authorize_phase_0": {
+      "type": "boolean"
+    },
+    "authorize_phase_1": {
+      "type": "boolean"
+    },
+    "authorize_phase_2_or_later": {
+      "type": "boolean"
+    },
+    "authorize_database_execution": {
+      "type": "boolean"
+    },
+    "authorize_migration_execution": {
+      "type": "boolean"
+    },
+    "authorize_product_code_modification_phase_0_1_only": {
+      "type": "boolean"
+    },
+    "authorize_deployment": {
+      "type": "boolean"
+    },
+    "adopt_all_recommendations_without_exception": {
+      "type": "boolean"
+    },
+    "itemized_decisions": {
+      "type": "array",
+      "minItems": 56,
+      "maxItems": 56
+    },
+    "assurance_level": {
+      "const": "REDUCED_ASSURANCE"
+    },
+    "human_authority_attestation": {
+      "const": true
+    },
+    "decision_timestamp": {
+      "type": "string",
+      "minLength": 1
+    },
+    "human_rationale": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "human_decision_type": {
+            "const": "BULK_ADOPT_ALL_RECOMMENDATIONS_AND_AUTHORIZE_PHASE_0_1"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "adopt_all_recommendations_without_exception"
+        ],
+        "properties": {
+          "adopt_all_recommendations_without_exception": {
+            "const": true
+          },
+          "adopt_physical_persistence_design": {
+            "const": true
+          },
+          "adopt_formal_api_event_contract": {
+            "const": true
+          },
+          "adopt_security_deployment_architecture": {
+            "const": true
+          },
+          "adopt_implementation_blueprint": {
+            "const": true
+          },
+          "authorize_phase_0": {
+            "const": true
+          },
+          "authorize_phase_1": {
+            "const": true
+          },
+          "authorize_phase_2_or_later": {
+            "const": false
+          },
+          "authorize_database_execution": {
+            "const": false
+          },
+          "authorize_migration_execution": {
+            "const": false
+          },
+          "authorize_product_code_modification_phase_0_1_only": {
+            "const": true
+          },
+          "authorize_deployment": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "human_decision_type": {
+            "const": "ITEMIZED_INTEGRATED_DECISIONS"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "itemized_decisions"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "human_decision_type": {
+            "const": "ADOPT_DESIGNS_WITHOUT_IMPLEMENTATION_AUTHORIZATION"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "adopt_physical_persistence_design": {
+            "const": true
+          },
+          "adopt_formal_api_event_contract": {
+            "const": true
+          },
+          "adopt_security_deployment_architecture": {
+            "const": true
+          },
+          "adopt_implementation_blueprint": {
+            "const": true
+          },
+          "authorize_phase_0": {
+            "const": false
+          },
+          "authorize_phase_1": {
+            "const": false
+          },
+          "authorize_phase_2_or_later": {
+            "const": false
+          },
+          "authorize_database_execution": {
+            "const": false
+          },
+          "authorize_migration_execution": {
+            "const": false
+          },
+          "authorize_product_code_modification_phase_0_1_only": {
+            "const": false
+          },
+          "authorize_deployment": {
+            "const": false
+          }
+        }
+      }
+    }
+  ]
+}

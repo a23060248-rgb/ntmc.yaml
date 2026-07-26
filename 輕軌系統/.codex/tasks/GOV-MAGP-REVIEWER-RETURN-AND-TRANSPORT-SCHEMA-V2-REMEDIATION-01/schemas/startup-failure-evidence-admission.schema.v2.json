@@ -1,0 +1,504 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:startup-failure-evidence-admission:v2",
+  "title": "MAGP Legacy Startup-Failure Evidence Admission V2",
+  "description": "Admission-only contract for preserving an unmodified legacy wrapper as truthful startup-failure evidence. Passing this schema is not a substantive review result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "payload_core",
+    "payload_core_sha256"
+  ],
+  "properties": {
+    "payload_core": {
+      "$ref": "#/$defs/legacy_startup_blocker_payload"
+    },
+    "payload_core_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  },
+  "x-validation-branch": "STARTUP_BLOCKER_FAILURE_EVIDENCE",
+  "x-admission-class": "ADMITTED_STARTUP_FAILURE_EVIDENCE",
+  "x-substantive-review-credit": "NONE",
+  "x-aggregator-eligible": false,
+  "x-canonicalization": "RFC8785_JCS",
+  "x-payload-core-hash-recomputation-required": true,
+  "$defs": {
+    "review_target_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_target_task_id",
+        "review_target_manifest_sha256",
+        "review_target_record_core_sha256",
+        "source_directory_manifest_sha256",
+        "source_hash_binding_sha256"
+      ],
+      "properties": {
+        "review_target_task_id": {
+          "const": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01"
+        },
+        "review_target_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "review_target_record_core_sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "source_directory_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "source_hash_binding_sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        }
+      }
+    },
+    "startup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "assignment_valid",
+        "package_valid",
+        "target_valid",
+        "scope_valid",
+        "clean_context_valid"
+      ],
+      "properties": {
+        "status": {
+          "const": "STARTUP_BLOCKER"
+        },
+        "assignment_valid": {
+          "type": "boolean"
+        },
+        "package_valid": {
+          "type": "boolean"
+        },
+        "target_valid": {
+          "type": "boolean"
+        },
+        "scope_valid": {
+          "type": "boolean"
+        },
+        "clean_context_valid": {
+          "type": "boolean"
+        }
+      }
+    },
+    "clean_context_attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "brand_new_top_level_codex_chat",
+        "preparation_conversation_memory_used",
+        "other_reviewer_conversation_used",
+        "other_reviewer_payload_used",
+        "implementation_conversation_used",
+        "subagents_used",
+        "reviewer_repository_write_count",
+        "forbidden_read_count",
+        "out_of_scope_read_count"
+      ],
+      "properties": {
+        "brand_new_top_level_codex_chat": {
+          "type": "boolean"
+        },
+        "preparation_conversation_memory_used": {
+          "type": "boolean"
+        },
+        "other_reviewer_conversation_used": {
+          "type": "boolean"
+        },
+        "other_reviewer_payload_used": {
+          "type": "boolean"
+        },
+        "implementation_conversation_used": {
+          "type": "boolean"
+        },
+        "subagents_used": {
+          "type": "boolean"
+        },
+        "reviewer_repository_write_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "forbidden_read_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "out_of_scope_read_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "access_log_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "absolute_path",
+        "access_type",
+        "content_scope",
+        "status"
+      ],
+      "properties": {
+        "absolute_path": {
+          "type": "string",
+          "pattern": "^[A-Za-z]:/"
+        },
+        "access_type": {
+          "const": "READ"
+        },
+        "content_scope": {
+          "enum": [
+            "FULL_ARTIFACT",
+            "FULL_CORE_SOURCE",
+            "GENERAL_PATTERN_ONLY",
+            "MINIMAL_EXCLUSION_EVIDENCE",
+            "METADATA_AND_HASH_ONLY"
+          ]
+        },
+        "status": {
+          "enum": [
+            "ALLOWED_READ",
+            "DENIED_NOT_READ"
+          ]
+        }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_id",
+        "severity",
+        "status",
+        "title",
+        "description",
+        "evidence_paths",
+        "affected_policy",
+        "required_remediation"
+      ],
+      "properties": {
+        "finding_id": {
+          "type": "string",
+          "minLength": 8
+        },
+        "severity": {
+          "enum": [
+            "CRITICAL",
+            "HIGH",
+            "MEDIUM",
+            "LOW"
+          ]
+        },
+        "status": {
+          "const": "OPEN"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z]:/"
+          }
+        },
+        "affected_policy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_remediation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "legacy_startup_blocker_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "review_package_id",
+        "review_package_core_sha256",
+        "task_id",
+        "reviewer_role",
+        "assignment_id",
+        "reviewer_run_id",
+        "reviewer_session_nonce",
+        "review_target_binding",
+        "startup",
+        "review_status",
+        "review_started",
+        "source_content_reviewed",
+        "completed",
+        "mandatory_exit_requested",
+        "findings",
+        "access_log",
+        "clean_context_attestation"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "review_package_id": {
+          "type": "string",
+          "minLength": 16
+        },
+        "review_package_core_sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 16
+        },
+        "reviewer_role": {
+          "enum": [
+            "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+            "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+            "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+            "EXTERNAL_COMPATIBILITY_REVIEWER"
+          ]
+        },
+        "assignment_id": {
+          "type": "string",
+          "minLength": 16
+        },
+        "reviewer_run_id": {
+          "type": "string",
+          "minLength": 16
+        },
+        "reviewer_session_nonce": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "review_target_binding": {
+          "$ref": "#/$defs/review_target_binding"
+        },
+        "startup": {
+          "$ref": "#/$defs/startup"
+        },
+        "review_status": {
+          "const": "BLOCKER"
+        },
+        "review_started": {
+          "const": false
+        },
+        "source_content_reviewed": {
+          "const": false
+        },
+        "completed": {
+          "const": false
+        },
+        "mandatory_exit_requested": {
+          "const": true
+        },
+        "findings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/finding"
+          },
+          "contains": {
+            "type": "object",
+            "required": [
+              "severity",
+              "status",
+              "affected_policy"
+            ],
+            "properties": {
+              "severity": {
+                "enum": [
+                  "CRITICAL",
+                  "HIGH"
+                ]
+              },
+              "status": {
+                "const": "OPEN"
+              },
+              "affected_policy": {
+                "pattern": "([Ss][Tt][Aa][Rr][Tt][Uu][Pp]|[Ss][Cc][Oo][Pp][Ee]|[Pp][Aa][Cc][Kk][Aa][Gg][Ee]|[Cc][Oo][Nn][Tt][Ee][Xx][Tt]).*[Cc][Oo][Nn][Tt][Rr][Aa][Cc][Tt]"
+              }
+            }
+          },
+          "not": {
+            "contains": {
+              "type": "object",
+              "required": [
+                "finding_id",
+                "status"
+              ],
+              "properties": {
+                "finding_id": {
+                  "enum": [
+                    "COMPAT-R1-001",
+                    "COMPAT-R1-002"
+                  ]
+                },
+                "status": {
+                  "const": "CLOSED"
+                }
+              }
+            }
+          }
+        },
+        "access_log": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/access_log_entry"
+          }
+        },
+        "clean_context_attestation": {
+          "$ref": "#/$defs/clean_context_attestation"
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "clean_context_attestation": {
+              "properties": {
+                "forbidden_read_count": {
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "clean_context_attestation": {
+              "properties": {
+                "out_of_scope_read_count": {
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "clean_context_attestation": {
+              "properties": {
+                "implementation_conversation_used": {
+                  "const": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "clean_context_attestation": {
+              "properties": {
+                "preparation_conversation_memory_used": {
+                  "const": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "clean_context_attestation": {
+              "properties": {
+                "other_reviewer_conversation_used": {
+                  "const": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "clean_context_attestation": {
+              "properties": {
+                "other_reviewer_payload_used": {
+                  "const": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "clean_context_attestation": {
+              "properties": {
+                "reviewer_repository_write_count": {
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "clean_context_attestation": {
+              "properties": {
+                "subagents_used": {
+                  "const": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "startup": {
+              "properties": {
+                "clean_context_valid": {
+                  "const": false
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "startup": {
+              "properties": {
+                "package_valid": {
+                  "const": false
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "startup": {
+              "properties": {
+                "scope_valid": {
+                  "const": false
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "startup": {
+              "properties": {
+                "target_valid": {
+                  "const": false
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

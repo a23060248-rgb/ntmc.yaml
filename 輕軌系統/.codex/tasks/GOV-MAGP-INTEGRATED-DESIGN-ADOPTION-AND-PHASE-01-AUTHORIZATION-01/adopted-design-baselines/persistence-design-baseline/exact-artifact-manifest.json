@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "baseline_id": "MAGP-PERSISTENCE-DESIGN-BASELINE-V1",
+  "source_task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "canonicalization_method": "RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_NEWLINE",
+  "roots": [
+    "physical-persistence-design",
+    "database-proposal",
+    "migration-strategy"
+  ],
+  "file_count": 37,
+  "artifact_tree_sha256": "1254E9A1F52C3D2D176293E0207D2DA2952106519758BA95B2C4678E9688F8A8",
+  "artifacts": [
+    {
+      "relative_path": "database-proposal/constraint-ddl-proposal.sql",
+      "sha256": "60517AF49CA473B43B49B57D4FFEF0564824F0E282B71A24E7E56BADB6563816",
+      "bytes": 493
+    },
+    {
+      "relative_path": "database-proposal/index-ddl-proposal.sql",
+      "sha256": "BBB9AAE53A51B37BF7917D7162CFD5D0F30AEEAB659349762DBAAC3E946D9E39",
+      "bytes": 458
+    },
+    {
+      "relative_path": "database-proposal/partition-ddl-proposal.sql",
+      "sha256": "57720758A11FE18FD9B16868692F368360FC06C910DDE8D908419032D918930D",
+      "bytes": 325
+    },
+    {
+      "relative_path": "database-proposal/proposal-status.json",
+      "sha256": "21F540055922F50D8C89B9108BBAE933EA5434FC2714F6187AF4230C472FA03C",
+      "bytes": 447
+    },
+    {
+      "relative_path": "database-proposal/rollback-ddl-proposal.sql",
+      "sha256": "604C49AEF637FBDA0E5E8429E474A8B22F4156731230B2A1ECE772F5BED85954",
+      "bytes": 368
+    },
+    {
+      "relative_path": "database-proposal/row-security-policy-proposal.sql",
+      "sha256": "E0EEF4DE92E0847DEE7E5CB6C6DA0440DD95B16D693B48915549A42E45391526",
+      "bytes": 418
+    },
+    {
+      "relative_path": "database-proposal/schema-ddl-proposal.sql",
+      "sha256": "D45E7BA12D7A618ECF2E6B2A7D0C80099DA54B47BAA27A9F9AA50175CA5789C7",
+      "bytes": 1067
+    },
+    {
+      "relative_path": "migration-strategy/data-backfill-strategy.json",
+      "sha256": "6BAEFCF0FEFF15C8347663A8E969F6B1616FB0BDE0275EBB7024D2629FE1137F",
+      "bytes": 481
+    },
+    {
+      "relative_path": "migration-strategy/expand-contract-strategy.json",
+      "sha256": "216A9E5998ABD35C979E78548340BC81C1DA4B36E8A6A95BE3ED56284308CCDB",
+      "bytes": 504
+    },
+    {
+      "relative_path": "migration-strategy/forward-migration-plan.json",
+      "sha256": "6E7AD07AA4EE095AC12EE2318298123BD26FFBB1F4B56F478CBC1E1B778E726A",
+      "bytes": 535
+    },
+    {
+      "relative_path": "migration-strategy/migration-evidence-requirements.json",
+      "sha256": "1EA1820BF940B3028075E1E98BDADA81C0DE793702F8D72ABAEC2C7B74965720",
+      "bytes": 591
+    },
+    {
+      "relative_path": "migration-strategy/migration-go-no-go-criteria.json",
+      "sha256": "384F5ED996ACAEBD1B1A003417DD3D05E7C32E3DE218FA063C4BC8C5B9053754",
+      "bytes": 593
+    },
+    {
+      "relative_path": "migration-strategy/migration-versioning-policy.yaml",
+      "sha256": "3D6EA572D2C83CC27863D8071F5F7CC78711415A09962A729117452031AB5333",
+      "bytes": 510
+    },
+    {
+      "relative_path": "migration-strategy/rollback-plan.json",
+      "sha256": "2BD4839584295E856A486D05259D9383008E7A0A936996E198B1390F53B54697",
+      "bytes": 555
+    },
+    {
+      "relative_path": "migration-strategy/zero-downtime-candidate-plan.json",
+      "sha256": "F6EF3F658B8110E11BD2A8A126390820F35C8A84F432D88ACF5CF98EB5D291A4",
+      "bytes": 564
+    },
+    {
+      "relative_path": "physical-persistence-design/aggregate-storage-boundary.json",
+      "sha256": "004921F5002BD6AB89E8B8E868ADD051103ED6A07F32ABA01D6D43135660BEDB",
+      "bytes": 2735
+    },
+    {
+      "relative_path": "physical-persistence-design/audit-storage-strategy.json",
+      "sha256": "17DBC44BD9130BF0C4B70BA433E5E2FD9BBA10361D5A9B34CD1602E773818E25",
+      "bytes": 469
+    },
+    {
+      "relative_path": "physical-persistence-design/authority-storage-design.json",
+      "sha256": "CCF2521131B6DC4B31028C2706CDEDD389D5B869C43C1EFD968B6AF7B4897366",
+      "bytes": 571
+    },
+    {
+      "relative_path": "physical-persistence-design/backup-restore-design.json",
+      "sha256": "2217FF4894DCB27CE86B4A79CABD37B2C7E80BE756A2F334FE2801ACB20E504E",
+      "bytes": 640
+    },
+    {
+      "relative_path": "physical-persistence-design/column-and-type-proposal.json",
+      "sha256": "5DA44AE4F36DD337DC23BC91268639C39717C3AFF452339B01F977605A771EA5",
+      "bytes": 1234
+    },
+    {
+      "relative_path": "physical-persistence-design/concurrency-storage-design.json",
+      "sha256": "3788AA78A8791E978D9E43B242B9551D91BD7475BBD25922B5E587F7AD5B8E1E",
+      "bytes": 482
+    },
+    {
+      "relative_path": "physical-persistence-design/constraint-design.json",
+      "sha256": "2A4E4F412AD9513C900ABAE80E5E2DB9BB6D645E928C69281EE6BB5FF44BB94F",
+      "bytes": 677
+    },
+    {
+      "relative_path": "physical-persistence-design/database-technology-decision-matrix.json",
+      "sha256": "C5E5407D3467A2CC641C7CB2F732268D9C73A44825F37FFA20F7B4DF4F6714E3",
+      "bytes": 2111
+    },
+    {
+      "relative_path": "physical-persistence-design/disaster-recovery-design.json",
+      "sha256": "2454EFC6D17E13CD3DD5E0D12D45A1F8DA244526228E9DFDCFF78E6F74DB7002",
+      "bytes": 534
+    },
+    {
+      "relative_path": "physical-persistence-design/encryption-sensitive-data-design.json",
+      "sha256": "67828444721F3CB95EBD8EC953BFD09988AE03B1E0080585B430FEDE60CE1754",
+      "bytes": 578
+    },
+    {
+      "relative_path": "physical-persistence-design/evidence-ledger-storage-design.json",
+      "sha256": "75C7C23383E762CB894EE6ED5A7D0B65E8A70235F759182BC12B2E77793BE0E6",
+      "bytes": 635
+    },
+    {
+      "relative_path": "physical-persistence-design/idempotency-storage-design.json",
+      "sha256": "C454856E4D1942C3DE795080DF0E94DBEC47625E4D13DA631ECC95317623AB0F",
+      "bytes": 561
+    },
+    {
+      "relative_path": "physical-persistence-design/indexing-strategy.json",
+      "sha256": "F1B0085848EEB0FFD2D6876D12E896EBB3FE6E16FC7055A861673CE826D9EABC",
+      "bytes": 609
+    },
+    {
+      "relative_path": "physical-persistence-design/key-reference-strategy.json",
+      "sha256": "89912E1E45220ACCF89400B082ECE27E81675B510A97AAB941BBA20049F565A8",
+      "bytes": 587
+    },
+    {
+      "relative_path": "physical-persistence-design/lifecycle-transition-storage-design.json",
+      "sha256": "890AFB7AB39AFF19765AB2662BDBC617A453BCF44ADD5097D173818236248AA8",
+      "bytes": 580
+    },
+    {
+      "relative_path": "physical-persistence-design/logical-to-physical-mapping.json",
+      "sha256": "F597161B75928B1517E2DDE6E6D0345494ADC14BC62EBF7CD0E9B46632167007",
+      "bytes": 5015
+    },
+    {
+      "relative_path": "physical-persistence-design/partitioning-strategy.json",
+      "sha256": "5CE81035B6BE48516822C0822A8DD655BE9723117BD8109CD19D0BA791C02AC2",
+      "bytes": 567
+    },
+    {
+      "relative_path": "physical-persistence-design/physical-entity-registry.json",
+      "sha256": "C252E76206EDE064543428275D48505595FE5BC6358AF220324D0FC050BDB353",
+      "bytes": 3008
+    },
+    {
+      "relative_path": "physical-persistence-design/physical-schema-risk-register.json",
+      "sha256": "C3DE2C2ADC61CFF7A8723501D0EA9205E0B2654CBA69C163178CCBFCC78B0F04",
+      "bytes": 1376
+    },
+    {
+      "relative_path": "physical-persistence-design/retention-archival-design.json",
+      "sha256": "061CC4E05D26FBD99A061C10567ABC2779CC3FC95484B8051DDFCF69CA23EEE9",
+      "bytes": 573
+    },
+    {
+      "relative_path": "physical-persistence-design/table-design-proposal.json",
+      "sha256": "1A69AAAA9A15CE32596D962C3AD187D6CA59D66CDC43F2331E7F1CA293528936",
+      "bytes": 9280
+    },
+    {
+      "relative_path": "physical-persistence-design/temporal-data-strategy.json",
+      "sha256": "C6A12974C62EF07815106E87FB27BE00A01F44584EEFA9CC03D95FE4B6DA8CDB",
+      "bytes": 549
+    }
+  ],
+  "source_bytes_copied_or_modified": false
+}

@@ -1,0 +1,27 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "required_events": [
+    "creation or collection",
+    "hash calculation",
+    "transfer or storage",
+    "validation",
+    "review use",
+    "retention or archival"
+  ],
+  "event_fields": [
+    "evidence identity",
+    "actor",
+    "action",
+    "time",
+    "source location",
+    "prior hash",
+    "resulting hash",
+    "environment or method",
+    "limitations"
+  ],
+  "silent_rewrite_allowed": false
+}

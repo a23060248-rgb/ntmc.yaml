@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01",
+  "level": "L3",
+  "execution_mode": "ROOT_ORCHESTRATOR_SEQUENTIAL_NO_SUBAGENTS",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/**"
+  ],
+  "applicable_rules": [
+    "PHASE1_GOVERNANCE_ONLY",
+    "HUMAN_FINAL_FINDING_AUTHORITY",
+    "HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+    "PRESERVE_ORIGINAL_FINDINGS_AND_EVIDENCE",
+    "DETERMINISTIC_EVIDENCE_AND_BINDING_VALIDATION",
+    "PREPARE_BUT_DO_NOT_LAUNCH_AGGREGATOR",
+    "NO_SOURCE_SCOPE_ADOPTION",
+    "NO_ARCHITECTURE_RECONCILIATION"
+  ],
+  "candidate_rules": [],
+  "agent_assignments": [
+    {
+      "actor_role": "architect",
+      "assignment": "Design the Human closure, gate, assurance, and downstream authorization boundaries.",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_WITHIN_ARCHITECT_POLICY"
+    },
+    {
+      "actor_role": "qa-engineer",
+      "assignment": "Recompute evidence, bindings, integrity, readiness, and fail-closed negative tests.",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_AS_DETERMINISTIC_QA_RUNNER"
+    },
+    {
+      "actor_role": "documentation-engineer",
+      "assignment": "Record the Human decisions, reduced-assurance disclosure, launch package, summary, and handoff.",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_WITHIN_DOCUMENTATION_POLICY"
+    }
+  ],
+  "execution_sequence": [
+    "validate_human_adjudication_inputs",
+    "reverify_protected_artifacts",
+    "record_human_decisions_and_assurance_acknowledgement",
+    "calculate_compatibility_gate",
+    "prepare_aggregator_launch_package_without_launch",
+    "run_deterministic_positive_and_negative_validation",
+    "finalize_task_local_summary_and_handoff"
+  ],
+  "review_assignments": [],
+  "formal_clean_room_review_status": "NOT_COMPLETED",
+  "formal_independent_review_status": "NOT_COMPLETED",
+  "human_adjudication_status": "COMPLETED_IN_CURRENT_HUMAN_INSTRUCTION",
+  "finding_closure_authority": "HUMAN_ONLY",
+  "codex_role": "DECISION_RECORDER_AND_DETERMINISTIC_VALIDATOR",
+  "aggregator_launch_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "source_scope_exact_manifest_adoption_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "architecture_reconciliation_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "rollback_restore_evidence": {
+    "status": "NOT_APPLICABLE",
+    "reason": "This task writes only new governance evidence under its own task root and does not alter product, database, source, historical review, corrective overlay, Git, service, migration, seed, or external state."
+  },
+  "gate_state": "PENDING_DETERMINISTIC_VALIDATION"
+}

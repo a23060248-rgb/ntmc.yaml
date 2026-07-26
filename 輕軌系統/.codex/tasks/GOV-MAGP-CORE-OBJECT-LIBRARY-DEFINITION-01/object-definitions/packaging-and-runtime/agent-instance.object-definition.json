@@ -1,0 +1,54 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-019",
+  "object_type": "AGENT_INSTANCE",
+  "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+  "canonical_name": "Agent Instance",
+  "type_prefix": "ainst",
+  "design_time_or_runtime": "RUNTIME",
+  "normative_or_non_normative": "NON_NORMATIVE_RUNTIME_INSTANCE",
+  "current_normative_effect": false,
+  "authority_level": "RUNTIME_EXECUTION_WITHIN_DEFINITION_AND_ACTIVE_PERMISSION",
+  "lifecycle_owner": "AGENT_OS",
+  "evidence_owner": "AGENT_OS_EMITS_EVIDENCE_LEDGER_PRESERVES",
+  "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_HIGH_RISK_ACTION_SCOPE_OR_PERMISSION_EXPANSION",
+  "accountable_human_role": "RUNTIME_ACCOUNTABLE_OWNER",
+  "responsible_machine_role": "AGENT_OS",
+  "allowed_mutations": [
+    "runtime state transition",
+    "permission reduction",
+    "termination record"
+  ],
+  "prohibited_mutations": [
+    "modify Agent Definition",
+    "raise authority ceiling",
+    "add tool",
+    "approve own output",
+    "clear Finding",
+    "modify Normative Policy"
+  ],
+  "required_payload_fields": [
+    "instance_identity",
+    "definition_binding",
+    "runtime_environment",
+    "assigned_scope",
+    "active_permissions",
+    "session_identity",
+    "start_stop_time",
+    "runtime_state",
+    "produced_evidence",
+    "violations",
+    "termination_reason"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "agent-instance.schema-proposal.schema.json",
+  "lifecycle_profile": "RUNTIME_COMMON_FSM"
+}

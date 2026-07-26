@@ -1,0 +1,20 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "every_relationship_requires": [
+    "typed source",
+    "typed target",
+    "direction",
+    "cardinality",
+    "authority effect",
+    "lifecycle effect",
+    "deletion or supersession behavior",
+    "evidence binding"
+  ],
+  "hidden_relationship_allowed": false,
+  "deletion_of_authoritative_history_allowed": false,
+  "cardinality_violation_result": "FAIL_CLOSED"
+}

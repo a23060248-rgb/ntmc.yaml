@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:agent-definition:v0",
+  "title": "Agent Definition Schema Proposal",
+  "description": "Candidate schema proposal; not adopted and not a database schema.",
+  "allOf": [
+    {
+      "$ref": "../../../canonical-object-envelope/canonical-object-envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "object_type": {
+              "const": "AGENT_DEFINITION"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "agent_definition_identity",
+            "role",
+            "purpose",
+            "permitted_capabilities",
+            "prohibited_capabilities",
+            "authority_ceiling",
+            "allowed_tools",
+            "allowed_data_scopes",
+            "required_policies",
+            "evidence_duties",
+            "human_approval_dependency",
+            "shutdown_conditions",
+            "version"
+          ],
+          "properties": {
+            "agent_definition_identity": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "role": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "purpose": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "permitted_capabilities": {
+              "type": "array",
+              "items": {}
+            },
+            "prohibited_capabilities": {
+              "type": "array",
+              "items": {}
+            },
+            "authority_ceiling": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "allowed_tools": {
+              "type": "array",
+              "items": {}
+            },
+            "allowed_data_scopes": {
+              "type": "array",
+              "items": {}
+            },
+            "required_policies": {
+              "type": "array",
+              "items": {}
+            },
+            "evidence_duties": {
+              "type": "array",
+              "items": {}
+            },
+            "human_approval_dependency": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "shutdown_conditions": {
+              "type": "array",
+              "items": {}
+            },
+            "version": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    }
+  ],
+  "x-magp-object-type-id": "OBJ-TYPE-018",
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true,
+  "x-magp-database-schema": false
+}

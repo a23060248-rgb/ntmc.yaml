@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "layer_count": 6,
+  "layers": [
+    {
+      "layer_id": "L1",
+      "layer_name": "META_CONSTITUTION_AND_HUMAN_AUTHORITY",
+      "purpose": "Maintain Human decisions, constitutions, source-governance authority, and non-overridable governance invariants.",
+      "owned_objects": [
+        "HumanDecision",
+        "Constitution",
+        "AdoptedSourcePolicy",
+        "ArchitectureAdoptionRecord",
+        "PolicyVersion"
+      ],
+      "allowed_inputs": [
+        "Human decisions",
+        "review evidence",
+        "change proposals"
+      ],
+      "allowed_outputs": [
+        "adopted or rejected decisions",
+        "versioned constitutions",
+        "approval and denial records"
+      ],
+      "authority": "HUMAN_HIGHEST_SOFTWARE_MAY_NOT_SELF_ADOPT",
+      "lifecycle_responsibility": "propose, review, Human adopt, version, deprecate",
+      "evidence_responsibility": "bind every effective decision to actor, evidence, scope, version, and time",
+      "prohibited_responsibility": [
+        "execute domain tasks",
+        "self-approve policy",
+        "derive authority from runtime success"
+      ],
+      "upstream_dependency": [
+        "Human authority"
+      ],
+      "downstream_dependency": [
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "design_time_role": "sets adopted invariants and gates",
+      "runtime_role": "read-only policy source and Human-approval authority"
+    },
+    {
+      "layer_id": "L2",
+      "layer_name": "META_ONTOLOGY",
+      "purpose": "Define legal semantic object types, identity, lifecycle state, and domain-neutral schemas.",
+      "owned_objects": [
+        "EntityType",
+        "GovernanceObjectType",
+        "ProcessObjectType",
+        "KnowledgeUnitType",
+        "DomainExtensionType"
+      ],
+      "allowed_inputs": [
+        "L1 adopted invariants",
+        "Human-adopted architecture"
+      ],
+      "allowed_outputs": [
+        "candidate and adopted semantic type definitions",
+        "schema constraints"
+      ],
+      "authority": "SEMANTIC_DEFINITION_UNDER_L1",
+      "lifecycle_responsibility": "type proposal, compatibility review, Human adoption, versioning",
+      "evidence_responsibility": "type lineage and compatibility evidence",
+      "prohibited_responsibility": [
+        "execute behavior",
+        "grant permissions",
+        "encode health or VET-C rules in Core"
+      ],
+      "upstream_dependency": [
+        "L1"
+      ],
+      "downstream_dependency": [
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "design_time_role": "defines what may exist",
+      "runtime_role": "validates identity and type conformance only"
+    },
+    {
+      "layer_id": "L3",
+      "layer_name": "META_RELATION",
+      "purpose": "Define legal relations, provenance edges, ownership edges, dependency direction, and cardinality.",
+      "owned_objects": [
+        "RelationType",
+        "ProvenanceEdge",
+        "AuthorityEdge",
+        "DependencyEdge",
+        "TraceabilityEdge"
+      ],
+      "allowed_inputs": [
+        "L2 typed objects",
+        "L1 authority constraints"
+      ],
+      "allowed_outputs": [
+        "validated relation schemas",
+        "relationship graphs"
+      ],
+      "authority": "RELATION_SEMANTICS_UNDER_L1_AND_L2",
+      "lifecycle_responsibility": "relation proposal, validation, adoption, versioning",
+      "evidence_responsibility": "source and target identity plus derivation evidence for every edge",
+      "prohibited_responsibility": [
+        "infer authority from similarity",
+        "create hidden relations",
+        "execute workflows"
+      ],
+      "upstream_dependency": [
+        "L1",
+        "L2"
+      ],
+      "downstream_dependency": [
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "design_time_role": "defines how governed objects may connect",
+      "runtime_role": "checks relation validity and records runtime trace edges"
+    },
+    {
+      "layer_id": "L4",
+      "layer_name": "META_GOVERNANCE",
+      "purpose": "Evaluate adopted rules, precedence, conflict, risk, approvals, and evidence requirements without authoring its own authority.",
+      "owned_objects": [
+        "Policy",
+        "Rule",
+        "PolicyDecision",
+        "ApprovalRequest",
+        "ConflictRecord",
+        "EvidenceRequirement"
+      ],
+      "allowed_inputs": [
+        "L1 adopted policies",
+        "L2/L3 typed context",
+        "candidate actions",
+        "evidence"
+      ],
+      "allowed_outputs": [
+        "allow",
+        "deny",
+        "require Human approval",
+        "defer",
+        "violation evidence"
+      ],
+      "authority": "EVALUATION_OF_ADOPTED_AUTHORITY_ONLY",
+      "lifecycle_responsibility": "policy evaluation and escalation; policy adoption stays in L1",
+      "evidence_responsibility": "record rule version, inputs, outcome, explanation, and approval lineage",
+      "prohibited_responsibility": [
+        "self-author policy",
+        "approve own rule change",
+        "perform product action",
+        "silently waive a rule"
+      ],
+      "upstream_dependency": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "downstream_dependency": [
+        "L5",
+        "L6"
+      ],
+      "design_time_role": "governs Blueprint, Package, and release candidates",
+      "runtime_role": "governs execution decisions and Human gates"
+    },
+    {
+      "layer_id": "L5",
+      "layer_name": "META_PROCESS_AND_BUILD_TIME",
+      "purpose": "Compile governed intent and knowledge into candidate Blueprints, manufacture deployable packages, and register their identity and lineage.",
+      "owned_objects": [
+        "BlueprintPromptSet",
+        "Blueprint",
+        "Specification",
+        "BuildPlan",
+        "DeployableAgentPackage",
+        "RegistryRecord",
+        "WorkflowDefinition"
+      ],
+      "allowed_inputs": [
+        "L1-L4 adopted constraints",
+        "validated knowledge",
+        "Human-approved design inputs"
+      ],
+      "allowed_outputs": [
+        "candidate Blueprint",
+        "validation report",
+        "deployable package",
+        "registry record"
+      ],
+      "authority": "NON_ADOPTING_BUILD_CONTROL_PLANE",
+      "lifecycle_responsibility": "compile, validate, manufacture, register, stage for Human or release gates",
+      "evidence_responsibility": "source-to-blueprint, blueprint-to-package, and package-to-registry trace",
+      "prohibited_responsibility": [
+        "execute production tasks",
+        "adopt architecture",
+        "modify policy",
+        "grant package its own permissions"
+      ],
+      "upstream_dependency": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "downstream_dependency": [
+        "L6"
+      ],
+      "design_time_role": "primary build-time layer",
+      "runtime_role": "read-only source of approved packages and registry metadata"
+    },
+    {
+      "layer_id": "L6",
+      "layer_name": "META_RUNTIME",
+      "purpose": "Execute approved Agent packages, manage runtime resources and tools, enforce governance decisions, isolate domain operations, and emit evidence.",
+      "owned_objects": [
+        "ExecutionContext",
+        "RuntimePlan",
+        "ToolCall",
+        "RuntimePolicyDecision",
+        "AuditEvent",
+        "HumanApprovalRequest",
+        "DomainRuntimeAdapter"
+      ],
+      "allowed_inputs": [
+        "approved deployable package",
+        "read-only adopted policy",
+        "runtime context",
+        "authorized tools and knowledge"
+      ],
+      "allowed_outputs": [
+        "execution result",
+        "evidence events",
+        "approval requests",
+        "change proposals"
+      ],
+      "authority": "EXECUTION_UNDER_L1_L4_NO_SELF_AUTHORIZATION",
+      "lifecycle_responsibility": "schedule, execute, pause, resume after approval, terminate, archive runtime evidence",
+      "evidence_responsibility": "complete immutable execution and decision trace",
+      "prohibited_responsibility": [
+        "generate Blueprint",
+        "manufacture Agent",
+        "mutate Normative Policy",
+        "adopt architecture",
+        "self-grant tool access"
+      ],
+      "upstream_dependency": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "downstream_dependency": [
+        "Product Runtime outputs",
+        "Human review",
+        "future design proposals"
+      ],
+      "design_time_role": "provides requirements and feedback proposals only",
+      "runtime_role": "primary governed execution layer"
+    }
+  ]
+}

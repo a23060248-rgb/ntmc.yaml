@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "runtime_capability_status": "NOT_AVAILABLE",
+  "required_controls": [
+    {
+      "control_id": "CR-MEMORY-OFF",
+      "requirement": "Memory is disabled before Task creation and remains disabled for the full Reviewer run.",
+      "availability": "NOT_EXPOSED_OR_NOT_VERIFIABLE",
+      "launch_blocking": true
+    },
+    {
+      "control_id": "CR-GIT-AUTO-OFF",
+      "requirement": "Automatic Git inspection is disabled before any Reviewer operation.",
+      "availability": "NOT_EXPOSED_OR_NOT_VERIFIABLE",
+      "launch_blocking": true
+    },
+    {
+      "control_id": "CR-REPOSITORY-AUTO-READ-OFF",
+      "requirement": "Automatic Repository or Workspace discovery and reads are disabled.",
+      "availability": "NOT_EXPOSED_OR_NOT_VERIFIABLE",
+      "launch_blocking": true
+    },
+    {
+      "control_id": "CR-AUTOPRELOAD-OFF",
+      "requirement": "AGENTS.md, HANDOFF.md, and equivalent workspace instruction preloads are disabled.",
+      "availability": "NOT_EXPOSED_OR_NOT_VERIFIABLE",
+      "launch_blocking": true
+    },
+    {
+      "control_id": "CR-CODEX-UI-CONTROL",
+      "requirement": "If configuration exists only in the desktop UI, it can be set and verified without violating platform automation policy.",
+      "availability": "PROHIBITED_BY_WINDOWS_AUTOMATION_SAFETY_POLICY",
+      "launch_blocking": true
+    }
+  ],
+  "all_launch_blocking_controls_satisfied": false,
+  "fail_closed_result": "CLEAN_ROOM_RUNTIME_NOT_AVAILABLE"
+}

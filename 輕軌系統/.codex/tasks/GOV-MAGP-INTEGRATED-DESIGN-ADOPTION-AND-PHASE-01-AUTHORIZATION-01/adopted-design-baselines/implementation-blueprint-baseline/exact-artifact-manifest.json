@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "baseline_id": "MAGP-IMPLEMENTATION-BLUEPRINT-BASELINE-V1",
+  "source_task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "canonicalization_method": "RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_NEWLINE",
+  "roots": [
+    "backend-module-planning",
+    "human-review-console-planning",
+    "agent-runtime-planning",
+    "implementation-blueprint-proposal",
+    "testing-and-assurance-plan"
+  ],
+  "file_count": 31,
+  "artifact_tree_sha256": "4FD35B1C94C36063F78502F16A542B32F5A699BDB6121AD6D6E8EE68949B5A29",
+  "artifacts": [
+    {
+      "relative_path": "agent-runtime-planning/authority-prohibitions.json",
+      "sha256": "B52CC78AFCCAABE8228CA7F783D0F864F5CB83671AA05D76AB2100DFAC931FB8",
+      "bytes": 641
+    },
+    {
+      "relative_path": "agent-runtime-planning/component-registry.json",
+      "sha256": "ECF67ED90B882A0E4609D2B7C539E36D14D065ED4969EE620E7E5CE7A125C587",
+      "bytes": 2637
+    },
+    {
+      "relative_path": "agent-runtime-planning/runtime-lifecycle.json",
+      "sha256": "639FE1CDE45A3A5AE11CF5339AC40F6FFA70CD1AD8C7DCB01E57918CFD12E3B1",
+      "bytes": 563
+    },
+    {
+      "relative_path": "backend-module-planning/module-interaction-rules.json",
+      "sha256": "41ECFBF80C9808488C607FD6C739E3416A0A7BACF86B05DC47341F5CABE3EDCB",
+      "bytes": 469
+    },
+    {
+      "relative_path": "backend-module-planning/module-registry.json",
+      "sha256": "CD106195ED66BA0EE8E600301753AD07C2973F8DAA1C6C649961D3015EB5296C",
+      "bytes": 8967
+    },
+    {
+      "relative_path": "human-review-console-planning/console-plan-summary.md",
+      "sha256": "D1A2B6F74CF5F0946EA0632E3F9CB252101E71C23455891334BB479F3E696A43",
+      "bytes": 343
+    },
+    {
+      "relative_path": "human-review-console-planning/human-gate-workflows.json",
+      "sha256": "D6B4C681D5C5E2353D756A6E5B995927F8239638C120CF7211CBBFA82F228FD9",
+      "bytes": 536
+    },
+    {
+      "relative_path": "human-review-console-planning/interaction-boundary.json",
+      "sha256": "5A2AB814D371F6A52C63A3B849EE1397CB94A186A10450567E8E8A06FE33903E",
+      "bytes": 592
+    },
+    {
+      "relative_path": "human-review-console-planning/surface-registry.json",
+      "sha256": "10A6BC5FDF2BC9566EC9FA357F0B103B5B13B4DEF65CD9E6C62CFB7EE96148E0",
+      "bytes": 2161
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/compatibility-review-plan.json",
+      "sha256": "2FB7DEEEC2DDFB66388E6FF41C23B357C5CABB537BBEBC7D0DBC43091DE2F605",
+      "bytes": 546
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/dependency-sequence.json",
+      "sha256": "8D3C174C0482FA733871D305C23C000711BE898601141A93555282B5613266E2",
+      "bytes": 693
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/deployment-readiness-plan.json",
+      "sha256": "533F8690E1F618BFFA4C1D4AF557890F75C172EEE5818D84F2A1749FC510AA8B",
+      "bytes": 588
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/evidence-delivery-plan.json",
+      "sha256": "5CE4A37FF49EF044F347ADF65417D62654F36213F4FDC28F9D27CCDEF17B26C3",
+      "bytes": 581
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/go-no-go-model.json",
+      "sha256": "37816009CB10C70C7D8EE6DA2A94D264D79F872D286529919B89E95AA33E7581",
+      "bytes": 725
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/human-gate-sequence.json",
+      "sha256": "25540A359E627EF0FBB5A7FE5B45A0873FFFF4B749F2C17B9CE98CAA07B432D5",
+      "bytes": 1731
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/implementation-blueprint-summary.md",
+      "sha256": "A534538FB4FD240FC1B8257663BBC1A3D998DF03499607A996D7741E22364CEA",
+      "bytes": 576
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/implementation-risk-register.json",
+      "sha256": "8788F1C192BAFA809875F2D57D1F277A87011F9F351D7EBCA69F421110DF1330",
+      "bytes": 1645
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/milestone-plan.json",
+      "sha256": "90031A8CA092D6CB2E91CFD63D634C4EB78C5655D0BAEA4AB4B3CC6FD55E902C",
+      "bytes": 1919
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/module-dependency-map.json",
+      "sha256": "9905899C6545FA56785A294DCBCDE43F92A624FF0A103087DB61AF16AABF8838",
+      "bytes": 616
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/railway-domain-extension-boundary.json",
+      "sha256": "D895E7C666CD12569112695189D590DCECECB801DCF41A9370D3BF05EDBDCF1A",
+      "bytes": 550
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/recommended-delivery-strategy.json",
+      "sha256": "E4061346FDE62FB4E75BDC5E1D850D7A72885016F766B97B92F09659E1A32A14",
+      "bytes": 489
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/repository-structure-proposal.json",
+      "sha256": "31D6BF179E50E8DA532ABD600A58BE01256450B1DE81CB1023AF5512E71E910D",
+      "bytes": 616
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/rollback-recovery-plan.json",
+      "sha256": "2C2AABE196DDF67277B992823113A7003D0FF17014D3F30F1A4EAFC0168AEE61",
+      "bytes": 487
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/security-review-plan.json",
+      "sha256": "DB29382597C924E1E7D5F06E549EE3FBE65844F1A167F6FE4BD6D94E8BDB605B",
+      "bytes": 546
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/target-system-boundary.json",
+      "sha256": "696CBEEF6727FB82DC029B6DE14E547BB8C810EF93023A35BA924F12ECB0558D",
+      "bytes": 680
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/testing-strategy.json",
+      "sha256": "149EB31B5F769F64CD1B1F2F5BD4AEEA7BF46D54DE90DF5933D964B604CF067B",
+      "bytes": 495
+    },
+    {
+      "relative_path": "implementation-blueprint-proposal/work-package-register.json",
+      "sha256": "41C3F99756AA1C5634BBDB1331416DA4E36CAD46B2CCBFDA0D4898DB146FE102",
+      "bytes": 15918
+    },
+    {
+      "relative_path": "testing-and-assurance-plan/assurance-strategy.json",
+      "sha256": "250F9732666CA960612A8DA78003FF323A3BAAF2D81D6BC3705F1ACACCEBCA0C",
+      "bytes": 693
+    },
+    {
+      "relative_path": "testing-and-assurance-plan/e2e-governance-flow-register.json",
+      "sha256": "583142CEBAF9DBD1D12CAFAE9C4DC53CD359EE38F4A35BDB7AAD5FB481F4B46D",
+      "bytes": 1487
+    },
+    {
+      "relative_path": "testing-and-assurance-plan/test-category-register.json",
+      "sha256": "7DB97C822BD56EC63F35E16B761043AC2727D63E10E7164EB31BC207FA0482AD",
+      "bytes": 3560
+    },
+    {
+      "relative_path": "testing-and-assurance-plan/test-evidence-requirements.json",
+      "sha256": "06446A43C25A9CE0C2F71EB1835F857B77A114CAC83E6B2E0DAF9642F7AB86A1",
+      "bytes": 552
+    }
+  ],
+  "source_bytes_copied_or_modified": false
+}

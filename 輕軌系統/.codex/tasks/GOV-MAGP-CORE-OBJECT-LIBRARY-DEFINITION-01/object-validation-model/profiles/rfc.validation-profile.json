@@ -1,0 +1,74 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "profile_id": "VAL-OBJ-TYPE-004",
+  "object_type": "RFC",
+  "validations": [
+    "STRUCTURAL",
+    "SEMANTIC",
+    "AUTHORITY",
+    "LIFECYCLE",
+    "RELATIONSHIP",
+    "LINEAGE",
+    "EVIDENCE",
+    "COMPATIBILITY",
+    "CONTAMINATION",
+    "ASSURANCE_DISCLOSURE"
+  ],
+  "test_cases": {
+    "positive": [
+      {
+        "case_id": "OBJ-TYPE-004-POS-001",
+        "condition": "complete envelope, valid payload, valid lineage, allowed transition, required approval present",
+        "expected": "PASS"
+      }
+    ],
+    "negative": [
+      {
+        "case_id": "OBJ-TYPE-004-NEG-001",
+        "condition": "missing canonical identity or integrity binding",
+        "expected": "FAIL"
+      }
+    ],
+    "boundary": [
+      {
+        "case_id": "OBJ-TYPE-004-BND-001",
+        "condition": "cross-volume or cross-package exact version reference without duplication of authority",
+        "expected": "PASS_WITH_EXACT_BINDING"
+      }
+    ],
+    "invalid_authority": [
+      {
+        "case_id": "OBJ-TYPE-004-AUTH-001",
+        "condition": "machine actor attempts approval above authority ceiling",
+        "expected": "FAIL_CLOSED"
+      }
+    ],
+    "invalid_transition": [
+      {
+        "case_id": "OBJ-TYPE-004-FSM-001",
+        "condition": "DRAFT to EFFECTIVE",
+        "expected": "FAIL_CLOSED"
+      }
+    ],
+    "missing_evidence": [
+      {
+        "case_id": "OBJ-TYPE-004-EVID-001",
+        "condition": "required evidence or review binding absent",
+        "expected": "FAIL_CLOSED"
+      }
+    ],
+    "invalid_lineage": [
+      {
+        "case_id": "OBJ-TYPE-004-LIN-001",
+        "condition": "Normative candidate lacks Human decision, Architecture/Policy basis, Source/Claim basis, or Evidence/Review basis",
+        "expected": "FAIL_CLOSED"
+      }
+    ]
+  },
+  "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_BREAKING_CROSS_BOUNDARY_HIGH_RISK_CHANGE",
+  "self_approval_allowed": false
+}

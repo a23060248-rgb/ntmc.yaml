@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "template_type": "STARTUP_BLOCKER_RETURN_INSTRUCTIONS",
+  "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+  "fixed_identity": {
+    "review_package_id": "MAGP-SSR1-COMPATIBILITY-C1E24EA9-7DB7-4D9A-B7F1-F3BB2B347B7D",
+    "assignment_id": "ASSIGN-EFD3C34D-D7DD-4562-B942-4283B5DADC28",
+    "reviewer_run_id": "RUN-CF3E09ED-220D-4DB9-B8E6-74F50A9D3BC8",
+    "reviewer_session_nonce": "55448A73F4FED1B83299F2026E9632B98A57129686B49BD329E7D6F348DCD07A",
+    "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R1"
+  },
+  "review_package_core_sha256_source": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/compatibility-review/package-manifest.json#/package_core_sha256",
+  "required_values": {
+    "review_status": "BLOCKER",
+    "review_started": false,
+    "source_content_reviewed": false,
+    "completed": false,
+    "mandatory_exit_requested": true,
+    "startup_status": "STARTUP_BLOCKER"
+  },
+  "finding_requirement": "Include at least one OPEN HIGH or CRITICAL finding identifying the failed startup binding and exact evidence path.",
+  "output_requirement": "Return exactly one RFC 8785 JCS canonical two-field wrapper and no other text."
+}

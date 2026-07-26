@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+  "level": "L3",
+  "reasons": [
+    "The task assesses unresolved HIGH Compatibility Findings.",
+    "The task governs a formal Review Gate and backward-compatibility remediation.",
+    "The task uses a Human-adjudicated alternative because strict clean-room runtime provenance is unavailable."
+  ],
+  "triggers": [
+    "unresolved_reviewer_blocker",
+    "unknown_environment_provenance",
+    "backward_compatibility",
+    "formal_review_gate",
+    "reduced_assurance_human_adjudication"
+  ],
+  "required_agents": [
+    "architect",
+    "qa-engineer",
+    "documentation-engineer"
+  ],
+  "required_reviews": [
+    "HUMAN_FINAL_FINDING_ADJUDICATION"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "human_review_path_decision",
+    "base_target_20_of_20_integrity",
+    "source_root_11_of_11_integrity",
+    "source_classification_4_1_6_integrity",
+    "authority_and_claim_policy_integrity",
+    "contamination_policy_integrity",
+    "corrective_overlay_7_of_7_integrity",
+    "historical_task_tree_integrity",
+    "product_governance_integrity",
+    "per_finding_technical_assessment",
+    "per_finding_deterministic_validation",
+    "pending_human_decision_package",
+    "minimum_24_of_24_tests"
+  ],
+  "human_approval": {
+    "scope_approval": "APPROVED_IN_CURRENT_HUMAN_INSTRUCTION",
+    "execution_approval": "APPROVED_FOR_REDUCED_ASSURANCE_ASSESSMENT_PREPARATION",
+    "review_path": "APPROVED_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+    "finding_decisions": "PENDING",
+    "aggregator_launch": "NOT_AUTHORIZED",
+    "architecture_reconciliation": "NOT_AUTHORIZED",
+    "final_commit_approval": "NOT_GRANTED"
+  },
+  "stop_conditions": [
+    "HUMAN_DECISION_NOT_APPROVED",
+    "HUMAN_ADJUDICATION_REVIEW_TARGET_DRIFT",
+    "BASE_TARGET_CHANGED",
+    "CORRECTIVE_OVERLAY_CHANGED",
+    "SOURCE_ROOT_CHANGED",
+    "SOURCE_CLASSIFICATION_CHANGED",
+    "SOURCE_AUTHORITY_POLICY_CHANGED",
+    "CONTAMINATION_POLICY_CHANGED",
+    "HISTORICAL_TASK_CHANGED",
+    "PRODUCT_GOVERNANCE_BASELINE_CHANGED",
+    "INSUFFICIENT_COMPATIBILITY_EVIDENCE",
+    "CODEX_ATTEMPTED_TO_CLOSE_FINDING",
+    "CODEX_IMPERSONATED_HUMAN_DECISION",
+    "REDUCED_ASSURANCE_NOT_DISCLOSED",
+    "AGGREGATOR_AUTHORIZED_EARLY",
+    "ARCHITECTURE_RECONCILIATION_STARTED_EARLY",
+    "GIT_OPERATION_REQUIRED"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/**"
+    ],
+    "exclude": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/governance/**",
+      ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**",
+      ".codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/**",
+      ".codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/**",
+      ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01/**",
+      "all_other_historical_task_roots",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "docs/**"
+    ]
+  },
+  "classified_by": "ROOT_META_GOVERNANCE_ORCHESTRATOR",
+  "classification_status": "HUMAN_SCOPE_APPROVED"
+}

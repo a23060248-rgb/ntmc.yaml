@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "decision_id": "HID-GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01-SOURCE-MAGP-03-20260722",
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "source_id": "SOURCE-MAGP-03",
+  "original_expected_stem": "使用Codex去開發MAGP平台前置設計與策略規劃",
+  "actual_stem": "使用Codex去開發MAGP平台前置設計與策剠規劃",
+  "differing_code_points": [
+    {
+      "position_utf16_zero_based": 22,
+      "original_expected_character": "略",
+      "original_expected_code_point": "U+7565",
+      "actual_character": "剠",
+      "actual_code_point": "U+5260"
+    }
+  ],
+  "approved_identity_method": "HUMAN_APPROVED_EXACT_NORMALIZED_STEM",
+  "approved_exact_stem": "使用Codex去開發MAGP平台前置設計與策剠規劃",
+  "semantic_title": "使用 Codex 開發 MAGP 平台前置設計與策略規劃",
+  "identity_and_semantic_title_separated": true,
+  "file_rename_required": false,
+  "source_mutation_allowed": false,
+  "fuzzy_matching_allowed": false,
+  "semantic_correction_allowed": false,
+  "hidden_alias_allowed": false,
+  "approved_by": "HUMAN_USER",
+  "decision_status": "APPROVED",
+  "revalidation": {
+    "actual_stem_nfc_ordinal_match": "PASS",
+    "code_point_sequence_match": "PASS",
+    "u_5260_present": "PASS",
+    "u_7565_absent": "PASS",
+    "extension_unchanged": "PASS",
+    "file_size_unchanged": "PASS",
+    "sha256_unchanged": "PASS",
+    "top_level_regular_file_count_11": "PASS",
+    "other_10_identity_records_unchanged": "PASS",
+    "directory_manifest_unchanged": "PASS"
+  },
+  "bound_file": {
+    "actual_filename": "使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+    "actual_extension": ".pdf",
+    "file_size_bytes": 14488543,
+    "sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE"
+  }
+}

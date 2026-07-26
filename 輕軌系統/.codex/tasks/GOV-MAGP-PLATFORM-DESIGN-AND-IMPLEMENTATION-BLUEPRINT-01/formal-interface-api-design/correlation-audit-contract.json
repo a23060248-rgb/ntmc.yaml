@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "correlation-audit-contract",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "required_headers": [
+    "correlation-id",
+    "causation-id for commands",
+    "idempotency-key for protected operations"
+  ],
+  "audit_on_allow_and_deny": true
+}

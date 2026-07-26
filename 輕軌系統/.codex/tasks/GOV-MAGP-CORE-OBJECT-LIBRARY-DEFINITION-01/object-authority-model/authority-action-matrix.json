@@ -1,0 +1,363 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "actions": [
+    "CREATE",
+    "PROPOSE",
+    "REVIEW",
+    "VALIDATE",
+    "APPROVE",
+    "ACTIVATE",
+    "ENFORCE",
+    "SUSPEND",
+    "SUPERSEDE",
+    "ARCHIVE",
+    "REVOKE"
+  ],
+  "invariants": [
+    "VALIDATE never implies APPROVE",
+    "ENFORCE never implies ADOPT",
+    "CREATE never implies ACTIVATE",
+    "runtime cannot obtain Policy Adoption Authority",
+    "evidence production cannot obtain decision authority"
+  ],
+  "object_authority_requirements": [
+    {
+      "object_type": "META_CONSTITUTION",
+      "authority_ceiling": "CONSTITUTIONAL_AUTHORITY_UNDER_HUMAN_SOVEREIGN_AUTHORITY",
+      "lifecycle_owner": "META_CONSTITUTION_AND_HUMAN_AUTHORITY",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_APPROVAL_EFFECTIVENESS_AMENDMENT_SUSPENSION_SUPERSESSION",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "POLICY",
+      "authority_ceiling": "POLICY_AUTHORITY_BELOW_CONSTITUTION",
+      "lifecycle_owner": "META_GOVERNANCE_WITH_HUMAN_ADOPTION",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_EFFECT_AUTHORITY_OR_SECURITY_CHANGE",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "GOVERNANCE_RULE",
+      "authority_ceiling": "RUNTIME_ENFORCEMENT_AUTHORITY_NO_POLICY_ADOPTION",
+      "lifecycle_owner": "POLICY_ENGINE_UNDER_POLICY_OWNER",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_WHEN_RULE_CREATES_OR_CHANGES_NORMATIVE_OBLIGATION",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "RFC",
+      "authority_ceiling": "RFC_DECISION_AUTHORITY_WITHIN_APPROVED_SCOPE",
+      "lifecycle_owner": "ARCHITECTURE_OR_POLICY_OWNER",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_BREAKING_CROSS_BOUNDARY_HIGH_RISK_CHANGE",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "BLUEPRINT",
+      "authority_ceiling": "BLUEPRINT_AUTHORITY_BELOW_ARCHITECTURE_AND_RFC",
+      "lifecycle_owner": "BGE_WITH_HUMAN_OR_RELEASE_GATE",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_WHEN_BLUEPRINT_ACTIVATES_NORMATIVE_OR_HIGH_RISK_DESIGN",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "SPECIFICATION",
+      "authority_ceiling": "SPECIFICATION_AUTHORITY_BELOW_BLUEPRINT",
+      "lifecycle_owner": "SPECIFICATION_OWNER",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_WHEN_SPECIFICATION_CHANGES_NORMATIVE_PUBLIC_OR_SECURITY_CONTRACT",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "DECISION",
+      "authority_ceiling": "BOUNDED_DECISION_AUTHORITY",
+      "lifecycle_owner": "DECISION_AUTHORITY",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_OR_HIGH_RISK_DECISION",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "HUMAN_APPROVAL",
+      "authority_ceiling": "HUMAN_APPROVAL_AUTHORITY",
+      "lifecycle_owner": "HUMAN_APPROVER",
+      "human_gate": "OBJECT_IS_THE_HUMAN_GATE_RECORD_AND_REQUIRES_REAL_HUMAN_ACTOR",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "SCHEMA",
+      "authority_ceiling": "SCHEMA_VALIDATION_AUTHORITY_NO_APPROVAL_AUTHORITY",
+      "lifecycle_owner": "META_ONTOLOGY_SCHEMA_OWNER",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_BREAKING_OR_AUTHORITY_CRITICAL_SCHEMA",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "ONTOLOGY",
+      "authority_ceiling": "ONTOLOGY_SEMANTIC_AUTHORITY_UNDER_ARCHITECTURE",
+      "lifecycle_owner": "META_ONTOLOGY_OWNER",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CONCEPT_RELATION_OR_INFERENCE_CHANGE",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "CLASS_DEFINITION",
+      "authority_ceiling": "CLASS_SEMANTIC_AUTHORITY_BELOW_ONTOLOGY",
+      "lifecycle_owner": "META_ONTOLOGY_OWNER",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CLASS_IDENTITY_OR_INVARIANT_CHANGE",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "RELATION_DEFINITION",
+      "authority_ceiling": "RELATION_SEMANTIC_AUTHORITY_BELOW_ONTOLOGY",
+      "lifecycle_owner": "META_RELATION_OWNER",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CARDINALITY_AUTHORITY_OR_DELETION_CHANGE",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "EVIDENCE",
+      "authority_ceiling": "EVIDENCE_PRODUCTION_AUTHORITY_NO_DECISION_AUTHORITY",
+      "lifecycle_owner": "EVIDENCE_LEDGER",
+      "human_gate": "HUMAN_GATE_REQUIRED_WHEN_EVIDENCE_IS_USED_FOR_HUMAN_ADJUDICATED_CLOSURE_OR_NORMATIVE_ADOPTION",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "FINDING",
+      "authority_ceiling": "FINDING_RECORD_AUTHORITY_CLOSURE_SEPARATE",
+      "lifecycle_owner": "REVIEW_OWNER",
+      "human_gate": "HUMAN_OR_INDEPENDENT_CLOSURE_REQUIRED_FOR_CRITICAL_HIGH_UNLESS_POLICY_EXPLICITLY_ALLOWS_OTHERWISE",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "REVIEW",
+      "authority_ceiling": "REVIEW_AUTHORITY_WITHIN_SCOPE_NO_ADOPTION_AUTHORITY",
+      "lifecycle_owner": "REVIEW_OWNER",
+      "human_gate": "HUMAN_GATE_REQUIRED_FOR_HUMAN_ADJUDICATED_REVIEW_OR_WHEN_REVIEW_POLICY_REQUIRES",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "VOLUME",
+      "authority_ceiling": "ORGANIZATION_SCOPE_AUTHORITY_NO_DEPLOYMENT_AUTHORITY",
+      "lifecycle_owner": "VOLUME_OWNER",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_AUTHORITY_SOURCE_ACCESS_OR_CROSS_BOUNDARY_CHANGE",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "PACKAGE",
+      "authority_ceiling": "PACKAGE_INTEGRITY_AND_DELIVERY_AUTHORITY_NO_AUTO_DEPLOYMENT",
+      "lifecycle_owner": "AGENT_FACTORY_OR_PACKAGE_OWNER",
+      "human_gate": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_RELEASE_AND_DEPLOYMENT_ELIGIBILITY",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "AGENT_DEFINITION",
+      "authority_ceiling": "DECLARED_CAPABILITY_CEILING_NO_SELF_AUTHORIZATION",
+      "lifecycle_owner": "AGENT_FACTORY_AND_REGISTRY_WITH_EXTERNAL_GATE",
+      "human_gate": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_ACTIVATION_CAPABILITY_TOOL_OR_AUTHORITY_CHANGE",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "AGENT_INSTANCE",
+      "authority_ceiling": "RUNTIME_EXECUTION_WITHIN_DEFINITION_AND_ACTIVE_PERMISSION",
+      "lifecycle_owner": "AGENT_OS",
+      "human_gate": "HUMAN_APPROVAL_REQUIRED_FOR_HIGH_RISK_ACTION_SCOPE_OR_PERMISSION_EXPANSION",
+      "permitted_action_candidates": [
+        "CREATE",
+        "VALIDATE",
+        "ACTIVATE",
+        "ENFORCE",
+        "SUSPEND",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "RUNTIME_EVENT",
+      "authority_ceiling": "EVIDENCE_PRODUCTION_AUTHORITY_NO_POLICY_MUTATION",
+      "lifecycle_owner": "AGENT_OS_AND_RUNTIME_GOVERNANCE",
+      "human_gate": "HUMAN_GATE_REQUIRED_ONLY_FOR_EVENT_TRIGGERED_HIGH_RISK_APPROVAL_NOT_FOR_EVENT_CREATION",
+      "permitted_action_candidates": [
+        "CREATE",
+        "VALIDATE",
+        "ACTIVATE",
+        "ENFORCE",
+        "SUSPEND",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    },
+    {
+      "object_type": "DEPLOYMENT_ARTIFACT",
+      "authority_ceiling": "IMPLEMENTATION_ARTIFACT_NO_ARCHITECTURE_OR_DEPLOYMENT_AUTHORITY",
+      "lifecycle_owner": "BUILD_AND_RELEASE_CONTROL_PLANE",
+      "human_gate": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_ENVIRONMENT_DEPLOYMENT_ELIGIBILITY",
+      "permitted_action_candidates": [
+        "CREATE",
+        "PROPOSE",
+        "REVIEW",
+        "VALIDATE",
+        "SUSPEND",
+        "SUPERSEDE",
+        "ARCHIVE"
+      ],
+      "approval_requires_separate_authority": true
+    }
+  ]
+}

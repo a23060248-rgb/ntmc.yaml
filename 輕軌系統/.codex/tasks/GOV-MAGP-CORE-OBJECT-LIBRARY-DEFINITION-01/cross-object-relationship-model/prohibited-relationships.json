@@ -1,0 +1,90 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "prohibited_relationship_count": 10,
+  "prohibited_relationships": [
+    {
+      "rule_id": "PROH-001",
+      "source_type": "GOVERNANCE_RULE",
+      "relation": "AUTHORIZES",
+      "target_type": "POLICY",
+      "reason": "reverse authorization",
+      "enforcement": "FAIL_CLOSED"
+    },
+    {
+      "rule_id": "PROH-002",
+      "source_type": "EVIDENCE",
+      "relation": "VALIDATES_ITSELF",
+      "target_type": "EVIDENCE",
+      "reason": "evidence self-validation",
+      "enforcement": "FAIL_CLOSED"
+    },
+    {
+      "rule_id": "PROH-003",
+      "source_type": "REVIEW",
+      "relation": "APPROVES_ITSELF",
+      "target_type": "REVIEW",
+      "reason": "review self-approval",
+      "enforcement": "FAIL_CLOSED"
+    },
+    {
+      "rule_id": "PROH-004",
+      "source_type": "AGENT_INSTANCE",
+      "relation": "MODIFIES",
+      "target_type": "AGENT_DEFINITION",
+      "reason": "runtime self-modification",
+      "enforcement": "FAIL_CLOSED"
+    },
+    {
+      "rule_id": "PROH-005",
+      "source_type": "RUNTIME_EVENT",
+      "relation": "MODIFIES",
+      "target_type": "POLICY",
+      "reason": "runtime policy mutation",
+      "enforcement": "FAIL_CLOSED"
+    },
+    {
+      "rule_id": "PROH-006",
+      "source_type": "DEPLOYMENT_ARTIFACT",
+      "relation": "REWRITES",
+      "target_type": "ARCHITECTURE",
+      "reason": "implementation reverse authority",
+      "enforcement": "FAIL_CLOSED"
+    },
+    {
+      "rule_id": "PROH-007",
+      "source_type": "SCHEMA",
+      "relation": "ADOPTS",
+      "target_type": "SPECIFICATION",
+      "reason": "validation authority impersonates approval",
+      "enforcement": "FAIL_CLOSED"
+    },
+    {
+      "rule_id": "PROH-008",
+      "source_type": "BLUEPRINT",
+      "relation": "OVERRIDES",
+      "target_type": "HUMAN_APPROVAL",
+      "reason": "design overrides Human decision",
+      "enforcement": "FAIL_CLOSED"
+    },
+    {
+      "rule_id": "PROH-009",
+      "source_type": "PACKAGE",
+      "relation": "AUTO_DEPLOYS_AFTER_TEST",
+      "target_type": "DEPLOYMENT_ARTIFACT",
+      "reason": "test success impersonates deployment approval",
+      "enforcement": "FAIL_CLOSED"
+    },
+    {
+      "rule_id": "PROH-010",
+      "source_type": "REVIEWED_OBJECT",
+      "relation": "DELETES",
+      "target_type": "FINDING",
+      "reason": "review subject erases finding",
+      "enforcement": "FAIL_CLOSED"
+    }
+  ]
+}

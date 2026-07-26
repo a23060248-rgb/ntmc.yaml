@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01",
+  "component_count": 13,
+  "required_component_count": 12,
+  "components": [
+    {
+      "component_id": "CMP-001",
+      "component": "BGE",
+      "owned_responsibilities": [
+        "Own the build-time bounded context that turns approved structured intent and validated knowledge into candidate Blueprints."
+      ],
+      "prohibited_responsibilities": [
+        "manufacture Agent",
+        "execute Agent",
+        "adopt Blueprint",
+        "modify policy"
+      ],
+      "authority_ceiling": "PROPOSAL_ONLY",
+      "evidence_duties": "compiler step trace and validation results",
+      "lifecycle_boundary": "CANDIDATE_BLUEPRINT_COMPILATION",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "Blueprint Prompt Set",
+        "adopted policy snapshot",
+        "validated knowledge"
+      ],
+      "downstream_contracts": [
+        "candidate Blueprint",
+        "validation report"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-002",
+      "component": "Blueprint Compiler",
+      "owned_responsibilities": [
+        "Act as the internal parser, normalizer, validator, and assembler pipeline within BGE."
+      ],
+      "prohibited_responsibilities": [
+        "operate as a second BGE",
+        "adopt output",
+        "execute runtime work"
+      ],
+      "authority_ceiling": "NONE_INTERNAL_PROCESSOR",
+      "evidence_duties": "deterministic envelope plus semantic-generation provenance",
+      "lifecycle_boundary": "SUBCOMPONENT_OF_BGE_NOT_SEPARATE_LIFECYCLE_OWNER",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "BGE compilation job"
+      ],
+      "downstream_contracts": [
+        "normalized candidate Blueprint artifact"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-003",
+      "component": "Agent Factory",
+      "owned_responsibilities": [
+        "Manufacture a deployable Agent package from an adopted Blueprint and resolved dependency set."
+      ],
+      "prohibited_responsibilities": [
+        "execute Agent",
+        "schedule workflow",
+        "retrieve runtime memory",
+        "grant permission",
+        "change Blueprint"
+      ],
+      "authority_ceiling": "MANUFACTURING_ONLY",
+      "evidence_duties": "blueprint-to-package trace and conformance results",
+      "lifecycle_boundary": "DEPLOYABLE_PACKAGE_MANUFACTURE",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "adopted Blueprint",
+        "approved templates",
+        "policy bindings"
+      ],
+      "downstream_contracts": [
+        "DeployableAgentPackage",
+        "manufacturing evidence"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-004",
+      "component": "Agent Registry",
+      "owned_responsibilities": [
+        "Maintain immutable Agent/package identity, version, lineage, declared capabilities, policy bindings, compatibility, and deployment status."
+      ],
+      "prohibited_responsibilities": [
+        "execute Agent",
+        "manufacture Agent",
+        "grant capability",
+        "approve deployment by itself"
+      ],
+      "authority_ceiling": "IDENTITY_AND_STATUS_RECORD_ONLY",
+      "evidence_duties": "append-only registry history",
+      "lifecycle_boundary": "AGENT_PACKAGE_IDENTITY_AND_VERSION_STATUS",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "Factory package record",
+        "Human or release-gate decision"
+      ],
+      "downstream_contracts": [
+        "versioned registry record",
+        "compatibility lookup"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-005",
+      "component": "Agent OS",
+      "owned_responsibilities": [
+        "Schedule and execute approved Agent packages and coordinate runtime resources under governance decisions."
+      ],
+      "prohibited_responsibilities": [
+        "generate Blueprint",
+        "manufacture package",
+        "modify Normative Policy",
+        "self-grant access",
+        "adopt architecture"
+      ],
+      "authority_ceiling": "EXECUTION_ONLY",
+      "evidence_duties": "execution context and audit events",
+      "lifecycle_boundary": "RUNTIME_EXECUTION",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "approved package",
+        "runtime context",
+        "policy decisions"
+      ],
+      "downstream_contracts": [
+        "execution result",
+        "runtime evidence",
+        "approval request"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-006",
+      "component": "Runtime Governance",
+      "owned_responsibilities": [
+        "Orchestrate policy evaluation, approval holds, violation response, and evidence requirements around runtime actions."
+      ],
+      "prohibited_responsibilities": [
+        "perform product action",
+        "author policy",
+        "approve own policy",
+        "silently waive"
+      ],
+      "authority_ceiling": "ENFORCES_ADOPTED_POLICY_NO_POLICY_AUTHORSHIP",
+      "evidence_duties": "decision explanation and rule-version binding",
+      "lifecycle_boundary": "RUNTIME_GOVERNANCE_DECISION_ORCHESTRATION",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "adopted policy snapshot",
+        "runtime proposal",
+        "context",
+        "evidence"
+      ],
+      "downstream_contracts": [
+        "allow",
+        "deny",
+        "require Human approval",
+        "violation record"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-007",
+      "component": "Policy Engine",
+      "owned_responsibilities": [
+        "Provide a pure, explainable evaluation function for adopted rules against typed context."
+      ],
+      "prohibited_responsibilities": [
+        "author rule",
+        "adopt rule",
+        "execute product action",
+        "store hidden override"
+      ],
+      "authority_ceiling": "PURE_EVALUATOR",
+      "evidence_duties": "input, policy hash, result, explanation",
+      "lifecycle_boundary": "SUBCOMPONENT_OF_META_GOVERNANCE",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "policy version",
+        "typed context"
+      ],
+      "downstream_contracts": [
+        "policy evaluation result",
+        "matched rule trace"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-008",
+      "component": "Evidence Ledger",
+      "owned_responsibilities": [
+        "Append evidence records for sources, transformations, decisions, executions, reviews, and approvals with immutable lineage."
+      ],
+      "prohibited_responsibilities": [
+        "decide policy",
+        "adopt architecture",
+        "rewrite history",
+        "infer approval from success"
+      ],
+      "authority_ceiling": "EVIDENCE_NOT_DECISION_AUTHORITY",
+      "evidence_duties": "self-describing provenance and integrity binding",
+      "lifecycle_boundary": "EVIDENCE_RECORD_LIFECYCLE",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "signed or bound evidence event"
+      ],
+      "downstream_contracts": [
+        "evidence record",
+        "trace query"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-009",
+      "component": "Knowledge Lake",
+      "owned_responsibilities": [
+        "Preserve raw and intermediate knowledge artifacts, source lineage, transformation versions, and validation status."
+      ],
+      "prohibited_responsibilities": [
+        "promote candidate to verified",
+        "invent missing source",
+        "execute domain action"
+      ],
+      "authority_ceiling": "KNOWLEDGE_STORAGE_NO_POLICY_AUTHORITY",
+      "evidence_duties": "source and transformation lineage",
+      "lifecycle_boundary": "KNOWLEDGE_ARTIFACT_HISTORY",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "authorized source",
+        "derived artifact",
+        "validation record"
+      ],
+      "downstream_contracts": [
+        "versioned knowledge artifact",
+        "lineage lookup"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-010",
+      "component": "Knowledge Graph",
+      "owned_responsibilities": [
+        "Expose a validated structured projection of knowledge units, semantic relations, provenance, and current validation state."
+      ],
+      "prohibited_responsibilities": [
+        "treat graph presence as truth",
+        "self-validate relation",
+        "promote domain rules"
+      ],
+      "authority_ceiling": "STRUCTURED_VIEW_NO_POLICY_AUTHORITY",
+      "evidence_duties": "edge and node source lineage",
+      "lifecycle_boundary": "KNOWLEDGE_RELATION_PROJECTION",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "validated knowledge unit",
+        "validated relation"
+      ],
+      "downstream_contracts": [
+        "queryable graph projection",
+        "traceable relation path"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-011",
+      "component": "Knowledge Engineering Pipeline",
+      "owned_responsibilities": [
+        "Run the thesis-derived governed transformation from source artifacts to candidate and validated knowledge structures."
+      ],
+      "prohibited_responsibilities": [
+        "mark LLM completion verified",
+        "promote health content to Railway",
+        "adopt domain rules"
+      ],
+      "authority_ceiling": "TRANSFORMATION_ONLY",
+      "evidence_duties": "complete source-to-artifact trace",
+      "lifecycle_boundary": "SOURCE_TO_KNOWLEDGE_TRANSFORMATION",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "authorized sources",
+        "domain blueprint",
+        "meta rules"
+      ],
+      "downstream_contracts": [
+        "clauses",
+        "units",
+        "packages",
+        "links",
+        "validation requests"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-012",
+      "component": "Human Review Console",
+      "owned_responsibilities": [
+        "Present evidence, options, scope, and risks and record an authenticated Human decision without substituting for the Human."
+      ],
+      "prohibited_responsibilities": [
+        "auto-select decision",
+        "infer consent",
+        "hide unresolved items",
+        "become a separate authority"
+      ],
+      "authority_ceiling": "INTERFACE_TO_HUMAN_AUTHORITY",
+      "evidence_duties": "actor, decision, scope, rationale, timestamp",
+      "lifecycle_boundary": "DECISION_PRESENTATION_AND_RECORDING",
+      "human_approval_dependency": "CONSOLE_RECORDS_HUMAN_DECISION_BUT_IS_NOT_HUMAN_AUTHORITY",
+      "upstream_contracts": [
+        "decision package",
+        "evidence links",
+        "available choices"
+      ],
+      "downstream_contracts": [
+        "Human decision record",
+        "request for revision"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    },
+    {
+      "component_id": "CMP-013",
+      "component": "Railway Domain Extension",
+      "owned_responsibilities": [
+        "Provide separately adopted Railway-domain schemas, policies, tools, workflows, and adapters without changing MAGP Core."
+      ],
+      "prohibited_responsibilities": [
+        "import health judgments",
+        "import VET-C Core concepts",
+        "modify Core authority",
+        "self-confirm Railway rules"
+      ],
+      "authority_ceiling": "SEPARATE_RAILWAY_DOMAIN_AUTHORITY_REQUIRED",
+      "evidence_duties": "domain-owner approval and Core compatibility",
+      "lifecycle_boundary": "RAILWAY_DOMAIN_EXTENSION",
+      "human_approval_dependency": "MUST_OBEY_APPLICABLE_HUMAN_GATES_AND_ADOPTED_POLICY",
+      "upstream_contracts": [
+        "separately adopted Railway authority",
+        "Core extension interfaces"
+      ],
+      "downstream_contracts": [
+        "Railway domain package",
+        "domain runtime adapter"
+      ],
+      "architecture_status": "HUMAN_ADOPTED",
+      "physical_design_authorized": false,
+      "verification": "PASS"
+    }
+  ],
+  "forbidden_combinations": [
+    "AGENT_FACTORY_SELF_APPROVES_AGENT",
+    "AGENT_OS_MODIFIES_NORMATIVE_POLICY",
+    "POLICY_ENGINE_ADOPTS_POLICY",
+    "EVIDENCE_LEDGER_SELF_APPROVES_OWN_INTEGRITY",
+    "RUNTIME_GOVERNANCE_MODIFIES_DESIGN_TIME_ARTIFACT",
+    "RAILWAY_EXTENSION_OVERRIDES_CORE_GOVERNANCE"
+  ],
+  "unresolved_authority_overlap_count": 0,
+  "status": "PASS_13_OF_13"
+}

@@ -1,0 +1,98 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "decision_status": "PENDING_HUMAN_DECISION",
+  "candidate_format": "urn:magp:{namespace}:{type-prefix}:{ULID}",
+  "candidate_pattern": "^urn:magp:[a-z0-9][a-z0-9.-]*:[a-z0-9-]+:[0-9A-HJKMNP-TV-Z]{26}$",
+  "filename_identity_allowed": false,
+  "type_prefixes": [
+    {
+      "object_type": "META_CONSTITUTION",
+      "prefix": "mcon"
+    },
+    {
+      "object_type": "POLICY",
+      "prefix": "pol"
+    },
+    {
+      "object_type": "GOVERNANCE_RULE",
+      "prefix": "grule"
+    },
+    {
+      "object_type": "RFC",
+      "prefix": "rfc"
+    },
+    {
+      "object_type": "BLUEPRINT",
+      "prefix": "bp"
+    },
+    {
+      "object_type": "SPECIFICATION",
+      "prefix": "spec"
+    },
+    {
+      "object_type": "DECISION",
+      "prefix": "dec"
+    },
+    {
+      "object_type": "HUMAN_APPROVAL",
+      "prefix": "hap"
+    },
+    {
+      "object_type": "SCHEMA",
+      "prefix": "sch"
+    },
+    {
+      "object_type": "ONTOLOGY",
+      "prefix": "onto"
+    },
+    {
+      "object_type": "CLASS_DEFINITION",
+      "prefix": "class"
+    },
+    {
+      "object_type": "RELATION_DEFINITION",
+      "prefix": "rel"
+    },
+    {
+      "object_type": "EVIDENCE",
+      "prefix": "evid"
+    },
+    {
+      "object_type": "FINDING",
+      "prefix": "find"
+    },
+    {
+      "object_type": "REVIEW",
+      "prefix": "revw"
+    },
+    {
+      "object_type": "VOLUME",
+      "prefix": "vol"
+    },
+    {
+      "object_type": "PACKAGE",
+      "prefix": "pkg"
+    },
+    {
+      "object_type": "AGENT_DEFINITION",
+      "prefix": "adef"
+    },
+    {
+      "object_type": "AGENT_INSTANCE",
+      "prefix": "ainst"
+    },
+    {
+      "object_type": "RUNTIME_EVENT",
+      "prefix": "evt"
+    },
+    {
+      "object_type": "DEPLOYMENT_ARTIFACT",
+      "prefix": "dart"
+    }
+  ],
+  "human_decision_id": "HOD-001"
+}

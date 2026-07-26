@@ -1,0 +1,1962 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "architecture_status": "PROPOSED_NOT_ADOPTED",
+  "claim_count": 39,
+  "claim_class_counts": {
+    "SOURCE_EXPLICIT": 11,
+    "SOURCE_DERIVED": 3,
+    "CROSS_SOURCE_SYNTHESIS": 12,
+    "OPTIONAL_PATTERN": 2,
+    "NEW_DESIGN_PROPOSAL": 10,
+    "HUMAN_DECISION_REQUIRED": 1
+  },
+  "claims": [
+    {
+      "claim_id": "ARC-CLM-001",
+      "claim_title": "MAGP platform positioning",
+      "claim_statement": "MAGP should be treated as a meta-level governance specification platform that governs how agents are designed and constrained, not as a product runtime or generic agent framework.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-02"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            2,
+            3,
+            10,
+            11
+          ],
+          "anchor": "meta-level governance specification platform",
+          "evidence_note": "MAGP is described as a meta-level governance specification platform, distinct from a runtime engine or importable framework."
+        }
+      ],
+      "source_authority_level": "SECONDARY_CONCEPTUAL_INTERPRETATION",
+      "derivation_method": "Direct conceptual statement bounded by source authority.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-002",
+      "claim_title": "Thesis implementation scope",
+      "claim_statement": "The thesis implements the blueprint-driven knowledge-governance segment of the MAGP lifecycle and does not implement the complete MAGP platform.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            50,
+            53,
+            54,
+            55
+          ],
+          "anchor": "MAGP lifecycle and thesis scope",
+          "evidence_note": "The thesis limits implementation to blueprint-driven knowledge governance and treats Factory, Agent OS, and Runtime Governance as future work."
+        }
+      ],
+      "source_authority_level": "PRIMARY_METHODOLOGY_SOURCE",
+      "derivation_method": "Direct thesis scope statement.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-003",
+      "claim_title": "Thesis source-to-graph pipeline",
+      "claim_statement": "The thesis demonstrates a governed pipeline from trusted documents through sentences, clauses, units, package classification, links, Knowledge Lake, Knowledge Graph, and HITL verification.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            52,
+            55,
+            57,
+            59,
+            116,
+            117,
+            118,
+            119
+          ],
+          "anchor": "source-to-knowledge-graph pipeline",
+          "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+        }
+      ],
+      "source_authority_level": "PRIMARY_METHODOLOGY_SOURCE",
+      "derivation_method": "Direct method and result synthesis within the primary source.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-004",
+      "claim_title": "Unverified model completion remains candidate",
+      "claim_statement": "LLM-assisted gap filling must remain explicitly pending until Human or expert validation and must not enter verified knowledge silently.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            114,
+            115
+          ],
+          "anchor": "LLM-assisted completion remains pending",
+          "evidence_note": "LLM-completed knowledge is explicitly retained as a pending candidate rather than verified knowledge."
+        }
+      ],
+      "source_authority_level": "PRIMARY_METHODOLOGY_SOURCE",
+      "derivation_method": "Direct thesis validation rule generalized without health-domain values.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-005",
+      "claim_title": "Full Factory and runtime are post-thesis",
+      "claim_statement": "A complete Agent Factory, complete Agent OS, and complete Runtime Governance are post-thesis architecture extensions.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            119,
+            120
+          ],
+          "anchor": "future Agent Factory and runtime governance",
+          "evidence_note": "Full Agent Factory and runtime governance are future research directions."
+        },
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            50,
+            53,
+            54,
+            55
+          ],
+          "anchor": "MAGP lifecycle and thesis scope",
+          "evidence_note": "The thesis limits implementation to blueprint-driven knowledge governance and treats Factory, Agent OS, and Runtime Governance as future work."
+        }
+      ],
+      "source_authority_level": "PRIMARY_METHODOLOGY_SOURCE",
+      "derivation_method": "Direct future-work and scope boundary.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-006",
+      "claim_title": "Six conceptual responsibility layers",
+      "claim_statement": "The conceptual model identifies Meta Constitution, Meta Ontology, Meta Relation, Meta Governance, Meta Process, and Meta Runtime as six distinct responsibility layers.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-02"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            5
+          ],
+          "anchor": "six core layers and semantic taxonomy",
+          "evidence_note": "The conceptual source defines six responsibility layers and distinguishes them from object taxonomy."
+        }
+      ],
+      "source_authority_level": "SECONDARY_CONCEPTUAL_INTERPRETATION",
+      "derivation_method": "Direct conceptual layer enumeration.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-007",
+      "claim_title": "Layers and object taxonomy are different dimensions",
+      "claim_statement": "Responsibility layers answer who defines or governs what, while the object taxonomy classifies the semantic nature of artifacts; they must not be mapped one-to-one by name alone.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            5
+          ],
+          "anchor": "six core layers and semantic taxonomy",
+          "evidence_note": "The conceptual source defines six responsibility layers and distinguishes them from object taxonomy."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            55,
+            57
+          ],
+          "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+          "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+        }
+      ],
+      "source_authority_level": "SECONDARY_CONCEPTUAL_INTERPRETATION_PLUS_DERIVED_ARCHITECTURE_PROPOSAL",
+      "derivation_method": "Cross-check of explicit distinctions in conceptual and architecture sources.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-008",
+      "claim_title": "Human and Constitution authority boundary",
+      "claim_statement": "Human decisions remain the highest adoption authority; machine components may evaluate or propose but cannot self-adopt policy or architecture.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-03",
+        "SOURCE-MAGP-04",
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            24,
+            30,
+            185,
+            189,
+            190,
+            191
+          ],
+          "anchor": "BGE Factory Agent OS Human authority boundaries",
+          "evidence_note": "The guidance assigns generation, manufacture, runtime, and Human authority to separate responsibilities."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            55,
+            57
+          ],
+          "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+          "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+        },
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 654,
+          "end_line": 665,
+          "anchor": "role responsibility and non-authority",
+          "evidence_note": "Non-authoritative pattern for separating generation, review, execution, and adoption authority."
+        }
+      ],
+      "source_authority_level": "CORE_SYNTHESIS_WITH_OPTIONAL_PATTERN_NON_NORMATIVE",
+      "derivation_method": "Reconcile Human-supremacy statements with non-authority role separation.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-009",
+      "claim_title": "Ontology and Relation semantic separation",
+      "claim_statement": "Entity types and legal relationships are separate semantic responsibilities; relation similarity does not establish identity or authority.",
+      "claim_class": "SOURCE_DERIVED",
+      "source_ids": [
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            5
+          ],
+          "anchor": "six core layers and semantic taxonomy",
+          "evidence_note": "The conceptual source defines six responsibility layers and distinguishes them from object taxonomy."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            55,
+            57
+          ],
+          "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+          "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+        }
+      ],
+      "source_authority_level": "SECONDARY_CONCEPTUAL_INTERPRETATION",
+      "derivation_method": "Derived from separate Meta Ontology and Meta Relation layers and object-branch boundaries.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-010",
+      "claim_title": "Process and Runtime separation",
+      "claim_statement": "Design-time process definitions and runtime execution contexts must remain distinct even when runtime executes approved process artifacts.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            5
+          ],
+          "anchor": "six core layers and semantic taxonomy",
+          "evidence_note": "The conceptual source defines six responsibility layers and distinguishes them from object taxonomy."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        }
+      ],
+      "source_authority_level": "CORE_CROSS_SOURCE_SYNTHESIS",
+      "derivation_method": "Map conceptual Meta Process and Meta Runtime to explicit build-time/runtime boundaries.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-011",
+      "claim_title": "BGE build-time responsibility",
+      "claim_statement": "BGE accepts approved structured intent and produces a candidate Blueprint artifact; it does not manufacture or execute an Agent and cannot adopt its own output.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-03",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            9,
+            10
+          ],
+          "anchor": "BGE to Factory to Agent OS lifecycle",
+          "evidence_note": "The example distinguishes generation, manufacture, and runtime execution."
+        },
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            24,
+            30,
+            185,
+            189,
+            190,
+            191
+          ],
+          "anchor": "BGE Factory Agent OS Human authority boundaries",
+          "evidence_note": "The guidance assigns generation, manufacture, runtime, and Human authority to separate responsibilities."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        }
+      ],
+      "source_authority_level": "CORE_CROSS_SOURCE_SYNTHESIS",
+      "derivation_method": "Reconcile conceptual lifecycle with implementation and architecture proposals.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-012",
+      "claim_title": "Agent Factory manufacturing responsibility",
+      "claim_statement": "Agent Factory converts an adopted Blueprint into a deployable Agent package and does not schedule, execute, retrieve runtime memory, or change policy.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-03",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            24,
+            30,
+            185,
+            189,
+            190,
+            191
+          ],
+          "anchor": "BGE Factory Agent OS Human authority boundaries",
+          "evidence_note": "The guidance assigns generation, manufacture, runtime, and Human authority to separate responsibilities."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        }
+      ],
+      "source_authority_level": "DERIVED_IMPLEMENTATION_GUIDANCE_AND_ARCHITECTURE_PROPOSAL",
+      "derivation_method": "Direct boundary statement in both derived CORE sources.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-013",
+      "claim_title": "Agent OS runtime responsibility",
+      "claim_statement": "Agent OS schedules and executes deployable Agent packages under adopted rules, records runtime evidence, and cannot generate Blueprints or modify Normative Policy.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-03",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            8
+          ],
+          "anchor": "knowledge granularity, blueprint validation, and runtime groups",
+          "evidence_note": "The source describes traceable knowledge units, blueprint validation, and runtime governance groups."
+        },
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            24,
+            30,
+            185,
+            189,
+            190,
+            191
+          ],
+          "anchor": "BGE Factory Agent OS Human authority boundaries",
+          "evidence_note": "The guidance assigns generation, manufacture, runtime, and Human authority to separate responsibilities."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        }
+      ],
+      "source_authority_level": "CORE_CROSS_SOURCE_SYNTHESIS",
+      "derivation_method": "Combine runtime descriptions and governance prohibitions.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-014",
+      "claim_title": "Traceable knowledge and citation",
+      "claim_statement": "Knowledge used for governed reasoning must retain provenance, source citation, semantic role, validation state, and uncertainty where applicable.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-01",
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            52,
+            55,
+            57,
+            59,
+            116,
+            117,
+            118,
+            119
+          ],
+          "anchor": "source-to-knowledge-graph pipeline",
+          "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+        },
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            8
+          ],
+          "anchor": "knowledge granularity, blueprint validation, and runtime groups",
+          "evidence_note": "The source describes traceable knowledge units, blueprint validation, and runtime governance groups."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        }
+      ],
+      "source_authority_level": "PRIMARY_METHODOLOGY_SOURCE_LED_SYNTHESIS",
+      "derivation_method": "Generalize only methodology elements demonstrated by the thesis and supported by other CORE sources.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-015",
+      "claim_title": "Knowledge Lake responsibility",
+      "claim_statement": "Knowledge Lake preserves versioned raw and intermediate knowledge artifacts, transformations, and validation history; it is not itself architecture or policy authority.",
+      "claim_class": "SOURCE_DERIVED",
+      "source_ids": [
+        "SOURCE-MAGP-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            52,
+            55,
+            57,
+            59,
+            116,
+            117,
+            118,
+            119
+          ],
+          "anchor": "source-to-knowledge-graph pipeline",
+          "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+        }
+      ],
+      "source_authority_level": "PRIMARY_METHODOLOGY_SOURCE",
+      "derivation_method": "Derived from the thesis preservation role without promoting health content.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-016",
+      "claim_title": "Knowledge Graph responsibility",
+      "claim_statement": "Knowledge Graph is a governed structured projection of validated knowledge units and relationships, not proof that the underlying knowledge is correct and not a source of policy authority.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-01",
+        "SOURCE-MAGP-02"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            52,
+            55,
+            57,
+            59,
+            116,
+            117,
+            118,
+            119
+          ],
+          "anchor": "source-to-knowledge-graph pipeline",
+          "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+        },
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            8
+          ],
+          "anchor": "knowledge granularity, blueprint validation, and runtime groups",
+          "evidence_note": "The source describes traceable knowledge units, blueprint validation, and runtime governance groups."
+        }
+      ],
+      "source_authority_level": "PRIMARY_METHODOLOGY_SOURCE_LED_SYNTHESIS",
+      "derivation_method": "Reconcile thesis validation pipeline with conceptual structured knowledge.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-017",
+      "claim_title": "Volume Package RFC hierarchy",
+      "claim_statement": "The derived architecture sources propose Volume as a broad responsibility grouping, Package as a bounded functional unit, and RFC as an engineering decision/specification artifact.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-03",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            103,
+            132,
+            133,
+            135,
+            136,
+            184,
+            185
+          ],
+          "anchor": "engineering knowledge base and volume tree",
+          "evidence_note": "The guidance proposes an engineering knowledge-base hierarchy and 14-volume tree."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            23,
+            24,
+            25,
+            28,
+            29,
+            30,
+            31
+          ],
+          "anchor": "Volume Package RFC hierarchy",
+          "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+        }
+      ],
+      "source_authority_level": "DERIVED_IMPLEMENTATION_GUIDANCE_AND_ARCHITECTURE_PROPOSAL",
+      "derivation_method": "Direct proposal description; not elevated to thesis or adopted architecture.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-018",
+      "claim_title": "Fixed eight-RFC package pattern",
+      "claim_statement": "A fixed ARCH/SPEC/FSM/SCHEMA/RELATION/TEST/IMPL/UNITTEST document set is a derived engineering proposal, not a source-governance requirement.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            23,
+            24,
+            25,
+            28,
+            29,
+            30,
+            31
+          ],
+          "anchor": "Volume Package RFC hierarchy",
+          "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+        }
+      ],
+      "source_authority_level": "DERIVED_ARCHITECTURE_PROPOSAL",
+      "derivation_method": "Direct architecture proposal with authority qualification.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "HUMAN_DECISION_REQUIRED_BEFORE_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "REQUIRES_HUMAN_DECISION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-019",
+      "claim_title": "Fourteen-volume engineering map",
+      "claim_statement": "The fourteen-volume structure is an engineering work-breakdown proposal and must not be treated as equivalent to the six conceptual responsibility layers.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-03",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            5
+          ],
+          "anchor": "six core layers and semantic taxonomy",
+          "evidence_note": "The conceptual source defines six responsibility layers and distinguishes them from object taxonomy."
+        },
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            103,
+            132,
+            133,
+            135,
+            136,
+            184,
+            185
+          ],
+          "anchor": "engineering knowledge base and volume tree",
+          "evidence_note": "The guidance proposes an engineering knowledge-base hierarchy and 14-volume tree."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            23,
+            24,
+            25,
+            28,
+            29,
+            30,
+            31
+          ],
+          "anchor": "Volume Package RFC hierarchy",
+          "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+        }
+      ],
+      "source_authority_level": "CORE_CROSS_SOURCE_SYNTHESIS",
+      "derivation_method": "Compare source models by purpose, ownership, and lifecycle rather than names.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-020",
+      "claim_title": "Architecture description is not implementation",
+      "claim_statement": "The volume/package/RFC maps are architecture-description candidates requiring later specification, review, testing, and Human adoption; they are not implemented capability evidence.",
+      "claim_class": "SOURCE_EXPLICIT",
+      "source_ids": [
+        "SOURCE-MAGP-03",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            23,
+            32,
+            101,
+            103,
+            201
+          ],
+          "anchor": "planning completeness and bounded package cycle",
+          "evidence_note": "The implementation-guidance source repeatedly states that planning is incomplete and recommends package-by-package review and tests rather than one-shot generation."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            9,
+            48,
+            61,
+            62,
+            63,
+            64,
+            65,
+            79
+          ],
+          "anchor": "architecture description not implementation",
+          "evidence_note": "The source explicitly classifies the volume map as architecture description that requires later specification, Human review, code generation, and testing."
+        }
+      ],
+      "source_authority_level": "DERIVED_IMPLEMENTATION_GUIDANCE_AND_ARCHITECTURE_PROPOSAL",
+      "derivation_method": "Direct maturity and completion statements.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": true
+    },
+    {
+      "claim_id": "ARC-CLM-021",
+      "claim_title": "Design-time and runtime isolation",
+      "claim_statement": "Blueprint generation, manufacture, and runtime execution form separate lifecycle stages with explicit artifact handoffs and no reverse mutation of adopted design artifacts by runtime.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-01",
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            50,
+            53,
+            54,
+            55
+          ],
+          "anchor": "MAGP lifecycle and thesis scope",
+          "evidence_note": "The thesis limits implementation to blueprint-driven knowledge governance and treats Factory, Agent OS, and Runtime Governance as future work."
+        },
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            9,
+            10
+          ],
+          "anchor": "BGE to Factory to Agent OS lifecycle",
+          "evidence_note": "The example distinguishes generation, manufacture, and runtime execution."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        }
+      ],
+      "source_authority_level": "CORE_CROSS_SOURCE_SYNTHESIS",
+      "derivation_method": "Synthesize lifecycle stages and add the minimal non-reverse-mutation governance invariant.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-022",
+      "claim_title": "Source governance and architecture governance separation",
+      "claim_statement": "Adopted source governance determines eligible inputs and precedence; architecture governance evaluates candidate structures but cannot expand source authority or rewrite source policy.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-02",
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            2,
+            3,
+            10,
+            11
+          ],
+          "anchor": "meta-level governance specification platform",
+          "evidence_note": "MAGP is described as a meta-level governance specification platform, distinct from a runtime engine or importable framework."
+        },
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 1541,
+          "end_line": 1593,
+          "anchor": "lean control and no parallel authority",
+          "evidence_note": "Non-authoritative pattern for control-document budgets and avoiding duplicate authority."
+        }
+      ],
+      "source_authority_level": "ADOPTED_SOURCE_POLICY_PLUS_CORE_SYNTHESIS",
+      "derivation_method": "Apply adopted normative source-governance scope to architecture reconciliation.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-023",
+      "claim_title": "Governance runtime and product runtime isolation",
+      "claim_statement": "Governance Runtime should evaluate policy, approvals, and evidence separately from Product Runtime, which performs domain work under resulting decisions.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-04",
+        "SOURCE-MAGP-02"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        },
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            8
+          ],
+          "anchor": "knowledge granularity, blueprint validation, and runtime groups",
+          "evidence_note": "The source describes traceable knowledge units, blueprint validation, and runtime governance groups."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_SUPPORTED_BY_CORE_BOUNDARIES",
+      "derivation_method": "Introduce an explicit isolation boundary to prevent executors from granting their own authority.",
+      "assumptions": [
+        "Runtime policy evaluation can be separated logically even if initially deployed in one process."
+      ],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-024",
+      "claim_title": "Agent Registry responsibility",
+      "claim_statement": "Agent Registry should maintain immutable identity, version, lineage, capability declarations, policy bindings, and deployment status for Agent packages, without executing Agents or granting authority.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-03"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            24,
+            30,
+            185,
+            189,
+            190,
+            191
+          ],
+          "anchor": "BGE Factory Agent OS Human authority boundaries",
+          "evidence_note": "The guidance assigns generation, manufacture, runtime, and Human authority to separate responsibilities."
+        },
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            103,
+            132,
+            133,
+            135,
+            136,
+            184,
+            185
+          ],
+          "anchor": "engineering knowledge base and volume tree",
+          "evidence_note": "The guidance proposes an engineering knowledge-base hierarchy and 14-volume tree."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_SUPPORTED_BY_DERIVED_CORE_SOURCES",
+      "derivation_method": "Fill a lifecycle identity gap while preserving Factory and Agent OS boundaries.",
+      "assumptions": [
+        "Cross-project registry scope is not demonstrated by the thesis."
+      ],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "HUMAN_DECISION_REQUIRED_BEFORE_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "REQUIRES_HUMAN_DECISION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-025",
+      "claim_title": "Evidence Ledger responsibility",
+      "claim_statement": "Evidence Ledger should append immutable claims about inputs, decisions, executions, validations, and approvals with provenance, while never deciding policy or architecture.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-01",
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            52,
+            55,
+            57,
+            59,
+            116,
+            117,
+            118,
+            119
+          ],
+          "anchor": "source-to-knowledge-graph pipeline",
+          "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+        },
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 1257,
+          "end_line": 1350,
+          "anchor": "evidence-bound completion",
+          "evidence_note": "Non-authoritative pattern for trace, negative tests, independent rerun, and unresolved-item checks."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_WITH_PRIMARY_METHODOLOGY_SUPPORT_AND_OPTIONAL_PATTERN",
+      "derivation_method": "Generalize trace and HITL records into a cross-cutting evidence service.",
+      "assumptions": [
+        "A standalone ledger is not implemented by the thesis."
+      ],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "HUMAN_DECISION_REQUIRED_BEFORE_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "REQUIRES_HUMAN_DECISION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-026",
+      "claim_title": "Human Review Console responsibility",
+      "claim_statement": "Human Review Console should present evidence and collect explicit decisions but must not manufacture approvals or become an authority independent of the Human actor.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-01",
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            114,
+            115
+          ],
+          "anchor": "LLM-assisted completion remains pending",
+          "evidence_note": "LLM-completed knowledge is explicitly retained as a pending candidate rather than verified knowledge."
+        },
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 654,
+          "end_line": 665,
+          "anchor": "role responsibility and non-authority",
+          "evidence_note": "Non-authoritative pattern for separating generation, review, execution, and adoption authority."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_SUPPORTED_BY_HITL_METHODOLOGY",
+      "derivation_method": "Separate decision interface from decision authority.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-027",
+      "claim_title": "Railway Domain Extension boundary",
+      "claim_statement": "Railway Domain Extension may supply separately adopted railway schemas, rules, tools, and workflows but cannot inherit health-case judgments or VET-C-specific Core concepts.",
+      "claim_class": "SOURCE_DERIVED",
+      "source_ids": [
+        "SOURCE-MAGP-01",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            50,
+            53,
+            54,
+            55
+          ],
+          "anchor": "MAGP lifecycle and thesis scope",
+          "evidence_note": "The thesis limits implementation to blueprint-driven knowledge governance and treats Factory, Agent OS, and Runtime Governance as future work."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            9,
+            48,
+            61,
+            62,
+            63,
+            64,
+            65,
+            79
+          ],
+          "anchor": "architecture description not implementation",
+          "evidence_note": "The source explicitly classifies the volume map as architecture description that requires later specification, Human review, code generation, and testing."
+        }
+      ],
+      "source_authority_level": "ADOPTED_CONTAMINATION_POLICY_LED_DERIVATION",
+      "derivation_method": "Apply adopted cross-domain contamination prohibitions to the proposed domain-extension boundary.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_HEALTH_AND_VETC_DOMAIN_PROMOTION_EXPLICITLY_PROHIBITED",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-028",
+      "claim_title": "Artifact-mediated handoff pattern",
+      "claim_statement": "Hash-pinned artifacts and exact bounded handoffs are useful non-authoritative patterns for moving candidate evidence between roles.",
+      "claim_class": "OPTIONAL_PATTERN",
+      "source_ids": [
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 190,
+          "end_line": 241,
+          "anchor": "Artifact-mediated collaboration",
+          "evidence_note": "Non-authoritative pattern for hash-pinned handoff and bounded artifact exchange."
+        }
+      ],
+      "source_authority_level": "OPTIONAL_NON_AUTHORITATIVE_PROCESS_PATTERN",
+      "derivation_method": "Use only the general collaboration pattern without VET-C domain content.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "NON_NORMATIVE_PATTERN_ONLY",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-029",
+      "claim_title": "Independent evidence rerun pattern",
+      "claim_statement": "Completion evidence should include trace, positive and negative checks, scope confirmation, unresolved-item status, and an independent rerun where assurance requires it.",
+      "claim_class": "OPTIONAL_PATTERN",
+      "source_ids": [
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 1257,
+          "end_line": 1350,
+          "anchor": "evidence-bound completion",
+          "evidence_note": "Non-authoritative pattern for trace, negative tests, independent rerun, and unresolved-item checks."
+        }
+      ],
+      "source_authority_level": "OPTIONAL_NON_AUTHORITATIVE_PROCESS_PATTERN",
+      "derivation_method": "Use only the general evidence pattern.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "NON_NORMATIVE_PATTERN_ONLY",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-031",
+      "claim_title": "Control-plane and data-plane separation",
+      "claim_statement": "Human gates, policies, BGE, Factory, Registry, and Runtime Governance belong to the control plane; Agent execution, tools, and domain operations belong to the data plane; Evidence Ledger is a cross-cutting evidence plane.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-04",
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        },
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 654,
+          "end_line": 665,
+          "anchor": "role responsibility and non-authority",
+          "evidence_note": "Non-authoritative pattern for separating generation, review, execution, and adoption authority."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_SUPPORTED_BY_CORE_BOUNDARIES",
+      "derivation_method": "Make implicit responsibility separation explicit as three planes.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-032",
+      "claim_title": "Blueprint Compiler placement",
+      "claim_statement": "Blueprint Compiler should be the deterministic validation and assembly pipeline inside BGE rather than a second architecture authority or parallel generator.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-01",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-01",
+          "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            52,
+            55,
+            57,
+            59,
+            116,
+            117,
+            118,
+            119
+          ],
+          "anchor": "source-to-knowledge-graph pipeline",
+          "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        }
+      ],
+      "source_authority_level": "PRIMARY_METHODOLOGY_AND_DERIVED_ARCHITECTURE_SYNTHESIS",
+      "derivation_method": "Reconcile thesis knowledge compilation with BGE build-time responsibility and avoid component overlap.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-033",
+      "claim_title": "Policy Engine non-authority",
+      "claim_statement": "Policy Engine evaluates adopted rules and returns decisions or required approvals; it cannot author, adopt, or mutate the rules it evaluates.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            8
+          ],
+          "anchor": "knowledge granularity, blueprint validation, and runtime groups",
+          "evidence_note": "The source describes traceable knowledge units, blueprint validation, and runtime governance groups."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            55,
+            57
+          ],
+          "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+          "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+        }
+      ],
+      "source_authority_level": "CORE_CROSS_SOURCE_SYNTHESIS",
+      "derivation_method": "Derive separation of rule evaluation from Human adoption authority.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-034",
+      "claim_title": "Canonical six-layer candidate",
+      "claim_statement": "The canonical candidate retains the six conceptual responsibility layers while mapping engineering components and fourteen-volume proposals as subordinate component or work-package views.",
+      "claim_class": "CROSS_SOURCE_SYNTHESIS",
+      "source_ids": [
+        "SOURCE-MAGP-02",
+        "SOURCE-MAGP-03",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-02",
+          "source_sha256": "690F0F80DBC5C70416CA219F5AB53397D2A9C8514902CB9F57849CBA8AD2E7FB",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/從憲法到執行開始ai agent.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            5
+          ],
+          "anchor": "six core layers and semantic taxonomy",
+          "evidence_note": "The conceptual source defines six responsibility layers and distinguishes them from object taxonomy."
+        },
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            103,
+            132,
+            133,
+            135,
+            136,
+            184,
+            185
+          ],
+          "anchor": "engineering knowledge base and volume tree",
+          "evidence_note": "The guidance proposes an engineering knowledge-base hierarchy and 14-volume tree."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            23,
+            24,
+            25,
+            28,
+            29,
+            30,
+            31
+          ],
+          "anchor": "Volume Package RFC hierarchy",
+          "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+        }
+      ],
+      "source_authority_level": "CORE_CROSS_SOURCE_SYNTHESIS",
+      "derivation_method": "Preserve the higher-authority conceptual model and prevent direct name-based equivalence.",
+      "assumptions": [],
+      "conflicting_claims": [
+        "ARC-CONFLICT-002"
+      ],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT_WITH_MODIFICATION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-035",
+      "claim_title": "Volume candidate definition",
+      "claim_statement": "Volume should be a governed architecture responsibility boundary and documentation portfolio; deployment-unit semantics require an explicit separate decision.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            23,
+            24,
+            25,
+            28,
+            29,
+            30,
+            31
+          ],
+          "anchor": "Volume Package RFC hierarchy",
+          "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_CONSTRAINING_DERIVED_PROPOSAL",
+      "derivation_method": "Resolve conflicting broad module, governance boundary, and deployability descriptions conservatively.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "HUMAN_DECISION_REQUIRED_BEFORE_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "REQUIRES_HUMAN_DECISION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-036",
+      "claim_title": "Package candidate definition",
+      "claim_statement": "Package should be a versionable, reviewable delivery and ownership unit; it is executable only when a separately adopted runtime contract says so.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            23,
+            24,
+            25,
+            28,
+            29,
+            30,
+            31
+          ],
+          "anchor": "Volume Package RFC hierarchy",
+          "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_CONSTRAINING_DERIVED_PROPOSAL",
+      "derivation_method": "Separate documentation, versioning, delivery, and execution semantics.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "HUMAN_DECISION_REQUIRED_BEFORE_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "REQUIRES_HUMAN_DECISION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-037",
+      "claim_title": "Risk-based RFC trigger",
+      "claim_statement": "RFC should be mandatory for authority, public contract, cross-component semantics, lifecycle, safety, security, or topology changes and optional for bounded internal work under unchanged adopted contracts.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-04",
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            23,
+            24,
+            25,
+            28,
+            29,
+            30,
+            31
+          ],
+          "anchor": "Volume Package RFC hierarchy",
+          "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+        },
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 1541,
+          "end_line": 1593,
+          "anchor": "lean control and no parallel authority",
+          "evidence_note": "Non-authoritative pattern for control-document budgets and avoiding duplicate authority."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_WITH_OPTIONAL_PATTERN",
+      "derivation_method": "Replace universal fixed-document expansion with risk-based governance while retaining traceability.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "HUMAN_DECISION_REQUIRED_BEFORE_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "REQUIRES_HUMAN_DECISION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-038",
+      "claim_title": "Governance artifact authority hierarchy",
+      "claim_statement": "Human Decision outranks Constitution; Constitution outranks adopted Policy; adopted Architecture and RFC decisions constrain Blueprint, Specification, and Schema; Evidence substantiates decisions but does not outrank them.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-03",
+        "SOURCE-MAGP-04"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-03",
+          "source_sha256": "ACC8E443FCAFA0D6C95E8AA04A9F88A932D23108F0C22574005FEAE3C9742BBE",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex去開發MAGP平台前置設計與策剠規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            24,
+            30,
+            185,
+            189,
+            190,
+            191
+          ],
+          "anchor": "BGE Factory Agent OS Human authority boundaries",
+          "evidence_note": "The guidance assigns generation, manufacture, runtime, and Human authority to separate responsibilities."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            6,
+            7,
+            55,
+            57
+          ],
+          "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+          "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+        },
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            4,
+            23,
+            24,
+            25,
+            28,
+            29,
+            30,
+            31
+          ],
+          "anchor": "Volume Package RFC hierarchy",
+          "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_SUPPORTED_BY_CORE_AUTHORITY_BOUNDARIES",
+      "derivation_method": "Normalize inconsistent document metaphors into an explicit authority and evidence model.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "HUMAN_DECISION_REQUIRED_BEFORE_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "REQUIRES_HUMAN_DECISION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-039",
+      "claim_title": "No runtime reverse mutation",
+      "claim_statement": "Runtime artifacts and evidence may propose design changes but cannot directly modify adopted Constitution, Policy, Architecture, RFC, Blueprint, or Specification artifacts.",
+      "claim_class": "NEW_DESIGN_PROPOSAL",
+      "source_ids": [
+        "SOURCE-MAGP-04",
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            5,
+            7,
+            51,
+            52,
+            53
+          ],
+          "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+          "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+        },
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 1541,
+          "end_line": 1593,
+          "anchor": "lean control and no parallel authority",
+          "evidence_note": "Non-authoritative pattern for control-document budgets and avoiding duplicate authority."
+        }
+      ],
+      "source_authority_level": "NEW_DESIGN_SUPPORTED_BY_RESPONSIBILITY_SEPARATION",
+      "derivation_method": "Close the reverse-authority path implied by strict design-time/runtime separation.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "CANDIDATE_ELIGIBLE_PENDING_HUMAN_ARCHITECTURE_ADOPTION",
+      "proposed_disposition": "ADOPT",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    },
+    {
+      "claim_id": "ARC-CLM-040",
+      "claim_title": "Human architecture adoption remains required",
+      "claim_statement": "This reconciliation produces a candidate architecture only; every proposed canonical model and pending decision remains non-normative until a separate Human MAGP Architecture Adoption action.",
+      "claim_class": "HUMAN_DECISION_REQUIRED",
+      "source_ids": [
+        "SOURCE-MAGP-04",
+        "SOURCE-PATTERN-01"
+      ],
+      "exact_evidence_references": [
+        {
+          "source_id": "SOURCE-MAGP-04",
+          "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+          "locator_type": "PDF_PAGE",
+          "pages": [
+            9,
+            48,
+            61,
+            62,
+            63,
+            64,
+            65,
+            79
+          ],
+          "anchor": "architecture description not implementation",
+          "evidence_note": "The source explicitly classifies the volume map as architecture description that requires later specification, Human review, code generation, and testing."
+        },
+        {
+          "source_id": "SOURCE-PATTERN-01",
+          "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+          "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+          "locator_type": "MARKDOWN_LINE_RANGE",
+          "start_line": 654,
+          "end_line": 665,
+          "anchor": "role responsibility and non-authority",
+          "evidence_note": "Non-authoritative pattern for separating generation, review, execution, and adoption authority."
+        }
+      ],
+      "source_authority_level": "EXPLICIT_HUMAN_TASK_BOUNDARY",
+      "derivation_method": "Apply the current Human authorization boundary.",
+      "assumptions": [],
+      "conflicting_claims": [],
+      "contamination_check": "PASS_NO_EXCLUDED_OR_DOMAIN_SPECIFIC_CLAIM",
+      "confidence": "HIGH",
+      "normative_eligibility": "NOT_NORMATIVE_UNTIL_SEPARATE_HUMAN_ADOPTION",
+      "proposed_disposition": "REQUIRES_HUMAN_DECISION",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "represented_as_source_explicit": false
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+  "batch_id": "MASTER_BATCH_3A_1",
+  "objective": "Freeze the completed Source Scope Lock as the sole review target and prepare four independent top-level Reviewer packages, one shared return and transport contract, an Aggregator R1 package, and deterministic QA without executing any review or architecture reconciliation.",
+  "source_scope_lock_task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "source_scope_lock_review_gate": "NOT_YET_CALCULATED",
+  "source_authority_status": "PROPOSED_NOT_ADOPTED",
+  "architecture_reconciliation_status": "NOT_AUTHORIZED",
+  "write_scope": [
+    ".codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/**"
+  ],
+  "external_read_scope": [
+    "C:/Users/a2306/Desktop/MAGP-Reference-Sources top-level regular files",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"
+  ],
+  "reviewers_to_prepare": [
+    "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+    "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+    "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+    "EXTERNAL_COMPATIBILITY_REVIEWER"
+  ],
+  "reviewers_started": 0,
+  "aggregator_started": false,
+  "prohibited_operations": [
+    "source write or rename",
+    "Source Scope Lock Task write",
+    "Candidate or product write",
+    "governance baseline write",
+    "historical Task write",
+    "Reviewer execution or payload mutation",
+    "Architecture Reconciliation",
+    "Core Object implementation",
+    "network, service, database, seed, migration, or .env read",
+    "child agent",
+    "Git"
+  ],
+  "execution_status": "COMPLETE",
+  "package_contract_tests": "30/30_PASS",
+  "reviewer_packages": "4/4_READY",
+  "aggregator_package": "READY_NOT_STARTED",
+  "launch_envelopes": "5/5_PASS",
+  "launch_readiness": "READY_FOR_HUMAN_TO_LAUNCH_SOURCE_SCOPE_R1_TOP_LEVEL_REVIEWS",
+  "human_scope_authorization": "APPROVED",
+  "human_source_scope_adoption": "PENDING"
+}

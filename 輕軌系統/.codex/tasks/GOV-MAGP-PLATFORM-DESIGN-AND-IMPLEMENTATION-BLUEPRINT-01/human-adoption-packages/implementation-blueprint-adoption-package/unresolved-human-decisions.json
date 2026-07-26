@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "domain": "IMPLEMENTATION_BLUEPRINT",
+  "unresolved_count": 2,
+  "decisions": [
+    {
+      "decision_id": "HID-019",
+      "title": "First Implementation Scope",
+      "options": [
+        "Kernel only",
+        "Kernel plus authority",
+        "Vertical governance slice"
+      ],
+      "codex_recommendation": "Kernel plus authority and Human Gate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-020",
+      "title": "Phase 0 Phase 1 priority",
+      "options": [
+        "Phase 0 only",
+        "Phase 0 then 1",
+        "Parallel limited preparation"
+      ],
+      "codex_recommendation": "Phase 0 then explicit Phase 1 GO",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    }
+  ],
+  "status": "PENDING_HUMAN_DECISION"
+}

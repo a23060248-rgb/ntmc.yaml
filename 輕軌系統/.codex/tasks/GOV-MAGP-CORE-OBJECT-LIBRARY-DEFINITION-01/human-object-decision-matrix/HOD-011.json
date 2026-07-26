@@ -1,0 +1,21 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "decision_id": "HOD-011",
+  "decision_title": "Package dependency strategy",
+  "options": [
+    "ACYCLIC_PINNED_DAG",
+    "LOCKFILE_WITH_BOUNDED_DEV_CYCLES",
+    "HUMAN_MODIFIED_STRATEGY"
+  ],
+  "codex_recommendation": "ACYCLIC_PINNED_RUNTIME_DAG",
+  "decision_status": "PENDING_HUMAN_DECISION",
+  "human_decision": "PENDING_HUMAN_DECISION",
+  "human_actor": null,
+  "decision_timestamp": null,
+  "codex_filled_human_decision": false,
+  "proposal_may_use_candidate_pending_adoption": true
+}

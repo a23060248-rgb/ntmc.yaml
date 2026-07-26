@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "artifact_type": "ADOPTED_OBJECT_IDENTITY_MODEL",
+  "adoption_status": "HUMAN_ADOPTED",
+  "normative_object_library": true,
+  "object_library_baseline": "MAGP-OBJECT-LIBRARY-BASELINE-V1",
+  "adoption_method": "EXACT_5A_1_PROPOSAL_REFERENCE_WITH_SEPARATE_HUMAN_EFFECTIVE_STATE",
+  "original_proposal_references": [
+    {
+      "relative_path": "object-identity-model/identity-kinds.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-identity-model/identity-kinds.json",
+      "sha256": "9DD5471776D4889FB4913FAEB64053583C8D18C99D446117BD0817CB869F838C",
+      "bytes": 754
+    },
+    {
+      "relative_path": "object-identity-model/object-id-format.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-identity-model/object-id-format.json",
+      "sha256": "9E16932980BEF77127B09BBE42D02CBC81155EFD906174C9BDEF1940717200F5",
+      "bytes": 2018
+    },
+    {
+      "relative_path": "object-identity-model/namespace-policy.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-identity-model/namespace-policy.json",
+      "sha256": "5F2BB071268AE705D32F87CDB644C70D66A783845066E6EB622C14002AFB8955",
+      "bytes": 668
+    },
+    {
+      "relative_path": "object-identity-model/identity-mutation-policy.yaml",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-identity-model/identity-mutation-policy.yaml",
+      "sha256": "214FF49B700B81C88F3D30C7BA119DF7EBFEE2B853B4BDA1927E261874FEEF5C",
+      "bytes": 949
+    },
+    {
+      "relative_path": "object-identity-model/cross-boundary-identity.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/object-identity-model/cross-boundary-identity.json",
+      "sha256": "2A0A01AF23C971B775C8D291A0574D6D01402F7B0BC67BDE5F7297D574E3964A",
+      "bytes": 582
+    }
+  ],
+  "original_proposal_bytes_modified": false,
+  "human_decision_reference": {
+    "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+    "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+    "bytes": 27044
+  },
+  "resolved_decisions": [
+    "HOD-001",
+    "HOD-002",
+    "HOD-005",
+    "HOD-012"
+  ],
+  "object_id_format": "urn:magp:{namespace}:{type-prefix}:{ULID}",
+  "namespace_hierarchy": [
+    "organization",
+    "platform",
+    "domain",
+    "volume",
+    "package"
+  ],
+  "canonicalization": "RFC8785_JCS_FOR_JSON_AND_APPROVED_TYPE_SPECIFIC_PROFILE_OTHERWISE",
+  "filename_is_canonical_identity": false,
+  "rename_changes_concept_identity_by_default": false
+}

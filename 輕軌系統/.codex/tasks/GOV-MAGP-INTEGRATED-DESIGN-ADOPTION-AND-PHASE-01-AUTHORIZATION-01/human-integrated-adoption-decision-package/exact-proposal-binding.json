@@ -1,0 +1,903 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "input_task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "canonicalization_method": "DIRECTORY=RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_NEWLINE; COMPOSITE=ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+  "generated_at": "2026-07-23T13:04:13+08:00",
+  "physical_persistence_proposal_sha256": "B4B29CAC80B62CB330A2387CCD6365F5C03AD13389342C7779AB75C70ED14134",
+  "database_proposal_sha256": "354E47B1E8CC8C1B011A4E269D2F016D6CA0461CFB1A8895CBC4F51278E2414F",
+  "migration_strategy_sha256": "BD78EED3DABB80E257C32FC315A1FE478AFBAB7B2526DE56CB20200BB0A49587",
+  "formal_api_proposal_sha256": "20DBF44CC5D0D20CEC12716577F8232FBE7987C520FBE2FA203334EA88C36BA4",
+  "event_contract_proposal_sha256": "6740FDD98AFC8AA9748E088FBDF5ECB5E8CF2F79207AEC1E0CBF040F0323A8D3",
+  "security_architecture_proposal_sha256": "1973B9B03EFB6CE5DBD849E38DA4F66CBE460BB0C48362AF69E1298304103819",
+  "deployment_topology_proposal_sha256": "3DF7AF64DAA0AFF7F15E4EEF92D0C6EAC947995A644601A37E98E62290F1ED85",
+  "implementation_blueprint_proposal_sha256": "17231AF3694E12A25DA45E2DCEEF55963C2749E8DF9A692DDA3BB31EE2D909B3",
+  "testing_assurance_plan_sha256": "67A937340C3612CEFBFE588F02208E0EBB8B5707BA8B6345318D55571055B915",
+  "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+  "architecture_baseline_hash": "32A064D90A2051DFC7B28962F9757F7947E6A4863615628C1E99169FE91C128C",
+  "object_library_baseline_id": "MAGP-OBJECT-LIBRARY-BASELINE-V1",
+  "object_library_baseline_hash": "907F7D7F58739182FEC731AD562D6142C522E5958144F0A34AAE240465E2B8CE",
+  "logical_contract_baseline_id": "MAGP-LOGICAL-CONTRACT-BASELINE-V1",
+  "logical_contract_baseline_hash": "A5DC37FFBDFE5857EBD0B0995C28325A83887B59833DBA7260B46F2851305E6B",
+  "proposal_groups": {
+    "physical_persistence": {
+      "canonicalization_method": "ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+      "roots": [
+        "physical-persistence-design"
+      ],
+      "components": [
+        {
+          "root": "physical-persistence-design",
+          "file_count": 22,
+          "manifest_sha256": "911AEDFD51929AC483102AE27A99E699361C0496A4B29FA0C1441D9EBCFA89D4",
+          "entries": [
+            {
+              "relative_path": "physical-persistence-design/aggregate-storage-boundary.json",
+              "sha256": "004921F5002BD6AB89E8B8E868ADD051103ED6A07F32ABA01D6D43135660BEDB",
+              "bytes": 2735
+            },
+            {
+              "relative_path": "physical-persistence-design/audit-storage-strategy.json",
+              "sha256": "17DBC44BD9130BF0C4B70BA433E5E2FD9BBA10361D5A9B34CD1602E773818E25",
+              "bytes": 469
+            },
+            {
+              "relative_path": "physical-persistence-design/authority-storage-design.json",
+              "sha256": "CCF2521131B6DC4B31028C2706CDEDD389D5B869C43C1EFD968B6AF7B4897366",
+              "bytes": 571
+            },
+            {
+              "relative_path": "physical-persistence-design/backup-restore-design.json",
+              "sha256": "2217FF4894DCB27CE86B4A79CABD37B2C7E80BE756A2F334FE2801ACB20E504E",
+              "bytes": 640
+            },
+            {
+              "relative_path": "physical-persistence-design/column-and-type-proposal.json",
+              "sha256": "5DA44AE4F36DD337DC23BC91268639C39717C3AFF452339B01F977605A771EA5",
+              "bytes": 1234
+            },
+            {
+              "relative_path": "physical-persistence-design/concurrency-storage-design.json",
+              "sha256": "3788AA78A8791E978D9E43B242B9551D91BD7475BBD25922B5E587F7AD5B8E1E",
+              "bytes": 482
+            },
+            {
+              "relative_path": "physical-persistence-design/constraint-design.json",
+              "sha256": "2A4E4F412AD9513C900ABAE80E5E2DB9BB6D645E928C69281EE6BB5FF44BB94F",
+              "bytes": 677
+            },
+            {
+              "relative_path": "physical-persistence-design/database-technology-decision-matrix.json",
+              "sha256": "C5E5407D3467A2CC641C7CB2F732268D9C73A44825F37FFA20F7B4DF4F6714E3",
+              "bytes": 2111
+            },
+            {
+              "relative_path": "physical-persistence-design/disaster-recovery-design.json",
+              "sha256": "2454EFC6D17E13CD3DD5E0D12D45A1F8DA244526228E9DFDCFF78E6F74DB7002",
+              "bytes": 534
+            },
+            {
+              "relative_path": "physical-persistence-design/encryption-sensitive-data-design.json",
+              "sha256": "67828444721F3CB95EBD8EC953BFD09988AE03B1E0080585B430FEDE60CE1754",
+              "bytes": 578
+            },
+            {
+              "relative_path": "physical-persistence-design/evidence-ledger-storage-design.json",
+              "sha256": "75C7C23383E762CB894EE6ED5A7D0B65E8A70235F759182BC12B2E77793BE0E6",
+              "bytes": 635
+            },
+            {
+              "relative_path": "physical-persistence-design/idempotency-storage-design.json",
+              "sha256": "C454856E4D1942C3DE795080DF0E94DBEC47625E4D13DA631ECC95317623AB0F",
+              "bytes": 561
+            },
+            {
+              "relative_path": "physical-persistence-design/indexing-strategy.json",
+              "sha256": "F1B0085848EEB0FFD2D6876D12E896EBB3FE6E16FC7055A861673CE826D9EABC",
+              "bytes": 609
+            },
+            {
+              "relative_path": "physical-persistence-design/key-reference-strategy.json",
+              "sha256": "89912E1E45220ACCF89400B082ECE27E81675B510A97AAB941BBA20049F565A8",
+              "bytes": 587
+            },
+            {
+              "relative_path": "physical-persistence-design/lifecycle-transition-storage-design.json",
+              "sha256": "890AFB7AB39AFF19765AB2662BDBC617A453BCF44ADD5097D173818236248AA8",
+              "bytes": 580
+            },
+            {
+              "relative_path": "physical-persistence-design/logical-to-physical-mapping.json",
+              "sha256": "F597161B75928B1517E2DDE6E6D0345494ADC14BC62EBF7CD0E9B46632167007",
+              "bytes": 5015
+            },
+            {
+              "relative_path": "physical-persistence-design/partitioning-strategy.json",
+              "sha256": "5CE81035B6BE48516822C0822A8DD655BE9723117BD8109CD19D0BA791C02AC2",
+              "bytes": 567
+            },
+            {
+              "relative_path": "physical-persistence-design/physical-entity-registry.json",
+              "sha256": "C252E76206EDE064543428275D48505595FE5BC6358AF220324D0FC050BDB353",
+              "bytes": 3008
+            },
+            {
+              "relative_path": "physical-persistence-design/physical-schema-risk-register.json",
+              "sha256": "C3DE2C2ADC61CFF7A8723501D0EA9205E0B2654CBA69C163178CCBFCC78B0F04",
+              "bytes": 1376
+            },
+            {
+              "relative_path": "physical-persistence-design/retention-archival-design.json",
+              "sha256": "061CC4E05D26FBD99A061C10567ABC2779CC3FC95484B8051DDFCF69CA23EEE9",
+              "bytes": 573
+            },
+            {
+              "relative_path": "physical-persistence-design/table-design-proposal.json",
+              "sha256": "1A69AAAA9A15CE32596D962C3AD187D6CA59D66CDC43F2331E7F1CA293528936",
+              "bytes": 9280
+            },
+            {
+              "relative_path": "physical-persistence-design/temporal-data-strategy.json",
+              "sha256": "C6A12974C62EF07815106E87FB27BE00A01F44584EEFA9CC03D95FE4B6DA8CDB",
+              "bytes": 549
+            }
+          ]
+        }
+      ],
+      "file_count": 22,
+      "manifest_sha256": "B4B29CAC80B62CB330A2387CCD6365F5C03AD13389342C7779AB75C70ED14134"
+    },
+    "database": {
+      "canonicalization_method": "ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+      "roots": [
+        "database-proposal"
+      ],
+      "components": [
+        {
+          "root": "database-proposal",
+          "file_count": 7,
+          "manifest_sha256": "849F73889576CC4861B546321516028CB2129D0583E8369F3744E09556946A9F",
+          "entries": [
+            {
+              "relative_path": "database-proposal/constraint-ddl-proposal.sql",
+              "sha256": "60517AF49CA473B43B49B57D4FFEF0564824F0E282B71A24E7E56BADB6563816",
+              "bytes": 493
+            },
+            {
+              "relative_path": "database-proposal/index-ddl-proposal.sql",
+              "sha256": "BBB9AAE53A51B37BF7917D7162CFD5D0F30AEEAB659349762DBAAC3E946D9E39",
+              "bytes": 458
+            },
+            {
+              "relative_path": "database-proposal/partition-ddl-proposal.sql",
+              "sha256": "57720758A11FE18FD9B16868692F368360FC06C910DDE8D908419032D918930D",
+              "bytes": 325
+            },
+            {
+              "relative_path": "database-proposal/proposal-status.json",
+              "sha256": "21F540055922F50D8C89B9108BBAE933EA5434FC2714F6187AF4230C472FA03C",
+              "bytes": 447
+            },
+            {
+              "relative_path": "database-proposal/rollback-ddl-proposal.sql",
+              "sha256": "604C49AEF637FBDA0E5E8429E474A8B22F4156731230B2A1ECE772F5BED85954",
+              "bytes": 368
+            },
+            {
+              "relative_path": "database-proposal/row-security-policy-proposal.sql",
+              "sha256": "E0EEF4DE92E0847DEE7E5CB6C6DA0440DD95B16D693B48915549A42E45391526",
+              "bytes": 418
+            },
+            {
+              "relative_path": "database-proposal/schema-ddl-proposal.sql",
+              "sha256": "D45E7BA12D7A618ECF2E6B2A7D0C80099DA54B47BAA27A9F9AA50175CA5789C7",
+              "bytes": 1067
+            }
+          ]
+        }
+      ],
+      "file_count": 7,
+      "manifest_sha256": "354E47B1E8CC8C1B011A4E269D2F016D6CA0461CFB1A8895CBC4F51278E2414F"
+    },
+    "migration": {
+      "canonicalization_method": "ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+      "roots": [
+        "migration-strategy"
+      ],
+      "components": [
+        {
+          "root": "migration-strategy",
+          "file_count": 8,
+          "manifest_sha256": "499D6A0EC7E9AA8B9128B1D4054D623E31EAED84FED2B12CC41AC3ECBD381F7A",
+          "entries": [
+            {
+              "relative_path": "migration-strategy/data-backfill-strategy.json",
+              "sha256": "6BAEFCF0FEFF15C8347663A8E969F6B1616FB0BDE0275EBB7024D2629FE1137F",
+              "bytes": 481
+            },
+            {
+              "relative_path": "migration-strategy/expand-contract-strategy.json",
+              "sha256": "216A9E5998ABD35C979E78548340BC81C1DA4B36E8A6A95BE3ED56284308CCDB",
+              "bytes": 504
+            },
+            {
+              "relative_path": "migration-strategy/forward-migration-plan.json",
+              "sha256": "6E7AD07AA4EE095AC12EE2318298123BD26FFBB1F4B56F478CBC1E1B778E726A",
+              "bytes": 535
+            },
+            {
+              "relative_path": "migration-strategy/migration-evidence-requirements.json",
+              "sha256": "1EA1820BF940B3028075E1E98BDADA81C0DE793702F8D72ABAEC2C7B74965720",
+              "bytes": 591
+            },
+            {
+              "relative_path": "migration-strategy/migration-go-no-go-criteria.json",
+              "sha256": "384F5ED996ACAEBD1B1A003417DD3D05E7C32E3DE218FA063C4BC8C5B9053754",
+              "bytes": 593
+            },
+            {
+              "relative_path": "migration-strategy/migration-versioning-policy.yaml",
+              "sha256": "3D6EA572D2C83CC27863D8071F5F7CC78711415A09962A729117452031AB5333",
+              "bytes": 510
+            },
+            {
+              "relative_path": "migration-strategy/rollback-plan.json",
+              "sha256": "2BD4839584295E856A486D05259D9383008E7A0A936996E198B1390F53B54697",
+              "bytes": 555
+            },
+            {
+              "relative_path": "migration-strategy/zero-downtime-candidate-plan.json",
+              "sha256": "F6EF3F658B8110E11BD2A8A126390820F35C8A84F432D88ACF5CF98EB5D291A4",
+              "bytes": 564
+            }
+          ]
+        }
+      ],
+      "file_count": 8,
+      "manifest_sha256": "BD78EED3DABB80E257C32FC315A1FE478AFBAB7B2526DE56CB20200BB0A49587"
+    },
+    "formal_api": {
+      "canonicalization_method": "ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+      "roots": [
+        "formal-interface-api-design",
+        "api-contract-proposal"
+      ],
+      "components": [
+        {
+          "root": "formal-interface-api-design",
+          "file_count": 20,
+          "manifest_sha256": "057B9526A36132A95E6C9BA9CEBB8327EFD683C9DD52EE8A7DD0F87A7E8D5B09",
+          "entries": [
+            {
+              "relative_path": "formal-interface-api-design/agent-operation-registry.json",
+              "sha256": "C7CB502831055528638447CE95BB02B6F63C2B9FBAB1261356558A59CAB397F6",
+              "bytes": 557
+            },
+            {
+              "relative_path": "formal-interface-api-design/api-context.json",
+              "sha256": "46E2EE7ACE4C1A1E1D14A425BA00E772C1FAA4EEBDAAC11139D574A76926F175",
+              "bytes": 516
+            },
+            {
+              "relative_path": "formal-interface-api-design/api-risk-register.json",
+              "sha256": "7142A3C9574C5AAA6B75632C2E675DA78EB9E7BD4D9721F28410AD1888976E26",
+              "bytes": 1170
+            },
+            {
+              "relative_path": "formal-interface-api-design/approval-operation-registry.json",
+              "sha256": "281BCEB1D89A75A73B515C1F614D6D95C0D0CDAB62F3DA5794799192BFA9103B",
+              "bytes": 524
+            },
+            {
+              "relative_path": "formal-interface-api-design/authorization-requirements.json",
+              "sha256": "28888253B6329A657C47A4F246D3091182FE421A327E04FBDC8AF5DF91BF5B72",
+              "bytes": 549
+            },
+            {
+              "relative_path": "formal-interface-api-design/command-operation-registry.json",
+              "sha256": "59D1E25D3B977AAF6A4F97A670B71A77D11235A65C3902476AD7EBFEE41D0C51",
+              "bytes": 588
+            },
+            {
+              "relative_path": "formal-interface-api-design/concurrency-requirements.json",
+              "sha256": "1C4338932A149776DE6D17A3564BAD9488C4A5BFE7975EB0E8949FD24EB25C90",
+              "bytes": 444
+            },
+            {
+              "relative_path": "formal-interface-api-design/correlation-audit-contract.json",
+              "sha256": "03E6B6594BF8BBB0520E09C106143035E1717D5D16EFCF895B30BC8A4B5619C7",
+              "bytes": 488
+            },
+            {
+              "relative_path": "formal-interface-api-design/deployment-operation-registry.json",
+              "sha256": "C7E9D5D92D062C97294F7C0D4665759A16DBCBB40988C06374705B932DA6E652",
+              "bytes": 538
+            },
+            {
+              "relative_path": "formal-interface-api-design/error-contract.json",
+              "sha256": "FAB527B03E636DA76C0016E09562B80CFEC534FD5B2D9F49D74493EC7C92248C",
+              "bytes": 621
+            },
+            {
+              "relative_path": "formal-interface-api-design/evidence-operation-registry.json",
+              "sha256": "E94557B6A0E2FBD42EDAE08221500A7A8D7944618F9629B0F170139A9D508E0C",
+              "bytes": 488
+            },
+            {
+              "relative_path": "formal-interface-api-design/finding-operation-registry.json",
+              "sha256": "F2C4AEE04C402734B540D6590DA6512E9746C6B95A998F77997596201DA9F311",
+              "bytes": 505
+            },
+            {
+              "relative_path": "formal-interface-api-design/idempotency-requirements.json",
+              "sha256": "2211DA804188A3C765E1F30D76E68694E349986830FF1B4DD68DA9224EB624F1",
+              "bytes": 527
+            },
+            {
+              "relative_path": "formal-interface-api-design/lifecycle-operation-registry.json",
+              "sha256": "4D5DE54A1B141C6DD501DCCC46211D78477984C2D329EFB46B0F6681E155E9F9",
+              "bytes": 516
+            },
+            {
+              "relative_path": "formal-interface-api-design/package-release-operation-registry.json",
+              "sha256": "0467C26BAFDA2D72A2275DF8B21C3586C8FC8F29811F36D3325CA611A9A949AC",
+              "bytes": 493
+            },
+            {
+              "relative_path": "formal-interface-api-design/pagination-filter-ordering.json",
+              "sha256": "3C14018F883040E765FD5F55EB9302D0795BBA937B821DD387C8668FB2B4068D",
+              "bytes": 479
+            },
+            {
+              "relative_path": "formal-interface-api-design/query-operation-registry.json",
+              "sha256": "0F8E504CCAEDAE069063CF5019A1E6D413F04203BC2EF6656A2E3214AE8D796F",
+              "bytes": 581
+            },
+            {
+              "relative_path": "formal-interface-api-design/redaction-exposure-policy.json",
+              "sha256": "A657368ADB9A2DB8C5E8C6F1ECE213E8C046D8BE117E3491C2D5AF288B0E5DEA",
+              "bytes": 484
+            },
+            {
+              "relative_path": "formal-interface-api-design/resource-registry.json",
+              "sha256": "C77C43602A95618C2713C0F69C2BEDE396CC8E239AFA582ECFA12D7470F72DB6",
+              "bytes": 4377
+            },
+            {
+              "relative_path": "formal-interface-api-design/version-negotiation.json",
+              "sha256": "E2768EE072BE13C9F0443BADEF86003698725789AAC3FDB53E5533C9ABDB751F",
+              "bytes": 480
+            }
+          ]
+        },
+        {
+          "root": "api-contract-proposal",
+          "file_count": 8,
+          "manifest_sha256": "7DEF555B07F79B125AA8B6EAE1DCEE91E6E917EABBCCB1CBB002D37EB25C657A",
+          "entries": [
+            {
+              "relative_path": "api-contract-proposal/authority-context-schema.yaml",
+              "sha256": "DA0A354EB3C2D3490D4F577BB0949E66486D3B050380785230728345F8C8F985",
+              "bytes": 454
+            },
+            {
+              "relative_path": "api-contract-proposal/concurrency-schema.yaml",
+              "sha256": "AA5F4B9D5CDA80A39CDC43F033106FBAFED8723AC07E5D2FA860E10198F2C05F",
+              "bytes": 378
+            },
+            {
+              "relative_path": "api-contract-proposal/error-schemas.yaml",
+              "sha256": "5FBF9B05D8BB7EB409A17DBDE8275AE580E783C37CA2A765F1EC980C0D253840",
+              "bytes": 670
+            },
+            {
+              "relative_path": "api-contract-proposal/evidence-binding-schema.yaml",
+              "sha256": "035E1FFDDAE600031C9844316875118AB3E8CDADFEDDED54D2C9B4732DCC9325",
+              "bytes": 467
+            },
+            {
+              "relative_path": "api-contract-proposal/idempotency-schema.yaml",
+              "sha256": "6567A7BA842EBC4187BA19B44873D0983309E153FA37FDD2326F93847E1A7448",
+              "bytes": 409
+            },
+            {
+              "relative_path": "api-contract-proposal/openapi-proposal.yaml",
+              "sha256": "1EFAC3ED0419DE24B378112243E7BF4A0BA95A163FFE88E9E06889E3348BD80B",
+              "bytes": 2143
+            },
+            {
+              "relative_path": "api-contract-proposal/pagination-schema.yaml",
+              "sha256": "000B1D1883D68EE73102CD00B2A4233AFCB7D3829E8100BFE834BF33A1ECDBDD",
+              "bytes": 397
+            },
+            {
+              "relative_path": "api-contract-proposal/shared-schemas.yaml",
+              "sha256": "D99BF90CDB96F6C3484F2D23322FFBEDEFE1B187D651C5E64797990D77B641A7",
+              "bytes": 623
+            }
+          ]
+        }
+      ],
+      "file_count": 28,
+      "manifest_sha256": "20DBF44CC5D0D20CEC12716577F8232FBE7987C520FBE2FA203334EA88C36BA4"
+    },
+    "event_contract": {
+      "canonicalization_method": "ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+      "roots": [
+        "event-contract-design",
+        "event-contract-proposal"
+      ],
+      "components": [
+        {
+          "root": "event-contract-design",
+          "file_count": 3,
+          "manifest_sha256": "8A1F8118E154E030F37166DDCFB5F077CA02CF27FB05DC4520982C1F2142D229",
+          "entries": [
+            {
+              "relative_path": "event-contract-design/event-domain-registry.json",
+              "sha256": "8C223A92D5E593EAC788721390E40A3FB47787A221D336C84DB971EDB3BCCE28",
+              "bytes": 2076
+            },
+            {
+              "relative_path": "event-contract-design/event-metadata-contract.json",
+              "sha256": "0336BB7EA6ABFC6104257B499DAD3C5AD688DFE52D7F2232A5A386834E0C5D71",
+              "bytes": 832
+            },
+            {
+              "relative_path": "event-contract-design/event-risk-register.json",
+              "sha256": "1B5E02F3965814F60818376ABCBF3300E35D3B34D16A5662CEF4CB3982535B2C",
+              "bytes": 1091
+            }
+          ]
+        },
+        {
+          "root": "event-contract-proposal",
+          "file_count": 6,
+          "manifest_sha256": "D6BEB9CAFBD1F292CC7496EDDA17746137796E7BA8BB463FDA52B48ADDADD6F0",
+          "entries": [
+            {
+              "relative_path": "event-contract-proposal/asyncapi-proposal.yaml",
+              "sha256": "F91EB13F041DB81992E0994F326D48DE56D726EE97DA85D44075C2E8C5BDF16A",
+              "bytes": 2904
+            },
+            {
+              "relative_path": "event-contract-proposal/consumer-compatibility-matrix.json",
+              "sha256": "B6BA96DCC2678BB66348024B16D2ADBCC6981503F997B33DE813CD6F1FC252B0",
+              "bytes": 503
+            },
+            {
+              "relative_path": "event-contract-proposal/delivery-semantics.json",
+              "sha256": "B9943ABA93AB9DF3F3D1F4A4311B88F373C47461D1E68FEFBC4F29464600131D",
+              "bytes": 516
+            },
+            {
+              "relative_path": "event-contract-proposal/event-envelope.schema.json",
+              "sha256": "D9C0E2527EF9564FAFDFF5443B4D022E036FEBACE8B9F0689C9EB4C0B177DABE",
+              "bytes": 1594
+            },
+            {
+              "relative_path": "event-contract-proposal/event-schema-registry.json",
+              "sha256": "DBE80F7232EA2E575F2F77D67F8336076AB6367555A8FECADCA4606E1D703873",
+              "bytes": 740
+            },
+            {
+              "relative_path": "event-contract-proposal/event-versioning-policy.yaml",
+              "sha256": "F1B791D739F1B975CB8AD7E145547E241E40552C08C691DEC14009ED23F1C904",
+              "bytes": 459
+            }
+          ]
+        }
+      ],
+      "file_count": 9,
+      "manifest_sha256": "6740FDD98AFC8AA9748E088FBDF5ECB5E8CF2F79207AEC1E0CBF040F0323A8D3"
+    },
+    "security_architecture": {
+      "canonicalization_method": "ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+      "roots": [
+        "security-architecture"
+      ],
+      "components": [
+        {
+          "root": "security-architecture",
+          "file_count": 19,
+          "manifest_sha256": "E65E3F5B7176486496AD1B8381D957C08DA562B9647A094CA92173A2CA10A0F3",
+          "entries": [
+            {
+              "relative_path": "security-architecture/abuse-case-register.json",
+              "sha256": "AD969A8107CEEF13782471A08156EB267190B9F63109A92D79CC0939C60840C6",
+              "bytes": 3525
+            },
+            {
+              "relative_path": "security-architecture/actor-role-model.json",
+              "sha256": "166C4D7321F96CB935FC3B772440A7062F1FCBD16782569EC20FF38220C907BB",
+              "bytes": 511
+            },
+            {
+              "relative_path": "security-architecture/agent-authority-security-boundary.json",
+              "sha256": "9CA3A0B78E250C473652FD77CFB1C3BE36518736B0AAF230A016259EAB82BE0D",
+              "bytes": 520
+            },
+            {
+              "relative_path": "security-architecture/asset-inventory.json",
+              "sha256": "CC720C89B66594833BB3A40E277010D7DC80FC75F922176F2C351BA3625B63C0",
+              "bytes": 563
+            },
+            {
+              "relative_path": "security-architecture/audit-security-requirements.json",
+              "sha256": "503631FDA645898B2F7C82A72812CF11F9A8D2BB06E85891868A811FCADD931A",
+              "bytes": 469
+            },
+            {
+              "relative_path": "security-architecture/authentication-model.json",
+              "sha256": "82A6E50FA25A87299F88A628C15E78C3A6CBD02E4AD76603301D2D1EA9F4AE76",
+              "bytes": 489
+            },
+            {
+              "relative_path": "security-architecture/authorization-model.json",
+              "sha256": "604BCEB507C5D5053D5BDA6EA83D73918B3762194F4091434028B117097CFC6A",
+              "bytes": 492
+            },
+            {
+              "relative_path": "security-architecture/data-classification.json",
+              "sha256": "750797CD6CFE104DDC7272985E96850EBE6C4138340E5552E0C12CA01A5BA592",
+              "bytes": 450
+            },
+            {
+              "relative_path": "security-architecture/encryption-boundary.json",
+              "sha256": "48D911767A2E8AA038FA039CE40AB573CE512105594A8470E5C3AE09DB688F64",
+              "bytes": 493
+            },
+            {
+              "relative_path": "security-architecture/human-approval-security-boundary.json",
+              "sha256": "243ED14E536A79CBC0E17F180B556325E7E68014C9633E1BD8B2527E6EBCABAB",
+              "bytes": 496
+            },
+            {
+              "relative_path": "security-architecture/incident-response-boundary.json",
+              "sha256": "38B9CE36D0A4340A2C3908BF02802A90EDB9CF01F9BF2C2DEB6C39F65F109D5C",
+              "bytes": 590
+            },
+            {
+              "relative_path": "security-architecture/key-secret-management-requirements.json",
+              "sha256": "7639EEDCD31C710DE32049DD8EF50AF73D9064EB524C9376A60D7AB0B3EC2AD5",
+              "bytes": 479
+            },
+            {
+              "relative_path": "security-architecture/least-privilege-model.json",
+              "sha256": "6230E7EDED4BE6B2382B8661A4B59337C5F4461545E778B4939F79EBBD77BD57",
+              "bytes": 453
+            },
+            {
+              "relative_path": "security-architecture/policy-enforcement-point-model.json",
+              "sha256": "9E49E460567686BAD3A1DE56E4CA18360280CC23445B09F2DFB7F33F4521FB3E",
+              "bytes": 533
+            },
+            {
+              "relative_path": "security-architecture/security-control-matrix.json",
+              "sha256": "2370C4D13900D1D1EE51268A4EB5A7DBD973F11E660CEAE08E3A1F077D2B7AC4",
+              "bytes": 1787
+            },
+            {
+              "relative_path": "security-architecture/security-test-plan.json",
+              "sha256": "0D344717F5038170905A9F422F7B5743F52C78B0204D3B9AA770460B40789B89",
+              "bytes": 599
+            },
+            {
+              "relative_path": "security-architecture/sensitive-data-handling.json",
+              "sha256": "85E4BF7F66537F378C0E08CA7AFB00F2673FF206A518B9100ADB6569F1F6FA4E",
+              "bytes": 448
+            },
+            {
+              "relative_path": "security-architecture/threat-model.json",
+              "sha256": "40E785234FCE8260FBDE2B4205D835D84B0CFDFCF4DA94B54B48F27E9EF780FC",
+              "bytes": 3564
+            },
+            {
+              "relative_path": "security-architecture/trust-boundary-model.json",
+              "sha256": "D0DD89A21248863FF784EFDBBEA55232BED7EA51EC38E26011EB3B3A30C022F9",
+              "bytes": 584
+            }
+          ]
+        }
+      ],
+      "file_count": 19,
+      "manifest_sha256": "1973B9B03EFB6CE5DBD849E38DA4F66CBE460BB0C48362AF69E1298304103819"
+    },
+    "deployment_topology": {
+      "canonicalization_method": "ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+      "roots": [
+        "deployment-topology-planning",
+        "observability-planning",
+        "resilience-planning"
+      ],
+      "components": [
+        {
+          "root": "deployment-topology-planning",
+          "file_count": 3,
+          "manifest_sha256": "D5A783394B70686A224D104312738D65698B754AC0CD9C6AC48DF620094253CA",
+          "entries": [
+            {
+              "relative_path": "deployment-topology-planning/deployment-topology-proposal.json",
+              "sha256": "2D4EFD25E5C810D8389978F1FEF4328E1435CBED1B539E9B413534D46CB79704",
+              "bytes": 445
+            },
+            {
+              "relative_path": "deployment-topology-planning/environment-boundary.json",
+              "sha256": "A2906EF41E67A1E33A8FAA35A99DDF58B30F86BD3FF8DDE09E583D3804379C62",
+              "bytes": 715
+            },
+            {
+              "relative_path": "deployment-topology-planning/topology-decision-matrix.json",
+              "sha256": "18BF72AD4D77E595A0DBD32903850A211A76074A6F1BBA6B758B5E1F2D911C13",
+              "bytes": 917
+            }
+          ]
+        },
+        {
+          "root": "observability-planning",
+          "file_count": 3,
+          "manifest_sha256": "D6E6D1CCEEEDEB41D18A505F4D10552C5F09F51D4C0260F338D9AB27D5FF6C64",
+          "entries": [
+            {
+              "relative_path": "observability-planning/alert-register.json",
+              "sha256": "43403BAA3F2FAB8401F6C4F1AC74861752F05975EFFEDF2F6C885890684F394F",
+              "bytes": 782
+            },
+            {
+              "relative_path": "observability-planning/evidence-boundary.json",
+              "sha256": "522E931758F0340696CE46930C85FA43A384B088F9C8F0D2A804E72F19C1CC63",
+              "bytes": 566
+            },
+            {
+              "relative_path": "observability-planning/telemetry-requirements.json",
+              "sha256": "77B6C05B5EF0B6DCD1FFCEA1D5CABF63F9C4891F42F6CB9A946D2F76DD9FE6E6",
+              "bytes": 725
+            }
+          ]
+        },
+        {
+          "root": "resilience-planning",
+          "file_count": 3,
+          "manifest_sha256": "C14294BD880041AAA6C002B056201A8524EF99EEEA342FBDDBAA260B4240B926",
+          "entries": [
+            {
+              "relative_path": "resilience-planning/recovery-requirements.json",
+              "sha256": "F51FC7D96CA20CB6942092E2FC0C9AC50B9CA1E57CCF8B9117A4522BAE074937",
+              "bytes": 501
+            },
+            {
+              "relative_path": "resilience-planning/rehearsal-plan.json",
+              "sha256": "634FE3A9010A586236D2A04777F4FE9F4280DBD80B90A9E18EAA0EE9BF978784",
+              "bytes": 553
+            },
+            {
+              "relative_path": "resilience-planning/resilience-strategy.json",
+              "sha256": "FFEE41BCFFD7FAE974E6A78363E59C4AE010A2C6177CA29B0916A21BA023ADEC",
+              "bytes": 762
+            }
+          ]
+        }
+      ],
+      "file_count": 9,
+      "manifest_sha256": "3DF7AF64DAA0AFF7F15E4EEF92D0C6EAC947995A644601A37E98E62290F1ED85"
+    },
+    "implementation_blueprint": {
+      "canonicalization_method": "ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+      "roots": [
+        "backend-module-planning",
+        "human-review-console-planning",
+        "agent-runtime-planning",
+        "implementation-blueprint-proposal"
+      ],
+      "components": [
+        {
+          "root": "backend-module-planning",
+          "file_count": 2,
+          "manifest_sha256": "959C25FD054017634A8220CB466C0ED16099567FD731BF2AC755D4F6B7011B06",
+          "entries": [
+            {
+              "relative_path": "backend-module-planning/module-interaction-rules.json",
+              "sha256": "41ECFBF80C9808488C607FD6C739E3416A0A7BACF86B05DC47341F5CABE3EDCB",
+              "bytes": 469
+            },
+            {
+              "relative_path": "backend-module-planning/module-registry.json",
+              "sha256": "CD106195ED66BA0EE8E600301753AD07C2973F8DAA1C6C649961D3015EB5296C",
+              "bytes": 8967
+            }
+          ]
+        },
+        {
+          "root": "human-review-console-planning",
+          "file_count": 4,
+          "manifest_sha256": "AB6B194A36F2193C52063BC09EFEB7E200E11E21E2F31562E35E793B67333BE2",
+          "entries": [
+            {
+              "relative_path": "human-review-console-planning/console-plan-summary.md",
+              "sha256": "D1A2B6F74CF5F0946EA0632E3F9CB252101E71C23455891334BB479F3E696A43",
+              "bytes": 343
+            },
+            {
+              "relative_path": "human-review-console-planning/human-gate-workflows.json",
+              "sha256": "D6B4C681D5C5E2353D756A6E5B995927F8239638C120CF7211CBBFA82F228FD9",
+              "bytes": 536
+            },
+            {
+              "relative_path": "human-review-console-planning/interaction-boundary.json",
+              "sha256": "5A2AB814D371F6A52C63A3B849EE1397CB94A186A10450567E8E8A06FE33903E",
+              "bytes": 592
+            },
+            {
+              "relative_path": "human-review-console-planning/surface-registry.json",
+              "sha256": "10A6BC5FDF2BC9566EC9FA357F0B103B5B13B4DEF65CD9E6C62CFB7EE96148E0",
+              "bytes": 2161
+            }
+          ]
+        },
+        {
+          "root": "agent-runtime-planning",
+          "file_count": 3,
+          "manifest_sha256": "5D80981717E1DA3E149CD86EAA8CC51DB2906FBD901EB2BAEE781D549E74560E",
+          "entries": [
+            {
+              "relative_path": "agent-runtime-planning/authority-prohibitions.json",
+              "sha256": "B52CC78AFCCAABE8228CA7F783D0F864F5CB83671AA05D76AB2100DFAC931FB8",
+              "bytes": 641
+            },
+            {
+              "relative_path": "agent-runtime-planning/component-registry.json",
+              "sha256": "ECF67ED90B882A0E4609D2B7C539E36D14D065ED4969EE620E7E5CE7A125C587",
+              "bytes": 2637
+            },
+            {
+              "relative_path": "agent-runtime-planning/runtime-lifecycle.json",
+              "sha256": "639FE1CDE45A3A5AE11CF5339AC40F6FFA70CD1AD8C7DCB01E57918CFD12E3B1",
+              "bytes": 563
+            }
+          ]
+        },
+        {
+          "root": "implementation-blueprint-proposal",
+          "file_count": 18,
+          "manifest_sha256": "E09BFA1EC006F51B007A5E2BA6EB07496736ED138DE577619F5096B4CD007DDF",
+          "entries": [
+            {
+              "relative_path": "implementation-blueprint-proposal/compatibility-review-plan.json",
+              "sha256": "2FB7DEEEC2DDFB66388E6FF41C23B357C5CABB537BBEBC7D0DBC43091DE2F605",
+              "bytes": 546
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/dependency-sequence.json",
+              "sha256": "8D3C174C0482FA733871D305C23C000711BE898601141A93555282B5613266E2",
+              "bytes": 693
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/deployment-readiness-plan.json",
+              "sha256": "533F8690E1F618BFFA4C1D4AF557890F75C172EEE5818D84F2A1749FC510AA8B",
+              "bytes": 588
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/evidence-delivery-plan.json",
+              "sha256": "5CE4A37FF49EF044F347ADF65417D62654F36213F4FDC28F9D27CCDEF17B26C3",
+              "bytes": 581
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/go-no-go-model.json",
+              "sha256": "37816009CB10C70C7D8EE6DA2A94D264D79F872D286529919B89E95AA33E7581",
+              "bytes": 725
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/human-gate-sequence.json",
+              "sha256": "25540A359E627EF0FBB5A7FE5B45A0873FFFF4B749F2C17B9CE98CAA07B432D5",
+              "bytes": 1731
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/implementation-blueprint-summary.md",
+              "sha256": "A534538FB4FD240FC1B8257663BBC1A3D998DF03499607A996D7741E22364CEA",
+              "bytes": 576
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/implementation-risk-register.json",
+              "sha256": "8788F1C192BAFA809875F2D57D1F277A87011F9F351D7EBCA69F421110DF1330",
+              "bytes": 1645
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/milestone-plan.json",
+              "sha256": "90031A8CA092D6CB2E91CFD63D634C4EB78C5655D0BAEA4AB4B3CC6FD55E902C",
+              "bytes": 1919
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/module-dependency-map.json",
+              "sha256": "9905899C6545FA56785A294DCBCDE43F92A624FF0A103087DB61AF16AABF8838",
+              "bytes": 616
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/railway-domain-extension-boundary.json",
+              "sha256": "D895E7C666CD12569112695189D590DCECECB801DCF41A9370D3BF05EDBDCF1A",
+              "bytes": 550
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/recommended-delivery-strategy.json",
+              "sha256": "E4061346FDE62FB4E75BDC5E1D850D7A72885016F766B97B92F09659E1A32A14",
+              "bytes": 489
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/repository-structure-proposal.json",
+              "sha256": "31D6BF179E50E8DA532ABD600A58BE01256450B1DE81CB1023AF5512E71E910D",
+              "bytes": 616
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/rollback-recovery-plan.json",
+              "sha256": "2C2AABE196DDF67277B992823113A7003D0FF17014D3F30F1A4EAFC0168AEE61",
+              "bytes": 487
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/security-review-plan.json",
+              "sha256": "DB29382597C924E1E7D5F06E549EE3FBE65844F1A167F6FE4BD6D94E8BDB605B",
+              "bytes": 546
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/target-system-boundary.json",
+              "sha256": "696CBEEF6727FB82DC029B6DE14E547BB8C810EF93023A35BA924F12ECB0558D",
+              "bytes": 680
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/testing-strategy.json",
+              "sha256": "149EB31B5F769F64CD1B1F2F5BD4AEEA7BF46D54DE90DF5933D964B604CF067B",
+              "bytes": 495
+            },
+            {
+              "relative_path": "implementation-blueprint-proposal/work-package-register.json",
+              "sha256": "41C3F99756AA1C5634BBDB1331416DA4E36CAD46B2CCBFDA0D4898DB146FE102",
+              "bytes": 15918
+            }
+          ]
+        }
+      ],
+      "file_count": 27,
+      "manifest_sha256": "17231AF3694E12A25DA45E2DCEEF55963C2749E8DF9A692DDA3BB31EE2D909B3"
+    },
+    "testing_assurance": {
+      "canonicalization_method": "ROOT_PIPE_MANIFEST_SHA256_PIPE_FILE_COUNT_NEWLINE",
+      "roots": [
+        "testing-and-assurance-plan"
+      ],
+      "components": [
+        {
+          "root": "testing-and-assurance-plan",
+          "file_count": 4,
+          "manifest_sha256": "7572A2711FF3465968219DA22660662484A1D25A64A6DDC52CD5EFFB69B06847",
+          "entries": [
+            {
+              "relative_path": "testing-and-assurance-plan/assurance-strategy.json",
+              "sha256": "250F9732666CA960612A8DA78003FF323A3BAAF2D81D6BC3705F1ACACCEBCA0C",
+              "bytes": 693
+            },
+            {
+              "relative_path": "testing-and-assurance-plan/e2e-governance-flow-register.json",
+              "sha256": "583142CEBAF9DBD1D12CAFAE9C4DC53CD359EE38F4A35BDB7AAD5FB481F4B46D",
+              "bytes": 1487
+            },
+            {
+              "relative_path": "testing-and-assurance-plan/test-category-register.json",
+              "sha256": "7DB97C822BD56EC63F35E16B761043AC2727D63E10E7164EB31BC207FA0482AD",
+              "bytes": 3560
+            },
+            {
+              "relative_path": "testing-and-assurance-plan/test-evidence-requirements.json",
+              "sha256": "06446A43C25A9CE0C2F71EB1835F857B77A114CAC83E6B2E0DAF9642F7AB86A1",
+              "bytes": 552
+            }
+          ]
+        }
+      ],
+      "file_count": 4,
+      "manifest_sha256": "67A937340C3612CEFBFE588F02208E0EBB8B5707BA8B6345318D55571055B915"
+    }
+  },
+  "exact_input_task_tree": {
+    "file_count": 227,
+    "manifest_sha256": "C5A7ABF5FC10E069BC3127B439B5C61DF1A83D016B5F1086AEEF6318855B6590"
+  },
+  "proposal_bytes_modified": false
+}

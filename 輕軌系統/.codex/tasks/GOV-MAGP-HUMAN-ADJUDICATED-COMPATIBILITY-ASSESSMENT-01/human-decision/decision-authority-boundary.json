@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "adopted_review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "codex_authority": {
+    "technical_assessment": true,
+    "deterministic_validation": true,
+    "recommend_human_close_or_do_not_close": true,
+    "close_finding": false,
+    "fill_human_decision": false,
+    "fill_human_rationale": false,
+    "authorize_aggregator": false,
+    "authorize_architecture_reconciliation": false
+  },
+  "human_authority": {
+    "final_finding_adjudication": true,
+    "allowed_finding_decisions": ["HUMAN_CLOSED", "HUMAN_NOT_CLOSED"],
+    "aggregator_launch": "SEPARATE_HUMAN_GATE_AFTER_VALID_FINDING_ADJUDICATION",
+    "architecture_reconciliation": "SEPARATE_FUTURE_HUMAN_GATE"
+  },
+  "current_finding_decision_status": "PENDING_HUMAN_ADJUDICATION"
+}

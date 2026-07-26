@@ -1,0 +1,52 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-020",
+  "object_type": "RUNTIME_EVENT",
+  "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+  "canonical_name": "Runtime Event",
+  "type_prefix": "evt",
+  "design_time_or_runtime": "RUNTIME",
+  "normative_or_non_normative": "NON_NORMATIVE_RUNTIME_EVIDENCE",
+  "current_normative_effect": false,
+  "authority_level": "EVIDENCE_PRODUCTION_AUTHORITY_NO_POLICY_MUTATION",
+  "lifecycle_owner": "AGENT_OS_AND_RUNTIME_GOVERNANCE",
+  "evidence_owner": "EVIDENCE_LEDGER",
+  "human_gate_requirement": "HUMAN_GATE_REQUIRED_ONLY_FOR_EVENT_TRIGGERED_HIGH_RISK_APPROVAL_NOT_FOR_EVENT_CREATION",
+  "accountable_human_role": "RUNTIME_EVENT_CUSTODIAN",
+  "responsible_machine_role": "AUTHORIZED_RUNTIME_PRODUCER",
+  "allowed_mutations": [
+    "append handling status",
+    "correction event",
+    "archival metadata"
+  ],
+  "prohibited_mutations": [
+    "rewrite payload hash",
+    "modify Policy",
+    "self-approve triggered action"
+  ],
+  "required_payload_fields": [
+    "event_identity",
+    "event_type",
+    "producer",
+    "subject",
+    "timestamp",
+    "sequence",
+    "correlation_identity",
+    "causation_identity",
+    "payload_hash",
+    "severity",
+    "handling_status",
+    "evidence_classification"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "runtime-event.schema-proposal.schema.json",
+  "lifecycle_profile": "RUNTIME_COMMON_FSM"
+}

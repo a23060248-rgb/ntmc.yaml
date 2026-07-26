@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "current_stage": 2,
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "Human Decision is original Human input",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Human Decision schema is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Three Hash Bindings are valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Decision Count matches",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "All blocking decisions are resolved",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Reduced Assurance is acknowledged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Persistence Adoption is correct",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "API Event Adoption is correct",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Security Deployment Adoption is correct",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Blueprint Adoption is correct",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Every adopted Baseline Hash is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Phase 0 authorization is correct",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Phase 1 authorization is correct",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Phase 2 or later is not authorized",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Database execution is not authorized",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Migration execution is not authorized",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Deployment is not authorized",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Phase 0 Scope is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Phase 1 Scope is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Prohibited Scope is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "Launch Package is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "Product Code is not modified",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "SQL is not executed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Migration is not executed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Database is not connected",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Service is not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Implementation is not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Historical Baselines are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Product Governance Baseline is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 30,
+      "requirement": "Git is not used",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 30,
+  "pass_count": 30,
+  "fail_count": 0,
+  "status": "PASS_30_OF_30",
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "database_connected": false,
+    "sql_executed": false,
+    "migration_executed": false,
+    "seed_executed": false,
+    "service_started": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "package_installed": false,
+    "product_code_modified": false,
+    "product_implementation_started": false,
+    "deployment_executed": false,
+    "writes_outside_task_root": 0
+  }
+}

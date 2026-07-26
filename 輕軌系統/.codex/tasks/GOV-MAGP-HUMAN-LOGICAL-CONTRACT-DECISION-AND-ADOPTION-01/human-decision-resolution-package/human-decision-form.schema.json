@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MAGP Human Logical Contract Decision Form",
+  "type": "object",
+  "required": [
+    "human_decision_type",
+    "decision_register_sha256",
+    "recommendation_matrix_sha256",
+    "logical_contract_proposal_sha256",
+    "decision_count",
+    "decisions",
+    "assurance_level",
+    "human_authority_attestation",
+    "decision_timestamp",
+    "human_rationale"
+  ],
+  "properties": {
+    "human_decision_type": {
+      "enum": [
+        "BULK_ADOPT_ALL_RECOMMENDATIONS",
+        "ITEMIZED_DECISIONS"
+      ]
+    },
+    "decision_register_sha256": {
+      "const": "856DF80848579A606BFD525F57B17CF91685DD704DCC557EA297FB2C457D786F"
+    },
+    "recommendation_matrix_sha256": {
+      "const": "DCD52B32D1061EE73D69C9860E8B6159601EBA5550069C581357F5734D392576"
+    },
+    "logical_contract_proposal_sha256": {
+      "const": "4BFEE0992555E670BE9B143D7864F0C61358CC114C475D02103D3E98F508155A"
+    },
+    "decision_count": {
+      "const": 18
+    },
+    "decisions": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 18,
+      "items": {
+        "type": "object",
+        "required": [
+          "decision_id",
+          "human_decision"
+        ],
+        "properties": {
+          "decision_id": {
+            "enum": [
+              "HCD-001",
+              "HCD-002",
+              "HCD-003",
+              "HCD-004",
+              "HCD-005",
+              "HCD-006",
+              "HCD-007",
+              "HCD-008",
+              "HCD-009",
+              "HCD-010",
+              "HCD-011",
+              "HCD-012",
+              "HCD-013",
+              "HCD-014",
+              "HCD-015",
+              "HCD-016",
+              "HCD-017",
+              "HCD-018"
+            ]
+          },
+          "human_decision": {
+            "enum": [
+              "ADOPT_RECOMMENDED_OPTION",
+              "ADOPT_ALTERNATIVE_OPTION",
+              "ADOPT_WITH_MODIFICATION",
+              "DEFER_NON_BLOCKING",
+              "REJECT_DECISION"
+            ]
+          },
+          "selected_option": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "modification": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "deferral": {
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "adopt_all_recommendations_without_exception": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "assurance_level": {
+      "const": "REDUCED_ASSURANCE"
+    },
+    "human_authority_attestation": {
+      "const": true
+    },
+    "decision_timestamp": {
+      "type": "string",
+      "minLength": 1
+    },
+    "human_rationale": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "human_decision_type": {
+            "const": "BULK_ADOPT_ALL_RECOMMENDATIONS"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decisions": {
+            "maxItems": 0
+          },
+          "adopt_all_recommendations_without_exception": {
+            "const": true
+          }
+        },
+        "required": [
+          "adopt_all_recommendations_without_exception"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "human_decision_type": {
+            "const": "ITEMIZED_DECISIONS"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decisions": {
+            "minItems": 18,
+            "maxItems": 18
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

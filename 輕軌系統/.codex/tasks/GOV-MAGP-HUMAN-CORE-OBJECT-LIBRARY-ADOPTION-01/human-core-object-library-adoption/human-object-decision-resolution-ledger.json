@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "original_decision_count": 15,
+  "resolved_decision_count": 15,
+  "pending_decision_count": 0,
+  "resolutions": [
+    {
+      "decision_id": "HOD-001",
+      "decision_title": "Object ID format",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-001.json",
+        "sha256": "16E7593F18742A8AEE18E72945728ACEAAB920511B540F2D046A1243B6B87092",
+        "bytes": 687
+      },
+      "original_options": [
+        "URN_WITH_TYPE_PREFIX_AND_ULID",
+        "URI_WITH_UUID",
+        "HUMAN_MODIFIED_FORMAT"
+      ],
+      "original_codex_recommendation": "URN_WITH_TYPE_PREFIX_AND_ULID",
+      "final_status": "HUMAN_ADOPTED",
+      "final_value": "URN_WITH_TYPE_PREFIX_AND_ULID",
+      "rationale": "Adopts the proposed globally scoped canonical identifier format; filenames remain non-authoritative.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-002",
+      "decision_title": "Namespace hierarchy",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-002.json",
+        "sha256": "42479210FE75295A966299C14CA83AA4141B6762A928A8880169B90234CA76FC",
+        "bytes": 708
+      },
+      "original_options": [
+        "ORG_PLATFORM_DOMAIN_VOLUME_PACKAGE",
+        "ORG_DOMAIN_PACKAGE",
+        "HUMAN_MODIFIED_HIERARCHY"
+      ],
+      "original_codex_recommendation": "ORG_PLATFORM_DOMAIN_VOLUME_PACKAGE",
+      "final_status": "HUMAN_ADOPTED",
+      "final_value": "ORG_PLATFORM_DOMAIN_VOLUME_PACKAGE",
+      "rationale": "Adopts hierarchical namespaces while preserving stable cross-volume and cross-package identity.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-003",
+      "decision_title": "Versioning rules",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-003.json",
+        "sha256": "71B09F85DCB73E3C77C85836083378202CAEA59678C5C259912358E49E886227",
+        "bytes": 680
+      },
+      "original_options": [
+        "SEMVER_PLUS_REVISION",
+        "CALVER_PLUS_REVISION",
+        "HUMAN_MODIFIED_VERSIONING"
+      ],
+      "original_codex_recommendation": "SEMVER_PLUS_REVISION",
+      "final_status": "HUMAN_ADOPTED",
+      "final_value": "SEMVER_PLUS_MONOTONIC_REVISION",
+      "rationale": "Adopts semantic versioning plus immutable revision records and explicit supersession.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-004",
+      "decision_title": "Schema language and standard",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-004.json",
+        "sha256": "6420590B2CE3FA8FF42219694BD545162DD7DC7489B5A926106F6DBEAE7892C7",
+        "bytes": 731
+      },
+      "original_options": [
+        "JSON_SCHEMA_2020_12",
+        "CUE",
+        "PROTOBUF_PLUS_POLICY_SCHEMA",
+        "HUMAN_MODIFIED_STANDARD"
+      ],
+      "original_codex_recommendation": "JSON_SCHEMA_2020_12_FOR_GOVERNANCE_ARTIFACTS",
+      "final_status": "HUMAN_ADOPTED_WITH_MODIFICATION",
+      "final_value": "JSON_SCHEMA_2020_12_FOR_GOVERNANCE_SERIALIZATION_WITH_APPROVED_TYPE_SPECIFIC_PROFILE_EXTENSION",
+      "rationale": "Adopts the proposal schema notation as the Core JSON governance contract; non-JSON standards require an approved type-specific profile and may not weaken the Canonical Envelope.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-005",
+      "decision_title": "Canonicalization method",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-005.json",
+        "sha256": "1ED9F8639884A153FDB33D316B8152C0FDD5EB258643D21A744FBF48F01A5F3C",
+        "bytes": 732
+      },
+      "original_options": [
+        "RFC8785_JCS_WHERE_JSON",
+        "TYPE_SPECIFIC_CANONICALIZATION_REGISTRY",
+        "HUMAN_MODIFIED_METHOD"
+      ],
+      "original_codex_recommendation": "TYPE_SPECIFIC_REGISTRY_WITH_RFC8785_JCS_FOR_JSON",
+      "final_status": "HUMAN_ADOPTED_WITH_MODIFICATION",
+      "final_value": "TYPE_SPECIFIC_CANONICALIZATION_REGISTRY_WITH_RFC8785_JCS_FOR_JSON",
+      "rationale": "Adopts JCS for JSON and requires every non-JSON type to bind an approved deterministic canonicalization profile.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-006",
+      "decision_title": "Lifecycle state naming",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-006.json",
+        "sha256": "A56524EC217337E658ED97009592E04931B17BC732E23428C5B20CA4E34500C5",
+        "bytes": 720
+      },
+      "original_options": [
+        "COMMON_DESIGN_AND_RUNTIME_ENUMS",
+        "TYPE_SPECIFIC_STATES",
+        "HUMAN_MODIFIED_NAMING"
+      ],
+      "original_codex_recommendation": "COMMON_PROFILES_WITH_TYPE_SPECIFIC_RESTRICTIONS",
+      "final_status": "HUMAN_ADOPTED_WITH_MODIFICATION",
+      "final_value": "COMMON_DESIGN_AND_RUNTIME_STATE_PROFILES_WITH_TYPE_SPECIFIC_RESTRICTIONS",
+      "rationale": "Adopts common state vocabularies and permits only stricter type-specific transition subsets.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-007",
+      "decision_title": "Authority Class grading",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-007.json",
+        "sha256": "CD7524C134573143178605FAB47A310EA3FEE5933AC19AD45CE5310CCA5393E7",
+        "bytes": 735
+      },
+      "original_options": [
+        "ORDERED_AUTHORITY_CLASSES",
+        "CAPABILITY_SET_WITHOUT_TOTAL_ORDER",
+        "HUMAN_MODIFIED_MODEL"
+      ],
+      "original_codex_recommendation": "CAPABILITY_SET_WITH_EXPLICIT_CEILING_AND_PARTIAL_ORDER",
+      "final_status": "HUMAN_ADOPTED_WITH_MODIFICATION",
+      "final_value": "EXPLICIT_AUTHORITY_CAPABILITY_SET_WITH_CEILING_AND_PARTIAL_ORDER",
+      "rationale": "Avoids inferring powers from a simple total rank; each action and ceiling remains explicit.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-008",
+      "decision_title": "Evidence Assurance grading",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-008.json",
+        "sha256": "11D7B7EE0E6B3C994CC50F048F1F5A23048E082B250CCAE1E5FCC10366424CB2",
+        "bytes": 721
+      },
+      "original_options": [
+        "FIVE_LEVEL_MODEL",
+        "CLAIM_SPECIFIC_ASSURANCE_VECTOR",
+        "HUMAN_MODIFIED_MODEL"
+      ],
+      "original_codex_recommendation": "CLAIM_SPECIFIC_VECTOR_WITH_DISCLOSED_REVIEW_MODEL",
+      "final_status": "HUMAN_ADOPTED_WITH_MODIFICATION",
+      "final_value": "CLAIM_SPECIFIC_ASSURANCE_VECTOR_WITH_EXPLICIT_REVIEW_MODEL_AND_LIMITATIONS",
+      "rationale": "Assurance is claim-specific and may not be promoted from mechanism success alone.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-009",
+      "decision_title": "Human Approval validity period",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-009.json",
+        "sha256": "9FBB467B56A8E9DAF7A65FECB66457638C4D14B4C3DF188054E39444CA4E1706",
+        "bytes": 720
+      },
+      "original_options": [
+        "TYPE_SPECIFIC_EXPIRY",
+        "NO_EXPIRY_WITH_REVIEW_DATE",
+        "HUMAN_MODIFIED_POLICY"
+      ],
+      "original_codex_recommendation": "TYPE_AND_RISK_SPECIFIC_EXPIRY_OR_REVIEW_DATE",
+      "final_status": "HUMAN_ADOPTED_WITH_MODIFICATION",
+      "final_value": "TYPE_AND_RISK_SPECIFIC_EXPIRY_OR_MANDATORY_REVIEW_DATE_FAIL_CLOSED_WHEN_ABSENT",
+      "rationale": "Every Human Approval must carry expiry or mandatory review semantics; missing validity metadata blocks continued effect.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-010",
+      "decision_title": "Runtime Event retention",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-010.json",
+        "sha256": "BEDDD116157B682A7C34008FB003E49B21ADC7D3061AA9112B530ED371AFB9FF",
+        "bytes": 721
+      },
+      "original_options": [
+        "RISK_CLASS_RETENTION",
+        "FIXED_RETENTION",
+        "HUMAN_MODIFIED_POLICY"
+      ],
+      "original_codex_recommendation": "RISK_CLASS_RETENTION_PENDING_LEGAL_AND_OPERATIONAL_REQUIREMENTS",
+      "final_status": "HUMAN_ADOPTED_WITH_MODIFICATION",
+      "final_value": "RISK_CLASS_RETENTION_WITH_NO_PURGE_UNTIL_HUMAN_ADOPTED_RETENTION_SCHEDULE",
+      "rationale": "Adopts risk-class retention and fail-closed preservation until an exact Human-adopted schedule applies.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-011",
+      "decision_title": "Package dependency strategy",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-011.json",
+        "sha256": "2388A7517AED07A2F55999CE6B21C2939B8120B2695BD1A0EA2C86ECBE24EA38",
+        "bytes": 705
+      },
+      "original_options": [
+        "ACYCLIC_PINNED_DAG",
+        "LOCKFILE_WITH_BOUNDED_DEV_CYCLES",
+        "HUMAN_MODIFIED_STRATEGY"
+      ],
+      "original_codex_recommendation": "ACYCLIC_PINNED_RUNTIME_DAG",
+      "final_status": "HUMAN_ADOPTED",
+      "final_value": "ACYCLIC_EXACT_VERSION_AND_HASH_PINNED_RUNTIME_DEPENDENCY_DAG",
+      "rationale": "Adopts an acyclic pinned dependency graph for runtime-relevant packages.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-012",
+      "decision_title": "Volume cross-boundary reference rules",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-012.json",
+        "sha256": "185597A156833DCD6C4943731C19F42550B1692F10C1F1877CDBA9B3A0E4A468",
+        "bytes": 718
+      },
+      "original_options": [
+        "EXACT_REFERENCE_NO_AUTHORITY_COPY",
+        "CONTROLLED_MIRROR",
+        "HUMAN_MODIFIED_RULE"
+      ],
+      "original_codex_recommendation": "EXACT_REFERENCE_NO_AUTHORITY_COPY",
+      "final_status": "HUMAN_ADOPTED",
+      "final_value": "EXACT_CROSS_VOLUME_REFERENCE_WITHOUT_AUTHORITY_COPY",
+      "rationale": "Adopts stable exact references; organization boundaries never duplicate authority.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-013",
+      "decision_title": "Agent Definition permission expression",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-013.json",
+        "sha256": "E0909D37B67B1045EDCC4828C040C6005F91576088A58084693A94762A794FFD",
+        "bytes": 725
+      },
+      "original_options": [
+        "CAPABILITY_AND_RESOURCE_POLICY",
+        "ROLE_BASED_ONLY",
+        "HUMAN_MODIFIED_MODEL"
+      ],
+      "original_codex_recommendation": "CAPABILITY_RESOURCE_SCOPE_AND_EXPLICIT_DENY",
+      "final_status": "HUMAN_ADOPTED_WITH_MODIFICATION",
+      "final_value": "CAPABILITY_RESOURCE_SCOPE_EXPLICIT_DENY_AND_HUMAN_GATE",
+      "rationale": "Agent permissions require capability, resource, data scope, explicit deny, authority ceiling, and applicable Human gate.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-014",
+      "decision_title": "Finding closure authority",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-014.json",
+        "sha256": "3630911F68E3C12B3D28B0B2650F59779958EB5164B7BD7BAE6CFAB876EBDB68",
+        "bytes": 756
+      },
+      "original_options": [
+        "INDEPENDENT_OR_HUMAN_FOR_CRITICAL_HIGH",
+        "POLICY_BOUND_CLOSURE_MATRIX",
+        "HUMAN_MODIFIED_MODEL"
+      ],
+      "original_codex_recommendation": "POLICY_BOUND_MATRIX_WITH_INDEPENDENT_OR_HUMAN_CRITICAL_HIGH_CLOSURE",
+      "final_status": "HUMAN_ADOPTED_WITH_MODIFICATION",
+      "final_value": "POLICY_BOUND_CLOSURE_MATRIX_WITH_INDEPENDENT_OR_HUMAN_CRITICAL_HIGH_CLOSURE",
+      "rationale": "The reviewed object cannot close its own CRITICAL/HIGH Finding; independent or Human closure is required.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    },
+    {
+      "decision_id": "HOD-015",
+      "decision_title": "Breaking change process",
+      "original_decision_reference": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/human-object-decision-matrix/HOD-015.json",
+        "sha256": "9E3AA55C3E27E927557AC80E1CD0A4342738068CC7F083C953522D6F21DCAF6E",
+        "bytes": 739
+      },
+      "original_options": [
+        "RFC_IMPACT_TRACE_REVIEW_HUMAN_VERSION_INCREMENT",
+        "TYPE_SPECIFIC_PROCESS",
+        "HUMAN_MODIFIED_PROCESS"
+      ],
+      "original_codex_recommendation": "RFC_IMPACT_TRACE_REVIEW_HUMAN_VERSION_INCREMENT",
+      "final_status": "HUMAN_ADOPTED",
+      "final_value": "RFC_IMPACT_ANALYSIS_ARCHITECTURE_CONFORMANCE_EVIDENCE_REVIEW_HUMAN_APPROVAL_BASELINE_INCREMENT",
+      "rationale": "Adopts the complete breaking-change control chain.",
+      "human_decision_reference": {
+        "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+        "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+        "bytes": 27044
+      },
+      "pending_human_decision_remaining": false,
+      "codex_exercised_human_authority": false
+    }
+  ],
+  "status": "ALL_15_HUMAN_OBJECT_DECISIONS_RESOLVED"
+}

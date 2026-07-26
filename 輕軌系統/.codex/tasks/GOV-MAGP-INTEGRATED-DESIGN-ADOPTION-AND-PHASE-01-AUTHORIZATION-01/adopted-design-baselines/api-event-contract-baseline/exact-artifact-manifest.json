@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "baseline_id": "MAGP-API-EVENT-CONTRACT-BASELINE-V1",
+  "source_task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "canonicalization_method": "RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_NEWLINE",
+  "roots": [
+    "formal-interface-api-design",
+    "api-contract-proposal",
+    "event-contract-design",
+    "event-contract-proposal"
+  ],
+  "file_count": 37,
+  "artifact_tree_sha256": "DC3BFFFE4698AAC2CA2644078E282550A11BE5F7D5E6E5D00892136F32DCF4CB",
+  "artifacts": [
+    {
+      "relative_path": "api-contract-proposal/authority-context-schema.yaml",
+      "sha256": "DA0A354EB3C2D3490D4F577BB0949E66486D3B050380785230728345F8C8F985",
+      "bytes": 454
+    },
+    {
+      "relative_path": "api-contract-proposal/concurrency-schema.yaml",
+      "sha256": "AA5F4B9D5CDA80A39CDC43F033106FBAFED8723AC07E5D2FA860E10198F2C05F",
+      "bytes": 378
+    },
+    {
+      "relative_path": "api-contract-proposal/error-schemas.yaml",
+      "sha256": "5FBF9B05D8BB7EB409A17DBDE8275AE580E783C37CA2A765F1EC980C0D253840",
+      "bytes": 670
+    },
+    {
+      "relative_path": "api-contract-proposal/evidence-binding-schema.yaml",
+      "sha256": "035E1FFDDAE600031C9844316875118AB3E8CDADFEDDED54D2C9B4732DCC9325",
+      "bytes": 467
+    },
+    {
+      "relative_path": "api-contract-proposal/idempotency-schema.yaml",
+      "sha256": "6567A7BA842EBC4187BA19B44873D0983309E153FA37FDD2326F93847E1A7448",
+      "bytes": 409
+    },
+    {
+      "relative_path": "api-contract-proposal/openapi-proposal.yaml",
+      "sha256": "1EFAC3ED0419DE24B378112243E7BF4A0BA95A163FFE88E9E06889E3348BD80B",
+      "bytes": 2143
+    },
+    {
+      "relative_path": "api-contract-proposal/pagination-schema.yaml",
+      "sha256": "000B1D1883D68EE73102CD00B2A4233AFCB7D3829E8100BFE834BF33A1ECDBDD",
+      "bytes": 397
+    },
+    {
+      "relative_path": "api-contract-proposal/shared-schemas.yaml",
+      "sha256": "D99BF90CDB96F6C3484F2D23322FFBEDEFE1B187D651C5E64797990D77B641A7",
+      "bytes": 623
+    },
+    {
+      "relative_path": "event-contract-design/event-domain-registry.json",
+      "sha256": "8C223A92D5E593EAC788721390E40A3FB47787A221D336C84DB971EDB3BCCE28",
+      "bytes": 2076
+    },
+    {
+      "relative_path": "event-contract-design/event-metadata-contract.json",
+      "sha256": "0336BB7EA6ABFC6104257B499DAD3C5AD688DFE52D7F2232A5A386834E0C5D71",
+      "bytes": 832
+    },
+    {
+      "relative_path": "event-contract-design/event-risk-register.json",
+      "sha256": "1B5E02F3965814F60818376ABCBF3300E35D3B34D16A5662CEF4CB3982535B2C",
+      "bytes": 1091
+    },
+    {
+      "relative_path": "event-contract-proposal/asyncapi-proposal.yaml",
+      "sha256": "F91EB13F041DB81992E0994F326D48DE56D726EE97DA85D44075C2E8C5BDF16A",
+      "bytes": 2904
+    },
+    {
+      "relative_path": "event-contract-proposal/consumer-compatibility-matrix.json",
+      "sha256": "B6BA96DCC2678BB66348024B16D2ADBCC6981503F997B33DE813CD6F1FC252B0",
+      "bytes": 503
+    },
+    {
+      "relative_path": "event-contract-proposal/delivery-semantics.json",
+      "sha256": "B9943ABA93AB9DF3F3D1F4A4311B88F373C47461D1E68FEFBC4F29464600131D",
+      "bytes": 516
+    },
+    {
+      "relative_path": "event-contract-proposal/event-envelope.schema.json",
+      "sha256": "D9C0E2527EF9564FAFDFF5443B4D022E036FEBACE8B9F0689C9EB4C0B177DABE",
+      "bytes": 1594
+    },
+    {
+      "relative_path": "event-contract-proposal/event-schema-registry.json",
+      "sha256": "DBE80F7232EA2E575F2F77D67F8336076AB6367555A8FECADCA4606E1D703873",
+      "bytes": 740
+    },
+    {
+      "relative_path": "event-contract-proposal/event-versioning-policy.yaml",
+      "sha256": "F1B791D739F1B975CB8AD7E145547E241E40552C08C691DEC14009ED23F1C904",
+      "bytes": 459
+    },
+    {
+      "relative_path": "formal-interface-api-design/agent-operation-registry.json",
+      "sha256": "C7CB502831055528638447CE95BB02B6F63C2B9FBAB1261356558A59CAB397F6",
+      "bytes": 557
+    },
+    {
+      "relative_path": "formal-interface-api-design/api-context.json",
+      "sha256": "46E2EE7ACE4C1A1E1D14A425BA00E772C1FAA4EEBDAAC11139D574A76926F175",
+      "bytes": 516
+    },
+    {
+      "relative_path": "formal-interface-api-design/api-risk-register.json",
+      "sha256": "7142A3C9574C5AAA6B75632C2E675DA78EB9E7BD4D9721F28410AD1888976E26",
+      "bytes": 1170
+    },
+    {
+      "relative_path": "formal-interface-api-design/approval-operation-registry.json",
+      "sha256": "281BCEB1D89A75A73B515C1F614D6D95C0D0CDAB62F3DA5794799192BFA9103B",
+      "bytes": 524
+    },
+    {
+      "relative_path": "formal-interface-api-design/authorization-requirements.json",
+      "sha256": "28888253B6329A657C47A4F246D3091182FE421A327E04FBDC8AF5DF91BF5B72",
+      "bytes": 549
+    },
+    {
+      "relative_path": "formal-interface-api-design/command-operation-registry.json",
+      "sha256": "59D1E25D3B977AAF6A4F97A670B71A77D11235A65C3902476AD7EBFEE41D0C51",
+      "bytes": 588
+    },
+    {
+      "relative_path": "formal-interface-api-design/concurrency-requirements.json",
+      "sha256": "1C4338932A149776DE6D17A3564BAD9488C4A5BFE7975EB0E8949FD24EB25C90",
+      "bytes": 444
+    },
+    {
+      "relative_path": "formal-interface-api-design/correlation-audit-contract.json",
+      "sha256": "03E6B6594BF8BBB0520E09C106143035E1717D5D16EFCF895B30BC8A4B5619C7",
+      "bytes": 488
+    },
+    {
+      "relative_path": "formal-interface-api-design/deployment-operation-registry.json",
+      "sha256": "C7E9D5D92D062C97294F7C0D4665759A16DBCBB40988C06374705B932DA6E652",
+      "bytes": 538
+    },
+    {
+      "relative_path": "formal-interface-api-design/error-contract.json",
+      "sha256": "FAB527B03E636DA76C0016E09562B80CFEC534FD5B2D9F49D74493EC7C92248C",
+      "bytes": 621
+    },
+    {
+      "relative_path": "formal-interface-api-design/evidence-operation-registry.json",
+      "sha256": "E94557B6A0E2FBD42EDAE08221500A7A8D7944618F9629B0F170139A9D508E0C",
+      "bytes": 488
+    },
+    {
+      "relative_path": "formal-interface-api-design/finding-operation-registry.json",
+      "sha256": "F2C4AEE04C402734B540D6590DA6512E9746C6B95A998F77997596201DA9F311",
+      "bytes": 505
+    },
+    {
+      "relative_path": "formal-interface-api-design/idempotency-requirements.json",
+      "sha256": "2211DA804188A3C765E1F30D76E68694E349986830FF1B4DD68DA9224EB624F1",
+      "bytes": 527
+    },
+    {
+      "relative_path": "formal-interface-api-design/lifecycle-operation-registry.json",
+      "sha256": "4D5DE54A1B141C6DD501DCCC46211D78477984C2D329EFB46B0F6681E155E9F9",
+      "bytes": 516
+    },
+    {
+      "relative_path": "formal-interface-api-design/package-release-operation-registry.json",
+      "sha256": "0467C26BAFDA2D72A2275DF8B21C3586C8FC8F29811F36D3325CA611A9A949AC",
+      "bytes": 493
+    },
+    {
+      "relative_path": "formal-interface-api-design/pagination-filter-ordering.json",
+      "sha256": "3C14018F883040E765FD5F55EB9302D0795BBA937B821DD387C8668FB2B4068D",
+      "bytes": 479
+    },
+    {
+      "relative_path": "formal-interface-api-design/query-operation-registry.json",
+      "sha256": "0F8E504CCAEDAE069063CF5019A1E6D413F04203BC2EF6656A2E3214AE8D796F",
+      "bytes": 581
+    },
+    {
+      "relative_path": "formal-interface-api-design/redaction-exposure-policy.json",
+      "sha256": "A657368ADB9A2DB8C5E8C6F1ECE213E8C046D8BE117E3491C2D5AF288B0E5DEA",
+      "bytes": 484
+    },
+    {
+      "relative_path": "formal-interface-api-design/resource-registry.json",
+      "sha256": "C77C43602A95618C2713C0F69C2BEDE396CC8E239AFA582ECFA12D7470F72DB6",
+      "bytes": 4377
+    },
+    {
+      "relative_path": "formal-interface-api-design/version-negotiation.json",
+      "sha256": "E2768EE072BE13C9F0443BADEF86003698725789AAC3FDB53E5533C9ABDB751F",
+      "bytes": 480
+    }
+  ],
+  "source_bytes_copied_or_modified": false
+}

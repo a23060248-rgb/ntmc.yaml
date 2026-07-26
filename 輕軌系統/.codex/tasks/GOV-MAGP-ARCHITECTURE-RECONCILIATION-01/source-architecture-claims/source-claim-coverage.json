@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "source_claim_coverage": [
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "classification": "CORE",
+      "claim_count": 12,
+      "use": "ARCHITECTURE_CLAIM_MAPPING"
+    },
+    {
+      "source_id": "SOURCE-MAGP-02",
+      "classification": "CORE",
+      "claim_count": 15,
+      "use": "ARCHITECTURE_CLAIM_MAPPING"
+    },
+    {
+      "source_id": "SOURCE-MAGP-03",
+      "classification": "CORE",
+      "claim_count": 10,
+      "use": "ARCHITECTURE_CLAIM_MAPPING"
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "classification": "CORE",
+      "claim_count": 25,
+      "use": "ARCHITECTURE_CLAIM_MAPPING"
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "classification": "OPTIONAL",
+      "claim_count": 10,
+      "use": "NON_AUTHORITATIVE_PATTERN"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-01",
+      "classification": "EXCLUDED",
+      "claim_count": 0,
+      "use": "EXCLUSION_BOUNDARY_ONLY"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-02",
+      "classification": "EXCLUDED",
+      "claim_count": 0,
+      "use": "EXCLUSION_BOUNDARY_ONLY"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-03",
+      "classification": "EXCLUDED",
+      "claim_count": 0,
+      "use": "EXCLUSION_BOUNDARY_ONLY"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-04",
+      "classification": "EXCLUDED",
+      "claim_count": 0,
+      "use": "EXCLUSION_BOUNDARY_ONLY"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-05",
+      "classification": "EXCLUDED",
+      "claim_count": 0,
+      "use": "EXCLUSION_BOUNDARY_ONLY"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-06",
+      "classification": "EXCLUDED",
+      "claim_count": 0,
+      "use": "EXCLUSION_BOUNDARY_ONLY"
+    }
+  ],
+  "all_four_core_sources_mapped": true,
+  "optional_used_only_as_pattern": true,
+  "excluded_used_for_claims": false
+}

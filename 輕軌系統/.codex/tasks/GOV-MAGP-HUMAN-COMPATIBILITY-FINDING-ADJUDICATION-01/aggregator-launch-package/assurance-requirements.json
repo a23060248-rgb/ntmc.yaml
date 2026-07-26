@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "mandatory_output_disclosure": {
+    "clean_room_review_completed": false,
+    "independent_external_review_completed": false,
+    "human_adjudicated_review_completed": true,
+    "reduced_assurance": true,
+    "compatibility_review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT"
+  },
+  "maximum_success_result": "READY_FOR_HUMAN_SOURCE_SCOPE_EXACT_MANIFEST_ADOPTION_WITH_REDUCED_ASSURANCE_DISCLOSURE",
+  "success_does_not_authorize": [
+    "SOURCE_AUTHORITY_ADOPTION",
+    "ARCHITECTURE_RECONCILIATION",
+    "CORE_OBJECT_LIBRARY_CREATION",
+    "PRODUCT_MODIFICATION"
+  ],
+  "prohibited_result_labels": [
+    "CLEAN_ROOM_PASS",
+    "FULL_L3_PASS",
+    "INDEPENDENT_COMPATIBILITY_PASS"
+  ]
+}

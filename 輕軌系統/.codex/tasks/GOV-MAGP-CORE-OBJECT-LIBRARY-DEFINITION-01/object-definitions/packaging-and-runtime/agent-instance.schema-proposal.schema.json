@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:agent-instance:v0",
+  "title": "Agent Instance Schema Proposal",
+  "description": "Candidate schema proposal; not adopted and not a database schema.",
+  "allOf": [
+    {
+      "$ref": "../../../canonical-object-envelope/canonical-object-envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "object_type": {
+              "const": "AGENT_INSTANCE"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "instance_identity",
+            "definition_binding",
+            "runtime_environment",
+            "assigned_scope",
+            "active_permissions",
+            "session_identity",
+            "start_stop_time",
+            "runtime_state",
+            "produced_evidence",
+            "violations",
+            "termination_reason"
+          ],
+          "properties": {
+            "instance_identity": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "definition_binding": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "runtime_environment": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "assigned_scope": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "active_permissions": {
+              "type": "array",
+              "items": {}
+            },
+            "session_identity": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "start_stop_time": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "runtime_state": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "produced_evidence": {
+              "type": "array",
+              "items": {}
+            },
+            "violations": {
+              "type": "array",
+              "items": {}
+            },
+            "termination_reason": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    }
+  ],
+  "x-magp-object-type-id": "OBJ-TYPE-019",
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true,
+  "x-magp-database-schema": false
+}

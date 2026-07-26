@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "mandatory_first_read": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/source-scope-aggregation-r1/absolute-launch-envelope.json",
+  "execution_context_required": "BRAND_NEW_TOP_LEVEL_CODEX_CHAT",
+  "startup_sequence": [
+    "Verify clean top-level context and exact aggregator identity bindings.",
+    "Recompute the launch envelope and package core RFC 8785 JCS hashes.",
+    "Validate the frozen target binding and four Reviewer package identities.",
+    "Import exactly four canonical Reviewer payloads and four Human transport attestations from the exact allowlist.",
+    "Reject missing, duplicate, modified, noncanonical, schema-invalid, hash-invalid, role-invalid, package-invalid, run-invalid, or transport-invalid inputs.",
+    "Run only the exact fresh deterministic QA command manifest before calculating the gate."
+  ],
+  "fail_closed": true
+}

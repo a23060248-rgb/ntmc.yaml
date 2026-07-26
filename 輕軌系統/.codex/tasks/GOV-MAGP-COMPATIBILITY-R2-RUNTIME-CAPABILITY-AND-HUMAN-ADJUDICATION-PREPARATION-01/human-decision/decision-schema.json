@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:compatibility-r2-human-review-path-decision:v1",
+  "title": "Compatibility R2 Human Review Path Decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "decision_id",
+    "decision_status",
+    "decision",
+    "decided_by_human",
+    "decision_timestamp",
+    "human_rationale",
+    "next_authorized_action"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "decision_id": { "const": "MAGP-COMPAT-R2-REVIEW-PATH-DECISION-01" },
+    "decision_status": { "enum": ["PENDING", "RECORDED"] },
+    "decision": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "STRICT_CLEAN_ROOM_REVIEW_REMAINS_REQUIRED",
+        "APPROVE_HUMAN_ADJUDICATED_COMPATIBILITY_REVIEW_WITH_REDUCED_ASSURANCE"
+      ]
+    },
+    "decided_by_human": { "type": "boolean" },
+    "decision_timestamp": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "format": "date-time" }
+      ]
+    },
+    "human_rationale": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "minLength": 1 }
+      ]
+    },
+    "next_authorized_action": {
+      "enum": [
+        "WAIT_FOR_HUMAN_DECISION",
+        "WAIT_FOR_VERIFIABLE_CLEAN_ROOM_RUNTIME",
+        "PREPARE_HUMAN_ADJUDICATED_COMPATIBILITY_REVIEW_PACKAGE"
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "decision_status": { "const": "PENDING" },
+        "decision": { "const": null },
+        "decided_by_human": { "const": false },
+        "decision_timestamp": { "const": null },
+        "human_rationale": { "const": null },
+        "next_authorized_action": { "const": "WAIT_FOR_HUMAN_DECISION" }
+      }
+    },
+    {
+      "properties": {
+        "decision_status": { "const": "RECORDED" },
+        "decision": { "const": "STRICT_CLEAN_ROOM_REVIEW_REMAINS_REQUIRED" },
+        "decided_by_human": { "const": true },
+        "decision_timestamp": { "type": "string", "format": "date-time" },
+        "human_rationale": { "type": "string", "minLength": 1 },
+        "next_authorized_action": { "const": "WAIT_FOR_VERIFIABLE_CLEAN_ROOM_RUNTIME" }
+      }
+    },
+    {
+      "properties": {
+        "decision_status": { "const": "RECORDED" },
+        "decision": { "const": "APPROVE_HUMAN_ADJUDICATED_COMPATIBILITY_REVIEW_WITH_REDUCED_ASSURANCE" },
+        "decided_by_human": { "const": true },
+        "decision_timestamp": { "type": "string", "format": "date-time" },
+        "human_rationale": { "type": "string", "minLength": 1 },
+        "next_authorized_action": { "const": "PREPARE_HUMAN_ADJUDICATED_COMPATIBILITY_REVIEW_PACKAGE" }
+      }
+    }
+  ]
+}

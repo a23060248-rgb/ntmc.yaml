@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MAGP Event Envelope Proposal",
+  "x-design-status": "PROPOSED_NOT_ADOPTED",
+  "x-execution-status": "NOT_EXECUTED",
+  "x-implementation-status": "NOT_IMPLEMENTED",
+  "type": "object",
+  "required": [
+    "event_type",
+    "event_version",
+    "producer",
+    "aggregate_id",
+    "aggregate_revision",
+    "correlation_id",
+    "causation_id",
+    "occurred_time",
+    "recorded_time",
+    "authority_context",
+    "payload_schema",
+    "payload_hash",
+    "ordering_scope"
+  ],
+  "properties": {
+    "event_type": {
+      "type": "string"
+    },
+    "event_version": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "aggregate_id": {
+      "type": "string"
+    },
+    "aggregate_revision": {
+      "type": "integer"
+    },
+    "correlation_id": {
+      "type": "string"
+    },
+    "causation_id": {
+      "type": "string"
+    },
+    "occurred_time": {
+      "type": "string"
+    },
+    "recorded_time": {
+      "type": "string"
+    },
+    "authority_context": {
+      "type": "string"
+    },
+    "payload_schema": {
+      "type": "string"
+    },
+    "payload_hash": {
+      "type": "string"
+    },
+    "ordering_scope": {
+      "type": "string"
+    },
+    "delivery_expectation": {
+      "type": "string"
+    },
+    "retry_behavior": {
+      "type": "string"
+    },
+    "duplicate_handling": {
+      "type": "string"
+    },
+    "retention": {
+      "type": "string"
+    },
+    "sensitive_fields": {
+      "type": "array"
+    },
+    "audit_class": {
+      "type": "string"
+    }
+  }
+}

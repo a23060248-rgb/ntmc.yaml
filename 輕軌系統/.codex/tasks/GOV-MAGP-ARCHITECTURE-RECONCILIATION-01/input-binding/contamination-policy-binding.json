@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "adopted_effective_state": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-SOURCE-SCOPE-EXACT-MANIFEST-ADOPTION-01/adopted-manifests/adopted-contamination-policy-effective-state.json",
+    "sha256": "481134394FC5BBE60557C80A7C1E02D49B7F569E6993E17CD769DB9F1CE6F214",
+    "bytes": 1856
+  },
+  "policies": [
+    {
+      "label": "VET_C_CONTAMINATION_PREVENTION",
+      "expected_sha256": "E5D5F01F11E9973C8E02EDAA5E30B20A70C090EC99E13432952ECEFDAA32D70B",
+      "expected_bytes": 1440,
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/vetc-contamination-prevention-policy.yaml",
+      "sha256": "E5D5F01F11E9973C8E02EDAA5E30B20A70C090EC99E13432952ECEFDAA32D70B",
+      "bytes": 1440,
+      "match": true
+    },
+    {
+      "label": "HEALTH_DOMAIN_CONTAMINATION_PREVENTION",
+      "expected_sha256": "1E8BD38737413574CBEEF9A053ABF9E8A8EE43777D033E5ADFE3F33E3E248B8E",
+      "expected_bytes": 1026,
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/health-domain-contamination-prevention-policy.yaml",
+      "sha256": "1E8BD38737413574CBEEF9A053ABF9E8A8EE43777D033E5ADFE3F33E3E248B8E",
+      "bytes": 1026,
+      "match": true
+    }
+  ],
+  "health_to_railway_promotion_allowed": false,
+  "vetc_specific_core_promotion_allowed": false,
+  "excluded_source_claim_use_allowed": false
+}

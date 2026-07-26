@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "incident-response-boundary",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "agent_emergency_action": [
+    "stop own work",
+    "emit violation",
+    "request Human escalation"
+  ],
+  "human_or_operator_action": [
+    "revoke grants",
+    "quarantine",
+    "restore",
+    "authorize recovery"
+  ],
+  "agent_cannot_authorize_recovery": true
+}

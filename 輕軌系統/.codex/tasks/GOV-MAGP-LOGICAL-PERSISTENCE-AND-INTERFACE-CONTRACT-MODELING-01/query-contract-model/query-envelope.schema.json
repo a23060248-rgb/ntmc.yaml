@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Logical Query Envelope Proposal",
+  "type": "object",
+  "required": [
+    "query_identity",
+    "actor_identity",
+    "authorization_scope",
+    "filter_model",
+    "pagination",
+    "ordering",
+    "temporal_perspective",
+    "projection",
+    "redaction_rules",
+    "evidence_visibility",
+    "result_schema",
+    "consistency_expectation",
+    "performance_classification"
+  ],
+  "properties": {
+    "query_identity": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "actor_identity": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "authorization_scope": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "filter_model": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "pagination": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "ordering": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "temporal_perspective": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "projection": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "redaction_rules": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "evidence_visibility": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "result_schema": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "consistency_expectation": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "performance_classification": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

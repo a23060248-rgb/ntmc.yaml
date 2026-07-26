@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+  "batch_id": "MASTER_BATCH_3A_3D",
+  "objective": "Adopt the Human-adjudicated reduced-assurance path, revalidate the frozen source-scope target and corrective overlay, produce non-independent technical recommendations for COMPAT-R1-001 and COMPAT-R1-002, and prepare pending Human adjudication inputs without closing either Finding.",
+  "human_decision": "APPROVE_HUMAN_ADJUDICATED_COMPATIBILITY_REVIEW_WITH_REDUCED_ASSURANCE",
+  "adopted_review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "assurance_level": "REDUCED_ASSURANCE",
+  "roles": {
+    "codex": "NON_INDEPENDENT_TECHNICAL_ASSESSOR",
+    "deterministic_validator": "EVIDENCE_AND_BINDING_VALIDATOR",
+    "human": "FINAL_FINDING_ADJUDICATOR"
+  },
+  "completion_flags": {
+    "clean_room_review_completed": false,
+    "independent_external_review_completed": false,
+    "human_adjudicated_review_in_progress": true,
+    "reduced_assurance": true
+  },
+  "allowed_write_paths": [
+    ".codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/**"
+  ],
+  "protected_existing_artifacts": [
+    "base_source_scope_task",
+    "compatibility_remediation_task",
+    "reviewer_return_and_transport_schemas_v1_v2",
+    "compatibility_r1_payload",
+    "compatibility_r2_attempt_1",
+    "compatibility_r2_retry_package",
+    "runtime_capability_task",
+    "source_files",
+    "product_and_governance_baseline",
+    "historical_tasks",
+    "git_index"
+  ],
+  "prohibited_actions": [
+    "git",
+    "network",
+    "service",
+    "database",
+    "seed",
+    "migration",
+    "read_dot_env",
+    "subagent",
+    "reviewer_launch",
+    "aggregator_launch",
+    "architecture_reconciliation",
+    "core_object_library_creation",
+    "codex_finding_closure",
+    "codex_human_decision_impersonation"
+  ],
+  "fixed_entry_state": {
+    "clean_room_runtime": "NOT_AVAILABLE",
+    "compatibility_r2_retry_01": "READY_BUT_NOT_LAUNCHABLE",
+    "repeated_retry": "PROHIBITED_UNTIL_RUNTIME_CAPABILITY_CHANGES",
+    "compat_r1_001": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "compat_r1_002": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "aggregator": "NOT_AUTHORIZED",
+    "source_scope_review_gate": "NO-GO",
+    "architecture_reconciliation": "NOT_AUTHORIZED"
+  },
+  "required_exit_state": {
+    "compat_r1_001": "PENDING_HUMAN_ADJUDICATION",
+    "compat_r1_002": "PENDING_HUMAN_ADJUDICATION",
+    "aggregator": "NOT_AUTHORIZED",
+    "source_scope_review_gate": "NO-GO",
+    "architecture_reconciliation": "NOT_AUTHORIZED"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "dependency_model": "DIRECTED_ACYCLIC_GOVERNED_FLOW",
+  "edges": [
+    {
+      "from": "L1",
+      "to": "L2",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L1",
+      "to": "L3",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L1",
+      "to": "L4",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L1",
+      "to": "L5",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L1",
+      "to": "L6",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L2",
+      "to": "L3",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L2",
+      "to": "L4",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L2",
+      "to": "L5",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L2",
+      "to": "L6",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L3",
+      "to": "L4",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L3",
+      "to": "L5",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L3",
+      "to": "L6",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L4",
+      "to": "L5",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L4",
+      "to": "L6",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    },
+    {
+      "from": "L5",
+      "to": "L6",
+      "dependency_type": "GOVERNED_DOWNSTREAM_INPUT",
+      "reverse_mutation_allowed": false
+    }
+  ],
+  "runtime_reverse_mutation_allowed": false
+}

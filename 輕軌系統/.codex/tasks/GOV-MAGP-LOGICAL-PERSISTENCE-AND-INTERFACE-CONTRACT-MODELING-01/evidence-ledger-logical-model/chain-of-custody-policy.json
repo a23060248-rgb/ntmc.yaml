@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "each_entry_requires": [
+    "entry_id",
+    "evidence_id",
+    "actor",
+    "action",
+    "recorded_at",
+    "content_hash_before",
+    "content_hash_after",
+    "authority_context"
+  ],
+  "chain_break_result": "EVIDENCE_INTEGRITY_FAILURE",
+  "history_rewrite_allowed": false
+}

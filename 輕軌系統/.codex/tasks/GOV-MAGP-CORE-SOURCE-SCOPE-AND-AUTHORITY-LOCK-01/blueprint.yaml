@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "risk": {
+    "level": "L3",
+    "reasons": [
+      "formal source authority",
+      "source supersession",
+      "MAGP Core contamination prevention",
+      "Railway Domain Rule contamination prevention"
+    ]
+  },
+  "scope": {
+    "include": [
+      "top-level regular-file metadata, bytes, hashes, format identity, and authorized content scope under C:/Users/a2306/Desktop/MAGP-Reference-Sources",
+      "task-local governance evidence"
+    ],
+    "exclude": [
+      "external-source writes",
+      "nested external directories",
+      "product code",
+      "governance baseline",
+      "database and migration operations",
+      "Git"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": [
+      "AGENTS.md",
+      ".agents/skills/task-classification/**",
+      ".codex/governance/phase-policy.yaml",
+      ".codex/governance/phase-status.json",
+      ".codex/governance/agent-path-policy.yaml",
+      ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**",
+      "C:/Users/a2306/Desktop/MAGP-Reference-Sources/*"
+    ],
+    "write": [
+      ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"
+    ],
+    "external_read_authority": "EXPLICIT_USER_APPROVAL",
+    "external_read_recursion_allowed": false
+  },
+  "agent_assignments": [
+    {
+      "role": "architect",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"],
+      "allowed_write_paths": []
+    },
+    {
+      "role": "documentation-engineer",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"],
+      "allowed_write_paths": [".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"]
+    },
+    {
+      "role": "qa-engineer",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"],
+      "allowed_write_paths": [".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"]
+    },
+    {
+      "role": "code-reviewer",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"],
+      "allowed_write_paths": []
+    },
+    {
+      "role": "security-reviewer",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"],
+      "allowed_write_paths": []
+    },
+    {
+      "role": "railway-domain-reviewer",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"],
+      "allowed_write_paths": []
+    },
+    {
+      "role": "compatibility-reviewer",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"],
+      "allowed_write_paths": []
+    }
+  ],
+  "agents_dispatched": [],
+  "applicable_rules": [
+    "GOV-SCOPE-001",
+    "REV-INDEP-001",
+    "REV-L3-001",
+    "EVD-HASH-001",
+    "EVD-CLAIM-001"
+  ],
+  "candidate_rules": [],
+  "required_agents": [
+    "architect",
+    "documentation-engineer",
+    "qa-engineer",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "execution": {
+    "parallel_groups": [],
+    "sequential_steps": [
+      "classify task and bind scope",
+      "inventory 11 top-level regular files",
+      "resolve each file to exactly one approved SOURCE ID",
+      "stop immediately if identity resolution fails",
+      "only after successful identity resolution apply content-read limits and contamination policies",
+      "perform independent L3 reviews and human approval"
+    ],
+    "current_step": "source scope lock complete; hand off to architecture reconciliation",
+    "status": "COMPLETE"
+  },
+  "evidence_required": [
+    "source-directory-inventory.json",
+    "source-identity-resolution.json",
+    "source-directory-before.json",
+    "source-directory-after.json",
+    "source-directory-integrity-comparison.json",
+    "source-scope-validation-results.json"
+  ],
+  "rollback_restore": {
+    "required": false,
+    "evidence_or_reason": "No external source, product, baseline, database, or Git write is authorized; task-local evidence is additive."
+  },
+  "human_approval": {
+    "required": true,
+    "scope_status": "APPROVED",
+    "final_status": "SOURCE_SCOPE_LOCK_AUTHORIZED_BY_HUMAN; INDEPENDENT_L3_REVIEW_PENDING"
+  },
+  "stop_conditions": [
+    "SOURCE_IDENTITY_RESOLUTION_FAILED",
+    "top-level regular-file count differs from 11",
+    "format identity fails",
+    "source bytes change",
+    "external-source or out-of-scope write occurs"
+  ]
+}

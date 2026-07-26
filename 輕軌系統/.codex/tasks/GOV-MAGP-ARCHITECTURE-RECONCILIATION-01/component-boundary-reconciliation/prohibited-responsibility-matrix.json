@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "rows": [
+    {
+      "component_id": "CMP-001",
+      "component": "BGE",
+      "prohibited_responsibilities": [
+        "manufacture Agent",
+        "execute Agent",
+        "adopt Blueprint",
+        "modify policy"
+      ]
+    },
+    {
+      "component_id": "CMP-002",
+      "component": "Blueprint Compiler",
+      "prohibited_responsibilities": [
+        "operate as a second BGE",
+        "adopt output",
+        "execute runtime work"
+      ]
+    },
+    {
+      "component_id": "CMP-003",
+      "component": "Agent Factory",
+      "prohibited_responsibilities": [
+        "execute Agent",
+        "schedule workflow",
+        "retrieve runtime memory",
+        "grant permission",
+        "change Blueprint"
+      ]
+    },
+    {
+      "component_id": "CMP-004",
+      "component": "Agent Registry",
+      "prohibited_responsibilities": [
+        "execute Agent",
+        "manufacture Agent",
+        "grant capability",
+        "approve deployment by itself"
+      ]
+    },
+    {
+      "component_id": "CMP-005",
+      "component": "Agent OS",
+      "prohibited_responsibilities": [
+        "generate Blueprint",
+        "manufacture package",
+        "modify Normative Policy",
+        "self-grant access",
+        "adopt architecture"
+      ]
+    },
+    {
+      "component_id": "CMP-006",
+      "component": "Runtime Governance",
+      "prohibited_responsibilities": [
+        "perform product action",
+        "author policy",
+        "approve own policy",
+        "silently waive"
+      ]
+    },
+    {
+      "component_id": "CMP-007",
+      "component": "Policy Engine",
+      "prohibited_responsibilities": [
+        "author rule",
+        "adopt rule",
+        "execute product action",
+        "store hidden override"
+      ]
+    },
+    {
+      "component_id": "CMP-008",
+      "component": "Evidence Ledger",
+      "prohibited_responsibilities": [
+        "decide policy",
+        "adopt architecture",
+        "rewrite history",
+        "infer approval from success"
+      ]
+    },
+    {
+      "component_id": "CMP-009",
+      "component": "Knowledge Lake",
+      "prohibited_responsibilities": [
+        "promote candidate to verified",
+        "invent missing source",
+        "execute domain action"
+      ]
+    },
+    {
+      "component_id": "CMP-010",
+      "component": "Knowledge Graph",
+      "prohibited_responsibilities": [
+        "treat graph presence as truth",
+        "self-validate relation",
+        "promote domain rules"
+      ]
+    },
+    {
+      "component_id": "CMP-011",
+      "component": "Knowledge Engineering Pipeline",
+      "prohibited_responsibilities": [
+        "mark LLM completion verified",
+        "promote health content to Railway",
+        "adopt domain rules"
+      ]
+    },
+    {
+      "component_id": "CMP-012",
+      "component": "Human Review Console",
+      "prohibited_responsibilities": [
+        "auto-select decision",
+        "infer consent",
+        "hide unresolved items",
+        "become a separate authority"
+      ]
+    },
+    {
+      "component_id": "CMP-013",
+      "component": "Railway Domain Extension",
+      "prohibited_responsibilities": [
+        "import health judgments",
+        "import VET-C Core concepts",
+        "modify Core authority",
+        "self-confirm Railway rules"
+      ]
+    }
+  ],
+  "invariants": [
+    "No component both authors and adopts its rules.",
+    "No runtime component grants its own permissions.",
+    "No component duplicates lifecycle authority.",
+    "Evidence ownership never implies decision authority."
+  ]
+}

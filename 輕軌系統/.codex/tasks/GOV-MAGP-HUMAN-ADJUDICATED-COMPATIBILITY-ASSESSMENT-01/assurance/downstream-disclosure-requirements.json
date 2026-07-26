@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "required_on_all_downstream_artifacts": {
+    "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+    "assurance_level": "REDUCED_ASSURANCE",
+    "clean_room_review_completed": false,
+    "independent_external_review_completed": false,
+    "reduced_assurance": true
+  },
+  "required_until": "A separately authorized governance decision explicitly supersedes this disclosure without rewriting history.",
+  "prohibited_relabeling": [
+    "CLEAN_ROOM_REVIEW_PASS",
+    "FULL_L3_INDEPENDENT_REVIEW_PASS",
+    "EXTERNAL_INDEPENDENT_COMPATIBILITY_PASS"
+  ],
+  "aggregator_currently_authorized": false,
+  "architecture_reconciliation_currently_authorized": false
+}

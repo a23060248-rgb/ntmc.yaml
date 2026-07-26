@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+  "level": "L3",
+  "reasons": [
+    "The task remediates an unresolved Reviewer startup blocker.",
+    "The task versions formal validation schemas and controls backward compatibility.",
+    "The task governs Compatibility finding closure authority and Aggregator eligibility."
+  ],
+  "triggers": [
+    "unresolved_reviewer_blocker",
+    "backward_compatibility",
+    "formal_review_gate",
+    "schema_contract_change"
+  ],
+  "required_agents": [
+    "architect",
+    "qa-engineer",
+    "documentation-engineer"
+  ],
+  "required_reviews": [
+    "deterministic_schema_contract_review",
+    "future_clean_context_compatibility_retry_review"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "v1_before_after_sha256",
+    "attempt_1_before_after_sha256",
+    "draft_2020_12_schema_meta_validation",
+    "positive_and_negative_branch_fixtures",
+    "attempt_1_failure_evidence_admission",
+    "identity_uniqueness",
+    "package_manifest_hashes",
+    "base_target_integrity",
+    "corrective_overlay_integrity",
+    "34_of_34_contract_tests"
+  ],
+  "human_approval": {
+    "scope_approval": "APPROVED_IN_CURRENT_HUMAN_INSTRUCTION",
+    "schema_v2_creation": "APPROVED",
+    "reviewer_launch": "NOT_AUTHORIZED",
+    "aggregator_launch": "NOT_AUTHORIZED",
+    "architecture_reconciliation": "NOT_AUTHORIZED",
+    "final_commit_approval": "NOT_GRANTED"
+  },
+  "stop_conditions": [
+    "V1_SCHEMA_MUTATION_DETECTED",
+    "V1_TRANSPORT_SCHEMA_MUTATION_DETECTED",
+    "V2_SCHEMA_DISCRIMINATOR_INVALID",
+    "V2_SCHEMA_ALLOWS_FALSE_SUCCESS_ATTESTATION",
+    "V2_SCHEMA_REJECTS_TRUTHFUL_STARTUP_BLOCKER",
+    "ATTEMPT_1_RAW_WRAPPER_CHANGED",
+    "RETRY_PACKAGE_USES_V1_SCHEMA",
+    "FAILED_IDENTITY_REUSED",
+    "AGGREGATOR_ACCEPTS_STARTUP_FAILURE_EVIDENCE",
+    "GIT_OPERATION_REQUIRED"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/**"
+    ],
+    "exclude": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/governance/**",
+      "all_historical_task_roots",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "docs/**"
+    ]
+  },
+  "classified_by": "ROOT_META_GOVERNANCE_ORCHESTRATOR",
+  "classification_status": "HUMAN_SCOPE_APPROVED"
+}

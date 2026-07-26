@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "agent runtime components",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "component_count": 14,
+  "components": [
+    {
+      "name": "Agent Definition Registry",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Instance Provisioning",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Tool Assignment",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Data Scope Assignment",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Runtime Session",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Authority Evaluation",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Policy Enforcement",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Evidence Production",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Runtime Event",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Violation Detection",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Suspension",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Termination",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Human Escalation",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    },
+    {
+      "name": "Runtime Isolation",
+      "runtime_code_created": false,
+      "authority_ceiling": "Human-assigned grant",
+      "emits_audit": true
+    }
+  ]
+}

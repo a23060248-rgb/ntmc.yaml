@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "aggregator_task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R2",
+  "legal_success_inputs": [
+    {
+      "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+      "generation": "R1",
+      "required_status": "FORMALLY_ACCEPTED_PASS",
+      "payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-integrity-r1.raw.txt"
+    },
+    {
+      "reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+      "generation": "R1",
+      "required_status": "FORMALLY_ACCEPTED_PASS",
+      "payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-authority-r1.raw.txt"
+    },
+    {
+      "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+      "generation": "R1",
+      "required_status": "FORMALLY_ACCEPTED_PASS",
+      "payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/scope-contamination-r1.raw.txt"
+    },
+    {
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "generation": "R2",
+      "required_status": "FORMALLY_ACCEPTED_PASS",
+      "payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/compatibility-r2.raw.txt"
+    }
+  ],
+  "blocker_history_only_inputs": [
+    {
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "generation": "R1",
+      "allowed_use": "BLOCKER_HISTORY_AND_FINDING_SOURCE",
+      "payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/compatibility-r1.raw.txt",
+      "success_input_allowed": false
+    }
+  ],
+  "required_closed_findings": [
+    "COMPAT-R1-001",
+    "COMPAT-R1-002"
+  ],
+  "human_launch_required": true
+}

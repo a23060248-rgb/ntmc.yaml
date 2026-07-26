@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "assurance_level": "REDUCED_ASSURANCE",
+  "limitations": [
+    "The Codex technical assessor has access to the preparation and remediation context and is not independent.",
+    "The current runtime cannot verifiably disable Memory, automatic Git checks, automatic Repository reads, or AGENTS/HANDOFF preloads.",
+    "Deterministic validation proves only the declared artifact, hash, binding, and state contracts; it does not prove independent reviewer identity or clean-room isolation.",
+    "Technical recommendations do not close Findings and cannot authorize downstream work.",
+    "Final Finding decisions and rationale must be supplied separately by the Human adjudicator."
+  ],
+  "limitations_disclosed": true,
+  "risk_acceptance_actor": "HUMAN_USER",
+  "risk_acceptance_scope": "USE_REDUCED_ASSURANCE_ASSESSMENT_AS_INPUT_TO_LATER_HUMAN_FINDING_ADJUDICATION"
+}

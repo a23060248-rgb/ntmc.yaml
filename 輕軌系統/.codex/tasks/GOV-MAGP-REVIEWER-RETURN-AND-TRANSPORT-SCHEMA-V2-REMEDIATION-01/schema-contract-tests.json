@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "positive": {
+    "startup_valid_pass": {
+      "status": "PASS",
+      "valid": true,
+      "schema_errors": [],
+      "hash_match": true
+    },
+    "startup_valid_content_blocker": {
+      "status": "PASS",
+      "valid": true,
+      "schema_errors": [],
+      "hash_match": true
+    },
+    "startup_blocker_failure_evidence": {
+      "status": "PASS",
+      "valid": true,
+      "schema_errors": [],
+      "hash_match": true
+    }
+  },
+  "negative": {
+    "falseCleanSuccess": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "validReviewNotStarted": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "validReviewNotCompleted": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "blockerStarted": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "blockerCompleted": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "blockerPass": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "blockerCredit": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "blockerAggregator": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "blockerNoViolation": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "blockerLowFinding": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$/payload_core",
+          "schemaPath": "#/properties/payload_core/oneOf",
+          "keyword": "oneOf",
+          "matches": 0
+        }
+      ],
+      "hash_match": true
+    },
+    "extraWrapperField": {
+      "status": "PASS_EXPECTED_REJECTION",
+      "valid": false,
+      "schema_errors": [
+        {
+          "instancePath": "$",
+          "schemaPath": "#/additionalProperties",
+          "keyword": "additionalProperties",
+          "propertyName": "extra"
+        }
+      ],
+      "hash_match": true
+    }
+  },
+  "schema_lint": {
+    "reviewer_return_v2": {
+      "valid": true,
+      "errors": [],
+      "local_ref_count": 10,
+      "schema_ids": [
+        {
+          "path": "#",
+          "id": "urn:magp:source-scope-reviewer-return-payload:v2"
+        }
+      ]
+    },
+    "startup_failure_admission_v2": {
+      "valid": true,
+      "errors": [],
+      "local_ref_count": 6,
+      "schema_ids": [
+        {
+          "path": "#",
+          "id": "urn:magp:startup-failure-evidence-admission:v2"
+        }
+      ]
+    },
+    "r2_transport_v2": {
+      "valid": true,
+      "errors": [],
+      "local_ref_count": 0,
+      "schema_ids": [
+        {
+          "path": "#",
+          "id": "urn:magp:manual-reviewer-transport-attestation:r2:v2"
+        }
+      ]
+    }
+  },
+  "status": "PASS"
+}

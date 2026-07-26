@@ -1,0 +1,16 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "fsm_id": "HYBRID_GOVERNED_FSM",
+  "design_phase_fsm": "DESIGN_TIME_COMMON_FSM",
+  "runtime_record_phase": "RUNTIME_COMMON_FSM_WHEN_MATERIALIZED",
+  "transition_between_profiles_requires": [
+    "exact approved definition/version binding",
+    "Human or release gate",
+    "new runtime instance identity"
+  ],
+  "design_object_never_becomes_runtime_instance_in_place": true
+}

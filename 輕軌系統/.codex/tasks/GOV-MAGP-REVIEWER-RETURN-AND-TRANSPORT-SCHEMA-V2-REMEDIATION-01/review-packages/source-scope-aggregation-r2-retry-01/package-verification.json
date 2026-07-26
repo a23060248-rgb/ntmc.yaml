@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "verification_status": "PASS",
+  "aggregation_package_id": "MAGP-SSR2-AGGREGATION-RETRY01-31734821-D328-493C-A438-DE69CFA15576",
+  "package_core_sha256": "544CA6FA38974584ADFFA6F6624165A99FDA4AD087440CD8B483989A3E3CCDB2",
+  "recomputed_package_core_sha256": "544CA6FA38974584ADFFA6F6624165A99FDA4AD087440CD8B483989A3E3CCDB2",
+  "artifact_verification": [
+    {
+      "normalized_relative_path": "assignment.json",
+      "declared_sha256": "2A1340A47C7F85C577B71CA68847C335B8DC3263EFE429D1C586AC5193A3B6F5",
+      "actual_sha256": "2A1340A47C7F85C577B71CA68847C335B8DC3263EFE429D1C586AC5193A3B6F5",
+      "match": true
+    },
+    {
+      "normalized_relative_path": "aggregation-input-contract.json",
+      "declared_sha256": "659FE4256F4C6EE8DE258CFF503F961C35E5D21A3483CD98BE058A9D90FD5C75",
+      "actual_sha256": "659FE4256F4C6EE8DE258CFF503F961C35E5D21A3483CD98BE058A9D90FD5C75",
+      "match": true
+    },
+    {
+      "normalized_relative_path": "prerequisites.json",
+      "declared_sha256": "05410D6FEBF543C7173E813D8F54A9BAE385277116E1A0F90CD2F9A1FBC23F33",
+      "actual_sha256": "05410D6FEBF543C7173E813D8F54A9BAE385277116E1A0F90CD2F9A1FBC23F33",
+      "match": true
+    },
+    {
+      "normalized_relative_path": "exact-read-scope.json",
+      "declared_sha256": "43470D209524C420F3D61915ECADB2BCB3D79C95848FD04189BFE510B03CA0EA",
+      "actual_sha256": "43470D209524C420F3D61915ECADB2BCB3D79C95848FD04189BFE510B03CA0EA",
+      "match": true
+    },
+    {
+      "normalized_relative_path": "prohibited-actions.json",
+      "declared_sha256": "6925B86BFF7BE993916D689FE4D072C2C33764D41138CFD6559E1695AE9226A4",
+      "actual_sha256": "6925B86BFF7BE993916D689FE4D072C2C33764D41138CFD6559E1695AE9226A4",
+      "match": true
+    },
+    {
+      "normalized_relative_path": "embedded-not-authorized-template.json",
+      "declared_sha256": "81FE193A439AA8214C561B3CC469AD4901CEBEEA44A76220E35D9FC79447D6EB",
+      "actual_sha256": "81FE193A439AA8214C561B3CC469AD4901CEBEEA44A76220E35D9FC79447D6EB",
+      "match": true
+    },
+    {
+      "normalized_relative_path": "standalone-top-level-aggregator-prompt.md",
+      "declared_sha256": "5DE8F60D6C17418E5BA80388242A8F2BAE44BA47387126B75011AE8E40D76D82",
+      "actual_sha256": "5DE8F60D6C17418E5BA80388242A8F2BAE44BA47387126B75011AE8E40D76D82",
+      "match": true
+    }
+  ],
+  "package_status": "CONDITIONALLY_READY",
+  "launch_authorized": false
+}

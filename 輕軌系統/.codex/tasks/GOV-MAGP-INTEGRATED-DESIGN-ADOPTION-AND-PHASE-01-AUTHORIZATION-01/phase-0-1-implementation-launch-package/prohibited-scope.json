@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "prohibited_count": 14,
+  "prohibited": [
+    "Phase 2 or later",
+    "Human Approval Engine",
+    "Policy Activation",
+    "Finding Closure Workflow",
+    "Agent Runtime",
+    "production feature outside Phase 0/1",
+    "database connection",
+    "SQL execution",
+    "migration execution",
+    "seed execution",
+    "service start inside adoption task",
+    "deployment",
+    "production secrets",
+    "product implementation inside 7A-2"
+  ],
+  "fail_closed": true
+}

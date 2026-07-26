@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:blueprint:v0",
+  "title": "Blueprint Schema Proposal",
+  "description": "Candidate schema proposal; not adopted and not a database schema.",
+  "allOf": [
+    {
+      "$ref": "../../../canonical-object-envelope/canonical-object-envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "object_type": {
+              "const": "BLUEPRINT"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "approved_architecture_binding",
+            "requirements",
+            "constraints",
+            "work_decomposition",
+            "acceptance_criteria",
+            "evidence_plan",
+            "review_plan",
+            "prohibited_actions",
+            "human_gates",
+            "failure_conditions",
+            "handoff_conditions"
+          ],
+          "properties": {
+            "approved_architecture_binding": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "requirements": {
+              "type": "array",
+              "items": {}
+            },
+            "constraints": {
+              "type": "array",
+              "items": {}
+            },
+            "work_decomposition": {
+              "type": "array",
+              "items": {}
+            },
+            "acceptance_criteria": {
+              "type": "array",
+              "items": {}
+            },
+            "evidence_plan": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "review_plan": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "prohibited_actions": {
+              "type": "array",
+              "items": {}
+            },
+            "human_gates": {
+              "type": "array",
+              "items": {}
+            },
+            "failure_conditions": {
+              "type": "array",
+              "items": {}
+            },
+            "handoff_conditions": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    }
+  ],
+  "x-magp-object-type-id": "OBJ-TYPE-005",
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true,
+  "x-magp-database-schema": false
+}

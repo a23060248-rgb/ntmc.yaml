@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "template_type": "STARTUP_BLOCKER_RETURN_INSTRUCTIONS",
+  "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+  "fixed_identity": {
+    "review_package_id": "MAGP-SSR1-SCOPE_CONTAMINATION-EF4EFD42-9E1D-4876-A288-8932113F0A29",
+    "assignment_id": "ASSIGN-3E2982FA-3C3A-4B10-BD79-1E15B31AF580",
+    "reviewer_run_id": "RUN-A10A0959-2FA2-4045-A5B7-931EC8194FA1",
+    "reviewer_session_nonce": "1BB602C2FFF9EEF10543BB8893600DC80EFE7ECDE96566E7C463E1DE7020484B",
+    "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-CONTAMINATION-R1"
+  },
+  "review_package_core_sha256_source": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/scope-contamination-review/package-manifest.json#/package_core_sha256",
+  "required_values": {
+    "review_status": "BLOCKER",
+    "review_started": false,
+    "source_content_reviewed": false,
+    "completed": false,
+    "mandatory_exit_requested": true,
+    "startup_status": "STARTUP_BLOCKER"
+  },
+  "finding_requirement": "Include at least one OPEN HIGH or CRITICAL finding identifying the failed startup binding and exact evidence path.",
+  "output_requirement": "Return exactly one RFC 8785 JCS canonical two-field wrapper and no other text."
+}

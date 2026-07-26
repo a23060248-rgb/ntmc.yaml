@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "required_runtime": "BLANK_NON_GIT_NEUTRAL_DIRECTORY_WITH_MEMORY_AND_AUTOMATIC_REPOSITORY_SCANS_DISABLED",
+  "launch_context_required": "BRAND_NEW_TOP_LEVEL_CODEX_CHAT",
+  "first_human_message_must_contain_only": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/compatibility-review-r2-retry-01/standalone-top-level-reviewer-prompt.md",
+  "mandatory_first_file_read": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/compatibility-review-r2-retry-01/absolute-launch-envelope.json",
+  "forbidden_prelaunch_reads": [
+    "workspace root",
+    "collab/HANDOFF.md",
+    "MEMORY.md",
+    "AGENTS.md",
+    "Git status"
+  ],
+  "forbidden_runtime_features": [
+    "memory",
+    "prior conversation",
+    "implementation context",
+    "repository search",
+    "cwd inference",
+    "subagent"
+  ],
+  "post_envelope_read_scope": "EXACT_READ_SCOPE_ALLOWLIST_ONLY",
+  "runtime_unavailable_status": "CLEAN_ROOM_RUNTIME_NOT_AVAILABLE"
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+  "batch_id": "MASTER_BATCH_3A_3S",
+  "objective": "Create separately versioned Reviewer Return and R2 Transport V2 contracts that preserve V1 history, admit truthful startup-failure evidence without review credit, and prepare unlaunched Compatibility Retry 01 and conditional Aggregator Retry 01 packages.",
+  "human_decision": {
+    "reviewer_return_schema_v2_creation": "APPROVED",
+    "r2_transport_schema_v2_creation": "APPROVED",
+    "existing_v1_schema_mutation": "PROHIBITED",
+    "attempt_1_wrapper_modification": "PROHIBITED",
+    "historical_v1_result_reclassification": "PROHIBITED"
+  },
+  "allowed_write_paths": [
+    ".codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/**"
+  ],
+  "prohibited_actions": [
+    "git",
+    "network",
+    "service",
+    "database",
+    "seed",
+    "migration",
+    "read_dot_env",
+    "subagent",
+    "reviewer_launch",
+    "aggregator_launch",
+    "architecture_reconciliation",
+    "wrapper_manual_repair",
+    "historical_hash_replacement"
+  ],
+  "fixed_gate_state": {
+    "attempt_1_v1_status": "FORMALLY_REJECTED",
+    "attempt_1_substantive_review_credit": "NONE",
+    "attempt_1_aggregator_eligibility": "PROHIBITED",
+    "compat_r1_001": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "compat_r1_002": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "source_scope_review_gate": "NO-GO",
+    "source_authority": "PROPOSED_NOT_ADOPTED",
+    "architecture_reconciliation": "NOT_AUTHORIZED"
+  }
+}

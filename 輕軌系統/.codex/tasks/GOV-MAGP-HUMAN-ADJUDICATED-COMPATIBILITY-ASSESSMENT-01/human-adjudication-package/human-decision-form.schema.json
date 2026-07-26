@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:human-compatibility-finding-adjudication-form:v1",
+  "title": "Human Compatibility Finding Adjudication Form",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "review_model", "assurance_level", "submission_status", "decisions", "codex_filled_human_decision_count", "codex_filled_human_rationale_count"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "review_model": {"const": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT"},
+    "assurance_level": {"const": "REDUCED_ASSURANCE"},
+    "submission_status": {"enum": ["PENDING_HUMAN_DECISION", "SUBMITTED_BY_HUMAN"]},
+    "decisions": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"$ref": "#/$defs/findingDecision"}
+    },
+    "codex_filled_human_decision_count": {"const": 0},
+    "codex_filled_human_rationale_count": {"const": 0}
+  },
+  "$defs": {
+    "findingDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finding_id", "human_decision", "human_rationale", "assurance_limitation_acknowledged", "decision_timestamp"],
+      "properties": {
+        "finding_id": {"enum": ["COMPAT-R1-001", "COMPAT-R1-002"]},
+        "human_decision": {"enum": ["PENDING_HUMAN_DECISION", "HUMAN_CLOSED", "HUMAN_NOT_CLOSED"]},
+        "human_rationale": {"type": ["string", "null"]},
+        "assurance_limitation_acknowledged": {"type": ["boolean", "null"]},
+        "decision_timestamp": {"type": ["string", "null"], "format": "date-time"}
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "human_decision": {"const": "PENDING_HUMAN_DECISION"},
+            "human_rationale": {"const": null},
+            "assurance_limitation_acknowledged": {"const": null},
+            "decision_timestamp": {"const": null}
+          }
+        },
+        {
+          "properties": {
+            "human_decision": {"enum": ["HUMAN_CLOSED", "HUMAN_NOT_CLOSED"]},
+            "human_rationale": {"type": "string", "minLength": 1},
+            "assurance_limitation_acknowledged": {"const": true},
+            "decision_timestamp": {"type": "string", "format": "date-time"}
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"submission_status": {"const": "PENDING_HUMAN_DECISION"}}},
+      "then": {"properties": {"decisions": {"items": {"properties": {"human_decision": {"const": "PENDING_HUMAN_DECISION"}}}}}}
+    },
+    {
+      "if": {"properties": {"submission_status": {"const": "SUBMITTED_BY_HUMAN"}}},
+      "then": {"properties": {"decisions": {"items": {"properties": {"human_decision": {"enum": ["HUMAN_CLOSED", "HUMAN_NOT_CLOSED"]}}}}}}
+    }
+  ]
+}

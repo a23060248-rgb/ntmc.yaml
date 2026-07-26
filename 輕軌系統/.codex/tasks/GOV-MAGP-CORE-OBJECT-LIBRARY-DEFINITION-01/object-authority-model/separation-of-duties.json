@@ -1,0 +1,35 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "separations": [
+    {
+      "producer": "Governance Rule",
+      "prohibited_authority": "Policy Adoption Authority"
+    },
+    {
+      "producer": "Schema Validator",
+      "prohibited_authority": "Specification Approval Authority"
+    },
+    {
+      "producer": "Runtime Enforcement",
+      "prohibited_authority": "Policy Adoption Authority"
+    },
+    {
+      "producer": "Evidence Producer",
+      "prohibited_authority": "Evidence Integrity Approval Authority"
+    },
+    {
+      "producer": "Reviewed Object",
+      "prohibited_authority": "Own CRITICAL/HIGH Finding Closure Authority"
+    },
+    {
+      "producer": "Agent Instance",
+      "prohibited_authority": "Own Definition or Permission Approval Authority"
+    }
+  ],
+  "validation_authority_equals_approval_authority": false,
+  "runtime_enforcement_equals_policy_adoption": false
+}

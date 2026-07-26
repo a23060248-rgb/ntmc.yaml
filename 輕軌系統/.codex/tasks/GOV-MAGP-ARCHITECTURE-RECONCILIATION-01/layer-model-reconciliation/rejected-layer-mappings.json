@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "rejected_mappings": [
+    {
+      "mapping": "SIX_CONCEPTUAL_LAYERS_EQUAL_FOURTEEN_VOLUMES",
+      "status": "REJECT",
+      "reason": "The models answer different questions and have different cardinality and lifecycle semantics."
+    },
+    {
+      "mapping": "META_GOVERNANCE_EQUALS_RUNTIME_GOVERNANCE_ONLY",
+      "status": "REJECT",
+      "reason": "Meta Governance applies at design time and runtime; runtime enforcement is only one consumer."
+    },
+    {
+      "mapping": "KNOWLEDGE_GRAPH_EQUALS_KNOWLEDGE_AUTHORITY",
+      "status": "REJECT",
+      "reason": "Graph structure preserves validated relations but does not create truth or policy authority."
+    },
+    {
+      "mapping": "BGE_EQUALS_TRUSTWORTHY_PROMPT_OS_EQUALS_AGENT_OS",
+      "status": "REJECT",
+      "reason": "The thesis compiler, build-time BGE, and runtime Agent OS have distinct boundaries."
+    },
+    {
+      "mapping": "VOLUME_EQUALS_DEPLOYMENT_UNIT_BY_DEFAULT",
+      "status": "REJECT",
+      "reason": "Deployment topology is not uniquely established and remains a separate Human decision."
+    }
+  ]
+}

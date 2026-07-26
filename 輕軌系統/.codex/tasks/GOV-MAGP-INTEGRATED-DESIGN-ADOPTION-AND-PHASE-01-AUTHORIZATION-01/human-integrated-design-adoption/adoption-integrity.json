@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "raw_human_decision": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-decision-intake/raw-human-decision.txt",
+    "sha256": "D8BCB658C1C7B47DBB8ED111834212582BB2546D0A5F099829180787CBF24D01",
+    "bytes": 1763
+  },
+  "decision_register": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/decision-register.json",
+    "sha256": "9054408EC82C51914FAC3212CFCCE8601930FC9F761F06A4DB62644BED483FEC",
+    "bytes": 107368
+  },
+  "recommendation_matrix": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/codex-recommendation-matrix.json",
+    "sha256": "8CA636ECA40FE2E3DA0A1CDA3A3F118290DDB57714FC3911A4F78B157171437D",
+    "bytes": 30531
+  },
+  "proposal_binding": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/exact-proposal-binding.json",
+    "sha256": "28342E6B8ABA66D366A9F7C6E0F33BE50AB5B3EC1EEC47498A6D48EA27AD84D3",
+    "bytes": 40242
+  },
+  "exact_decision_binding": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/exact-decision-binding.json",
+    "sha256": "8259D5622536CBE178CF7241A61E2DBBA5C9B32C12358D24265BFA8381E06281",
+    "bytes": 1790
+  },
+  "resolution_ledger": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/integrated-decision-resolution-ledger.json",
+    "sha256": "994FB7288269FD82618A132BF3116B583E52928B73442D45DF49B12D40DAB0CB",
+    "bytes": 47783
+  },
+  "baselines": [
+    {
+      "key": "persistence",
+      "dir": "persistence-design-baseline",
+      "id": "MAGP-PERSISTENCE-DESIGN-BASELINE-V1",
+      "roots": [
+        "physical-persistence-design",
+        "database-proposal",
+        "migration-strategy"
+      ],
+      "scope": "PHYSICAL_PERSISTENCE_DESIGN",
+      "baseline_content_sha256": "1ACD3D57DA8CD65A29EC07BF1AA8407A1DBF01E558F2972DD7346550A1FFF994",
+      "artifact_tree_sha256": "1254E9A1F52C3D2D176293E0207D2DA2952106519758BA95B2C4678E9688F8A8",
+      "file_count": 37,
+      "record": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/baseline-record.json",
+        "sha256": "09AB883E3B52D3176E51B706B2F8738E26D25D8DD6DF060E585A4D5C79D38A34",
+        "bytes": 1228
+      },
+      "hash_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/hash-binding.json",
+        "sha256": "5F85451CDA4C7E7CBDD7DF00C700DDDB3F53324D12213A90804C7A8ED5DC8371",
+        "bytes": 1521
+      },
+      "status": "HUMAN_ADOPTED_AND_IMMUTABLY_BOUND"
+    },
+    {
+      "key": "api_event",
+      "dir": "api-event-contract-baseline",
+      "id": "MAGP-API-EVENT-CONTRACT-BASELINE-V1",
+      "roots": [
+        "formal-interface-api-design",
+        "api-contract-proposal",
+        "event-contract-design",
+        "event-contract-proposal"
+      ],
+      "scope": "FORMAL_API_EVENT_CONTRACT",
+      "baseline_content_sha256": "BA3D1C621567ADB4106C83BDB3DDFA20E5C5FCE357BD87B7025FC5F8D3E8D7FE",
+      "artifact_tree_sha256": "DC3BFFFE4698AAC2CA2644078E282550A11BE5F7D5E6E5D00892136F32DCF4CB",
+      "file_count": 37,
+      "record": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/baseline-record.json",
+        "sha256": "9A58F9A78112F0CABCB10437080B325B0F69B7CC991EEA0D6541E11DC260747E",
+        "bytes": 1226
+      },
+      "hash_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/hash-binding.json",
+        "sha256": "B493C6C11F8F4EC338C913AA0AB558C0BE42F66D51411EFF0B51FC891CD2D995",
+        "bytes": 1521
+      },
+      "status": "HUMAN_ADOPTED_AND_IMMUTABLY_BOUND"
+    },
+    {
+      "key": "security_deployment",
+      "dir": "security-deployment-baseline",
+      "id": "MAGP-SECURITY-DEPLOYMENT-BASELINE-V1",
+      "roots": [
+        "security-architecture",
+        "deployment-topology-planning",
+        "observability-planning",
+        "resilience-planning"
+      ],
+      "scope": "SECURITY_DEPLOYMENT_ARCHITECTURE",
+      "baseline_content_sha256": "C56097732C23F53884205294463C559DA2E7CCFDC97B5C85FA6D8C0D191393B1",
+      "artifact_tree_sha256": "AFFEE7283B97ABB841FE371EEE4E54058F8E53D57D9F4BD8595EBA7A25C12522",
+      "file_count": 28,
+      "record": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/baseline-record.json",
+        "sha256": "E3FA104A7336ACA90C6A54B0168A0CBE185F53615BFDD44B09D1E55711E71619",
+        "bytes": 1235
+      },
+      "hash_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/hash-binding.json",
+        "sha256": "7361E81F8B69C5EBD0C81821C110F21B307B8CF5E1EECD03C06D36B32195BB9F",
+        "bytes": 1522
+      },
+      "status": "HUMAN_ADOPTED_AND_IMMUTABLY_BOUND"
+    },
+    {
+      "key": "implementation",
+      "dir": "implementation-blueprint-baseline",
+      "id": "MAGP-IMPLEMENTATION-BLUEPRINT-BASELINE-V1",
+      "roots": [
+        "backend-module-planning",
+        "human-review-console-planning",
+        "agent-runtime-planning",
+        "implementation-blueprint-proposal",
+        "testing-and-assurance-plan"
+      ],
+      "scope": "IMPLEMENTATION_BLUEPRINT",
+      "baseline_content_sha256": "388F2CDBA212A6A3ACFDE7985B3E47AB8F33049914EB7E82BCA89D9EC76337BB",
+      "artifact_tree_sha256": "4FD35B1C94C36063F78502F16A542B32F5A699BDB6121AD6D6E8EE68949B5A29",
+      "file_count": 31,
+      "record": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/baseline-record.json",
+        "sha256": "6583E7A3502DF5A071AE63D9C66E8058DFDC2622C4EFB9C8623BE5F5DDD82B19",
+        "bytes": 1237
+      },
+      "hash_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/hash-binding.json",
+        "sha256": "EC9B50106C6A3A3918754CE007FF936013C510BCD58DBAE3A58AF9DA48B3CA71",
+        "bytes": 1527
+      },
+      "status": "HUMAN_ADOPTED_AND_IMMUTABLY_BOUND"
+    }
+  ],
+  "proposal_bytes_modified": false,
+  "source_task_modified": false,
+  "all_56_resolved": true,
+  "status": "PASS"
+}

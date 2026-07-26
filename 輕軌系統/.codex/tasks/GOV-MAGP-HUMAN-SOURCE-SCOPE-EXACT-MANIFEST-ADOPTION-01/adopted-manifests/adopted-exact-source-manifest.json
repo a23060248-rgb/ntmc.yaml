@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-SOURCE-SCOPE-EXACT-MANIFEST-ADOPTION-01",
+  "adoption_status": "HUMAN_ADOPTED",
+  "adoption_method": "EXACT_ARTIFACT_REFERENCE_NO_RECONSTRUCTION",
+  "original_artifact": {
+    "artifact_name": "exact-source-manifest.json",
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1/human-exact-manifest-adoption-package/exact-source-manifest.json",
+    "sha256": "412A1E7515AEBA02D5533144C89A7F5C57CD698BC259D5855DBE6C87A96373FD",
+    "bytes": 9102
+  },
+  "source_root": "C:/Users/a2306/Desktop/MAGP-Reference-Sources",
+  "source_count": 11,
+  "source_classification": "4 CORE / 1 OPTIONAL / 6 EXCLUDED",
+  "source_hash_binding": "HUMAN_ADOPTED_AND_IMMUTABLY_BOUND",
+  "manifest_mutation_allowed": false,
+  "source_inclusion_and_exclusion_rationale_bindings": [
+    {
+      "label": "source-inclusion-rationale.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/source-inclusion-rationale.json",
+      "expected_sha256": "DF6D511B8C580349EA67BAC16AD3A62AA6BB0AA30DD697BA6570C69905DA1B6A",
+      "actual_sha256": "DF6D511B8C580349EA67BAC16AD3A62AA6BB0AA30DD697BA6570C69905DA1B6A",
+      "expected_bytes": 5590,
+      "actual_bytes": 5590,
+      "match": true
+    },
+    {
+      "label": "source-exclusion-rationale.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/source-exclusion-rationale.json",
+      "expected_sha256": "652CFEA41AD5AFB8E7C96E27AD7F06BC1F6FE66D479C0A4069A4FE78600A8341",
+      "actual_sha256": "652CFEA41AD5AFB8E7C96E27AD7F06BC1F6FE66D479C0A4069A4FE78600A8341",
+      "expected_bytes": 4718,
+      "actual_bytes": 4718,
+      "match": true
+    }
+  ],
+  "content_copied_or_rewritten": false
+}

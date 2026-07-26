@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "master_batch": "7A-1",
+  "role": "INTEGRATED_PLATFORM_DESIGN_AND_IMPLEMENTATION_BLUEPRINT_PLANNER_HA1",
+  "intent": "Produce one integrated, baseline-conformant platform design and implementation blueprint planning batch.",
+  "human_authorization": {
+    "authorization": "AUTHORIZE_INTEGRATED_PHYSICAL_PERSISTENCE_API_EVENT_SECURITY_DEPLOYMENT_AND_IMPLEMENTATION_BLUEPRINT_PLANNING",
+    "authorization_status": "HUMAN_AUTHORIZED",
+    "master_batch": "7A-1",
+    "input_task_reauthorization": true,
+    "authorized_scope": [
+      "physical persistence design proposal",
+      "formal API and event contract proposal",
+      "security and deployment architecture proposal",
+      "implementation blueprint proposal",
+      "testing and assurance plan",
+      "four Human adoption packages"
+    ],
+    "prohibited_scope": [
+      "physical database execution",
+      "SQL execution",
+      "migration execution",
+      "formal API implementation",
+      "product implementation",
+      "deployment",
+      "Human design adoption",
+      "Git"
+    ]
+  },
+  "normative_inputs": [
+    "MAGP-ARCH-BASELINE-V1",
+    "MAGP-OBJECT-LIBRARY-BASELINE-V1",
+    "MAGP-LOGICAL-CONTRACT-BASELINE-V1"
+  ],
+  "assurance": {
+    "assurance_level": "REDUCED_ASSURANCE",
+    "clean_room_review_completed": false,
+    "independent_external_review_completed": false,
+    "human_adjudicated_review_model": true
+  },
+  "execution_boundary": {
+    "physical_database_executed": false,
+    "sql_executed": false,
+    "migration_executed": false,
+    "formal_api_implemented": false,
+    "product_code_modified": false,
+    "product_implementation_started": false,
+    "git_used": false
+  }
+}

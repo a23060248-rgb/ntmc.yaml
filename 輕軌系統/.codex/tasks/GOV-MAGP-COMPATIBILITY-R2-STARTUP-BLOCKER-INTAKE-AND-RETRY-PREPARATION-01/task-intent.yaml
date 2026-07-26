@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01",
+  "task_type": "L3_governance_review_intake_and_retry_preparation",
+  "objective": "Formally intake Compatibility R2 Attempt 1 as failed-startup evidence and, only after all intake gates pass, prepare clean-room Retry 01 and a conditionally ready Aggregator package.",
+  "current_status": "HARD_STOPPED",
+  "hard_stop_code": "COMPATIBILITY_R2_ATTEMPT_1_SCHEMA_INVALID",
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01/**"
+    ],
+    "exclude": [
+      "MAGP Reference Sources",
+      "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**",
+      "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/**",
+      "historical tasks",
+      "product source",
+      "Architecture Reconciliation",
+      "Git index"
+    ]
+  },
+  "prohibited_actions": [
+    "git",
+    "network",
+    "service",
+    "database",
+    "seed",
+    "migration",
+    "read_dot_env",
+    "subagent",
+    "reviewer_launch",
+    "aggregator_launch",
+    "repository_root_discovery",
+    "recursive_search",
+    "glob_discovery"
+  ],
+  "gate_state": {
+    "compatibility_r2_attempt_1_intake": "FORMALLY_REJECTED",
+    "compatibility_r2_substantive_review": "NOT_STARTED",
+    "compatibility_r2_review_credit": "NONE",
+    "compat_r1_001": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "compat_r1_002": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "aggregator_r2": "NOT_AUTHORIZED",
+    "source_scope_review_gate": "NO-GO",
+    "architecture_reconciliation": "NOT_AUTHORIZED"
+  }
+}

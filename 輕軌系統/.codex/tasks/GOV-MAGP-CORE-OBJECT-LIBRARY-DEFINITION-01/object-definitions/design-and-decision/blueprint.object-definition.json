@@ -1,0 +1,52 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-005",
+  "object_type": "BLUEPRINT",
+  "object_category": "DESIGN_AND_DECISION_OBJECTS",
+  "canonical_name": "Blueprint",
+  "type_prefix": "bp",
+  "design_time_or_runtime": "DESIGN_TIME",
+  "normative_or_non_normative": "GOVERNED_DESIGN_AFTER_REQUIRED_APPROVAL_BELOW_HIGHER_AUTHORITY",
+  "current_normative_effect": false,
+  "authority_level": "BLUEPRINT_AUTHORITY_BELOW_ARCHITECTURE_AND_RFC",
+  "lifecycle_owner": "BGE_WITH_HUMAN_OR_RELEASE_GATE",
+  "evidence_owner": "BGE_EMITS_EVIDENCE_LEDGER_PRESERVES",
+  "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_WHEN_BLUEPRINT_ACTIVATES_NORMATIVE_OR_HIGH_RISK_DESIGN",
+  "accountable_human_role": "BLUEPRINT_OWNER",
+  "responsible_machine_role": "BGE_AND_BLUEPRINT_COMPILER",
+  "allowed_mutations": [
+    "draft compilation",
+    "validated refinement",
+    "approved version supersession"
+  ],
+  "prohibited_mutations": [
+    "override Constitution",
+    "override Policy",
+    "override approved RFC",
+    "override adopted Architecture"
+  ],
+  "required_payload_fields": [
+    "approved_architecture_binding",
+    "requirements",
+    "constraints",
+    "work_decomposition",
+    "acceptance_criteria",
+    "evidence_plan",
+    "review_plan",
+    "prohibited_actions",
+    "human_gates",
+    "failure_conditions",
+    "handoff_conditions"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "blueprint.schema-proposal.schema.json",
+  "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+}

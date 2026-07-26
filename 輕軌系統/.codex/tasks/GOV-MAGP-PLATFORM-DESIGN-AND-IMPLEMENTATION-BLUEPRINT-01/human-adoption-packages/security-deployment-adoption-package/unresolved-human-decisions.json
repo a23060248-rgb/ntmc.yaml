@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "domain": "SECURITY_DEPLOYMENT",
+  "unresolved_count": 8,
+  "decisions": [
+    {
+      "decision_id": "HID-011",
+      "title": "Authentication mechanism",
+      "options": [
+        "OIDC plus workload identity",
+        "Alternative enterprise identity"
+      ],
+      "codex_recommendation": "OIDC plus workload identity",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-012",
+      "title": "Authorization model",
+      "options": [
+        "RBAC plus ABAC",
+        "Capability grants",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Scoped grants with policy evaluation",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-013",
+      "title": "Modular Monolith Services Hybrid",
+      "options": [
+        "Modular Monolith",
+        "Service-Oriented",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Modular Monolith first candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-014",
+      "title": "Human Console priority",
+      "options": [
+        "Authority and approvals",
+        "Evidence and findings",
+        "Package and deployment",
+        "Balanced"
+      ],
+      "codex_recommendation": "Authority and approvals first",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-015",
+      "title": "Agent Runtime isolation",
+      "options": [
+        "Process",
+        "Container",
+        "MicroVM",
+        "Managed sandbox"
+      ],
+      "codex_recommendation": "Container or managed sandbox evaluation",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-016",
+      "title": "Message Infrastructure",
+      "options": [
+        "No initial broker",
+        "Managed queue",
+        "Streaming platform"
+      ],
+      "codex_recommendation": "Outbox then broker decision",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-017",
+      "title": "Deployment Topology",
+      "options": [
+        "Single environment stack",
+        "Control and data plane split",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Control and data plane boundary",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-018",
+      "title": "RPO RTO",
+      "options": [
+        "Human-defined service tiers",
+        "Single global target"
+      ],
+      "codex_recommendation": "Service tiers pending business input",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    }
+  ],
+  "status": "PENDING_HUMAN_DECISION"
+}

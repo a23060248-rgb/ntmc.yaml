@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "encryption-boundary",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "transit": "TLS required",
+  "at_rest": "required",
+  "field_level_candidates": [
+    "personal identifiers",
+    "restricted evidence metadata"
+  ],
+  "key_separation": true
+}

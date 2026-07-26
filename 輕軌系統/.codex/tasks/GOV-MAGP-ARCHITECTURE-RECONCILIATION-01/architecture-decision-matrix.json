@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "decision_count": 25,
+  "allowed_decisions": [
+    "ADOPT",
+    "ADOPT_WITH_MODIFICATION",
+    "DEFER",
+    "REJECT",
+    "REQUIRES_HUMAN_DECISION"
+  ],
+  "decision_effect": "PROPOSAL_ONLY",
+  "decisions": [
+    {
+      "decision_id": "ARC-DEC-001",
+      "decision_title": "MAGP overall platform positioning",
+      "source_claim_ids": [
+        "ARC-CLM-001"
+      ],
+      "decision_classification": "ADOPT_WITH_MODIFICATION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-002",
+      "decision_title": "Thesis implemented scope",
+      "source_claim_ids": [
+        "ARC-CLM-002",
+        "ARC-CLM-003"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-003",
+      "decision_title": "Thesis methodology versus platform extension",
+      "source_claim_ids": [
+        "ARC-CLM-005"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-004",
+      "decision_title": "Six-layer conceptual model",
+      "source_claim_ids": [
+        "ARC-CLM-006",
+        "ARC-CLM-034"
+      ],
+      "decision_classification": "ADOPT_WITH_MODIFICATION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-005",
+      "decision_title": "Other source layer and volume models",
+      "source_claim_ids": [
+        "ARC-CLM-019"
+      ],
+      "decision_classification": "ADOPT_WITH_MODIFICATION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-006",
+      "decision_title": "Cross-model layer mapping",
+      "source_claim_ids": [
+        "ARC-CLM-007",
+        "ARC-CLM-034"
+      ],
+      "decision_classification": "ADOPT_WITH_MODIFICATION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-007",
+      "decision_title": "Volume governance structure",
+      "source_claim_ids": [
+        "ARC-CLM-035"
+      ],
+      "decision_classification": "REQUIRES_HUMAN_DECISION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "Multiple reasonable designs remain and the adopted source-governance rules do not uniquely select one."
+    },
+    {
+      "decision_id": "ARC-DEC-008",
+      "decision_title": "Package governance structure",
+      "source_claim_ids": [
+        "ARC-CLM-036"
+      ],
+      "decision_classification": "REQUIRES_HUMAN_DECISION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "Multiple reasonable designs remain and the adopted source-governance rules do not uniquely select one."
+    },
+    {
+      "decision_id": "ARC-DEC-009",
+      "decision_title": "RFC governance and triggers",
+      "source_claim_ids": [
+        "ARC-CLM-018",
+        "ARC-CLM-037"
+      ],
+      "decision_classification": "REQUIRES_HUMAN_DECISION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "Multiple reasonable designs remain and the adopted source-governance rules do not uniquely select one."
+    },
+    {
+      "decision_id": "ARC-DEC-010",
+      "decision_title": "Blueprint-driven governance",
+      "source_claim_ids": [
+        "ARC-CLM-003",
+        "ARC-CLM-032"
+      ],
+      "decision_classification": "ADOPT_WITH_MODIFICATION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-011",
+      "decision_title": "Meta Constitution role",
+      "source_claim_ids": [
+        "ARC-CLM-008"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-012",
+      "decision_title": "BGE role and boundary",
+      "source_claim_ids": [
+        "ARC-CLM-011",
+        "ARC-CLM-032"
+      ],
+      "decision_classification": "ADOPT_WITH_MODIFICATION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-013",
+      "decision_title": "Agent Factory role and boundary",
+      "source_claim_ids": [
+        "ARC-CLM-012"
+      ],
+      "decision_classification": "ADOPT_WITH_MODIFICATION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-014",
+      "decision_title": "Agent Registry role and scope",
+      "source_claim_ids": [
+        "ARC-CLM-024"
+      ],
+      "decision_classification": "REQUIRES_HUMAN_DECISION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "Multiple reasonable designs remain and the adopted source-governance rules do not uniquely select one."
+    },
+    {
+      "decision_id": "ARC-DEC-015",
+      "decision_title": "Agent OS role and boundary",
+      "source_claim_ids": [
+        "ARC-CLM-013"
+      ],
+      "decision_classification": "ADOPT_WITH_MODIFICATION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-016",
+      "decision_title": "Runtime Governance placement",
+      "source_claim_ids": [
+        "ARC-CLM-023",
+        "ARC-CLM-033"
+      ],
+      "decision_classification": "REQUIRES_HUMAN_DECISION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "Multiple reasonable designs remain and the adopted source-governance rules do not uniquely select one."
+    },
+    {
+      "decision_id": "ARC-DEC-017",
+      "decision_title": "Knowledge Engineering responsibility",
+      "source_claim_ids": [
+        "ARC-CLM-003",
+        "ARC-CLM-014"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-018",
+      "decision_title": "Knowledge Lake responsibility",
+      "source_claim_ids": [
+        "ARC-CLM-015"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-019",
+      "decision_title": "Knowledge Graph responsibility",
+      "source_claim_ids": [
+        "ARC-CLM-016"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-020",
+      "decision_title": "Evidence Ledger component",
+      "source_claim_ids": [
+        "ARC-CLM-025"
+      ],
+      "decision_classification": "REQUIRES_HUMAN_DECISION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "Multiple reasonable designs remain and the adopted source-governance rules do not uniquely select one."
+    },
+    {
+      "decision_id": "ARC-DEC-021",
+      "decision_title": "Human Governance Gate",
+      "source_claim_ids": [
+        "ARC-CLM-008",
+        "ARC-CLM-026"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-022",
+      "decision_title": "Railway Domain Extension",
+      "source_claim_ids": [
+        "ARC-CLM-027"
+      ],
+      "decision_classification": "ADOPT_WITH_MODIFICATION",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-023",
+      "decision_title": "Product Runtime versus Governance Runtime",
+      "source_claim_ids": [
+        "ARC-CLM-023"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-024",
+      "decision_title": "Design-time versus Run-time",
+      "source_claim_ids": [
+        "ARC-CLM-021",
+        "ARC-CLM-039"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    },
+    {
+      "decision_id": "ARC-DEC-025",
+      "decision_title": "Source Governance versus Architecture Governance",
+      "source_claim_ids": [
+        "ARC-CLM-022",
+        "ARC-CLM-040"
+      ],
+      "decision_classification": "ADOPT",
+      "decision_effect": "RECONCILIATION_PROPOSAL_DISPOSITION_ONLY",
+      "architecture_status": "PROPOSED_NOT_ADOPTED",
+      "normative_architecture": false,
+      "human_architecture_adoption_required": true,
+      "rationale": "The proposed disposition preserves source authority, claim class, thesis boundary, and contamination controls."
+    }
+  ]
+}

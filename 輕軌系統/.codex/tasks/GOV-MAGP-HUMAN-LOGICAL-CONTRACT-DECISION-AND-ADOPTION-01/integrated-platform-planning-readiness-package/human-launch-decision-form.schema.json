@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human Integrated Platform Planning Launch Decision",
+  "type": "object",
+  "required": [
+    "decision_status",
+    "human_decision",
+    "planning_7a1_authorized",
+    "codex_filled_human_decision"
+  ],
+  "properties": {
+    "decision_status": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "HUMAN_APPROVED",
+        "HUMAN_REJECTED"
+      ]
+    },
+    "human_decision": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "AUTHORIZE_INTEGRATED_PHYSICAL_PERSISTENCE_API_EVENT_AND_IMPLEMENTATION_BLUEPRINT_PLANNING",
+        "DO_NOT_AUTHORIZE"
+      ]
+    },
+    "planning_7a1_authorized": {
+      "type": "boolean"
+    },
+    "codex_filled_human_decision": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

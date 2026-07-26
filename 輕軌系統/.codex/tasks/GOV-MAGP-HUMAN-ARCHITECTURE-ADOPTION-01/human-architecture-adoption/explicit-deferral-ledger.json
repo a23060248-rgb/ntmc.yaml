@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01",
+  "deferral_count": 3,
+  "deferrals": [
+    {
+      "deferral_id": "DEF-HAD-004-PHYSICAL-PLACEMENT",
+      "decision_id": "HAD-004",
+      "deferred_item": "Agent Registry physical process, service, or module placement",
+      "reason_for_deferral": "Deployment topology, multi-project scope, capacity, and availability requirements are not yet adopted.",
+      "affected_components": [
+        "Agent Registry",
+        "Agent Factory",
+        "Agent OS"
+      ],
+      "prohibited_implementation_actions": [
+        "select Registry deployment topology",
+        "define Registry database schema",
+        "define Registry API",
+        "implement Registry"
+      ],
+      "reopening_trigger": "Core Object Library and runtime non-functional requirements are adopted.",
+      "required_future_human_gate": "HUMAN_APPROVE_AGENT_REGISTRY_PHYSICAL_DESIGN",
+      "architecture_baseline_impact": "NO_LOGICAL_BASELINE_CHANGE; logical identity/status authority and external approval dependency are adopted now.",
+      "implementation_blocking_status": "BLOCKS_AGENT_REGISTRY_PHYSICAL_DESIGN_AND_IMPLEMENTATION",
+      "explicit_non_blocking_classification": "EXPLICITLY_DEFERRED_NON_BLOCKING_DECISION",
+      "affects_authority_boundary": false,
+      "affects_security_boundary": false,
+      "affects_runtime_isolation_boundary": false,
+      "affects_human_approval_boundary": false,
+      "affects_evidence_integrity_boundary": false,
+      "affects_source_governance_boundary": false,
+      "boundary_resolution": "Logical Registry authority ceiling, lifecycle ownership, status semantics, and Human/release-gate dependency are adopted and may not be weakened by future placement."
+    },
+    {
+      "deferral_id": "DEF-HAD-005-PHYSICAL-PLACEMENT",
+      "decision_id": "HAD-005",
+      "deferred_item": "Runtime Governance physical process or service placement",
+      "reason_for_deferral": "Latency, availability, isolation technology, and failure-domain requirements are not yet adopted.",
+      "affected_components": [
+        "Runtime Governance",
+        "Policy Engine",
+        "Agent OS"
+      ],
+      "prohibited_implementation_actions": [
+        "co-locate or separate Runtime Governance physically",
+        "define runtime governance API",
+        "select isolation technology",
+        "implement Runtime Governance"
+      ],
+      "reopening_trigger": "Runtime non-functional and security isolation requirements are adopted.",
+      "required_future_human_gate": "HUMAN_APPROVE_RUNTIME_GOVERNANCE_PHYSICAL_DESIGN",
+      "architecture_baseline_impact": "NO_LOGICAL_BASELINE_CHANGE; executor/governor separation, fail-closed policy evaluation, and no-self-authorization are adopted now.",
+      "implementation_blocking_status": "BLOCKS_RUNTIME_GOVERNANCE_PHYSICAL_DESIGN_AND_IMPLEMENTATION",
+      "explicit_non_blocking_classification": "EXPLICITLY_DEFERRED_NON_BLOCKING_DECISION",
+      "affects_authority_boundary": false,
+      "affects_security_boundary": false,
+      "affects_runtime_isolation_boundary": false,
+      "affects_human_approval_boundary": false,
+      "affects_evidence_integrity_boundary": false,
+      "affects_source_governance_boundary": false,
+      "boundary_resolution": "Logical control-plane isolation, Human approval holds, authority ceiling, and prohibition on reverse mutation are normative regardless of physical placement."
+    },
+    {
+      "deferral_id": "DEF-HAD-006-PHYSICAL-STORAGE",
+      "decision_id": "HAD-006",
+      "deferred_item": "Evidence Ledger physical storage and deployment form",
+      "reason_for_deferral": "Retention, signing, storage, query, capacity, and trust-anchor requirements are not yet adopted.",
+      "affected_components": [
+        "Evidence Ledger",
+        "Runtime Governance",
+        "Human Review Console"
+      ],
+      "prohibited_implementation_actions": [
+        "select evidence database",
+        "define evidence storage schema",
+        "define evidence API",
+        "implement Evidence Ledger"
+      ],
+      "reopening_trigger": "Core Object Library evidence object and evidence integrity requirements are adopted.",
+      "required_future_human_gate": "HUMAN_APPROVE_EVIDENCE_LEDGER_PHYSICAL_DESIGN",
+      "architecture_baseline_impact": "NO_LOGICAL_BASELINE_CHANGE; evidence contract, lineage, immutability, authority separation, and independent integrity verification are adopted now.",
+      "implementation_blocking_status": "BLOCKS_EVIDENCE_LEDGER_PHYSICAL_DESIGN_AND_IMPLEMENTATION",
+      "explicit_non_blocking_classification": "EXPLICITLY_DEFERRED_NON_BLOCKING_DECISION",
+      "affects_authority_boundary": false,
+      "affects_security_boundary": false,
+      "affects_runtime_isolation_boundary": false,
+      "affects_human_approval_boundary": false,
+      "affects_evidence_integrity_boundary": false,
+      "affects_source_governance_boundary": false,
+      "boundary_resolution": "Evidence is never decision authority and the producer cannot unilaterally validate its own integrity; these invariants are normative independent of storage form."
+    }
+  ],
+  "blocking_architecture_deferral_count": 0,
+  "implementation_blocking_deferral_count": 3,
+  "status": "EXPLICIT_DEFERRALS_BOUNDARIES_RESOLVED_NON_BLOCKING_FOR_ARCHITECTURE_ADOPTION"
+}

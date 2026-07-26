@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "results": [
+    {
+      "result_id": "SOURCE_INTEGRITY_R1",
+      "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+      "review_status": "PASS",
+      "formal_intake_status": "FORMALLY_ACCEPTED_PASS",
+      "preserved": true,
+      "usage": "FORMAL_PASS_INPUT",
+      "successful_compatibility_input": false
+    },
+    {
+      "result_id": "SOURCE_AUTHORITY_R1",
+      "reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+      "review_status": "PASS",
+      "formal_intake_status": "FORMALLY_ACCEPTED_PASS",
+      "preserved": true,
+      "usage": "FORMAL_PASS_INPUT",
+      "successful_compatibility_input": false
+    },
+    {
+      "result_id": "SCOPE_CONTAMINATION_R1",
+      "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+      "review_status": "PASS",
+      "formal_intake_status": "FORMALLY_ACCEPTED_PASS",
+      "preserved": true,
+      "usage": "FORMAL_PASS_INPUT",
+      "successful_compatibility_input": false
+    },
+    {
+      "result_id": "COMPATIBILITY_R1",
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "review_status": "BLOCKER",
+      "formal_intake_status": "FORMALLY_ACCEPTED_BLOCKER",
+      "preserved": true,
+      "usage": "ORIGINAL_FINDING_SOURCE",
+      "successful_compatibility_input": false
+    },
+    {
+      "result_id": "COMPATIBILITY_R2_ATTEMPT_1_STARTUP_FAILURE",
+      "review_status": "BLOCKER",
+      "substantive_review_credit": "NONE",
+      "aggregator_eligible": false,
+      "usage": "HISTORICAL_STARTUP_FAILURE_EVIDENCE",
+      "disposition": "CONTAINED_BY_FAILED_ATTEMPT_INVALIDATION"
+    },
+    {
+      "result_id": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT_PLUS_CLOSURES",
+      "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+      "assessment_validation": "PASS_55_OF_55",
+      "human_adjudication_validation": "PASS_59_OF_59",
+      "COMPAT_R1_001": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "COMPAT_R1_002": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "result": "GO_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+      "successful_compatibility_input": true
+    }
+  ],
+  "compatibility_success_rule": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT_PLUS_BOTH_HUMAN_CLOSURE_RECORDS"
+}

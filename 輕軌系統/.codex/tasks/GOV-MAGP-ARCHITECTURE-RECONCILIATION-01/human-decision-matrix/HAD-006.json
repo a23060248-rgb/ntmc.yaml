@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "decision_id": "HAD-006",
+  "decision_title": "Evidence Ledger deployment form",
+  "competing_options": [
+    "OPTION_A_STANDALONE_APPEND_ONLY_LEDGER",
+    "OPTION_B_SHARED_EVIDENCE_CONTRACT_OVER_EXISTING_STORES"
+  ],
+  "source_support": [
+    "ARC-CLM-025"
+  ],
+  "authority_analysis": "Traceability is strongly supported; a standalone ledger component is new design.",
+  "advantages": {
+    "option_a": "Clear immutability, query, and audit boundary.",
+    "option_b": "Lower implementation complexity and avoids premature infrastructure."
+  },
+  "risks": {
+    "option_a": "Premature infrastructure and false trust in storage alone.",
+    "option_b": "Evidence may fragment across stores."
+  },
+  "downstream_impact": "Affects audit, provenance, review packages, retention, and cross-runtime traceability.",
+  "codex_recommendation": "DEFER_DECISION; adopt the evidence record contract before selecting physical storage.",
+  "available_human_decisions": [
+    "ADOPT_OPTION_A",
+    "ADOPT_OPTION_B",
+    "ADOPT_MODIFIED_OPTION",
+    "DEFER_DECISION",
+    "REJECT_ALL_OPTIONS"
+  ],
+  "current_status": "PENDING_HUMAN_DECISION",
+  "human_decision": "PENDING_HUMAN_DECISION",
+  "codex_filled_human_decision": false
+}

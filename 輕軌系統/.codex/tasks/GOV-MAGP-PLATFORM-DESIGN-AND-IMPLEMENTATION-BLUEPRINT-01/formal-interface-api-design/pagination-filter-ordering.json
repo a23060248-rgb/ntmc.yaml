@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "pagination-filter-ordering",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "cursor_pagination": true,
+  "stable_order": [
+    "recorded_at",
+    "canonical_id"
+  ],
+  "filter_allowlist": true,
+  "maximum_page_size_proposed": 200
+}

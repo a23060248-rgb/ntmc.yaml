@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+  "batch_id": "MASTER_BATCH_3A_3C",
+  "objective": "Record that the current runtime cannot satisfy the strict Compatibility R2 clean-room contract, prohibit repeated retries under unchanged runtime capability, and prepare—but not activate—a Human-adjudicated reduced-assurance review protocol pending an explicit Human path decision.",
+  "human_authorization": {
+    "task_preparation_scope": "APPROVED_IN_CURRENT_HUMAN_INSTRUCTION",
+    "review_path_decision": "PENDING",
+    "reviewer_launch": "NOT_AUTHORIZED",
+    "aggregator_launch": "NOT_AUTHORIZED",
+    "architecture_reconciliation": "NOT_AUTHORIZED",
+    "finding_closure": "NOT_AUTHORIZED"
+  },
+  "allowed_write_paths": [
+    ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01/**"
+  ],
+  "protected_existing_artifacts": [
+    "all_existing_reviewer_packages",
+    "reviewer_return_schema_v1_and_v2",
+    "transport_schema_v1_and_v2",
+    "compatibility_r2_attempt_1",
+    "compatibility_r2_retry_01_package",
+    "source_scope_lock_task",
+    "corrective_overlay",
+    "source_files",
+    "product_and_governance_baseline",
+    "historical_tasks",
+    "git_index"
+  ],
+  "prohibited_actions": [
+    "git",
+    "network",
+    "service",
+    "database",
+    "seed",
+    "migration",
+    "read_dot_env",
+    "subagent",
+    "reviewer_launch",
+    "aggregator_launch",
+    "architecture_reconciliation",
+    "finding_closure",
+    "new_clean_room_retry_under_unchanged_runtime"
+  ],
+  "fixed_state": {
+    "clean_room_runtime": "NOT_AVAILABLE",
+    "compatibility_r2_retry_01": "READY_BUT_NOT_LAUNCHABLE",
+    "compat_r1_001": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "compat_r1_002": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+    "aggregator_r2": "NOT_AUTHORIZED",
+    "source_scope_review_gate": "NO-GO",
+    "architecture_reconciliation": "NOT_AUTHORIZED"
+  },
+  "next_authorized_action": "WAIT_FOR_HUMAN_DECISION"
+}

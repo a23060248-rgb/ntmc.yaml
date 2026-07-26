@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "risks": [
+    {
+      "risk_id": "PBR-001",
+      "severity": "CRITICAL",
+      "title": "Adopted Baselines absent from HEAD",
+      "status": "OPEN",
+      "blocker": "WORKTREE_BASELINE_NOT_REPRODUCIBLE"
+    },
+    {
+      "risk_id": "PBR-002",
+      "severity": "HIGH",
+      "title": "Launch Package V2 would be untracked before a Human-approved governance commit",
+      "status": "OPEN"
+    }
+  ]
+}

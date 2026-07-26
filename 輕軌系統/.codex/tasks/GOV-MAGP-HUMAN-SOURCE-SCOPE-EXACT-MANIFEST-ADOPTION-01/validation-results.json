@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-SOURCE-SCOPE-EXACT-MANIFEST-ADOPTION-01",
+  "run_id": "MAGP-HUMAN-EXACT-MANIFEST-ADOPTION-20260722-R1",
+  "validator": "TASK_LOCAL_HUMAN_EXACT_MANIFEST_ADOPTION_AND_READINESS_VALIDATOR",
+  "validator_script": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-SOURCE-SCOPE-EXACT-MANIFEST-ADOPTION-01/scripts/run-human-exact-manifest-adoption.mjs",
+    "sha256": "486D44C5518CFE31222A0D538FABB117F9EF7E011FC8BDE44AC88F4D637271A7",
+    "bytes": 65103
+  },
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "Aggregator result is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Source Scope Gate reached Adoption Ready",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Human Adoption Decision exists",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Human Adoption Decision is APPROVED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Exact Source Manifest matches 11/11",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Source Hash Manifest matches 11/11",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Source Identity Manifest matches 11/11",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "Classification matches 4/1/6",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Base Review Target is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Source Root is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Corrective Overlay is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Source Authority Policy bytes are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Claim Eligibility Policy bytes are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "VET-C Policy bytes are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Health Policy bytes are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Product/Governance baseline is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Historical Tasks are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Open Active CRITICAL equals 0",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Open Active HIGH equals 0",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "COMPAT-R1-001 closure is preserved",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "COMPAT-R1-002 closure is preserved",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "Startup Failure history is preserved",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "Reduced Assurance disclosure is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Exact Manifest status is HUMAN_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Source Authority status is HUMAN_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Normative Authority is true",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Normative Scope is limited to source governance",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Architecture Reconciliation is not authorized",
+      "status": "PASS"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Architecture Reconciliation is not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 30,
+      "requirement": "Architecture Readiness Package is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 31,
+      "requirement": "Human Architecture Launch Decision is PENDING",
+      "status": "PASS"
+    },
+    {
+      "test_id": 32,
+      "requirement": "Core Object Library is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 33,
+      "requirement": "MAGP Architecture is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 34,
+      "requirement": "Product Implementation is not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 35,
+      "requirement": "Git was not used",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 35,
+  "required_pass_count": 35,
+  "required_fail_count": 0,
+  "required_status": "PASS_35_OF_35",
+  "negative_fail_closed_tests": [
+    {
+      "test_id": "NEG-01",
+      "requirement": "Reject any manifest count other than 11",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-02",
+      "requirement": "Reject any classification other than 4/1/6",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-03",
+      "requirement": "Reject manifest mutation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-04",
+      "requirement": "Reject Source Authority scope beyond source governance",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-05",
+      "requirement": "Reject Architecture Reconciliation early authorization",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-06",
+      "requirement": "Reject Architecture Reconciliation early start",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-07",
+      "requirement": "Reject Core Object Library creation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-08",
+      "requirement": "Reject MAGP Architecture creation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-09",
+      "requirement": "Reject Product Implementation start",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-10",
+      "requirement": "Reject missing Reduced Assurance disclosure",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-11",
+      "requirement": "Reject non-pending Human Architecture launch decision",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-12",
+      "requirement": "Reject any input or policy byte drift",
+      "status": "PASS"
+    }
+  ],
+  "negative_test_count": 12,
+  "negative_pass_count": 12,
+  "negative_status": "PASS_12_OF_12",
+  "adoption_result": "HUMAN_EXACT_MANIFEST_ADOPTION_COMPLETE",
+  "source_scope_review_gate": "GO_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+  "architecture_reconciliation": "READY_FOR_SEPARATE_HUMAN_AUTHORIZATION",
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "service_used": false,
+    "database_used": false,
+    "seed_used": false,
+    "migration_used": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "reviewer_launched": false,
+    "architecture_reconciliation_authorized": false,
+    "architecture_reconciliation_started": false,
+    "core_object_library_created": false,
+    "magp_architecture_created": false,
+    "product_implementation_started": false,
+    "writes_outside_task_root": 0
+  }
+}

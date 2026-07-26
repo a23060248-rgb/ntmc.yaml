@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+  "scope": {
+    "include": [
+      "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/**"
+    ],
+    "exclude": [
+      "R1 review target writes",
+      "R1 package writes",
+      "external source writes",
+      "product or governance baseline writes",
+      "Git",
+      "network",
+      "services",
+      "database",
+      "seed",
+      "migration",
+      ".env"
+    ]
+  },
+  "sequential_steps": [
+    "formal intake 4/4",
+    "transport attestations",
+    "Compatibility corrective overlay",
+    "R1 PASS reuse preservation",
+    "Compatibility R2 package",
+    "conditional Aggregator R2 package",
+    "final fail-closed verification"
+  ],
+  "completed_steps": 7,
+  "reviewer_launch_count": 0,
+  "aggregator_launch_count": 0,
+  "architecture_reconciliation_started": false,
+  "status": "COMPLETE"
+}

@@ -1,0 +1,245 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "fsm_id": "RUNTIME_COMMON_FSM",
+  "states": [
+    {
+      "state": "DEFINED",
+      "terminal": false
+    },
+    {
+      "state": "REGISTERED",
+      "terminal": false
+    },
+    {
+      "state": "PROVISIONING",
+      "terminal": false
+    },
+    {
+      "state": "READY",
+      "terminal": false
+    },
+    {
+      "state": "ACTIVE",
+      "terminal": false
+    },
+    {
+      "state": "DEGRADED",
+      "terminal": false
+    },
+    {
+      "state": "SUSPENDED",
+      "terminal": false
+    },
+    {
+      "state": "TERMINATED",
+      "terminal": true
+    },
+    {
+      "state": "FAILED",
+      "terminal": true
+    },
+    {
+      "state": "ARCHIVED",
+      "terminal": true
+    }
+  ],
+  "transitions": [
+    {
+      "from": "DEFINED",
+      "to": "REGISTERED",
+      "transition_actor": "REGISTRY_AUTHORITY",
+      "transition_guard": "definition and package bindings valid",
+      "required_evidence": [
+        "definition validation",
+        "package hash"
+      ],
+      "required_approval": "RELEASE_GATE",
+      "side_effects": [
+        "registry record"
+      ],
+      "rollback_conditions": "return to DEFINED by rejection record"
+    },
+    {
+      "from": "REGISTERED",
+      "to": "PROVISIONING",
+      "transition_actor": "AGENT_OS",
+      "transition_guard": "deployment eligibility and environment scope valid",
+      "required_evidence": [
+        "approval binding",
+        "environment evidence"
+      ],
+      "required_approval": "DEPLOYMENT_GATE",
+      "side_effects": [
+        "allocate bounded resources"
+      ],
+      "rollback_conditions": "terminate provisioning"
+    },
+    {
+      "from": "PROVISIONING",
+      "to": "READY",
+      "transition_actor": "AGENT_OS",
+      "transition_guard": "health and policy checks pass",
+      "required_evidence": [
+        "startup evidence"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "mark schedulable"
+      ],
+      "rollback_conditions": "TERMINATED or FAILED"
+    },
+    {
+      "from": "READY",
+      "to": "ACTIVE",
+      "transition_actor": "AGENT_OS",
+      "transition_guard": "authorized execution request present",
+      "required_evidence": [
+        "execution authorization"
+      ],
+      "required_approval": "HUMAN_WHEN_HIGH_RISK",
+      "side_effects": [
+        "start execution"
+      ],
+      "rollback_conditions": "SUSPENDED or TERMINATED"
+    },
+    {
+      "from": "ACTIVE",
+      "to": "DEGRADED",
+      "transition_actor": "RUNTIME_GOVERNANCE",
+      "transition_guard": "degradation rule matches",
+      "required_evidence": [
+        "runtime evidence"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "restrict capability"
+      ],
+      "rollback_conditions": "READY or SUSPENDED after evidence"
+    },
+    {
+      "from": "ACTIVE",
+      "to": "SUSPENDED",
+      "transition_actor": "RUNTIME_GOVERNANCE_OR_HUMAN",
+      "transition_guard": "policy hold or Human action",
+      "required_evidence": [
+        "policy decision or Human Approval"
+      ],
+      "required_approval": "CONDITIONAL",
+      "side_effects": [
+        "pause execution"
+      ],
+      "rollback_conditions": "READY after approved resume"
+    },
+    {
+      "from": "DEGRADED",
+      "to": "SUSPENDED",
+      "transition_actor": "RUNTIME_GOVERNANCE",
+      "transition_guard": "safe operation cannot continue",
+      "required_evidence": [
+        "violation evidence"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "pause execution"
+      ],
+      "rollback_conditions": "READY after remediation and gate"
+    },
+    {
+      "from": "SUSPENDED",
+      "to": "READY",
+      "transition_actor": "RUNTIME_GOVERNANCE_AND_APPLICABLE_HUMAN",
+      "transition_guard": "remediation, validation, and resume authority valid",
+      "required_evidence": [
+        "remediation evidence",
+        "resume decision"
+      ],
+      "required_approval": "HUMAN_WHEN_REQUIRED",
+      "side_effects": [
+        "restore bounded readiness"
+      ],
+      "rollback_conditions": "remain SUSPENDED"
+    },
+    {
+      "from": "ACTIVE",
+      "to": "TERMINATED",
+      "transition_actor": "AGENT_OS_OR_HUMAN",
+      "transition_guard": "normal completion or explicit termination",
+      "required_evidence": [
+        "completion evidence"
+      ],
+      "required_approval": "CONDITIONAL",
+      "side_effects": [
+        "revoke active permissions"
+      ],
+      "rollback_conditions": "no reactivation; new instance required"
+    },
+    {
+      "from": "PROVISIONING",
+      "to": "FAILED",
+      "transition_actor": "AGENT_OS",
+      "transition_guard": "startup failure",
+      "required_evidence": [
+        "failure evidence"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "revoke resources"
+      ],
+      "rollback_conditions": "new provisioning attempt identity"
+    },
+    {
+      "from": "ACTIVE",
+      "to": "FAILED",
+      "transition_actor": "RUNTIME_GOVERNANCE",
+      "transition_guard": "non-recoverable failure",
+      "required_evidence": [
+        "failure evidence"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "fail closed and revoke permissions"
+      ],
+      "rollback_conditions": "new instance required"
+    },
+    {
+      "from": "TERMINATED",
+      "to": "ARCHIVED",
+      "transition_actor": "ARCHIVE_AUTHORITY",
+      "transition_guard": "retention package complete",
+      "required_evidence": [
+        "runtime evidence manifest"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "read-only archival"
+      ],
+      "rollback_conditions": "none"
+    },
+    {
+      "from": "FAILED",
+      "to": "ARCHIVED",
+      "transition_actor": "ARCHIVE_AUTHORITY",
+      "transition_guard": "failure evidence complete",
+      "required_evidence": [
+        "failure evidence manifest"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "read-only archival"
+      ],
+      "rollback_conditions": "none"
+    }
+  ],
+  "prohibited_transitions": [
+    "DRAFT->EFFECTIVE",
+    "PROPOSED->ACTIVE",
+    "REJECTED->EFFECTIVE",
+    "ARCHIVED->ACTIVE"
+  ],
+  "archived_reactivation_allowed": false,
+  "status": "COMPLETE"
+}

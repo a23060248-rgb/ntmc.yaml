@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "batch": "MASTER_BATCH_3A_3F",
+  "role": "SOURCE_SCOPE_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER_HA1",
+  "human_launch_authorization": "LAUNCH_HUMAN_ADJUDICATED_SOURCE_SCOPE_AGGREGATOR",
+  "objective": "Aggregate existing Reviewer and Human-adjudication evidence, run deterministic QA, calculate the Source Scope Review Gate, and prepare but not execute Human Exact-Manifest Adoption.",
+  "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "assurance_level": "REDUCED_ASSURANCE",
+  "authorized_actions": [
+    "AGGREGATE_EXISTING_REVIEW_AND_HUMAN_ADJUDICATION_EVIDENCE",
+    "RUN_DETERMINISTIC_QA",
+    "CALCULATE_SOURCE_SCOPE_REVIEW_GATE",
+    "PREPARE_HUMAN_SOURCE_SCOPE_EXACT_MANIFEST_ADOPTION_PACKAGE"
+  ],
+  "prohibited_actions": [
+    "SOURCE_SCOPE_EXACT_MANIFEST_ADOPTION",
+    "SOURCE_AUTHORITY_ADOPTION",
+    "ARCHITECTURE_RECONCILIATION",
+    "CORE_OBJECT_LIBRARY_CREATION",
+    "MAGP_ARCHITECTURE_CREATION",
+    "PRODUCT_IMPLEMENTATION",
+    "GIT",
+    "NETWORK",
+    "SERVICE_DATABASE_SEED_MIGRATION_OR_ENV_ACCESS",
+    "SUBAGENT_OR_REVIEWER_LAUNCH"
+  ],
+  "allowed_write_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1"
+}

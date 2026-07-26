@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01",
+  "finding_type": "IMPLEMENTATION_SCOPE_CONFLICT",
+  "severity": "BLOCKER",
+  "human_prompt_authorizes": "PHASE_0_AND_PHASE_1_WITHIN_EXACT_WRITE_SCOPE",
+  "normative_launch_package_states": "MUST_BE_DISCOVERED_AND_HUMAN_CONFIRMED_AT_PRELAUNCH",
+  "normative_allowed_paths_present": false,
+  "conflict": true,
+  "resolution_required": [
+    "Human adopts exact repository-relative allowed_paths",
+    "Human identifies the MAGP Phase 0 project root",
+    "Human binds Shared Contracts Domain Kernel Validation Kernel Tests Documentation Local Tooling Evidence and any CI paths",
+    "Human confirms existing changes do not overlap those exact paths"
+  ],
+  "codex_may_infer_paths": false,
+  "status": "OPEN"
+}

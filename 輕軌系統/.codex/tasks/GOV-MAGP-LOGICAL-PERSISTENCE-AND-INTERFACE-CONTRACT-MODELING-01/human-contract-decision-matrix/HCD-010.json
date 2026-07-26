@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "decision_id": "HCD-010",
+  "decision_title": "Optimistic concurrency granularity",
+  "decision_status": "PENDING_HUMAN_DECISION",
+  "options": [
+    "PER_AGGREGATE_REVISION",
+    "PER_OBJECT_VERSION",
+    "HYBRID"
+  ],
+  "codex_recommendation": "PER_AGGREGATE_REVISION",
+  "codex_decision": null,
+  "codex_impersonated_human": false,
+  "blocking_for_modeling_proposal": false,
+  "blocking_for_human_logical_contract_adoption": true
+}

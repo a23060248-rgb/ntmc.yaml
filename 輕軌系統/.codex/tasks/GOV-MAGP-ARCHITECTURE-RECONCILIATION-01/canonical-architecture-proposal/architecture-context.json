@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "proposal_name": "MAGP_CANONICAL_ARCHITECTURE_CANDIDATE_R1",
+  "architecture_status": "PROPOSED_NOT_ADOPTED",
+  "normative_architecture": false,
+  "human_architecture_adoption_required": true,
+  "system_purpose": "Provide a Human-governed meta-level platform for compiling traceable knowledge and policy-bound intent into governed Agent packages and executing them under explicit runtime controls.",
+  "primary_stakeholders": [
+    "Human Architecture Owner",
+    "Source Governance Owner",
+    "Domain Owner",
+    "Architecture Reviewer",
+    "Runtime Operator",
+    "Audit and Compliance Reviewer"
+  ],
+  "in_scope": [
+    "source-governed claim mapping",
+    "six-layer responsibility model",
+    "component boundaries",
+    "authority and evidence flows",
+    "design-time and runtime separation",
+    "Human gates",
+    "Railway extension boundary"
+  ],
+  "out_of_scope": [
+    "Core Object Library",
+    "database design",
+    "API contract",
+    "product code",
+    "migration",
+    "deployment",
+    "technology-stack adoption"
+  ],
+  "assurance_level": "REDUCED_ASSURANCE"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "assessor_role": "NON_INDEPENDENT_TECHNICAL_ASSESSOR",
+  "assurance_level": "REDUCED_ASSURANCE",
+  "recommendations": [
+    {
+      "finding_id": "COMPAT-R1-001",
+      "deterministic_validation_result": "VALIDATION_PASS",
+      "technical_recommendation": "RECOMMEND_HUMAN_CLOSE",
+      "final_status": "PENDING_HUMAN_ADJUDICATION"
+    },
+    {
+      "finding_id": "COMPAT-R1-002",
+      "deterministic_validation_result": "VALIDATION_PASS",
+      "technical_recommendation": "RECOMMEND_HUMAN_CLOSE",
+      "final_status": "PENDING_HUMAN_ADJUDICATION"
+    }
+  ],
+  "finding_closed_by_codex_count": 0,
+  "human_final_decision_required": true,
+  "source_scope_review_gate": "NO-GO"
+}

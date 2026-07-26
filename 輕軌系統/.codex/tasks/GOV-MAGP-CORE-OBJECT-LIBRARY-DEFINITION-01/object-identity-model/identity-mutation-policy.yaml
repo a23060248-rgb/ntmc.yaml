@@ -1,0 +1,18 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "immutable_identity_fields": [
+    "object_id",
+    "object_type",
+    "definition identity origin"
+  ],
+  "rename_policy": "rename canonical or display name without new concept identity unless Human or adopted rule declares a new object",
+  "alias_policy": "aliases never replace canonical identity and must be unique within namespace",
+  "fork_policy": "fork creates new definition identity with derived_from lineage",
+  "clone_policy": "clone creates a new instance or definition identity according to intent and preserves origin lineage",
+  "archival_identity": "archival never releases or reuses identity",
+  "collision_handling": "fail closed, preserve both evidence records, require Human adjudication for semantic collision"
+}

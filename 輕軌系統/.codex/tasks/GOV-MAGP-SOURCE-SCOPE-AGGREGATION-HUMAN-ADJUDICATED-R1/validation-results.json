@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "run_id": "MAGP-SOURCE-SCOPE-HA1-20260722-R1",
+  "validator": "TASK_LOCAL_DETERMINISTIC_SOURCE_SCOPE_AGGREGATION_VALIDATOR",
+  "validator_script": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1/scripts/run-deterministic-aggregation.mjs",
+    "sha256": "D31AC47F68454F32F6B019C867110CE29136FBE66084A733246F99B91ED628EE",
+    "bytes": 69467
+  },
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "Aggregator role is correct",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Integrity R1 PASS is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Authority R1 PASS is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Contamination R1 PASS is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Compatibility R1 is only an Original Finding Source",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "COMPAT-R1-001 Human Closure is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "COMPAT-R1-002 Human Closure is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "Open active CRITICAL equals 0",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Open active HIGH equals 0",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Startup Failure is not used as successful review",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Base Target 20/20 is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Source Root 11/11 is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Classification 4/1/6 is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Source Authority Policy is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Claim Eligibility Policy is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "VET-C Policy is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Health Policy is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Corrective Overlay is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Product/Governance baseline is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Historical Tasks are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "Source Authority is PROPOSED_NOT_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "Normative Authority is false",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "Human Adoption is NOT_STARTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Architecture Reconciliation is NOT_AUTHORIZED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Reduced-Assurance Disclosure is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Human Adoption Package is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Adoption Decision remains PENDING",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Aggregator did not execute Adoption",
+      "status": "PASS"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Architecture Reconciliation did not start",
+      "status": "PASS"
+    },
+    {
+      "test_id": 30,
+      "requirement": "Git was not used",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 30,
+  "required_pass_count": 30,
+  "required_fail_count": 0,
+  "required_status": "PASS_30_OF_30",
+  "negative_fail_closed_tests": [
+    {
+      "test_id": "NEG-01",
+      "requirement": "Reject Compatibility R1 BLOCKER as PASS input",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-02",
+      "requirement": "Reject startup failure as substantive review credit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-03",
+      "requirement": "Reject Clean-Room PASS claim",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-04",
+      "requirement": "Reject Independent Review PASS claim",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-05",
+      "requirement": "Reject premature Human adoption decision",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-06",
+      "requirement": "Reject early Source Authority ADOPTED state",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-07",
+      "requirement": "Reject early Architecture Reconciliation authorization",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-08",
+      "requirement": "Fail closed if active HIGH exists",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-09",
+      "requirement": "Fail closed if Reduced-Assurance disclosure is missing",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-10",
+      "requirement": "Fail closed on any input hash mismatch",
+      "status": "PASS"
+    }
+  ],
+  "negative_test_count": 10,
+  "negative_pass_count": 10,
+  "negative_status": "PASS_10_OF_10",
+  "prior_validator_reexecution": {
+    "human_adjudicated_assessment": "PASS_55_OF_55",
+    "human_finding_adjudication": "PASS_59_OF_59"
+  },
+  "aggregation_result": "PASS_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+  "source_scope_lock_review_gate": "READY_FOR_HUMAN_EXACT_MANIFEST_ADOPTION",
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "service_used": false,
+    "database_used": false,
+    "seed_used": false,
+    "migration_used": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "reviewer_launched": false,
+    "source_scope_adoption_executed": false,
+    "architecture_reconciliation_started": false,
+    "writes_outside_task_root": 0
+  }
+}

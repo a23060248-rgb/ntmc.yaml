@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "agent runtime lifecycle",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "states": [
+    "DEFINED",
+    "PROVISIONED",
+    "ACTIVE",
+    "SUSPENDED",
+    "TERMINATED"
+  ],
+  "activation_human_gate_candidate": true,
+  "termination_irreversible_for_instance": true,
+  "new_instance_required_after_termination": true
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "alerts",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "alerts": [
+    {
+      "name": "evidence-integrity alerts",
+      "human_escalation_required": true
+    },
+    {
+      "name": "Human Gate failure alerts",
+      "human_escalation_required": true
+    },
+    {
+      "name": "agent violation alerts",
+      "human_escalation_required": true
+    },
+    {
+      "name": "event delivery failure",
+      "human_escalation_required": true
+    },
+    {
+      "name": "backup health",
+      "human_escalation_required": true
+    }
+  ]
+}

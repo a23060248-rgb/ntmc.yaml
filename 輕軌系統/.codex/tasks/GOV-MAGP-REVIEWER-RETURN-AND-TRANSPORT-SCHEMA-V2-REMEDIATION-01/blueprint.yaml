@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+  "level": "L3",
+  "execution_mode": "ROOT_ORCHESTRATOR_SEQUENTIAL_NO_SUBAGENTS",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/**"
+  ],
+  "applicable_rules": [
+    "PHASE1_GOVERNANCE_ONLY",
+    "V1_IMMUTABILITY",
+    "NO_RETROACTIVE_REWRITE",
+    "DISCRIMINATED_STARTUP_RESULT_CONTRACT",
+    "FAILURE_EVIDENCE_HAS_NO_REVIEW_CREDIT",
+    "FAILURE_EVIDENCE_IS_NOT_AGGREGATOR_INPUT",
+    "NO_DOWNSTREAM_LAUNCH_IN_PREPARATION_TASK"
+  ],
+  "candidate_rules": [],
+  "agent_assignments": [
+    {
+      "actor_role": "architect",
+      "assignment": "V2 schema and package contract design",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_WITHIN_ROLE_POLICY"
+    },
+    {
+      "actor_role": "qa-engineer",
+      "assignment": "Deterministic schema, admission, identity, package, and integrity tests",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_WITHIN_ROLE_POLICY"
+    },
+    {
+      "actor_role": "documentation-engineer",
+      "assignment": "Schema governance, launch checklist, final summary, and handoff",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/**"
+      ],
+      "execution": "ROOT_ORCHESTRATOR_ACTING_WITHIN_ROLE_POLICY"
+    }
+  ],
+  "execution_sequence": [
+    "capture_v1_and_attempt_1_before_hashes",
+    "analyze_v1_const_conflicts",
+    "create_and_test_v2_schemas",
+    "admit_attempt_1_only_as_failure_evidence",
+    "generate_unique_retry_identity",
+    "build_retry_package_bound_to_v2",
+    "build_conditional_aggregator_retry_package",
+    "recompute_after_hashes_and_34_contract_tests"
+  ],
+  "review_assignments": [],
+  "review_launch_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "aggregator_launch_status": "NOT_AUTHORIZED_BY_THIS_TASK",
+  "rollback_restore_evidence": {
+    "status": "NOT_APPLICABLE",
+    "reason": "Only new task-local governance artifacts are created; no database, product, service, migration, seed, or external state is changed."
+  },
+  "gate_state": "NO-GO_UNTIL_VALID_COMPATIBILITY_R2_RETRY"
+}

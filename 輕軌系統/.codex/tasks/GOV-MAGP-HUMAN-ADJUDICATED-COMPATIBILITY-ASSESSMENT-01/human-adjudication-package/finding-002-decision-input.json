@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "finding_id": "COMPAT-R1-002",
+  "original_finding": "Architecture Reconciliation is prematurely directed to start",
+  "original_severity": "HIGH",
+  "original_required_remediation": "Preserve the frozen target bytes and issue a separately governed corrective record that states Architecture Reconciliation is a separate NOT_AUTHORIZED task; authorize its start only after this review gate and every required Human approval complete.",
+  "remediation_artifacts": [
+    "architecture-reconciliation-authorization-state.json",
+    "downstream-policy-consumption-prohibition.yaml",
+    "original-premature-statements-disposition.json",
+    "corrective-record-authority.json"
+  ],
+  "exact_evidence_paths": [
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/compatibility-r1.raw.txt",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/architecture-reconciliation-authorization-state.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/downstream-policy-consumption-prohibition.yaml",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/original-premature-statements-disposition.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/technical-assessment/compat-r1-002-assessment.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/deterministic-validation/finding-002-validation.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/deterministic-validation/architecture-authorization-validation.json"
+  ],
+  "base_artifact_integrity": "UNCHANGED_20_OF_20",
+  "corrective_overlay_integrity": "UNCHANGED_7_OF_7",
+  "deterministic_validation_result": "VALIDATION_PASS",
+  "codex_technical_recommendation": "RECOMMEND_HUMAN_CLOSE",
+  "assurance_limitation": "This is a non-independent Codex technical assessment with deterministic artifact validation, not a Clean-Room or external independent review.",
+  "available_human_decisions": ["HUMAN_CLOSED", "HUMAN_NOT_CLOSED"],
+  "current_human_decision": "PENDING_HUMAN_DECISION",
+  "current_human_rationale": null
+}

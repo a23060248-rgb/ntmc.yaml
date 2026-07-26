@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "review_target_task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "review_target_manifest_sha256": "C156854BA326194C5E26FB05C69849DC81784FC33E5713340D1E06DF0FF5F3D4",
+  "review_target_record_core_sha256": "DDE3280766B7CD5102DB8912874BB2426545F31924D8A83B2A894D361C725F38",
+  "expected_artifact_count": 20,
+  "actual_artifact_count": 20,
+  "match_count": 20,
+  "artifacts": [
+    {
+      "relative_path": "blueprint.yaml",
+      "expected_sha256": "90CEF045F7F58EC1CF8B5A215562ABF4D7A13EDFB5FC2C656FBBE709FD31C5FF",
+      "actual_sha256": "90CEF045F7F58EC1CF8B5A215562ABF4D7A13EDFB5FC2C656FBBE709FD31C5FF",
+      "expected_bytes": 4775,
+      "actual_bytes": 4775,
+      "match": true
+    },
+    {
+      "relative_path": "classification.yaml",
+      "expected_sha256": "3454937B21B416DEE0AC9A68BF4385DE6EAA57FA8F581A300C39DDC63EC918BA",
+      "actual_sha256": "3454937B21B416DEE0AC9A68BF4385DE6EAA57FA8F581A300C39DDC63EC918BA",
+      "expected_bytes": 3349,
+      "actual_bytes": 3349,
+      "match": true
+    },
+    {
+      "relative_path": "core-source-integrity-report.json",
+      "expected_sha256": "9DB86A09B967A8BFC7AC17E47AFAD5F169601D132988BDA7D03F0C6A25DCFEDB",
+      "actual_sha256": "9DB86A09B967A8BFC7AC17E47AFAD5F169601D132988BDA7D03F0C6A25DCFEDB",
+      "expected_bytes": 2350,
+      "actual_bytes": 2350,
+      "match": true
+    },
+    {
+      "relative_path": "final-summary.md",
+      "expected_sha256": "3830E2C784368A09F292AEE8371F69750B8ABED6E5D3CF5877F1611B54AE4452",
+      "actual_sha256": "3830E2C784368A09F292AEE8371F69750B8ABED6E5D3CF5877F1611B54AE4452",
+      "expected_bytes": 1712,
+      "actual_bytes": 1712,
+      "match": true
+    },
+    {
+      "relative_path": "HANDOFF.md",
+      "expected_sha256": "97B419F5685352BA49EF23109F7853423C8D7E6D33E2D904B104447F36D583EF",
+      "actual_sha256": "97B419F5685352BA49EF23109F7853423C8D7E6D33E2D904B104447F36D583EF",
+      "expected_bytes": 3331,
+      "actual_bytes": 3331,
+      "match": true
+    },
+    {
+      "relative_path": "health-domain-contamination-prevention-policy.yaml",
+      "expected_sha256": "1E8BD38737413574CBEEF9A053ABF9E8A8EE43777D033E5ADFE3F33E3E248B8E",
+      "actual_sha256": "1E8BD38737413574CBEEF9A053ABF9E8A8EE43777D033E5ADFE3F33E3E248B8E",
+      "expected_bytes": 1026,
+      "actual_bytes": 1026,
+      "match": true
+    },
+    {
+      "relative_path": "source-authority-policy.yaml",
+      "expected_sha256": "90EC4DB425276908D3943078ACEF940345BD6E4C7AC5EE4CBFC1D31157CEF012",
+      "actual_sha256": "90EC4DB425276908D3943078ACEF940345BD6E4C7AC5EE4CBFC1D31157CEF012",
+      "expected_bytes": 2050,
+      "actual_bytes": 2050,
+      "match": true
+    },
+    {
+      "relative_path": "source-claim-eligibility-policy.yaml",
+      "expected_sha256": "CAAA9410C194979FBAA99AC4C8ED0AD5A3EB7C1D1948E432FED0596815133B5C",
+      "actual_sha256": "CAAA9410C194979FBAA99AC4C8ED0AD5A3EB7C1D1948E432FED0596815133B5C",
+      "expected_bytes": 1736,
+      "actual_bytes": 1736,
+      "match": true
+    },
+    {
+      "relative_path": "source-directory-after.json",
+      "expected_sha256": "3408AFB8EEA14DA2D0D52D497DAF08B6A5DE712654DBFCB6D8D70C1970F93D1D",
+      "actual_sha256": "3408AFB8EEA14DA2D0D52D497DAF08B6A5DE712654DBFCB6D8D70C1970F93D1D",
+      "expected_bytes": 2451,
+      "actual_bytes": 2451,
+      "match": true
+    },
+    {
+      "relative_path": "source-directory-before.json",
+      "expected_sha256": "8AB6ED3481000450131875087FD2B0742E6EBC4FB89D9AC716EEB11FE8BB9FA7",
+      "actual_sha256": "8AB6ED3481000450131875087FD2B0742E6EBC4FB89D9AC716EEB11FE8BB9FA7",
+      "expected_bytes": 2417,
+      "actual_bytes": 2417,
+      "match": true
+    },
+    {
+      "relative_path": "source-directory-integrity-comparison.json",
+      "expected_sha256": "D599C9ED4E52A45C7AD6BCA4FE0A4B7F5A6E4D4E632A5808B6B42CD91BFBC20D",
+      "actual_sha256": "D599C9ED4E52A45C7AD6BCA4FE0A4B7F5A6E4D4E632A5808B6B42CD91BFBC20D",
+      "expected_bytes": 613,
+      "actual_bytes": 613,
+      "match": true
+    },
+    {
+      "relative_path": "source-directory-inventory.json",
+      "expected_sha256": "FE61CF16D5C70175B05C1FE6694F55C8D67DFC2F8DE055D6E279D99A008358B7",
+      "actual_sha256": "FE61CF16D5C70175B05C1FE6694F55C8D67DFC2F8DE055D6E279D99A008358B7",
+      "expected_bytes": 8876,
+      "actual_bytes": 8876,
+      "match": true
+    },
+    {
+      "relative_path": "source-exclusion-rationale.json",
+      "expected_sha256": "652CFEA41AD5AFB8E7C96E27AD7F06BC1F6FE66D479C0A4069A4FE78600A8341",
+      "actual_sha256": "652CFEA41AD5AFB8E7C96E27AD7F06BC1F6FE66D479C0A4069A4FE78600A8341",
+      "expected_bytes": 4718,
+      "actual_bytes": 4718,
+      "match": true
+    },
+    {
+      "relative_path": "source-identity-human-decision.json",
+      "expected_sha256": "7C74E21202BAE2D93ACC7A120A24202B68950291075FA1C039AF1D12DEE90C6E",
+      "actual_sha256": "7C74E21202BAE2D93ACC7A120A24202B68950291075FA1C039AF1D12DEE90C6E",
+      "expected_bytes": 1832,
+      "actual_bytes": 1832,
+      "match": true
+    },
+    {
+      "relative_path": "source-identity-resolution.json",
+      "expected_sha256": "BFFBC9826093CB4F207D960563CDC5FB641B032182C7535D7ADF7E2B0D652748",
+      "actual_sha256": "BFFBC9826093CB4F207D960563CDC5FB641B032182C7535D7ADF7E2B0D652748",
+      "expected_bytes": 11984,
+      "actual_bytes": 11984,
+      "match": true
+    },
+    {
+      "relative_path": "source-inclusion-rationale.json",
+      "expected_sha256": "DF6D511B8C580349EA67BAC16AD3A62AA6BB0AA30DD697BA6570C69905DA1B6A",
+      "actual_sha256": "DF6D511B8C580349EA67BAC16AD3A62AA6BB0AA30DD697BA6570C69905DA1B6A",
+      "expected_bytes": 5590,
+      "actual_bytes": 5590,
+      "match": true
+    },
+    {
+      "relative_path": "source-scope-register.yaml",
+      "expected_sha256": "0119C0087CD0B9F5AE7B248FE03D591DC97E0838CEFECE41198B87B08A758C37",
+      "actual_sha256": "0119C0087CD0B9F5AE7B248FE03D591DC97E0838CEFECE41198B87B08A758C37",
+      "expected_bytes": 6372,
+      "actual_bytes": 6372,
+      "match": true
+    },
+    {
+      "relative_path": "source-scope-validation-results.json",
+      "expected_sha256": "78774ADA6170308B121C719B11DA47BE6BA9101FAD286256F347438F13F203BF",
+      "actual_sha256": "78774ADA6170308B121C719B11DA47BE6BA9101FAD286256F347438F13F203BF",
+      "expected_bytes": 3236,
+      "actual_bytes": 3236,
+      "match": true
+    },
+    {
+      "relative_path": "task-intent.yaml",
+      "expected_sha256": "F049548F06F332629A2285B015C85DD498924DDBB6BD11C8A62B5F2564F00DF8",
+      "actual_sha256": "F049548F06F332629A2285B015C85DD498924DDBB6BD11C8A62B5F2564F00DF8",
+      "expected_bytes": 1350,
+      "actual_bytes": 1350,
+      "match": true
+    },
+    {
+      "relative_path": "vetc-contamination-prevention-policy.yaml",
+      "expected_sha256": "E5D5F01F11E9973C8E02EDAA5E30B20A70C090EC99E13432952ECEFDAA32D70B",
+      "actual_sha256": "E5D5F01F11E9973C8E02EDAA5E30B20A70C090EC99E13432952ECEFDAA32D70B",
+      "expected_bytes": 1440,
+      "actual_bytes": 1440,
+      "match": true
+    }
+  ],
+  "status": "UNCHANGED_20_OF_20",
+  "drift_detected": false,
+  "git_used": false
+}

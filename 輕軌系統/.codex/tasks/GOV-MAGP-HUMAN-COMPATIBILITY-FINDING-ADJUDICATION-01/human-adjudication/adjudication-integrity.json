@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "integrity_model": "EXACT_TASK_LOCAL_SHA256_AND_BYTE_BINDING",
+  "artifacts": [
+    {
+      "relative_path": "human-decision-record.json",
+      "sha256": "CDBAFDDED8505C51EBCDEC64BDF772ED22ACE05D9F1B7895F927A76103F57A03",
+      "bytes": 1933
+    },
+    {
+      "relative_path": "finding-001-human-adjudication.json",
+      "sha256": "0C0566ADED2F401F4B0CC9849514F14350BD9446E83F01BCB1792310B875E73E",
+      "bytes": 1350
+    },
+    {
+      "relative_path": "finding-002-human-adjudication.json",
+      "sha256": "8667AC71578F3EFB6BD0F006ACC35CDCD3F3359F425F59DC59606C5FF4D8D499",
+      "bytes": 1372
+    },
+    {
+      "relative_path": "human-authority-attestation.json",
+      "sha256": "1D1561B54AAC3A4BEB36CF6B3D9BEDFA7ED733775AFF675F408E4C3A70073E6D",
+      "bytes": 699
+    },
+    {
+      "relative_path": "reduced-assurance-acknowledgement.json",
+      "sha256": "77B642B13368E93441B2AE1EFE81A16271FC21FB65B669C289D3CD4B4B9AB763",
+      "bytes": 695
+    }
+  ],
+  "match_count": 5,
+  "expected_count": 5,
+  "status": "PASS_5_OF_5",
+  "human_decisions_present": true,
+  "human_rationales_present": true,
+  "reduced_assurance_acknowledged": true
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "compatibility_gate_result": "GO_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+  "source_scope_lock_review_gate": "PENDING_AGGREGATOR",
+  "full_source_scope_gate_calculated_by_this_task": false,
+  "source_scope_exact_manifest_adoption": "NOT_STARTED",
+  "source_authority": "PROPOSED_NOT_ADOPTED",
+  "downstream_policy_use": false,
+  "aggregator_status": "NOT_STARTED",
+  "architecture_reconciliation": "NOT_AUTHORIZED",
+  "core_object_library": "NOT_AUTHORIZED",
+  "prohibited_direct_results": [
+    "GO",
+    "FULL_GO",
+    "CLEAN_ROOM_GO",
+    "INDEPENDENT_REVIEW_GO"
+  ],
+  "required_next_gate_actor": "SOURCE_SCOPE_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER_HA1"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "aggregator_task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "aggregator_role": "SOURCE_SCOPE_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER_HA1",
+  "conditions": [
+    {"condition":"Integrity R1 PASS","status":"PASS"},
+    {"condition":"Authority R1 PASS","status":"PASS"},
+    {"condition":"Contamination R1 PASS","status":"PASS"},
+    {"condition":"COMPAT-R1-001 HUMAN_CLOSED","status":"PASS"},
+    {"condition":"COMPAT-R1-002 HUMAN_CLOSED","status":"PASS"},
+    {"condition":"Open Compatibility CRITICAL = 0","status":"PASS"},
+    {"condition":"Open Compatibility HIGH = 0","status":"PASS"},
+    {"condition":"Base Review Target unchanged","status":"PASS"},
+    {"condition":"Corrective Overlay unchanged","status":"PASS"},
+    {"condition":"Source root unchanged","status":"PASS"},
+    {"condition":"Classification 4/1/6 unchanged","status":"PASS"},
+    {"condition":"Source Authority = PROPOSED_NOT_ADOPTED","status":"PASS"},
+    {"condition":"Product/Governance baseline unchanged","status":"PASS"},
+    {"condition":"Historical Tasks unchanged","status":"PASS"},
+    {"condition":"Reduced-Assurance disclosure valid","status":"PASS"},
+    {"condition":"Git not used","status":"PASS"}
+  ],
+  "pass_count": 16,
+  "fail_count": 0,
+  "readiness": "READY_FOR_HUMAN_TO_LAUNCH_HUMAN_ADJUDICATED_SOURCE_SCOPE_AGGREGATOR",
+  "aggregator_started": false,
+  "human_launch_action_required": true,
+  "launch_authority_from_this_task": false,
+  "source_scope_lock_review_gate": "PENDING_AGGREGATOR",
+  "architecture_reconciliation": "NOT_AUTHORIZED"
+}

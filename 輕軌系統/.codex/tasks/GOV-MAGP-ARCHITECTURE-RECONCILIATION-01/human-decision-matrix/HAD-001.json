@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "decision_id": "HAD-001",
+  "decision_title": "Canonical engineering grouping model",
+  "competing_options": [
+    "OPTION_A_RETAIN_14_VOLUMES_AS_CANONICAL_ENGINEERING_GROUPS",
+    "OPTION_B_USE_6_LAYERS_WITH_RISK_BASED_COMPONENT_PACKAGES"
+  ],
+  "source_support": [
+    "ARC-CLM-006",
+    "ARC-CLM-019",
+    "ARC-CLM-034"
+  ],
+  "authority_analysis": "Six layers have conceptual support; fourteen volumes are lower-authority derived architecture proposals.",
+  "advantages": {
+    "option_a": "Retains detailed source indexing and planned module coverage.",
+    "option_b": "Reduces name-based conflation and allows component boundaries to evolve under Human decisions."
+  },
+  "risks": {
+    "option_a": "May freeze an unvalidated work breakdown as architecture.",
+    "option_b": "Requires a deliberate mapping from source RFC numbers to the adopted component model."
+  },
+  "downstream_impact": "Determines architecture documentation hierarchy and future work-package layout.",
+  "codex_recommendation": "ADOPT_MODIFIED_OPTION: retain six responsibility layers as canonical and preserve fourteen volumes as a non-normative traceable planning view.",
+  "available_human_decisions": [
+    "ADOPT_OPTION_A",
+    "ADOPT_OPTION_B",
+    "ADOPT_MODIFIED_OPTION",
+    "DEFER_DECISION",
+    "REJECT_ALL_OPTIONS"
+  ],
+  "current_status": "PENDING_HUMAN_DECISION",
+  "human_decision": "PENDING_HUMAN_DECISION",
+  "codex_filled_human_decision": false
+}

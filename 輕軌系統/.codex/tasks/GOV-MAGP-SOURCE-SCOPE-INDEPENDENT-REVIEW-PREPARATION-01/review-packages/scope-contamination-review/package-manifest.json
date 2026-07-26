@@ -1,0 +1,74 @@
+{
+  "package_core": {
+    "schema_version": 1,
+    "review_generation": "R1",
+    "review_package_id": "MAGP-SSR1-SCOPE_CONTAMINATION-EF4EFD42-9E1D-4876-A288-8932113F0A29",
+    "assignment_id": "ASSIGN-3E2982FA-3C3A-4B10-BD79-1E15B31AF580",
+    "reviewer_run_id": "RUN-A10A0959-2FA2-4045-A5B7-931EC8194FA1",
+    "reviewer_session_nonce": "1BB602C2FFF9EEF10543BB8893600DC80EFE7ECDE96566E7C463E1DE7020484B",
+    "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+    "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-CONTAMINATION-R1",
+    "preparation_task_id": "GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+    "review_target_binding": {
+      "review_target_task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+      "review_target_manifest_sha256": "C156854BA326194C5E26FB05C69849DC81784FC33E5713340D1E06DF0FF5F3D4",
+      "review_target_record_core_sha256": "DDE3280766B7CD5102DB8912874BB2426545F31924D8A83B2A894D361C725F38",
+      "source_directory_manifest_sha256": "9456093C5CD5D169628ACAFFD4251E15C1C7551A9949F1D930CA4185CE7792AD",
+      "source_hash_binding_sha256": "B763A29E4615FE837DDADA3963927DDF7140C3AE925AB67198C72E9C6AEB6EB8"
+    },
+    "exact_read_scope_sha256": "442A9D6F9F1916D51036C66335ECD2847A50ABF59B82134F08A8A5D88861089F",
+    "shared_return_schema_sha256": "DACCC96EE577856C97EAA811ED904DF47CD44A13C08094C6898C08FF6A5D8696",
+    "manual_transport_schema_sha256": "42ED977653D161538AB73E160651DF9FFBF2D8CF4CC1CA75ECF9BB382A0988AF",
+    "artifacts": [
+      {
+        "normalized_relative_path": "assignment.json",
+        "file_size_bytes": 1427,
+        "sha256": "E40CB66F2931C4473DBF11C1B46A406193BA25AA2E6E1BB46B8117F2AF18EA11"
+      },
+      {
+        "normalized_relative_path": "startup-contract.json",
+        "file_size_bytes": 1205,
+        "sha256": "9AAAB85BC45D6F0349D1E9F4814B26E425915AF5E2B91BAD6D6DA28EBC6C233D"
+      },
+      {
+        "normalized_relative_path": "review-requirements.json",
+        "file_size_bytes": 2246,
+        "sha256": "71B4946B8669BBF204557DA132D521A834EFD3477AE08B8FEB08A8DA58AE8127"
+      },
+      {
+        "normalized_relative_path": "exact-read-scope.json",
+        "file_size_bytes": 9459,
+        "sha256": "442A9D6F9F1916D51036C66335ECD2847A50ABF59B82134F08A8A5D88861089F"
+      },
+      {
+        "normalized_relative_path": "prohibited-actions.json",
+        "file_size_bytes": 813,
+        "sha256": "FFF86E4A555E2632191F391A71780D47E4E8B03DD40C14071531D8DA181C8B47"
+      },
+      {
+        "normalized_relative_path": "finding-ownership.json",
+        "file_size_bytes": 1144,
+        "sha256": "87258D811F672933FAC51E34397825A09E0CDFD6FCDD86C6FCBC91C032514550"
+      },
+      {
+        "normalized_relative_path": "return-payload.schema.json",
+        "file_size_bytes": 185,
+        "sha256": "345A11A21AF6AA7EACEA5CD0224FF7112C269F2E976541DAF119292A18BD995E"
+      },
+      {
+        "normalized_relative_path": "embedded-startup-blocker-template.json",
+        "file_size_bytes": 1288,
+        "sha256": "FA409F36AC1AC7EB7386649CA7A9401795E6E771F7194CDEB3CC50D4CE215429"
+      },
+      {
+        "normalized_relative_path": "standalone-top-level-reviewer-prompt.md",
+        "file_size_bytes": 1778,
+        "sha256": "CF5019EA0949666C50798A0D70B7D9CA298A8F3FF76075514ED72C00DB4B6FDC"
+      }
+    ]
+  },
+  "package_core_sha256": "D848273E0DE6CD1B9FC5BD2CDE7F7E66C195F48FF739A90D7F52134439B8D229",
+  "canonicalization": "RFC8785_JCS",
+  "hash_algorithm": "SHA-256",
+  "hash_encoding": "UPPERCASE_HEX"
+}

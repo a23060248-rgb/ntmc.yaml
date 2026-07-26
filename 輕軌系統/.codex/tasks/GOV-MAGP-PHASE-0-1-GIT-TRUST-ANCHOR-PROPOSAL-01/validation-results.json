@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "validation_type": "DETERMINISTIC_STAGE_1_QA",
+  "status": "PASS_10_OF_10",
+  "pass_count": 10,
+  "required_count": 10,
+  "checks": [
+    {
+      "id": 1,
+      "requirement": "Every candidate file has one unique manifest entry.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 2,
+      "requirement": "Every candidate file has SHA-256 and an inclusion reason.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 3,
+      "requirement": "All governed references are resolved or explicitly recorded.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 4,
+      "requirement": "Proposal contains no Product Code.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 5,
+      "requirement": "Proposal contains no Secret or Credential path.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 6,
+      "requirement": "Proposal modifies no historical task.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 7,
+      "requirement": "Git HEAD, Refs and staged/index semantic sets are unchanged.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 8,
+      "requirement": "No new Repository change exists outside the current Task path.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 9,
+      "requirement": "No Git write was executed.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 10,
+      "requirement": "New Worktree reproduction plan has explicit PASS and FAIL conditions.",
+      "pass": true,
+      "status": "PASS"
+    }
+  ],
+  "git_semantic_integrity": {
+    "head_before": "187ca36a2ef2c4be991e2f94956eae151b417217",
+    "head_after": "187ca36a2ef2c4be991e2f94956eae151b417217",
+    "refs_sha256_before": "024C099ACE934B8EE8C23C820402F7FBF2EFE3BE1CD691DF3F23168B325F505E",
+    "refs_sha256_after": "024C099ACE934B8EE8C23C820402F7FBF2EFE3BE1CD691DF3F23168B325F505E",
+    "index_stage_set_sha256_before": "EC25356E94877A28A975C25AFFA2369EFF958FC9FC46E2DF78C2C0F4D8F10F41",
+    "index_stage_set_sha256_after": "EC25356E94877A28A975C25AFFA2369EFF958FC9FC46E2DF78C2C0F4D8F10F41",
+    "tracked_set_sha256_before": "0C2E7D55E6F1B8FBFB6AA04D76DEA4755116F1C0B214146BD833FD60C6ACDE2E",
+    "tracked_set_sha256_after": "0C2E7D55E6F1B8FBFB6AA04D76DEA4755116F1C0B214146BD833FD60C6ACDE2E",
+    "staged_name_status_sha256_before": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "staged_name_status_sha256_after": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "status_excluding_current_task_before_sha256": "45A11D015E803F16E7D59DF1ECA98E876674507E807E4397EC74104826157DA1",
+    "status_excluding_current_task_after_sha256": "45A11D015E803F16E7D59DF1ECA98E876674507E807E4397EC74104826157DA1"
+  },
+  "git_state_unchanged": true,
+  "secret_content_read": false,
+  "product_code_modified": false
+}

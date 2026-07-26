@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:manual-reviewer-transport-attestation:r2:v2",
+  "title": "MAGP Manual Reviewer Transport Attestation R2 V2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "reviewer_role",
+    "review_generation",
+    "source_thread_id",
+    "review_package_id",
+    "reviewer_run_id",
+    "payload_sha256",
+    "payload_modified",
+    "transported_by_human",
+    "payload_schema_id",
+    "payload_schema_sha256",
+    "payload_validation_branch",
+    "payload_admission_class",
+    "substantive_review_credit",
+    "aggregator_eligible",
+    "source_raw_artifact_path",
+    "source_raw_artifact_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "reviewer_role": {
+      "enum": [
+        "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+        "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+        "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+        "EXTERNAL_COMPATIBILITY_REVIEWER"
+      ]
+    },
+    "review_generation": {
+      "const": "R2"
+    },
+    "source_thread_id": {
+      "type": "string",
+      "minLength": 16
+    },
+    "review_package_id": {
+      "type": "string",
+      "minLength": 16
+    },
+    "reviewer_run_id": {
+      "type": "string",
+      "minLength": 16
+    },
+    "payload_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    },
+    "payload_modified": {
+      "const": false
+    },
+    "transported_by_human": {
+      "const": true
+    },
+    "payload_schema_id": {
+      "type": "string",
+      "pattern": "^urn:magp:"
+    },
+    "payload_schema_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    },
+    "payload_validation_branch": {
+      "enum": [
+        "STARTUP_VALID_REVIEW_RESULT",
+        "STARTUP_BLOCKER_FAILURE_EVIDENCE"
+      ]
+    },
+    "payload_admission_class": {
+      "enum": [
+        "FORMALLY_ACCEPTED_REVIEW_RESULT",
+        "FORMALLY_ACCEPTED_BLOCKER_RESULT",
+        "ADMITTED_STARTUP_FAILURE_EVIDENCE",
+        "FORMALLY_REJECTED"
+      ]
+    },
+    "substantive_review_credit": {
+      "enum": [
+        "FULL",
+        "NONE"
+      ]
+    },
+    "aggregator_eligible": {
+      "type": "boolean"
+    },
+    "source_raw_artifact_path": {
+      "type": "string",
+      "pattern": "^[A-Za-z]:/"
+    },
+    "source_raw_artifact_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "payload_validation_branch": {
+            "const": "STARTUP_BLOCKER_FAILURE_EVIDENCE"
+          }
+        },
+        "required": [
+          "payload_validation_branch"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload_admission_class": {
+            "const": "ADMITTED_STARTUP_FAILURE_EVIDENCE"
+          },
+          "substantive_review_credit": {
+            "const": "NONE"
+          },
+          "aggregator_eligible": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "payload_admission_class": {
+            "const": "FORMALLY_ACCEPTED_REVIEW_RESULT"
+          }
+        },
+        "required": [
+          "payload_admission_class"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload_validation_branch": {
+            "const": "STARTUP_VALID_REVIEW_RESULT"
+          },
+          "substantive_review_credit": {
+            "const": "FULL"
+          },
+          "aggregator_eligible": {
+            "const": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "payload_admission_class": {
+            "const": "FORMALLY_ACCEPTED_BLOCKER_RESULT"
+          }
+        },
+        "required": [
+          "payload_admission_class"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload_validation_branch": {
+            "const": "STARTUP_VALID_REVIEW_RESULT"
+          },
+          "substantive_review_credit": {
+            "const": "FULL"
+          },
+          "aggregator_eligible": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "payload_admission_class": {
+            "const": "FORMALLY_REJECTED"
+          }
+        },
+        "required": [
+          "payload_admission_class"
+        ]
+      },
+      "then": {
+        "properties": {
+          "substantive_review_credit": {
+            "const": "NONE"
+          },
+          "aggregator_eligible": {
+            "const": false
+          }
+        }
+      }
+    }
+  ]
+}

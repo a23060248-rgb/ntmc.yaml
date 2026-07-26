@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "encryption-sensitive-data-design",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "at_rest": "required",
+  "in_transit": "required",
+  "field_level_candidates": [
+    "credentials",
+    "sensitive evidence metadata",
+    "personal identifiers"
+  ],
+  "key_boundary": "separate from application data",
+  "selection_pending": true
+}

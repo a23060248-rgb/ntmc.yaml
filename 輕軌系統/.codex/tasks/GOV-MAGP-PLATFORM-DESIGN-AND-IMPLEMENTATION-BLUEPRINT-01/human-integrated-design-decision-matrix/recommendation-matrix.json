@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "Codex recommendation matrix",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "recommendation_count": 20,
+  "recommendations_are_nonbinding": true,
+  "recommendations": [
+    {
+      "decision_id": "HID-001",
+      "title": "Primary System of Record",
+      "codex_recommendation": "PostgreSQL candidate"
+    },
+    {
+      "decision_id": "HID-002",
+      "title": "Graph Store",
+      "codex_recommendation": "No initial graph store"
+    },
+    {
+      "decision_id": "HID-003",
+      "title": "Evidence Blob Storage",
+      "codex_recommendation": "Object storage candidate"
+    },
+    {
+      "decision_id": "HID-004",
+      "title": "Event Store",
+      "codex_recommendation": "Outbox first candidate"
+    },
+    {
+      "decision_id": "HID-005",
+      "title": "Search Projection",
+      "codex_recommendation": "Incremental projection"
+    },
+    {
+      "decision_id": "HID-006",
+      "title": "Temporal mode",
+      "codex_recommendation": "Hybrid governance-only candidate"
+    },
+    {
+      "decision_id": "HID-007",
+      "title": "Row-Level Security",
+      "codex_recommendation": "Selective defense in depth"
+    },
+    {
+      "decision_id": "HID-008",
+      "title": "Partition mode",
+      "codex_recommendation": "Defer until measured"
+    },
+    {
+      "decision_id": "HID-009",
+      "title": "API Style",
+      "codex_recommendation": "REST command-query candidate"
+    },
+    {
+      "decision_id": "HID-010",
+      "title": "Event Delivery Guarantee",
+      "codex_recommendation": "At least once with idempotency"
+    },
+    {
+      "decision_id": "HID-011",
+      "title": "Authentication mechanism",
+      "codex_recommendation": "OIDC plus workload identity"
+    },
+    {
+      "decision_id": "HID-012",
+      "title": "Authorization model",
+      "codex_recommendation": "Scoped grants with policy evaluation"
+    },
+    {
+      "decision_id": "HID-013",
+      "title": "Modular Monolith Services Hybrid",
+      "codex_recommendation": "Modular Monolith first candidate"
+    },
+    {
+      "decision_id": "HID-014",
+      "title": "Human Console priority",
+      "codex_recommendation": "Authority and approvals first"
+    },
+    {
+      "decision_id": "HID-015",
+      "title": "Agent Runtime isolation",
+      "codex_recommendation": "Container or managed sandbox evaluation"
+    },
+    {
+      "decision_id": "HID-016",
+      "title": "Message Infrastructure",
+      "codex_recommendation": "Outbox then broker decision"
+    },
+    {
+      "decision_id": "HID-017",
+      "title": "Deployment Topology",
+      "codex_recommendation": "Control and data plane boundary"
+    },
+    {
+      "decision_id": "HID-018",
+      "title": "RPO RTO",
+      "codex_recommendation": "Service tiers pending business input"
+    },
+    {
+      "decision_id": "HID-019",
+      "title": "First Implementation Scope",
+      "codex_recommendation": "Kernel plus authority and Human Gate"
+    },
+    {
+      "decision_id": "HID-020",
+      "title": "Phase 0 Phase 1 priority",
+      "codex_recommendation": "Phase 0 then explicit Phase 1 GO"
+    }
+  ]
+}

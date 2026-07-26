@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01",
+  "stage": 1,
+  "tests": [
+    {
+      "test_id": 1,
+      "requirement": "6A-1 task digest valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Pending Decision count is 18",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Decision Register complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Recommendation Matrix complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Impact Matrix complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Blocking Classification complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Decision Register hash valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "Recommendation Matrix hash valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Logical Contract Proposal hash valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Architecture Baseline valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Object Library Baseline valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Human Decision Form pending",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Human authority not impersonated",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Logical Contract remains PROPOSED_NOT_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Physical Database not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Migration not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Formal API not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Product Implementation not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "7A-1 not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Git not used",
+      "status": "PASS"
+    }
+  ],
+  "test_count": 20,
+  "pass_count": 20,
+  "fail_count": 0,
+  "status": "PASS_20_OF_20",
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "database_used": false,
+    "sql_executed": false,
+    "migration_used": false,
+    "service_used": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "physical_database_created": false,
+    "formal_api_created": false,
+    "product_implementation_started": false,
+    "human_decision_impersonated": false,
+    "logical_contract_adopted": false,
+    "planning_7a1_started": false,
+    "writes_outside_task_root": 0
+  }
+}

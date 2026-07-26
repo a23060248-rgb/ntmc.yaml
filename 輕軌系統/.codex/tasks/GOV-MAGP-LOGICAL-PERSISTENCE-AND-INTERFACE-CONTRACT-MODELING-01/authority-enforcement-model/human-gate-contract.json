@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "human_approval_binding_required_for": [
+    "normative activation",
+    "authority grant or revocation",
+    "CRITICAL/HIGH Finding closure where Human adjudication is used",
+    "package release approval",
+    "deployment authorization"
+  ],
+  "approval_must_bind": [
+    "subject",
+    "object version",
+    "content hash",
+    "scope",
+    "authority basis",
+    "expiry or review date"
+  ],
+  "agent_self_authorization_allowed": false,
+  "runtime_policy_mutation_allowed": false,
+  "human_approval_inferred_from_technical_success": false
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "current_next_step": "HUMAN_MAGP_ARCHITECTURE_ADOPTION",
+  "automatic_post_adoption_execution": false,
+  "possible_future_human_authorized_tasks": [
+    "Resolve remaining architecture decisions and publish exact adopted architecture manifest",
+    "Authorize Core Object Library design as a separate task",
+    "Authorize data and API architecture as separate tasks",
+    "Authorize implementation only after independent review and downstream gates"
+  ],
+  "every_future_step_requires_separate_human_authorization": true
+}

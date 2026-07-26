@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "design_state_count": 11,
+  "runtime_state_count": 10,
+  "transition_binding_fields": [
+    "transition actor",
+    "authority requirement",
+    "transition guard",
+    "required evidence",
+    "required approval",
+    "side effects",
+    "prohibited transition",
+    "rollback conditions"
+  ],
+  "prohibited_transitions": [
+    "DRAFT->EFFECTIVE",
+    "PROPOSED->ACTIVE",
+    "REJECTED->EFFECTIVE",
+    "ARCHIVED->ACTIVE"
+  ],
+  "lifecycle_cycles_without_exit": 0,
+  "status": "PASS_HUMAN_ADOPTED"
+}

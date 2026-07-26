@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01",
+  "stages": [
+    {
+      "stage": 1,
+      "status": "IN_PROGRESS",
+      "output": "human-decision-resolution-package"
+    },
+    {
+      "stage": 2,
+      "status": "BLOCKED_PENDING_EXACT_HUMAN_DECISION",
+      "output": "Logical Contract Adoption and Baseline Lock"
+    }
+  ],
+  "inputs": [
+    "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+    "MAGP-ARCH-BASELINE-V1",
+    "MAGP-OBJECT-LIBRARY-BASELINE-V1"
+  ],
+  "hard_stop_before_stage_2_without_human_decision": true
+}

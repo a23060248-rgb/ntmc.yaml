@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "decision_count": 20,
+  "pending_count": 20,
+  "human_adopted_count": 0,
+  "decisions": [
+    {
+      "decision_id": "HID-001",
+      "title": "Primary System of Record",
+      "options": [
+        "PostgreSQL",
+        "Alternative transactional store"
+      ],
+      "codex_recommendation": "PostgreSQL candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-002",
+      "title": "Graph Store",
+      "options": [
+        "No initial graph store",
+        "Dedicated graph projection"
+      ],
+      "codex_recommendation": "No initial graph store",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-003",
+      "title": "Evidence Blob Storage",
+      "options": [
+        "Object storage",
+        "Database large objects",
+        "Filesystem not recommended"
+      ],
+      "codex_recommendation": "Object storage candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-004",
+      "title": "Event Store",
+      "options": [
+        "Outbox plus audit",
+        "Dedicated event store"
+      ],
+      "codex_recommendation": "Outbox first candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-005",
+      "title": "Search Projection",
+      "options": [
+        "No initial search engine",
+        "Dedicated search projection"
+      ],
+      "codex_recommendation": "Incremental projection",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-006",
+      "title": "Temporal mode",
+      "options": [
+        "Append history",
+        "System-versioned temporal",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Hybrid governance-only candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-007",
+      "title": "Row-Level Security",
+      "options": [
+        "Application enforcement",
+        "Database RLS plus application",
+        "RLS selective"
+      ],
+      "codex_recommendation": "Selective defense in depth",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-008",
+      "title": "Partition mode",
+      "options": [
+        "No initial partition",
+        "Time partition",
+        "Volume partition",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Defer until measured",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-009",
+      "title": "API Style",
+      "options": [
+        "REST command-query",
+        "gRPC internal",
+        "GraphQL query projection",
+        "Hybrid"
+      ],
+      "codex_recommendation": "REST command-query candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-010",
+      "title": "Event Delivery Guarantee",
+      "options": [
+        "At least once with idempotency",
+        "Other broker-specific guarantee"
+      ],
+      "codex_recommendation": "At least once with idempotency",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-011",
+      "title": "Authentication mechanism",
+      "options": [
+        "OIDC plus workload identity",
+        "Alternative enterprise identity"
+      ],
+      "codex_recommendation": "OIDC plus workload identity",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-012",
+      "title": "Authorization model",
+      "options": [
+        "RBAC plus ABAC",
+        "Capability grants",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Scoped grants with policy evaluation",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-013",
+      "title": "Modular Monolith Services Hybrid",
+      "options": [
+        "Modular Monolith",
+        "Service-Oriented",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Modular Monolith first candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-014",
+      "title": "Human Console priority",
+      "options": [
+        "Authority and approvals",
+        "Evidence and findings",
+        "Package and deployment",
+        "Balanced"
+      ],
+      "codex_recommendation": "Authority and approvals first",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-015",
+      "title": "Agent Runtime isolation",
+      "options": [
+        "Process",
+        "Container",
+        "MicroVM",
+        "Managed sandbox"
+      ],
+      "codex_recommendation": "Container or managed sandbox evaluation",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-016",
+      "title": "Message Infrastructure",
+      "options": [
+        "No initial broker",
+        "Managed queue",
+        "Streaming platform"
+      ],
+      "codex_recommendation": "Outbox then broker decision",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-017",
+      "title": "Deployment Topology",
+      "options": [
+        "Single environment stack",
+        "Control and data plane split",
+        "Hybrid"
+      ],
+      "codex_recommendation": "Control and data plane boundary",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-018",
+      "title": "RPO RTO",
+      "options": [
+        "Human-defined service tiers",
+        "Single global target"
+      ],
+      "codex_recommendation": "Service tiers pending business input",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-019",
+      "title": "First Implementation Scope",
+      "options": [
+        "Kernel only",
+        "Kernel plus authority",
+        "Vertical governance slice"
+      ],
+      "codex_recommendation": "Kernel plus authority and Human Gate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-020",
+      "title": "Phase 0 Phase 1 priority",
+      "options": [
+        "Phase 0 only",
+        "Phase 0 then 1",
+        "Parallel limited preparation"
+      ],
+      "codex_recommendation": "Phase 0 then explicit Phase 1 GO",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    }
+  ],
+  "status": "PENDING_HUMAN_DECISION"
+}

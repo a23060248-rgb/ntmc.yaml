@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "overlaps": [
+    {
+      "overlap": "BGE vs Blueprint Compiler",
+      "resolution": "Blueprint Compiler is an internal BGE processor; BGE owns the candidate Blueprint lifecycle.",
+      "unresolved": false
+    },
+    {
+      "overlap": "Runtime Governance vs Policy Engine",
+      "resolution": "Policy Engine is a pure evaluator; Runtime Governance orchestrates holds, approvals, and evidence.",
+      "unresolved": false
+    },
+    {
+      "overlap": "Knowledge Lake vs Knowledge Graph",
+      "resolution": "Lake preserves artifact history; Graph exposes validated structured projection.",
+      "unresolved": false
+    },
+    {
+      "overlap": "Evidence Ledger vs Agent OS Audit",
+      "resolution": "Agent OS emits events; Ledger owns append-only evidence records and query lineage.",
+      "unresolved": false
+    },
+    {
+      "overlap": "Agent Factory vs Agent Registry",
+      "resolution": "Factory creates packages; Registry records identity and status after external gates.",
+      "unresolved": false
+    },
+    {
+      "overlap": "Human Review Console vs Human Authority",
+      "resolution": "Console presents and records; Human actor decides.",
+      "unresolved": false
+    }
+  ],
+  "unresolved_authority_overlap_count": 0
+}

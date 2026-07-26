@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01",
+  "prohibited_until_separate_human_authorization": [
+    "SQL execution",
+    "database connection",
+    "migration execution",
+    "service execution",
+    "product code modification",
+    "deployment"
+  ],
+  "planning_readiness_is_execution_authority": false,
+  "readiness_only": true,
+  "planning_7a1_authorized": false,
+  "planning_7a1_started": false,
+  "physical_database_created": false,
+  "migration_created_or_executed": false,
+  "formal_api_created": false,
+  "product_implementation_started": false
+}

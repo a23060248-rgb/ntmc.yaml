@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "architecture_status": "PROPOSED_NOT_ADOPTED",
+  "steps": [
+    {
+      "step": 1,
+      "actor": "Human",
+      "action": "adopt Constitution, Policy, Source Scope, Architecture, and bounded high-risk decisions",
+      "output": "versioned Human decision"
+    },
+    {
+      "step": 2,
+      "actor": "Meta Constitution and Policy",
+      "action": "constrain candidate design and runtime behavior",
+      "output": "effective policy snapshot"
+    },
+    {
+      "step": 3,
+      "actor": "BGE and Factory",
+      "action": "compile and manufacture under policy",
+      "output": "candidate Blueprint and deployable package"
+    },
+    {
+      "step": 4,
+      "actor": "Human or release gate",
+      "action": "approve Blueprint/package deployment within adopted architecture",
+      "output": "release state"
+    },
+    {
+      "step": 5,
+      "actor": "Runtime Governance",
+      "action": "evaluate each governed runtime decision",
+      "output": "allow, deny, or approval request"
+    },
+    {
+      "step": 6,
+      "actor": "Agent OS",
+      "action": "execute only authorized action",
+      "output": "result and evidence"
+    }
+  ],
+  "machine_self_authorization_allowed": false
+}

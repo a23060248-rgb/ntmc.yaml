@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01",
+  "artifact_type": "ADOPTED_GOVERNANCE_ARTIFACT_HIERARCHY",
+  "adoption_status": "HUMAN_ADOPTED",
+  "adoption_method": "HUMAN_MODIFICATION_OVER_EXACT_ORIGINAL_4A_1_REFERENCE",
+  "original_proposal_reference": {
+    "relative_path": "canonical-architecture-proposal/governance-artifact-hierarchy.json",
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-ARCHITECTURE-RECONCILIATION-01/canonical-architecture-proposal/governance-artifact-hierarchy.json",
+    "sha256": "C6E39AAF51047A49AA2B3146931B75007BA0FC781E1C108EF6C8AD1DD7C5AA77",
+    "bytes": 1631
+  },
+  "original_proposal_bytes_modified": false,
+  "human_decision_reference": {
+    "absolute_path": "C:/Users/a2306/.codex/attachments/681cabc1-6fe6-4bbc-84e0-746ca6c5accb/pasted-text.txt",
+    "sha256": "846981DE75318CE2CAFFF54C8775939D053C610DC2DEBFD942A71AE63992CEA1",
+    "bytes": 23932
+  },
+  "architecture_baseline": "MAGP-ARCH-BASELINE-V1",
+  "modification_record": {
+    "decision_id": "HAD-007",
+    "modification_rationale": "Applies the explicit 4A-2 Human authority order and keeps Evidence as proof rather than self-creating authority.",
+    "affected_claim_ids": [
+      "ARC-CLM-038",
+      "ARC-CLM-040"
+    ],
+    "final_adopted_value": [
+      "HUMAN_ADOPTED_CONSTITUTION",
+      "HUMAN_ADOPTED_POLICY",
+      "HUMAN_APPROVED_RFC",
+      "HUMAN_ADOPTED_ARCHITECTURE",
+      "APPROVED_BLUEPRINT",
+      "SPECIFICATION",
+      "SCHEMA",
+      "IMPLEMENTATION_ARTIFACT",
+      "RUNTIME_EVIDENCE"
+    ],
+    "evidence_role": "PROOF_AXIS_NO_SELF_CREATING_AUTHORITY"
+  }
+}

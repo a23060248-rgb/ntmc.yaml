@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "table-design-proposal",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "table_count": 24,
+  "tables": [
+    {
+      "table": "magp.governance_object",
+      "purpose": "Proposed physical representation for governance_object",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.governance_object_version",
+      "purpose": "Proposed physical representation for governance_object_version",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.object_relation",
+      "purpose": "Proposed physical representation for object_relation",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.lifecycle_transition",
+      "purpose": "Proposed physical representation for lifecycle_transition",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.authority_grant",
+      "purpose": "Proposed physical representation for authority_grant",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.human_approval",
+      "purpose": "Proposed physical representation for human_approval",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.approval_binding",
+      "purpose": "Proposed physical representation for approval_binding",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.evidence_record",
+      "purpose": "Proposed physical representation for evidence_record",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.evidence_blob_reference",
+      "purpose": "Proposed physical representation for evidence_blob_reference",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.review_record",
+      "purpose": "Proposed physical representation for review_record",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.finding",
+      "purpose": "Proposed physical representation for finding",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.finding_status_history",
+      "purpose": "Proposed physical representation for finding_status_history",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.remediation",
+      "purpose": "Proposed physical representation for remediation",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.volume",
+      "purpose": "Proposed physical representation for volume",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.package",
+      "purpose": "Proposed physical representation for package",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.package_member",
+      "purpose": "Proposed physical representation for package_member",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.agent_definition",
+      "purpose": "Proposed physical representation for agent_definition",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.agent_instance",
+      "purpose": "Proposed physical representation for agent_instance",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.runtime_event",
+      "purpose": "Proposed physical representation for runtime_event",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.deployment_artifact",
+      "purpose": "Proposed physical representation for deployment_artifact",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.audit_record",
+      "purpose": "Proposed physical representation for audit_record",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.idempotency_record",
+      "purpose": "Proposed physical representation for idempotency_record",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.outbox_event",
+      "purpose": "Proposed physical representation for outbox_event",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    },
+    {
+      "table": "magp.retention_hold",
+      "purpose": "Proposed physical representation for retention_hold",
+      "common_columns": [
+        "canonical_id",
+        "revision",
+        "lifecycle_state",
+        "content_hash",
+        "authority_context_id",
+        "created_at",
+        "created_by"
+      ],
+      "destructive_delete_allowed": false
+    }
+  ]
+}

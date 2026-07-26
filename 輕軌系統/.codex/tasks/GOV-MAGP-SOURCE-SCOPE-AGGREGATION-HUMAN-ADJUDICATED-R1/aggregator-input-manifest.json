@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "aggregator_role": "SOURCE_SCOPE_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER_HA1",
+  "run_id": "MAGP-SOURCE-SCOPE-HA1-20260722-R1",
+  "input_contract": "HUMAN_ADJUDICATED_REDUCED_ASSURANCE_SOURCE_SCOPE_AGGREGATION",
+  "formal_input_tasks": [
+    {
+      "input_key": "base",
+      "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+      "tree_digest": {
+        "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+        "file_count": 20,
+        "canonical_manifest_sha256": "4AE6076249F43B432F8CC5F34E897785DBA57298B195F33000CDBCD0D7849DAF"
+      }
+    },
+    {
+      "input_key": "preparation",
+      "task_id": "GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+      "tree_digest": {
+        "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+        "file_count": 89,
+        "canonical_manifest_sha256": "7AA336B801CAE6E3B074DDFD3AF21F60209DCE220E526BFEF05398D53C2183AC"
+      }
+    },
+    {
+      "input_key": "intake",
+      "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+      "tree_digest": {
+        "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+        "file_count": 51,
+        "canonical_manifest_sha256": "BD7B7B77A2289F95C4A8FBA92A3E9AC903D44FAF91F4C592F56B321A1F286B16"
+      }
+    },
+    {
+      "input_key": "schemaV2",
+      "task_id": "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+      "tree_digest": {
+        "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+        "file_count": 62,
+        "canonical_manifest_sha256": "DB5D8F5CB6E6C4E2C2EA4C996B03AF32301DB16F2655C58C3B4A98AEC4BDEC2F"
+      }
+    },
+    {
+      "input_key": "runtime",
+      "task_id": "GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+      "tree_digest": {
+        "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+        "file_count": 21,
+        "canonical_manifest_sha256": "9C6B439A1CB2F65A81ABA1E361490481EA105D6E90F4FB43FEDB5C8EFE61E410"
+      }
+    },
+    {
+      "input_key": "assessment",
+      "task_id": "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+      "tree_digest": {
+        "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+        "file_count": 40,
+        "canonical_manifest_sha256": "1C38E0B9F0DF409E4B41AFD92571098DD1DB6386D780EE57AB04F855E1FCBD8D"
+      }
+    },
+    {
+      "input_key": "adjudication",
+      "task_id": "GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01",
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01",
+      "tree_digest": {
+        "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01",
+        "file_count": 32,
+        "canonical_manifest_sha256": "809E4520A518A2F5D587E498F893C25FD002499A40D7AFB0DB83CD6A833869BD"
+      }
+    }
+  ],
+  "reviewer_payloads": [
+    {
+      "reviewer_key": "source_integrity_r1",
+      "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTEGRITY-R1",
+      "review_package_id": "MAGP-SSR1-SOURCE_INTEGRITY-20D126E7-1008-4D9B-B517-E42573E4DC6D",
+      "reviewer_run_id": "RUN-6BE018C5-E990-4B21-AE1E-9FBD2A564DE2",
+      "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-integrity-r1.raw.txt",
+      "raw_payload_sha256": "8546BD1DCE083A94D57DE06CD6F179696E1E3828E7E7299580AB431637A909F0",
+      "raw_payload_bytes": 12421,
+      "payload_core_sha256": "AB8A39ABA06428A17BE17E0B51E9172040207D36D558826ADA9540FF5AC3F6D3",
+      "review_status": "PASS",
+      "aggregator_usage": "FORMAL_PASS_INPUT",
+      "aggregator_eligible_as_success_input": true
+    },
+    {
+      "reviewer_key": "source_authority_r1",
+      "reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-AUTHORITY-R1",
+      "review_package_id": "MAGP-SSR1-SOURCE_AUTHORITY-E30F2944-B4AB-4D3A-B657-662219383437",
+      "reviewer_run_id": "RUN-0A17D678-EC74-4C45-BF46-F3AF26ED18DC",
+      "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-authority-r1.raw.txt",
+      "raw_payload_sha256": "BB1FAC2470EDBD5C322A509752E359AA076DFB015E9A0367270C6840C3959EFA",
+      "raw_payload_bytes": 21126,
+      "payload_core_sha256": "8D7DF16EBD93FB6791D7FD795BACC712F61A6075C554B96F9D7119BBAE512834",
+      "review_status": "PASS",
+      "aggregator_usage": "FORMAL_PASS_INPUT",
+      "aggregator_eligible_as_success_input": true
+    },
+    {
+      "reviewer_key": "scope_contamination_r1",
+      "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-CONTAMINATION-R1",
+      "review_package_id": "MAGP-SSR1-SCOPE_CONTAMINATION-EF4EFD42-9E1D-4876-A288-8932113F0A29",
+      "reviewer_run_id": "RUN-A10A0959-2FA2-4045-A5B7-931EC8194FA1",
+      "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/scope-contamination-r1.raw.txt",
+      "raw_payload_sha256": "44CDDB53A09ECCDCFCA9B8D94829D1CBBCF8730B6C587B02B95862B711A5033F",
+      "raw_payload_bytes": 16512,
+      "payload_core_sha256": "27D73701954A3A83F78EAE2343ECD42217782E1B0CFEE3166280912DF523D976",
+      "review_status": "PASS",
+      "aggregator_usage": "FORMAL_PASS_INPUT",
+      "aggregator_eligible_as_success_input": true
+    },
+    {
+      "reviewer_key": "compatibility_r1",
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R1",
+      "review_package_id": "MAGP-SSR1-COMPATIBILITY-C1E24EA9-7DB7-4D9A-B7F1-F3BB2B347B7D",
+      "reviewer_run_id": "RUN-CF3E09ED-220D-4DB9-B8E6-74F50A9D3BC8",
+      "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/compatibility-r1.raw.txt",
+      "raw_payload_sha256": "E0C92CFDFA495D5EB57D75B849B5B77C130BCE0F8122C1A8EE2F4858A4FF2702",
+      "raw_payload_bytes": 15052,
+      "payload_core_sha256": "AB25714EA74F2BCC160DE1601B73EAF1ECA9EB59970876EA840C76764BF6B7DD",
+      "review_status": "BLOCKER",
+      "aggregator_usage": "ORIGINAL_FINDING_SOURCE",
+      "aggregator_eligible_as_success_input": false
+    }
+  ],
+  "human_closure_records": [
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/human-adjudication/finding-001-human-adjudication.json",
+      "sha256": "0C0566ADED2F401F4B0CC9849514F14350BD9446E83F01BCB1792310B875E73E",
+      "bytes": 1350
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/human-adjudication/finding-002-human-adjudication.json",
+      "sha256": "8667AC71578F3EFB6BD0F006ACC35CDCD3F3359F425F59DC59606C5FF4D8D499",
+      "bytes": 1372
+    }
+  ],
+  "reduced_assurance_acknowledgement": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/human-adjudication/reduced-assurance-acknowledgement.json",
+    "sha256": "77B642B13368E93441B2AE1EFE81A16271FC21FB65B669C289D3CD4B4B9AB763",
+    "bytes": 695
+  },
+  "base_review_target": {
+    "manifest": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-target-manifest.json",
+      "sha256": "C156854BA326194C5E26FB05C69849DC81784FC33E5713340D1E06DF0FF5F3D4",
+      "bytes": 6530
+    },
+    "record": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-target-canonical-record.json",
+      "sha256": "5891694F43E6D36EA34B88D24E80F5A4A2400840195A7272F0C2F8E869A264B2",
+      "bytes": 1449
+    },
+    "artifact_count": 20
+  },
+  "corrective_overlay": {
+    "integrity_record": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/correction-integrity-record.json",
+      "sha256": "F6E1F8DD91C6F9EDDAC2B7D9A0AE4EEA10256B8534D584FB7FF44926D34A89D2",
+      "bytes": 6717
+    },
+    "record_core_sha256": "77EA27B9441E1E966CD39F2CD3CBA278326C70E55780470DD2EB372CC3025F42",
+    "artifact_count": 7
+  },
+  "source_root": {
+    "absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources",
+    "source_count": 11,
+    "source_directory_manifest_sha256": "9456093C5CD5D169628ACAFFD4251E15C1C7551A9949F1D930CA4185CE7792AD",
+    "source_hash_binding": {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/source-hash-binding.json",
+      "sha256": "B763A29E4615FE837DDADA3963927DDF7140C3AE925AB67198C72E9C6AEB6EB8",
+      "bytes": 3324
+    }
+  },
+  "startup_failure_history": {
+    "task_id": "GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01",
+    "tree_digest": {
+      "absolute_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01",
+      "file_count": 10,
+      "canonical_manifest_sha256": "2600EAC26826B4C2F6B6D8514A58E0E9A0729EB14AD681FE5755580855C2A185"
+    },
+    "finding_id": "COMPAT-R2-STARTUP-CONTEXT-001",
+    "usage": "HISTORICAL_STARTUP_FAILURE_EVIDENCE",
+    "substantive_review_credit": "NONE",
+    "aggregator_eligible": false
+  },
+  "all_input_bindings_recomputed": true
+}

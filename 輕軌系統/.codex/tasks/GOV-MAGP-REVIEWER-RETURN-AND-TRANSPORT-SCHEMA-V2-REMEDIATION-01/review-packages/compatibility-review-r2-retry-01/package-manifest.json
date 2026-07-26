@@ -1,0 +1,100 @@
+{
+  "package_core": {
+    "schema_version": 2,
+    "review_generation": "R2",
+    "review_attempt": "RETRY_01",
+    "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R2-RETRY-01",
+    "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+    "preparation_task_id": "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+    "review_package_id": "MAGP-SSR2-COMPATIBILITY-RETRY01-95E57850-56B4-4FCE-9E56-855C5464AD6D",
+    "assignment_id": "ASSIGN-E251EE80-1EE2-46B1-AC96-2A91AE3EACA0",
+    "reviewer_run_id": "RUN-BAF0883C-0B45-4B71-8D5D-B4B811C5E13C",
+    "reviewer_session_nonce": "8C94AF476A11882640EC666F68BFA604FCDD760160B30C842CB0C58751C94C73",
+    "review_target_binding": {
+      "review_target_task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+      "review_target_manifest_sha256": "C156854BA326194C5E26FB05C69849DC81784FC33E5713340D1E06DF0FF5F3D4",
+      "review_target_record_core_sha256": "DDE3280766B7CD5102DB8912874BB2426545F31924D8A83B2A894D361C725F38",
+      "source_directory_manifest_sha256": "9456093C5CD5D169628ACAFFD4251E15C1C7551A9949F1D930CA4185CE7792AD",
+      "source_hash_binding_sha256": "B763A29E4615FE837DDADA3963927DDF7140C3AE925AB67198C72E9C6AEB6EB8"
+    },
+    "correction_integrity_record_core_sha256": "77EA27B9441E1E966CD39F2CD3CBA278326C70E55780470DD2EB372CC3025F42",
+    "reviewer_reuse_record_core_sha256": "42BBD03EF090AF123D6A062C00D39F9FB864F6288A922E2BCCB034E6257EBF2E",
+    "formal_intake_results_core_sha256": "8883F733D76475717BBC345BE81CE934FCB474FF489BEC3DBA72F138DE5F0761",
+    "reviewer_return_schema_id": "urn:magp:source-scope-reviewer-return-payload:v2",
+    "reviewer_return_schema_sha256": "EF4A55A46B2E4442FFDEC2E4C2464C49A44507BD431F1A971BEE07FBD66BA5BA",
+    "transport_schema_id": "urn:magp:manual-reviewer-transport-attestation:r2:v2",
+    "transport_schema_sha256": "6E1E33CF066107849E2CBC6DF1D4367230D75597FDB7AE9F42DFC6D4BBDED0BE",
+    "exact_read_scope_sha256": "C373251741F79B485CB0405B1B6ED7D863A628DB51D175DF7147F5450927B26F",
+    "attempt_1_history": "ADMITTED_STARTUP_FAILURE_EVIDENCE_NO_REVIEW_CREDIT",
+    "findings_state": {
+      "COMPAT-R1-001": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+      "COMPAT-R1-002": "REMEDIATED_PENDING_COMPATIBILITY_R2"
+    },
+    "artifacts": [
+      {
+        "normalized_relative_path": "assignment.json",
+        "file_size_bytes": 899,
+        "sha256": "7224A5BF920F250ADC2AE8AA0A0B2C1CA36B62909B3BCDBD0787ABE21C14F396"
+      },
+      {
+        "normalized_relative_path": "clean-room-launch-contract.json",
+        "file_size_bytes": 1141,
+        "sha256": "FE9BA20BE924138F50984204916E6E3E7F95D077F251F703ADBEC5C1EAFE6697"
+      },
+      {
+        "normalized_relative_path": "embedded-startup-blocker-template.json",
+        "file_size_bytes": 1169,
+        "sha256": "A7AE3C46E8D3CF6C8ABE65742D5450197FA55DF24E3A19E5A777DF69E74EDBDA"
+      },
+      {
+        "normalized_relative_path": "exact-read-scope.json",
+        "file_size_bytes": 22764,
+        "sha256": "C373251741F79B485CB0405B1B6ED7D863A628DB51D175DF7147F5450927B26F"
+      },
+      {
+        "normalized_relative_path": "finding-ownership.json",
+        "file_size_bytes": 341,
+        "sha256": "C011E3C0E3AA719A9283EE480694369DA1B67B3018578105A790789434B96B17"
+      },
+      {
+        "normalized_relative_path": "human-clean-room-launch-checklist.md",
+        "file_size_bytes": 747,
+        "sha256": "B4E6D78C55DB65506129E8D5B9B62FB579330E98ED86B43801E914BD9BCC92C5"
+      },
+      {
+        "normalized_relative_path": "prohibited-actions.json",
+        "file_size_bytes": 722,
+        "sha256": "A076B02C3E5EF3B20FF32E51E45D7C3F4C28AF627719FDCBB3C5DFB5C2F2655D"
+      },
+      {
+        "normalized_relative_path": "return-payload.schema.json",
+        "file_size_bytes": 210,
+        "sha256": "97D54F4617B3132F612612A21196283732781CD4039A020100E3A68C3773CDAC"
+      },
+      {
+        "normalized_relative_path": "review-requirements.json",
+        "file_size_bytes": 1391,
+        "sha256": "5E132CC7ABBB6780C8CFC8A0DDD29E42BAEF07EDAD16D7E98F79742058FF52EE"
+      },
+      {
+        "normalized_relative_path": "standalone-top-level-reviewer-prompt.md",
+        "file_size_bytes": 1733,
+        "sha256": "F697B044E37D68CED2C55E04F0BFF445843928AC3837A4150EEA9F00BAA5C48A"
+      },
+      {
+        "normalized_relative_path": "startup-contract.json",
+        "file_size_bytes": 877,
+        "sha256": "C2D3D68708F2144D6A9B5108284E6F76A2B227E1828DB08D776AEB318623C447"
+      },
+      {
+        "normalized_relative_path": "transport-schema-binding.json",
+        "file_size_bytes": 461,
+        "sha256": "FA3B7AC99B569D4BAAC4766DFBF98D23043DA2BC130EAE9AF234561D7B83B345"
+      }
+    ]
+  },
+  "package_core_sha256": "C9E4A17CCCE89C9E8D61D52AEAB48B0D6D0D1F0AA0B21C4D38FBC484053A3EDF",
+  "canonicalization": "RFC8785_JCS",
+  "hash_algorithm": "SHA-256",
+  "hash_encoding": "UPPERCASE_HEX"
+}

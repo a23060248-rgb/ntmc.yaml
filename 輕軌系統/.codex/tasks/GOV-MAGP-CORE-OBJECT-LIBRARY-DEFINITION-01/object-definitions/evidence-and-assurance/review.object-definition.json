@@ -1,0 +1,52 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-015",
+  "object_type": "REVIEW",
+  "object_category": "EVIDENCE_AND_ASSURANCE_OBJECTS",
+  "canonical_name": "Review",
+  "type_prefix": "revw",
+  "design_time_or_runtime": "DESIGN_TIME_AND_RUNTIME",
+  "normative_or_non_normative": "NON_NORMATIVE_ASSURANCE_RECORD_WITH_GATING_EFFECT",
+  "current_normative_effect": false,
+  "authority_level": "REVIEW_AUTHORITY_WITHIN_SCOPE_NO_ADOPTION_AUTHORITY",
+  "lifecycle_owner": "REVIEW_OWNER",
+  "evidence_owner": "REVIEWER_AND_EVIDENCE_LEDGER",
+  "human_gate_requirement": "HUMAN_GATE_REQUIRED_FOR_HUMAN_ADJUDICATED_REVIEW_OR_WHEN_REVIEW_POLICY_REQUIRES",
+  "accountable_human_role": "REVIEW_OWNER",
+  "responsible_machine_role": "REVIEWER_ROLE_BOUND_TO_SCOPE",
+  "allowed_mutations": [
+    "append finding",
+    "completion record",
+    "limitation disclosure"
+  ],
+  "prohibited_mutations": [
+    "reviewed-object self-approval",
+    "scope expansion",
+    "independence overclaim"
+  ],
+  "required_payload_fields": [
+    "review_id",
+    "review_type",
+    "reviewer_role",
+    "scope",
+    "exclusions",
+    "inputs",
+    "startup_validity",
+    "independence_level",
+    "findings",
+    "result",
+    "limitations",
+    "completion_state"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "review.schema-proposal.schema.json",
+  "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "agent authority prohibitions",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "agent_definition_not_instance": true,
+  "agent_recommendation_not_human_decision": true,
+  "evidence_production_not_acceptance": true,
+  "prohibited": [
+    "self-authorize",
+    "adopt policy",
+    "approve RFC",
+    "mutate baseline",
+    "expand authority",
+    "close finding",
+    "authorize deployment"
+  ]
+}

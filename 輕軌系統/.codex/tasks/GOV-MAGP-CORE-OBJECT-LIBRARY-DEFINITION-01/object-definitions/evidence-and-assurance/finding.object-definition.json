@@ -1,0 +1,52 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-014",
+  "object_type": "FINDING",
+  "object_category": "EVIDENCE_AND_ASSURANCE_OBJECTS",
+  "canonical_name": "Finding",
+  "type_prefix": "find",
+  "design_time_or_runtime": "DESIGN_TIME_AND_RUNTIME",
+  "normative_or_non_normative": "NON_NORMATIVE_ASSURANCE_RECORD_WITH_GATING_EFFECT",
+  "current_normative_effect": false,
+  "authority_level": "FINDING_RECORD_AUTHORITY_CLOSURE_SEPARATE",
+  "lifecycle_owner": "REVIEW_OWNER",
+  "evidence_owner": "REVIEWER_AND_EVIDENCE_LEDGER",
+  "human_gate_requirement": "HUMAN_OR_INDEPENDENT_CLOSURE_REQUIRED_FOR_CRITICAL_HIGH_UNLESS_POLICY_EXPLICITLY_ALLOWS_OTHERWISE",
+  "accountable_human_role": "FINDING_OWNER",
+  "responsible_machine_role": "FINDING_RECORDER",
+  "allowed_mutations": [
+    "status progression",
+    "remediation evidence append",
+    "authorized closure record"
+  ],
+  "prohibited_mutations": [
+    "deletion by reviewed object",
+    "self-closure by reviewed object",
+    "severity downgrade without authority"
+  ],
+  "required_payload_fields": [
+    "finding_id",
+    "subject",
+    "severity",
+    "status",
+    "affected_policy_requirement",
+    "evidence_references",
+    "impact",
+    "required_remediation",
+    "owner",
+    "closure_authority",
+    "closure_evidence",
+    "historical_status"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "finding.schema-proposal.schema.json",
+  "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+}

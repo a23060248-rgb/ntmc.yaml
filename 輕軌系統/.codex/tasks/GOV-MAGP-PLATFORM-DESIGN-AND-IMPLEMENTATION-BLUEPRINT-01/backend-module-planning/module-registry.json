@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "backend modules",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "module_count": 16,
+  "modules": [
+    {
+      "name": "Identity and Access",
+      "owned_aggregates": [
+        "Identity and Access aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Governance Authority",
+      "owned_aggregates": [
+        "Governance Authority aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Constitution and Policy",
+      "owned_aggregates": [
+        "Constitution and Policy aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "RFC and Decision",
+      "owned_aggregates": [
+        "RFC and Decision aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Blueprint and Specification",
+      "owned_aggregates": [
+        "Blueprint and Specification aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Knowledge Definition",
+      "owned_aggregates": [
+        "Knowledge Definition aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Evidence Ledger",
+      "owned_aggregates": [
+        "Evidence Ledger aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Review and Finding",
+      "owned_aggregates": [
+        "Review and Finding aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Volume and Package",
+      "owned_aggregates": [
+        "Volume and Package aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Agent Definition Registry",
+      "owned_aggregates": [
+        "Agent Definition Registry aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Agent Runtime Governance",
+      "owned_aggregates": [
+        "Agent Runtime Governance aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Deployment Governance",
+      "owned_aggregates": [
+        "Deployment Governance aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Audit and Temporal",
+      "owned_aggregates": [
+        "Audit and Temporal aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Event Processing",
+      "owned_aggregates": [
+        "Event Processing aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Search and Projection",
+      "owned_aggregates": [
+        "Search and Projection aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    },
+    {
+      "name": "Human Approval",
+      "owned_aggregates": [
+        "Human Approval aggregate boundary"
+      ],
+      "commands": "see formal API command registry",
+      "queries": "read projection only",
+      "emitted_events": true,
+      "transaction_boundary": "single aggregate",
+      "authority_ceiling": "assigned scope only",
+      "human_gates_preserved": true,
+      "prohibited_responsibilities": [
+        "self-authorize",
+        "silently rewrite evidence",
+        "bypass Human Gate"
+      ]
+    }
+  ],
+  "backend_code_created": false
+}

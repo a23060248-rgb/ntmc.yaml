@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "allowed_future_scope": [
+    "event candidate",
+    "producer/consumer responsibility",
+    "causation/correlation",
+    "ordering",
+    "idempotency",
+    "compatibility",
+    "evidence classification"
+  ],
+  "prohibited_now": [
+    "production topic",
+    "broker selection",
+    "formal public event schema",
+    "event handler implementation"
+  ],
+  "runtime_event_object_binding": "RUNTIME_EVENT",
+  "readiness_only": true,
+  "logical_contract_modeling_authorized": false,
+  "physical_database_model_created": false,
+  "database_migration_created": false,
+  "formal_api_contract_created": false,
+  "backend_frontend_created": false,
+  "agent_runtime_created": false,
+  "product_implementation_started": false
+}

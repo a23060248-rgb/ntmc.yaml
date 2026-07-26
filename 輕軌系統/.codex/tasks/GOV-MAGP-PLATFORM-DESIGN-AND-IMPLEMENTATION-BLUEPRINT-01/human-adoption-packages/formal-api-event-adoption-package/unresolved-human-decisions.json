@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "domain": "FORMAL_API_EVENT",
+  "unresolved_count": 3,
+  "decisions": [
+    {
+      "decision_id": "HID-009",
+      "title": "API Style",
+      "options": [
+        "REST command-query",
+        "gRPC internal",
+        "GraphQL query projection",
+        "Hybrid"
+      ],
+      "codex_recommendation": "REST command-query candidate",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-010",
+      "title": "Event Delivery Guarantee",
+      "options": [
+        "At least once with idempotency",
+        "Other broker-specific guarantee"
+      ],
+      "codex_recommendation": "At least once with idempotency",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    },
+    {
+      "decision_id": "HID-016",
+      "title": "Message Infrastructure",
+      "options": [
+        "No initial broker",
+        "Managed queue",
+        "Streaming platform"
+      ],
+      "codex_recommendation": "Outbox then broker decision",
+      "status": "PENDING_HUMAN_DECISION",
+      "human_selection": null,
+      "human_rationale": null,
+      "human_authority_attestation": false,
+      "codex_selected": false
+    }
+  ],
+  "status": "PENDING_HUMAN_DECISION"
+}

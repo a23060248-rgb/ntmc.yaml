@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "model_status": "COMPLETE_PROPOSED_NOT_ADOPTED",
+  "change_classes": [
+    "BACKWARD_COMPATIBLE",
+    "FORWARD_COMPATIBLE",
+    "BREAKING"
+  ],
+  "evaluated_changes": [
+    "additive field",
+    "required field change",
+    "enum expansion",
+    "enum removal",
+    "event version change",
+    "command contract change",
+    "query projection change",
+    "schema deprecation",
+    "dual-read/dual-write logical requirement",
+    "consumer migration requirement"
+  ],
+  "breaking_change_requires": [
+    "RFC",
+    "IMPACT_ANALYSIS",
+    "OBJECT_LIBRARY_CONFORMANCE_REVIEW",
+    "ARCHITECTURE_CONFORMANCE_REVIEW",
+    "HUMAN_APPROVAL",
+    "CONTRACT_BASELINE_VERSION_INCREMENT"
+  ],
+  "current_contract_baseline": null,
+  "event_schema_evolution": "PENDING_HUMAN_DECISION_HCD_016",
+  "physical_or_transport_migration_defined": false
+}

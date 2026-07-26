@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "aggregate-storage-boundary",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "aggregates": [
+    {
+      "aggregate": "ConstitutionPolicy",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "RfcDecision",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "BlueprintSpecification",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "KnowledgeDefinition",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "EvidenceReview",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "FindingRemediation",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "VolumePackage",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "AgentDefinition",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "AgentRuntimeGovernance",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "DeploymentGovernance",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    },
+    {
+      "aggregate": "GovernanceAuthority",
+      "transaction_boundary": "single aggregate revision",
+      "cross_aggregate_mode": "exact reference plus outbox event",
+      "authority_copy_allowed": false
+    }
+  ]
+}

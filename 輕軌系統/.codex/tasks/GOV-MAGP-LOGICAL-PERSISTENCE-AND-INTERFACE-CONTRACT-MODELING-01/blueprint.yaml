@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "inputs": [
+    "MAGP-ARCH-BASELINE-V1",
+    "MAGP-OBJECT-LIBRARY-BASELINE-V1",
+    "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01"
+  ],
+  "outputs": [
+    "input-binding",
+    "logical-entity-model",
+    "aggregate-model",
+    "identity-and-reference-model",
+    "version-and-concurrency-model",
+    "lifecycle-persistence-model",
+    "command-contract-model",
+    "query-contract-model",
+    "logical-resource-model",
+    "event-contract-model",
+    "authority-enforcement-model",
+    "evidence-ledger-logical-model",
+    "audit-temporal-retention-model",
+    "transaction-and-consistency-model",
+    "validation-and-error-contract-model",
+    "contract-compatibility-model",
+    "human-contract-decision-matrix",
+    "logical-contract-proposal",
+    "human-logical-contract-adoption-package"
+  ],
+  "gates": [
+    "42_OF_42_PASS",
+    "HUMAN_DECISIONS_REMAIN_PENDING",
+    "PROPOSED_NOT_ADOPTED"
+  ],
+  "prohibited": [
+    "PHYSICAL_DATABASE",
+    "DDL",
+    "MIGRATION",
+    "ORM",
+    "FORMAL_API_ENDPOINT",
+    "BACKEND_FRONTEND",
+    "AGENT_RUNTIME",
+    "PRODUCT_IMPLEMENTATION",
+    "DEPLOYMENT",
+    "GIT"
+  ]
+}

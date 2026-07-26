@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "source_task_id": "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+  "artifacts": [
+    {
+      "relative_path": "human-adjudication-package/finding-001-decision-input.json",
+      "sha256": "AC36BD0B87C24D0FE4F1D2A42B73EC1589AE3D0F26831B8508F92E22F7D9404E",
+      "bytes": 2703
+    },
+    {
+      "relative_path": "human-adjudication-package/finding-002-decision-input.json",
+      "sha256": "4528D274DA5CC25380DF8E4676C5A298F53D96D80ABBE3AD5045BCB28BBDCAD9",
+      "bytes": 2666
+    },
+    {
+      "relative_path": "human-adjudication-package/evidence-index.json",
+      "sha256": "4A52CCF75F925ADC08A09BE83FBC6C645C311F77FFEA64A187A3527F83D88C74",
+      "bytes": 2946
+    },
+    {
+      "relative_path": "technical-assessment/compat-r1-001-assessment.json",
+      "sha256": "EEBE12151688C5BF02F13D6EE02568D9337056BB0EDB48CB56D575DDEF6E57AE",
+      "bytes": 4608
+    },
+    {
+      "relative_path": "technical-assessment/compat-r1-002-assessment.json",
+      "sha256": "04782EF5CDAE02031D863256F6340B0AF33BA47FC98257335F830EDB28F31F0E",
+      "bytes": 4423
+    },
+    {
+      "relative_path": "deterministic-validation/finding-001-validation.json",
+      "sha256": "F46D921111E0EA7B2F8A9047C59E1EF895775C94D8CD1ED8C01DA358A323D45E",
+      "bytes": 862
+    },
+    {
+      "relative_path": "deterministic-validation/finding-002-validation.json",
+      "sha256": "834D14B838BC5BF33B21969D6103E416CE76E341D086E76ABB46CE20C6808183",
+      "bytes": 927
+    },
+    {
+      "relative_path": "deterministic-validation/validation-summary.json",
+      "sha256": "1A5645D83EF20B95CE0D7C3A5DA8841A0DD09CE4292693A10C8BEF95A6541F80",
+      "bytes": 958
+    },
+    {
+      "relative_path": "assurance/assurance-classification.json",
+      "sha256": "01108966FE546FACA9859B990E3BA3A846ECE3F83E1D70594CA097B0BF9D2C35",
+      "bytes": 592
+    },
+    {
+      "relative_path": "assurance/known-limitations.json",
+      "sha256": "3BEE87B9ECB81D94FF5A6F4996DFFE20A50E484A277BC996E82F657221F0119C",
+      "bytes": 894
+    }
+  ],
+  "expected_count": 10,
+  "semantic_requirements": {
+    "COMPAT-R1-001_validation": "VALIDATION_PASS",
+    "COMPAT-R1-001_recommendation": "RECOMMEND_HUMAN_CLOSE",
+    "COMPAT-R1-002_validation": "VALIDATION_PASS",
+    "COMPAT-R1-002_recommendation": "RECOMMEND_HUMAN_CLOSE",
+    "base_target_integrity": "UNCHANGED_20_OF_20",
+    "corrective_overlay_integrity": "UNCHANGED_7_OF_7",
+    "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+    "assurance_level": "REDUCED_ASSURANCE"
+  },
+  "status": "VALIDATED"
+}

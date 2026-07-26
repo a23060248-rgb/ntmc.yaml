@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "model_status": "COMPLETE_PROPOSED_NOT_ADOPTED",
+  "aggregate_count": 11,
+  "aggregates": [
+    {
+      "aggregate_id": "GOVERNANCE_AUTHORITY_AGGREGATE",
+      "aggregate_root": "META_CONSTITUTION",
+      "contained_logical_entities": [
+        "META_CONSTITUTION",
+        "HUMAN_APPROVAL",
+        "AUTHORITY_GRANT",
+        "APPROVAL_BINDING"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "STRONG_FOR_AUTHORITY_OR_CLOSURE_EFFECT",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": [
+        "HCD-005"
+      ]
+    },
+    {
+      "aggregate_id": "POLICY_AND_RULE_AGGREGATE",
+      "aggregate_root": "POLICY",
+      "contained_logical_entities": [
+        "POLICY",
+        "GOVERNANCE_RULE"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "LOCAL_STRONG_CROSS_AGGREGATE_EVENTUAL_WITH_WORKFLOW",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": [
+        "HCD-002"
+      ]
+    },
+    {
+      "aggregate_id": "RFC_AND_DECISION_AGGREGATE",
+      "aggregate_root": "RFC",
+      "contained_logical_entities": [
+        "RFC",
+        "DECISION"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "LOCAL_STRONG_CROSS_AGGREGATE_EVENTUAL_WITH_WORKFLOW",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": []
+    },
+    {
+      "aggregate_id": "BLUEPRINT_AND_SPECIFICATION_AGGREGATE",
+      "aggregate_root": "BLUEPRINT",
+      "contained_logical_entities": [
+        "BLUEPRINT",
+        "SPECIFICATION"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "LOCAL_STRONG_CROSS_AGGREGATE_EVENTUAL_WITH_WORKFLOW",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": []
+    },
+    {
+      "aggregate_id": "SCHEMA_AND_KNOWLEDGE_DEFINITION_AGGREGATE",
+      "aggregate_root": "SCHEMA",
+      "contained_logical_entities": [
+        "SCHEMA",
+        "ONTOLOGY",
+        "CLASS_DEFINITION",
+        "RELATION_DEFINITION"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "LOCAL_STRONG_CROSS_AGGREGATE_EVENTUAL_WITH_WORKFLOW",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": []
+    },
+    {
+      "aggregate_id": "EVIDENCE_AND_REVIEW_AGGREGATE",
+      "aggregate_root": "EVIDENCE",
+      "contained_logical_entities": [
+        "EVIDENCE",
+        "REVIEW",
+        "VALIDATION_RESULT",
+        "EVIDENCE_BINDING",
+        "LINEAGE_EDGE",
+        "INTEGRITY_BINDING",
+        "AUDIT_ENTRY"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "STRONG_FOR_AUTHORITY_OR_CLOSURE_EFFECT",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": [
+        "HCD-003"
+      ]
+    },
+    {
+      "aggregate_id": "FINDING_AND_REMEDIATION_AGGREGATE",
+      "aggregate_root": "FINDING",
+      "contained_logical_entities": [
+        "FINDING"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "STRONG_FOR_AUTHORITY_OR_CLOSURE_EFFECT",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": [
+        "HCD-004"
+      ]
+    },
+    {
+      "aggregate_id": "VOLUME_AND_PACKAGE_AGGREGATE",
+      "aggregate_root": "VOLUME",
+      "contained_logical_entities": [
+        "VOLUME",
+        "PACKAGE",
+        "OBJECT_VERSION",
+        "OBJECT_RELATIONSHIP"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "LOCAL_STRONG_CROSS_AGGREGATE_EVENTUAL_WITH_WORKFLOW",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": []
+    },
+    {
+      "aggregate_id": "AGENT_DEFINITION_AGGREGATE",
+      "aggregate_root": "AGENT_DEFINITION",
+      "contained_logical_entities": [
+        "AGENT_DEFINITION"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "LOCAL_STRONG_CROSS_AGGREGATE_EVENTUAL_WITH_WORKFLOW",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": []
+    },
+    {
+      "aggregate_id": "AGENT_RUNTIME_AGGREGATE",
+      "aggregate_root": "AGENT_INSTANCE",
+      "contained_logical_entities": [
+        "AGENT_INSTANCE",
+        "RUNTIME_EVENT",
+        "LIFECYCLE_TRANSITION",
+        "IDEMPOTENCY_RECORD"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "LOCAL_STRONG_CROSS_AGGREGATE_EVENTUAL_WITH_WORKFLOW",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": []
+    },
+    {
+      "aggregate_id": "DEPLOYMENT_AND_RELEASE_AGGREGATE",
+      "aggregate_root": "DEPLOYMENT_ARTIFACT",
+      "contained_logical_entities": [
+        "DEPLOYMENT_ARTIFACT"
+      ],
+      "invariants": [
+        "root controls mutation",
+        "identity/version/authority/evidence fields preserved",
+        "cross-aggregate reference cannot transfer authority",
+        "Human Gate cannot be bypassed"
+      ],
+      "transactional_boundary": "ATOMIC_ONLY_FOR_ROOT_INVARIANT_AND_LOCAL_STATE_TRANSITION",
+      "authority_boundary": "EXPLICIT_ACTION_RESOURCE_CONTEXT_AND_CEILING",
+      "lifecycle_boundary": "FSM_TRANSITION_WITH_HISTORY",
+      "concurrency_boundary": "EXPECTED_AGGREGATE_REVISION",
+      "event_boundary": "EVENT_AFTER_ACCEPTED_LOCAL_TRANSITION",
+      "allowed_commands": [
+        "PROPOSE",
+        "REVIEW_OR_VALIDATE_WHERE_AUTHORIZED",
+        "REQUEST_HUMAN_GATE",
+        "TRANSITION_WHERE_AUTHORIZED"
+      ],
+      "prohibited_direct_mutations": [
+        "child direct write",
+        "silent normative effect",
+        "evidence self-validation",
+        "authority escalation"
+      ],
+      "cross_aggregate_references": "CANONICAL_VERSIONED_REFERENCE_NO_CASCADE_NO_AUTHORITY_COPY",
+      "consistency_model": "STRONG_FOR_AUTHORITY_OR_CLOSURE_EFFECT",
+      "human_gate_requirement": "REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_RELEASE_OR_CRITICAL_HIGH_CLOSURE_EFFECT",
+      "unresolved_human_decisions": []
+    }
+  ]
+}

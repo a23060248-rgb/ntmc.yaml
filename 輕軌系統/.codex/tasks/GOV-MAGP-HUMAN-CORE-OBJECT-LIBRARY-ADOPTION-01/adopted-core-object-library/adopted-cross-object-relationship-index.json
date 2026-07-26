@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "artifact_type": "ADOPTED_CROSS_OBJECT_RELATIONSHIP_INDEX",
+  "adoption_status": "HUMAN_ADOPTED",
+  "normative_object_library": true,
+  "object_library_baseline": "MAGP-OBJECT-LIBRARY-BASELINE-V1",
+  "adoption_method": "EXACT_5A_1_REFERENCE_WITH_EXPLICIT_HUMAN_RELATIONSHIP_OVERLAY",
+  "original_proposal_references": [
+    {
+      "relative_path": "core-object-library-proposal/cross-object-relationship-index.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/core-object-library-proposal/cross-object-relationship-index.json",
+      "sha256": "66B52AD5375DA26F3E521B23B86BE0400F4A985ED0FFAF05ABAFB167C00D5989",
+      "bytes": 887
+    },
+    {
+      "relative_path": "cross-object-relationship-model/relationship-definitions.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/cross-object-relationship-model/relationship-definitions.json",
+      "sha256": "CC54CC57DBC42DA1784CA6BEC228A4B901BC46BA45946C0261DA8EE662865C48",
+      "bytes": 13526
+    },
+    {
+      "relative_path": "cross-object-relationship-model/relationship-integrity-policy.yaml",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/cross-object-relationship-model/relationship-integrity-policy.yaml",
+      "sha256": "28925F15092CDE1C25D7233B5DECA8AD094E598481A4397885436A14F4288912",
+      "bytes": 584
+    }
+  ],
+  "original_proposal_bytes_modified": false,
+  "human_decision_reference": {
+    "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+    "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+    "bytes": 27044
+  },
+  "human_modification_record": {
+    "modification_id": "5A2-HUMAN-RELATIONSHIP-OVERLAY-001",
+    "rationale": "The 5A-2 Human adoption scope requires direct Architecture and RFC change semantics while preserving the 5A-1 detailed relation graph.",
+    "added_normative_relationships": [
+      {
+        "source_type": "RFC",
+        "relation": "DECIDES",
+        "target_type": "ARCHITECTURE_OR_POLICY_CHANGE",
+        "direction": "SOURCE_TO_TARGET",
+        "cardinality": "MANY_TO_MANY",
+        "authority_effect": "No effect until applicable Human Approval",
+        "lifecycle_effect": "approved Decision creates a new governed version",
+        "evidence_requirement": "RFC, Decision, review, approval, and hash bindings",
+        "supersession_behavior": "new Decision or RFC; no historical rewrite"
+      },
+      {
+        "source_type": "HUMAN_ADOPTED_ARCHITECTURE_BASELINE",
+        "relation": "CONSTRAINS",
+        "target_type": "BLUEPRINT",
+        "direction": "SOURCE_TO_TARGET",
+        "cardinality": "ONE_BASELINE_TO_MANY_BLUEPRINTS",
+        "authority_effect": "Blueprint may not exceed or reverse the adopted Architecture",
+        "lifecycle_effect": "Architecture supersession triggers Blueprint conformance review",
+        "evidence_requirement": "exact Architecture Baseline and Blueprint version/hash",
+        "supersession_behavior": "revalidate or supersede Blueprint under the new Architecture Baseline"
+      }
+    ]
+  },
+  "relationship_count_from_proposal": 18,
+  "adopted_minimum_relationship_semantics_complete": true
+}

@@ -1,0 +1,40 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "open_active_critical": 0,
+  "open_active_high": 0,
+  "risks": [
+    {
+      "risk_id": "OBJ-RISK-001",
+      "severity": "HIGH",
+      "status": "CONTAINED_PENDING_HUMAN_ADOPTION",
+      "risk": "Provisional JSON Schema notation could be mistaken for adopted schema standard.",
+      "control": "HOD-004 remains pending; every schema declares proposal-only and database_schema=false."
+    },
+    {
+      "risk_id": "OBJ-RISK-002",
+      "severity": "HIGH",
+      "status": "CONTAINED_PENDING_HUMAN_ADOPTION",
+      "risk": "Authority class ordering may imply powers not actually delegated.",
+      "control": "Action matrix uses explicit ceilings; HOD-007 remains pending; validation never implies approval."
+    },
+    {
+      "risk_id": "OBJ-RISK-003",
+      "severity": "HIGH",
+      "status": "CONTAINED_PENDING_HUMAN_ADOPTION",
+      "risk": "Core object proposal may be treated as implementation-ready.",
+      "control": "Database/API/Product remain prohibited; proposal status and Human adoption gate are repeated in every index."
+    },
+    {
+      "risk_id": "OBJ-RISK-004",
+      "severity": "MEDIUM",
+      "status": "OPEN_NON_BLOCKING_FOR_PROPOSAL",
+      "risk": "Runtime retention and physical storage requirements remain unknown.",
+      "control": "HOD-010 and prior Evidence Ledger physical-storage deferral block implementation."
+    }
+  ],
+  "assurance_level": "REDUCED_ASSURANCE"
+}

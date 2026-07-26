@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:policy:v0",
+  "title": "Policy Schema Proposal",
+  "description": "Candidate schema proposal; not adopted and not a database schema.",
+  "allOf": [
+    {
+      "$ref": "../../../canonical-object-envelope/canonical-object-envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "object_type": {
+              "const": "POLICY"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "policy_scope",
+            "governed_subjects",
+            "obligations",
+            "prohibitions",
+            "permissions",
+            "exceptions",
+            "enforcement_requirements",
+            "evidence_requirements",
+            "violation_consequences",
+            "approval_authority",
+            "effective_period"
+          ],
+          "properties": {
+            "policy_scope": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "governed_subjects": {
+              "type": "array",
+              "items": {}
+            },
+            "obligations": {
+              "type": "array",
+              "items": {}
+            },
+            "prohibitions": {
+              "type": "array",
+              "items": {}
+            },
+            "permissions": {
+              "type": "array",
+              "items": {}
+            },
+            "exceptions": {
+              "type": "array",
+              "items": {}
+            },
+            "enforcement_requirements": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "evidence_requirements": {
+              "type": "array",
+              "items": {}
+            },
+            "violation_consequences": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "approval_authority": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "effective_period": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    }
+  ],
+  "x-magp-object-type-id": "OBJ-TYPE-002",
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true,
+  "x-magp-database-schema": false
+}

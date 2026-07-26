@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "required_section_count": 10,
+  "required_sections": [
+    "identity",
+    "versioning",
+    "lifecycle",
+    "authority",
+    "ownership",
+    "lineage",
+    "evidence",
+    "integrity",
+    "temporal",
+    "assurance"
+  ],
+  "required_governance_field_count": 17,
+  "required_governance_fields": [
+    "object_id",
+    "object_type",
+    "namespace",
+    "semantic_version",
+    "lifecycle_state",
+    "authority_class",
+    "authority_ceiling",
+    "normative_effect",
+    "owning_component",
+    "accountable_human_role",
+    "architecture_baseline_id",
+    "derived_from_object_ids",
+    "evidence_binding_ids",
+    "content_hash",
+    "schema_id",
+    "mutation_policy",
+    "assurance_level"
+  ],
+  "all_present": true,
+  "physical_mapping_may_remove_field": false,
+  "status": "PASS_HUMAN_ADOPTED"
+}

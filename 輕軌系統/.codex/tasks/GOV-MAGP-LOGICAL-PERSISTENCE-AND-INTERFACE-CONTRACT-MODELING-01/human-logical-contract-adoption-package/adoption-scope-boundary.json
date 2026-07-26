@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "package_status": "READY_PENDING_HUMAN_ADOPTION",
+  "may_adopt_later": [
+    "logical entities",
+    "aggregate boundaries",
+    "logical commands/queries/resources/events",
+    "logical authority/evidence/audit/consistency/compatibility contracts"
+  ],
+  "excluded": [
+    "physical database",
+    "DDL",
+    "migration",
+    "ORM",
+    "formal API endpoint",
+    "implementation",
+    "deployment"
+  ]
+}

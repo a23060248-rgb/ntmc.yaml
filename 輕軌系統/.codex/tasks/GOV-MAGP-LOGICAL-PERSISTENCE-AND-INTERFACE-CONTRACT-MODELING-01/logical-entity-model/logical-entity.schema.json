@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MAGP Logical Entity Proposal",
+  "type": "object",
+  "required": [
+    "logical_entity_id",
+    "mapped_object_type",
+    "entity_purpose",
+    "identity_requirements",
+    "lifecycle_requirements",
+    "authority_requirements",
+    "evidence_requirements",
+    "temporal_requirements",
+    "aggregate_membership",
+    "mutation_boundary",
+    "query_boundary",
+    "event_production",
+    "event_consumption",
+    "retention_classification",
+    "prohibited_persistence_shortcuts"
+  ],
+  "properties": {
+    "logical_entity_id": {
+      "type": "string"
+    },
+    "mapped_object_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "entity_purpose": {
+      "type": "string"
+    },
+    "identity_requirements": {
+      "type": "array"
+    },
+    "lifecycle_requirements": {
+      "type": "array"
+    },
+    "authority_requirements": {
+      "type": "array"
+    },
+    "evidence_requirements": {
+      "type": "array"
+    },
+    "temporal_requirements": {
+      "type": "array"
+    },
+    "aggregate_membership": {
+      "type": "string"
+    },
+    "mutation_boundary": {
+      "type": "string"
+    },
+    "query_boundary": {
+      "type": "string"
+    },
+    "event_production": {
+      "type": "array"
+    },
+    "event_consumption": {
+      "type": "array"
+    },
+    "retention_classification": {
+      "type": "array"
+    },
+    "prohibited_persistence_shortcuts": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

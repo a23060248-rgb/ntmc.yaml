@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human Core Object Library Adoption Decision",
+  "type": "object",
+  "required": [
+    "task_id",
+    "decision_status",
+    "human_decision",
+    "core_object_library_adopted",
+    "normative_object_library",
+    "codex_filled_human_decision"
+  ],
+  "properties": {
+    "task_id": {
+      "const": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01"
+    },
+    "decision_status": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "HUMAN_APPROVED",
+        "HUMAN_DEFERRED",
+        "HUMAN_REJECTED"
+      ]
+    },
+    "human_decision": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "ADOPT_CORE_OBJECT_LIBRARY_WITH_REDUCED_ASSURANCE_AND_RESOLVED_DECISIONS",
+        "ADOPT_CORE_OBJECT_LIBRARY_WITH_MODIFICATIONS",
+        "DEFER_CORE_OBJECT_LIBRARY_ADOPTION",
+        "REJECT_CORE_OBJECT_LIBRARY_PROPOSAL"
+      ]
+    },
+    "core_object_library_adopted": {
+      "type": "boolean"
+    },
+    "normative_object_library": {
+      "type": "boolean"
+    },
+    "codex_filled_human_decision": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

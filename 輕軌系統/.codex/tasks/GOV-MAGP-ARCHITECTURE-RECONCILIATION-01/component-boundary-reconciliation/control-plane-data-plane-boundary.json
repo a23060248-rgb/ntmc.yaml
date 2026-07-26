@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "control_plane": [
+    "Human Governance Gate",
+    "Meta Constitution",
+    "Source and Policy Governance",
+    "BGE",
+    "Blueprint Compiler",
+    "Agent Factory",
+    "Agent Registry",
+    "Runtime Governance",
+    "Policy Engine",
+    "Human Review Console"
+  ],
+  "data_plane": [
+    "Agent OS execution workers",
+    "tool adapters",
+    "knowledge retrieval",
+    "Railway Product Runtime"
+  ],
+  "evidence_plane": [
+    "Evidence Ledger",
+    "audit emitters",
+    "source/decision/execution trace"
+  ],
+  "invariants": [
+    "Data plane cannot modify control-plane Normative Policy.",
+    "Control plane cannot fabricate data-plane execution evidence.",
+    "Evidence plane records but does not authorize.",
+    "Human approval is never inferred from runtime success."
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "model_status": "COMPLETE_PROPOSED_NOT_ADOPTED",
+  "enforcement_point_count": 11,
+  "enforcement_points": [
+    {
+      "enforcement_id": "ENF-001",
+      "enforcement_point": "COMMAND_ADMISSION",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "COMMAND_ADMISSION",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": false,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-002",
+      "enforcement_point": "LIFECYCLE_TRANSITION",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "LIFECYCLE_TRANSITION",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": false,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-003",
+      "enforcement_point": "HUMAN_APPROVAL_BINDING",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "HUMAN_APPROVAL_BINDING",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": true,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-004",
+      "enforcement_point": "POLICY_ACTIVATION",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "POLICY_ACTIVATION",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": true,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-005",
+      "enforcement_point": "FINDING_CLOSURE",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "FINDING_CLOSURE",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": true,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-006",
+      "enforcement_point": "AGENT_PROVISIONING",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "AGENT_PROVISIONING",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": false,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-007",
+      "enforcement_point": "TOOL_ASSIGNMENT",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "TOOL_ASSIGNMENT",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": false,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-008",
+      "enforcement_point": "DATA_SCOPE_ASSIGNMENT",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "DATA_SCOPE_ASSIGNMENT",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": false,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-009",
+      "enforcement_point": "PACKAGE_RELEASE",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "PACKAGE_RELEASE",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": true,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-010",
+      "enforcement_point": "DEPLOYMENT_AUTHORIZATION",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "DEPLOYMENT_AUTHORIZATION",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": true,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    },
+    {
+      "enforcement_id": "ENF-011",
+      "enforcement_point": "EVIDENCE_ACCEPTANCE",
+      "required_authority": "EXPLICIT_CAPABILITY_FOR_ACTION",
+      "authority_source": "ADOPTED_POLICY_OR_HUMAN_DECISION_CHAIN",
+      "authority_ceiling": "MUST_NOT_EXCEED_ACTOR_OR_DELEGATION_CEILING",
+      "subject": "ACTOR_OR_AGENT_IDENTITY",
+      "resource": "CANONICAL_RESOURCE_REFERENCE",
+      "action": "EVIDENCE_ACCEPTANCE",
+      "context": [
+        "tenant/namespace",
+        "data scope",
+        "lifecycle state",
+        "risk/assurance"
+      ],
+      "policy_evaluation": "FAIL_CLOSED",
+      "human_gate": false,
+      "deny_conditions": [
+        "missing authority",
+        "ceiling exceeded",
+        "missing evidence",
+        "stale revision",
+        "Human Gate absent"
+      ],
+      "override_conditions": "EXPLICIT_HUMAN_OVERRIDE_OBJECT_WITH_SCOPE_EXPIRY_AND_EVIDENCE_ONLY",
+      "evidence_emitted": true,
+      "audit_requirement": "MANDATORY",
+      "implementation_point_defined": false
+    }
+  ],
+  "invariants": [
+    "VALIDATION_NOT_APPROVAL",
+    "ENFORCEMENT_NOT_ADOPTION",
+    "RECOMMENDATION_NOT_DECISION",
+    "EVIDENCE_PRODUCTION_NOT_ACCEPTANCE"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "error schemas",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "ErrorEnvelope": {
+    "required": [
+      "error_code",
+      "message",
+      "correlation_id"
+    ],
+    "properties": {
+      "error_code": {
+        "type": "string"
+      },
+      "message": {
+        "type": "string"
+      },
+      "correlation_id": {
+        "type": "string"
+      },
+      "retryable": {
+        "type": "boolean"
+      }
+    }
+  }
+}

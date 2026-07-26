@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "unresolved_count": 7,
+  "status": "PENDING_HUMAN_DECISION",
+  "decisions": [
+    {
+      "decision_id": "HAD-001",
+      "decision_title": "Canonical engineering grouping model",
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "ADOPT_MODIFIED_OPTION: retain six responsibility layers as canonical and preserve fourteen volumes as a non-normative traceable planning view."
+    },
+    {
+      "decision_id": "HAD-002",
+      "decision_title": "Volume and Package semantics",
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "ADOPT_OPTION_B."
+    },
+    {
+      "decision_id": "HAD-003",
+      "decision_title": "RFC document-set policy",
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "ADOPT_MODIFIED_OPTION: risk-based RFC trigger with mandatory content contract; allow eight-file expansion only for high-complexity packages."
+    },
+    {
+      "decision_id": "HAD-004",
+      "decision_title": "Agent Registry placement",
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "DEFER_DECISION until deployment topology and multi-project scope are separately designed; keep the logical Registry contract independent meanwhile."
+    },
+    {
+      "decision_id": "HAD-005",
+      "decision_title": "Runtime Governance placement",
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "ADOPT_MODIFIED_OPTION: logical separation is mandatory; defer physical separation until runtime non-functional requirements exist."
+    },
+    {
+      "decision_id": "HAD-006",
+      "decision_title": "Evidence Ledger deployment form",
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "DEFER_DECISION; adopt the evidence record contract before selecting physical storage."
+    },
+    {
+      "decision_id": "HAD-007",
+      "decision_title": "Governance artifact authority hierarchy",
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "ADOPT_OPTION_B."
+    }
+  ]
+}

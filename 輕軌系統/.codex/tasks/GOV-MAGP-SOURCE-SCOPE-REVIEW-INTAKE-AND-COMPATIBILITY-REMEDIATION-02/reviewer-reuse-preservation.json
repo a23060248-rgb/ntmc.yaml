@@ -1,0 +1,70 @@
+{
+  "record_core": {
+    "schema_version": 1,
+    "record_id": "MAGP-SOURCE-SCOPE-R1-REVIEWER-REUSE-R2",
+    "generated_at": "2026-07-22T16:34:28+08:00",
+    "base_target_binding": {
+      "review_target_task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+      "review_target_manifest_sha256": "C156854BA326194C5E26FB05C69849DC81784FC33E5713340D1E06DF0FF5F3D4",
+      "review_target_record_core_sha256": "DDE3280766B7CD5102DB8912874BB2426545F31924D8A83B2A894D361C725F38"
+    },
+    "preserved_reviewers": [
+      "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+      "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+      "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER"
+    ],
+    "preservation_status": "PRESERVED_FOR_SOURCE_SCOPE_AGGREGATOR_R2",
+    "source_file_count": 11,
+    "source_files_unchanged": true,
+    "source_ids_unchanged": true,
+    "source_hashes_unchanged": true,
+    "classification_counts": {
+      "TOTAL": 11,
+      "CORE_INCLUDED": 4,
+      "OPTIONAL_PATTERN_ONLY": 1,
+      "EXCLUDED": 6
+    },
+    "classification_4_1_6_unchanged": true,
+    "policy_artifacts": [
+      {
+        "normalized_relative_path": "source-scope-register.yaml",
+        "sha256": "0119C0087CD0B9F5AE7B248FE03D591DC97E0838CEFECE41198B87B08A758C37",
+        "current_sha256": "0119C0087CD0B9F5AE7B248FE03D591DC97E0838CEFECE41198B87B08A758C37",
+        "unchanged": true
+      },
+      {
+        "normalized_relative_path": "source-authority-policy.yaml",
+        "sha256": "90EC4DB425276908D3943078ACEF940345BD6E4C7AC5EE4CBFC1D31157CEF012",
+        "current_sha256": "90EC4DB425276908D3943078ACEF940345BD6E4C7AC5EE4CBFC1D31157CEF012",
+        "unchanged": true
+      },
+      {
+        "normalized_relative_path": "source-claim-eligibility-policy.yaml",
+        "sha256": "CAAA9410C194979FBAA99AC4C8ED0AD5A3EB7C1D1948E432FED0596815133B5C",
+        "current_sha256": "CAAA9410C194979FBAA99AC4C8ED0AD5A3EB7C1D1948E432FED0596815133B5C",
+        "unchanged": true
+      },
+      {
+        "normalized_relative_path": "vetc-contamination-prevention-policy.yaml",
+        "sha256": "E5D5F01F11E9973C8E02EDAA5E30B20A70C090EC99E13432952ECEFDAA32D70B",
+        "current_sha256": "E5D5F01F11E9973C8E02EDAA5E30B20A70C090EC99E13432952ECEFDAA32D70B",
+        "unchanged": true
+      },
+      {
+        "normalized_relative_path": "health-domain-contamination-prevention-policy.yaml",
+        "sha256": "1E8BD38737413574CBEEF9A053ABF9E8A8EE43777D033E5ADFE3F33E3E248B8E",
+        "current_sha256": "1E8BD38737413574CBEEF9A053ABF9E8A8EE43777D033E5ADFE3F33E3E248B8E",
+        "unchanged": true
+      }
+    ],
+    "corrective_overlay_scope": "STATUS_AND_DOWNSTREAM_AUTHORIZATION_SEQUENCE_ONLY",
+    "new_magp_core_claim_count": 0,
+    "new_railway_rule_count": 0,
+    "base_target_artifact_count": 20,
+    "base_target_unchanged": true
+  },
+  "record_core_sha256": "42BBD03EF090AF123D6A062C00D39F9FB864F6288A922E2BCCB034E6257EBF2E",
+  "canonicalization": "RFC8785_JCS",
+  "hash_algorithm": "SHA-256",
+  "hash_encoding": "UPPERCASE_HEX"
+}

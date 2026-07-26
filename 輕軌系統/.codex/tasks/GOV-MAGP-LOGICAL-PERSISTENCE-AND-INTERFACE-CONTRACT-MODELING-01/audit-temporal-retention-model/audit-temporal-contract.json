@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "temporal_dimensions": [
+    "OCCURRED_TIME",
+    "EFFECTIVE_TIME",
+    "RECORDED_TIME",
+    "SUPERSEDED_TIME",
+    "REVOKED_TIME",
+    "ARCHIVED_TIME"
+  ],
+  "audit_categories": [
+    "ACTOR_AUDIT",
+    "AUTHORITY_AUDIT",
+    "DATA_ACCESS_AUDIT",
+    "MUTATION_AUDIT",
+    "APPROVAL_AUDIT",
+    "REVIEW_AUDIT",
+    "RUNTIME_EVENT_AUDIT",
+    "EXPORT_AUDIT"
+  ],
+  "temporal_query_scope": "PENDING_HUMAN_DECISION_HCD_009",
+  "bitemporal_storage_implementation_selected": false,
+  "audit_history_append_oriented": true
+}

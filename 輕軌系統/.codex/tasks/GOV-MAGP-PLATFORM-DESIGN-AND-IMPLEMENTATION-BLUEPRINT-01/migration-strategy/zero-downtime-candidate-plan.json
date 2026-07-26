@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "zero-downtime-candidate-plan",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "candidate": true,
+  "prerequisites": [
+    "backward compatible schema",
+    "online index feasibility",
+    "idempotent backfill",
+    "observability",
+    "rollback rehearsal"
+  ],
+  "guaranteed": false,
+  "migration_executed": false
+}

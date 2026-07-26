@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "intake_id": "COMPATIBILITY_R2_ATTEMPT_01",
+  "formal_intake_status": "FORMALLY_REJECTED",
+  "hard_stop_code": "COMPATIBILITY_R2_ATTEMPT_1_SCHEMA_INVALID",
+  "raw_wrapper": {
+    "path": "compatibility-r2-attempt-1/raw-wrapper.txt",
+    "byte_length": 4742,
+    "sha256": "B4C186FDABE327136D338FBBE60B653B4E3256E887C03B88B097818727252E71"
+  },
+  "schema_binding": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-return-payload.schema.json",
+    "sha256": "9425D1AB3B451E0F11B8130E8DE9010A4F02BD0E3ACBFDF7E0D4FE42A69130BA"
+  },
+  "declared_payload_core_sha256": "C020273C9EA245F2CA11266E488957DAE5FF873786F651722A2EBE52A619E8F4",
+  "recomputed_rfc8785_jcs_payload_core_sha256": "C020273C9EA245F2CA11266E488957DAE5FF873786F651722A2EBE52A619E8F4",
+  "required_check_summary": {
+    "required_check_count": 25,
+    "pass_count": 24,
+    "fail_count": 1,
+    "all_pass": false
+  },
+  "checks": [
+    {"id": 1, "name": "single_json_object", "status": "PASS"},
+    {"id": 2, "name": "exact_two_top_level_fields", "status": "PASS"},
+    {"id": 3, "name": "formal_return_schema", "status": "FAIL"},
+    {"id": 4, "name": "rfc8785_jcs_hash", "status": "PASS"},
+    {"id": 5, "name": "reviewer_role", "status": "PASS"},
+    {"id": 6, "name": "task_id", "status": "PASS"},
+    {"id": 7, "name": "review_package_id", "status": "PASS"},
+    {"id": 8, "name": "reviewer_run_id", "status": "PASS"},
+    {"id": 9, "name": "assignment_id", "status": "PASS"},
+    {"id": 10, "name": "reviewer_session_nonce", "status": "PASS"},
+    {"id": 11, "name": "review_status_blocker", "status": "PASS"},
+    {"id": 12, "name": "review_started_false", "status": "PASS"},
+    {"id": 13, "name": "completed_false", "status": "PASS"},
+    {"id": 14, "name": "mandatory_exit_requested_true", "status": "PASS"},
+    {"id": 15, "name": "startup_status_blocker", "status": "PASS"},
+    {"id": 16, "name": "clean_context_valid_false", "status": "PASS"},
+    {"id": 17, "name": "forbidden_read_count_3", "status": "PASS"},
+    {"id": 18, "name": "out_of_scope_read_count_3", "status": "PASS"},
+    {"id": 19, "name": "implementation_conversation_used_true", "status": "PASS"},
+    {"id": 20, "name": "preparation_conversation_memory_used_true", "status": "PASS"},
+    {"id": 21, "name": "reviewer_repository_write_count_0", "status": "PASS"},
+    {"id": 22, "name": "subagents_used_false", "status": "PASS"},
+    {"id": 23, "name": "exact_startup_finding_set", "status": "PASS"},
+    {"id": 24, "name": "source_content_reviewed_false", "status": "PASS"},
+    {"id": 25, "name": "compat_r1_findings_not_closed", "status": "PASS"}
+  ],
+  "schema_errors": [
+    {
+      "instance_path": "/payload_core/clean_context_attestation/preparation_conversation_memory_used",
+      "keyword": "const",
+      "required_value": false,
+      "actual_value": true
+    },
+    {
+      "instance_path": "/payload_core/clean_context_attestation/implementation_conversation_used",
+      "keyword": "const",
+      "required_value": false,
+      "actual_value": true
+    },
+    {
+      "instance_path": "/payload_core/clean_context_attestation/forbidden_read_count",
+      "keyword": "const",
+      "required_value": 0,
+      "actual_value": 3
+    },
+    {
+      "instance_path": "/payload_core/clean_context_attestation/out_of_scope_read_count",
+      "keyword": "const",
+      "required_value": 0,
+      "actual_value": 3
+    }
+  ],
+  "additional_binding_checks": {
+    "review_package_core_sha256_match": true,
+    "review_target_binding_match": true,
+    "identity_match": true,
+    "failed_run_semantics_match_human_intake_contract": true
+  },
+  "interpretation": {
+    "valid_failed_execution_evidence_semantically": true,
+    "valid_formal_return_payload_under_bound_schema": false,
+    "substantive_review_started": false,
+    "substantive_review_credit": "NONE",
+    "may_close_compat_r1_findings": false,
+    "may_be_used_by_aggregator": false
+  },
+  "downstream_authorization": "DENIED"
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "automatic_normative_promotion": false,
+  "eligible_claim_states": [
+    "METHODOLOGY_SUPPORTING_EVIDENCE",
+    "CONCEPTUAL_INTERPRETATION_CANDIDATE",
+    "IMPLEMENTATION_GUIDANCE_CANDIDATE",
+    "ARCHITECTURE_PROPOSAL_CANDIDATE",
+    "NON_AUTHORITATIVE_PATTERN",
+    "INELIGIBLE"
+  ],
+  "source_mapping": {
+    "SOURCE-MAGP-01": "METHODOLOGY_SUPPORTING_EVIDENCE",
+    "SOURCE-MAGP-02": "CONCEPTUAL_INTERPRETATION_CANDIDATE",
+    "SOURCE-MAGP-03": "IMPLEMENTATION_GUIDANCE_CANDIDATE",
+    "SOURCE-MAGP-04": "ARCHITECTURE_PROPOSAL_CANDIDATE",
+    "SOURCE-PATTERN-01": "NON_AUTHORITATIVE_PATTERN",
+    "SOURCE-EXCLUDED-01": "INELIGIBLE",
+    "SOURCE-EXCLUDED-02": "INELIGIBLE",
+    "SOURCE-EXCLUDED-03": "INELIGIBLE",
+    "SOURCE-EXCLUDED-04": "INELIGIBLE",
+    "SOURCE-EXCLUDED-05": "INELIGIBLE",
+    "SOURCE-EXCLUDED-06": "INELIGIBLE"
+  },
+  "required_claim_binding": [
+    "source_id",
+    "source_sha256",
+    "source_location",
+    "claim_state",
+    "authority_level",
+    "scope_applicability",
+    "human_adoption_status"
+  ],
+  "prohibitions": [
+    "No implementation proposal may be labeled Normative solely because it is detailed or executable.",
+    "No optional pattern may be represented as current MAGP governance authority.",
+    "No excluded-source claim may enter the architecture reconciliation input set.",
+    "No health-domain value, judgment, risk range, or action advice may become a Railway Domain Rule.",
+    "No VET-C model, edge, runtime, UAV, training, or RFC-specific concept may define MAGP Core."
+  ],
+  "normative_claim_count_created_by_this_task": 0,
+  "implementation_proposal_mislabeled_normative_count": 0
+}

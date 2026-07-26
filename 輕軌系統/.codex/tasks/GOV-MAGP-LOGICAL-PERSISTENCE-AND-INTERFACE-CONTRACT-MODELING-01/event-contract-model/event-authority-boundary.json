@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "event_creates_normative_authority": false,
+  "event_creates_approval": false,
+  "event_authorizes_deployment": false,
+  "producer_authority_must_preexist": true,
+  "consumer_must_reauthorize_commands": true,
+  "event_replay_cannot_repeat_human_authority_effect_without_idempotency_and_binding": true
+}

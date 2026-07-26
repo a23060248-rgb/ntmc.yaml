@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "findings": [
+    {
+      "finding_id": "COMPAT-R1-001",
+      "title": "Pending review gate is represented as active downstream policy",
+      "severity": "HIGH",
+      "original_status": "OPEN",
+      "remediation_status": "REMEDIATED",
+      "final_effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "closure_model": "HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+      "finding_deleted": false,
+      "finding_waived": false,
+      "clean_room_verified": false,
+      "independent_reviewer_closed": false,
+      "human_decision": "HUMAN_CLOSED",
+      "active": false
+    },
+    {
+      "finding_id": "COMPAT-R1-002",
+      "title": "Architecture Reconciliation is prematurely directed to start",
+      "severity": "HIGH",
+      "original_status": "OPEN",
+      "remediation_status": "REMEDIATED",
+      "final_effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "closure_model": "HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+      "finding_deleted": false,
+      "finding_waived": false,
+      "clean_room_verified": false,
+      "independent_reviewer_closed": false,
+      "human_decision": "HUMAN_CLOSED",
+      "active": false
+    }
+  ],
+  "closed_by_human_adjudication": 2,
+  "closed_by_clean_room_review": 0,
+  "closed_by_independent_reviewer": 0,
+  "deleted": 0,
+  "waived": 0
+}

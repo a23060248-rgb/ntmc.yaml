@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "matrix": [
+    {
+      "payload_class": "EXISTING_R1_PAYLOAD",
+      "v1_return": "APPLICABLE",
+      "v2_return": "NOT_APPLICABLE",
+      "v2_failure_admission": "NOT_APPLICABLE"
+    },
+    {
+      "payload_class": "ATTEMPT_1_LEGACY_STARTUP_FAILURE",
+      "v1_return": "FORMALLY_REJECTED",
+      "v2_return": "NOT_RETROACTIVELY_APPLIED",
+      "v2_failure_admission": "ADMITTED_STARTUP_FAILURE_EVIDENCE"
+    },
+    {
+      "payload_class": "NEW_R2_RETRY_STARTUP_VALID",
+      "v1_return": "PROHIBITED",
+      "v2_return": "STARTUP_VALID_REVIEW_RESULT",
+      "v2_failure_admission": "NOT_APPLICABLE"
+    },
+    {
+      "payload_class": "NEW_R2_RETRY_STARTUP_BLOCKER",
+      "v1_return": "PROHIBITED",
+      "v2_return": "STARTUP_BLOCKER_FAILURE_EVIDENCE",
+      "v2_failure_admission": "NOT_REQUIRED"
+    }
+  ]
+}

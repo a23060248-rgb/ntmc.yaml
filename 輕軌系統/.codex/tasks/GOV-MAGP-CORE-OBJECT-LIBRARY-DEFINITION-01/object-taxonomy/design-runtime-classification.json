@@ -1,0 +1,156 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "classifications": [
+    {
+      "object_type": "META_CONSTITUTION",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "POLICY",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "GOVERNANCE_RULE",
+      "classification": "DESIGN_TIME_AND_RUNTIME_EVALUATION",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+    },
+    {
+      "object_type": "RFC",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "BLUEPRINT",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "SPECIFICATION",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "DECISION",
+      "classification": "DESIGN_TIME_OR_GOVERNED_RUNTIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+    },
+    {
+      "object_type": "HUMAN_APPROVAL",
+      "classification": "DESIGN_TIME_OR_GOVERNED_RUNTIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+    },
+    {
+      "object_type": "SCHEMA",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "ONTOLOGY",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "CLASS_DEFINITION",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "RELATION_DEFINITION",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "EVIDENCE",
+      "classification": "DESIGN_TIME_AND_RUNTIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+    },
+    {
+      "object_type": "FINDING",
+      "classification": "DESIGN_TIME_AND_RUNTIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+    },
+    {
+      "object_type": "REVIEW",
+      "classification": "DESIGN_TIME_AND_RUNTIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+    },
+    {
+      "object_type": "VOLUME",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "PACKAGE",
+      "classification": "DESIGN_TIME_TO_RUNTIME_HANDOFF",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+    },
+    {
+      "object_type": "AGENT_DEFINITION",
+      "classification": "DESIGN_TIME",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+    },
+    {
+      "object_type": "AGENT_INSTANCE",
+      "classification": "RUNTIME",
+      "runtime_object": true,
+      "design_object": false,
+      "lifecycle_profile": "RUNTIME_COMMON_FSM"
+    },
+    {
+      "object_type": "RUNTIME_EVENT",
+      "classification": "RUNTIME",
+      "runtime_object": true,
+      "design_object": false,
+      "lifecycle_profile": "RUNTIME_COMMON_FSM"
+    },
+    {
+      "object_type": "DEPLOYMENT_ARTIFACT",
+      "classification": "DESIGN_TIME_TO_RUNTIME_HANDOFF",
+      "runtime_object": false,
+      "design_object": true,
+      "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+    }
+  ]
+}

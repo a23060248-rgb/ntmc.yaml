@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "source_id": "SOURCE-MAGP-01",
+  "classification": "CORE",
+  "authority_level": "PRIMARY_METHODOLOGY_SOURCE",
+  "claim_eligibility": "METHODOLOGY_SUPPORTING_EVIDENCE",
+  "read_scope": "FULL_DOCUMENT",
+  "source_binding": {
+    "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+    "sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+    "bytes": 5438144
+  },
+  "extraction": {
+    "method": "PYPDF_PAGE_AWARE_TEXT_EXTRACTION",
+    "page_count": 195,
+    "total_character_count": 129807
+  },
+  "architecture_claim_ids": [
+    "ARC-CLM-002",
+    "ARC-CLM-003",
+    "ARC-CLM-004",
+    "ARC-CLM-005",
+    "ARC-CLM-014",
+    "ARC-CLM-015",
+    "ARC-CLM-016",
+    "ARC-CLM-021",
+    "ARC-CLM-025",
+    "ARC-CLM-026",
+    "ARC-CLM-027",
+    "ARC-CLM-032"
+  ],
+  "architecture_claim_count": 12,
+  "source_explicit_claim_count": 4,
+  "derived_or_synthesis_claim_count": 6,
+  "optional_pattern_claim_count": 0,
+  "exact_evidence_references": [
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        50,
+        53,
+        54,
+        55
+      ],
+      "anchor": "MAGP lifecycle and thesis scope",
+      "evidence_note": "The thesis limits implementation to blueprint-driven knowledge governance and treats Factory, Agent OS, and Runtime Governance as future work."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        52,
+        55,
+        57,
+        59,
+        116,
+        117,
+        118,
+        119
+      ],
+      "anchor": "source-to-knowledge-graph pipeline",
+      "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        114,
+        115
+      ],
+      "anchor": "LLM-assisted completion remains pending",
+      "evidence_note": "LLM-completed knowledge is explicitly retained as a pending candidate rather than verified knowledge."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        119,
+        120
+      ],
+      "anchor": "future Agent Factory and runtime governance",
+      "evidence_note": "Full Agent Factory and runtime governance are future research directions."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        50,
+        53,
+        54,
+        55
+      ],
+      "anchor": "MAGP lifecycle and thesis scope",
+      "evidence_note": "The thesis limits implementation to blueprint-driven knowledge governance and treats Factory, Agent OS, and Runtime Governance as future work."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        52,
+        55,
+        57,
+        59,
+        116,
+        117,
+        118,
+        119
+      ],
+      "anchor": "source-to-knowledge-graph pipeline",
+      "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        52,
+        55,
+        57,
+        59,
+        116,
+        117,
+        118,
+        119
+      ],
+      "anchor": "source-to-knowledge-graph pipeline",
+      "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        52,
+        55,
+        57,
+        59,
+        116,
+        117,
+        118,
+        119
+      ],
+      "anchor": "source-to-knowledge-graph pipeline",
+      "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        50,
+        53,
+        54,
+        55
+      ],
+      "anchor": "MAGP lifecycle and thesis scope",
+      "evidence_note": "The thesis limits implementation to blueprint-driven knowledge governance and treats Factory, Agent OS, and Runtime Governance as future work."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        52,
+        55,
+        57,
+        59,
+        116,
+        117,
+        118,
+        119
+      ],
+      "anchor": "source-to-knowledge-graph pipeline",
+      "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        114,
+        115
+      ],
+      "anchor": "LLM-assisted completion remains pending",
+      "evidence_note": "LLM-completed knowledge is explicitly retained as a pending candidate rather than verified knowledge."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        50,
+        53,
+        54,
+        55
+      ],
+      "anchor": "MAGP lifecycle and thesis scope",
+      "evidence_note": "The thesis limits implementation to blueprint-driven knowledge governance and treats Factory, Agent OS, and Runtime Governance as future work."
+    },
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "source_sha256": "7D30007770AE467F0C99DB8EBA62B02C8773A53C20C90C716078630B5BEFE1D2",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/113568079_詹士賢_基於Meta Agent架構之可信知識治理方法：藍圖驅動之健康管理AI知識工程設計.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        52,
+        55,
+        57,
+        59,
+        116,
+        117,
+        118,
+        119
+      ],
+      "anchor": "source-to-knowledge-graph pipeline",
+      "evidence_note": "The thesis documents the domain blueprint, rule/prompt compiler, source sentences, clauses, units, packages, links, Knowledge Lake, Knowledge Graph, and HITL outputs."
+    }
+  ],
+  "prohibited_overclaim": "NO_HEALTH_SPECIFIC_RAILWAY_PROMOTION_AND_NO_FULL_PLATFORM_IMPLEMENTATION_CLAIM"
+}

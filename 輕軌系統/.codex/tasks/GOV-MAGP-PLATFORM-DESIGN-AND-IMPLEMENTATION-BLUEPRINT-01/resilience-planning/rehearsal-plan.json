@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "recovery rehearsal",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "scenarios": [
+    "transaction store loss",
+    "evidence blob loss",
+    "audit corruption",
+    "event backlog",
+    "projection rebuild",
+    "credential compromise"
+  ],
+  "Human_GO_required": true,
+  "execution_authorized": false
+}

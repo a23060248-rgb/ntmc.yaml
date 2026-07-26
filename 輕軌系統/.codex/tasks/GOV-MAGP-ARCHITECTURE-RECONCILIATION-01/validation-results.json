@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "run_id": "MAGP-ARCHITECTURE-RECONCILIATION-20260722-R1",
+  "validator": "TASK_LOCAL_ARCHITECTURE_RECONCILIATION_VALIDATOR",
+  "validator_script": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-ARCHITECTURE-RECONCILIATION-01/scripts/run-architecture-reconciliation.mjs",
+    "sha256": "07C1C13760A94F5E277FD07AFFA39FBFBECD6474AC8D5E56C91651081C52DC15",
+    "bytes": 145111
+  },
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "Human Architecture Reconciliation authorization is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Adopted Source Manifest binding is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Source Hash binding is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Source Classification is 4/1/6",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Source Authority is HUMAN_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Source Authority Normative Scope is not expanded",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "All four CORE sources are included in Claim Mapping",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "OPTIONAL source is used only as a non-authoritative pattern",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Six EXCLUDED sources form no architecture claim",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Every Claim has Lineage",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Every Derived Claim is marked as derived or synthesis",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Every New Proposal is marked as new design",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Thesis implementation and extension design are distinguished",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Six-layer model is reconciled",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Component responsibility boundaries are established",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Design-time and Runtime are distinguished",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Control Plane and Data Plane are distinguished",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Human and Machine Authority are distinguished",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Volume model is analyzed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Package model is analyzed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "RFC model is analyzed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "Blueprint governance is analyzed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "Evidence Flow is established",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Authority Flow is established",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Architecture Conflict Ledger is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Decision Matrix is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Human Decisions remain PENDING",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Canonical Architecture is PROPOSED_NOT_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Human Adoption Package is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 30,
+      "requirement": "Core Object Library is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 31,
+      "requirement": "Product Implementation is not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 32,
+      "requirement": "Source files are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 33,
+      "requirement": "Product/Governance baseline is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 34,
+      "requirement": "Historical Tasks are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 35,
+      "requirement": "Git was not used",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 35,
+  "required_pass_count": 35,
+  "required_fail_count": 0,
+  "required_status": "PASS_35_OF_35",
+  "negative_fail_closed_tests": [
+    {
+      "test_id": "NEG-01",
+      "requirement": "Reject missing exact Human authorization",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-02",
+      "requirement": "Reject any source count other than 11",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-03",
+      "requirement": "Reject any source hash or identity drift",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-04",
+      "requirement": "Reject any classification other than 4/1/6",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-05",
+      "requirement": "Reject Source Authority scope expansion",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-06",
+      "requirement": "Reject unmanifested source use",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-07",
+      "requirement": "Reject OPTIONAL source as Normative Architecture",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-08",
+      "requirement": "Reject EXCLUDED source content as architecture evidence",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-09",
+      "requirement": "Reject missing Claim lineage",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-10",
+      "requirement": "Reject derived claim represented as source explicit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-11",
+      "requirement": "Reject new proposal represented as source conclusion",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-12",
+      "requirement": "Reject missing thesis extension boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-13",
+      "requirement": "Reject unresolved component authority overlap",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-14",
+      "requirement": "Reject prefilled Human architecture decision",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-15",
+      "requirement": "Reject architecture adoption or implementation readiness claims",
+      "status": "PASS"
+    }
+  ],
+  "negative_test_count": 15,
+  "negative_pass_count": 15,
+  "negative_status": "PASS_15_OF_15",
+  "architecture_open_critical": 0,
+  "architecture_open_high": 0,
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "service_used": false,
+    "database_used": false,
+    "seed_used": false,
+    "migration_used": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "reviewer_launched": false,
+    "repository_wide_discovery_used": false,
+    "unmanifested_source_read": false,
+    "excluded_source_content_read": false,
+    "architecture_adopted": false,
+    "normative_architecture": false,
+    "core_object_library_created": false,
+    "product_implementation_started": false,
+    "writes_outside_task_root": 0
+  }
+}

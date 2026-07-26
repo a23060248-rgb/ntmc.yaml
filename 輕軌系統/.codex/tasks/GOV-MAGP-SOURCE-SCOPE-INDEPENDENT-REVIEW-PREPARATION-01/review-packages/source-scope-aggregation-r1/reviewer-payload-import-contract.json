@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "import_mode": "EXACT_FOUR_HUMAN_TRANSPORTED_CANONICAL_PAYLOADS",
+  "shared_reviewer_return_schema_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/reviewer-return-payload.schema.json",
+  "shared_reviewer_return_schema_sha256": "DACCC96EE577856C97EAA811ED904DF47CD44A13C08094C6898C08FF6A5D8696",
+  "shared_transport_schema_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/manual-reviewer-transport-attestation.schema.json",
+  "shared_transport_schema_sha256": "42ED977653D161538AB73E160651DF9FFBF2D8CF4CC1CA75ECF9BB382A0988AF",
+  "inputs": [
+    {
+      "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTEGRITY-R1",
+      "review_package_id": "MAGP-SSR1-SOURCE_INTEGRITY-20D126E7-1008-4D9B-B517-E42573E4DC6D",
+      "reviewer_run_id": "RUN-6BE018C5-E990-4B21-AE1E-9FBD2A564DE2",
+      "package_core_sha256": "EAB328089A7C1F05AFB95061071A2C19F7C39D807E5A939AA760227CBE05E81E",
+      "canonical_payload_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTEGRITY-R1/reviewer-payload.canonical.json",
+      "manual_transport_attestation_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1/manual-transport-attestations/source-integrity.json"
+    },
+    {
+      "reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-AUTHORITY-R1",
+      "review_package_id": "MAGP-SSR1-SOURCE_AUTHORITY-E30F2944-B4AB-4D3A-B657-662219383437",
+      "reviewer_run_id": "RUN-0A17D678-EC74-4C45-BF46-F3AF26ED18DC",
+      "package_core_sha256": "7473CA7BA921DFF4279387E04F9CFA7C7288568ADDA62A41AFB7EF21E70A7E11",
+      "canonical_payload_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-AUTHORITY-R1/reviewer-payload.canonical.json",
+      "manual_transport_attestation_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1/manual-transport-attestations/source-authority.json"
+    },
+    {
+      "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-CONTAMINATION-R1",
+      "review_package_id": "MAGP-SSR1-SCOPE_CONTAMINATION-EF4EFD42-9E1D-4876-A288-8932113F0A29",
+      "reviewer_run_id": "RUN-A10A0959-2FA2-4045-A5B7-931EC8194FA1",
+      "package_core_sha256": "D848273E0DE6CD1B9FC5BD2CDE7F7E66C195F48FF739A90D7F52134439B8D229",
+      "canonical_payload_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-CONTAMINATION-R1/reviewer-payload.canonical.json",
+      "manual_transport_attestation_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1/manual-transport-attestations/scope-contamination.json"
+    },
+    {
+      "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+      "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R1",
+      "review_package_id": "MAGP-SSR1-COMPATIBILITY-C1E24EA9-7DB7-4D9A-B7F1-F3BB2B347B7D",
+      "reviewer_run_id": "RUN-CF3E09ED-220D-4DB9-B8E6-74F50A9D3BC8",
+      "package_core_sha256": "47A05C9C127F502C1491FD5527DE6FC34CD337D1774DEDC1FA03DFB846A39318",
+      "canonical_payload_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R1/reviewer-payload.canonical.json",
+      "manual_transport_attestation_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1/manual-transport-attestations/compatibility.json"
+    }
+  ],
+  "validation_order": [
+    "FILE_EXISTS",
+    "STRICT_JSON_PARSE",
+    "EXACT_TWO_FIELD_WRAPPER",
+    "RFC8785_CANONICAL_BYTES",
+    "PAYLOAD_CORE_JCS_SHA256",
+    "REVIEWER_RETURN_SCHEMA",
+    "ROLE_BINDING",
+    "PACKAGE_BINDING",
+    "PACKAGE_CORE_BINDING",
+    "RUN_BINDING",
+    "TARGET_BINDING",
+    "TRANSPORT_SCHEMA",
+    "TRANSPORT_ROLE_BINDING",
+    "TRANSPORT_PACKAGE_BINDING",
+    "TRANSPORT_RUN_BINDING",
+    "TRANSPORT_PAYLOAD_SHA256",
+    "PAYLOAD_MODIFIED_FALSE",
+    "TRANSPORTED_BY_HUMAN_TRUE",
+    "UNIQUE_FOUR_ROLE_SET"
+  ],
+  "invalid_input_action": "NO_GO_WITHOUT_REPAIR",
+  "payload_mutation_allowed": false
+}

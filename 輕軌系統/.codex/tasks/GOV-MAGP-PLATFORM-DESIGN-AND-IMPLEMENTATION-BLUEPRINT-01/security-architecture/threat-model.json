@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "threat-model",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "methodology": "asset-boundary-abuse-case",
+  "threat_count": 18,
+  "threats": [
+    {
+      "threat_id": "THR-001",
+      "name": "Agent self-authorization",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-002",
+      "name": "Privilege escalation",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-003",
+      "name": "Policy tampering",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-004",
+      "name": "Evidence tampering",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-005",
+      "name": "Finding deletion",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-006",
+      "name": "Approval replay",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-007",
+      "name": "Stale approval",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-008",
+      "name": "Idempotency abuse",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-009",
+      "name": "Event spoofing",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-010",
+      "name": "Event replay",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-011",
+      "name": "Audit deletion",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-012",
+      "name": "Lineage forgery",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-013",
+      "name": "Cross-volume access",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-014",
+      "name": "Package substitution",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-015",
+      "name": "Deployment artifact substitution",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-016",
+      "name": "Prompt or context contamination",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-017",
+      "name": "Sensitive evidence leakage",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "threat_id": "THR-018",
+      "name": "Runtime mutation of Design-Time Policy",
+      "treatment": "PREVENT_DETECT_RESPOND",
+      "adoption_status": "PENDING_HUMAN_DECISION"
+    }
+  ]
+}

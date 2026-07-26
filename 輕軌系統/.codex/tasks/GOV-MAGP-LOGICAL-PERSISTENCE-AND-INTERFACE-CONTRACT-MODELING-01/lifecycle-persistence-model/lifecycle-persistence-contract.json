@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "required_fields": [
+    "current_state",
+    "transition_history",
+    "transition_actor",
+    "transition_authority",
+    "transition_guard_result",
+    "required_evidence",
+    "approval_binding",
+    "side_effects",
+    "failure_reason",
+    "rollback_record",
+    "effective_time",
+    "recorded_time"
+  ],
+  "current_state_without_history_allowed": false,
+  "direct_state_patch_allowed": false,
+  "fsm_bypass_allowed": false,
+  "transition_record_append_oriented": true,
+  "transition_effect_requires_authority_and_guard": true,
+  "physical_event_store_selected": false
+}

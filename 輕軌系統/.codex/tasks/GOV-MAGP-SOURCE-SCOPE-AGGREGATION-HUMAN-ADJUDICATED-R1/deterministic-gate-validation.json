@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "run_id": "MAGP-SOURCE-SCOPE-HA1-20260722-R1",
+  "gates": [
+    {
+      "gate": "Integrity",
+      "expected": "PASS",
+      "actual": "PASS",
+      "status": "PASS"
+    },
+    {
+      "gate": "Authority",
+      "expected": "PASS",
+      "actual": "PASS",
+      "status": "PASS"
+    },
+    {
+      "gate": "Contamination",
+      "expected": "PASS",
+      "actual": "PASS",
+      "status": "PASS"
+    },
+    {
+      "gate": "Compatibility",
+      "expected": "GO_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+      "actual": "GO_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+      "status": "PASS"
+    },
+    {
+      "gate": "Open active CRITICAL findings",
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    },
+    {
+      "gate": "Open active HIGH findings",
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    },
+    {
+      "gate": "Base Review Target",
+      "expected": "UNCHANGED",
+      "actual": "UNCHANGED",
+      "status": "PASS"
+    },
+    {
+      "gate": "Corrective Overlay",
+      "expected": "UNCHANGED",
+      "actual": "UNCHANGED",
+      "status": "PASS"
+    },
+    {
+      "gate": "Source Root",
+      "expected": "UNCHANGED",
+      "actual": "UNCHANGED",
+      "status": "PASS"
+    },
+    {
+      "gate": "Classification",
+      "expected": "4/1/6 UNCHANGED",
+      "actual": "4/1/6 UNCHANGED",
+      "status": "PASS"
+    },
+    {
+      "gate": "Source Authority",
+      "expected": "PROPOSED_NOT_ADOPTED",
+      "actual": "PROPOSED_NOT_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "gate": "Normative Authority",
+      "expected": false,
+      "actual": false,
+      "status": "PASS"
+    },
+    {
+      "gate": "Human Exact-Manifest Adoption",
+      "expected": "NOT_STARTED",
+      "actual": "NOT_STARTED",
+      "status": "PASS"
+    },
+    {
+      "gate": "Architecture Reconciliation",
+      "expected": "NOT_AUTHORIZED",
+      "actual": "NOT_AUTHORIZED",
+      "status": "PASS"
+    },
+    {
+      "gate": "Product/Governance baseline",
+      "expected": "UNCHANGED",
+      "actual": "UNCHANGED",
+      "status": "PASS"
+    },
+    {
+      "gate": "Reduced-Assurance Disclosure",
+      "expected": "VALID",
+      "actual": "VALID",
+      "status": "PASS"
+    }
+  ],
+  "pass_count": 16,
+  "fail_count": 0,
+  "status": "PASS_16_OF_16"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01",
+  "batch_id": "MASTER_BATCH_3A_3E",
+  "objective": "Validate the completed reduced-assurance compatibility assessment, preserve the Human decisions closing COMPAT-R1-001 and COMPAT-R1-002, calculate the Human-adjudicated Compatibility Gate, and prepare but not launch a Human-adjudicated Source Scope Aggregator.",
+  "human_decision_source": "CURRENT_HUMAN_INSTRUCTION",
+  "human_decisions": {
+    "COMPAT-R1-001": "HUMAN_CLOSED",
+    "COMPAT-R1-002": "HUMAN_CLOSED"
+  },
+  "adopted_review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "assurance_level": "REDUCED_ASSURANCE",
+  "allowed_write_paths": [
+    ".codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/**"
+  ],
+  "fixed_prerequisite_tasks": [
+    "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+    "GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+    "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+    "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+    "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01"
+  ],
+  "prohibited_actions": [
+    "git",
+    "network",
+    "service",
+    "database",
+    "seed",
+    "migration",
+    "read_dot_env",
+    "subagent",
+    "reviewer_launch",
+    "aggregator_launch",
+    "architecture_reconciliation",
+    "source_scope_exact_manifest_adoption",
+    "core_object_library_creation",
+    "product_modification",
+    "historical_artifact_modification"
+  ],
+  "required_results": {
+    "COMPAT-R1-001": "CLOSED_BY_HUMAN_ADJUDICATION",
+    "COMPAT-R1-002": "CLOSED_BY_HUMAN_ADJUDICATION",
+    "compatibility_gate_result": "GO_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+    "source_scope_lock_review_gate": "PENDING_AGGREGATOR",
+    "aggregator_launch_readiness": "READY_FOR_HUMAN_TO_LAUNCH_HUMAN_ADJUDICATED_SOURCE_SCOPE_AGGREGATOR",
+    "aggregator": "NOT_STARTED",
+    "architecture_reconciliation": "NOT_AUTHORIZED"
+  }
+}

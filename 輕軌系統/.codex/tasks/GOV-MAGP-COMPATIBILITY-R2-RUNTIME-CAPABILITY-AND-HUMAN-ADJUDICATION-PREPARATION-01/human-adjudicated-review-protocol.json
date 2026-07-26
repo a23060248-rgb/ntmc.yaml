@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "protocol_id": "MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-PROTOCOL-01",
+  "formal_name": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "protocol_status": "PREPARED_NOT_ACTIVATED",
+  "activation_condition": "An exact Human decision of APPROVE_HUMAN_ADJUDICATED_COMPATIBILITY_REVIEW_WITH_REDUCED_ASSURANCE is recorded against the decision schema.",
+  "current_human_decision": "PENDING",
+  "forbidden_names": [
+    "EXTERNAL_REVIEWER",
+    "INDEPENDENT_REVIEWER",
+    "CLEAN_ROOM_REVIEW",
+    "L3_INDEPENDENT_REVIEW"
+  ],
+  "roles": [
+    {
+      "actor": "Codex",
+      "formal_role": "NON_INDEPENDENT_TECHNICAL_ASSESSOR",
+      "authority": "TECHNICAL_RECOMMENDATION_ONLY"
+    },
+    {
+      "actor": "Deterministic Validator",
+      "formal_role": "EVIDENCE_AND_BINDING_VALIDATOR",
+      "authority": "MECHANICAL_EVIDENCE_AND_BINDING_RESULT_ONLY"
+    },
+    {
+      "actor": "Human",
+      "formal_role": "FINAL_FINDING_ADJUDICATOR",
+      "authority": "FINAL_PER_FINDING_CLOSURE_DECISION"
+    }
+  ],
+  "technical_assessor_allowed_actions": [
+    "read_formal_review_target",
+    "read_corrective_overlay",
+    "validate_source_authority_state",
+    "validate_downstream_policy_prohibition_state",
+    "validate_architecture_reconciliation_authorization_state",
+    "list_exact_evidence_for_compat_r1_001",
+    "list_exact_evidence_for_compat_r1_002",
+    "recommend_close_or_do_not_close"
+  ],
+  "technical_assessor_prohibited_actions": [
+    "close_finding",
+    "claim_independence",
+    "claim_clean_room",
+    "authorize_aggregator",
+    "authorize_architecture_reconciliation",
+    "adopt_source_authority_policy",
+    "create_magp_architecture",
+    "create_core_object_library",
+    "approve_railway_domain_rules",
+    "approve_product_implementation"
+  ],
+  "finding_scope": [
+    "COMPAT-R1-001",
+    "COMPAT-R1-002"
+  ],
+  "technical_recommendation_values": [
+    "CLOSE",
+    "DO_NOT_CLOSE"
+  ],
+  "human_decision_values": [
+    "HUMAN_CLOSED",
+    "HUMAN_NOT_CLOSED"
+  ],
+  "human_decision_required_fields": [
+    "finding_id",
+    "technical_assessment",
+    "exact_evidence_paths",
+    "deterministic_validation_result",
+    "human_decision",
+    "human_rationale",
+    "assurance_limitation_acknowledged",
+    "decision_timestamp",
+    "adopted_review_model"
+  ],
+  "human_decision_generation": "HUMAN_ONLY_CODEX_AUTOGENERATION_PROHIBITED",
+  "review_gate_if_both_findings_human_closed": "GO_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+  "forbidden_pass_labels": [
+    "CLEAN_ROOM_REVIEW_PASS",
+    "FULL_L3_INDEPENDENT_REVIEW_PASS"
+  ],
+  "completion_flags_if_validly_completed": {
+    "clean_room_review_completed": false,
+    "human_adjudicated_review_completed": true,
+    "reduced_assurance": true
+  },
+  "current_completion_flags": {
+    "clean_room_review_completed": false,
+    "human_adjudicated_review_completed": false,
+    "reduced_assurance": false
+  }
+}

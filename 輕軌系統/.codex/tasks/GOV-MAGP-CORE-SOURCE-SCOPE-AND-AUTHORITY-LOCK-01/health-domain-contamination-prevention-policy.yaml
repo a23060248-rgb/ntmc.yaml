@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "policy_status": "ENFORCED",
+  "health_case_source": "SOURCE-MAGP-01",
+  "allowed_use": [
+    "Evidence that the generalized blueprint-driven knowledge-governance methodology was exercised in a health-management case study.",
+    "General methodology candidates for source traceability, semantic classification, knowledge construction, knowledge graph, and Human-in-the-Loop verification."
+  ],
+  "prohibited_railway_promotions": [
+    "blood glucose values",
+    "medical judgments",
+    "health risk ranges",
+    "medical action recommendations",
+    "health-management-specific rules"
+  ],
+  "cross_domain_analogy_is_authority": false,
+  "separate_railway_domain_authority_required": true,
+  "human_domain_owner_approval_required": true,
+  "health_specific_railway_rule_count": 0,
+  "validation_basis": "This task creates no Railway Domain Rule and the claim-eligibility policy explicitly prohibits health-to-Railway promotion."
+}

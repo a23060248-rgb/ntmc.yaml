@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01",
+  "task_type": "HUMAN_ARCHITECTURE_ADOPTION_AND_NORMATIVE_BASELINE_LOCK",
+  "human_decision": "ADOPT_CANONICAL_MAGP_ARCHITECTURE_WITH_REDUCED_ASSURANCE_AND_EXPLICIT_DEFERRALS",
+  "allowed_write_paths": [
+    ".codex/tasks/GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01/**"
+  ],
+  "prohibited_actions": [
+    "GIT",
+    "NETWORK",
+    "SERVICE",
+    "DATABASE",
+    "SEED",
+    "MIGRATION",
+    "DOT_ENV",
+    "SUBAGENT",
+    "CORE_OBJECT_LIBRARY_CREATION",
+    "DATABASE_DESIGN",
+    "API_DESIGN",
+    "PRODUCT_IMPLEMENTATION",
+    "DEPLOYMENT",
+    "HISTORICAL_ARTIFACT_REWRITE"
+  ],
+  "core_object_library_authorized": false,
+  "product_implementation_authorized": false
+}

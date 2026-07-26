@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01",
+  "conformance_scope": [
+    "LOGICAL_ENTITIES",
+    "AGGREGATES",
+    "IDENTITY_REFERENCES",
+    "VERSION_CONCURRENCY",
+    "LIFECYCLE_PERSISTENCE",
+    "COMMAND_QUERY",
+    "LOGICAL_RESOURCES",
+    "EVENTS",
+    "AUTHORITY_ENFORCEMENT",
+    "EVIDENCE_LEDGER",
+    "AUDIT_TEMPORAL_RETENTION",
+    "TRANSACTION_CONSISTENCY",
+    "VALIDATION_ERRORS",
+    "COMPATIBILITY_EVOLUTION"
+  ],
+  "physical_persistence_must_conform": true,
+  "formal_api_event_contract_must_conform": true,
+  "implementation_must_conform": true,
+  "validation_creates_approval": false
+}

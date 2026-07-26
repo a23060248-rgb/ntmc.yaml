@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "run_id": "MAGP-LOGICAL-CONTRACT-MODELING-20260723-R1",
+  "validator": "TASK_LOCAL_LOGICAL_CONTRACT_MODELING_VALIDATOR",
+  "validator_script": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/scripts/run-logical-contract-modeling.mjs",
+    "sha256": "0459E03AFCD8BAA967FD5B4C57E88DF4343D87D72500FC80B8D6E099A5FFAA5E",
+    "bytes": 71959
+  },
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "Human authorization is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Architecture Baseline binding is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Object Library Baseline binding is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Logical Entity Inventory is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Aggregate boundaries are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Aggregate invariants are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Identity/Reference Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "Version/Concurrency Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Lifecycle Persistence Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Command Contract is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Query Contract is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Logical Resource Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Event Contract is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Authority Enforcement Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Evidence Ledger Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Audit/Temporal Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Retention classes are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Transaction/Consistency Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Idempotency model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Validation/Error Contract is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "Compatibility Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "Human Approval aggregate boundary is explicit and pending Human decision",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "Finding Closure requires Evidence Binding",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Agent Authority Assignment requires Human Gate",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Runtime cannot mutate Normative Policy",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Query cannot perform mutation",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Event cannot create Authority",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Evidence cannot self-validate",
+      "status": "PASS"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Physical Database Model is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 30,
+      "requirement": "SQL/DDL is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 31,
+      "requirement": "Database Migration is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 32,
+      "requirement": "ORM Model is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 33,
+      "requirement": "Formal API Endpoint is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 34,
+      "requirement": "Backend/Frontend is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 35,
+      "requirement": "Product Implementation is not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 36,
+      "requirement": "Architecture Baseline is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 37,
+      "requirement": "Object Library Baseline is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 38,
+      "requirement": "Historical Tasks are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 39,
+      "requirement": "Reduced-Assurance Disclosure is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 40,
+      "requirement": "All Human Decisions remain PENDING",
+      "status": "PASS"
+    },
+    {
+      "test_id": 41,
+      "requirement": "Logical Contract is PROPOSED_NOT_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 42,
+      "requirement": "Git was not used",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 42,
+  "required_pass_count": 42,
+  "required_fail_count": 0,
+  "required_status": "PASS_42_OF_42",
+  "negative_fail_closed_tests": [
+    {
+      "test_id": "NEG-01",
+      "hard_stop_code": "LOGICAL_CONTRACT_HUMAN_AUTHORIZATION_MISSING",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-02",
+      "hard_stop_code": "ARCHITECTURE_BASELINE_INVALID",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-03",
+      "hard_stop_code": "OBJECT_LIBRARY_BASELINE_INVALID",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-04",
+      "hard_stop_code": "OBJECT_LIBRARY_BASELINE_CHANGED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-05",
+      "hard_stop_code": "LOGICAL_ENTITY_MAPPING_INCOMPLETE",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-06",
+      "hard_stop_code": "AGGREGATE_BOUNDARY_INVALID",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-07",
+      "hard_stop_code": "AUTHORITY_ENFORCEMENT_MISSING",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-08",
+      "hard_stop_code": "HUMAN_APPROVAL_BINDING_MISSING",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-09",
+      "hard_stop_code": "EVIDENCE_LEDGER_MODEL_INVALID",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-10",
+      "hard_stop_code": "FINDING_CLOSURE_EVIDENCE_MISSING",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-11",
+      "hard_stop_code": "RUNTIME_POLICY_MUTATION_ALLOWED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-12",
+      "hard_stop_code": "AGENT_SELF_AUTHORIZATION_ALLOWED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-13",
+      "hard_stop_code": "EVENT_AUTHORITY_OVERCLAIMED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-14",
+      "hard_stop_code": "BLOCKING_HUMAN_DECISION_IMPERSONATED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-15",
+      "hard_stop_code": "LOGICAL_CONTRACT_MARKED_ADOPTED_EARLY",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-16",
+      "hard_stop_code": "PHYSICAL_DATABASE_MODEL_CREATED_EARLY",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-17",
+      "hard_stop_code": "DATABASE_MIGRATION_CREATED_EARLY",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-18",
+      "hard_stop_code": "FORMAL_API_CONTRACT_CREATED_EARLY",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-19",
+      "hard_stop_code": "PRODUCT_IMPLEMENTATION_STARTED_EARLY",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-20",
+      "hard_stop_code": "SOURCE_ARCHITECTURE_OBJECT_OR_PRODUCT_MUTATION_REQUIRED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-21",
+      "hard_stop_code": "GIT_OPERATION_REQUIRED",
+      "status": "PASS"
+    }
+  ],
+  "negative_test_count": 21,
+  "negative_pass_count": 21,
+  "negative_status": "PASS_21_OF_21",
+  "open_active_critical": 0,
+  "open_active_high": 0,
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "service_used": false,
+    "database_used": false,
+    "seed_used": false,
+    "migration_used": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "sql_or_ddl_created": false,
+    "orm_created": false,
+    "physical_database_model_created": false,
+    "formal_api_endpoint_created": false,
+    "backend_frontend_created": false,
+    "agent_runtime_created": false,
+    "product_implementation_started": false,
+    "deployment_started": false,
+    "logical_contract_adopted": false,
+    "writes_outside_task_root": 0
+  }
+}

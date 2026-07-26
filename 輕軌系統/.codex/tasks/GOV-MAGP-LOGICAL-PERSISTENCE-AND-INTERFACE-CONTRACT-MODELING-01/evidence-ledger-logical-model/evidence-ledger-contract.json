@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "model_status": "COMPLETE_PROPOSED_NOT_ADOPTED",
+  "logical_entity_count": 10,
+  "logical_entities": [
+    "EVIDENCE_RECORD",
+    "EVIDENCE_VERSION",
+    "EVIDENCE_BINDING",
+    "CHAIN_OF_CUSTODY_ENTRY",
+    "VALIDATION_RESULT",
+    "REVIEW_BINDING",
+    "FINDING_BINDING",
+    "CLOSURE_EVIDENCE",
+    "ASSURANCE_CLASSIFICATION",
+    "INTEGRITY_CHECK_RECORD"
+  ],
+  "append_oriented_history": true,
+  "immutable_evidence_versions": true,
+  "required_attributes": [
+    "content_hash",
+    "producer_identity",
+    "subject",
+    "collection_metadata",
+    "validation_identity",
+    "validation_time",
+    "limitation",
+    "expiration_or_review",
+    "supersession",
+    "access_history",
+    "audit_history"
+  ],
+  "evidence_self_validation_allowed": false,
+  "producer_may_mark_accepted": false,
+  "deletion_that_breaks_chain_allowed": false,
+  "physical_ledger_selected": false
+}

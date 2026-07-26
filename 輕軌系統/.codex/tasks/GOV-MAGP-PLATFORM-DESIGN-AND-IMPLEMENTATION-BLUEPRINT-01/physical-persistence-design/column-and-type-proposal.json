@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "column-and-type-proposal",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "common_columns": [
+    {
+      "name": "canonical_id",
+      "proposed_type": "uuid",
+      "rule": "stable identity; never reused"
+    },
+    {
+      "name": "revision",
+      "proposed_type": "bigint",
+      "rule": "monotonic optimistic concurrency token"
+    },
+    {
+      "name": "lifecycle_state",
+      "proposed_type": "text",
+      "rule": "validated transition only"
+    },
+    {
+      "name": "content_hash",
+      "proposed_type": "char(64)",
+      "rule": "SHA-256 binding for canonical content"
+    },
+    {
+      "name": "authority_context_id",
+      "proposed_type": "uuid",
+      "rule": "explicit authority evaluation binding"
+    },
+    {
+      "name": "created_at",
+      "proposed_type": "timestamptz",
+      "rule": "recorded time"
+    },
+    {
+      "name": "created_by",
+      "proposed_type": "uuid",
+      "rule": "actor identity"
+    }
+  ],
+  "physical_type_selection_final": false
+}

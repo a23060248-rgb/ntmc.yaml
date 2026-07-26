@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "current_aggregator_status": "NOT_AUTHORIZED",
+  "current_compatibility_input_status": "ABSENT",
+  "compatibility_r2_retry_01_status": "READY_BUT_NOT_LAUNCHABLE",
+  "human_path_selection_alone_confers_eligibility": false,
+  "technical_assessor_recommendation_confers_eligibility": false,
+  "single_finding_human_closure_confers_eligibility": false,
+  "both_findings_human_closure_automatically_authorizes_existing_aggregator_retry_01": false,
+  "existing_aggregator_retry_01_constraint": "It remains bound to a formally accepted STARTUP_VALID Compatibility Retry payload and may not silently reinterpret Human-adjudicated artifacts as equivalent input.",
+  "minimum_future_prerequisites_for_any_human_adjudicated_aggregator_path": [
+    "explicit_human_selection_of_reduced_assurance_path",
+    "separate_valid_human_decision_for_each_finding",
+    "both_decisions_are_human_closed",
+    "deterministic_evidence_and_binding_validation_passes_for_each_finding",
+    "review_gate_is_go_with_human_adjudicated_reduced_assurance",
+    "aggregator_input_contract_is_explicitly_remediated_for_human_adjudicated_evidence",
+    "fresh_aggregator_input_binding_is_generated",
+    "separate_human_aggregator_launch_authorization"
+  ],
+  "authorization_from_this_task": false,
+  "launch_from_this_task": false,
+  "source_scope_review_gate": "NO-GO"
+}

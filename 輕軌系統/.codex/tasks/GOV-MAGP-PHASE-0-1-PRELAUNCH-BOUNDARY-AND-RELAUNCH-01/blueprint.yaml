@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-PRELAUNCH-BOUNDARY-AND-RELAUNCH-01",
+  "stages": [
+    "STAGE_1 Discovery and Proposal",
+    "STAGE_2 Human Adoption and V2 Reissuance",
+    "STAGE_3 Attempt 2 Relaunch"
+  ],
+  "stage_reached": "STAGE_1",
+  "stopped_at": "CHANGE_COLLISION_ANALYSIS_BASELINE_REPRODUCIBILITY",
+  "downstream_started": false,
+  "applicable_rules": [],
+  "candidate_rules": [],
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-PHASE-0-1-PRELAUNCH-BOUNDARY-AND-RELAUNCH-01/**"
+  ],
+  "agent_assignments": [
+    {
+      "actor_role": "root-governance-orchestrator",
+      "write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-PRELAUNCH-BOUNDARY-AND-RELAUNCH-01/**"
+      ]
+    }
+  ]
+}

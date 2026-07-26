@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+  "objective": "Formally intake four human-transported R1 Reviewer payloads, create a non-destructive Compatibility corrective overlay, and prepare unlaunched Compatibility R2 and conditional Aggregator R2 packages.",
+  "risk_level": "L3",
+  "write_scope": [
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/**"
+  ],
+  "prohibited_operations": [
+    "WRITE_OUTSIDE_TASK_ROOT",
+    "MODIFY_R1_TARGET",
+    "MODIFY_R1_PACKAGES",
+    "USE_GIT",
+    "USE_NETWORK",
+    "USE_SERVICE",
+    "USE_DATABASE",
+    "USE_SEED_OR_MIGRATION",
+    "READ_DOT_ENV",
+    "SPAWN_CHILD_AGENT",
+    "LAUNCH_REVIEWER",
+    "LAUNCH_AGGREGATOR",
+    "START_ARCHITECTURE_RECONCILIATION"
+  ],
+  "execution_status": "COMPLETE"
+}

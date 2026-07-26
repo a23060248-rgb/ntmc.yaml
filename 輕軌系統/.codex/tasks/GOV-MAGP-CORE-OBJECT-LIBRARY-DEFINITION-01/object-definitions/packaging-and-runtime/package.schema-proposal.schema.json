@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:package:v0",
+  "title": "Package Schema Proposal",
+  "description": "Candidate schema proposal; not adopted and not a database schema.",
+  "allOf": [
+    {
+      "$ref": "../../../canonical-object-envelope/canonical-object-envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "object_type": {
+              "const": "PACKAGE"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "package_identity",
+            "package_version",
+            "manifest",
+            "included_object_versions",
+            "dependency_bindings",
+            "schema_bindings",
+            "integrity_hashes",
+            "validation_results",
+            "approval_status",
+            "release_status",
+            "deployment_eligibility"
+          ],
+          "properties": {
+            "package_identity": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "package_version": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "manifest": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "included_object_versions": {
+              "type": "array",
+              "items": {}
+            },
+            "dependency_bindings": {
+              "type": "array",
+              "items": {}
+            },
+            "schema_bindings": {
+              "type": "array",
+              "items": {}
+            },
+            "integrity_hashes": {
+              "type": "string",
+              "pattern": "^[A-Fa-f0-9]{64}$"
+            },
+            "validation_results": {
+              "type": "array",
+              "items": {}
+            },
+            "approval_status": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "release_status": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "deployment_eligibility": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    }
+  ],
+  "x-magp-object-type-id": "OBJ-TYPE-017",
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true,
+  "x-magp-database-schema": false
+}

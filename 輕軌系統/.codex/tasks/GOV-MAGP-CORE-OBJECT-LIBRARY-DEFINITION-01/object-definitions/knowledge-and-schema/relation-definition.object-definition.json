@@ -1,0 +1,49 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-012",
+  "object_type": "RELATION_DEFINITION",
+  "object_category": "KNOWLEDGE_AND_SCHEMA_OBJECTS",
+  "canonical_name": "Relation Definition",
+  "type_prefix": "rel",
+  "design_time_or_runtime": "DESIGN_TIME",
+  "normative_or_non_normative": "RELATION_AUTHORITY_ONLY_AFTER_APPROVED_ONTOLOGY_BINDING",
+  "current_normative_effect": false,
+  "authority_level": "RELATION_SEMANTIC_AUTHORITY_BELOW_ONTOLOGY",
+  "lifecycle_owner": "META_RELATION_OWNER",
+  "evidence_owner": "RELATION_VALIDATOR",
+  "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_CARDINALITY_AUTHORITY_OR_DELETION_CHANGE",
+  "accountable_human_role": "RELATION_OWNER",
+  "responsible_machine_role": "RELATION_VALIDATOR",
+  "allowed_mutations": [
+    "compatible relation annotation",
+    "approved cardinality change",
+    "versioned temporal clarification"
+  ],
+  "prohibited_mutations": [
+    "hidden relation",
+    "authority inference from similarity",
+    "unreviewed cascade delete"
+  ],
+  "required_payload_fields": [
+    "relation_identity",
+    "source_class",
+    "target_class",
+    "cardinality",
+    "direction",
+    "temporal_semantics",
+    "authority_semantics",
+    "lineage_semantics",
+    "deletion_behavior"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "relation-definition.schema-proposal.schema.json",
+  "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+}

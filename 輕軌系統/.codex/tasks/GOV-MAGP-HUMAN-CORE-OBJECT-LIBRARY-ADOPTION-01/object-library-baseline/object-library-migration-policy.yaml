@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "policy_status": "HUMAN_ADOPTED_WITH_OBJECT_LIBRARY_BASELINE",
+  "migration_scope": "OBJECT_LIBRARY_SEMANTIC_VERSION_TRANSITION_ONLY",
+  "physical_database_migration_defined": false,
+  "requires_for_breaking_object_transition": [
+    "source baseline",
+    "target baseline",
+    "object impact analysis",
+    "compatibility plan",
+    "lineage preservation",
+    "evidence",
+    "Human approval"
+  ],
+  "silent_object_semantic_migration_allowed": false,
+  "database_migration_authorized": false
+}

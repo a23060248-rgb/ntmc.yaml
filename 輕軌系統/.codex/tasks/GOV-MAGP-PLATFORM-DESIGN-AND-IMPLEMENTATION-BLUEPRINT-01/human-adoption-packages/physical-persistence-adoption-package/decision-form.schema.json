@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PHYSICAL_PERSISTENCE Human Adoption Decision",
+  "type": "object",
+  "required": [
+    "decision_status",
+    "human_decision",
+    "exact_proposal_manifest_sha256",
+    "human_authority_attestation",
+    "decision_timestamp",
+    "human_rationale"
+  ],
+  "properties": {
+    "decision_status": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "HUMAN_ADOPTED",
+        "HUMAN_REJECTED",
+        "HUMAN_ADOPTED_WITH_EXCEPTIONS"
+      ]
+    },
+    "human_decision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exact_proposal_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "human_authority_attestation": {
+      "type": "boolean"
+    },
+    "decision_timestamp": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "human_rationale": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

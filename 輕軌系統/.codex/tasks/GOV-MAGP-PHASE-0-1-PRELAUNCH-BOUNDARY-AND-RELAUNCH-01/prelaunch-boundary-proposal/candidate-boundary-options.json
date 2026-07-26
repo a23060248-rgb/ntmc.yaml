@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "candidates": [
+    {
+      "option": "OPTION_A",
+      "mode": "NEW_ISOLATED_MAGP_ROOT",
+      "path": "輕軌系統/magp",
+      "exists": false,
+      "collision": false,
+      "provisional_recommendation": true
+    },
+    {
+      "option": "OPTION_B",
+      "mode": "EXISTING_WORKSPACE_MODULE",
+      "path": "輕軌系統/erp-api/src/magp",
+      "exists": false,
+      "requires_existing_manifest_modification": true,
+      "provisional_recommendation": false
+    },
+    {
+      "option": "OPTION_C",
+      "mode": "ADJACENT_ISOLATED_PROJECT",
+      "path": "輕軌系統/magp-project",
+      "exists": false,
+      "requires_existing_manifest_modification": false,
+      "provisional_recommendation": false
+    }
+  ],
+  "adoption_status": "NOT_READY_DUE_TO_WORKTREE_BASELINE_BLOCKER"
+}

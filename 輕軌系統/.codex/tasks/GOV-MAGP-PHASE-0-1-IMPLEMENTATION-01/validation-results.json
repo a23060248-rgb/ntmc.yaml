@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01",
+  "current_stage": 0,
+  "tests": [
+    {
+      "test_id": 1,
+      "requirement": "Phase 0 is authorized",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Phase 1 is authorized",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Phase 2 is not authorized",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Launch Package is READY",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Seven Baselines exist",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Seven Baseline hashes are valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Implementation Write Scope is exact and Human-confirmed",
+      "status": "FAIL"
+    },
+    {
+      "test_id": 8,
+      "requirement": "Prohibited Scope exists",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Database Execution is false",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Migration Execution is false",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Deployment is false",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 11,
+  "pass_count": 10,
+  "fail_count": 1,
+  "status": "BLOCKER",
+  "hard_stop_codes_triggered": [
+    "IMPLEMENTATION_WRITE_SCOPE_MISSING",
+    "IMPLEMENTATION_SCOPE_CONFLICT"
+  ],
+  "downstream_validation_not_started": [
+    "repository state",
+    "environment",
+    "database runtime guard",
+    "migration runtime guard",
+    "network guard",
+    "technical stack",
+    "coverage tool",
+    "controlled Git"
+  ],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "git_branch_created": false,
+    "worktree_created": false,
+    "product_code_modified": false,
+    "implementation_started": false,
+    "env_read": false,
+    "database_connected": false,
+    "sql_executed": false,
+    "migration_executed": false,
+    "network_used": false,
+    "package_installed": false,
+    "service_started": false,
+    "deployment_executed": false,
+    "writes_outside_task_root": 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "attempt_id": "COMPATIBILITY_R2_ATTEMPT_01",
+  "v1_status": "FORMALLY_REJECTED",
+  "v1_reason": "RETURN_SCHEMA_CONST_CONFLICT",
+  "v2_status": "ADMITTED_STARTUP_FAILURE_EVIDENCE",
+  "review_started": false,
+  "substantive_review_credit": "NONE",
+  "startup_finding": "COMPAT-R2-STARTUP-CONTEXT-001",
+  "startup_finding_status": "CONTAINED_BY_FAILED_ATTEMPT_INVALIDATION",
+  "compat_r1_findings_closed": false,
+  "eligible_for_aggregator": false,
+  "historical_wrapper_sha256": "B4C186FDABE327136D338FBBE60B653B4E3256E887C03B88B097818727252E71",
+  "v2_overturns_v1": false,
+  "interpretation": {
+    "v1": "Whether the wrapper conforms to the historical Return Contract.",
+    "v2": "Whether unchanged bytes may be preserved as truthful startup-failure evidence."
+  }
+}

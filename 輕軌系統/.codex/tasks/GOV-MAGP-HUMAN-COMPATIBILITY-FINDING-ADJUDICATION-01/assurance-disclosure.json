@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "assurance_level": "REDUCED_ASSURANCE",
+  "clean_room_review_completed": false,
+  "independent_external_review_completed": false,
+  "human_adjudicated_review_completed": true,
+  "reduced_assurance": true,
+  "deterministic_validation_completed": true,
+  "required_aggregator_disclosure": {
+    "clean_room_review_completed": false,
+    "independent_external_review_completed": false,
+    "human_adjudicated_review_completed": true,
+    "reduced_assurance": true,
+    "compatibility_review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT"
+  },
+  "aggregator_prohibited_results": [
+    "CLEAN_ROOM_PASS",
+    "FULL_L3_PASS",
+    "INDEPENDENT_COMPATIBILITY_PASS"
+  ],
+  "disclosure_valid": true
+}

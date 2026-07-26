@@ -1,0 +1,49 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-016",
+  "object_type": "VOLUME",
+  "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+  "canonical_name": "Volume",
+  "type_prefix": "vol",
+  "design_time_or_runtime": "DESIGN_TIME",
+  "normative_or_non_normative": "GOVERNANCE_ORGANIZATION_BOUNDARY_AFTER_APPROVAL",
+  "current_normative_effect": false,
+  "authority_level": "ORGANIZATION_SCOPE_AUTHORITY_NO_DEPLOYMENT_AUTHORITY",
+  "lifecycle_owner": "VOLUME_OWNER",
+  "evidence_owner": "PACKAGE_AND_VOLUME_CUSTODIAN",
+  "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_AUTHORITY_SOURCE_ACCESS_OR_CROSS_BOUNDARY_CHANGE",
+  "accountable_human_role": "VOLUME_OWNER",
+  "responsible_machine_role": "VOLUME_CUSTODIAN",
+  "allowed_mutations": [
+    "contained object reference update",
+    "retention annotation",
+    "approved scope change"
+  ],
+  "prohibited_mutations": [
+    "automatic deployment interpretation",
+    "implicit authority expansion",
+    "silent source boundary change"
+  ],
+  "required_payload_fields": [
+    "volume_identity",
+    "purpose",
+    "ownership",
+    "contained_object_types",
+    "authority_scope",
+    "source_boundary",
+    "access_boundary",
+    "retention_policy",
+    "export_policy"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "volume.schema-proposal.schema.json",
+  "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+}

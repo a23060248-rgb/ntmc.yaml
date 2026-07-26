@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "candidate_only": true,
+  "human_adopted": false,
+  "path_count": 15,
+  "paths": [
+    {
+      "path": "輕軌系統/magp/package.json",
+      "path_type": "FILE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Project-local script orchestration with no install",
+      "phase": "PHASE_0",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/tsconfig.json",
+      "path_type": "FILE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Strict TypeScript project configuration",
+      "phase": "PHASE_0",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/README.md",
+      "path_type": "FILE",
+      "permission": "CREATE_ONLY",
+      "purpose": "MAGP Phase 0 and Phase 1 boundary documentation",
+      "phase": "PHASE_0",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/.gitignore",
+      "path_type": "FILE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Project-local generated-output exclusions",
+      "phase": "PHASE_0",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/src/contracts",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Shared contracts and canonical envelope types",
+      "phase": "SHARED",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/src/domain",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Phase 1 canonical domain kernel",
+      "phase": "PHASE_1",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/src/validation",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Phase 1 validation kernel and error model",
+      "phase": "PHASE_1",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/schemas",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Schema registry and validation schemas",
+      "phase": "SHARED",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/tests",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Unit contract conformance and security tests",
+      "phase": "SHARED",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/docs",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "MAGP documentation and CI proposal only",
+      "phase": "SHARED",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/tools",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Offline local build lint format and safety tooling",
+      "phase": "PHASE_0",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/evidence",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Local deterministic implementation evidence",
+      "phase": "SHARED",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/config",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Credential-free configuration templates",
+      "phase": "PHASE_0",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/magp/baseline-registry",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Exact read-only Baseline binding registry",
+      "phase": "PHASE_0",
+      "currently_exists": false
+    },
+    {
+      "path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-02",
+      "path_type": "DIRECTORY_SUBTREE",
+      "permission": "CREATE_ONLY",
+      "purpose": "Attempt 2 governance evidence only",
+      "phase": "SHARED",
+      "currently_exists": false
+    }
+  ],
+  "status": "NOT_ADOPTABLE_DUE_TO_WORKTREE_BASELINE_BLOCKER"
+}

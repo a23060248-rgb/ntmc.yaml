@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01",
+  "level": "L3",
+  "reasons": [
+    "The task handles an unresolved Reviewer startup blocker.",
+    "The task controls backward-compatibility finding closure and a formal aggregation gate.",
+    "The requested retry package would govern a clean-context external Compatibility Review."
+  ],
+  "triggers": [
+    "unresolved_reviewer_blocker",
+    "backward_compatibility",
+    "release_or_review_gate"
+  ],
+  "required_agents": [
+    "documentation-engineer",
+    "qa-engineer"
+  ],
+  "required_reviews": [
+    "clean_context_compatibility_review_after_valid_retry_intake"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "raw_wrapper_byte_integrity",
+    "formal_return_schema_validation",
+    "rfc8785_jcs_hash_validation",
+    "package_and_identity_binding",
+    "human_transport_attestation",
+    "retry_identity_uniqueness",
+    "base_target_and_overlay_integrity",
+    "30_of_30_contract_tests"
+  ],
+  "human_approval": {
+    "scope_approval": "PROVIDED_BY_CURRENT_HUMAN_INSTRUCTION",
+    "reviewer_launch": "REQUIRED_SEPARATELY",
+    "aggregator_launch": "REQUIRED_SEPARATELY",
+    "final_commit_approval": "NOT_GRANTED"
+  },
+  "stop_conditions": [
+    "COMPATIBILITY_R2_ATTEMPT_1_SCHEMA_INVALID",
+    "COMPATIBILITY_R2_ATTEMPT_1_JCS_HASH_INVALID",
+    "COMPATIBILITY_R2_ATTEMPT_1_IDENTITY_MISMATCH",
+    "COMPATIBILITY_R2_ATTEMPT_1_THREAD_BINDING_MISMATCH",
+    "GIT_OPERATION_REQUIRED"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01/**"
+    ],
+    "exclude": [
+      "AGENTS.md",
+      ".agents/**",
+      ".codex/governance/**",
+      "all_other_task_roots",
+      "frontend/**",
+      "erp-api/**",
+      "db-design/**",
+      "docs/**"
+    ]
+  },
+  "classified_by": "ROOT_META_GOVERNANCE_ORCHESTRATOR",
+  "classification_status": "HUMAN_SCOPE_APPROVED_EXECUTION_HARD_STOPPED"
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "necessary_when": [
+    "authority changes",
+    "public contract or ABI changes",
+    "cross-component data semantics",
+    "topology or ownership changes",
+    "security, safety, dispatch, or permission changes",
+    "lifecycle or compatibility changes",
+    "new Normative Architecture decision"
+  ],
+  "not_required_when": [
+    "internal refactor under unchanged contracts",
+    "tests or evidence updates without semantic change",
+    "bounded defect correction faithful to adopted specification"
+  ],
+  "fixed_eight_files_status": "PROPOSED_NOT_ADOPTED",
+  "disposition": "REQUIRES_HUMAN_DECISION",
+  "human_decision_id": "HAD-003"
+}

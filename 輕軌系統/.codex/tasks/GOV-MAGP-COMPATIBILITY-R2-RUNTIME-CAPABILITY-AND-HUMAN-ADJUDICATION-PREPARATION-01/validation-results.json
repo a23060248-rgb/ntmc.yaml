@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+  "validator": "TASK_LOCAL_DETERMINISTIC_PROTOCOL_VALIDATOR",
+  "validator_script": {
+    "relative_path": "scripts/validate-protocol.mjs",
+    "sha256": "E12A49D6CAEBE054326E6D03BD1B43725E71002FFFE9A5FF52825FC766ED5D91",
+    "syntax_check": "PASS"
+  },
+  "contract_hashes": [
+    {
+      "relative_path": "human-decision/decision-schema.json",
+      "sha256": "E8D6FB52CD9D88003CF3FBE5869D60749DF4A7A07AE44A08B2B9A99C05E93B41"
+    },
+    {
+      "relative_path": "finding-adjudication.schema.json",
+      "sha256": "7E5A124315DDFEBD0191EA2A04E206C57ECFD72A2D3D0BBEF488F28A5F74D1B0"
+    },
+    {
+      "relative_path": "human-adjudicated-review-protocol.json",
+      "sha256": "D6B4C09DC6055C094336A8723ABDAEE5E8E1E18A1C4BD1B5CA405B14CE4CBE77"
+    },
+    {
+      "relative_path": "runtime-capability/immutable-history-baseline.json",
+      "sha256": "B21DB681FC4E6A3D0FB87A3FDC8D2B42AC82695C218E1A5131C199EBCD4D6DC3"
+    }
+  ],
+  "test_count": 59,
+  "pass_count": 59,
+  "fail_count": 0,
+  "test_groups": [
+    {
+      "group": "scope_classification_and_execution_boundary",
+      "test_count": 5,
+      "pass_count": 5,
+      "status": "PASS"
+    },
+    {
+      "group": "runtime_capability_and_launch_disposition",
+      "test_count": 11,
+      "pass_count": 11,
+      "status": "PASS"
+    },
+    {
+      "group": "repeated_retry_prohibition",
+      "test_count": 2,
+      "pass_count": 2,
+      "status": "PASS"
+    },
+    {
+      "group": "human_decision_gate_and_schema",
+      "test_count": 8,
+      "pass_count": 8,
+      "status": "PASS"
+    },
+    {
+      "group": "human_adjudicated_protocol_and_finding_schema",
+      "test_count": 8,
+      "pass_count": 8,
+      "status": "PASS"
+    },
+    {
+      "group": "assurance_downstream_and_gate_boundaries",
+      "test_count": 9,
+      "pass_count": 9,
+      "status": "PASS"
+    },
+    {
+      "group": "decision_positive_and_negative_fixtures",
+      "test_count": 5,
+      "pass_count": 5,
+      "status": "PASS"
+    },
+    {
+      "group": "finding_adjudication_positive_and_negative_fixtures",
+      "test_count": 6,
+      "pass_count": 6,
+      "status": "PASS"
+    },
+    {
+      "group": "protected_artifact_and_authorization_integrity",
+      "test_count": 5,
+      "pass_count": 5,
+      "status": "PASS"
+    }
+  ],
+  "negative_rejections_verified": [
+    "unknown_review_path_decision",
+    "pending_record_with_selected_decision",
+    "recorded_decision_without_human_attribution",
+    "recorded_decision_without_human_rationale",
+    "invalid_finding_id",
+    "missing_human_finding_rationale",
+    "unacknowledged_reduced_assurance",
+    "non_absolute_evidence_path",
+    "independent_assessor_role_claim"
+  ],
+  "protected_artifact_integrity": "PASS_ALL_PROTECTED_ARTIFACTS_UNCHANGED",
+  "human_adjudicated_review_package_created": false,
+  "overall_status": "PASS_59_OF_59",
+  "git_used": false,
+  "reviewer_launched": false,
+  "aggregator_launched": false,
+  "architecture_reconciliation_started": false,
+  "source_scope_review_gate": "NO-GO"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "atomic_invariant_boundary": "SINGLE_AGGREGATE_ROOT_AND_LOCAL_TRANSITION",
+  "local_transaction_requirement": true,
+  "cross_aggregate_workflow": "PROCESS_MANAGER_OR_SAGA_CANDIDATE_ONLY",
+  "eventual_consistency_allowance": "ONLY_WHERE_NO_NORMATIVE_AUTHORITY_CLOSURE_OR_SAFETY_EFFECT_IS_PARTIAL",
+  "strong_consistency_required_for": [
+    "HUMAN_APPROVAL_EFFECT",
+    "POLICY_ACTIVATION",
+    "AUTHORITY_GRANT_OR_REVOCATION",
+    "FINDING_CLOSURE",
+    "PACKAGE_RELEASE_APPROVAL",
+    "DEPLOYMENT_AUTHORIZATION",
+    "AGENT_AUTHORITY_ASSIGNMENT"
+  ],
+  "compensation_requirement": true,
+  "partial_failure_handling": "NO_SILENT_SUCCESS_AND_AUDITED_RECOVERY",
+  "physical_transaction_technology_selected": false
+}

@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01",
+  "input_task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "decision_count": 18,
+  "decisions": [
+    {
+      "decision_id": "HCD-001",
+      "decision_title": "Aggregate Root boundary",
+      "exact_options": [
+        "ADOPT_PROPOSED_11_AGGREGATES",
+        "MODIFY_AGGREGATE_ROOTS"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "ADOPT_PROPOSED_11_AGGREGATES",
+      "recommendation_rationale": "Defines the eleven proposed aggregate roots.",
+      "architecture_impact": "Defines the eleven proposed aggregate roots.",
+      "object_library_impact": "No adopted Object Type changes.",
+      "persistence_impact": "Controls storage ownership and transaction boundaries.",
+      "api_impact": "Controls command admission resource boundaries.",
+      "authority_impact": "Defines authority isolation between aggregates.",
+      "evidence_impact": "Preserves evidence references across aggregates.",
+      "security_impact": "Limits privilege and consistency blast radius.",
+      "compatibility_impact": "Changing roots is a breaking contract change.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-001.json",
+        "sha256": "1F04E7A3F2E39F6E10314C4A26C52C058AAB36C23B06962F0BECCE1EFBBCA432",
+        "bytes": 533
+      }
+    },
+    {
+      "decision_id": "HCD-002",
+      "decision_title": "Policy and Rule aggregate relationship",
+      "exact_options": [
+        "SAME_AGGREGATE",
+        "SEPARATE_AGGREGATES"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "SAME_AGGREGATE",
+      "recommendation_rationale": "Keeps Policy as root for Governance Rule.",
+      "architecture_impact": "Keeps Policy as root for Governance Rule.",
+      "object_library_impact": "Preserves Policy and Governance Rule semantics.",
+      "persistence_impact": "Co-locates rule invariants with Policy.",
+      "api_impact": "Commands address Policy aggregate for rule changes.",
+      "authority_impact": "Prevents Rule authority exceeding Policy.",
+      "evidence_impact": "Binds rule evaluation evidence to Policy version.",
+      "security_impact": "Reduces orphan or escalated rules.",
+      "compatibility_impact": "Separation later requires migration and compatibility review.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-002.json",
+        "sha256": "A98EAC3AD2193F63AFD007523E6CB3926F405CB66784FE2FA9652D8978D78537",
+        "bytes": 517
+      }
+    },
+    {
+      "decision_id": "HCD-003",
+      "decision_title": "Evidence and Review aggregate relationship",
+      "exact_options": [
+        "SAME_AGGREGATE",
+        "SEPARATE_AGGREGATES"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "SAME_AGGREGATE",
+      "recommendation_rationale": "Keeps Evidence and Review in one assurance aggregate.",
+      "architecture_impact": "Keeps Evidence and Review in one assurance aggregate.",
+      "object_library_impact": "Preserves Evidence and Review identities.",
+      "persistence_impact": "Supports atomic review binding to exact evidence versions.",
+      "api_impact": "Review operations target Evidence aggregate.",
+      "authority_impact": "Review never becomes acceptance authority automatically.",
+      "evidence_impact": "Strengthens chain-of-custody and review binding.",
+      "security_impact": "Reduces evidence substitution risk.",
+      "compatibility_impact": "Separation requires durable cross-aggregate evidence references.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-003.json",
+        "sha256": "59254B8030CE26C27E4ADC1F8566638ED7F3D1741D658E6AD2582DC1538537DF",
+        "bytes": 521
+      }
+    },
+    {
+      "decision_id": "HCD-004",
+      "decision_title": "Finding and Remediation transaction boundary",
+      "exact_options": [
+        "SINGLE_AGGREGATE",
+        "WORKFLOW_ACROSS_AGGREGATES"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "SINGLE_AGGREGATE",
+      "recommendation_rationale": "Uses one Finding root with remediation workflow state.",
+      "architecture_impact": "Uses one Finding root with remediation workflow state.",
+      "object_library_impact": "Finding remains the adopted root object.",
+      "persistence_impact": "Closure and remediation revision are protected together.",
+      "api_impact": "Remediation and closure commands bind the Finding revision.",
+      "authority_impact": "Closure authority remains independent or Human for CRITICAL/HIGH.",
+      "evidence_impact": "Closure Evidence is mandatory.",
+      "security_impact": "Prevents concurrent or evidence-free closure.",
+      "compatibility_impact": "Splitting later requires saga and closure compatibility rules.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-004.json",
+        "sha256": "20EC371D29E8639DFCA5E714135C5AFC4601BC54014D75DDDC7F72928E4C49D8",
+        "bytes": 534
+      }
+    },
+    {
+      "decision_id": "HCD-005",
+      "decision_title": "Human Approval aggregate independence",
+      "exact_options": [
+        "GOVERNANCE_AUTHORITY_AGGREGATE",
+        "INDEPENDENT_AGGREGATE"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "GOVERNANCE_AUTHORITY_AGGREGATE",
+      "recommendation_rationale": "Keeps Human Approval under Governance Authority aggregate.",
+      "architecture_impact": "Keeps Human Approval under Governance Authority aggregate.",
+      "object_library_impact": "Human Approval identity remains canonical.",
+      "persistence_impact": "Approval bindings are stored with authority context.",
+      "api_impact": "Approval commands address Governance Authority.",
+      "authority_impact": "Centralizes Human authority without granting technical actors sovereignty.",
+      "evidence_impact": "Approval binds exact artifact hash/version.",
+      "security_impact": "Reduces replay and stale approval risk.",
+      "compatibility_impact": "Independent aggregate remains a future breaking option.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-005.json",
+        "sha256": "7405B5C3AE85D2D84CCC61C4DDAC39E88D9C2D539FD72CEB2A3EE64A4E5CC38D",
+        "bytes": 550
+      }
+    },
+    {
+      "decision_id": "HCD-006",
+      "decision_title": "Event delivery guarantee",
+      "exact_options": [
+        "AT_LEAST_ONCE_WITH_IDEMPOTENCY",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "AT_LEAST_ONCE_WITH_IDEMPOTENCY",
+      "recommendation_rationale": "Adopts at-least-once delivery with idempotent consumers.",
+      "architecture_impact": "Adopts at-least-once delivery with idempotent consumers.",
+      "object_library_impact": "Runtime Event semantics remain unchanged.",
+      "persistence_impact": "Requires durable idempotency records logically.",
+      "api_impact": "Consumers must deduplicate before command admission.",
+      "authority_impact": "Events still create no authority.",
+      "evidence_impact": "Duplicate evidence emission is traceable.",
+      "security_impact": "Avoids false exactly-once claims.",
+      "compatibility_impact": "Consumers must remain compatible with replay.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-006.json",
+        "sha256": "BB467C2FFD442B55297DFEE4A7DF714C97A556075ECF2F6D6529B806AF5A7A48",
+        "bytes": 537
+      }
+    },
+    {
+      "decision_id": "HCD-007",
+      "decision_title": "Event ordering scope",
+      "exact_options": [
+        "PER_AGGREGATE",
+        "PER_SUBJECT",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "PER_AGGREGATE",
+      "recommendation_rationale": "Orders events per aggregate.",
+      "architecture_impact": "Orders events per aggregate.",
+      "object_library_impact": "Aggregate identity defines ordering key.",
+      "persistence_impact": "Avoids global ordering storage assumptions.",
+      "api_impact": "Consumers process aggregate revisions monotonically.",
+      "authority_impact": "Ordering never bypasses authorization.",
+      "evidence_impact": "Audit can reconstruct per-aggregate history.",
+      "security_impact": "Limits contention and replay ambiguity.",
+      "compatibility_impact": "Cross-aggregate workflows need correlation/causation.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-007.json",
+        "sha256": "3C14E8921FF1E3890C7EA56AD6A5A2AD8D802B168C9AE89BDD4226DBB70FB65C",
+        "bytes": 518
+      }
+    },
+    {
+      "decision_id": "HCD-008",
+      "decision_title": "Logical deletion model",
+      "exact_options": [
+        "TOMBSTONE_AND_SUPERSESSION",
+        "ARCHIVE_ONLY",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "TOMBSTONE_AND_SUPERSESSION",
+      "recommendation_rationale": "Uses tombstone plus supersession; no destructive delete.",
+      "architecture_impact": "Uses tombstone plus supersession; no destructive delete.",
+      "object_library_impact": "Canonical identity and history are preserved.",
+      "persistence_impact": "Requires archive/tombstone representation.",
+      "api_impact": "Delete-like commands become archive/supersede commands.",
+      "authority_impact": "Deletion cannot erase authority history.",
+      "evidence_impact": "Evidence and lineage remain resolvable.",
+      "security_impact": "Prevents audit and lineage destruction.",
+      "compatibility_impact": "Future purge requires separate Human retention authority.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-008.json",
+        "sha256": "308F3FD0B73AC478B26A657F0741E69B6B12F5FE7D4E3338713862FAB4566322",
+        "bytes": 547
+      }
+    },
+    {
+      "decision_id": "HCD-009",
+      "decision_title": "Temporal query scope",
+      "exact_options": [
+        "GOVERNANCE_AND_EVIDENCE_ONLY",
+        "ALL_LOGICAL_ENTITIES",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "GOVERNANCE_AND_EVIDENCE_ONLY",
+      "recommendation_rationale": "Enables temporal query for governance and evidence entities first.",
+      "architecture_impact": "Enables temporal query for governance and evidence entities first.",
+      "object_library_impact": "No Object Type semantics change.",
+      "persistence_impact": "Requires effective/recorded time projections for scoped entities.",
+      "api_impact": "Queries declare temporal perspective.",
+      "authority_impact": "Authorization applies to historical views.",
+      "evidence_impact": "Supports point-in-time evidence and approval reconstruction.",
+      "security_impact": "Limits sensitive history exposure.",
+      "compatibility_impact": "Expanding scope is additive with cost review.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-009.json",
+        "sha256": "9D62C9AD1524F300696E66424984E92E4E029072B2982DA74A8282EDDE2A86D6",
+        "bytes": 557
+      }
+    },
+    {
+      "decision_id": "HCD-010",
+      "decision_title": "Optimistic concurrency granularity",
+      "exact_options": [
+        "PER_AGGREGATE_REVISION",
+        "PER_OBJECT_VERSION",
+        "HYBRID"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "PER_AGGREGATE_REVISION",
+      "recommendation_rationale": "Uses per-aggregate optimistic revision.",
+      "architecture_impact": "Uses per-aggregate optimistic revision.",
+      "object_library_impact": "Object semantic version stays separate from concurrency token.",
+      "persistence_impact": "Stores monotonic aggregate revision.",
+      "api_impact": "Mutation commands require expected aggregate revision.",
+      "authority_impact": "Prevents concurrent authority and closure conflicts.",
+      "evidence_impact": "Approval and Finding evidence bind revisions.",
+      "security_impact": "Rejects last-write-wins for governed effects.",
+      "compatibility_impact": "Granularity changes affect all command consumers.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-010.json",
+        "sha256": "A18B2B6E83C39EB26EEC69689711FEEB30748D92B53DC8C3949AA51E82AE6A4E",
+        "bytes": 542
+      }
+    },
+    {
+      "decision_id": "HCD-011",
+      "decision_title": "Idempotency scope",
+      "exact_options": [
+        "COMMAND_AND_EVENT_PER_NAMESPACE",
+        "PER_AGGREGATE",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "COMMAND_AND_EVENT_PER_NAMESPACE",
+      "recommendation_rationale": "Scopes idempotency to command/event identity within namespace.",
+      "architecture_impact": "Scopes idempotency to command/event identity within namespace.",
+      "object_library_impact": "Identity namespace policy is reused.",
+      "persistence_impact": "Requires namespace plus idempotency key uniqueness.",
+      "api_impact": "Duplicate commands return the prior accepted outcome.",
+      "authority_impact": "Idempotency never grants authority.",
+      "evidence_impact": "Duplicate evidence remains linked to original outcome.",
+      "security_impact": "Prevents replay-driven duplicate Human effects.",
+      "compatibility_impact": "Scope changes require compatibility and retention review.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-011.json",
+        "sha256": "49FD4D7C0ABEC3D048FD3EF62DC9B1998C2F98474D22EEF03577AD6E04C19FB7",
+        "bytes": 553
+      }
+    },
+    {
+      "decision_id": "HCD-012",
+      "decision_title": "Evidence retention classes",
+      "exact_options": [
+        "RISK_CLASS_PENDING_LEGAL_SCHEDULE",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "RISK_CLASS_PENDING_LEGAL_SCHEDULE",
+      "recommendation_rationale": "Uses risk classes while exact legal durations remain a later Human policy.",
+      "architecture_impact": "Uses risk classes while exact legal durations remain a later Human policy.",
+      "object_library_impact": "Evidence semantics and assurance fields remain unchanged.",
+      "persistence_impact": "No purge until a Human-adopted schedule applies.",
+      "api_impact": "Interfaces expose retention class, not storage tier.",
+      "authority_impact": "Retention does not alter approval authority.",
+      "evidence_impact": "Preserves evidence pending exact schedule.",
+      "security_impact": "Avoids unauthorized legal retention claims.",
+      "compatibility_impact": "Exact durations remain a separate policy decision.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-012.json",
+        "sha256": "51044F02E56D381DBC9A33EDEA10C5BE81CACAAB436C5F5223B08125006E7AA6",
+        "bytes": 545
+      }
+    },
+    {
+      "decision_id": "HCD-013",
+      "decision_title": "Runtime telemetry versus Evidence boundary",
+      "exact_options": [
+        "TELEMETRY_NOT_EVIDENCE_UNTIL_REGISTERED",
+        "DIRECT_EVIDENCE_PROFILE"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "TELEMETRY_NOT_EVIDENCE_UNTIL_REGISTERED",
+      "recommendation_rationale": "Telemetry is not Evidence until explicitly registered and bound.",
+      "architecture_impact": "Telemetry is not Evidence until explicitly registered and bound.",
+      "object_library_impact": "Separates Runtime Event/telemetry from Evidence authority.",
+      "persistence_impact": "Telemetry storage may be operational; Evidence registration is append-oriented.",
+      "api_impact": "Evidence registration is an explicit command.",
+      "authority_impact": "Producer cannot self-accept telemetry as Evidence.",
+      "evidence_impact": "Registration records producer, subject, hash, collection context.",
+      "security_impact": "Prevents low-assurance telemetry from gaining evidentiary weight.",
+      "compatibility_impact": "Direct evidence profiles require future Human review.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-013.json",
+        "sha256": "47562C607583A9174B65F39285F882B88C9EDD7A065EC9B6EF4B63BC45643FE6",
+        "bytes": 575
+      }
+    },
+    {
+      "decision_id": "HCD-014",
+      "decision_title": "Authority Grant validity and expiry",
+      "exact_options": [
+        "TYPE_AND_RISK_EXPIRY_OR_REVIEW",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "TYPE_AND_RISK_EXPIRY_OR_REVIEW",
+      "recommendation_rationale": "Uses type/risk expiry or mandatory review date for Authority Grants.",
+      "architecture_impact": "Uses type/risk expiry or mandatory review date for Authority Grants.",
+      "object_library_impact": "Authority Grant stays a supporting logical entity.",
+      "persistence_impact": "Persists validity, scope, revocation, and review metadata.",
+      "api_impact": "Admission rejects expired or unreviewed grants.",
+      "authority_impact": "Authority ceilings and Human Gate remain mandatory.",
+      "evidence_impact": "Grant/revocation evidence is append-oriented.",
+      "security_impact": "Prevents stale delegation and silent permanence.",
+      "compatibility_impact": "Changing validity policy is authority-critical.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-014.json",
+        "sha256": "158275A35DD6F3C1F3C6C8C8387EAD428351DB79A96E94F01A9015BDE117BB9E",
+        "bytes": 548
+      }
+    },
+    {
+      "decision_id": "HCD-015",
+      "decision_title": "Command Query separation granularity",
+      "exact_options": [
+        "STRICT_CQRS_LOGICAL_BOUNDARY",
+        "SHARED_SERVICE_SEPARATE_CONTRACTS"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "STRICT_CQRS_LOGICAL_BOUNDARY",
+      "recommendation_rationale": "Uses strict logical Command/Query separation with shared implementation undecided.",
+      "architecture_impact": "Uses strict logical Command/Query separation with shared implementation undecided.",
+      "object_library_impact": "No Object Type change.",
+      "persistence_impact": "Read projections cannot mutate source state.",
+      "api_impact": "Commands and Queries use separate contracts.",
+      "authority_impact": "Queries cannot confer or exercise mutation authority.",
+      "evidence_impact": "Audit distinguishes reads from commands.",
+      "security_impact": "Prevents hidden mutation in read interfaces.",
+      "compatibility_impact": "Physical service split remains unselected.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-015.json",
+        "sha256": "F1B8CB9F83B80BD80F697050BDB0B58BEDA39AC4619C95D65796DDFA6ED59F17",
+        "bytes": 557
+      }
+    },
+    {
+      "decision_id": "HCD-016",
+      "decision_title": "Event schema evolution",
+      "exact_options": [
+        "VERSIONED_COMPATIBILITY_PROFILES",
+        "OTHER_HUMAN_SPECIFIED"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "VERSIONED_COMPATIBILITY_PROFILES",
+      "recommendation_rationale": "Uses explicit event versions and compatibility profiles.",
+      "architecture_impact": "Uses explicit event versions and compatibility profiles.",
+      "object_library_impact": "Runtime Event remains canonical and versioned.",
+      "persistence_impact": "Stores event type/version and payload hash.",
+      "api_impact": "Consumers declare supported versions.",
+      "authority_impact": "New versions cannot expand authority implicitly.",
+      "evidence_impact": "Evidence classification survives evolution.",
+      "security_impact": "Prevents silent consumer breakage and spoofed authority fields.",
+      "compatibility_impact": "Breaking changes require RFC, review, Human approval.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-016.json",
+        "sha256": "03B789554428AAA18C130DCFDE420B6A63F159CF17465BF8F9C51F8C6EA9BE45",
+        "bytes": 539
+      }
+    },
+    {
+      "decision_id": "HCD-017",
+      "decision_title": "Cross-volume reference mode",
+      "exact_options": [
+        "EXACT_REFERENCE_NO_AUTHORITY_COPY",
+        "CONTROLLED_MIRROR"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "EXACT_REFERENCE_NO_AUTHORITY_COPY",
+      "recommendation_rationale": "Uses exact cross-volume reference without authority copy.",
+      "architecture_impact": "Uses exact cross-volume reference without authority copy.",
+      "object_library_impact": "Preserves global canonical identity.",
+      "persistence_impact": "Stores exact ID/version/hash reference.",
+      "api_impact": "Interfaces resolve references under caller scope.",
+      "authority_impact": "Volume boundary never duplicates authority.",
+      "evidence_impact": "Lineage points to canonical source.",
+      "security_impact": "Prevents unauthorized mirrored authority.",
+      "compatibility_impact": "Controlled mirror would require explicit provenance policy.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-017.json",
+        "sha256": "6F22318B5F766319826DBCA1E5516D9C9226D77C9B3B9C42D512899ACCEB262F",
+        "bytes": 542
+      }
+    },
+    {
+      "decision_id": "HCD-018",
+      "decision_title": "Cross-package dependency mode",
+      "exact_options": [
+        "ACYCLIC_EXACT_VERSION_HASH_PINNING",
+        "LOCKFILE_WITH_BOUNDED_DEV_CYCLES"
+      ],
+      "current_status": "PENDING_HUMAN_DECISION",
+      "codex_recommendation": "ACYCLIC_EXACT_VERSION_HASH_PINNING",
+      "recommendation_rationale": "Uses acyclic exact-version/hash-pinned runtime dependencies.",
+      "architecture_impact": "Uses acyclic exact-version/hash-pinned runtime dependencies.",
+      "object_library_impact": "Package identity/version semantics are preserved.",
+      "persistence_impact": "Persists dependency DAG references, not copied packages.",
+      "api_impact": "Package commands validate cycles and hashes.",
+      "authority_impact": "Dependency cannot expand consumer authority.",
+      "evidence_impact": "Validation evidence records dependency graph.",
+      "security_impact": "Prevents substitution and runtime cycles.",
+      "compatibility_impact": "Development-only cycles require a future bounded profile.",
+      "blocking_status": "LOGICAL_CONTRACT_ADOPTION_BLOCKER_UNTIL_HUMAN_DECISION",
+      "allowed_human_decisions": [
+        "ADOPT_RECOMMENDED_OPTION",
+        "ADOPT_ALTERNATIVE_OPTION",
+        "ADOPT_WITH_MODIFICATION",
+        "DEFER_NON_BLOCKING",
+        "REJECT_DECISION"
+      ],
+      "source_decision_binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01/human-contract-decision-matrix/HCD-018.json",
+        "sha256": "F9C7D8FD8672A3292C5E001B44362709D9D5EE4F42388C7C6470B4E4B45E1BC9",
+        "bytes": 561
+      }
+    }
+  ],
+  "status": "READY_FOR_HUMAN_DECISION"
+}

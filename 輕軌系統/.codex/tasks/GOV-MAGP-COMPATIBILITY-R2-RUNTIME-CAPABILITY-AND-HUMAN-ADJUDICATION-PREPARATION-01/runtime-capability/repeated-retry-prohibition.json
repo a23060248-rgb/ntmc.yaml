@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "policy_id": "MAGP-COMPAT-R2-UNCHANGED-RUNTIME-RETRY-PROHIBITION-01",
+  "status": "ACTIVE",
+  "prohibition": "PROHIBITED_UNTIL_RUNTIME_CAPABILITY_CHANGES",
+  "scope": [
+    "creation_of_new_clean_room_compatibility_retry_package",
+    "launch_of_existing_or_new_clean_room_compatibility_retry",
+    "retry_02_retry_03_or_equivalent_renumbering"
+  ],
+  "condition": "The assessed runtime cannot verifiably disable Memory, automatic Git inspection, automatic Repository reads, and AGENTS/HANDOFF preloads.",
+  "release_condition": {
+    "required": "VERIFIABLE_RUNTIME_CAPABILITY_CHANGE",
+    "minimum_evidence": [
+      "machine_exposed_memory_disable_control",
+      "machine_exposed_git_auto_check_disable_control",
+      "machine_exposed_repository_auto_read_disable_control",
+      "machine_exposed_instruction_preload_disable_control",
+      "prelaunch_attestation_that_all_controls_are_effective"
+    ],
+    "human_reauthorization_required": true
+  },
+  "automatic_release": false,
+  "package_rebuild_alone_counts_as_capability_change": false,
+  "same_runtime_retry_counts_as_valid_review": false
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "query-operation-registry",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "operations": [
+    "get-by-canonical-id",
+    "list-by-type",
+    "get-effective-version",
+    "trace-lineage",
+    "verify-evidence-chain",
+    "list-open-findings",
+    "inspect-authority",
+    "get-audit-timeline"
+  ],
+  "reads_grant_no_authority": true
+}

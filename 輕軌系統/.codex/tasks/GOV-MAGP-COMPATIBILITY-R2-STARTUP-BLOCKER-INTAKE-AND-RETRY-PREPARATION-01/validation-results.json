@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01",
+  "validation_status": "FAIL_CLOSED",
+  "hard_stop_code": "COMPATIBILITY_R2_ATTEMPT_1_SCHEMA_INVALID",
+  "intake": {
+    "json_parse": "PASS",
+    "top_level_two_field_contract": "PASS",
+    "rfc8785_jcs_hash": "PASS",
+    "package_identity": "PASS",
+    "formal_return_schema": "FAIL"
+  },
+  "normal_completion_tests": {
+    "required": 30,
+    "executed": 0,
+    "status": "NOT_STARTED_DUE_TO_HARD_STOP"
+  },
+  "writes_outside_task_root": 0,
+  "git_used": false,
+  "network_used": false,
+  "service_used": false,
+  "database_used": false,
+  "seed_or_migration_used": false,
+  "subagents_used": false,
+  "reviewer_launched": false,
+  "aggregator_launched": false,
+  "architecture_reconciliation_started": false
+}

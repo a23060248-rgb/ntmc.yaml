@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "decision_id": "HAD-004",
+  "decision_title": "Agent Registry placement",
+  "competing_options": [
+    "OPTION_A_FACTORY_INTERNAL_REGISTRY",
+    "OPTION_B_INDEPENDENT_CONTROL_PLANE_REGISTRY"
+  ],
+  "source_support": [
+    "ARC-CLM-024"
+  ],
+  "authority_analysis": "Registry is not demonstrated by the thesis and appears only as a derived implementation element.",
+  "advantages": {
+    "option_a": "Simple initial ownership.",
+    "option_b": "Independent lineage and compatibility across Factory versions and runtimes."
+  },
+  "risks": {
+    "option_a": "Factory may become lifecycle authority.",
+    "option_b": "Adds a distributed consistency and service-boundary problem."
+  },
+  "downstream_impact": "Affects package identity, deployment status, capability lookup, and rollback.",
+  "codex_recommendation": "DEFER_DECISION until deployment topology and multi-project scope are separately designed; keep the logical Registry contract independent meanwhile.",
+  "available_human_decisions": [
+    "ADOPT_OPTION_A",
+    "ADOPT_OPTION_B",
+    "ADOPT_MODIFIED_OPTION",
+    "DEFER_DECISION",
+    "REJECT_ALL_OPTIONS"
+  ],
+  "current_status": "PENDING_HUMAN_DECISION",
+  "human_decision": "PENDING_HUMAN_DECISION",
+  "codex_filled_human_decision": false
+}

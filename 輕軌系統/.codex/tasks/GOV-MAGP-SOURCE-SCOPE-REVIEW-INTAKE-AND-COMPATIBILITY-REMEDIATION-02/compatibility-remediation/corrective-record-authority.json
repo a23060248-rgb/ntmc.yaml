@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "corrective_overlay_id": "MAGP-SOURCE-SCOPE-COMPATIBILITY-CORRECTIVE-OVERLAY-R2",
+  "generated_at": "2026-07-22T16:34:28+08:00",
+  "base_target_binding": {
+    "review_target_task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+    "review_target_manifest_sha256": "C156854BA326194C5E26FB05C69849DC81784FC33E5713340D1E06DF0FF5F3D4",
+    "review_target_record_core_sha256": "DDE3280766B7CD5102DB8912874BB2426545F31924D8A83B2A894D361C725F38"
+  },
+  "authority_scope": [
+    "STATUS_INTERPRETATION",
+    "DOWNSTREAM_AUTHORIZATION_ORDER",
+    "COMPATIBILITY_FINDING_REMEDIATION_EVIDENCE"
+  ],
+  "authority_exclusions": [
+    "SOURCE_AUTHORITY_ADOPTION",
+    "MAGP_ARCHITECTURE_APPROVAL",
+    "SOURCE_CLASSIFICATION_CHANGE",
+    "NEW_MAGP_CORE_CLAIM",
+    "NEW_RAILWAY_RULE",
+    "HISTORICAL_TARGET_MUTATION"
+  ],
+  "may_close_compatibility_findings": false,
+  "compatibility_r2_has_closure_authority": true,
+  "human_exact_manifest_adoption_required": true
+}

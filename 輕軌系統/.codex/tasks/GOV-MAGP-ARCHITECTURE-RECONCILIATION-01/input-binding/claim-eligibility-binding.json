@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "adopted_effective_state": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-SOURCE-SCOPE-EXACT-MANIFEST-ADOPTION-01/adopted-manifests/adopted-claim-eligibility-effective-state.json",
+    "sha256": "F927773F4D6EE56BAB58CD3B926C3270AA25E017D97422C2C39B9D29DA278109",
+    "bytes": 1254
+  },
+  "core_sources": [
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "classification": "CORE",
+      "source_classification_value": "CORE_INCLUDED",
+      "read_scope": "FULL_DOCUMENT",
+      "claim_eligibility": "METHODOLOGY_SUPPORTING_EVIDENCE"
+    },
+    {
+      "source_id": "SOURCE-MAGP-02",
+      "classification": "CORE",
+      "source_classification_value": "CORE_INCLUDED",
+      "read_scope": "FULL_DOCUMENT",
+      "claim_eligibility": "CONCEPTUAL_INTERPRETATION_CANDIDATE"
+    },
+    {
+      "source_id": "SOURCE-MAGP-03",
+      "classification": "CORE",
+      "source_classification_value": "CORE_INCLUDED",
+      "read_scope": "FULL_DOCUMENT",
+      "claim_eligibility": "IMPLEMENTATION_GUIDANCE_CANDIDATE"
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "classification": "CORE",
+      "source_classification_value": "CORE_INCLUDED",
+      "read_scope": "FULL_DOCUMENT",
+      "claim_eligibility": "ARCHITECTURE_PROPOSAL_CANDIDATE"
+    }
+  ],
+  "optional_sources": [
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "classification": "OPTIONAL",
+      "source_classification_value": "OPTIONAL_PATTERN_ONLY",
+      "read_scope": "GENERAL_PROCESS_PATTERNS_ONLY",
+      "claim_eligibility": "NON_AUTHORITATIVE_PATTERN"
+    }
+  ],
+  "excluded_sources": [
+    {
+      "source_id": "SOURCE-EXCLUDED-01",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_SUPERSEDED",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-02",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_OUT_OF_SCOPE_MODEL_IMPLEMENTATION",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-03",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_OUT_OF_SCOPE_EDGE_MODEL_AND_RUNTIME",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-04",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_OUT_OF_SCOPE_EDGE_DEPLOYMENT",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE_FOR_CURRENT_MAGP_CORE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-05",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_FROM_MAGP_CORE",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE_FOR_CURRENT_MAGP_CORE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-06",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_REDUNDANT_PROJECT_SPECIFIC_WORKFLOW",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE"
+    }
+  ],
+  "automatic_architecture_authority": false
+}

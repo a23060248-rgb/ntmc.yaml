@@ -1,0 +1,206 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "unresolved_count": 15,
+  "decisions": [
+    {
+      "decision_id": "HOD-001",
+      "decision_title": "Object ID format",
+      "options": [
+        "URN_WITH_TYPE_PREFIX_AND_ULID",
+        "URI_WITH_UUID",
+        "HUMAN_MODIFIED_FORMAT"
+      ],
+      "codex_recommendation": "URN_WITH_TYPE_PREFIX_AND_ULID",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-002",
+      "decision_title": "Namespace hierarchy",
+      "options": [
+        "ORG_PLATFORM_DOMAIN_VOLUME_PACKAGE",
+        "ORG_DOMAIN_PACKAGE",
+        "HUMAN_MODIFIED_HIERARCHY"
+      ],
+      "codex_recommendation": "ORG_PLATFORM_DOMAIN_VOLUME_PACKAGE",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-003",
+      "decision_title": "Versioning rules",
+      "options": [
+        "SEMVER_PLUS_REVISION",
+        "CALVER_PLUS_REVISION",
+        "HUMAN_MODIFIED_VERSIONING"
+      ],
+      "codex_recommendation": "SEMVER_PLUS_REVISION",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-004",
+      "decision_title": "Schema language and standard",
+      "options": [
+        "JSON_SCHEMA_2020_12",
+        "CUE",
+        "PROTOBUF_PLUS_POLICY_SCHEMA",
+        "HUMAN_MODIFIED_STANDARD"
+      ],
+      "codex_recommendation": "JSON_SCHEMA_2020_12_FOR_GOVERNANCE_ARTIFACTS",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-005",
+      "decision_title": "Canonicalization method",
+      "options": [
+        "RFC8785_JCS_WHERE_JSON",
+        "TYPE_SPECIFIC_CANONICALIZATION_REGISTRY",
+        "HUMAN_MODIFIED_METHOD"
+      ],
+      "codex_recommendation": "TYPE_SPECIFIC_REGISTRY_WITH_RFC8785_JCS_FOR_JSON",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-006",
+      "decision_title": "Lifecycle state naming",
+      "options": [
+        "COMMON_DESIGN_AND_RUNTIME_ENUMS",
+        "TYPE_SPECIFIC_STATES",
+        "HUMAN_MODIFIED_NAMING"
+      ],
+      "codex_recommendation": "COMMON_PROFILES_WITH_TYPE_SPECIFIC_RESTRICTIONS",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-007",
+      "decision_title": "Authority Class grading",
+      "options": [
+        "ORDERED_AUTHORITY_CLASSES",
+        "CAPABILITY_SET_WITHOUT_TOTAL_ORDER",
+        "HUMAN_MODIFIED_MODEL"
+      ],
+      "codex_recommendation": "CAPABILITY_SET_WITH_EXPLICIT_CEILING_AND_PARTIAL_ORDER",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-008",
+      "decision_title": "Evidence Assurance grading",
+      "options": [
+        "FIVE_LEVEL_MODEL",
+        "CLAIM_SPECIFIC_ASSURANCE_VECTOR",
+        "HUMAN_MODIFIED_MODEL"
+      ],
+      "codex_recommendation": "CLAIM_SPECIFIC_VECTOR_WITH_DISCLOSED_REVIEW_MODEL",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-009",
+      "decision_title": "Human Approval validity period",
+      "options": [
+        "TYPE_SPECIFIC_EXPIRY",
+        "NO_EXPIRY_WITH_REVIEW_DATE",
+        "HUMAN_MODIFIED_POLICY"
+      ],
+      "codex_recommendation": "TYPE_AND_RISK_SPECIFIC_EXPIRY_OR_REVIEW_DATE",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-010",
+      "decision_title": "Runtime Event retention",
+      "options": [
+        "RISK_CLASS_RETENTION",
+        "FIXED_RETENTION",
+        "HUMAN_MODIFIED_POLICY"
+      ],
+      "codex_recommendation": "RISK_CLASS_RETENTION_PENDING_LEGAL_AND_OPERATIONAL_REQUIREMENTS",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-011",
+      "decision_title": "Package dependency strategy",
+      "options": [
+        "ACYCLIC_PINNED_DAG",
+        "LOCKFILE_WITH_BOUNDED_DEV_CYCLES",
+        "HUMAN_MODIFIED_STRATEGY"
+      ],
+      "codex_recommendation": "ACYCLIC_PINNED_RUNTIME_DAG",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-012",
+      "decision_title": "Volume cross-boundary reference rules",
+      "options": [
+        "EXACT_REFERENCE_NO_AUTHORITY_COPY",
+        "CONTROLLED_MIRROR",
+        "HUMAN_MODIFIED_RULE"
+      ],
+      "codex_recommendation": "EXACT_REFERENCE_NO_AUTHORITY_COPY",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-013",
+      "decision_title": "Agent Definition permission expression",
+      "options": [
+        "CAPABILITY_AND_RESOURCE_POLICY",
+        "ROLE_BASED_ONLY",
+        "HUMAN_MODIFIED_MODEL"
+      ],
+      "codex_recommendation": "CAPABILITY_RESOURCE_SCOPE_AND_EXPLICIT_DENY",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-014",
+      "decision_title": "Finding closure authority",
+      "options": [
+        "INDEPENDENT_OR_HUMAN_FOR_CRITICAL_HIGH",
+        "POLICY_BOUND_CLOSURE_MATRIX",
+        "HUMAN_MODIFIED_MODEL"
+      ],
+      "codex_recommendation": "POLICY_BOUND_MATRIX_WITH_INDEPENDENT_OR_HUMAN_CRITICAL_HIGH_CLOSURE",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    },
+    {
+      "decision_id": "HOD-015",
+      "decision_title": "Breaking change process",
+      "options": [
+        "RFC_IMPACT_TRACE_REVIEW_HUMAN_VERSION_INCREMENT",
+        "TYPE_SPECIFIC_PROCESS",
+        "HUMAN_MODIFIED_PROCESS"
+      ],
+      "codex_recommendation": "RFC_IMPACT_TRACE_REVIEW_HUMAN_VERSION_INCREMENT",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "human_decision": "PENDING_HUMAN_DECISION",
+      "codex_filled_human_decision": false
+    }
+  ]
+}

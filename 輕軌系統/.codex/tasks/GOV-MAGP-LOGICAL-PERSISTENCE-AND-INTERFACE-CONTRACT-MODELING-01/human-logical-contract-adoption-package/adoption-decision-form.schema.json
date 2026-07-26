@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human Logical Contract Adoption Decision",
+  "type": "object",
+  "required": [
+    "task_id",
+    "decision_status",
+    "human_decision",
+    "logical_contract_adopted",
+    "normative_logical_contract",
+    "codex_filled_human_decision"
+  ],
+  "properties": {
+    "task_id": {
+      "const": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01"
+    },
+    "decision_status": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "HUMAN_APPROVED",
+        "HUMAN_REJECTED"
+      ]
+    },
+    "human_decision": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "ADOPT_PROPOSED_LOGICAL_CONTRACT",
+        "ADOPT_WITH_HUMAN_MODIFICATIONS",
+        "DEFER_NON_BLOCKING_DECISIONS_AND_ADOPT",
+        "DO_NOT_ADOPT"
+      ]
+    },
+    "logical_contract_adopted": {
+      "type": "boolean"
+    },
+    "normative_logical_contract": {
+      "type": "boolean"
+    },
+    "codex_filled_human_decision": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "master_batch": "7A-2",
+  "stage": 1,
+  "intent": "Prepare exact integrated Human design adoption and Phase 0/1 authorization decisions, then stop for original Human input.",
+  "allowed_current_actions": [
+    "read and verify 7A-1",
+    "aggregate pending decisions",
+    "recommend options",
+    "calculate exact hashes",
+    "prepare pending Human decision form"
+  ],
+  "prohibited_current_actions": [
+    "Human decision substitution",
+    "design adoption",
+    "Design Baseline creation",
+    "Phase authorization",
+    "implementation",
+    "product code modification",
+    "database or migration execution",
+    "deployment",
+    "Git"
+  ],
+  "assurance_level": "REDUCED_ASSURANCE"
+}

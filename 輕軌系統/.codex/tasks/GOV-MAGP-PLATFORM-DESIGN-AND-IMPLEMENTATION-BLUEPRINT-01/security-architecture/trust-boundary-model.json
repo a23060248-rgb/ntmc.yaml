@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "trust-boundary-model",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "boundaries": [
+    "Human authority",
+    "governance control plane",
+    "product data plane",
+    "agent runtime",
+    "evidence storage",
+    "audit storage",
+    "deployment plane",
+    "external identity provider"
+  ],
+  "default_crossing": "DENY_AND_VERIFY"
+}

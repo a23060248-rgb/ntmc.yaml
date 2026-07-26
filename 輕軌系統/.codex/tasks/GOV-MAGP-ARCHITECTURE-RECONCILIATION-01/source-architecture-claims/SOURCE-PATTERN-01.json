@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "source_id": "SOURCE-PATTERN-01",
+  "classification": "OPTIONAL",
+  "authority_level": "OPTIONAL_NON_AUTHORITATIVE_PROCESS_PATTERN",
+  "claim_eligibility": "NON_AUTHORITATIVE_PATTERN",
+  "read_scope": "GENERAL_PROCESS_PATTERNS_ONLY",
+  "source_binding": {
+    "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+    "sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+    "bytes": 73306
+  },
+  "extraction": {
+    "method": "UTF8_MARKDOWN_GENERAL_PATTERN_LINE_INDEX",
+    "line_count": 1839
+  },
+  "architecture_claim_ids": [
+    "ARC-CLM-008",
+    "ARC-CLM-022",
+    "ARC-CLM-025",
+    "ARC-CLM-026",
+    "ARC-CLM-028",
+    "ARC-CLM-029",
+    "ARC-CLM-031",
+    "ARC-CLM-037",
+    "ARC-CLM-039",
+    "ARC-CLM-040"
+  ],
+  "architecture_claim_count": 10,
+  "source_explicit_claim_count": 0,
+  "derived_or_synthesis_claim_count": 2,
+  "optional_pattern_claim_count": 2,
+  "exact_evidence_references": [
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 654,
+      "end_line": 665,
+      "anchor": "role responsibility and non-authority",
+      "evidence_note": "Non-authoritative pattern for separating generation, review, execution, and adoption authority."
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 1541,
+      "end_line": 1593,
+      "anchor": "lean control and no parallel authority",
+      "evidence_note": "Non-authoritative pattern for control-document budgets and avoiding duplicate authority."
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 1257,
+      "end_line": 1350,
+      "anchor": "evidence-bound completion",
+      "evidence_note": "Non-authoritative pattern for trace, negative tests, independent rerun, and unresolved-item checks."
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 654,
+      "end_line": 665,
+      "anchor": "role responsibility and non-authority",
+      "evidence_note": "Non-authoritative pattern for separating generation, review, execution, and adoption authority."
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 190,
+      "end_line": 241,
+      "anchor": "Artifact-mediated collaboration",
+      "evidence_note": "Non-authoritative pattern for hash-pinned handoff and bounded artifact exchange."
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 1257,
+      "end_line": 1350,
+      "anchor": "evidence-bound completion",
+      "evidence_note": "Non-authoritative pattern for trace, negative tests, independent rerun, and unresolved-item checks."
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 654,
+      "end_line": 665,
+      "anchor": "role responsibility and non-authority",
+      "evidence_note": "Non-authoritative pattern for separating generation, review, execution, and adoption authority."
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 1541,
+      "end_line": 1593,
+      "anchor": "lean control and no parallel authority",
+      "evidence_note": "Non-authoritative pattern for control-document budgets and avoiding duplicate authority."
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 1541,
+      "end_line": 1593,
+      "anchor": "lean control and no parallel authority",
+      "evidence_note": "Non-authoritative pattern for control-document budgets and avoiding duplicate authority."
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "source_sha256": "E9164B636A3970139BF859C5D5BC9D550E526A478A3028E0E70DBABA91F186B8",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/VETC_MULTI_AI_COLLABORATION_ENGINEERING_ARCHITECTURE_REPORT_BILINGUAL_GUIDED_DRAFT_v2.md",
+      "locator_type": "MARKDOWN_LINE_RANGE",
+      "start_line": 654,
+      "end_line": 665,
+      "anchor": "role responsibility and non-authority",
+      "evidence_note": "Non-authoritative pattern for separating generation, review, execution, and adoption authority."
+    }
+  ],
+  "prohibited_overclaim": "NON_AUTHORITATIVE_PATTERN_ONLY"
+}

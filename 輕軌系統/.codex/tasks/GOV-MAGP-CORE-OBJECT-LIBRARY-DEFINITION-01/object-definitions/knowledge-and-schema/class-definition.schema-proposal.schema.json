@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:class-definition:v0",
+  "title": "Class Definition Schema Proposal",
+  "description": "Candidate schema proposal; not adopted and not a database schema.",
+  "allOf": [
+    {
+      "$ref": "../../../canonical-object-envelope/canonical-object-envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "object_type": {
+              "const": "CLASS_DEFINITION"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "class_identity",
+            "superclass",
+            "properties",
+            "invariants",
+            "lifecycle_applicability",
+            "evidence_requirements",
+            "allowed_relations"
+          ],
+          "properties": {
+            "class_identity": {
+              "type": [
+                "string",
+                "object",
+                "array",
+                "number",
+                "null"
+              ]
+            },
+            "superclass": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "properties": {
+              "type": "array",
+              "items": {}
+            },
+            "invariants": {
+              "type": "array",
+              "items": {}
+            },
+            "lifecycle_applicability": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            },
+            "evidence_requirements": {
+              "type": "array",
+              "items": {}
+            },
+            "allowed_relations": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    }
+  ],
+  "x-magp-object-type-id": "OBJ-TYPE-011",
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true,
+  "x-magp-database-schema": false
+}

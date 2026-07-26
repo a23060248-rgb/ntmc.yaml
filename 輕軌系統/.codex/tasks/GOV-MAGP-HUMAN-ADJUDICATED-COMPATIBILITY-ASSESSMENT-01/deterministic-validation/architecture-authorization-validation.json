@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "validator_role": "EVIDENCE_AND_BINDING_VALIDATOR",
+  "finding_id": "COMPAT-R1-002",
+  "current_state": {
+    "architecture_reconciliation_status": "NOT_AUTHORIZED",
+    "architecture_reconciliation_started": false,
+    "core_object_library_status": "NOT_AUTHORIZED",
+    "core_object_library_created_by_this_task": false,
+    "next_currently_authorized_action": "HUMAN_FINDING_ADJUDICATION"
+  },
+  "required_prerequisites": [
+    {"requirement":"Compatibility Findings complete Human adjudication","status":"NOT_SATISFIED_PENDING_HUMAN_DECISIONS"},
+    {"requirement":"Source Scope Review Gate has a lawful result","status":"NOT_SATISFIED_GATE_NO_GO"},
+    {"requirement":"Human Source Scope Exact-Manifest Adoption complete","status":"NOT_SATISFIED_NOT_STARTED"},
+    {"requirement":"Open CRITICAL equals 0","status":"NOT_YET_EVALUATED_FOR_ARCHITECTURE_AUTHORIZATION"},
+    {"requirement":"Open HIGH equals 0","status":"NOT_SATISFIED_TWO_HIGH_FINDINGS_PENDING"},
+    {"requirement":"Review Target binding valid","status":"SATISFIED"},
+    {"requirement":"Source root binding valid","status":"SATISFIED"},
+    {"requirement":"Product and Governance integrity PASS","status":"SATISFIED"},
+    {"requirement":"Separate Human Architecture Reconciliation authorization","status":"NOT_SATISFIED_NOT_GRANTED"}
+  ],
+  "premature_direction_disposition": "HISTORICAL_PREMATURE_DIRECTION",
+  "premature_direction_authorization_effect": "NONE",
+  "architecture_may_start": false,
+  "validation_result": "VALIDATION_PASS"
+}

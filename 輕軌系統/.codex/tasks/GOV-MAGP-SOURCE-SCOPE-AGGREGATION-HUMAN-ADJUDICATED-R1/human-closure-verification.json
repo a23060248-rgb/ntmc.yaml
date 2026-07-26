@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "assurance_level": "REDUCED_ASSURANCE",
+  "records": [
+    {
+      "finding_id": "COMPAT-R1-001",
+      "binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/human-adjudication/finding-001-human-adjudication.json",
+        "sha256": "0C0566ADED2F401F4B0CC9849514F14350BD9446E83F01BCB1792310B875E73E",
+        "bytes": 1350
+      },
+      "verification_status": "PASS",
+      "effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "closure_model": "HUMAN_ADJUDICATED_REDUCED_ASSURANCE"
+    },
+    {
+      "finding_id": "COMPAT-R1-002",
+      "binding": {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/human-adjudication/finding-002-human-adjudication.json",
+        "sha256": "8667AC71578F3EFB6BD0F006ACC35CDCD3F3359F425F59DC59606C5FF4D8D499",
+        "bytes": 1372
+      },
+      "verification_status": "PASS",
+      "effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "closure_model": "HUMAN_ADJUDICATED_REDUCED_ASSURANCE"
+    }
+  ],
+  "human_authority_attestation": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01/human-adjudication/human-authority-attestation.json",
+    "sha256": "1D1561B54AAC3A4BEB36CF6B3D9BEDFA7ED733775AFF675F408E4C3A70073E6D",
+    "bytes": 699
+  },
+  "findings_deleted": false,
+  "findings_waived": false,
+  "clean_room_verified": false,
+  "independent_reviewer_closed": false,
+  "status": "PASS_2_OF_2"
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "constraint-design",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "constraints": [
+    "canonical ID uniqueness",
+    "revision positive and monotonic",
+    "content hash format",
+    "valid lifecycle state",
+    "authority time window",
+    "approval decision immutable",
+    "evidence hash immutable",
+    "finding closure requires closure evidence",
+    "package dependency acyclic",
+    "outbox idempotency uniqueness"
+  ]
+}

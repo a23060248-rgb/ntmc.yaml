@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "master_batch": "8A-0G",
+  "task_type": "GOVERNANCE_GIT_TRUST_ANCHOR_PROPOSAL",
+  "authorization": "PROPOSAL_ONLY_HARD_STOP_AT_HUMAN_GATE",
+  "objective": "Prepare an exact per-file Governance Git Trust Anchor Proposal that can reproduce the 8A0R Stage 1 governance inputs from a future Commit.",
+  "authorized_actions": [
+    "read-only Repository and Git discovery",
+    "exact dependency aggregation",
+    "deterministic QA",
+    "Human decision binding preparation"
+  ],
+  "prohibited_actions": [
+    "Git write",
+    "Trust Anchor Commit",
+    "implementation root adoption",
+    "allowed path adoption",
+    "Tech Stack adoption",
+    "8A-1 relaunch",
+    "Product Code modification",
+    "secret content read",
+    "database",
+    "migration",
+    "network",
+    "deployment"
+  ],
+  "human_disposition": {
+    "master_batch_8a_0r": "ACCEPT_HARD_STOP",
+    "accepted_blocker": "WORKTREE_BASELINE_NOT_REPRODUCIBLE",
+    "master_batch_8a_1": "NOT_AUTHORIZED",
+    "governance_git_trust_anchor_commit": "NOT_YET_AUTHORIZED"
+  }
+}

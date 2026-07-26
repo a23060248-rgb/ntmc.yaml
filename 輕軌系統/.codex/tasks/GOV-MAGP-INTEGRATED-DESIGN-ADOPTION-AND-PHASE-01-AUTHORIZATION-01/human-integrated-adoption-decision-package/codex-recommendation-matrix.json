@@ -1,0 +1,736 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "total_recommendation_count": 56,
+  "nonbinding_recommendations_only": true,
+  "human_adoption_implied": false,
+  "recommendations": [
+    {
+      "decision_id": "IAD-A-001",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Primary System of Record",
+      "exact_options": [
+        "POSTGRESQL",
+        "ALTERNATIVE_ACID_RELATIONAL_STORE",
+        "NO_SINGLE_SYSTEM_OF_RECORD"
+      ],
+      "codex_recommendation": "POSTGRESQL",
+      "recommendation_rationale": "Strong transactions, constraints, mature recovery and governance metadata fit while preserving projection boundaries.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-002",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Graph Store",
+      "exact_options": [
+        "NO_INITIAL_GRAPH_STORE",
+        "DEDICATED_GRAPH_PROJECTION",
+        "GRAPH_AS_PRIMARY_STORE"
+      ],
+      "codex_recommendation": "DEDICATED_GRAPH_PROJECTION_NOT_AUTHORITY_SOURCE",
+      "recommendation_rationale": "Lineage traversal benefits from a graph projection, but normative identity and authority remain in the primary store.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-003",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Object Storage",
+      "exact_options": [
+        "OBJECT_STORAGE_WITH_HASH_BINDING",
+        "DATABASE_LARGE_OBJECTS",
+        "FILESYSTEM_STORAGE"
+      ],
+      "codex_recommendation": "OBJECT_STORAGE_WITH_HASH_BINDING",
+      "recommendation_rationale": "Separates large immutable evidence payloads from transactional metadata and preserves exact content verification.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-004",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Search Index",
+      "exact_options": [
+        "NO_INITIAL_SEARCH_ENGINE",
+        "REBUILDABLE_DEDICATED_SEARCH_PROJECTION",
+        "DATABASE_FULL_TEXT_SEARCH"
+      ],
+      "codex_recommendation": "REBUILDABLE_DEDICATED_SEARCH_PROJECTION",
+      "recommendation_rationale": "Search must remain rebuildable and non-authoritative; initial rollout may defer infrastructure until usage justifies it.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-005",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Event Store",
+      "exact_options": [
+        "TRANSACTIONAL_OUTBOX_PLUS_AUDIT",
+        "DEDICATED_EVENT_STORE",
+        "NO_PERSISTED_DOMAIN_EVENTS"
+      ],
+      "codex_recommendation": "TRANSACTIONAL_OUTBOX_PLUS_AUDIT",
+      "recommendation_rationale": "Provides atomic change-and-publish behavior without prematurely adopting a separate event-sourcing platform.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-006",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Time-Series Store",
+      "exact_options": [
+        "OBSERVABILITY_BACKEND_SEPARATE_FROM_GOVERNANCE_SOR",
+        "RELATIONAL_TELEMETRY_TABLES",
+        "DEDICATED_TIME_SERIES_DATABASE"
+      ],
+      "codex_recommendation": "OBSERVABILITY_BACKEND_SEPARATE_FROM_GOVERNANCE_SOR",
+      "recommendation_rationale": "Runtime telemetry has different retention and query needs and is not Evidence until explicitly registered.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-007",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Temporal Storage",
+      "exact_options": [
+        "APPEND_HISTORY",
+        "SYSTEM_VERSIONED_TEMPORAL",
+        "HYBRID_GOVERNANCE_TEMPORAL"
+      ],
+      "codex_recommendation": "HYBRID_GOVERNANCE_TEMPORAL",
+      "recommendation_rationale": "Append-oriented governance history plus explicit valid-time fields preserves auditability while limiting temporal complexity.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-008",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Row-Level Security",
+      "exact_options": [
+        "APPLICATION_ENFORCEMENT_ONLY",
+        "DATABASE_RLS_PLUS_APPLICATION",
+        "SELECTIVE_RLS_DEFENSE_IN_DEPTH"
+      ],
+      "codex_recommendation": "SELECTIVE_RLS_DEFENSE_IN_DEPTH",
+      "recommendation_rationale": "Use database RLS where data classification and tenant or volume boundaries justify defense in depth; retain application authority checks.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-009",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Partition Strategy",
+      "exact_options": [
+        "NO_INITIAL_PARTITION",
+        "TIME_PARTITION",
+        "VOLUME_PARTITION",
+        "HYBRID_PARTITION"
+      ],
+      "codex_recommendation": "NO_INITIAL_PARTITION_UNTIL_MEASURED",
+      "recommendation_rationale": "Premature partitioning raises operational risk; keep a reviewed path for audit and runtime event growth.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-010",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Evidence Ledger Storage",
+      "exact_options": [
+        "RELATIONAL_METADATA_PLUS_OBJECT_BLOBS",
+        "RELATIONAL_ONLY",
+        "DEDICATED_EVENT_STORE"
+      ],
+      "codex_recommendation": "RELATIONAL_METADATA_PLUS_OBJECT_BLOBS",
+      "recommendation_rationale": "Hash-bound metadata transactions and immutable object payloads support verification, retention and scale without self-acceptance.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-011",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Audit Storage",
+      "exact_options": [
+        "APPEND_TABLE_WITH_HASH_CHAIN",
+        "EXTERNAL_WORM_ONLY",
+        "APPEND_TABLE_PLUS_EXTERNAL_REPLICATION"
+      ],
+      "codex_recommendation": "APPEND_TABLE_WITH_HASH_CHAIN_AND_FUTURE_EXTERNAL_REPLICATION",
+      "recommendation_rationale": "Tamper-evident local audit enables transactional correlation; external replication can strengthen later assurance.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-012",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "Backup Restore",
+      "exact_options": [
+        "DATABASE_PITR_PLUS_OBJECT_VERSIONING_AND_TESTED_RESTORE",
+        "STORAGE_SNAPSHOTS_ONLY",
+        "THIRD_PARTY_BACKUP_ONLY"
+      ],
+      "codex_recommendation": "DATABASE_PITR_PLUS_OBJECT_VERSIONING_AND_TESTED_RESTORE",
+      "recommendation_rationale": "Recovery credibility depends on restore rehearsal and integrity validation across metadata and evidence payloads.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-A-013",
+      "decision_group": "PHYSICAL_PERSISTENCE_DECISIONS",
+      "decision_title": "RPO RTO",
+      "exact_options": [
+        "HUMAN_DEFINED_SERVICE_TIERS",
+        "SINGLE_GLOBAL_TARGET",
+        "DEFER_UNTIL_PRODUCTION"
+      ],
+      "codex_recommendation": "HUMAN_DEFINED_SERVICE_TIERS_BEFORE_PRODUCTION",
+      "recommendation_rationale": "Governance, evidence, audit and projections have different criticality; business-owned tiers avoid false precision.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-001",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "API Style",
+      "exact_options": [
+        "REST_COMMAND_QUERY_API_PLUS_EVENT_CONTRACT",
+        "GRPC_INTERNAL",
+        "GRAPHQL_QUERY_PROJECTION",
+        "HYBRID"
+      ],
+      "codex_recommendation": "REST_COMMAND_QUERY_API_PLUS_EVENT_CONTRACT",
+      "recommendation_rationale": "Explicit commands and queries align with adopted logical boundaries and keep events formal and asynchronous.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-002",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Resource Boundary",
+      "exact_options": [
+        "AGGREGATE_ALIGNED_RESOURCES",
+        "GENERIC_GOVERNANCE_OBJECT_RESOURCE",
+        "WORKFLOW_SCREEN_RESOURCES"
+      ],
+      "codex_recommendation": "AGGREGATE_ALIGNED_RESOURCES",
+      "recommendation_rationale": "Aggregate-aligned resources preserve transaction and authority boundaries without exposing storage tables.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-003",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Command Action Representation",
+      "exact_options": [
+        "TYPED_COMMAND_ENVELOPE_ON_ACTION_ENDPOINTS",
+        "CRUD_ONLY",
+        "GENERIC_ACTION_STRING"
+      ],
+      "codex_recommendation": "TYPED_COMMAND_ENVELOPE_ON_ACTION_ENDPOINTS",
+      "recommendation_rationale": "Typed commands carry expected revision, authority and idempotency bindings and remain auditable.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-004",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Version Negotiation",
+      "exact_options": [
+        "URI_MAJOR_PLUS_SCHEMA_MEDIA_VERSION",
+        "HEADER_ONLY",
+        "QUERY_PARAMETER_VERSION"
+      ],
+      "codex_recommendation": "URI_MAJOR_PLUS_SCHEMA_MEDIA_VERSION",
+      "recommendation_rationale": "Major URI versions give coarse compatibility while schema versions support contract evolution.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-005",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Idempotency",
+      "exact_options": [
+        "IDEMPOTENCY_KEY_PLUS_REQUEST_HASH_STORE",
+        "COMMAND_ID_ONLY",
+        "NO_SERVER_IDEMPOTENCY"
+      ],
+      "codex_recommendation": "IDEMPOTENCY_KEY_PLUS_REQUEST_HASH_STORE",
+      "recommendation_rationale": "Rejecting conflicting key reuse prevents replay and duplicate side effects across commands and approvals.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-006",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Concurrency",
+      "exact_options": [
+        "EXPECTED_REVISION_PLUS_ETAG",
+        "EXPECTED_REVISION_BODY_ONLY",
+        "PESSIMISTIC_LOCKING"
+      ],
+      "codex_recommendation": "EXPECTED_REVISION_PLUS_ETAG",
+      "recommendation_rationale": "Optimistic aggregate revisions align with the logical contract and permit standard conditional requests.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-007",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Authentication",
+      "exact_options": [
+        "OIDC_HUMAN_PLUS_WORKLOAD_IDENTITY",
+        "MUTUAL_TLS_ONLY",
+        "LOCAL_CREDENTIALS"
+      ],
+      "codex_recommendation": "OIDC_HUMAN_PLUS_WORKLOAD_IDENTITY",
+      "recommendation_rationale": "Separates Human identity from service and agent workload identity and supports enterprise revocation.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-008",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Authorization",
+      "exact_options": [
+        "RBAC_PLUS_ABAC_POLICY_EVALUATION_AND_HUMAN_GATE",
+        "RBAC_ONLY",
+        "CAPABILITY_GRANTS_ONLY",
+        "HYBRID_UNSCOPED"
+      ],
+      "codex_recommendation": "RBAC_PLUS_ABAC_POLICY_EVALUATION_AND_HUMAN_GATE",
+      "recommendation_rationale": "Roles simplify coarse permissions; attributes and scoped grants enforce resource, action, time and Human Gate constraints.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-009",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Error Contract",
+      "exact_options": [
+        "RFC_9457_PROBLEM_DETAILS_WITH_GOVERNANCE_EXTENSIONS",
+        "CUSTOM_ERROR_ENVELOPE",
+        "TRANSPORT_NATIVE_ERRORS"
+      ],
+      "codex_recommendation": "RFC_9457_PROBLEM_DETAILS_WITH_GOVERNANCE_EXTENSIONS",
+      "recommendation_rationale": "A standard envelope with correlation and authority-denial extensions supports interoperable clients and safe diagnostics.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-010",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Event Delivery Guarantee",
+      "exact_options": [
+        "AT_LEAST_ONCE_WITH_CONSUMER_IDEMPOTENCY",
+        "AT_MOST_ONCE",
+        "EXACTLY_ONCE_CLAIM"
+      ],
+      "codex_recommendation": "AT_LEAST_ONCE_WITH_CONSUMER_IDEMPOTENCY",
+      "recommendation_rationale": "It is realistic across infrastructure boundaries and makes duplicate handling explicit and testable.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-011",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Event Ordering Scope",
+      "exact_options": [
+        "PER_AGGREGATE",
+        "PER_TOPIC",
+        "GLOBAL"
+      ],
+      "codex_recommendation": "PER_AGGREGATE",
+      "recommendation_rationale": "Aggregate ordering preserves lifecycle consistency without imposing an expensive global order.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-012",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Event Versioning",
+      "exact_options": [
+        "SEMANTIC_SCHEMA_VERSIONS_WITH_COMPATIBILITY_PROFILES",
+        "TOPIC_PER_VERSION",
+        "ENVELOPE_VERSION_ONLY"
+      ],
+      "codex_recommendation": "SEMANTIC_SCHEMA_VERSIONS_WITH_COMPATIBILITY_PROFILES",
+      "recommendation_rationale": "Compatibility profiles make producer and consumer expectations explicit and testable.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-013",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "OpenAPI AsyncAPI Version",
+      "exact_options": [
+        "OPENAPI_3_1_AND_ASYNCAPI_3_0",
+        "OPENAPI_3_0_AND_ASYNCAPI_2_6",
+        "DEFER_SPEC_VERSIONS"
+      ],
+      "codex_recommendation": "OPENAPI_3_1_AND_ASYNCAPI_3_0",
+      "recommendation_rationale": "Matches the proposal artifacts and modern JSON Schema alignment while remaining implementation-neutral.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-B-014",
+      "decision_group": "API_AND_EVENT_DECISIONS",
+      "decision_title": "Message Infrastructure",
+      "exact_options": [
+        "TRANSACTIONAL_OUTBOX_WITH_NO_INITIAL_BROKER",
+        "MANAGED_QUEUE",
+        "STREAMING_PLATFORM"
+      ],
+      "codex_recommendation": "TRANSACTIONAL_OUTBOX_WITH_NO_INITIAL_BROKER_UNTIL_LATER_PHASE",
+      "recommendation_rationale": "Phase 0 and 1 do not require broker runtime; the outbox contract preserves a later infrastructure choice.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-001",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Trust Boundary",
+      "exact_options": [
+        "EXPLICIT_CONTROL_DATA_EVIDENCE_AUDIT_AGENT_PLANES",
+        "SINGLE_APPLICATION_BOUNDARY",
+        "SERVICE_PER_BOUNDARY"
+      ],
+      "codex_recommendation": "EXPLICIT_CONTROL_DATA_EVIDENCE_AUDIT_AGENT_PLANES",
+      "recommendation_rationale": "Logical separation makes authority crossings, evidence integrity and agent containment reviewable regardless of deployment style.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-002",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Human Identity",
+      "exact_options": [
+        "ENTERPRISE_OIDC_WITH_MFA",
+        "LOCAL_APPLICATION_IDENTITY",
+        "EXTERNAL_MANUAL_ATTESTATION_ONLY"
+      ],
+      "codex_recommendation": "ENTERPRISE_OIDC_WITH_MFA",
+      "recommendation_rationale": "Human governance decisions require strong, revocable, attributable identity.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-003",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Service Workload Identity",
+      "exact_options": [
+        "WORKLOAD_IDENTITY_PLUS_MTLS",
+        "STATIC_SERVICE_CREDENTIALS",
+        "SHARED_APPLICATION_IDENTITY"
+      ],
+      "codex_recommendation": "WORKLOAD_IDENTITY_PLUS_MTLS",
+      "recommendation_rationale": "Short-lived workload identity and channel authentication avoid shared secrets and support least privilege.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-004",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Agent Runtime Isolation",
+      "exact_options": [
+        "MANAGED_SANDBOX_OR_CONTAINER",
+        "PROCESS_ONLY",
+        "MICROVM",
+        "NO_ISOLATION"
+      ],
+      "codex_recommendation": "MANAGED_SANDBOX_OR_CONTAINER_WITH_EXACT_TOOL_AND_DATA_SCOPE",
+      "recommendation_rationale": "Agents require containment, scoped tools and revocable authority; the exact runtime can be selected at implementation readiness.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-005",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Key Secret Management",
+      "exact_options": [
+        "EXTERNAL_SECRET_MANAGER_WITH_ROTATION",
+        "PLATFORM_SECRET_STORE",
+        "ENCRYPTED_CONFIGURATION_FILES"
+      ],
+      "codex_recommendation": "EXTERNAL_SECRET_MANAGER_WITH_ROTATION",
+      "recommendation_rationale": "Separates secret lifecycle from code and configuration templates and supports audit and revocation.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-006",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Deployment Topology",
+      "exact_options": [
+        "CONTROL_AND_DATA_PLANE_SPLIT",
+        "SINGLE_ENVIRONMENT_STACK",
+        "HYBRID"
+      ],
+      "codex_recommendation": "CONTROL_AND_DATA_PLANE_SPLIT_AS_LOGICAL_BOUNDARY",
+      "recommendation_rationale": "Preserves governance authority and evidence controls while permitting an initially compact physical deployment.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-007",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Modular Monolith Service Hybrid",
+      "exact_options": [
+        "MODULAR_MONOLITH_FIRST",
+        "SERVICE_ORIENTED",
+        "HYBRID_FROM_START"
+      ],
+      "codex_recommendation": "MODULAR_MONOLITH_FIRST_WITH_PRESERVED_SERVICE_BOUNDARIES",
+      "recommendation_rationale": "Reduces operational burden during kernel delivery while retaining explicit module contracts for later extraction.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-008",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Environment Separation",
+      "exact_options": [
+        "DEVELOPMENT_TEST_STAGING_PRODUCTION",
+        "DEVELOPMENT_AND_PRODUCTION_ONLY",
+        "EPHEMERAL_ALL_ENVIRONMENTS"
+      ],
+      "codex_recommendation": "DEVELOPMENT_TEST_STAGING_PRODUCTION_WITH_STRICT_AUTHORITY_SEPARATION",
+      "recommendation_rationale": "Separate environments and identities reduce accidental production authority and enable rehearsals.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-009",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Evidence Audit Isolation",
+      "exact_options": [
+        "SEPARATE_ACCESS_BOUNDARIES_AND_STORAGE_ROLES",
+        "SAME_SCHEMA_AND_ROLE",
+        "EXTERNAL_WORM_ONLY"
+      ],
+      "codex_recommendation": "SEPARATE_ACCESS_BOUNDARIES_AND_STORAGE_ROLES",
+      "recommendation_rationale": "Independent permissions and retention reduce tampering and prevent operational actors from rewriting assurance records.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-010",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Incident Response",
+      "exact_options": [
+        "HUMAN_CONTROLLED_WITH_AUTOMATED_CONTAINMENT",
+        "FULLY_MANUAL",
+        "AGENT_AUTONOMOUS_RECOVERY"
+      ],
+      "codex_recommendation": "HUMAN_CONTROLLED_WITH_AUTOMATED_CONTAINMENT",
+      "recommendation_rationale": "Automation may suspend or isolate, but recovery authorization and authority restoration remain Human decisions.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-C-011",
+      "decision_group": "SECURITY_AND_DEPLOYMENT_DECISIONS",
+      "decision_title": "Disaster Recovery",
+      "exact_options": [
+        "TIERED_TESTED_RESTORE",
+        "WARM_STANDBY",
+        "ACTIVE_ACTIVE"
+      ],
+      "codex_recommendation": "TIERED_TESTED_RESTORE_BEFORE_ADVANCED_TOPOLOGY",
+      "recommendation_rationale": "Verified restoration and reconciliation are prerequisites; advanced redundancy should follow adopted RPO/RTO and measured need.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-001",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Repository Structure",
+      "exact_options": [
+        "MODULAR_MONOREPO",
+        "POLYREPO",
+        "EXTEND_EXISTING_PRODUCT_DIRECTORIES"
+      ],
+      "codex_recommendation": "MODULAR_MONOREPO_WITH_EXACT_WRITE_BOUNDARIES",
+      "recommendation_rationale": "Shared contracts and validation kernel benefit from atomic changes while module ownership remains explicit.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-002",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Module Boundary",
+      "exact_options": [
+        "CAPABILITY_AND_AGGREGATE_ALIGNED",
+        "TECHNICAL_LAYER_ONLY",
+        "DEPLOYMENT_UNIT_ONLY"
+      ],
+      "codex_recommendation": "CAPABILITY_AND_AGGREGATE_ALIGNED",
+      "recommendation_rationale": "Keeps authority, transactions and ownership cohesive and independent of initial physical deployment.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-003",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Delivery Sequence",
+      "exact_options": [
+        "PHASE_GATED_VERTICAL_SLICES",
+        "ALL_INFRASTRUCTURE_FIRST",
+        "BIG_BANG"
+      ],
+      "codex_recommendation": "PHASE_GATED_VERTICAL_SLICES",
+      "recommendation_rationale": "Each slice can prove baseline conformance, security, tests and rollback before downstream authorization.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-004",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Work Package Boundary",
+      "exact_options": [
+        "ADOPT_WP_00_THROUGH_WP_19",
+        "CONSOLIDATE_WORK_PACKAGES",
+        "REPLAN_AFTER_PHASE_1"
+      ],
+      "codex_recommendation": "ADOPT_WP_00_THROUGH_WP_19_AS_PLANNING_BOUNDARIES",
+      "recommendation_rationale": "The proposed packages expose dependencies and Human Gates without authorizing execution.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-005",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Testing Strategy",
+      "exact_options": [
+        "PYRAMID_PLUS_CONTRACT_SECURITY_E2E_AND_RECOVERY",
+        "UNIT_TESTS_ONLY",
+        "E2E_FIRST"
+      ],
+      "codex_recommendation": "PYRAMID_PLUS_CONTRACT_SECURITY_E2E_AND_RECOVERY",
+      "recommendation_rationale": "Governance correctness depends on negative authority tests, contracts, evidence integrity and failure rehearsal beyond unit tests.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-006",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Evidence Gate",
+      "exact_options": [
+        "PER_WORK_PACKAGE_AND_PHASE",
+        "PER_PHASE_ONLY",
+        "FINAL_RELEASE_ONLY"
+      ],
+      "codex_recommendation": "PER_WORK_PACKAGE_AND_PHASE",
+      "recommendation_rationale": "Early exact evidence prevents unverifiable work from accumulating and preserves traceable acceptance.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-007",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Security Review Gate",
+      "exact_options": [
+        "CONTINUOUS_PLUS_PHASE_GATE",
+        "FINAL_GATE_ONLY",
+        "OPTIONAL"
+      ],
+      "codex_recommendation": "CONTINUOUS_PLUS_PHASE_GATE",
+      "recommendation_rationale": "Threats and authority boundaries must be checked where introduced and again before phase transition.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-008",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Compatibility Review Gate",
+      "exact_options": [
+        "CONTRACT_CHANGE_PLUS_PHASE_GATE",
+        "FINAL_GATE_ONLY",
+        "OPTIONAL"
+      ],
+      "codex_recommendation": "CONTRACT_CHANGE_PLUS_PHASE_GATE",
+      "recommendation_rationale": "API, event, persistence and baseline compatibility should fail closed at the change that creates risk.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-009",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Deployment Gate",
+      "exact_options": [
+        "HUMAN_AUTHORIZATION_PER_CONTROLLED_RELEASE",
+        "AUTOMATIC_CONTINUOUS_DEPLOYMENT",
+        "PRODUCTION_ONLY_HUMAN_GATE"
+      ],
+      "codex_recommendation": "HUMAN_AUTHORIZATION_PER_CONTROLLED_RELEASE",
+      "recommendation_rationale": "Signed artifacts, recovery readiness and exact environment bindings require explicit deployment authority.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-010",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "First Controlled Pilot Scope",
+      "exact_options": [
+        "PHASE_0_AND_PHASE_1_ONLY",
+        "KERNEL_ONLY",
+        "VERTICAL_GOVERNANCE_WORKFLOW"
+      ],
+      "codex_recommendation": "PHASE_0_AND_PHASE_1_ONLY",
+      "recommendation_rationale": "Bootstrap and the canonical validation kernel establish safe foundations without prematurely implementing approval, finding or runtime workflows.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-D-011",
+      "decision_group": "IMPLEMENTATION_BLUEPRINT_DECISIONS",
+      "decision_title": "Human Console Priority",
+      "exact_options": [
+        "AUTHORITY_AND_APPROVALS_FIRST",
+        "EVIDENCE_AND_FINDINGS_FIRST",
+        "PACKAGE_AND_DEPLOYMENT_FIRST",
+        "BALANCED"
+      ],
+      "codex_recommendation": "AUTHORITY_AND_APPROVALS_FIRST_IN_LATER_AUTHORIZED_PHASE",
+      "recommendation_rationale": "Human authority visibility should precede advanced operational surfaces, but console implementation is outside Phase 0 and Phase 1.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-E-001",
+      "decision_group": "IMPLEMENTATION_AUTHORIZATION_DECISIONS",
+      "decision_title": "AUTHORIZE_PHASE_0",
+      "exact_options": [
+        "AUTHORIZED_FOR_SEPARATE_IMPLEMENTATION_TASK",
+        "NOT_AUTHORIZED"
+      ],
+      "codex_recommendation": "AUTHORIZED_FOR_SEPARATE_IMPLEMENTATION_TASK",
+      "recommendation_rationale": "Phase 0 creates only governed project skeletons, contracts, tooling and evidence structures after a separate prelaunch gate.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-E-002",
+      "decision_group": "IMPLEMENTATION_AUTHORIZATION_DECISIONS",
+      "decision_title": "AUTHORIZE_PHASE_1",
+      "exact_options": [
+        "AUTHORIZED_FOR_SEPARATE_IMPLEMENTATION_TASK",
+        "NOT_AUTHORIZED"
+      ],
+      "codex_recommendation": "AUTHORIZED_FOR_SEPARATE_IMPLEMENTATION_TASK",
+      "recommendation_rationale": "Phase 1 is limited to canonical object and validation kernel work and excludes later governance workflows.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-E-003",
+      "decision_group": "IMPLEMENTATION_AUTHORIZATION_DECISIONS",
+      "decision_title": "AUTHORIZE_PHASE_2_OR_LATER",
+      "exact_options": [
+        "NOT_AUTHORIZED",
+        "AUTHORIZED"
+      ],
+      "codex_recommendation": "NOT_AUTHORIZED",
+      "recommendation_rationale": "No Human-reviewed implementation scope or launch safety package exists for Phase 2 or later.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-E-004",
+      "decision_group": "IMPLEMENTATION_AUTHORIZATION_DECISIONS",
+      "decision_title": "ALLOW_DATABASE_EXECUTION",
+      "exact_options": [
+        "NOT_AUTHORIZED",
+        "AUTHORIZED"
+      ],
+      "codex_recommendation": "NOT_AUTHORIZED",
+      "recommendation_rationale": "Design adoption and Phase 0/1 authorization do not establish database safety, environment or migration execution gates.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-E-005",
+      "decision_group": "IMPLEMENTATION_AUTHORIZATION_DECISIONS",
+      "decision_title": "ALLOW_MIGRATION_EXECUTION",
+      "exact_options": [
+        "NOT_AUTHORIZED",
+        "AUTHORIZED"
+      ],
+      "codex_recommendation": "NOT_AUTHORIZED",
+      "recommendation_rationale": "Migration execution requires separate adopted artifacts, rehearsal, backup and Human GO.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-E-006",
+      "decision_group": "IMPLEMENTATION_AUTHORIZATION_DECISIONS",
+      "decision_title": "ALLOW_PRODUCT_CODE_MODIFICATION",
+      "exact_options": [
+        "AUTHORIZED_ONLY_IN_SEPARATE_PHASE_0_1_TASK_AND_EXACT_SCOPE",
+        "NOT_AUTHORIZED",
+        "AUTHORIZED_WITHOUT_SCOPE_LIMIT"
+      ],
+      "codex_recommendation": "AUTHORIZED_ONLY_IN_SEPARATE_PHASE_0_1_TASK_AND_EXACT_SCOPE",
+      "recommendation_rationale": "The adoption task itself cannot modify product code; a separate task must verify repository state and enforce the adopted Phase 0/1 boundary.",
+      "human_decision": null
+    },
+    {
+      "decision_id": "IAD-E-007",
+      "decision_group": "IMPLEMENTATION_AUTHORIZATION_DECISIONS",
+      "decision_title": "ALLOW_DEPLOYMENT",
+      "exact_options": [
+        "NOT_AUTHORIZED",
+        "AUTHORIZED"
+      ],
+      "codex_recommendation": "NOT_AUTHORIZED",
+      "recommendation_rationale": "Deployment requires later readiness, security, compatibility, recovery and Human authorization evidence.",
+      "human_decision": null
+    }
+  ]
+}

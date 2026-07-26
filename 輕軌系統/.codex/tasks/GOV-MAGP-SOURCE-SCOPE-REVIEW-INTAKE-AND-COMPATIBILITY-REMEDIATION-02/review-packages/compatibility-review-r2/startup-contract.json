@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+  "mandatory_first_read": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/review-packages/compatibility-review-r2/absolute-launch-envelope.json",
+  "startup_sequence": [
+    "Verify this is a brand-new top-level Codex chat with no inherited implementation, review, aggregation, or payload context.",
+    "Recompute the RFC 8785 JCS hash of launch_core and verify all R2 identity and package bindings.",
+    "Verify the frozen R1 review target remains byte-identical and the corrective overlay is separately bound.",
+    "Verify formal intake and preserved R1 Reviewer reuse evidence before substantive review.",
+    "Return a startup BLOCKER before substantive review if any binding fails."
+  ],
+  "startup_valid_requires": [
+    "assignment_valid",
+    "package_valid",
+    "target_valid",
+    "scope_valid",
+    "clean_context_valid",
+    "overlay_valid",
+    "reuse_valid"
+  ],
+  "fail_closed": true
+}

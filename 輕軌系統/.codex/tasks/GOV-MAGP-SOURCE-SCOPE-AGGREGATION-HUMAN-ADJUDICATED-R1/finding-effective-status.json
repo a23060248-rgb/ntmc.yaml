@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "compatibility_findings": [
+    {
+      "finding_id": "COMPAT-R1-001",
+      "title": "Pending review gate is represented as active downstream policy",
+      "severity": "HIGH",
+      "original_status": "OPEN",
+      "remediation_status": "REMEDIATED",
+      "final_effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "closure_model": "HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+      "finding_deleted": false,
+      "finding_waived": false,
+      "clean_room_verified": false,
+      "independent_reviewer_closed": false,
+      "human_decision": "HUMAN_CLOSED",
+      "active": false
+    },
+    {
+      "finding_id": "COMPAT-R1-002",
+      "title": "Architecture Reconciliation is prematurely directed to start",
+      "severity": "HIGH",
+      "original_status": "OPEN",
+      "remediation_status": "REMEDIATED",
+      "final_effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+      "closure_model": "HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+      "finding_deleted": false,
+      "finding_waived": false,
+      "clean_room_verified": false,
+      "independent_reviewer_closed": false,
+      "human_decision": "HUMAN_CLOSED",
+      "active": false
+    }
+  ],
+  "startup_finding": {
+    "finding_id": "COMPAT-R2-STARTUP-CONTEXT-001",
+    "reviewer_domain": "STARTUP_HISTORY",
+    "title": "R2 startup context and exact-read-scope contract violated",
+    "severity": "CRITICAL",
+    "original_status": "OPEN",
+    "final_effective_status": "HISTORICAL_STARTUP_FAILURE_EVIDENCE",
+    "containment_status": "CONTAINED_BY_FAILED_ATTEMPT_INVALIDATION",
+    "substantive_review_credit": "NONE",
+    "aggregator_eligible": false,
+    "current_source_scope_content_finding": false,
+    "active": false,
+    "original_finding_source": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01/compatibility-r2-attempt-1/parsed-wrapper.json"
+  },
+  "open_active_critical_findings": 0,
+  "open_active_high_findings": 0,
+  "deleted_finding_count": 0,
+  "waived_finding_count": 0,
+  "status": "PASS_NO_OPEN_ACTIVE_CRITICAL_OR_HIGH"
+}

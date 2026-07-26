@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01",
+  "readiness_status": "READY_FOR_SEPARATE_HUMAN_AUTHORIZATION",
+  "target_task": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "baseline_ids": [
+    "MAGP-ARCH-BASELINE-V1",
+    "MAGP-OBJECT-LIBRARY-BASELINE-V1",
+    "MAGP-LOGICAL-CONTRACT-BASELINE-V1"
+  ],
+  "prohibited_current_actions": [
+    "start 7A-1",
+    "physical database",
+    "migration",
+    "formal API",
+    "product implementation"
+  ],
+  "next_human_action": "REAUTHORIZE_MASTER_BATCH_7A_1",
+  "readiness_only": true,
+  "planning_7a1_authorized": false,
+  "planning_7a1_started": false,
+  "physical_database_created": false,
+  "migration_created_or_executed": false,
+  "formal_api_created": false,
+  "product_implementation_started": false
+}

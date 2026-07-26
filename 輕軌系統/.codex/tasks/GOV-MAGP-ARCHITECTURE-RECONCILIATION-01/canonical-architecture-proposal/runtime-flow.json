@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "architecture_status": "PROPOSED_NOT_ADOPTED",
+  "ordered_steps": [
+    "Load approved package and immutable policy snapshot",
+    "Create typed ExecutionContext",
+    "Runtime Governance and Policy Engine evaluate proposed action",
+    "Pause for Human approval when required",
+    "Agent OS executes authorized task and tool calls",
+    "Knowledge Graph supplies validated knowledge view; Knowledge Lake remains provenance source",
+    "Evidence Ledger records decisions and execution",
+    "Runtime feedback becomes a design change proposal only"
+  ],
+  "runtime_implementation_started": false
+}

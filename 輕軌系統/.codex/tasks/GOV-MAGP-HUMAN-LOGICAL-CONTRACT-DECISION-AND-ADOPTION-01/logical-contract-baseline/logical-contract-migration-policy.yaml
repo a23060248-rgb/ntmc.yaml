@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-LOGICAL-CONTRACT-DECISION-AND-ADOPTION-01",
+  "migration_scope": "LOGICAL_CONTRACT_VERSION_TRANSITION_ONLY",
+  "physical_database_migration_defined": false,
+  "database_migration_authorized": false,
+  "breaking_transition_requires": [
+    "source baseline",
+    "target baseline",
+    "impact analysis",
+    "consumer compatibility plan",
+    "lineage preservation",
+    "evidence",
+    "Human approval"
+  ],
+  "silent_semantic_migration_allowed": false
+}

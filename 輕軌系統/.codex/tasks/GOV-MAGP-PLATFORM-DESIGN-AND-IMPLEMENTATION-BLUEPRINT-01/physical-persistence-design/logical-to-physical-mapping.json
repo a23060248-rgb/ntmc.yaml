@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "logical-to-physical-mapping",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "mappings": [
+    {
+      "logical_concept": "governance object",
+      "proposed_physical_entity": "governance_object",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "governance object version",
+      "proposed_physical_entity": "governance_object_version",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": true
+    },
+    {
+      "logical_concept": "object relation",
+      "proposed_physical_entity": "object_relation",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "lifecycle transition",
+      "proposed_physical_entity": "lifecycle_transition",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": true
+    },
+    {
+      "logical_concept": "authority grant",
+      "proposed_physical_entity": "authority_grant",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "human approval",
+      "proposed_physical_entity": "human_approval",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "approval binding",
+      "proposed_physical_entity": "approval_binding",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "evidence record",
+      "proposed_physical_entity": "evidence_record",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "evidence blob reference",
+      "proposed_physical_entity": "evidence_blob_reference",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "review record",
+      "proposed_physical_entity": "review_record",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "finding",
+      "proposed_physical_entity": "finding",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "finding status history",
+      "proposed_physical_entity": "finding_status_history",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": true
+    },
+    {
+      "logical_concept": "remediation",
+      "proposed_physical_entity": "remediation",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "volume",
+      "proposed_physical_entity": "volume",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "package",
+      "proposed_physical_entity": "package",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "package member",
+      "proposed_physical_entity": "package_member",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "agent definition",
+      "proposed_physical_entity": "agent_definition",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "agent instance",
+      "proposed_physical_entity": "agent_instance",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "runtime event",
+      "proposed_physical_entity": "runtime_event",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "deployment artifact",
+      "proposed_physical_entity": "deployment_artifact",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "audit record",
+      "proposed_physical_entity": "audit_record",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": true
+    },
+    {
+      "logical_concept": "idempotency record",
+      "proposed_physical_entity": "idempotency_record",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "outbox event",
+      "proposed_physical_entity": "outbox_event",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    },
+    {
+      "logical_concept": "retention hold",
+      "proposed_physical_entity": "retention_hold",
+      "canonical_identity_preserved": true,
+      "version_history_preserved": false
+    }
+  ]
+}

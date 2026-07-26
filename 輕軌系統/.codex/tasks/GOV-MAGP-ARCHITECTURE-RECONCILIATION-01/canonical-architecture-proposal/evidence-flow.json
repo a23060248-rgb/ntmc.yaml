@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "architecture_status": "PROPOSED_NOT_ADOPTED",
+  "steps": [
+    {
+      "step": 1,
+      "event": "source intake",
+      "evidence": "source identity, hash, classification, authority, read scope"
+    },
+    {
+      "step": 2,
+      "event": "claim derivation",
+      "evidence": "exact locator, claim class, derivation, assumptions, conflicts"
+    },
+    {
+      "step": 3,
+      "event": "architecture decision proposal",
+      "evidence": "source support, tradeoffs, disposition, pending Human items"
+    },
+    {
+      "step": 4,
+      "event": "Human adoption",
+      "evidence": "decision actor, scope, rationale, version, timestamp"
+    },
+    {
+      "step": 5,
+      "event": "Blueprint and package generation",
+      "evidence": "input snapshot, compiler/manufacturing trace, validation"
+    },
+    {
+      "step": 6,
+      "event": "runtime",
+      "evidence": "policy version, context, tool call, approvals, result, audit event"
+    },
+    {
+      "step": 7,
+      "event": "change proposal",
+      "evidence": "runtime observation linked to proposed design-time change; no direct mutation"
+    }
+  ],
+  "evidence_creates_authority": false
+}

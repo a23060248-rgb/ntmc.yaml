@@ -1,0 +1,125 @@
+{
+  "asyncapi": "3.0.0",
+  "info": {
+    "title": "MAGP Event Contract Proposal",
+    "version": "0.1.0-proposal"
+  },
+  "x-design-status": "PROPOSED_NOT_ADOPTED",
+  "x-execution-status": "NOT_EXECUTED",
+  "x-implementation-status": "NOT_IMPLEMENTED",
+  "servers": {},
+  "channels": {
+    "governance-object-events": {
+      "address": "proposal/governance-object-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "lifecycle-events": {
+      "address": "proposal/lifecycle-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "authority-events": {
+      "address": "proposal/authority-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "human-approval-events": {
+      "address": "proposal/human-approval-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "evidence-events": {
+      "address": "proposal/evidence-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "review-events": {
+      "address": "proposal/review-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "finding-events": {
+      "address": "proposal/finding-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "remediation-events": {
+      "address": "proposal/remediation-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "volume-events": {
+      "address": "proposal/volume-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "package-release-events": {
+      "address": "proposal/package-release-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "agent-runtime-events": {
+      "address": "proposal/agent-runtime-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "deployment-events": {
+      "address": "proposal/deployment-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "audit-events": {
+      "address": "proposal/audit-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    },
+    "security-events": {
+      "address": "proposal/security-events",
+      "messages": {
+        "event": {
+          "$ref": "./event-envelope.schema.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "source_id": "SOURCE-MAGP-04",
+  "classification": "CORE",
+  "authority_level": "DERIVED_ARCHITECTURE_PROPOSAL",
+  "claim_eligibility": "ARCHITECTURE_PROPOSAL_CANDIDATE",
+  "read_scope": "FULL_DOCUMENT",
+  "source_binding": {
+    "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+    "sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+    "bytes": 38190954
+  },
+  "extraction": {
+    "method": "PYPDF_PAGE_AWARE_TEXT_EXTRACTION",
+    "page_count": 79,
+    "total_character_count": 177085
+  },
+  "architecture_claim_ids": [
+    "ARC-CLM-007",
+    "ARC-CLM-008",
+    "ARC-CLM-009",
+    "ARC-CLM-010",
+    "ARC-CLM-011",
+    "ARC-CLM-012",
+    "ARC-CLM-013",
+    "ARC-CLM-014",
+    "ARC-CLM-017",
+    "ARC-CLM-018",
+    "ARC-CLM-019",
+    "ARC-CLM-020",
+    "ARC-CLM-021",
+    "ARC-CLM-023",
+    "ARC-CLM-027",
+    "ARC-CLM-031",
+    "ARC-CLM-032",
+    "ARC-CLM-033",
+    "ARC-CLM-034",
+    "ARC-CLM-035",
+    "ARC-CLM-036",
+    "ARC-CLM-037",
+    "ARC-CLM-038",
+    "ARC-CLM-039",
+    "ARC-CLM-040"
+  ],
+  "architecture_claim_count": 25,
+  "source_explicit_claim_count": 5,
+  "derived_or_synthesis_claim_count": 12,
+  "optional_pattern_claim_count": 0,
+  "exact_evidence_references": [
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        6,
+        7,
+        55,
+        57
+      ],
+      "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+      "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        6,
+        7,
+        55,
+        57
+      ],
+      "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+      "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        6,
+        7,
+        55,
+        57
+      ],
+      "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+      "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        4,
+        23,
+        24,
+        25,
+        28,
+        29,
+        30,
+        31
+      ],
+      "anchor": "Volume Package RFC hierarchy",
+      "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        4,
+        23,
+        24,
+        25,
+        28,
+        29,
+        30,
+        31
+      ],
+      "anchor": "Volume Package RFC hierarchy",
+      "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        4,
+        23,
+        24,
+        25,
+        28,
+        29,
+        30,
+        31
+      ],
+      "anchor": "Volume Package RFC hierarchy",
+      "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        9,
+        48,
+        61,
+        62,
+        63,
+        64,
+        65,
+        79
+      ],
+      "anchor": "architecture description not implementation",
+      "evidence_note": "The source explicitly classifies the volume map as architecture description that requires later specification, Human review, code generation, and testing."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        9,
+        48,
+        61,
+        62,
+        63,
+        64,
+        65,
+        79
+      ],
+      "anchor": "architecture description not implementation",
+      "evidence_note": "The source explicitly classifies the volume map as architecture description that requires later specification, Human review, code generation, and testing."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        6,
+        7,
+        55,
+        57
+      ],
+      "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+      "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        4,
+        23,
+        24,
+        25,
+        28,
+        29,
+        30,
+        31
+      ],
+      "anchor": "Volume Package RFC hierarchy",
+      "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        4,
+        23,
+        24,
+        25,
+        28,
+        29,
+        30,
+        31
+      ],
+      "anchor": "Volume Package RFC hierarchy",
+      "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        4,
+        23,
+        24,
+        25,
+        28,
+        29,
+        30,
+        31
+      ],
+      "anchor": "Volume Package RFC hierarchy",
+      "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        4,
+        23,
+        24,
+        25,
+        28,
+        29,
+        30,
+        31
+      ],
+      "anchor": "Volume Package RFC hierarchy",
+      "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        6,
+        7,
+        55,
+        57
+      ],
+      "anchor": "Meta, abstract, concrete, constitution, meta-agent",
+      "evidence_note": "The architecture proposal describes semantic branches and meta-level responsibility while retaining Human approval."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        4,
+        23,
+        24,
+        25,
+        28,
+        29,
+        30,
+        31
+      ],
+      "anchor": "Volume Package RFC hierarchy",
+      "evidence_note": "The proposal treats Volume, Package, and RFC as distinct engineering organization levels and contains both linear and DAG dependency descriptions."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        5,
+        7,
+        51,
+        52,
+        53
+      ],
+      "anchor": "build-time BGE, manufacturing Factory, runtime Agent OS",
+      "evidence_note": "The architecture proposal clearly separates build-time compilation, manufacturing, and runtime execution."
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "source_sha256": "C05CEFCF9859182A03B04ADAEE0FBE94336298CAF690F2789ED8782375FEABDA",
+      "normalized_absolute_path": "C:/Users/a2306/Desktop/MAGP-Reference-Sources/使用Codex開發MAGP平台 以軟體架構師的角度所做的規劃.pdf",
+      "locator_type": "PDF_PAGE",
+      "pages": [
+        9,
+        48,
+        61,
+        62,
+        63,
+        64,
+        65,
+        79
+      ],
+      "anchor": "architecture description not implementation",
+      "evidence_note": "The source explicitly classifies the volume map as architecture description that requires later specification, Human review, code generation, and testing."
+    }
+  ],
+  "prohibited_overclaim": "NO_AUTOMATIC_NORMATIVE_ARCHITECTURE"
+}

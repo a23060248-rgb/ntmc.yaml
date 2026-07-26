@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "template_type": "STARTUP_BLOCKER_FAILURE_EVIDENCE_INSTRUCTIONS",
+  "fixed_identity": {
+    "review_package_id": "MAGP-SSR2-COMPATIBILITY-RETRY01-95E57850-56B4-4FCE-9E56-855C5464AD6D",
+    "assignment_id": "ASSIGN-E251EE80-1EE2-46B1-AC96-2A91AE3EACA0",
+    "reviewer_run_id": "RUN-BAF0883C-0B45-4B71-8D5D-B4B811C5E13C",
+    "reviewer_session_nonce": "8C94AF476A11882640EC666F68BFA604FCDD760160B30C842CB0C58751C94C73",
+    "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R2-RETRY-01"
+  },
+  "required_branch": "STARTUP_BLOCKER_FAILURE_EVIDENCE",
+  "truthful_counts_and_booleans_required": true,
+  "required_semantics": {
+    "review_started": false,
+    "source_content_reviewed": false,
+    "completed": false,
+    "mandatory_exit_requested": true,
+    "substantive_review_result": false,
+    "substantive_review_credit": "NONE",
+    "aggregator_eligible": false,
+    "finding_closure_authority": "NONE"
+  },
+  "finding_requirement": "At least one OPEN HIGH or CRITICAL finding naming a startup, scope, package, or context contract.",
+  "output_requirement": "Exactly one RFC 8785 JCS canonical two-field wrapper and no other text."
+}

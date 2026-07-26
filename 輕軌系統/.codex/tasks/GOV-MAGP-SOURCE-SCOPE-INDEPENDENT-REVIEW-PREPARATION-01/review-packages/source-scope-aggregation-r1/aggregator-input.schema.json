@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:source-scope-aggregator-input:r1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reviewer_payloads",
+    "transport_attestations"
+  ],
+  "properties": {
+    "reviewer_payloads": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+        "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+        "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+        "EXTERNAL_COMPATIBILITY_REVIEWER"
+      ],
+      "properties": {
+        "EXTERNAL_SOURCE_INTEGRITY_REVIEWER": {
+          "$ref": "../../reviewer-return-payload.schema.json"
+        },
+        "EXTERNAL_SOURCE_AUTHORITY_REVIEWER": {
+          "$ref": "../../reviewer-return-payload.schema.json"
+        },
+        "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER": {
+          "$ref": "../../reviewer-return-payload.schema.json"
+        },
+        "EXTERNAL_COMPATIBILITY_REVIEWER": {
+          "$ref": "../../reviewer-return-payload.schema.json"
+        }
+      }
+    },
+    "transport_attestations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+        "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+        "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+        "EXTERNAL_COMPATIBILITY_REVIEWER"
+      ],
+      "properties": {
+        "EXTERNAL_SOURCE_INTEGRITY_REVIEWER": {
+          "$ref": "../../manual-reviewer-transport-attestation.schema.json"
+        },
+        "EXTERNAL_SOURCE_AUTHORITY_REVIEWER": {
+          "$ref": "../../manual-reviewer-transport-attestation.schema.json"
+        },
+        "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER": {
+          "$ref": "../../manual-reviewer-transport-attestation.schema.json"
+        },
+        "EXTERNAL_COMPATIBILITY_REVIEWER": {
+          "$ref": "../../manual-reviewer-transport-attestation.schema.json"
+        }
+      }
+    }
+  }
+}

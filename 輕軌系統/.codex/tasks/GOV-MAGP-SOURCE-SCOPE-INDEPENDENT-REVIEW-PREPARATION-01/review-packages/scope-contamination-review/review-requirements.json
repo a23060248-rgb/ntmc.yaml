@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+  "review_questions": [
+    {
+      "requirement_id": "SCOPE_CONTAMINATION-REQ-01",
+      "question": "Do the policies prevent V-JEPA, RSSM, VQ-VAE, tensor-shape, terrain, future-cone, UCFT, memory, Jetson, CUDA, ArduPilot, PX4, drone, VET-C RFC, and VET-C phase details from becoming MAGP Core Normative Claims?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SCOPE_CONTAMINATION-REQ-02",
+      "question": "Do the policies prevent health-specific parameters, diagnosis/treatment flows, clinical or health-specific rules from becoming Railway Domain Rules?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SCOPE_CONTAMINATION-REQ-03",
+      "question": "Is VET-C v2 limited to NON_AUTHORITATIVE_PATTERN and general process patterns?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SCOPE_CONTAMINATION-REQ-04",
+      "question": "Can health methodology inform traceability, knowledge validation, HITL, Knowledge Lake, or Graph patterns without importing health-domain details?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SCOPE_CONTAMINATION-REQ-05",
+      "question": "Do all domain-specific promotions require a separately authorized process and Human approval?",
+      "mandatory": true
+    }
+  ],
+  "explicitly_out_of_scope": [
+    "reading source bodies",
+    "designing a VET-C plugin",
+    "inventing domain rules",
+    "rewriting contamination policies"
+  ],
+  "source_content_review_expected": false,
+  "decision_enum": [
+    "PASS",
+    "BLOCKER"
+  ],
+  "blocker_rules": [
+    "Any CRITICAL or HIGH open finding requires BLOCKER.",
+    "Any source identity mismatch, source authority conflict, VET-C Core contamination, Health-to-Railway contamination, historical artifact mutation, forbidden read, or out-of-scope read requires BLOCKER.",
+    "Any startup binding, package hash, target hash, exact-scope, or clean-context failure requires BLOCKER before substantive review.",
+    "PASS requires every assigned question answered, startup valid, review completed, no open CRITICAL/HIGH finding, and zero forbidden or out-of-scope reads."
+  ],
+  "mandatory_exit_requested_value": true
+}

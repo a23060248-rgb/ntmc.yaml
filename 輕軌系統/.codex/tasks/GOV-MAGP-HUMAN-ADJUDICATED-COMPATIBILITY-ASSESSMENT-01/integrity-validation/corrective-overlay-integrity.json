@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "corrective_overlay_id": "MAGP-SOURCE-SCOPE-COMPATIBILITY-CORRECTIVE-OVERLAY-R2",
+  "base_target_manifest_sha256": "C156854BA326194C5E26FB05C69849DC81784FC33E5713340D1E06DF0FF5F3D4",
+  "correction_integrity_record_core_sha256": "77EA27B9441E1E966CD39F2CD3CBA278326C70E55780470DD2EB372CC3025F42",
+  "expected_artifact_count": 7,
+  "actual_artifact_count": 7,
+  "match_count": 7,
+  "artifacts": [
+    {"relative_path":"architecture-reconciliation-authorization-state.json","sha256":"7E79EF70B16214EB49C0AD2BC799C647A9430F7104F5921F6CF7274F7914A26C","bytes":702,"match":true},
+    {"relative_path":"compatibility-finding-remediation-matrix.json","sha256":"C1D16361DA48E313F2C60EF0371761CE5F858D1D5B8749C8EB5B04B12638CA69","bytes":1527,"match":true},
+    {"relative_path":"corrective-record-authority.json","sha256":"6E5D85FE47D5C41CC6122A05BC6203FB57008DD762CA63CBB32188B0B74A2A08","bytes":991,"match":true},
+    {"relative_path":"downstream-policy-consumption-prohibition.yaml","sha256":"58BE7B14852E2FF2994E38001DD460424A3A451F9DDB98F9F5969744433563F4","bytes":940,"match":true},
+    {"relative_path":"original-premature-statements-disposition.json","sha256":"9430544DFE378B814018FA4056644CC8DB5962F7D9363803A97FFDE0CCE725DE","bytes":2089,"match":true},
+    {"relative_path":"source-authority-effective-state.json","sha256":"E62815FC36BED898303E63AA47777B13C701DF7AFC869DC18AB7EDED466182A5","bytes":685,"match":true},
+    {"relative_path":"source-scope-status-correction.json","sha256":"6BB5ECD14FF14330B5940AA4F70B21EE5C4A37579529EB8482734641D3E93B5D","bytes":790,"match":true}
+  ],
+  "status": "UNCHANGED_7_OF_7",
+  "base_artifacts_modified_by_overlay": false,
+  "finding_closure_performed_by_overlay": false,
+  "drift_detected": false,
+  "git_used": false
+}

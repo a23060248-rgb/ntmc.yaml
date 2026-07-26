@@ -1,0 +1,28 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "lineage_types": [
+    "SOURCE_LINEAGE",
+    "ARCHITECTURE_LINEAGE",
+    "OBJECT_DERIVATION_LINEAGE",
+    "VERSION_LINEAGE",
+    "DECISION_LINEAGE",
+    "EVIDENCE_LINEAGE",
+    "RUNTIME_CAUSATION_LINEAGE",
+    "APPROVAL_LINEAGE",
+    "FINDING_REMEDIATION_LINEAGE",
+    "DEPLOYMENT_LINEAGE"
+  ],
+  "every_edge_requires": [
+    "source identity",
+    "target identity",
+    "relation type",
+    "actor or producer",
+    "timestamp",
+    "integrity binding",
+    "derivation or causation method"
+  ]
+}

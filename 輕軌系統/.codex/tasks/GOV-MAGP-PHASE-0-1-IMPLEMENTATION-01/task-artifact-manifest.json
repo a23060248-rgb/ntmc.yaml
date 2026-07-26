@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01",
+  "canonicalization_method": "RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_NEWLINE",
+  "exclusions": [
+    "task-artifact-manifest.json",
+    "deterministic-stage-0-result.json"
+  ],
+  "file_count": 39,
+  "manifest_sha256": "E5F65C87280B875B76C88AAB11F922D536018620DBA4FA9986EE158A0F92A502",
+  "entries": [
+    {
+      "relative_path": "HANDOFF.md",
+      "sha256": "A9D28196225EE30DCCB9A3AACFE2304AEF57EC1DB8AB2416C2DA9019D3CC8A31",
+      "bytes": 1020
+    },
+    {
+      "relative_path": "api-event-baseline-integrity.json",
+      "sha256": "BE41E19F5D5ECE5A696AF51841E84F2C80141DB3D8B00C89D02FD80D5A705CC1",
+      "bytes": 411
+    },
+    {
+      "relative_path": "architecture-baseline-integrity.json",
+      "sha256": "88170BC8440675C4C633A90C702546A063B7211CB76B36975704040FB55D6F84",
+      "bytes": 379
+    },
+    {
+      "relative_path": "blueprint.yaml",
+      "sha256": "B2C39ADD1400CE18AAC060A317CBA9ABE335D8A2CD4758A44D2E5F691BE67611",
+      "bytes": 458
+    },
+    {
+      "relative_path": "classification.yaml",
+      "sha256": "9A5779EABC0A12BD22FC2F663A813B486875D6CB6991B251E665C1C5C2EC37C8",
+      "bytes": 359
+    },
+    {
+      "relative_path": "final-summary.md",
+      "sha256": "1057B5A29A4FCF26C5EBE0B19433E3980E4B5287D688953D0B2DA23806E77F2B",
+      "bytes": 688
+    },
+    {
+      "relative_path": "findings/implementation-scope-conflict.json",
+      "sha256": "94F9786DF9A00EC78C22EF03FD18E78672DFE722C8E92B7974CA3FD18A76E7F6",
+      "bytes": 478
+    },
+    {
+      "relative_path": "findings/implementation-write-scope-missing.json",
+      "sha256": "D73A4D7893D558D2F6AC8A64C240260D9D30649AF8FA98D1924A762421A2F2F3",
+      "bytes": 708
+    },
+    {
+      "relative_path": "git-control/git-not-started.json",
+      "sha256": "10D07708BD2097B98E66C64A44281E75DD47DC52801D3A93841F89170BE337D7",
+      "bytes": 329
+    },
+    {
+      "relative_path": "historical-artifact-integrity.json",
+      "sha256": "198718C74E2DB463072024A79D7C4903E1E177A17ABBF6D4F0EF4FF4D3B75DAB",
+      "bytes": 497
+    },
+    {
+      "relative_path": "human-phase-0-1-acceptance-package/package-not-prepared.json",
+      "sha256": "95D5EB868E98140B8DC12819B30798CBA5C40F84508CCDC87B3E3A1A65DAA11D",
+      "bytes": 204
+    },
+    {
+      "relative_path": "implementation-blueprint-baseline-integrity.json",
+      "sha256": "10B93A5D5C54D42392C5A07E9C5E08F422F67F223A4C15D2EBACF5BA66B25EA0",
+      "bytes": 417
+    },
+    {
+      "relative_path": "implementation-evidence/implementation-not-started.json",
+      "sha256": "559E3070037CA2A0D8B3B572DAC926F39DF16C1719A0F2079CC4A27610EAA783",
+      "bytes": 230
+    },
+    {
+      "relative_path": "implementation-plan/implementation-not-started.json",
+      "sha256": "E1C601C285C627DFB2B26C84817998772EB609B6C0C04095B7DCEC5F37F9B353",
+      "bytes": 252
+    },
+    {
+      "relative_path": "implementation-scope-conflict.json",
+      "sha256": "414EAD803120BAD1ACB1F6AF98F7A112F98E3536A7817F371637B3B466D6237B",
+      "bytes": 787
+    },
+    {
+      "relative_path": "input-binding/api-event-baseline-binding.json",
+      "sha256": "C7781BA162A68F7FDA521B500B332B070A08217676CE1250A0DEC9E364860536",
+      "bytes": 1449
+    },
+    {
+      "relative_path": "input-binding/architecture-baseline-binding.json",
+      "sha256": "6029FA7FE2F608E8E92C4154B6E40B8CC242B8AB3ED446E9AC0A215F5F14A0F4",
+      "bytes": 677
+    },
+    {
+      "relative_path": "input-binding/assurance-binding.json",
+      "sha256": "1D7C70332B517ABC9057CBC761F95CD0D96B1FBE33F341110D07415914EE71DC",
+      "bytes": 586
+    },
+    {
+      "relative_path": "input-binding/implementation-blueprint-baseline-binding.json",
+      "sha256": "20976D763B1F8B25FD01AB3F8F35607D967382F41F1110F96BB4549F7D5FE319",
+      "bytes": 1488
+    },
+    {
+      "relative_path": "input-binding/implementation-scope-binding.json",
+      "sha256": "59B2181FC221197B27881F4BB33B33B1F32323881A08E0D24A9F9F8FBF4D1C37",
+      "bytes": 1098
+    },
+    {
+      "relative_path": "input-binding/launch-package-binding.json",
+      "sha256": "1F900345CC2AD772112C6DA1096EF19ACBDF5FC10F2856BC53249DC7B900D247",
+      "bytes": 3811
+    },
+    {
+      "relative_path": "input-binding/logical-contract-baseline-binding.json",
+      "sha256": "1E53BD05E20E49CBC0C85335FDD0F0CCB91A5E5EB95F8186A31AB620F9EB052B",
+      "bytes": 697
+    },
+    {
+      "relative_path": "input-binding/object-library-baseline-binding.json",
+      "sha256": "37266FA9C5490D25577A9A60D1A516F1278B0F99B25787FEF1EE68D10F1FE09C",
+      "bytes": 691
+    },
+    {
+      "relative_path": "input-binding/persistence-baseline-binding.json",
+      "sha256": "CCA43C773E3AE9263D8555EFFA5D8276633BA94E8A89A2F6B666655E57586759",
+      "bytes": 1451
+    },
+    {
+      "relative_path": "input-binding/prohibited-scope-binding.json",
+      "sha256": "9D9FDFA8E996934068ECB94DAEAAB7FE001D7A266E6F6ACE934FE245A40920EA",
+      "bytes": 493
+    },
+    {
+      "relative_path": "input-binding/security-deployment-baseline-binding.json",
+      "sha256": "EC71756AC4C626D62CF4FBBF108BEB254576E1D0718BDE1B39670BDDA450F88D",
+      "bytes": 1463
+    },
+    {
+      "relative_path": "logical-contract-baseline-integrity.json",
+      "sha256": "E92E6DAA7CB41A45586804825007C0DBAEB33671EE084979285B2CA33B710AC9",
+      "bytes": 391
+    },
+    {
+      "relative_path": "object-library-baseline-integrity.json",
+      "sha256": "A4A9876E620211C0E466DE2D0BDF0A519431506B03672E5610493C723D3EFEA2",
+      "bytes": 389
+    },
+    {
+      "relative_path": "persistence-baseline-integrity.json",
+      "sha256": "5A9C1FB7151A2E0B70249AACE09B3B40517440B8ED7B5B61B1D76DAD98649243",
+      "bytes": 411
+    },
+    {
+      "relative_path": "phase-2-readiness-package/package-not-prepared.json",
+      "sha256": "192983E09CB6844AF338C82BE9CE450DBB6D48DF46E082AF5762035A8F4DCD63",
+      "bytes": 210
+    },
+    {
+      "relative_path": "preflight/preflight-not-started.json",
+      "sha256": "B920BDEA5931A07502399CC3C0C092BE12D2A8D30919F31C1724A99C1CA76E79",
+      "bytes": 226
+    },
+    {
+      "relative_path": "product-governance-integrity.json",
+      "sha256": "56392E4562F357822009BCBF47B8010C3F990EF5DF090ADBD16CCE66C0ECD82A",
+      "bytes": 615
+    },
+    {
+      "relative_path": "review/review-not-started.json",
+      "sha256": "A65C06BB3A91D6760111E81A0ADAA0748AAE6C4D28BDA054895331891FB9AB59",
+      "bytes": 200
+    },
+    {
+      "relative_path": "scripts/run-stage-0-launch-intake.mjs",
+      "sha256": "EE8F1017294DCA67EDE6244092927E4EA16FCF41641BC1409A9E7716115B9347",
+      "bytes": 21069
+    },
+    {
+      "relative_path": "scripts/validate-stage-0-hard-stop.mjs",
+      "sha256": "47EA75029D3BDF9940C07EE08BE0AA37816EB6A14499916E5C2C596144DB5F1B",
+      "bytes": 8838
+    },
+    {
+      "relative_path": "security-deployment-baseline-integrity.json",
+      "sha256": "67AAE852D254E945530B8A7D5E69D6DF206AC63838C4B602A3B2BEA476EC55E8",
+      "bytes": 412
+    },
+    {
+      "relative_path": "stage-0-result.json",
+      "sha256": "ED68B89326CADC5AAB52EC513D2B06B756AD69CB60F4D39D6FC2CBC2856528FF",
+      "bytes": 620
+    },
+    {
+      "relative_path": "task-intent.yaml",
+      "sha256": "63E11E34F0A3B3E699529E486C6082AA3B09F4F31819FBB8077EA420D54A2F93",
+      "bytes": 366
+    },
+    {
+      "relative_path": "validation-results.json",
+      "sha256": "1A1370A31C68378EB6251C9B18AC6353DE1D66E46928A4491B894C43DC4F4504",
+      "bytes": 2223
+    }
+  ]
+}

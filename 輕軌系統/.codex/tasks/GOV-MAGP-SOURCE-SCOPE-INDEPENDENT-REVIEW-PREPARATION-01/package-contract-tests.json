@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+  "mode": "preparation",
+  "status": "PASS",
+  "pass_count": 30,
+  "fail_count": 0,
+  "total_count": 30,
+  "checks": [
+    {
+      "check_id": "QA-01",
+      "requirement": "Review target artifact count matches the frozen canonical record",
+      "status": "PASS",
+      "evidence": {
+        "expected": 20,
+        "actual": 20
+      }
+    },
+    {
+      "check_id": "QA-02",
+      "requirement": "Required artifact count matches the frozen canonical record",
+      "status": "PASS",
+      "evidence": {
+        "expected": 20,
+        "actual": 20
+      }
+    },
+    {
+      "check_id": "QA-03",
+      "requirement": "Required artifacts are 100 percent present",
+      "status": "PASS",
+      "evidence": {
+        "present_count": 20,
+        "required_count": 20
+      }
+    },
+    {
+      "check_id": "QA-04",
+      "requirement": "Machine-readable artifacts are 100 percent parseable",
+      "status": "PASS",
+      "evidence": {
+        "parse_pass_count": 18,
+        "machine_readable_count": 18
+      }
+    },
+    {
+      "check_id": "QA-05",
+      "requirement": "Review target size and SHA-256 bindings all match",
+      "status": "PASS",
+      "evidence": {
+        "hash_and_size_match_count": 20,
+        "artifact_count": 20
+      }
+    },
+    {
+      "check_id": "QA-06",
+      "requirement": "Source directory top-level regular file count equals 11",
+      "status": "PASS",
+      "evidence": {
+        "actual": 11
+      }
+    },
+    {
+      "check_id": "QA-07",
+      "requirement": "Source file SHA-256 bindings match 11 of 11",
+      "status": "PASS",
+      "evidence": {
+        "hash_match_count": 11,
+        "source_count": 11
+      }
+    },
+    {
+      "check_id": "QA-08",
+      "requirement": "Source identity is resolved and unique 11 of 11",
+      "status": "PASS",
+      "evidence": {
+        "identity_status": "11_OF_11_UNIQUE_AND_RESOLVED",
+        "ambiguity_count": 0
+      }
+    },
+    {
+      "check_id": "QA-09",
+      "requirement": "SOURCE-MAGP-03 exact approved normalized stem matches",
+      "status": "PASS",
+      "evidence": {
+        "expected_stem": "使用Codex去開發MAGP平台前置設計與策剠規劃",
+        "actual_stem": "使用Codex去開發MAGP平台前置設計與策剠規劃"
+      }
+    },
+    {
+      "check_id": "QA-10",
+      "requirement": "SOURCE-MAGP-03 contains U+5260 and excludes U+7565",
+      "status": "PASS",
+      "evidence": {
+        "u5260_present": true,
+        "u7565_absent": true
+      }
+    },
+    {
+      "check_id": "QA-11",
+      "requirement": "CORE_INCLUDED count equals 4",
+      "status": "PASS",
+      "evidence": {
+        "actual": 4
+      }
+    },
+    {
+      "check_id": "QA-12",
+      "requirement": "OPTIONAL_PATTERN_ONLY count equals 1",
+      "status": "PASS",
+      "evidence": {
+        "actual": 1
+      }
+    },
+    {
+      "check_id": "QA-13",
+      "requirement": "EXCLUDED count equals 6",
+      "status": "PASS",
+      "evidence": {
+        "actual": 6
+      }
+    },
+    {
+      "check_id": "QA-14",
+      "requirement": "v1 effective reference count equals 0",
+      "status": "PASS",
+      "evidence": {
+        "actual": 0
+      }
+    },
+    {
+      "check_id": "QA-15",
+      "requirement": "VET-C normative contamination count equals 0",
+      "status": "PASS",
+      "evidence": {
+        "actual": 0
+      }
+    },
+    {
+      "check_id": "QA-16",
+      "requirement": "Health-specific Railway Rule contamination count equals 0",
+      "status": "PASS",
+      "evidence": {
+        "actual": 0
+      }
+    },
+    {
+      "check_id": "QA-17",
+      "requirement": "Product and Candidate file change count equals 0",
+      "status": "PASS",
+      "evidence": {
+        "product_write_count": 0,
+        "candidate_write_count": 0
+      }
+    },
+    {
+      "check_id": "QA-18",
+      "requirement": "Governance baseline change count equals 0",
+      "status": "PASS",
+      "evidence": {
+        "governance_baseline_write_count": 0
+      }
+    },
+    {
+      "check_id": "QA-19",
+      "requirement": "Historical Task change count equals 0",
+      "status": "PASS",
+      "evidence": {
+        "historical_task_write_count": 0,
+        "frozen_hash_match_count": 20
+      }
+    },
+    {
+      "check_id": "QA-20",
+      "requirement": "Git operation count equals 0",
+      "status": "PASS",
+      "evidence": {
+        "git_used": false
+      }
+    },
+    {
+      "check_id": "QA-21",
+      "requirement": "Reviewer package identity collision count equals 0",
+      "status": "PASS",
+      "evidence": {
+        "expected_reviewer_count": 4,
+        "unique_role_count": 4,
+        "unique_task_id_count": 4,
+        "unique_review_package_id_count": 4,
+        "unique_assignment_id_count": 4,
+        "unique_reviewer_run_id_count": 4,
+        "unique_reviewer_session_nonce_count": 4,
+        "unique_package_core_sha256_count": 4,
+        "collision_count": 0,
+        "status": "PASS"
+      }
+    },
+    {
+      "check_id": "QA-22",
+      "requirement": "Reviewer package hashes are valid 4 of 4",
+      "status": "PASS",
+      "evidence": {
+        "valid_count": 4,
+        "expected": 4
+      }
+    },
+    {
+      "check_id": "QA-23",
+      "requirement": "Reviewer launch envelopes are valid 4 of 4",
+      "status": "PASS",
+      "evidence": {
+        "valid_count": 4,
+        "expected": 4
+      }
+    },
+    {
+      "check_id": "QA-24",
+      "requirement": "Reviewer exact read scopes are valid 4 of 4",
+      "status": "PASS",
+      "evidence": {
+        "valid_count": 4,
+        "expected": 4
+      }
+    },
+    {
+      "check_id": "QA-25",
+      "requirement": "Reviewer return schemas are valid 4 of 4",
+      "status": "PASS",
+      "evidence": {
+        "valid_count": 4,
+        "expected": 4,
+        "common_wrapper": true
+      }
+    },
+    {
+      "check_id": "QA-26",
+      "requirement": "Single canonical manual transport schema invariant passes",
+      "status": "PASS",
+      "evidence": {
+        "schema_count": 1,
+        "schema_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/manual-reviewer-transport-attestation.schema.json"
+      }
+    },
+    {
+      "check_id": "QA-27",
+      "requirement": "Aggregator package hash is valid",
+      "status": "PASS",
+      "evidence": {
+        "package_core_sha256": "B7E645F669F1112934D2DE7B1D7A026E0FC893D20E0C584B5A3D1342EC53CBF2",
+        "declared_artifact_count": 13
+      }
+    },
+    {
+      "check_id": "QA-28",
+      "requirement": "Aggregator canonical writer contract and positive and negative self-tests pass",
+      "status": "PASS",
+      "evidence": {
+        "syntax_exit_code": 0,
+        "positive_self_test_exit_code": 0,
+        "negative_self_test_exit_code": 0,
+        "canonicalization": "RFC8785_JCS"
+      }
+    },
+    {
+      "check_id": "QA-29",
+      "requirement": "No Architecture Reconciliation artifacts were created",
+      "status": "PASS",
+      "evidence": {
+        "prohibited_task_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-AUTHORITY-AND-ARCHITECTURE-RECONCILIATION-01",
+        "exists": false
+      }
+    },
+    {
+      "check_id": "QA-30",
+      "requirement": "No Core Object Library artifacts were created",
+      "status": "PASS",
+      "evidence": {
+        "prohibited_task_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-IMPLEMENTATION-01",
+        "exists": false
+      }
+    }
+  ],
+  "review_target_unchanged": true,
+  "source_root_unchanged": true,
+  "reviewer_execution_status": "NOT_STARTED_0_OF_4",
+  "aggregator_execution_status": "NOT_STARTED",
+  "source_scope_lock_review_gate": "NOT_YET_CALCULATED",
+  "git_used": false
+}

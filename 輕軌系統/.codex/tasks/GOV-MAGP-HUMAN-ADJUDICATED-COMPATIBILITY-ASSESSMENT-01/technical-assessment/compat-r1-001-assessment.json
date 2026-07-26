@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "finding_id": "COMPAT-R1-001",
+  "assessor_role": "NON_INDEPENDENT_TECHNICAL_ASSESSOR",
+  "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+  "assurance_level": "REDUCED_ASSURANCE",
+  "original_finding": {
+    "title": "Pending review gate is represented as active downstream policy",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "description": "The frozen target marks source-authority-policy as ACTIVE_FOR_NEXT_TASK_INPUT and reports the Source Scope Lock COMPLETE and downstream Architecture Reconciliation ready even though formal L3 independent review is not performed; the bound canonical record fixes the authority status as PROPOSED_NOT_ADOPTED and the review gate as PENDING.",
+    "required_remediation": "Preserve the frozen target bytes and issue a separately governed corrective record that consistently states PROPOSED_NOT_ADOPTED and PENDING until all required independent and Human gates complete; do not activate the policy for downstream use before those gates."
+  },
+  "verified_effective_state": {
+    "source_scope_lock_status": "COMPLETE",
+    "underlying_source_scope_review_gate": "PENDING",
+    "current_source_scope_review_gate": "NO-GO",
+    "source_authority_status": "PROPOSED_NOT_ADOPTED",
+    "source_policy_normative": false,
+    "downstream_policy_use_allowed": false,
+    "human_source_scope_adoption_status": "NOT_STARTED"
+  },
+  "remediation_checks": [
+    {"requirement":"Premature statements are marked historical","status":"PASS","evidence":"original-premature-statements-disposition.json"},
+    {"requirement":"Pending policy direct downstream use is prohibited","status":"PASS","evidence":"downstream-policy-consumption-prohibition.yaml"},
+    {"requirement":"Effective state is PROPOSED_NOT_ADOPTED","status":"PASS","evidence":"source-authority-effective-state.json"},
+    {"requirement":"Human Exact-Manifest Adoption is required","status":"PASS","evidence":"corrective-record-authority.json"},
+    {"requirement":"Original historical artifacts are unmodified","status":"PASS","evidence":"base-target-integrity.json"},
+    {"requirement":"Source Authority Policy content is unchanged","status":"PASS","evidence":"authority-policy-integrity.json"}
+  ],
+  "historical_wording_independent_authority": false,
+  "deterministic_validation_result": "VALIDATION_PASS",
+  "technical_recommendation": "RECOMMEND_HUMAN_CLOSE",
+  "recommendation_rationale": "The frozen bytes remain intact and the separately governed overlay now consistently removes downstream and normative effect, requires Human adoption, and classifies the original active/ready wording as historical premature direction. The recommendation is technical input only and does not close the Finding.",
+  "exact_evidence_paths": [
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/compatibility-r1.raw.txt",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/source-scope-status-correction.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/source-authority-effective-state.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/downstream-policy-consumption-prohibition.yaml",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/original-premature-statements-disposition.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/corrective-record-authority.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/integrity-validation/base-target-integrity.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/integrity-validation/authority-policy-integrity.json",
+    "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/deterministic-validation/finding-001-validation.json"
+  ],
+  "finding_closed_by_codex": false,
+  "final_status": "PENDING_HUMAN_ADJUDICATION"
+}

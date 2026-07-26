@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "plan_status": "PROPOSED_NOT_AUTHORIZED",
+  "proposed_parent_head": "187ca36a2ef2c4be991e2f94956eae151b417217",
+  "proposed_target_branch": "codex/magp-governance-trust-anchor-v1",
+  "target_branch_action_in_8a0g": "NOT_CREATED",
+  "proposed_commit_message": "governance(magp): establish phase 0/1 trust anchor",
+  "exact_commit_path_count": 147,
+  "exact_paths_source": "exact-commit-paths.json",
+  "dependency_closure_source": "dependency-closure.json",
+  "ignored_file_count": 0,
+  "force_add_ignored_files_required": false,
+  "transformation_risk_count": 0,
+  "collision_count": 0,
+  "unresolved_reference_count": 11,
+  "blocking_unresolved_reference_count": 0,
+  "proposed_staging_rule": "A separately authorized commit batch must stage only the 147 paths bound by exact-commit-paths.json and must verify the staged blob OID for every entry.",
+  "pre_commit_requirements": [
+    "Human approves all four SHA-256 bindings without modification.",
+    "Parent HEAD remains exact.",
+    "Target branch is explicitly authorized and created from the proposed parent.",
+    "Staged scope contains exactly the 147 approved paths and no others.",
+    "Each staged blob OID equals the projected OID in exact-commit-paths.json.",
+    "No ignored file requires force-add unless Human explicitly authorizes it.",
+    "No Secret, Credential, Product Code, Git setting, or historical file mutation is present."
+  ],
+  "new_worktree_reproduction_validation": {
+    "operation_batch": "SEPARATE_HUMAN_AUTHORIZED_BATCH_ONLY",
+    "steps": [
+      "Create a new Worktree from the resulting Trust Anchor Commit.",
+      "Verify the 106-file 7A2 tree digest is CB760B18A41C67EF2978506FE3BE409E7003B28186F2ACFBB56B77D6ED7F68D8.",
+      "Verify the 41-file Attempt 1 tree digest is 6B2DE6D5C428EE61E9448CF2A181006333369E25DD347AA961AAB36DF22A5992.",
+      "Verify every approved working-tree SHA-256 and expected staged blob OID.",
+      "Run the 8A0R Stage 1 read-only validator in the new Worktree."
+    ],
+    "pass_conditions": [
+      "147/147 approved files exist.",
+      "7A2 and Attempt 1 task digests exactly match.",
+      "HEAD is the authorized Trust Anchor Commit.",
+      "Worktree is clean before replay.",
+      "8A0R Stage 1 no longer reports WORKTREE_BASELINE_NOT_REPRODUCIBLE."
+    ],
+    "fail_conditions": [
+      "Any file is absent or hash-mismatched.",
+      "Any extra staged or committed path exists.",
+      "Any Git attribute or filter produces an unapproved staged blob.",
+      "Any path, case, Unicode, Secret, Product Code, or submodule boundary fails.",
+      "8A0R Stage 1 still reports a reproducibility blocker."
+    ]
+  },
+  "git_write_performed": false,
+  "trust_anchor_commit_created": false
+}

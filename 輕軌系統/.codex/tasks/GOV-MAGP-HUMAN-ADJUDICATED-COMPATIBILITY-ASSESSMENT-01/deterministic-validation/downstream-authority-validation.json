@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "validator_role": "EVIDENCE_AND_BINDING_VALIDATOR",
+  "finding_id": "COMPAT-R1-001",
+  "evidence": [
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/source-authority-effective-state.json",
+      "verified_values": {
+        "source_authority_status": "PROPOSED_NOT_ADOPTED",
+        "downstream_policy_use_allowed": false,
+        "normative_authority_allowed_before_human_adoption": false,
+        "authority_policy_content_modified": false
+      }
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/downstream-policy-consumption-prohibition.yaml",
+      "verified_values": {
+        "policy_status": "ENFORCED_BY_CORRECTIVE_OVERLAY",
+        "downstream_policy_use_allowed": false
+      }
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/compatibility-remediation/original-premature-statements-disposition.json",
+      "verified_values": {
+        "disposition": "HISTORICAL_PREMATURE_DIRECTION",
+        "downstream_authorization_effect": "NONE",
+        "historical_files_modified": false
+      }
+    }
+  ],
+  "markdown_or_status_wording_independently_creates_authority": false,
+  "human_exact_manifest_adoption_required": true,
+  "human_adoption_status": "NOT_STARTED",
+  "validation_result": "VALIDATION_PASS"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "proposed_adoption_object": "MAGP_CANONICAL_ARCHITECTURE_CANDIDATE_R1",
+  "adoption_status": "NOT_STARTED",
+  "allowed_human_scope": [
+    "resolve HAD-001 through HAD-007",
+    "adopt, modify, defer, or reject canonical architecture proposal",
+    "define exact normative architecture scope"
+  ],
+  "not_automatically_authorized": [
+    "Core Object Library",
+    "database model",
+    "API contract",
+    "product implementation",
+    "migration",
+    "deployment"
+  ],
+  "separate_follow_up_authorization_required": true
+}

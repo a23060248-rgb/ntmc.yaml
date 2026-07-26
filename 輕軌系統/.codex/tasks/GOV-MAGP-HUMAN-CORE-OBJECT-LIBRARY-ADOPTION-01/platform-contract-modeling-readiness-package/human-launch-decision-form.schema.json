@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human Logical Persistence and Interface Contract Modeling Launch Decision",
+  "type": "object",
+  "required": [
+    "task_id",
+    "decision_status",
+    "human_decision",
+    "logical_contract_modeling_authorized",
+    "physical_database_authorized",
+    "formal_api_contract_authorized",
+    "codex_filled_human_decision"
+  ],
+  "properties": {
+    "task_id": {
+      "const": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01"
+    },
+    "decision_status": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "HUMAN_APPROVED",
+        "HUMAN_REJECTED"
+      ]
+    },
+    "human_decision": {
+      "enum": [
+        "PENDING_HUMAN_DECISION",
+        "AUTHORIZE_LOGICAL_PERSISTENCE_AND_INTERFACE_CONTRACT_MODELING",
+        "DO_NOT_AUTHORIZE_LOGICAL_PERSISTENCE_AND_INTERFACE_CONTRACT_MODELING"
+      ]
+    },
+    "logical_contract_modeling_authorized": {
+      "type": "boolean"
+    },
+    "physical_database_authorized": {
+      "const": false
+    },
+    "formal_api_contract_authorized": {
+      "const": false
+    },
+    "codex_filled_human_decision": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

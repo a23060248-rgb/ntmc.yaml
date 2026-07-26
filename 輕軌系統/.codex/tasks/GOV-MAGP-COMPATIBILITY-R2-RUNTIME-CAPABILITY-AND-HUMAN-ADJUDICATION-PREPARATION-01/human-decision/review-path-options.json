@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "decision_id": "MAGP-COMPAT-R2-REVIEW-PATH-DECISION-01",
+  "decision_status": "PENDING",
+  "default_option": null,
+  "allowed_options": [
+    {
+      "decision": "STRICT_CLEAN_ROOM_REVIEW_REMAINS_REQUIRED",
+      "review_model": "STRICT_CLEAN_ROOM_INDEPENDENT_REVIEW",
+      "compatibility_review_status": "PAUSED_RUNTIME_UNAVAILABLE",
+      "source_scope_review_gate": "NO-GO",
+      "next_authorized_action": "WAIT_FOR_VERIFIABLE_CLEAN_ROOM_RUNTIME",
+      "human_adjudicated_package_allowed": false,
+      "aggregator": "NOT_AUTHORIZED",
+      "architecture_reconciliation": "NOT_AUTHORIZED"
+    },
+    {
+      "decision": "APPROVE_HUMAN_ADJUDICATED_COMPATIBILITY_REVIEW_WITH_REDUCED_ASSURANCE",
+      "review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+      "assurance_level": "REDUCED_HUMAN_ADJUDICATED",
+      "next_authorized_action": "PREPARE_HUMAN_ADJUDICATED_COMPATIBILITY_REVIEW_PACKAGE",
+      "package_preparation_only": true,
+      "finding_closure_authority": "HUMAN_FINAL_FINDING_ADJUDICATOR",
+      "aggregator": "NOT_AUTHORIZED_BY_PATH_SELECTION_ALONE",
+      "architecture_reconciliation": "NOT_AUTHORIZED"
+    }
+  ],
+  "selection_actor": "HUMAN_ONLY",
+  "codex_may_select": false,
+  "current_next_authorized_action": "WAIT_FOR_HUMAN_DECISION"
+}

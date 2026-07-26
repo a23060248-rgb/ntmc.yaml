@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "candidates": [
+    {
+      "aggregate_candidate": "GOVERNANCE_AUTHORITY_AGGREGATE",
+      "candidate_members": [
+        "META_CONSTITUTION",
+        "POLICY",
+        "GOVERNANCE_RULE",
+        "HUMAN_APPROVAL",
+        "DECISION"
+      ]
+    },
+    {
+      "aggregate_candidate": "DESIGN_DECISION_AGGREGATE",
+      "candidate_members": [
+        "RFC",
+        "BLUEPRINT",
+        "SPECIFICATION",
+        "SCHEMA"
+      ]
+    },
+    {
+      "aggregate_candidate": "SEMANTIC_MODEL_AGGREGATE",
+      "candidate_members": [
+        "ONTOLOGY",
+        "CLASS_DEFINITION",
+        "RELATION_DEFINITION"
+      ]
+    },
+    {
+      "aggregate_candidate": "ASSURANCE_AGGREGATE",
+      "candidate_members": [
+        "EVIDENCE",
+        "REVIEW",
+        "FINDING",
+        "HUMAN_APPROVAL"
+      ]
+    },
+    {
+      "aggregate_candidate": "PACKAGE_AND_RELEASE_AGGREGATE",
+      "candidate_members": [
+        "VOLUME",
+        "PACKAGE",
+        "DEPLOYMENT_ARTIFACT"
+      ]
+    },
+    {
+      "aggregate_candidate": "AGENT_RUNTIME_IDENTITY_AGGREGATE",
+      "candidate_members": [
+        "AGENT_DEFINITION",
+        "AGENT_INSTANCE",
+        "RUNTIME_EVENT"
+      ]
+    }
+  ],
+  "status": "CANDIDATE_ONLY_NOT_TRANSACTION_BOUNDARY",
+  "readiness_only": true,
+  "logical_contract_modeling_authorized": false,
+  "physical_database_model_created": false,
+  "database_migration_created": false,
+  "formal_api_contract_created": false,
+  "backend_frontend_created": false,
+  "agent_runtime_created": false,
+  "product_implementation_started": false
+}

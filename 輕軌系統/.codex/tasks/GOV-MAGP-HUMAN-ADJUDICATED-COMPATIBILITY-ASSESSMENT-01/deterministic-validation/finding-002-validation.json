@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "finding_id": "COMPAT-R1-002",
+  "validator_role": "EVIDENCE_AND_BINDING_VALIDATOR",
+  "required_conditions": [
+    {"condition":"architecture_reconciliation_status=NOT_AUTHORIZED","status":"PASS"},
+    {"condition":"architecture_reconciliation_started=false","status":"PASS"},
+    {"condition":"next authorized action is not Architecture Reconciliation","status":"PASS"},
+    {"condition":"Core Object Library is not authorized and not created by this task","status":"PASS"},
+    {"condition":"Human Source Scope Adoption not completed","status":"PASS"},
+    {"condition":"Base Artifact bytes unchanged 20/20","status":"PASS"},
+    {"condition":"Corrective Overlay valid and unchanged 7/7","status":"PASS"}
+  ],
+  "pass_count": 7,
+  "fail_count": 0,
+  "insufficient_evidence_count": 0,
+  "validation_result": "VALIDATION_PASS",
+  "recommend_human_close_permitted": true,
+  "finding_closed": false
+}

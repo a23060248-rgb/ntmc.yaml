@@ -1,0 +1,380 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:proposal:schema:canonical-object-envelope:v0",
+  "title": "MAGP Canonical Object Envelope Proposal",
+  "description": "Non-normative proposal pending Human Core Object Library adoption and schema-language decision.",
+  "type": "object",
+  "required": [
+    "identity",
+    "versioning",
+    "lifecycle",
+    "authority",
+    "ownership",
+    "lineage",
+    "evidence",
+    "integrity",
+    "temporal",
+    "assurance",
+    "payload"
+  ],
+  "properties": {
+    "identity": {
+      "type": "object",
+      "required": [
+        "object_id",
+        "object_type",
+        "namespace",
+        "canonical_name",
+        "display_name"
+      ],
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "pattern": "^urn:magp:[a-z0-9][a-z0-9.-]*:[a-z0-9-]+:[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "object_type": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "canonical_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "versioning": {
+      "type": "object",
+      "required": [
+        "semantic_version",
+        "revision",
+        "version_status",
+        "supersedes",
+        "superseded_by"
+      ],
+      "properties": {
+        "semantic_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "version_status": {
+          "enum": [
+            "CANDIDATE",
+            "APPROVED",
+            "EFFECTIVE",
+            "SUPERSEDED",
+            "ARCHIVED"
+          ]
+        },
+        "supersedes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "superseded_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "lifecycle": {
+      "type": "object",
+      "required": [
+        "lifecycle_state",
+        "lifecycle_event",
+        "state_changed_at",
+        "state_changed_by"
+      ],
+      "properties": {
+        "lifecycle_state": {
+          "type": "string"
+        },
+        "lifecycle_event": {
+          "type": "string"
+        },
+        "state_changed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state_changed_by": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "authority_class",
+        "authority_source",
+        "authority_ceiling",
+        "normative_effect",
+        "approval_required",
+        "approved_by",
+        "approved_at"
+      ],
+      "properties": {
+        "authority_class": {
+          "type": "string"
+        },
+        "authority_source": {
+          "type": "string"
+        },
+        "authority_ceiling": {
+          "type": "string"
+        },
+        "normative_effect": {
+          "type": "boolean"
+        },
+        "approval_required": {
+          "type": "boolean"
+        },
+        "approved_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approved_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ownership": {
+      "type": "object",
+      "required": [
+        "owning_component",
+        "accountable_human_role",
+        "responsible_machine_role"
+      ],
+      "properties": {
+        "owning_component": {
+          "type": "string"
+        },
+        "accountable_human_role": {
+          "type": "string"
+        },
+        "responsible_machine_role": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "lineage": {
+      "type": "object",
+      "required": [
+        "parent_object_ids",
+        "derived_from_object_ids",
+        "source_claim_ids",
+        "architecture_baseline_id",
+        "transformation_record"
+      ],
+      "properties": {
+        "parent_object_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "derived_from_object_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "source_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "architecture_baseline_id": {
+          "const": "MAGP-ARCH-BASELINE-V1"
+        },
+        "transformation_record": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "evidence_binding_ids",
+        "validation_result_ids",
+        "review_ids",
+        "finding_ids"
+      ],
+      "properties": {
+        "evidence_binding_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "validation_result_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "review_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "finding_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "integrity": {
+      "type": "object",
+      "required": [
+        "content_hash",
+        "canonicalization_method",
+        "schema_id",
+        "schema_version",
+        "immutable_fields",
+        "mutation_policy"
+      ],
+      "properties": {
+        "content_hash": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "canonicalization_method": {
+          "type": "string"
+        },
+        "schema_id": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "immutable_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "mutation_policy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "temporal": {
+      "type": "object",
+      "required": [
+        "created_at",
+        "effective_from",
+        "effective_until",
+        "archived_at"
+      ],
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "effective_from": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "effective_until": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "archived_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "assurance": {
+      "type": "object",
+      "required": [
+        "assurance_level",
+        "clean_room_review_completed",
+        "independent_review_completed",
+        "human_adjudicated",
+        "known_limitations"
+      ],
+      "properties": {
+        "assurance_level": {
+          "type": "string"
+        },
+        "clean_room_review_completed": {
+          "type": "boolean"
+        },
+        "independent_review_completed": {
+          "type": "boolean"
+        },
+        "human_adjudicated": {
+          "type": "boolean"
+        },
+        "known_limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "x-magp-proposal-status": "PROPOSED_NOT_ADOPTED",
+  "x-magp-normative-object-library": false,
+  "x-magp-human-adoption-required": true
+}

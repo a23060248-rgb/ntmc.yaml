@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "finding_id": "COMPAT-R1-002",
+  "original_title": "Architecture Reconciliation is prematurely directed to start",
+  "original_severity": "HIGH",
+  "original_finding_preserved": true,
+  "historical_evidence_preserved": true,
+  "previous_status": "PENDING_HUMAN_ADJUDICATION",
+  "human_decision": "HUMAN_CLOSED",
+  "effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+  "closure_model": "HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+  "clean_room_closure": false,
+  "independent_reviewer_closure": false,
+  "finding_waived": false,
+  "finding_deleted": false,
+  "finding_superseded": false,
+  "finding_remediation_verified": true,
+  "deterministic_validation": "VALIDATION_PASS",
+  "technical_recommendation": "RECOMMEND_HUMAN_CLOSE",
+  "human_rationale": "Corrective Overlay已將Architecture Reconciliation有效狀態固定為NOT_AUTHORIZED，原先過早指示Architecture Reconciliation為下一步的敘述，已被降級為歷史性、非授權性內容。Architecture Reconciliation仍須等待後續Review Gate、Human Exact-Manifest Adoption及另行Human授權。",
+  "original_finding_source": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/compatibility-r1.raw.txt",
+  "assessment_source": "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/technical-assessment/compat-r1-002-assessment.json"
+}

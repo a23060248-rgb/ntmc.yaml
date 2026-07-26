@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "database-technology-decision-matrix",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "candidates": [
+    {
+      "technology": "PostgreSQL",
+      "role": "candidate system of record",
+      "scope": "transactional aggregates, authority, approvals, audit metadata",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "selected": false
+    },
+    {
+      "technology": "Graph Store",
+      "role": "candidate projection",
+      "scope": "lineage and knowledge traversal; never authority source",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "selected": false
+    },
+    {
+      "technology": "Object Storage",
+      "role": "candidate evidence blob store",
+      "scope": "hash-addressed large evidence and deployment artifacts",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "selected": false
+    },
+    {
+      "technology": "Search Engine",
+      "role": "candidate projection",
+      "scope": "redacted search and discovery; rebuildable",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "selected": false
+    },
+    {
+      "technology": "Time Series Store",
+      "role": "candidate telemetry projection",
+      "scope": "metrics only; not Evidence Ledger by default",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "selected": false
+    },
+    {
+      "technology": "Event Store",
+      "role": "candidate append stream",
+      "scope": "domain event persistence when separately adopted",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "selected": false
+    },
+    {
+      "technology": "Message Infrastructure",
+      "role": "candidate delivery layer",
+      "scope": "event delivery without authority semantics",
+      "decision_status": "PENDING_HUMAN_DECISION",
+      "selected": false
+    }
+  ],
+  "primary_system_of_record_selected": false,
+  "note": "No technology is adopted by this task."
+}

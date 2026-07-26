@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "blueprint_id": "BP-GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+  "risk": {
+    "level": "L3",
+    "reasons": [
+      "formal source-governance review preparation",
+      "source authority and contamination boundaries",
+      "clean-context independent review transport",
+      "deterministic aggregation and Human adoption gate"
+    ]
+  },
+  "scope": {
+    "include": [
+      "frozen Source Scope Lock artifacts",
+      "read-only 11-source binding",
+      "task-local Reviewer and Aggregator packages",
+      "task-local deterministic contract validation"
+    ],
+    "exclude": [
+      "Reviewer execution",
+      "source authority adoption",
+      "Architecture Reconciliation",
+      "Core Object implementation",
+      "product, Candidate, governance baseline, historical Task, source, database, Migration 320, and Git writes"
+    ],
+    "product_changes_allowed": false,
+    "database_operations_allowed": false
+  },
+  "allowed_paths": {
+    "read": [
+      "AGENTS.md",
+      ".agents/skills/task-classification/SKILL.md",
+      ".codex/governance/phase-policy.yaml",
+      ".codex/governance/phase-status.json",
+      ".codex/governance/agent-path-policy.yaml",
+      ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**",
+      ".codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/**",
+      "C:/Users/a2306/Desktop/MAGP-Reference-Sources/*"
+    ],
+    "write": [
+      ".codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/**"
+    ],
+    "external_read_authority": "EXPLICIT_USER_APPROVAL",
+    "external_read_recursion_allowed": false
+  },
+  "agent_assignments": [
+    {
+      "role": "architect",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/**"],
+      "allowed_write_paths": []
+    },
+    {
+      "role": "qa-engineer",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**", ".codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/**"],
+      "allowed_write_paths": [".codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/**"]
+    },
+    {
+      "role": "documentation-engineer",
+      "allowed_read_paths": ["AGENTS.md", ".codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**", ".codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/**"],
+      "allowed_write_paths": [".codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/**"]
+    }
+  ],
+  "agents_dispatched": [],
+  "review_assignments": [
+    {"reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER", "execution_context": "BRAND_NEW_TOP_LEVEL_CODEX_CHAT", "write_paths": []},
+    {"reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER", "execution_context": "BRAND_NEW_TOP_LEVEL_CODEX_CHAT", "write_paths": []},
+    {"reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER", "execution_context": "BRAND_NEW_TOP_LEVEL_CODEX_CHAT", "write_paths": []},
+    {"reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER", "execution_context": "BRAND_NEW_TOP_LEVEL_CODEX_CHAT", "write_paths": []}
+  ],
+  "applicable_rules": [
+    "GOV-SCOPE-001",
+    "REV-INDEP-001",
+    "REV-L3-001",
+    "EVD-HASH-001",
+    "EVD-CLAIM-001"
+  ],
+  "candidate_rules": [],
+  "execution": {
+    "parallel_groups": [],
+    "sequential_steps": [
+      "freeze and bind review target",
+      "reverify source root without semantic reparse",
+      "create shared schemas and identity registry",
+      "create and seal four Reviewer packages",
+      "create and seal Aggregator R1 and deterministic QA package",
+      "run task-local contract tests and stop before reviewer launch"
+    ],
+    "status": "COMPLETE"
+  },
+  "rollback_restore": {
+    "required": false,
+    "evidence_or_reason": "Only additive task-local preparation artifacts are authorized; all target and external inputs remain read-only."
+  },
+  "human_approval": {
+    "scope_status": "APPROVED",
+    "reviewer_launch_status": "READY_PENDING_HUMAN_LAUNCH",
+    "source_scope_exact_manifest_adoption_status": "PENDING"
+  },
+  "stop_conditions": [
+    "Any target, source, identity, hash, scope, package, transport, or launch binding differs from the frozen contract.",
+    "Any out-of-scope write, Reviewer launch, Aggregator launch, Architecture Reconciliation, Core Object implementation, or Git operation occurs."
+  ]
+}

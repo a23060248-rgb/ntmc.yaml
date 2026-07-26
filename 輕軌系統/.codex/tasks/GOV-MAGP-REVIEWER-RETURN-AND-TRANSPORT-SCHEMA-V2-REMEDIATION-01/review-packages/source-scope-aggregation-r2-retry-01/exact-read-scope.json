@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "aggregator_task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R2-RETRY-01",
+  "aggregation_generation": "R2",
+  "aggregation_attempt": "RETRY_01",
+  "scope_mode": "EXACT_ABSOLUTE_PATH_ALLOWLIST_ONLY",
+  "exact_absolute_path_allowlist": [
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-integrity-r1.raw.txt",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "FORMALLY_ACCEPTED_R1_PASS_PAYLOAD"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-authority-r1.raw.txt",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "FORMALLY_ACCEPTED_R1_PASS_PAYLOAD"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/scope-contamination-r1.raw.txt",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "FORMALLY_ACCEPTED_R1_PASS_PAYLOAD"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/formal-intake-results.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "FORMAL_INTAKE_EVIDENCE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-reuse-preservation.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "R1_REUSE_EVIDENCE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/attempt-1-v2-admission/historical-v1-v2-status-bridge.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "FAILED_STARTUP_EVIDENCE_HISTORY"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/retry-identity-registry.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "COMPATIBILITY_RETRY_IDENTITY_BINDING"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/compatibility-review-r2-retry-01/package-manifest.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "COMPATIBILITY_RETRY_PACKAGE_BINDING"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/schemas/reviewer-return-payload.schema.v2.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "REVIEWER_RETURN_SCHEMA_V2_BINDING"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01/assignment.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "OWN_AGGREGATOR_RETRY_PACKAGE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01/aggregation-input-contract.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "OWN_AGGREGATOR_RETRY_PACKAGE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01/prerequisites.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "OWN_AGGREGATOR_RETRY_PACKAGE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01/exact-read-scope.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "OWN_AGGREGATOR_RETRY_PACKAGE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01/prohibited-actions.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "OWN_AGGREGATOR_RETRY_PACKAGE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01/embedded-not-authorized-template.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "OWN_AGGREGATOR_RETRY_PACKAGE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01/standalone-top-level-aggregator-prompt.md",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "OWN_AGGREGATOR_RETRY_PACKAGE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01/package-manifest.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "OWN_AGGREGATOR_RETRY_PACKAGE"
+    },
+    {
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01/review-packages/source-scope-aggregation-r2-retry-01/package-verification.json",
+      "content_scope": "FULL_ARTIFACT",
+      "purpose": "OWN_AGGREGATOR_RETRY_PACKAGE"
+    }
+  ],
+  "allowed_path_count": 18,
+  "implicit_paths_allowed": false,
+  "compatibility_retry_payload_in_scope": false,
+  "reason": "Compatibility Retry 01 payload has not been received or formally intaken; launch is unauthorized."
+}

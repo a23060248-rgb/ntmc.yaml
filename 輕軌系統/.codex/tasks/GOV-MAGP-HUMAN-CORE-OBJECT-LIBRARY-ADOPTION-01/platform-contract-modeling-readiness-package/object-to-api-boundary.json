@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "allowed_future_scope": [
+    "resource candidate",
+    "command/query boundary",
+    "authorization enforcement point",
+    "validation boundary",
+    "compatibility/versioning requirement"
+  ],
+  "mandatory_preserved_semantics": [
+    "object_id",
+    "object_type",
+    "namespace",
+    "semantic_version",
+    "lifecycle_state",
+    "authority_class",
+    "authority_ceiling",
+    "normative_effect",
+    "owning_component",
+    "accountable_human_role",
+    "architecture_baseline_id",
+    "derived_from_object_ids",
+    "evidence_binding_ids",
+    "content_hash",
+    "schema_id",
+    "mutation_policy",
+    "assurance_level"
+  ],
+  "prohibited_now": [
+    "formal REST endpoint",
+    "GraphQL schema",
+    "RPC IDL",
+    "controller",
+    "route",
+    "backend code",
+    "frontend code"
+  ],
+  "readiness_only": true,
+  "logical_contract_modeling_authorized": false,
+  "physical_database_model_created": false,
+  "database_migration_created": false,
+  "formal_api_contract_created": false,
+  "backend_frontend_created": false,
+  "agent_runtime_created": false,
+  "product_implementation_started": false
+}

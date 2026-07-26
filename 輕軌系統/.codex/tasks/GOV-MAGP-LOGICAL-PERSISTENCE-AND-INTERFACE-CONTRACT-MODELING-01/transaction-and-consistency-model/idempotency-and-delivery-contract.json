@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "idempotency_scope": "PENDING_HUMAN_DECISION_HCD_011",
+  "command_idempotency_key_required": true,
+  "duplicate_event_handling_required": true,
+  "ordering_requirement": "PENDING_HUMAN_DECISION_HCD_007",
+  "retry_policy": "BOUNDED_AND_AUDITED_LOGICAL_REQUIREMENT",
+  "dead_letter_handling": "LOGICAL_QUARANTINE_AND_HUMAN_ESCALATION_FOR_GOVERNANCE_EFFECT",
+  "delivery_guarantee": "PENDING_HUMAN_DECISION_HCD_006",
+  "duplicate_human_effect_allowed": false
+}

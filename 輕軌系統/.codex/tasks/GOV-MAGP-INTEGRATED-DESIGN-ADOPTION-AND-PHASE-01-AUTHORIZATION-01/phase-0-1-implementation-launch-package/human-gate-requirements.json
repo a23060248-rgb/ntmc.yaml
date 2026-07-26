@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "prelaunch_gates": [
+    "repository current state",
+    "existing product scope",
+    "safe startup mode",
+    ".env unreadable",
+    "database safety mode",
+    "migration cannot target production",
+    "worktree and branch strategy",
+    "CI and secret scan requirements",
+    "implementation write scope",
+    "before snapshot"
+  ],
+  "all_must_pass_before_implementation": true,
+  "unresolved_gate_result": "NO_GO",
+  "current_status": "PENDING_NEXT_TASK_PRELAUNCH"
+}

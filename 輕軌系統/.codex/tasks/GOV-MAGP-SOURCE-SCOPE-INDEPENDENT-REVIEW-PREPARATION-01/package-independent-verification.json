@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "verification_method": "INDEPENDENT_RECOMPUTATION_BY_VALIDATE_PREPARATION_MJS",
+  "reviewer_packages": [
+    {
+      "package_directory": "source-integrity-review",
+      "package_core_sha256": "EAB328089A7C1F05AFB95061071A2C19F7C39D807E5A939AA760227CBE05E81E",
+      "package_hash_valid": true,
+      "launch_envelope_valid": true,
+      "exact_read_scope_valid": true,
+      "return_schema_valid": true
+    },
+    {
+      "package_directory": "source-authority-review",
+      "package_core_sha256": "7473CA7BA921DFF4279387E04F9CFA7C7288568ADDA62A41AFB7EF21E70A7E11",
+      "package_hash_valid": true,
+      "launch_envelope_valid": true,
+      "exact_read_scope_valid": true,
+      "return_schema_valid": true
+    },
+    {
+      "package_directory": "scope-contamination-review",
+      "package_core_sha256": "D848273E0DE6CD1B9FC5BD2CDE7F7E66C195F48FF739A90D7F52134439B8D229",
+      "package_hash_valid": true,
+      "launch_envelope_valid": true,
+      "exact_read_scope_valid": true,
+      "return_schema_valid": true
+    },
+    {
+      "package_directory": "compatibility-review",
+      "package_core_sha256": "47A05C9C127F502C1491FD5527DE6FC34CD337D1774DEDC1FA03DFB846A39318",
+      "package_hash_valid": true,
+      "launch_envelope_valid": true,
+      "exact_read_scope_valid": true,
+      "return_schema_valid": true
+    }
+  ],
+  "aggregator_package": {
+    "package_core_sha256": "B7E645F669F1112934D2DE7B1D7A026E0FC893D20E0C584B5A3D1342EC53CBF2",
+    "package_hash_valid": true,
+    "launch_envelope_valid": true,
+    "canonical_writer_valid": true
+  },
+  "reviewer_package_pass_count": 4,
+  "launch_envelope_pass_count": 5,
+  "overall_status": "PASS"
+}

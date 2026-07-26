@@ -1,0 +1,310 @@
+{
+  "results_core": {
+    "schema_version": 1,
+    "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+    "generated_at": "2026-07-22T16:34:28+08:00",
+    "reviewer_payloads_received": 4,
+    "reviewer_payloads_formally_accepted": 4,
+    "reviewer_payloads_formally_rejected": 0,
+    "expected_outcome_match": true,
+    "compatibility_finding_set": [
+      "COMPAT-R1-001",
+      "COMPAT-R1-002"
+    ],
+    "overall_status": "FORMALLY_ACCEPTED_4_OF_4",
+    "results": [
+      {
+        "reviewer_key": "source_integrity_r1",
+        "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+        "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTEGRITY-R1",
+        "review_package_id": "MAGP-SSR1-SOURCE_INTEGRITY-20D126E7-1008-4D9B-B517-E42573E4DC6D",
+        "reviewer_run_id": "RUN-6BE018C5-E990-4B21-AE1E-9FBD2A564DE2",
+        "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-integrity-r1.raw.txt",
+        "raw_payload_byte_length": 12421,
+        "raw_payload_sha256": "8546BD1DCE083A94D57DE06CD6F179696E1E3828E7E7299580AB431637A909F0",
+        "payload_core_sha256": "AB8A39ABA06428A17BE17E0B51E9172040207D36D558826ADA9540FF5AC3F6D3",
+        "review_status": "PASS",
+        "finding_count": 0,
+        "formal_intake_status": "FORMALLY_ACCEPTED_PASS",
+        "checks": [
+          {
+            "check_id": "SINGLE_JSON_OBJECT",
+            "status": "PASS"
+          },
+          {
+            "check_id": "EXACT_TWO_FIELD_WRAPPER",
+            "status": "PASS"
+          },
+          {
+            "check_id": "WRAPPER_RFC8785_JCS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "RETURN_SCHEMA",
+            "status": "PASS"
+          },
+          {
+            "check_id": "PAYLOAD_CORE_RFC8785_JCS_SHA256",
+            "status": "PASS"
+          },
+          {
+            "check_id": "IDENTITY_AND_ASSIGNMENT_BINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "LAUNCH_ENVELOPE_BINDING",
+            "status": "PASS"
+          },
+          {
+            "check_id": "PACKAGE_MANIFEST_AND_ARTIFACT_HASHES",
+            "status": "PASS"
+          },
+          {
+            "check_id": "ASSIGNMENT_FILE_BINDING",
+            "status": "PASS"
+          },
+          {
+            "check_id": "EXACT_READ_SCOPE_AND_ACCESS_LOG",
+            "status": "PASS"
+          },
+          {
+            "check_id": "REVIEW_TARGET_AND_SOURCE_BINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "STARTUP_COMPLETION_AND_CLEAN_CONTEXT",
+            "status": "PASS"
+          },
+          {
+            "check_id": "REVIEW_DECISION_AND_FINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "MANUAL_TRANSPORT_ATTESTATION_SCHEMA",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "reviewer_key": "source_authority_r1",
+        "reviewer_role": "EXTERNAL_SOURCE_AUTHORITY_REVIEWER",
+        "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-AUTHORITY-R1",
+        "review_package_id": "MAGP-SSR1-SOURCE_AUTHORITY-E30F2944-B4AB-4D3A-B657-662219383437",
+        "reviewer_run_id": "RUN-0A17D678-EC74-4C45-BF46-F3AF26ED18DC",
+        "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/source-authority-r1.raw.txt",
+        "raw_payload_byte_length": 21126,
+        "raw_payload_sha256": "BB1FAC2470EDBD5C322A509752E359AA076DFB015E9A0367270C6840C3959EFA",
+        "payload_core_sha256": "8D7DF16EBD93FB6791D7FD795BACC712F61A6075C554B96F9D7119BBAE512834",
+        "review_status": "PASS",
+        "finding_count": 7,
+        "formal_intake_status": "FORMALLY_ACCEPTED_PASS",
+        "checks": [
+          {
+            "check_id": "SINGLE_JSON_OBJECT",
+            "status": "PASS"
+          },
+          {
+            "check_id": "EXACT_TWO_FIELD_WRAPPER",
+            "status": "PASS"
+          },
+          {
+            "check_id": "WRAPPER_RFC8785_JCS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "RETURN_SCHEMA",
+            "status": "PASS"
+          },
+          {
+            "check_id": "PAYLOAD_CORE_RFC8785_JCS_SHA256",
+            "status": "PASS"
+          },
+          {
+            "check_id": "IDENTITY_AND_ASSIGNMENT_BINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "LAUNCH_ENVELOPE_BINDING",
+            "status": "PASS"
+          },
+          {
+            "check_id": "PACKAGE_MANIFEST_AND_ARTIFACT_HASHES",
+            "status": "PASS"
+          },
+          {
+            "check_id": "ASSIGNMENT_FILE_BINDING",
+            "status": "PASS"
+          },
+          {
+            "check_id": "EXACT_READ_SCOPE_AND_ACCESS_LOG",
+            "status": "PASS"
+          },
+          {
+            "check_id": "REVIEW_TARGET_AND_SOURCE_BINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "STARTUP_COMPLETION_AND_CLEAN_CONTEXT",
+            "status": "PASS"
+          },
+          {
+            "check_id": "REVIEW_DECISION_AND_FINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "MANUAL_TRANSPORT_ATTESTATION_SCHEMA",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "reviewer_key": "scope_contamination_r1",
+        "reviewer_role": "EXTERNAL_SCOPE_CONTAMINATION_REVIEWER",
+        "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-CONTAMINATION-R1",
+        "review_package_id": "MAGP-SSR1-SCOPE_CONTAMINATION-EF4EFD42-9E1D-4876-A288-8932113F0A29",
+        "reviewer_run_id": "RUN-A10A0959-2FA2-4045-A5B7-931EC8194FA1",
+        "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/scope-contamination-r1.raw.txt",
+        "raw_payload_byte_length": 16512,
+        "raw_payload_sha256": "44CDDB53A09ECCDCFCA9B8D94829D1CBBCF8730B6C587B02B95862B711A5033F",
+        "payload_core_sha256": "27D73701954A3A83F78EAE2343ECD42217782E1B0CFEE3166280912DF523D976",
+        "review_status": "PASS",
+        "finding_count": 5,
+        "formal_intake_status": "FORMALLY_ACCEPTED_PASS",
+        "checks": [
+          {
+            "check_id": "SINGLE_JSON_OBJECT",
+            "status": "PASS"
+          },
+          {
+            "check_id": "EXACT_TWO_FIELD_WRAPPER",
+            "status": "PASS"
+          },
+          {
+            "check_id": "WRAPPER_RFC8785_JCS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "RETURN_SCHEMA",
+            "status": "PASS"
+          },
+          {
+            "check_id": "PAYLOAD_CORE_RFC8785_JCS_SHA256",
+            "status": "PASS"
+          },
+          {
+            "check_id": "IDENTITY_AND_ASSIGNMENT_BINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "LAUNCH_ENVELOPE_BINDING",
+            "status": "PASS"
+          },
+          {
+            "check_id": "PACKAGE_MANIFEST_AND_ARTIFACT_HASHES",
+            "status": "PASS"
+          },
+          {
+            "check_id": "ASSIGNMENT_FILE_BINDING",
+            "status": "PASS"
+          },
+          {
+            "check_id": "EXACT_READ_SCOPE_AND_ACCESS_LOG",
+            "status": "PASS"
+          },
+          {
+            "check_id": "REVIEW_TARGET_AND_SOURCE_BINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "STARTUP_COMPLETION_AND_CLEAN_CONTEXT",
+            "status": "PASS"
+          },
+          {
+            "check_id": "REVIEW_DECISION_AND_FINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "MANUAL_TRANSPORT_ATTESTATION_SCHEMA",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "reviewer_key": "compatibility_r1",
+        "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+        "reviewer_task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R1",
+        "review_package_id": "MAGP-SSR1-COMPATIBILITY-C1E24EA9-7DB7-4D9A-B7F1-F3BB2B347B7D",
+        "reviewer_run_id": "RUN-CF3E09ED-220D-4DB9-B8E6-74F50A9D3BC8",
+        "raw_payload_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/compatibility-r1.raw.txt",
+        "raw_payload_byte_length": 15052,
+        "raw_payload_sha256": "E0C92CFDFA495D5EB57D75B849B5B77C130BCE0F8122C1A8EE2F4858A4FF2702",
+        "payload_core_sha256": "AB25714EA74F2BCC160DE1601B73EAF1ECA9EB59970876EA840C76764BF6B7DD",
+        "review_status": "BLOCKER",
+        "finding_count": 2,
+        "formal_intake_status": "FORMALLY_ACCEPTED_BLOCKER",
+        "checks": [
+          {
+            "check_id": "SINGLE_JSON_OBJECT",
+            "status": "PASS"
+          },
+          {
+            "check_id": "EXACT_TWO_FIELD_WRAPPER",
+            "status": "PASS"
+          },
+          {
+            "check_id": "WRAPPER_RFC8785_JCS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "RETURN_SCHEMA",
+            "status": "PASS"
+          },
+          {
+            "check_id": "PAYLOAD_CORE_RFC8785_JCS_SHA256",
+            "status": "PASS"
+          },
+          {
+            "check_id": "IDENTITY_AND_ASSIGNMENT_BINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "LAUNCH_ENVELOPE_BINDING",
+            "status": "PASS"
+          },
+          {
+            "check_id": "PACKAGE_MANIFEST_AND_ARTIFACT_HASHES",
+            "status": "PASS"
+          },
+          {
+            "check_id": "ASSIGNMENT_FILE_BINDING",
+            "status": "PASS"
+          },
+          {
+            "check_id": "EXACT_READ_SCOPE_AND_ACCESS_LOG",
+            "status": "PASS"
+          },
+          {
+            "check_id": "REVIEW_TARGET_AND_SOURCE_BINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "STARTUP_COMPLETION_AND_CLEAN_CONTEXT",
+            "status": "PASS"
+          },
+          {
+            "check_id": "REVIEW_DECISION_AND_FINDINGS",
+            "status": "PASS"
+          },
+          {
+            "check_id": "MANUAL_TRANSPORT_ATTESTATION_SCHEMA",
+            "status": "PASS"
+          }
+        ]
+      }
+    ]
+  },
+  "results_core_sha256": "8883F733D76475717BBC345BE81CE934FCB474FF489BEC3DBA72F138DE5F0761",
+  "canonicalization": "RFC8785_JCS",
+  "hash_algorithm": "SHA-256",
+  "hash_encoding": "UPPERCASE_HEX"
+}

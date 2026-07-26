@@ -1,0 +1,27 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "every_transition_requires": [
+    "source state",
+    "target state",
+    "actor identity and role",
+    "authority check",
+    "guard result",
+    "evidence bindings",
+    "approval binding when required",
+    "timestamp",
+    "side effects",
+    "rollback or forward recovery"
+  ],
+  "forbidden_shortcuts": [
+    "DRAFT->EFFECTIVE",
+    "PROPOSED->ACTIVE",
+    "REJECTED->EFFECTIVE",
+    "ARCHIVED->ACTIVE"
+  ],
+  "silent_state_mutation_allowed": false,
+  "runtime_cycle_without_exit_allowed": false
+}

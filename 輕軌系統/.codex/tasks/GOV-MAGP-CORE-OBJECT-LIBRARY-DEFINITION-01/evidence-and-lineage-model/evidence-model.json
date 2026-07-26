@@ -1,0 +1,34 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "evidence_fields": [
+    "evidence_id",
+    "evidence_type",
+    "producer",
+    "subject",
+    "collection_method",
+    "collection_time",
+    "source_location",
+    "content_hash",
+    "chain_of_custody",
+    "validation_status",
+    "assurance_level",
+    "expiration",
+    "limitations"
+  ],
+  "evidence_creates_authority": false,
+  "producer_may_self_validate_integrity": false,
+  "required_integrity": [
+    "content hash",
+    "collection method",
+    "collection time",
+    "source location",
+    "chain of custody",
+    "validation status",
+    "assurance level",
+    "limitations"
+  ]
+}

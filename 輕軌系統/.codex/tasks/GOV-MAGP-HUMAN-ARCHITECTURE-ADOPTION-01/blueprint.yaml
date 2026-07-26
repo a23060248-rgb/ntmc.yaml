@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01",
+  "actor_role": "HUMAN_ARCHITECTURE_ADOPTION_RECORDER_AND_DETERMINISTIC_BASELINE_BINDER",
+  "objective": "Record the explicit Human architecture decision, bind the adopted architecture without rewriting 4A-1, lock MAGP-ARCH-BASELINE-V1, and prepare Core Object Library readiness only.",
+  "inputs": [
+    "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+    "GOV-MAGP-HUMAN-SOURCE-SCOPE-EXACT-MANIFEST-ADOPTION-01",
+    "C:/Users/a2306/.codex/attachments/681cabc1-6fe6-4bbc-84e0-746ca6c5accb/pasted-text.txt"
+  ],
+  "outputs": [
+    "human-architecture-adoption",
+    "adopted-architecture",
+    "architecture-baseline",
+    "core-object-library-readiness-package"
+  ],
+  "writes_outside_task_root_allowed": false,
+  "human_authority_impersonation_allowed": false
+}

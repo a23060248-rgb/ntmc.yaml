@@ -1,0 +1,12 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "graph_edge": "authority grants or approves",
+  "detection": "directed strongly connected component with more than one node or a self-loop is invalid unless an explicit Human constitutional exception names the exact cycle and exit",
+  "cycles_detected_in_proposal": 0,
+  "approval_cycle_allowed": false,
+  "policy_rule_circular_authorization_allowed": false
+}

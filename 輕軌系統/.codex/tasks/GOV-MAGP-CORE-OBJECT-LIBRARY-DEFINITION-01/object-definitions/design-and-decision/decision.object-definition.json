@@ -1,0 +1,50 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-007",
+  "object_type": "DECISION",
+  "object_category": "DESIGN_AND_DECISION_OBJECTS",
+  "canonical_name": "Decision",
+  "type_prefix": "dec",
+  "design_time_or_runtime": "DESIGN_TIME_OR_GOVERNED_RUNTIME",
+  "normative_or_non_normative": "NORMATIVE_ONLY_WHEN_DECISION_AUTHORITY_IS_HUMAN_OR_VALIDLY_DELEGATED",
+  "current_normative_effect": false,
+  "authority_level": "BOUNDED_DECISION_AUTHORITY",
+  "lifecycle_owner": "DECISION_AUTHORITY",
+  "evidence_owner": "DECISION_RECORDER_AND_EVIDENCE_LEDGER",
+  "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_AUTHORITY_SECURITY_OR_HIGH_RISK_DECISION",
+  "accountable_human_role": "DECISION_OWNER",
+  "responsible_machine_role": "DECISION_RECORDER_OR_RECOMMENDER",
+  "allowed_mutations": [
+    "draft rationale correction",
+    "explicit revocation",
+    "versioned supersession"
+  ],
+  "prohibited_mutations": [
+    "change selected option after effect",
+    "infer Human decision",
+    "erase rejected options"
+  ],
+  "required_payload_fields": [
+    "decision_question",
+    "selected_option",
+    "rejected_options",
+    "rationale",
+    "authority_basis",
+    "evidence_basis",
+    "effective_scope",
+    "consequences",
+    "reversibility",
+    "supersession_conditions"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "decision.schema-proposal.schema.json",
+  "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+}

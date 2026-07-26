@@ -1,0 +1,17 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "rules": [
+    "supersession creates a new immutable version",
+    "superseded object remains addressable",
+    "effective dependents bind exact version",
+    "breaking supersession requires impact analysis",
+    "authority cannot be inherited beyond the superseding approval scope",
+    "archived identity is never reused"
+  ],
+  "silent_replacement_allowed": false,
+  "rollback": "create an explicit new version or reactivate under an allowed Human-gated process; never rewrite history"
+}

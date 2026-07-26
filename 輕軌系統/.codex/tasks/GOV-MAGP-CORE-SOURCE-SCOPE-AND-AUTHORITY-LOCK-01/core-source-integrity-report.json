@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "status": "PASS",
+  "source_root": "C:/Users/a2306/Desktop/MAGP-Reference-Sources",
+  "directory_manifest_sha256": "9456093C5CD5D169628ACAFFD4251E15C1C7551A9949F1D930CA4185CE7792AD",
+  "top_level_regular_file_count": 11,
+  "identity_resolution": "11/11_RESOLVED",
+  "sha256_completion": "11/11",
+  "format_validation": "11/11_PASS",
+  "classification_counts": {
+    "CORE_INCLUDED": 4,
+    "OPTIONAL_PATTERN_ONLY": 1,
+    "EXCLUDED": 6
+  },
+  "core_full_document_processing": [
+    {"source_id": "SOURCE-MAGP-01", "pages_processed": 195, "page_count": 195, "nonempty_pages": 194, "extracted_character_count": 130001, "status": "PASS"},
+    {"source_id": "SOURCE-MAGP-02", "pages_processed": 12, "page_count": 12, "nonempty_pages": 12, "extracted_character_count": 16482, "status": "PASS"},
+    {"source_id": "SOURCE-MAGP-03", "pages_processed": 201, "page_count": 201, "nonempty_pages": 201, "extracted_character_count": 272519, "status": "PASS"},
+    {"source_id": "SOURCE-MAGP-04", "pages_processed": 79, "page_count": 79, "nonempty_pages": 79, "extracted_character_count": 177163, "status": "PASS"}
+  ],
+  "optional_pattern_processing": {
+    "source_id": "SOURCE-PATTERN-01",
+    "scope": "GENERAL_PROCESS_PATTERNS_ONLY",
+    "declared_authority_status": "NON_AUTHORITATIVE_REPORT",
+    "direct_project_effect": "NONE",
+    "required_claim_label": "NON_AUTHORITATIVE_PATTERN",
+    "status": "PASS"
+  },
+  "excluded_minimal_read_controls": {
+    "SOURCE-EXCLUDED-01": "metadata, title, first 60 lines, first 25 headings",
+    "SOURCE-EXCLUDED-02": "metadata and pages 1-3",
+    "SOURCE-EXCLUDED-03": "metadata and pages 1-3",
+    "SOURCE-EXCLUDED-04": "metadata and pages 1-3",
+    "SOURCE-EXCLUDED-05": "metadata and pages 1-3",
+    "SOURCE-EXCLUDED-06": "metadata and pages 1-3"
+  },
+  "second_edition_edge_guide": "SOURCE-EXCLUDED-04_IDENTIFIED_AND_EXCLUDED_FROM_MAGP_CORE",
+  "v1_effective_reference_count": 0,
+  "vetc_specific_normative_claim_count": 0,
+  "health_specific_railway_rule_count": 0,
+  "implementation_proposal_mislabeled_normative_count": 0,
+  "source_files_modified": 0,
+  "product_code_changed": false,
+  "governance_baseline_changed": false,
+  "git_used": false,
+  "assurance": "TASK_LOCAL_INTERNAL_CONSISTENCY_AND_BYTE_INTEGRITY"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "event risks",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "risks": [
+    {
+      "risk_id": "EVT-R-1",
+      "risk": "spoofing",
+      "mitigation_required": true
+    },
+    {
+      "risk_id": "EVT-R-2",
+      "risk": "replay",
+      "mitigation_required": true
+    },
+    {
+      "risk_id": "EVT-R-3",
+      "risk": "duplicate delivery",
+      "mitigation_required": true
+    },
+    {
+      "risk_id": "EVT-R-4",
+      "risk": "out-of-order delivery",
+      "mitigation_required": true
+    },
+    {
+      "risk_id": "EVT-R-5",
+      "risk": "schema drift",
+      "mitigation_required": true
+    },
+    {
+      "risk_id": "EVT-R-6",
+      "risk": "sensitive payload leakage",
+      "mitigation_required": true
+    },
+    {
+      "risk_id": "EVT-R-7",
+      "risk": "event treated as authority",
+      "mitigation_required": true
+    }
+  ]
+}

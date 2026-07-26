@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "requirements": [
+    "persist current state and transition event",
+    "actor and authority binding",
+    "guard result",
+    "evidence and approval binding",
+    "side effects",
+    "rollback or forward recovery",
+    "terminal-state preservation"
+  ],
+  "state_mutation_without_event_allowed": false,
+  "readiness_only": true,
+  "logical_contract_modeling_authorized": false,
+  "physical_database_model_created": false,
+  "database_migration_created": false,
+  "formal_api_contract_created": false,
+  "backend_frontend_created": false,
+  "agent_runtime_created": false,
+  "product_implementation_started": false
+}

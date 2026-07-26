@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "review_model": "HUMAN_AUTHORIZED_SOURCE_GOVERNED_ARCHITECTURE_RECONCILIATION",
+  "source_model": "4_CORE_PLUS_1_OPTIONAL_PATTERN_AND_6_EXCLUSION_BOUNDARIES",
+  "stages": [
+    "input_binding",
+    "claim_mapping",
+    "conflict_reconciliation",
+    "thesis_boundary",
+    "layer_reconciliation",
+    "component_reconciliation",
+    "governance_structure_reconciliation",
+    "canonical_proposal",
+    "human_decision_package",
+    "deterministic_validation"
+  ],
+  "outputs_are": "PROPOSED_NOT_ADOPTED",
+  "human_decision_impersonation_allowed": false,
+  "implementation_allowed": false,
+  "next_gate": "HUMAN_MAGP_ARCHITECTURE_ADOPTION"
+}

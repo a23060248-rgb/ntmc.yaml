@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "lifecycle-transition-storage-design",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "transition_history_append_only": true,
+  "required_fields": [
+    "aggregate ID",
+    "from state",
+    "to state",
+    "expected revision",
+    "actor",
+    "authority",
+    "approval",
+    "evidence",
+    "time"
+  ],
+  "bypass_allowed": false
+}

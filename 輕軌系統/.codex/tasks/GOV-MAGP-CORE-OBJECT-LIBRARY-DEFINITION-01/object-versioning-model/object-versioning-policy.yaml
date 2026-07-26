@@ -1,0 +1,16 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "decision_status": "PENDING_HUMAN_DECISION",
+  "candidate_model": "SEMANTIC_VERSION_PLUS_MONOTONIC_REVISION",
+  "patch": "must not change authority, schema semantics, lifecycle semantics, or relationship constraints",
+  "minor": "may add backward-compatible fields or capabilities and must not break existing consumers",
+  "major": "may be breaking and requires impact analysis and applicable Human gate",
+  "non_normative_clarification": "cannot change machine behavior or normative meaning",
+  "authority_critical": "requires RFC, independent validation or Human adjudication, Human approval, and applicable baseline update",
+  "security_critical": "cannot be Agent-approved",
+  "human_decision_id": "HOD-003"
+}

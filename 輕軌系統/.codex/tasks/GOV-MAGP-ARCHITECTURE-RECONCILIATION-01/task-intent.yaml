@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "title": "MAGP Architecture Reconciliation Claim Mapping Conflict Resolution and Human Architecture Adoption Package Preparation",
+  "level": "L3",
+  "human_authorization": "AUTHORIZE_ARCHITECTURE_RECONCILIATION_WITH_ADOPTED_SOURCE_SCOPE",
+  "objective": "Reconcile architecture claims from the adopted source scope and prepare a non-normative canonical proposal for separate Human adoption.",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-ARCHITECTURE-RECONCILIATION-01/**"
+  ],
+  "prohibited_actions": [
+    "ARCHITECTURE_ADOPTION",
+    "CORE_OBJECT_LIBRARY",
+    "DATABASE_SCHEMA",
+    "API_CONTRACT",
+    "PRODUCT_CODE",
+    "MIGRATION",
+    "DEPLOYMENT",
+    "GIT",
+    "NETWORK",
+    "SERVICE",
+    "DATABASE",
+    "SEED",
+    "DOT_ENV",
+    "SUBAGENT",
+    "REVIEWER_LAUNCH"
+  ],
+  "assurance_level": "REDUCED_ASSURANCE"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "enforcement_points_to_model_later": [
+    "create/propose",
+    "review/validate",
+    "approve/activate",
+    "enforce/suspend",
+    "supersede/archive/revoke"
+  ],
+  "invariants": [
+    "Validation not Approval",
+    "Runtime Enforcement not Policy Adoption",
+    "Evidence Production not Acceptance",
+    "Agent no self-authorization"
+  ],
+  "authorization_implementation_created": false,
+  "readiness_only": true,
+  "logical_contract_modeling_authorized": false,
+  "physical_database_model_created": false,
+  "database_migration_created": false,
+  "formal_api_contract_created": false,
+  "backend_frontend_created": false,
+  "agent_runtime_created": false,
+  "product_implementation_started": false
+}

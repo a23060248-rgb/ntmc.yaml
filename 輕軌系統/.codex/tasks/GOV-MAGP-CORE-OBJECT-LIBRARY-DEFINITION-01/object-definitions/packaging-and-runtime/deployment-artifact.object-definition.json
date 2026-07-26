@@ -1,0 +1,51 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-021",
+  "object_type": "DEPLOYMENT_ARTIFACT",
+  "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+  "canonical_name": "Deployment Artifact",
+  "type_prefix": "dart",
+  "design_time_or_runtime": "DESIGN_TIME_TO_RUNTIME_HANDOFF",
+  "normative_or_non_normative": "NON_NORMATIVE_IMMUTABLE_IMPLEMENTATION_ARTIFACT_WITH_SEPARATE_DEPLOYMENT_APPROVAL",
+  "current_normative_effect": false,
+  "authority_level": "IMPLEMENTATION_ARTIFACT_NO_ARCHITECTURE_OR_DEPLOYMENT_AUTHORITY",
+  "lifecycle_owner": "BUILD_AND_RELEASE_CONTROL_PLANE",
+  "evidence_owner": "BUILD_SYSTEM_AND_EVIDENCE_LEDGER",
+  "human_gate_requirement": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_ENVIRONMENT_DEPLOYMENT_ELIGIBILITY",
+  "accountable_human_role": "DEPLOYMENT_ARTIFACT_OWNER",
+  "responsible_machine_role": "BUILD_SYSTEM",
+  "allowed_mutations": [
+    "new immutable build",
+    "status update",
+    "rollback linkage"
+  ],
+  "prohibited_mutations": [
+    "rewrite Architecture",
+    "self-deploy",
+    "change approved Package",
+    "fabricate conformance"
+  ],
+  "required_payload_fields": [
+    "artifact_identity",
+    "build_identity",
+    "source_package_binding",
+    "architecture_conformance_result",
+    "security_validation_result",
+    "approval_binding",
+    "environment_eligibility",
+    "immutable_hash",
+    "rollback_artifact",
+    "deployment_status"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "deployment-artifact.schema-proposal.schema.json",
+  "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+}

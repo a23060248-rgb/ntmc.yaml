@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "reviewer_role": "EXTERNAL_SOURCE_INTEGRITY_REVIEWER",
+  "review_questions": [
+    {
+      "requirement_id": "SOURCE_INTEGRITY-REQ-01",
+      "question": "Do all 11 top-level regular source files exist and map bijectively to exactly one Source ID?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_INTEGRITY-REQ-02",
+      "question": "Do filename, byte size, SHA-256, magic bytes, and media type match the frozen inventories and bindings?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_INTEGRITY-REQ-03",
+      "question": "Does SOURCE-MAGP-03 exactly implement the Human-approved normalized stem, including U+5260 and excluding U+7565?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_INTEGRITY-REQ-04",
+      "question": "Is there any source drift, identity ambiguity, hash mismatch, hidden alias, or unauthorized source mutation?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "SOURCE_INTEGRITY-REQ-05",
+      "question": "Are all machine-readable frozen target artifacts parseable without changing their bytes?",
+      "mandatory": true
+    }
+  ],
+  "explicitly_out_of_scope": [
+    "MAGP architecture merits",
+    "BGE, Factory, or Agent OS design",
+    "Railway Domain Rules",
+    "product code"
+  ],
+  "source_content_review_expected": false,
+  "decision_enum": [
+    "PASS",
+    "BLOCKER"
+  ],
+  "blocker_rules": [
+    "Any CRITICAL or HIGH open finding requires BLOCKER.",
+    "Any source identity mismatch, source authority conflict, VET-C Core contamination, Health-to-Railway contamination, historical artifact mutation, forbidden read, or out-of-scope read requires BLOCKER.",
+    "Any startup binding, package hash, target hash, exact-scope, or clean-context failure requires BLOCKER before substantive review.",
+    "PASS requires every assigned question answered, startup valid, review completed, no open CRITICAL/HIGH finding, and zero forbidden or out-of-scope reads."
+  ],
+  "mandatory_exit_requested_value": true
+}

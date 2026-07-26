@@ -1,0 +1,49 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-009",
+  "object_type": "SCHEMA",
+  "object_category": "KNOWLEDGE_AND_SCHEMA_OBJECTS",
+  "canonical_name": "Schema",
+  "type_prefix": "sch",
+  "design_time_or_runtime": "DESIGN_TIME",
+  "normative_or_non_normative": "VALIDATION_AUTHORITY_ONLY_AFTER_PARENT_APPROVAL",
+  "current_normative_effect": false,
+  "authority_level": "SCHEMA_VALIDATION_AUTHORITY_NO_APPROVAL_AUTHORITY",
+  "lifecycle_owner": "META_ONTOLOGY_SCHEMA_OWNER",
+  "evidence_owner": "SCHEMA_VALIDATOR",
+  "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_BREAKING_OR_AUTHORITY_CRITICAL_SCHEMA",
+  "accountable_human_role": "SCHEMA_OWNER",
+  "responsible_machine_role": "SCHEMA_VALIDATOR",
+  "allowed_mutations": [
+    "compatible optional field",
+    "validation clarification",
+    "approved major version"
+  ],
+  "prohibited_mutations": [
+    "adopt parent Specification",
+    "equate database table with ontology class",
+    "silent breaking change"
+  ],
+  "required_payload_fields": [
+    "schema_identity",
+    "schema_version",
+    "governed_object_type",
+    "required_fields",
+    "constraints",
+    "compatibility_rules",
+    "canonicalization_rules",
+    "validation_errors",
+    "migration_requirements"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "schema.schema-proposal.schema.json",
+  "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+}

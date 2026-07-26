@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "observability",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "signal_count": 13,
+  "signals": [
+    "structured logs",
+    "audit logs",
+    "metrics",
+    "traces",
+    "correlation IDs",
+    "authority-denied metrics",
+    "stale-revision metrics",
+    "evidence-integrity alerts",
+    "Human Gate failure alerts",
+    "agent violation alerts",
+    "event delivery failure",
+    "backup health",
+    "recovery rehearsal evidence"
+  ],
+  "sensitive_payload_logging": false
+}

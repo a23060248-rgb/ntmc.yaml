@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "policy": "EXACT_PACKAGE_SCHEMA_BINDING_ONLY",
+  "rules": [
+    "Every package binds exactly one Return Schema ID and exact file SHA-256.",
+    "V1 remains authoritative for payloads originally bound to V1.",
+    "V2 applies only to newly created R2 Retry and later explicitly V2-bound packages.",
+    "The admission schema classifies historical startup failure evidence without changing its V1 status."
+  ],
+  "ambiguous_multi_schema_binding": "INVALID"
+}

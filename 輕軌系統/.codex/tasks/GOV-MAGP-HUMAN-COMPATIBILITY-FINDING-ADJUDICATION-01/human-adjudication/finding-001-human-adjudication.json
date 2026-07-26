@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "finding_id": "COMPAT-R1-001",
+  "original_title": "Pending review gate is represented as active downstream policy",
+  "original_severity": "HIGH",
+  "original_finding_preserved": true,
+  "historical_evidence_preserved": true,
+  "previous_status": "PENDING_HUMAN_ADJUDICATION",
+  "human_decision": "HUMAN_CLOSED",
+  "effective_status": "CLOSED_BY_HUMAN_ADJUDICATION",
+  "closure_model": "HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+  "clean_room_closure": false,
+  "independent_reviewer_closure": false,
+  "finding_waived": false,
+  "finding_deleted": false,
+  "finding_superseded": false,
+  "finding_remediation_verified": true,
+  "deterministic_validation": "VALIDATION_PASS",
+  "technical_recommendation": "RECOMMEND_HUMAN_CLOSE",
+  "human_rationale": "Corrective Overlay已將Source Authority有效狀態固定為PROPOSED_NOT_ADOPTED，並禁止Pending／NO-GO狀態的政策被下游視為Active或Normative。原歷史Artifact保持不變，其過早敘述已被正式降級為HISTORICAL_PREMATURE_DIRECTION，不得產生下游授權效果。",
+  "original_finding_source": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-payloads/compatibility-r1.raw.txt",
+  "assessment_source": "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01/technical-assessment/compat-r1-001-assessment.json"
+}

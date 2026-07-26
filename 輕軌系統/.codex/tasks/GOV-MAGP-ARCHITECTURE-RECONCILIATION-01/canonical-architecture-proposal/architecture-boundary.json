@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "architecture_status": "PROPOSED_NOT_ADOPTED",
+  "in_scope": [
+    "source-governed claim mapping",
+    "six-layer responsibility model",
+    "component boundaries",
+    "authority and evidence flows",
+    "design-time and runtime separation",
+    "Human gates",
+    "Railway extension boundary"
+  ],
+  "out_of_scope": [
+    "Core Object Library",
+    "database design",
+    "API contract",
+    "product code",
+    "migration",
+    "deployment",
+    "technology-stack adoption"
+  ],
+  "source_governance_mutable_by_architecture": false,
+  "runtime_reverse_mutation_allowed": false,
+  "domain_extensions_may_modify_core": false
+}

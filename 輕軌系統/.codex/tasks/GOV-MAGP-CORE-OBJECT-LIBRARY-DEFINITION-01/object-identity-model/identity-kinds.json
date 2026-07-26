@@ -1,0 +1,29 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "identity_kinds": [
+    {
+      "kind": "DEFINITION_IDENTITY",
+      "scope": "concept definition across versions"
+    },
+    {
+      "kind": "VERSION_IDENTITY",
+      "scope": "one immutable semantic version and revision"
+    },
+    {
+      "kind": "INSTANCE_IDENTITY",
+      "scope": "one materialized runtime or governed instance"
+    },
+    {
+      "kind": "EXECUTION_IDENTITY",
+      "scope": "one execution attempt or session"
+    },
+    {
+      "kind": "EVIDENCE_IDENTITY",
+      "scope": "one immutable evidence record"
+    }
+  ]
+}

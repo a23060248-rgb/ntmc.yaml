@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "run_id": "MAGP-SOURCE-SCOPE-HA1-20260722-R1",
+  "aggregator_role": "SOURCE_SCOPE_EVIDENCE_AGGREGATOR_AND_DETERMINISTIC_QA_RUNNER_HA1",
+  "aggregation_result": "PASS_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE",
+  "source_scope_review_evidence_status": "AGGREGATED_AND_VALIDATED",
+  "source_scope_lock_review_gate": "READY_FOR_HUMAN_EXACT_MANIFEST_ADOPTION",
+  "assurance": {
+    "schema_version": 1,
+    "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+    "assurance_level": "REDUCED_ASSURANCE",
+    "clean_room_review_completed": false,
+    "independent_external_review_completed": false,
+    "human_adjudicated_review_completed": true,
+    "reduced_assurance": true,
+    "compatibility_review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+    "deterministic_aggregation_completed": true,
+    "full_l3_independent_review_completed": false,
+    "not_equivalent_to": [
+      "FULL_L3_PASS",
+      "CLEAN_ROOM_PASS",
+      "INDEPENDENT_REVIEW_PASS"
+    ],
+    "disclosure_valid": true
+  },
+  "open_active_critical_findings": 0,
+  "open_active_high_findings": 0,
+  "source_authority": "PROPOSED_NOT_ADOPTED",
+  "normative_authority": false,
+  "human_exact_manifest_adoption": "NOT_STARTED",
+  "architecture_reconciliation": "NOT_AUTHORIZED",
+  "prohibited_success_labels_emitted": []
+}

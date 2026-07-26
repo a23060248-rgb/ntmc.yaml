@@ -1,0 +1,1617 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "model_status": "COMPLETE_PROPOSED_NOT_ADOPTED",
+  "entity_count": 32,
+  "adopted_object_type_mapping_count": 21,
+  "category_counts": {
+    "GOVERNANCE_ENTITIES": 6,
+    "DESIGN_ENTITIES": 6,
+    "ASSURANCE_ENTITIES": 4,
+    "ORGANIZATION_ENTITIES": 4,
+    "AGENT_AND_RUNTIME_ENTITIES": 4,
+    "SUPPORTING_LOGICAL_ENTITIES": 8
+  },
+  "entities": [
+    {
+      "logical_entity_id": "LE-001",
+      "logical_entity_name": "META_CONSTITUTION",
+      "mapped_object_type": "META_CONSTITUTION",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted META_CONSTITUTION",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "GOVERNANCE_AUTHORITY_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-002",
+      "logical_entity_name": "POLICY",
+      "mapped_object_type": "POLICY",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted POLICY",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "POLICY_AND_RULE_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-003",
+      "logical_entity_name": "GOVERNANCE_RULE",
+      "mapped_object_type": "GOVERNANCE_RULE",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted GOVERNANCE_RULE",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "POLICY_AND_RULE_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-004",
+      "logical_entity_name": "RFC",
+      "mapped_object_type": "RFC",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted RFC",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "RFC_AND_DECISION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-005",
+      "logical_entity_name": "DECISION",
+      "mapped_object_type": "DECISION",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted DECISION",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "RFC_AND_DECISION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-006",
+      "logical_entity_name": "HUMAN_APPROVAL",
+      "mapped_object_type": "HUMAN_APPROVAL",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted HUMAN_APPROVAL",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "GOVERNANCE_AUTHORITY_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-007",
+      "logical_entity_name": "BLUEPRINT",
+      "mapped_object_type": "BLUEPRINT",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted BLUEPRINT",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "BLUEPRINT_AND_SPECIFICATION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-008",
+      "logical_entity_name": "SPECIFICATION",
+      "mapped_object_type": "SPECIFICATION",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted SPECIFICATION",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "BLUEPRINT_AND_SPECIFICATION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-009",
+      "logical_entity_name": "SCHEMA",
+      "mapped_object_type": "SCHEMA",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted SCHEMA",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "SCHEMA_AND_KNOWLEDGE_DEFINITION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-010",
+      "logical_entity_name": "ONTOLOGY",
+      "mapped_object_type": "ONTOLOGY",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted ONTOLOGY",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "SCHEMA_AND_KNOWLEDGE_DEFINITION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-011",
+      "logical_entity_name": "CLASS_DEFINITION",
+      "mapped_object_type": "CLASS_DEFINITION",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted CLASS_DEFINITION",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "SCHEMA_AND_KNOWLEDGE_DEFINITION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-012",
+      "logical_entity_name": "RELATION_DEFINITION",
+      "mapped_object_type": "RELATION_DEFINITION",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted RELATION_DEFINITION",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "SCHEMA_AND_KNOWLEDGE_DEFINITION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-013",
+      "logical_entity_name": "EVIDENCE",
+      "mapped_object_type": "EVIDENCE",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted EVIDENCE",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "EVIDENCE_AND_REVIEW_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-014",
+      "logical_entity_name": "REVIEW",
+      "mapped_object_type": "REVIEW",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted REVIEW",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "EVIDENCE_AND_REVIEW_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-015",
+      "logical_entity_name": "FINDING",
+      "mapped_object_type": "FINDING",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted FINDING",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "FINDING_AND_REMEDIATION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-016",
+      "logical_entity_name": "VALIDATION_RESULT",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for VALIDATION_RESULT",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "EVIDENCE_AND_REVIEW_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-017",
+      "logical_entity_name": "VOLUME",
+      "mapped_object_type": "VOLUME",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted VOLUME",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "VOLUME_AND_PACKAGE_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-018",
+      "logical_entity_name": "PACKAGE",
+      "mapped_object_type": "PACKAGE",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted PACKAGE",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "VOLUME_AND_PACKAGE_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-019",
+      "logical_entity_name": "OBJECT_VERSION",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for OBJECT_VERSION",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "VOLUME_AND_PACKAGE_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-020",
+      "logical_entity_name": "OBJECT_RELATIONSHIP",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for OBJECT_RELATIONSHIP",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "VOLUME_AND_PACKAGE_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-021",
+      "logical_entity_name": "AGENT_DEFINITION",
+      "mapped_object_type": "AGENT_DEFINITION",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted AGENT_DEFINITION",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "AGENT_DEFINITION_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-022",
+      "logical_entity_name": "AGENT_INSTANCE",
+      "mapped_object_type": "AGENT_INSTANCE",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted AGENT_INSTANCE",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "AGENT_RUNTIME_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-023",
+      "logical_entity_name": "RUNTIME_EVENT",
+      "mapped_object_type": "RUNTIME_EVENT",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted RUNTIME_EVENT",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "AGENT_RUNTIME_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-024",
+      "logical_entity_name": "DEPLOYMENT_ARTIFACT",
+      "mapped_object_type": "DEPLOYMENT_ARTIFACT",
+      "derived_supporting_concept": false,
+      "entity_purpose": "Logical persistence and interface view for adopted DEPLOYMENT_ARTIFACT",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "DEPLOYMENT_AND_RELEASE_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-025",
+      "logical_entity_name": "AUTHORITY_GRANT",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for AUTHORITY_GRANT",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "GOVERNANCE_AUTHORITY_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-026",
+      "logical_entity_name": "LIFECYCLE_TRANSITION",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for LIFECYCLE_TRANSITION",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "AGENT_RUNTIME_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-027",
+      "logical_entity_name": "APPROVAL_BINDING",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for APPROVAL_BINDING",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "GOVERNANCE_AUTHORITY_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-028",
+      "logical_entity_name": "EVIDENCE_BINDING",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for EVIDENCE_BINDING",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "EVIDENCE_AND_REVIEW_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-029",
+      "logical_entity_name": "LINEAGE_EDGE",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for LINEAGE_EDGE",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "EVIDENCE_AND_REVIEW_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-030",
+      "logical_entity_name": "INTEGRITY_BINDING",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for INTEGRITY_BINDING",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "EVIDENCE_AND_REVIEW_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-031",
+      "logical_entity_name": "AUDIT_ENTRY",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for AUDIT_ENTRY",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "EVIDENCE_AND_REVIEW_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    },
+    {
+      "logical_entity_id": "LE-032",
+      "logical_entity_name": "IDEMPOTENCY_RECORD",
+      "mapped_object_type": null,
+      "derived_supporting_concept": true,
+      "entity_purpose": "Supporting logical record required to preserve adopted governance semantics for IDEMPOTENCY_RECORD",
+      "identity_requirements": [
+        "canonical immutable identifier",
+        "namespace binding",
+        "version or occurrence identity as applicable"
+      ],
+      "lifecycle_requirements": [
+        "state changes follow adopted FSM",
+        "transition history is append-oriented"
+      ],
+      "authority_requirements": [
+        "actor and authority context required for mutation",
+        "authority ceiling enforced",
+        "Human Gate preserved"
+      ],
+      "evidence_requirements": [
+        "integrity hash",
+        "lineage binding",
+        "audit evidence for mutation"
+      ],
+      "temporal_requirements": [
+        "recorded_at",
+        "effective_at when normative",
+        "superseded_at when replaced"
+      ],
+      "aggregate_membership": "AGENT_RUNTIME_AGGREGATE",
+      "mutation_boundary": "COMMAND_THROUGH_AGGREGATE_ROOT_ONLY",
+      "query_boundary": "AUTHORIZED_READ_PROJECTION_NO_MUTATION",
+      "event_production": [
+        "accepted command outcome",
+        "lifecycle transition"
+      ],
+      "event_consumption": [
+        "cross-aggregate notification without authority transfer"
+      ],
+      "retention_classification": [
+        "GOVERNANCE_OR_EVIDENCE_CLASS_PENDING_HUMAN_DECISION"
+      ],
+      "prohibited_persistence_shortcuts": [
+        "filename identity",
+        "in-place effective rewrite",
+        "cascade deletion of lineage/evidence",
+        "physical storage assumption"
+      ]
+    }
+  ]
+}

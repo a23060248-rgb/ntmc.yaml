@@ -1,0 +1,48 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-001",
+  "object_type": "META_CONSTITUTION",
+  "object_category": "CONSTITUTIONAL_AND_POLICY_OBJECTS",
+  "canonical_name": "Meta Constitution",
+  "type_prefix": "mcon",
+  "design_time_or_runtime": "DESIGN_TIME",
+  "normative_or_non_normative": "NORMATIVE_AFTER_EXPLICIT_HUMAN_ADOPTION",
+  "current_normative_effect": false,
+  "authority_level": "CONSTITUTIONAL_AUTHORITY_UNDER_HUMAN_SOVEREIGN_AUTHORITY",
+  "lifecycle_owner": "META_CONSTITUTION_AND_HUMAN_AUTHORITY",
+  "evidence_owner": "EVIDENCE_LEDGER_WITH_INDEPENDENT_REVIEW",
+  "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_APPROVAL_EFFECTIVENESS_AMENDMENT_SUSPENSION_SUPERSESSION",
+  "accountable_human_role": "HUMAN_GOVERNANCE_OWNER",
+  "responsible_machine_role": "GOVERNANCE_ARTIFACT_CUSTODIAN",
+  "allowed_mutations": [
+    "draft clarification",
+    "Human-approved amendment",
+    "supersession metadata"
+  ],
+  "prohibited_mutations": [
+    "Agent-authored effective amendment",
+    "runtime mutation",
+    "silent waiver"
+  ],
+  "required_payload_fields": [
+    "highest_governance_principles",
+    "human_final_authority",
+    "machine_immutable_clauses",
+    "policy_legitimacy_source",
+    "delegation_limits",
+    "emergency_override_boundary",
+    "amendment_process",
+    "interpretation_authority"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "meta-constitution.schema-proposal.schema.json",
+  "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+}

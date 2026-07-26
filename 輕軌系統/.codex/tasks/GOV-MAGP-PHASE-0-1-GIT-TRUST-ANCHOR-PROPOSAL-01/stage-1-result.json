@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "master_batch": "8A-0G",
+  "stage": 1,
+  "result": "READY_FOR_HUMAN_EXACT_SCOPE_AND_HASH_DECISION",
+  "hard_stop": "HUMAN_GATE",
+  "blockers": [],
+  "warnings": [
+    "DEFAULT_GLOBAL_IGNORE_FILE_UNREADABLE_IN_SANDBOX"
+  ],
+  "exact_commit_path_count": 147,
+  "dependency_closure_status": "COMPLETE_FOR_8A0R_STAGE_1_REPLAY",
+  "ignored_file_count": 0,
+  "transformation_risk_count": 0,
+  "collision_count": 0,
+  "unresolved_reference_count": 11,
+  "blocking_unresolved_reference_count": 0,
+  "human_decision_sha256": {
+    "exact_commit_paths_sha256": "E8A5650A85D0DDADA08483493D866BF9A815F4EBAF1BE07987E8EBB7885E8FC3",
+    "dependency_closure_sha256": "23FD1B0236CC19E69147B0ACF49DD617B55DCFC679241919237B5E2953684A71",
+    "trust_anchor_commit_plan_sha256": "A768CBF9D8AEF7736DDEB4FE617D53BF18FCD3C027A8BD857E683490AF3F19A2",
+    "parent_head_binding_sha256": "69755381E38A36390CC49ED8F83F9451B5FCF8537F34E278473A71B4FBAA759B"
+  },
+  "parent_head": "187ca36a2ef2c4be991e2f94956eae151b417217",
+  "git_write": "NO",
+  "product_code_modified": false,
+  "secret_content_read": false,
+  "trust_anchor_commit_created": false,
+  "implementation_root_adopted": false,
+  "candidate_paths_adopted": false,
+  "tech_stack_adopted": false,
+  "master_batch_8a_1_relaunched": false,
+  "next_human_action": "Review and approve the exact 147-file scope and all four SHA-256 bindings in a separate Human decision."
+}

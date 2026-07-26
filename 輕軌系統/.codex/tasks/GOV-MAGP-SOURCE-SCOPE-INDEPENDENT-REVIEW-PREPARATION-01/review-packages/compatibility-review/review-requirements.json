@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+  "review_questions": [
+    {
+      "requirement_id": "COMPATIBILITY-REQ-01",
+      "question": "Is the Source Scope Lock limited to source-governance input and prevented from mutating product or governance baselines?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-REQ-02",
+      "question": "Does it avoid creating Reviewer outcomes, Git operations, Candidate changes, steady-state development authorization, or Migration 320 authorization?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-REQ-03",
+      "question": "Does it avoid replacing Codex Engineering Governance, Human Architecture Approval, or a future Architecture Reconciliation task?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-REQ-04",
+      "question": "Does it avoid claiming to be an Architecture Specification, Core Object Library, or Reference Implementation?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-REQ-05",
+      "question": "Are historical target artifacts byte-identical to the frozen manifest?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-REQ-06",
+      "question": "Does the pending review gate prevent the proposed authority policy from being represented as adopted?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-REQ-07",
+      "question": "Is Architecture Reconciliation still a separate, not-yet-authorized task?",
+      "mandatory": true
+    }
+  ],
+  "explicitly_out_of_scope": [
+    "product implementation",
+    "source content review",
+    "Migration 320 execution",
+    "architecture approval"
+  ],
+  "source_content_review_expected": false,
+  "decision_enum": [
+    "PASS",
+    "BLOCKER"
+  ],
+  "blocker_rules": [
+    "Any CRITICAL or HIGH open finding requires BLOCKER.",
+    "Any source identity mismatch, source authority conflict, VET-C Core contamination, Health-to-Railway contamination, historical artifact mutation, forbidden read, or out-of-scope read requires BLOCKER.",
+    "Any startup binding, package hash, target hash, exact-scope, or clean-context failure requires BLOCKER before substantive review.",
+    "PASS requires every assigned question answered, startup valid, review completed, no open CRITICAL/HIGH finding, and zero forbidden or out-of-scope reads."
+  ],
+  "mandatory_exit_requested_value": true
+}

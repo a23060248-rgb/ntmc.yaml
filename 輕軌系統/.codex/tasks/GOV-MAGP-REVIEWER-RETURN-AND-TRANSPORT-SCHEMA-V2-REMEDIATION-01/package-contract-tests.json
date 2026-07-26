@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "retry_package": {
+    "artifact_hashes_match": true,
+    "package_core_hash_match": true,
+    "launch_core_hash_match": true,
+    "exact_scope_closed": true,
+    "uses_v2_return_schema_only": true,
+    "fresh_identity": true,
+    "review_target_unchanged": true,
+    "corrective_overlay_unchanged": true
+  },
+  "aggregator_package": {
+    "artifact_hashes_match": true,
+    "package_core_hash_match": true,
+    "conditionally_ready": true,
+    "launch_authorized": false,
+    "rejects_startup_failure_evidence": true
+  },
+  "status": "PASS"
+}

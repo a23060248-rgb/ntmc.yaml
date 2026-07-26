@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+  "review_generation": "R2",
+  "finding_closure_authority": [
+    "COMPAT-R1-001",
+    "COMPAT-R1-002"
+  ],
+  "review_questions": [
+    {
+      "requirement_id": "COMPATIBILITY-R2-REQ-01",
+      "question": "Does the overlay keep the pending review gate distinct from an active policy?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-R2-REQ-02",
+      "question": "Is Source Authority still PROPOSED_NOT_ADOPTED?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-R2-REQ-03",
+      "question": "Is Normative use prohibited before Human adoption?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-R2-REQ-04",
+      "question": "Does Architecture Reconciliation remain NOT_AUTHORIZED?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-R2-REQ-05",
+      "question": "Are all original Source Scope Lock target bytes unchanged?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-R2-REQ-06",
+      "question": "Is the corrective overlay limited to status interpretation and downstream authorization order?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-R2-REQ-07",
+      "question": "Are classifications, Authority content, claim eligibility, and contamination policies unchanged?",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "COMPATIBILITY-R2-REQ-08",
+      "question": "Can the three formally accepted R1 PASS payloads be legally reused?",
+      "mandatory": true
+    }
+  ],
+  "pass_contract": "PASS requires both COMPAT-R1 findings returned as CLOSED with exact IDs and no new OPEN CRITICAL or HIGH finding.",
+  "current_finding_state": "REMEDIATED_PENDING_COMPATIBILITY_R2",
+  "findings_may_be_preclosed_by_preparation": false,
+  "mandatory_exit_requested_value": true
+}

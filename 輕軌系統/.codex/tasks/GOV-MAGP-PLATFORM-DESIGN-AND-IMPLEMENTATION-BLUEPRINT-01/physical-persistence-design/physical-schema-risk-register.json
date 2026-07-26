@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "physical-schema-risk-register",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "risks": [
+    {
+      "risk_id": "PPR-001",
+      "risk": "technology adoption unresolved",
+      "disposition": "MITIGATE_BEFORE_ADOPTION"
+    },
+    {
+      "risk_id": "PPR-002",
+      "risk": "cross-store consistency",
+      "disposition": "MITIGATE_BEFORE_ADOPTION"
+    },
+    {
+      "risk_id": "PPR-003",
+      "risk": "evidence blob orphaning",
+      "disposition": "MITIGATE_BEFORE_ADOPTION"
+    },
+    {
+      "risk_id": "PPR-004",
+      "risk": "partition complexity",
+      "disposition": "MITIGATE_BEFORE_ADOPTION"
+    },
+    {
+      "risk_id": "PPR-005",
+      "risk": "temporal query cost",
+      "disposition": "MITIGATE_BEFORE_ADOPTION"
+    },
+    {
+      "risk_id": "PPR-006",
+      "risk": "RLS policy drift",
+      "disposition": "MITIGATE_BEFORE_ADOPTION"
+    },
+    {
+      "risk_id": "PPR-007",
+      "risk": "restore ordering",
+      "disposition": "MITIGATE_BEFORE_ADOPTION"
+    },
+    {
+      "risk_id": "PPR-008",
+      "risk": "projection treated as authority",
+      "disposition": "MITIGATE_BEFORE_ADOPTION"
+    }
+  ]
+}

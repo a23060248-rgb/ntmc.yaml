@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01",
+  "source_decision_count": 20,
+  "mappings": [
+    {
+      "source_decision_id": "HID-001",
+      "source_title": "Primary System of Record",
+      "integrated_decision_ids": [
+        "IAD-A-001"
+      ]
+    },
+    {
+      "source_decision_id": "HID-002",
+      "source_title": "Graph Store",
+      "integrated_decision_ids": [
+        "IAD-A-002"
+      ]
+    },
+    {
+      "source_decision_id": "HID-003",
+      "source_title": "Evidence Blob Storage",
+      "integrated_decision_ids": [
+        "IAD-A-003"
+      ]
+    },
+    {
+      "source_decision_id": "HID-004",
+      "source_title": "Event Store",
+      "integrated_decision_ids": [
+        "IAD-A-005"
+      ]
+    },
+    {
+      "source_decision_id": "HID-005",
+      "source_title": "Search Projection",
+      "integrated_decision_ids": [
+        "IAD-A-004"
+      ]
+    },
+    {
+      "source_decision_id": "HID-006",
+      "source_title": "Temporal mode",
+      "integrated_decision_ids": [
+        "IAD-A-007"
+      ]
+    },
+    {
+      "source_decision_id": "HID-007",
+      "source_title": "Row-Level Security",
+      "integrated_decision_ids": [
+        "IAD-A-008"
+      ]
+    },
+    {
+      "source_decision_id": "HID-008",
+      "source_title": "Partition mode",
+      "integrated_decision_ids": [
+        "IAD-A-009"
+      ]
+    },
+    {
+      "source_decision_id": "HID-009",
+      "source_title": "API Style",
+      "integrated_decision_ids": [
+        "IAD-B-001"
+      ]
+    },
+    {
+      "source_decision_id": "HID-010",
+      "source_title": "Event Delivery Guarantee",
+      "integrated_decision_ids": [
+        "IAD-B-010"
+      ]
+    },
+    {
+      "source_decision_id": "HID-011",
+      "source_title": "Authentication mechanism",
+      "integrated_decision_ids": [
+        "IAD-B-007"
+      ]
+    },
+    {
+      "source_decision_id": "HID-012",
+      "source_title": "Authorization model",
+      "integrated_decision_ids": [
+        "IAD-B-008"
+      ]
+    },
+    {
+      "source_decision_id": "HID-013",
+      "source_title": "Modular Monolith Services Hybrid",
+      "integrated_decision_ids": [
+        "IAD-C-007"
+      ]
+    },
+    {
+      "source_decision_id": "HID-014",
+      "source_title": "Human Console priority",
+      "integrated_decision_ids": [
+        "IAD-D-011"
+      ]
+    },
+    {
+      "source_decision_id": "HID-015",
+      "source_title": "Agent Runtime isolation",
+      "integrated_decision_ids": [
+        "IAD-C-004"
+      ]
+    },
+    {
+      "source_decision_id": "HID-016",
+      "source_title": "Message Infrastructure",
+      "integrated_decision_ids": [
+        "IAD-B-014"
+      ]
+    },
+    {
+      "source_decision_id": "HID-017",
+      "source_title": "Deployment Topology",
+      "integrated_decision_ids": [
+        "IAD-C-006"
+      ]
+    },
+    {
+      "source_decision_id": "HID-018",
+      "source_title": "RPO RTO",
+      "integrated_decision_ids": [
+        "IAD-A-013"
+      ]
+    },
+    {
+      "source_decision_id": "HID-019",
+      "source_title": "First Implementation Scope",
+      "integrated_decision_ids": [
+        "IAD-D-010",
+        "IAD-E-002"
+      ]
+    },
+    {
+      "source_decision_id": "HID-020",
+      "source_title": "Phase 0 Phase 1 priority",
+      "integrated_decision_ids": [
+        "IAD-D-010",
+        "IAD-E-001",
+        "IAD-E-002"
+      ]
+    }
+  ],
+  "all_traced": true
+}

@@ -1,0 +1,651 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "work-package-register",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "work_package_count": 20,
+  "work_packages": [
+    {
+      "id": "WP-00",
+      "name": "Baseline Verification",
+      "objective": "Deliver Baseline Verification after separate authorization",
+      "prerequisites": [
+        "four design adoptions"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": []
+    },
+    {
+      "id": "WP-01",
+      "name": "Project Skeleton",
+      "objective": "Deliver Project Skeleton after separate authorization",
+      "prerequisites": [
+        "WP-00 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-00"
+      ]
+    },
+    {
+      "id": "WP-02",
+      "name": "Canonical Object and Validation Kernel",
+      "objective": "Deliver Canonical Object and Validation Kernel after separate authorization",
+      "prerequisites": [
+        "WP-01 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-01"
+      ]
+    },
+    {
+      "id": "WP-03",
+      "name": "Identity Version Lifecycle",
+      "objective": "Deliver Identity Version Lifecycle after separate authorization",
+      "prerequisites": [
+        "WP-02 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-02"
+      ]
+    },
+    {
+      "id": "WP-04",
+      "name": "Authority and Human Approval",
+      "objective": "Deliver Authority and Human Approval after separate authorization",
+      "prerequisites": [
+        "WP-03 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-03"
+      ]
+    },
+    {
+      "id": "WP-05",
+      "name": "Evidence Ledger",
+      "objective": "Deliver Evidence Ledger after separate authorization",
+      "prerequisites": [
+        "WP-04 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-04"
+      ]
+    },
+    {
+      "id": "WP-06",
+      "name": "Review Finding Remediation",
+      "objective": "Deliver Review Finding Remediation after separate authorization",
+      "prerequisites": [
+        "WP-05 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-05"
+      ]
+    },
+    {
+      "id": "WP-07",
+      "name": "Constitution Policy Rule",
+      "objective": "Deliver Constitution Policy Rule after separate authorization",
+      "prerequisites": [
+        "WP-06 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-06"
+      ]
+    },
+    {
+      "id": "WP-08",
+      "name": "RFC Decision Blueprint Specification",
+      "objective": "Deliver RFC Decision Blueprint Specification after separate authorization",
+      "prerequisites": [
+        "WP-07 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-07"
+      ]
+    },
+    {
+      "id": "WP-09",
+      "name": "Volume Package Registry",
+      "objective": "Deliver Volume Package Registry after separate authorization",
+      "prerequisites": [
+        "WP-08 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-08"
+      ]
+    },
+    {
+      "id": "WP-10",
+      "name": "Agent Definition Registry",
+      "objective": "Deliver Agent Definition Registry after separate authorization",
+      "prerequisites": [
+        "WP-09 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-09"
+      ]
+    },
+    {
+      "id": "WP-11",
+      "name": "Agent Runtime Governance",
+      "objective": "Deliver Agent Runtime Governance after separate authorization",
+      "prerequisites": [
+        "WP-10 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-10"
+      ]
+    },
+    {
+      "id": "WP-12",
+      "name": "Event and Audit Infrastructure",
+      "objective": "Deliver Event and Audit Infrastructure after separate authorization",
+      "prerequisites": [
+        "WP-11 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-11"
+      ]
+    },
+    {
+      "id": "WP-13",
+      "name": "API Interface Layer",
+      "objective": "Deliver API Interface Layer after separate authorization",
+      "prerequisites": [
+        "WP-12 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-12"
+      ]
+    },
+    {
+      "id": "WP-14",
+      "name": "Human Review Console",
+      "objective": "Deliver Human Review Console after separate authorization",
+      "prerequisites": [
+        "WP-13 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-13"
+      ]
+    },
+    {
+      "id": "WP-15",
+      "name": "Search Projection Knowledge Graph",
+      "objective": "Deliver Search Projection Knowledge Graph after separate authorization",
+      "prerequisites": [
+        "WP-14 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-14"
+      ]
+    },
+    {
+      "id": "WP-16",
+      "name": "Security Hardening",
+      "objective": "Deliver Security Hardening after separate authorization",
+      "prerequisites": [
+        "WP-15 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-15"
+      ]
+    },
+    {
+      "id": "WP-17",
+      "name": "Migration Backup Recovery",
+      "objective": "Deliver Migration Backup Recovery after separate authorization",
+      "prerequisites": [
+        "WP-16 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-16"
+      ]
+    },
+    {
+      "id": "WP-18",
+      "name": "Integration E2E Failure Rehearsal",
+      "objective": "Deliver Integration E2E Failure Rehearsal after separate authorization",
+      "prerequisites": [
+        "WP-17 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-17"
+      ]
+    },
+    {
+      "id": "WP-19",
+      "name": "Deployment Readiness",
+      "objective": "Deliver Deployment Readiness after separate authorization",
+      "prerequisites": [
+        "WP-18 acceptance or declared dependency"
+      ],
+      "deliverables": [
+        "implementation",
+        "tests",
+        "evidence"
+      ],
+      "prohibited_scope": [
+        "unapproved design",
+        "Human decision impersonation"
+      ],
+      "acceptance_criteria": [
+        "tests PASS",
+        "evidence bound",
+        "review complete"
+      ],
+      "reviewers": [
+        "security",
+        "compatibility",
+        "Human owner"
+      ],
+      "human_gate": true,
+      "rollback": "defined before execution",
+      "dependencies": [
+        "WP-18"
+      ]
+    }
+  ],
+  "product_implementation_authorization": false
+}

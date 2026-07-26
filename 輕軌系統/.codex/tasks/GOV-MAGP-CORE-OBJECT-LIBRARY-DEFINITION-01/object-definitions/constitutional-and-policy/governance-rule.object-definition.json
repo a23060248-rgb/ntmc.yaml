@@ -1,0 +1,47 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-003",
+  "object_type": "GOVERNANCE_RULE",
+  "object_category": "CONSTITUTIONAL_AND_POLICY_OBJECTS",
+  "canonical_name": "Governance Rule",
+  "type_prefix": "grule",
+  "design_time_or_runtime": "DESIGN_TIME_AND_RUNTIME_EVALUATION",
+  "normative_or_non_normative": "NORMATIVE_ONLY_WHEN_AUTHORIZED_BY_EFFECTIVE_POLICY",
+  "current_normative_effect": false,
+  "authority_level": "RUNTIME_ENFORCEMENT_AUTHORITY_NO_POLICY_ADOPTION",
+  "lifecycle_owner": "POLICY_ENGINE_UNDER_POLICY_OWNER",
+  "evidence_owner": "POLICY_ENGINE_EMITS_EVIDENCE_LEDGER_PRESERVES",
+  "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_WHEN_RULE_CREATES_OR_CHANGES_NORMATIVE_OBLIGATION",
+  "accountable_human_role": "POLICY_OWNER",
+  "responsible_machine_role": "POLICY_ENGINE",
+  "allowed_mutations": [
+    "test case addition",
+    "non-semantic optimization",
+    "policy-authorized version change"
+  ],
+  "prohibited_mutations": [
+    "exceed parent Policy",
+    "self-adoption",
+    "hidden override"
+  ],
+  "required_payload_fields": [
+    "machine_evaluable_condition",
+    "expected_outcome",
+    "enforcement_point",
+    "severity",
+    "override_policy",
+    "policy_traceability",
+    "test_cases"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "governance-rule.schema-proposal.schema.json",
+  "lifecycle_profile": "HYBRID_GOVERNED_FSM"
+}

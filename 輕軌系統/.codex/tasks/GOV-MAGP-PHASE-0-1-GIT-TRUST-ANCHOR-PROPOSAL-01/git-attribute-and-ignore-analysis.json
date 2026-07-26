@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "candidate_count": 147,
+  "git_config_snapshot": {
+    "core_autocrlf": "true",
+    "core_eol": null,
+    "core_safecrlf": null,
+    "core_attributesfile": null,
+    "core_excludesfile": null
+  },
+  "ignore_analysis": {
+    "ignored_file_count": 0,
+    "ignored_files": [],
+    "force_add_required": false,
+    "default_global_ignore_warning": [
+      "warning: unable to access 'C:\\Users\\a2306/.config/git/ignore': Permission denied"
+    ],
+    "warning_interpretation": "Git reported its default global ignore file as unreadable in this sandbox. Candidate status and check-ignore results still identify all 147 files as untracked and not ignored under the active Repository evaluation."
+  },
+  "attribute_value_counts": {
+    "text": {
+      "unspecified": 147
+    },
+    "eol": {
+      "unspecified": 147
+    },
+    "filter": {
+      "unspecified": 147
+    },
+    "working_tree_encoding": {
+      "unspecified": 147
+    }
+  },
+  "transformation_risk_count": 0,
+  "transformation_risks": [],
+  "hash_object_warning_count": 0,
+  "hash_object_warnings": [],
+  "analysis_method": "git check-attr plus read-only git hash-object --path comparison against the raw working-tree blob OID"
+}

@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "master_batch": "7A-1",
+  "validator_script": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01/scripts/generate-integrated-blueprint.mjs",
+    "sha256": "943BEA1ABE6F82F4F4E71FD2FBD02F7AFE09C485A097342C9594853116314EA1",
+    "bytes": 81809
+  },
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "All three adopted Baselines are bound and valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Pending Contract Decisions equal zero",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Logical-to-physical mapping is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Canonical identity is preserved",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Historical versions cannot be silently rewritten",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Evidence Ledger is append-oriented",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Human approval hash binding is designed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "Finding closure requires evidence",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Lifecycle history is modeled",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Authority storage is modeled",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Audit storage is modeled",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Concurrency is modeled",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Idempotency is modeled",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Table proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Constraint and index proposals exist",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Migration and rollback strategy is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "API resource registry has 25 resources",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Command Query Lifecycle operation registries are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Authorization and error contracts are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "OpenAPI proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "Event registry and versioning are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "AsyncAPI proposal is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "Threat model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Abuse cases are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Agent self-authorization is prohibited",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Runtime policy mutation is prohibited",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Evidence self-acceptance is prohibited",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Human Review Console plan has 14 surfaces",
+      "status": "PASS"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Backend Module plan has 16 modules",
+      "status": "PASS"
+    },
+    {
+      "test_id": 30,
+      "requirement": "Agent Runtime plan has 14 components",
+      "status": "PASS"
+    },
+    {
+      "test_id": 31,
+      "requirement": "Deployment topology candidates are complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 32,
+      "requirement": "Observability plan is complete and separate from Evidence",
+      "status": "PASS"
+    },
+    {
+      "test_id": 33,
+      "requirement": "Backup and restore plan is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 34,
+      "requirement": "Work Package register has WP-00 through WP-19",
+      "status": "PASS"
+    },
+    {
+      "test_id": 35,
+      "requirement": "Nine milestones have Human GO NO-GO gates",
+      "status": "PASS"
+    },
+    {
+      "test_id": 36,
+      "requirement": "Testing plan has 22 categories",
+      "status": "PASS"
+    },
+    {
+      "test_id": 37,
+      "requirement": "E2E plan has six governance flows",
+      "status": "PASS"
+    },
+    {
+      "test_id": 38,
+      "requirement": "Four Human Adoption Packages each contain 12 required files",
+      "status": "PASS"
+    },
+    {
+      "test_id": 39,
+      "requirement": "All integrated design decision forms remain pending",
+      "status": "PASS"
+    },
+    {
+      "test_id": 40,
+      "requirement": "SQL was not executed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 41,
+      "requirement": "Migration was not executed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 42,
+      "requirement": "Database was not connected",
+      "status": "PASS"
+    },
+    {
+      "test_id": 43,
+      "requirement": "Product code and governance baseline are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 44,
+      "requirement": "Product implementation was not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 45,
+      "requirement": "Git was not used",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 45,
+  "required_pass_count": 45,
+  "required_fail_count": 0,
+  "required_status": "PASS_45_OF_45",
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "database_connected": false,
+    "sql_executed": false,
+    "migration_executed": false,
+    "service_used": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "package_installed": false,
+    "product_code_modified": false,
+    "physical_database_executed": false,
+    "formal_api_implemented": false,
+    "product_implementation_started": false,
+    "writes_outside_task_root": 0
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-LOGICAL-PERSISTENCE-AND-INTERFACE-CONTRACT-MODELING-01",
+  "semantic_object_version": true,
+  "logical_revision": "MONOTONIC_PER_AGGREGATE",
+  "optimistic_concurrency_token": "OPAQUE_LOGICAL_TOKEN",
+  "expected_version_required_for_mutation": true,
+  "stale_command_result": "STALE_REVISION",
+  "conflict_detection": [
+    "aggregate revision",
+    "target object version/hash",
+    "Human approval version/hash",
+    "Finding current state/version"
+  ],
+  "compatible_update": "SEMVER_COMPATIBLE_WITH_NO_AUTHORITY_OR_REQUIRED_FIELD_WEAKENING",
+  "breaking_update": "RFC_AND_HUMAN_APPROVAL_REQUIRED",
+  "supersession": "NEW_VERSION_WITH_LINEAGE",
+  "immutable_historical_version": true,
+  "concurrent_human_approval_protection": true,
+  "concurrent_finding_closure_protection": true,
+  "unresolved_decisions": [
+    "HCD-010"
+  ]
+}

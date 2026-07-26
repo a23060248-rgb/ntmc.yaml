@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "current_status": "NOT_AUTHORIZED",
+  "strict_path_selection_authorizes": false,
+  "human_adjudicated_path_selection_authorizes": false,
+  "technical_assessment_authorizes": false,
+  "human_closure_of_one_finding_authorizes": false,
+  "human_closure_of_both_findings_authorizes": false,
+  "aggregator_completion_alone_authorizes": false,
+  "required_future_authority": "SEPARATE_EXPLICIT_HUMAN_ARCHITECTURE_RECONCILIATION_AUTHORIZATION",
+  "prohibited_outputs_in_this_task": [
+    "MAGP_ARCHITECTURE_APPROVAL",
+    "CORE_OBJECT_LIBRARY_APPROVAL",
+    "RAILWAY_DOMAIN_RULE_APPROVAL",
+    "PRODUCT_IMPLEMENTATION_APPROVAL",
+    "SOURCE_AUTHORITY_POLICY_ADOPTION"
+  ],
+  "source_authority": "PROPOSED_NOT_ADOPTED",
+  "downstream_policy_use": false
+}

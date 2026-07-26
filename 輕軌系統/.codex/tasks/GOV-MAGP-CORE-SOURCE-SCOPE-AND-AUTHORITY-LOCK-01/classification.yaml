@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+  "level": "L3",
+  "reasons": [
+    "The task establishes formal source authority and exclusion boundaries for MAGP Core and later architecture reconciliation.",
+    "The task must prevent external VET-C and health-domain material from being promoted into MAGP or Railway normative rules.",
+    "Incorrect source identity, supersession, or contamination handling could create an invalid downstream governance or release decision."
+  ],
+  "triggers": [
+    "formal-source-authority",
+    "backward-compatibility-and-supersession",
+    "external-untrusted-document-input",
+    "railway-domain-rule-boundary",
+    "downstream-governance-gate"
+  ],
+  "execution_categories": [
+    "governance-source-edit",
+    "governance-validation",
+    "read-only-review",
+    "security",
+    "domain-rule",
+    "backward-compatibility"
+  ],
+  "required_agents": [
+    "architect",
+    "documentation-engineer",
+    "qa-engineer",
+    "code-reviewer",
+    "security-reviewer",
+    "railway-domain-reviewer",
+    "compatibility-reviewer"
+  ],
+  "required_reviews": [
+    "code",
+    "security",
+    "railway-domain",
+    "compatibility"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "11-file-top-level-source-inventory",
+    "11-of-11-unique-source-identity-resolution",
+    "11-of-11-byte-derived-sha256-and-format-verification",
+    "four-core-one-optional-six-excluded-classification",
+    "excluded-source-minimal-read-evidence",
+    "vetc-core-contamination-zero",
+    "health-to-railway-contamination-zero",
+    "source-directory-before-after-integrity",
+    "task-local-source-scope-validation"
+  ],
+  "human_approval": {
+    "required": true,
+    "stages": [
+      "scope_approval",
+      "execution_approval",
+      "review_completion",
+      "final_commit_approval"
+    ],
+    "scope_approval_status": "AUTHORIZED_BY_USER",
+    "external_read_exception": "C:/Users/a2306/Desktop/MAGP-Reference-Sources top-level regular files only"
+  },
+  "stop_conditions": [
+    "SOURCE_IDENTITY_RESOLUTION_FAILED",
+    "The source root does not exist or its top-level regular-file count is not exactly 11.",
+    "Any source is unmatched, multiply matched, duplicated, or mapped to more than one SOURCE ID.",
+    "Any detected magic bytes conflict with the actual extension.",
+    "Any excluded source is fully indexed or used as MAGP Core authority.",
+    "Any VET-C-specific normative claim enters MAGP Core.",
+    "Any health-specific claim is promoted into a Railway Domain Rule.",
+    "Any source file, product code, governance baseline, or Git state is modified."
+  ],
+  "scope": {
+    "include": [
+      "READ_ONLY: C:/Users/a2306/Desktop/MAGP-Reference-Sources/* (top-level regular files only; explicitly user-authorized)",
+      "WRITE: .codex/tasks/GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01/**"
+    ],
+    "exclude": [
+      "C:/Users/a2306/Desktop/MAGP-Reference-Sources/** writes",
+      "nested external-source directories",
+      ".env*",
+      "product code",
+      ".codex/governance/**",
+      "historical tasks",
+      "database, migration, seed, API, service, and network operations",
+      "Git index and Git history"
+    ]
+  },
+  "classified_by": "human-authorized-root-orchestrator",
+  "classification_status": "human-approved-scope"
+}

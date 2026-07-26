@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "status": "PENDING_SEPARATE_HUMAN_AUTHORIZATION",
+  "decisions": [
+    "logical aggregate boundaries",
+    "transaction consistency classes",
+    "logical persistence projections",
+    "command/query partition",
+    "resource candidate scope",
+    "event candidate catalog",
+    "authorization enforcement points",
+    "evidence ledger logical persistence boundary",
+    "compatibility and concurrency profiles"
+  ],
+  "blocking_for_current_object_library_adoption": false,
+  "blocking_for_contract_modeling_until_authorized": true,
+  "readiness_only": true,
+  "logical_contract_modeling_authorized": false,
+  "physical_database_model_created": false,
+  "database_migration_created": false,
+  "formal_api_contract_created": false,
+  "backend_frontend_created": false,
+  "agent_runtime_created": false,
+  "product_implementation_started": false
+}

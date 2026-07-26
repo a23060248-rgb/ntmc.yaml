@@ -1,0 +1,234 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "fsm_id": "DESIGN_TIME_COMMON_FSM",
+  "states": [
+    {
+      "state": "DRAFT",
+      "terminal": false
+    },
+    {
+      "state": "PROPOSED",
+      "terminal": false
+    },
+    {
+      "state": "UNDER_REVIEW",
+      "terminal": false
+    },
+    {
+      "state": "CHANGES_REQUIRED",
+      "terminal": false
+    },
+    {
+      "state": "HUMAN_APPROVAL_PENDING",
+      "terminal": false
+    },
+    {
+      "state": "APPROVED",
+      "terminal": false
+    },
+    {
+      "state": "EFFECTIVE",
+      "terminal": false
+    },
+    {
+      "state": "SUSPENDED",
+      "terminal": false
+    },
+    {
+      "state": "SUPERSEDED",
+      "terminal": false
+    },
+    {
+      "state": "REJECTED",
+      "terminal": true
+    },
+    {
+      "state": "ARCHIVED",
+      "terminal": true
+    }
+  ],
+  "transitions": [
+    {
+      "from": "DRAFT",
+      "to": "PROPOSED",
+      "transition_actor": "CREATE_OR_PROPOSE_AUTHORITY",
+      "transition_guard": "required draft fields complete",
+      "required_evidence": [
+        "structural validation"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "freeze proposal revision"
+      ],
+      "rollback_conditions": "return to DRAFT before review"
+    },
+    {
+      "from": "PROPOSED",
+      "to": "UNDER_REVIEW",
+      "transition_actor": "REVIEW_AUTHORITY",
+      "transition_guard": "scope and reviewer binding valid",
+      "required_evidence": [
+        "review intake"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "open review"
+      ],
+      "rollback_conditions": "return to PROPOSED if startup invalid"
+    },
+    {
+      "from": "UNDER_REVIEW",
+      "to": "CHANGES_REQUIRED",
+      "transition_actor": "REVIEW_AUTHORITY",
+      "transition_guard": "actionable findings exist",
+      "required_evidence": [
+        "finding records"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "block approval"
+      ],
+      "rollback_conditions": "resume UNDER_REVIEW after remediation"
+    },
+    {
+      "from": "CHANGES_REQUIRED",
+      "to": "PROPOSED",
+      "transition_actor": "PROPOSE_AUTHORITY",
+      "transition_guard": "remediation evidence attached",
+      "required_evidence": [
+        "remediation evidence"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "new revision"
+      ],
+      "rollback_conditions": "remain CHANGES_REQUIRED"
+    },
+    {
+      "from": "UNDER_REVIEW",
+      "to": "HUMAN_APPROVAL_PENDING",
+      "transition_actor": "REVIEW_AUTHORITY",
+      "transition_guard": "required review complete and blocking findings zero",
+      "required_evidence": [
+        "review result",
+        "finding ledger"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "create approval request"
+      ],
+      "rollback_conditions": "return to UNDER_REVIEW"
+    },
+    {
+      "from": "HUMAN_APPROVAL_PENDING",
+      "to": "APPROVED",
+      "transition_actor": "HUMAN_APPROVAL_AUTHORITY",
+      "transition_guard": "exact artifact hash and scope bound",
+      "required_evidence": [
+        "Human Approval"
+      ],
+      "required_approval": "HUMAN_REQUIRED",
+      "side_effects": [
+        "record approval"
+      ],
+      "rollback_conditions": "revoke by explicit decision"
+    },
+    {
+      "from": "APPROVED",
+      "to": "EFFECTIVE",
+      "transition_actor": "ACTIVATION_AUTHORITY",
+      "transition_guard": "effective time and dependencies valid",
+      "required_evidence": [
+        "approval binding",
+        "activation validation"
+      ],
+      "required_approval": "POLICY_DEPENDENT",
+      "side_effects": [
+        "publish effective version"
+      ],
+      "rollback_conditions": "suspend or supersede; never erase"
+    },
+    {
+      "from": "EFFECTIVE",
+      "to": "SUSPENDED",
+      "transition_actor": "SUSPEND_AUTHORITY",
+      "transition_guard": "suspension trigger valid",
+      "required_evidence": [
+        "incident or decision evidence"
+      ],
+      "required_approval": "POLICY_DEPENDENT",
+      "side_effects": [
+        "block new use"
+      ],
+      "rollback_conditions": "Human-gated reactivation if allowed"
+    },
+    {
+      "from": "EFFECTIVE",
+      "to": "SUPERSEDED",
+      "transition_actor": "SUPERSEDE_AUTHORITY",
+      "transition_guard": "successor effective and lineage bound",
+      "required_evidence": [
+        "successor binding"
+      ],
+      "required_approval": "HUMAN_WHEN_NORMATIVE",
+      "side_effects": [
+        "redirect new consumers"
+      ],
+      "rollback_conditions": "new superseding version only"
+    },
+    {
+      "from": "PROPOSED",
+      "to": "REJECTED",
+      "transition_actor": "APPROVAL_OR_REVIEW_AUTHORITY",
+      "transition_guard": "rejection rationale recorded",
+      "required_evidence": [
+        "decision evidence"
+      ],
+      "required_approval": "POLICY_DEPENDENT",
+      "side_effects": [
+        "close proposal"
+      ],
+      "rollback_conditions": "new proposal identity or explicit reopen gate"
+    },
+    {
+      "from": "SUPERSEDED",
+      "to": "ARCHIVED",
+      "transition_actor": "ARCHIVE_AUTHORITY",
+      "transition_guard": "retention and dependency guards satisfied",
+      "required_evidence": [
+        "archive manifest"
+      ],
+      "required_approval": "POLICY_DEPENDENT",
+      "side_effects": [
+        "read-only archival"
+      ],
+      "rollback_conditions": "Human-gated restore as new active version"
+    },
+    {
+      "from": "REJECTED",
+      "to": "ARCHIVED",
+      "transition_actor": "ARCHIVE_AUTHORITY",
+      "transition_guard": "retention guard satisfied",
+      "required_evidence": [
+        "archive manifest"
+      ],
+      "required_approval": "NONE",
+      "side_effects": [
+        "read-only archival"
+      ],
+      "rollback_conditions": "explicit restore to DRAFT under Human gate"
+    }
+  ],
+  "prohibited_transitions": [
+    "DRAFT->EFFECTIVE",
+    "PROPOSED->ACTIVE",
+    "REJECTED->EFFECTIVE",
+    "ARCHIVED->ACTIVE"
+  ],
+  "direct_draft_to_effective_allowed": false,
+  "status": "COMPLETE"
+}

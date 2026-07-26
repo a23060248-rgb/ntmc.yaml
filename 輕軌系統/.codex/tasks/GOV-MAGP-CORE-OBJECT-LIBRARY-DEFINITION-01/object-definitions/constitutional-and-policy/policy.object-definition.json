@@ -1,0 +1,51 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-002",
+  "object_type": "POLICY",
+  "object_category": "CONSTITUTIONAL_AND_POLICY_OBJECTS",
+  "canonical_name": "Policy",
+  "type_prefix": "pol",
+  "design_time_or_runtime": "DESIGN_TIME",
+  "normative_or_non_normative": "NORMATIVE_AFTER_EXPLICIT_HUMAN_ADOPTION",
+  "current_normative_effect": false,
+  "authority_level": "POLICY_AUTHORITY_BELOW_CONSTITUTION",
+  "lifecycle_owner": "META_GOVERNANCE_WITH_HUMAN_ADOPTION",
+  "evidence_owner": "EVIDENCE_LEDGER",
+  "human_gate_requirement": "HUMAN_APPROVAL_REQUIRED_FOR_NORMATIVE_EFFECT_AUTHORITY_OR_SECURITY_CHANGE",
+  "accountable_human_role": "POLICY_OWNER",
+  "responsible_machine_role": "POLICY_CUSTODIAN_AND_EVALUATOR",
+  "allowed_mutations": [
+    "draft scope clarification",
+    "versioned compatible addition",
+    "Human-approved change"
+  ],
+  "prohibited_mutations": [
+    "runtime rewrite",
+    "rule-driven reverse authorization",
+    "silent exception"
+  ],
+  "required_payload_fields": [
+    "policy_scope",
+    "governed_subjects",
+    "obligations",
+    "prohibitions",
+    "permissions",
+    "exceptions",
+    "enforcement_requirements",
+    "evidence_requirements",
+    "violation_consequences",
+    "approval_authority",
+    "effective_period"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "policy.schema-proposal.schema.json",
+  "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+}

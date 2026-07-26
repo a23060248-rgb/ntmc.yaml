@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "current_assurance": {
+    "classification": "NO_COMPATIBILITY_REVIEW_COMPLETED",
+    "clean_room_review_completed": false,
+    "human_adjudicated_review_completed": false,
+    "reduced_assurance": false,
+    "source_scope_review_gate": "NO-GO"
+  },
+  "strict_path": {
+    "decision": "STRICT_CLEAN_ROOM_REVIEW_REMAINS_REQUIRED",
+    "classification_while_runtime_unavailable": "PAUSED_NO_REVIEW_ASSURANCE",
+    "compatibility_review_status": "PAUSED_RUNTIME_UNAVAILABLE",
+    "source_scope_review_gate": "NO-GO"
+  },
+  "human_adjudicated_path": {
+    "decision": "APPROVE_HUMAN_ADJUDICATED_COMPATIBILITY_REVIEW_WITH_REDUCED_ASSURANCE",
+    "adopted_review_model": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT",
+    "assurance_level": "REDUCED_HUMAN_ADJUDICATED",
+    "independent": false,
+    "clean_room": false,
+    "l3_independent_review_equivalent": false,
+    "maximum_gate_label_after_valid_human_closure_of_both_findings": "GO_WITH_HUMAN_ADJUDICATED_REDUCED_ASSURANCE"
+  },
+  "prohibited_equivalence_claims": [
+    "CLEAN_ROOM_REVIEW_PASS",
+    "FULL_L3_INDEPENDENT_REVIEW_PASS",
+    "EXTERNAL_INDEPENDENT_REVIEW_COMPLETE",
+    "STRICT_CLEAN_ROOM_EQUIVALENT"
+  ]
+}

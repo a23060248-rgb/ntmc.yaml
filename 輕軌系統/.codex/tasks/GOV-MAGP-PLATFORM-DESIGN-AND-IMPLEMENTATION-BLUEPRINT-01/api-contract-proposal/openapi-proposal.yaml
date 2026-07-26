@@ -1,0 +1,90 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "MAGP Formal Interface Proposal",
+    "version": "0.1.0-proposal",
+    "description": "PROPOSED_NOT_ADOPTED / NOT_IMPLEMENTED"
+  },
+  "servers": [],
+  "x-design-status": "PROPOSED_NOT_ADOPTED",
+  "x-execution-status": "NOT_EXECUTED",
+  "x-implementation-status": "NOT_IMPLEMENTED",
+  "x-human-adoption": "PENDING_HUMAN_DECISION",
+  "paths": {
+    "/constitutions": {
+      "get": {
+        "operationId": "listConstitutions",
+        "responses": {
+          "200": {
+            "description": "Proposed query response"
+          }
+        }
+      },
+      "post": {
+        "operationId": "proposeConstitution",
+        "responses": {
+          "202": {
+            "description": "Proposed command acceptance"
+          },
+          "403": {
+            "description": "Authority denied"
+          }
+        }
+      }
+    },
+    "/evidence": {
+      "post": {
+        "operationId": "registerEvidence",
+        "responses": {
+          "202": {
+            "description": "Evidence registration proposed"
+          }
+        }
+      }
+    },
+    "/approvals": {
+      "post": {
+        "operationId": "recordHumanApproval",
+        "responses": {
+          "202": {
+            "description": "Hash-bound Human decision proposed"
+          }
+        }
+      }
+    },
+    "/findings/{findingId}/close": {
+      "post": {
+        "operationId": "closeFindingWithEvidence",
+        "parameters": [
+          {
+            "name": "findingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Closure proposal"
+          },
+          "409": {
+            "description": "Missing or stale binding"
+          }
+        }
+      }
+    },
+    "/agent-instances/{instanceId}/suspend": {
+      "post": {
+        "operationId": "suspendAgentInstance",
+        "responses": {
+          "202": {
+            "description": "Human-authorized suspension proposal"
+          }
+        }
+      }
+    }
+  }
+}

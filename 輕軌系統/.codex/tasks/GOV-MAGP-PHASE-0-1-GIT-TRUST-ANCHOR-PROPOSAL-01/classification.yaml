@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "level": "L3",
+  "reasons": [
+    "Unresolved worktree baseline reproducibility blocker",
+    "Exact Git trust anchor and transitive governance dependency analysis",
+    "Historical artifact and compatibility preservation"
+  ],
+  "triggers": [
+    "unresolved_reviewer_or_gate_blocker",
+    "governance_trust_anchor_proposal",
+    "baseline_reproducibility"
+  ],
+  "required_agents": [
+    "root-governance-orchestrator"
+  ],
+  "required_reviews": [
+    "code-reviewer",
+    "security-reviewer",
+    "compatibility-reviewer"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "exact per-file manifest",
+    "dependency closure",
+    "Git attributes and ignore evidence",
+    "before/after Git semantic fingerprints",
+    "worktree replay acceptance criteria"
+  ],
+  "human_approval": [
+    "Human approval of exact paths and four SHA-256 bindings before any Git Commit"
+  ],
+  "stop_conditions": [
+    "DIRECT_GOVERNANCE_INPUT_BINDING_INVALID",
+    "SYMLINK_ESCAPE_RISK",
+    "SUBMODULE_MIXED_IN",
+    "SECRET_OR_CREDENTIAL_PATH_CANDIDATE",
+    "PRODUCT_CODE_CANDIDATE",
+    "PATH_COLLISION",
+    "TRANSITIVE_PROVENANCE_MISMATCH",
+    "GIT_WRITE_OPERATION_USED"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01/**"
+    ],
+    "exclude": [
+      "historical task modifications",
+      "Product Code",
+      ".env*",
+      "Git writes",
+      "implementation adoption",
+      "Tech Stack adoption",
+      "network",
+      "database",
+      "migration",
+      "deployment"
+    ]
+  },
+  "classified_by": "task-classification",
+  "classification_status": "HUMAN_APPROVED_STAGE_0_AND_STAGE_1_PROPOSAL_SCOPE"
+}

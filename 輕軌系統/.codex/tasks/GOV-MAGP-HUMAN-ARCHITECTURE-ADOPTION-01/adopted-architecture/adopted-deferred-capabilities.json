@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01",
+  "artifact_type": "ADOPTED_DEFERRED_CAPABILITIES",
+  "adoption_status": "HUMAN_ADOPTED",
+  "adoption_method": "EXACT_ORIGINAL_4A_1_ARTIFACT_REFERENCE_NO_RECONSTRUCTION",
+  "original_proposal_reference": {
+    "relative_path": "canonical-architecture-proposal/deferred-capabilities.json",
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-ARCHITECTURE-RECONCILIATION-01/canonical-architecture-proposal/deferred-capabilities.json",
+    "sha256": "8456372D3F0C1FD03896876D626CA8899D4EC1BB1AABACBF455FDBE12DD2B2B5",
+    "bytes": 604
+  },
+  "original_proposal_bytes_modified": false,
+  "human_decision_reference": {
+    "absolute_path": "C:/Users/a2306/.codex/attachments/681cabc1-6fe6-4bbc-84e0-746ca6c5accb/pasted-text.txt",
+    "sha256": "846981DE75318CE2CAFFF54C8775939D053C610DC2DEBFD942A71AE63992CEA1",
+    "bytes": 23932
+  },
+  "architecture_baseline": "MAGP-ARCH-BASELINE-V1",
+  "original_deferred_capabilities": [
+    "Physical deployment topology",
+    "Programming language and framework",
+    "Database and persistence model",
+    "Public API and event contracts",
+    "Agent Registry physical placement",
+    "Evidence Ledger physical storage",
+    "Runtime Governance physical placement",
+    "Railway Domain Rule set",
+    "Non-functional requirements and capacity model",
+    "Release and migration strategy"
+  ],
+  "explicit_human_deferrals": [
+    "DEF-HAD-004-PHYSICAL-PLACEMENT",
+    "DEF-HAD-005-PHYSICAL-PLACEMENT",
+    "DEF-HAD-006-PHYSICAL-STORAGE"
+  ],
+  "physical_design_or_implementation_authorized": false
+}

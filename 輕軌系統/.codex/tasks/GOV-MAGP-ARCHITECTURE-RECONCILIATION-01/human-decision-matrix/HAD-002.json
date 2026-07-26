@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "decision_id": "HAD-002",
+  "decision_title": "Volume and Package semantics",
+  "competing_options": [
+    "OPTION_A_VOLUME_IS_DEPLOYABLE_MODULE_AND_PACKAGE_IS_EXECUTABLE_UNIT",
+    "OPTION_B_VOLUME_IS_GOVERNED_RESPONSIBILITY_PORTFOLIO_AND_PACKAGE_IS_VERSIONABLE_DELIVERY_UNIT"
+  ],
+  "source_support": [
+    "ARC-CLM-035",
+    "ARC-CLM-036"
+  ],
+  "authority_analysis": "Derived sources use overlapping module, boundary, documentation, and deployability language; source governance cannot select one.",
+  "advantages": {
+    "option_a": "Simple one-to-one mapping to deployables.",
+    "option_b": "Separates governance ownership from physical deployment and permits modular monolith or service deployment later."
+  },
+  "risks": {
+    "option_a": "Prematurely fixes deployment topology.",
+    "option_b": "Requires explicit deployment contracts later."
+  },
+  "downstream_impact": "Affects ownership, versioning, deployment topology, and dependency governance.",
+  "codex_recommendation": "ADOPT_OPTION_B.",
+  "available_human_decisions": [
+    "ADOPT_OPTION_A",
+    "ADOPT_OPTION_B",
+    "ADOPT_MODIFIED_OPTION",
+    "DEFER_DECISION",
+    "REJECT_ALL_OPTIONS"
+  ],
+  "current_status": "PENDING_HUMAN_DECISION",
+  "human_decision": "PENDING_HUMAN_DECISION",
+  "codex_filled_human_decision": false
+}

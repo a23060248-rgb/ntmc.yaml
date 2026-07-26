@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "architecture_status": "PROPOSED_NOT_ADOPTED",
+  "gates": [
+    {
+      "gate_id": "HG-001",
+      "lifecycle_point": "Source Scope",
+      "decision": "adopt exact source manifest and source policy",
+      "current_state": "COMPLETED_REDUCED_ASSURANCE"
+    },
+    {
+      "gate_id": "HG-002",
+      "lifecycle_point": "Canonical Architecture",
+      "decision": "adopt, modify, defer, or reject this proposal",
+      "current_state": "PENDING_HUMAN_DECISION"
+    },
+    {
+      "gate_id": "HG-003",
+      "lifecycle_point": "Authority/Public Contract RFC",
+      "decision": "adopt high-impact design decision",
+      "current_state": "NOT_STARTED"
+    },
+    {
+      "gate_id": "HG-004",
+      "lifecycle_point": "Blueprint",
+      "decision": "approve bounded Blueprint for manufacture",
+      "current_state": "NOT_STARTED"
+    },
+    {
+      "gate_id": "HG-005",
+      "lifecycle_point": "Package Release",
+      "decision": "approve package for target runtime",
+      "current_state": "NOT_STARTED"
+    },
+    {
+      "gate_id": "HG-006",
+      "lifecycle_point": "High-risk Runtime Action",
+      "decision": "authorize specific action",
+      "current_state": "NOT_STARTED"
+    }
+  ]
+}

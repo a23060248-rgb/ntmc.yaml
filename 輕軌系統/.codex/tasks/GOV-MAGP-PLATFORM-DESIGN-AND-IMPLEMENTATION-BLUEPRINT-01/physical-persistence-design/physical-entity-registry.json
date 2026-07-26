@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "physical-entity-registry",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "entity_count": 24,
+  "entities": [
+    {
+      "name": "governance_object",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "governance_object_version",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "object_relation",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "lifecycle_transition",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "authority_grant",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "human_approval",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "approval_binding",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "evidence_record",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "evidence_blob_reference",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "review_record",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "finding",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "finding_status_history",
+      "kind": "append_oriented",
+      "adopted": false
+    },
+    {
+      "name": "remediation",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "volume",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "package",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "package_member",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "agent_definition",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "agent_instance",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "runtime_event",
+      "kind": "append_oriented",
+      "adopted": false
+    },
+    {
+      "name": "deployment_artifact",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "audit_record",
+      "kind": "append_oriented",
+      "adopted": false
+    },
+    {
+      "name": "idempotency_record",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    },
+    {
+      "name": "outbox_event",
+      "kind": "append_oriented",
+      "adopted": false
+    },
+    {
+      "name": "retention_hold",
+      "kind": "transactional_or_registry",
+      "adopted": false
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "architecture_status": "PROPOSED_NOT_ADOPTED",
+  "authority_hierarchy": [
+    {
+      "rank": 1,
+      "artifact": "EXPLICIT_HUMAN_DECISION",
+      "effect": "Adopts, rejects, defers, or authorizes within explicit scope."
+    },
+    {
+      "rank": 2,
+      "artifact": "CONSTITUTION",
+      "effect": "Defines non-overridable governance invariants under Human authority."
+    },
+    {
+      "rank": 3,
+      "artifact": "ADOPTED_POLICY",
+      "effect": "Defines source, claim, domain, security, lifecycle, or runtime constraints."
+    },
+    {
+      "rank": 4,
+      "artifact": "ADOPTED_ARCHITECTURE_OR_RFC_DECISION",
+      "effect": "Defines component ownership, public contracts, topology, and accepted tradeoffs."
+    },
+    {
+      "rank": 5,
+      "artifact": "ADOPTED_BLUEPRINT",
+      "effect": "Binds a specific governed design and generation input."
+    },
+    {
+      "rank": 6,
+      "artifact": "SPECIFICATION",
+      "effect": "Defines behavior and responsibility within adopted higher artifacts."
+    },
+    {
+      "rank": 7,
+      "artifact": "SCHEMA_AND_STATE_MACHINE",
+      "effect": "Defines machine-checkable structure and legal transitions."
+    },
+    {
+      "rank": 8,
+      "artifact": "RUNTIME_ARTIFACT",
+      "effect": "Executes approved design; cannot reverse-modify higher authority."
+    }
+  ],
+  "evidence_axis": {
+    "artifact": "EVIDENCE",
+    "authority_rank": null,
+    "role": "Substantiates identity, input, action, validation, and decision claims; never adopts or overrides an artifact by itself."
+  },
+  "unresolved_human_decision": "HAD-007"
+}

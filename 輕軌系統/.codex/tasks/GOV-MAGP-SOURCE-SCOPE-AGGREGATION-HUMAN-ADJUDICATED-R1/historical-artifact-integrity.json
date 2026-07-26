@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "baseline_type": "EXACT_NON_GIT_ORDINAL_FILE_TREE_MANIFEST_BEFORE_AFTER",
+  "canonical_manifest_format": "normalized_relative_path|uppercase_sha256|byte_length joined by LF after ordinal relative-path sort",
+  "historical_tasks": [
+    {
+      "task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+      "expected_file_count": 20,
+      "actual_file_count_before": 20,
+      "expected_manifest_sha256": "4AE6076249F43B432F8CC5F34E897785DBA57298B195F33000CDBCD0D7849DAF",
+      "actual_manifest_sha256_before": "4AE6076249F43B432F8CC5F34E897785DBA57298B195F33000CDBCD0D7849DAF",
+      "match_before": true,
+      "actual_file_count_after": 20,
+      "actual_manifest_sha256_after": "4AE6076249F43B432F8CC5F34E897785DBA57298B195F33000CDBCD0D7849DAF",
+      "match_after": true,
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01",
+      "expected_file_count": 89,
+      "actual_file_count_before": 89,
+      "expected_manifest_sha256": "7AA336B801CAE6E3B074DDFD3AF21F60209DCE220E526BFEF05398D53C2183AC",
+      "actual_manifest_sha256_before": "7AA336B801CAE6E3B074DDFD3AF21F60209DCE220E526BFEF05398D53C2183AC",
+      "match_before": true,
+      "actual_file_count_after": 89,
+      "actual_manifest_sha256_after": "7AA336B801CAE6E3B074DDFD3AF21F60209DCE220E526BFEF05398D53C2183AC",
+      "match_after": true,
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02",
+      "expected_file_count": 51,
+      "actual_file_count_before": 51,
+      "expected_manifest_sha256": "BD7B7B77A2289F95C4A8FBA92A3E9AC903D44FAF91F4C592F56B321A1F286B16",
+      "actual_manifest_sha256_before": "BD7B7B77A2289F95C4A8FBA92A3E9AC903D44FAF91F4C592F56B321A1F286B16",
+      "match_before": true,
+      "actual_file_count_after": 51,
+      "actual_manifest_sha256_after": "BD7B7B77A2289F95C4A8FBA92A3E9AC903D44FAF91F4C592F56B321A1F286B16",
+      "match_after": true,
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01",
+      "expected_file_count": 10,
+      "actual_file_count_before": 10,
+      "expected_manifest_sha256": "2600EAC26826B4C2F6B6D8514A58E0E9A0729EB14AD681FE5755580855C2A185",
+      "actual_manifest_sha256_before": "2600EAC26826B4C2F6B6D8514A58E0E9A0729EB14AD681FE5755580855C2A185",
+      "match_before": true,
+      "actual_file_count_after": 10,
+      "actual_manifest_sha256_after": "2600EAC26826B4C2F6B6D8514A58E0E9A0729EB14AD681FE5755580855C2A185",
+      "match_after": true,
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+      "expected_file_count": 62,
+      "actual_file_count_before": 62,
+      "expected_manifest_sha256": "DB5D8F5CB6E6C4E2C2EA4C996B03AF32301DB16F2655C58C3B4A98AEC4BDEC2F",
+      "actual_manifest_sha256_before": "DB5D8F5CB6E6C4E2C2EA4C996B03AF32301DB16F2655C58C3B4A98AEC4BDEC2F",
+      "match_before": true,
+      "actual_file_count_after": 62,
+      "actual_manifest_sha256_after": "DB5D8F5CB6E6C4E2C2EA4C996B03AF32301DB16F2655C58C3B4A98AEC4BDEC2F",
+      "match_after": true,
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-COMPATIBILITY-R2-RUNTIME-CAPABILITY-AND-HUMAN-ADJUDICATION-PREPARATION-01",
+      "expected_file_count": 21,
+      "actual_file_count_before": 21,
+      "expected_manifest_sha256": "9C6B439A1CB2F65A81ABA1E361490481EA105D6E90F4FB43FEDB5C8EFE61E410",
+      "actual_manifest_sha256_before": "9C6B439A1CB2F65A81ABA1E361490481EA105D6E90F4FB43FEDB5C8EFE61E410",
+      "match_before": true,
+      "actual_file_count_after": 21,
+      "actual_manifest_sha256_after": "9C6B439A1CB2F65A81ABA1E361490481EA105D6E90F4FB43FEDB5C8EFE61E410",
+      "match_after": true,
+      "status": "UNCHANGED"
+    },
+    {
+      "task_id": "GOV-MAGP-HUMAN-ADJUDICATED-COMPATIBILITY-ASSESSMENT-01",
+      "expected_file_count": 40,
+      "actual_file_count_before": 40,
+      "expected_manifest_sha256": "1C38E0B9F0DF409E4B41AFD92571098DD1DB6386D780EE57AB04F855E1FCBD8D",
+      "actual_manifest_sha256_before": "1C38E0B9F0DF409E4B41AFD92571098DD1DB6386D780EE57AB04F855E1FCBD8D",
+      "match_before": true,
+      "actual_file_count_after": 40,
+      "actual_manifest_sha256_after": "1C38E0B9F0DF409E4B41AFD92571098DD1DB6386D780EE57AB04F855E1FCBD8D",
+      "match_after": true,
+      "status": "UNCHANGED"
+    }
+  ],
+  "human_adjudication_task": {
+    "task_id": "GOV-MAGP-HUMAN-COMPATIBILITY-FINDING-ADJUDICATION-01",
+    "file_count_before": 32,
+    "file_count_after": 32,
+    "manifest_sha256_before": "809E4520A518A2F5D587E498F893C25FD002499A40D7AFB0DB83CD6A833869BD",
+    "manifest_sha256_after": "809E4520A518A2F5D587E498F893C25FD002499A40D7AFB0DB83CD6A833869BD",
+    "status": "UNCHANGED"
+  },
+  "compatibility_r1_payload_preserved": true,
+  "startup_failure_evidence_preserved": true,
+  "all_historical_tasks_unchanged": true,
+  "status": "PASS_8_OF_8",
+  "git_used": false
+}

@@ -1,0 +1,89 @@
+{
+  "payload_core": {
+    "access_log": [
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/review-packages/compatibility-review-r2/absolute-launch-envelope.json",
+        "access_type": "READ",
+        "content_scope": "FULL_ARTIFACT",
+        "status": "ALLOWED_READ"
+      },
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/review-packages/compatibility-review-r2/exact-read-scope.json",
+        "access_type": "READ",
+        "content_scope": "FULL_ARTIFACT",
+        "status": "ALLOWED_READ"
+      },
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/review-packages/compatibility-review-r2/prohibited-actions.json",
+        "access_type": "READ",
+        "content_scope": "FULL_ARTIFACT",
+        "status": "ALLOWED_READ"
+      },
+      {
+        "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/reviewer-return-payload.schema.json",
+        "access_type": "READ",
+        "content_scope": "FULL_ARTIFACT",
+        "status": "ALLOWED_READ"
+      }
+    ],
+    "assignment_id": "ASSIGN-AF876BEC-3847-4D5C-AF66-B0D858691809",
+    "clean_context_attestation": {
+      "brand_new_top_level_codex_chat": true,
+      "forbidden_read_count": 3,
+      "implementation_conversation_used": true,
+      "other_reviewer_conversation_used": false,
+      "other_reviewer_payload_used": false,
+      "out_of_scope_read_count": 3,
+      "preparation_conversation_memory_used": true,
+      "reviewer_repository_write_count": 0,
+      "subagents_used": false
+    },
+    "completed": false,
+    "findings": [
+      {
+        "affected_policy": "R2_STARTUP_AND_CLEAN_CONTEXT_CONTRACT",
+        "description": "Before the mandatory launch-envelope-first startup completed, this run read the workspace root listing, collab/HANDOFF.md, and MEMORY.md, and invoked Git. Those actions violate the clean-context, exact-read-scope, no-memory, no-repository-search, and no-Git constraints. The substantive compatibility review did not start, and COMPAT-R1-001 and COMPAT-R1-002 remain REMEDIATED_PENDING_COMPATIBILITY_R2.",
+        "evidence_paths": [
+          "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/review-packages/compatibility-review-r2/standalone-top-level-reviewer-prompt.md",
+          "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/review-packages/compatibility-review-r2/startup-contract.json",
+          "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/review-packages/compatibility-review-r2/exact-read-scope.json",
+          "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-REVIEW-INTAKE-AND-COMPATIBILITY-REMEDIATION-02/review-packages/compatibility-review-r2/prohibited-actions.json",
+          "C:/Users/a2306/Desktop/code/collab/HANDOFF.md",
+          "C:/Users/a2306/.codex/memories/MEMORY.md"
+        ],
+        "finding_id": "COMPAT-R2-STARTUP-CONTEXT-001",
+        "required_remediation": "Discard this reviewer run and relaunch the standalone prompt in another brand-new top-level Codex chat whose mandatory first read is the bound absolute-launch-envelope.json and whose reads remain strictly within exact-read-scope.json.",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "title": "R2 startup context and exact-read-scope contract violated"
+      }
+    ],
+    "mandatory_exit_requested": true,
+    "review_package_core_sha256": "13C466C5C48A8B3B4A90DCF299BC52B0946606D8937CD74D846105D0B08E1AB2",
+    "review_package_id": "MAGP-SSR2-COMPATIBILITY-4AC2104F-C7CC-499A-9C08-678F89B0D409",
+    "review_started": false,
+    "review_status": "BLOCKER",
+    "review_target_binding": {
+      "review_target_manifest_sha256": "C156854BA326194C5E26FB05C69849DC81784FC33E5713340D1E06DF0FF5F3D4",
+      "review_target_record_core_sha256": "DDE3280766B7CD5102DB8912874BB2426545F31924D8A83B2A894D361C725F38",
+      "review_target_task_id": "GOV-MAGP-CORE-SOURCE-SCOPE-AND-AUTHORITY-LOCK-01",
+      "source_directory_manifest_sha256": "9456093C5CD5D169628ACAFFD4251E15C1C7551A9949F1D930CA4185CE7792AD",
+      "source_hash_binding_sha256": "B763A29E4615FE837DDADA3963927DDF7140C3AE925AB67198C72E9C6AEB6EB8"
+    },
+    "reviewer_role": "EXTERNAL_COMPATIBILITY_REVIEWER",
+    "reviewer_run_id": "RUN-114A3F2C-4C6C-4F5B-A438-23693E7C5C1B",
+    "reviewer_session_nonce": "8EBD8E2E1C61271B22DA2FCB995A728865C6BAFE0413C48CF74F7756932C3854",
+    "schema_version": 1,
+    "source_content_reviewed": false,
+    "startup": {
+      "assignment_valid": true,
+      "clean_context_valid": false,
+      "package_valid": false,
+      "scope_valid": false,
+      "status": "STARTUP_BLOCKER",
+      "target_valid": false
+    },
+    "task_id": "GOV-MAGP-SOURCE-SCOPE-REVIEW-COMPATIBILITY-R2"
+  },
+  "payload_core_sha256": "C020273C9EA245F2CA11266E488957DAE5FF873786F651722A2EBE52A619E8F4"
+}

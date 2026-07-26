@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "design_time": [
+    "source governance",
+    "architecture reconciliation and adoption",
+    "RFC decisions",
+    "Blueprint compilation and adoption",
+    "Factory manufacture",
+    "Registry staging"
+  ],
+  "runtime": [
+    "package loading",
+    "scheduling",
+    "policy evaluation",
+    "tool execution",
+    "Human approval hold",
+    "evidence emission"
+  ],
+  "handoff_artifacts": [
+    "adopted Blueprint",
+    "DeployableAgentPackage",
+    "policy snapshot",
+    "registry release state"
+  ],
+  "reverse_mutation_allowed": false
+}

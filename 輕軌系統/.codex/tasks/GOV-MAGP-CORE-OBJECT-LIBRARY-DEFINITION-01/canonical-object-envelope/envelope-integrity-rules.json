@@ -1,0 +1,16 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "rules": [
+    "content_hash covers canonical content excluding mutable transport metadata",
+    "canonicalization method and version are explicit",
+    "immutable identity fields cannot be silently changed",
+    "schema identity and version are bound",
+    "mutation policy is explicit",
+    "approval cannot be inferred from validation"
+  ],
+  "self_hash_contract_requires_external_envelope": true
+}

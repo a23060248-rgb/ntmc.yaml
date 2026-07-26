@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "prohibited_until_separate_human_authorization": [
+    "MARK_ARCHITECTURE_ADOPTED",
+    "MARK_NORMATIVE_ARCHITECTURE_TRUE",
+    "CREATE_CORE_OBJECT_LIBRARY",
+    "CREATE_DATABASE_MODEL",
+    "CREATE_API_CONTRACT",
+    "MODIFY_PRODUCT_CODE",
+    "RUN_MIGRATION",
+    "START_MAGP_IMPLEMENTATION",
+    "DEPLOY"
+  ],
+  "fail_closed": true
+}

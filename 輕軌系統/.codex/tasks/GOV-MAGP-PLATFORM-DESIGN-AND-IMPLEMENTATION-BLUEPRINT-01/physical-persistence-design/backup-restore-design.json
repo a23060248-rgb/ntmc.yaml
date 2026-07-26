@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PLATFORM-DESIGN-AND-IMPLEMENTATION-BLUEPRINT-01",
+  "subject": "backup-restore-design",
+  "design_status": "PROPOSED_NOT_ADOPTED",
+  "execution_status": "NOT_EXECUTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "human_adoption_status": "PENDING_HUMAN_DECISION",
+  "backup_classes": [
+    "transactional store",
+    "evidence blobs",
+    "audit",
+    "package registry",
+    "search projection config"
+  ],
+  "restore_order": [
+    "authority and identity",
+    "governance objects",
+    "evidence and audit",
+    "events",
+    "projections"
+  ],
+  "restore_validation_required": true
+}

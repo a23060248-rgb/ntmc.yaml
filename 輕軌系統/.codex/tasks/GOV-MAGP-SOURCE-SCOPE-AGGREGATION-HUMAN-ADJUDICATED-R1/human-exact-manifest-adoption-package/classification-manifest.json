@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "counts": {
+    "CORE": 4,
+    "OPTIONAL": 1,
+    "EXCLUDED": 6
+  },
+  "entries": [
+    {
+      "source_id": "SOURCE-MAGP-01",
+      "classification": "CORE",
+      "source_classification_value": "CORE_INCLUDED",
+      "read_scope": "FULL_DOCUMENT",
+      "claim_eligibility": "METHODOLOGY_SUPPORTING_EVIDENCE"
+    },
+    {
+      "source_id": "SOURCE-MAGP-02",
+      "classification": "CORE",
+      "source_classification_value": "CORE_INCLUDED",
+      "read_scope": "FULL_DOCUMENT",
+      "claim_eligibility": "CONCEPTUAL_INTERPRETATION_CANDIDATE"
+    },
+    {
+      "source_id": "SOURCE-MAGP-03",
+      "classification": "CORE",
+      "source_classification_value": "CORE_INCLUDED",
+      "read_scope": "FULL_DOCUMENT",
+      "claim_eligibility": "IMPLEMENTATION_GUIDANCE_CANDIDATE"
+    },
+    {
+      "source_id": "SOURCE-MAGP-04",
+      "classification": "CORE",
+      "source_classification_value": "CORE_INCLUDED",
+      "read_scope": "FULL_DOCUMENT",
+      "claim_eligibility": "ARCHITECTURE_PROPOSAL_CANDIDATE"
+    },
+    {
+      "source_id": "SOURCE-PATTERN-01",
+      "classification": "OPTIONAL",
+      "source_classification_value": "OPTIONAL_PATTERN_ONLY",
+      "read_scope": "GENERAL_PROCESS_PATTERNS_ONLY",
+      "claim_eligibility": "NON_AUTHORITATIVE_PATTERN"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-01",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_SUPERSEDED",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-02",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_OUT_OF_SCOPE_MODEL_IMPLEMENTATION",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-03",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_OUT_OF_SCOPE_EDGE_MODEL_AND_RUNTIME",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-04",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_OUT_OF_SCOPE_EDGE_DEPLOYMENT",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE_FOR_CURRENT_MAGP_CORE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-05",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_FROM_MAGP_CORE",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE_FOR_CURRENT_MAGP_CORE"
+    },
+    {
+      "source_id": "SOURCE-EXCLUDED-06",
+      "classification": "EXCLUDED",
+      "source_classification_value": "EXCLUDE_REDUNDANT_PROJECT_SPECIFIC_WORKFLOW",
+      "read_scope": "MINIMAL_IDENTITY_TITLE_TOC_SCOPE_EVIDENCE_ONLY",
+      "claim_eligibility": "INELIGIBLE"
+    }
+  ],
+  "status": "UNCHANGED"
+}

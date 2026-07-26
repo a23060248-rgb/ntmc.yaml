@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "input": "輕軌系統/magp/src/domain/object.ts",
+      "expected": "ALLOW_CREATE_AFTER_ADOPTION"
+    },
+    {
+      "input": "輕軌系統/erp-api/src/app.js",
+      "expected": "DENY_READ_ONLY"
+    },
+    {
+      "input": "輕軌系統/db-design/migration.sql",
+      "expected": "DENY_PROHIBITED"
+    },
+    {
+      "input": "../outside",
+      "expected": "DENY_TRAVERSAL"
+    },
+    {
+      "input": "C:/outside",
+      "expected": "DENY_ABSOLUTE"
+    }
+  ],
+  "status": "CANDIDATE_NOT_EXECUTABLE"
+}

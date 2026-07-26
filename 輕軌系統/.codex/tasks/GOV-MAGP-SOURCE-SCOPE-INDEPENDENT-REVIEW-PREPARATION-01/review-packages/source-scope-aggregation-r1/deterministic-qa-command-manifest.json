@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "manifest_id": "MAGP-SOURCE-SCOPE-R1-FRESH-QA-COMMAND-MANIFEST",
+  "execution_order": "STRICT_SEQUENTIAL",
+  "commands": [
+    {
+      "command_id": "FRESH-QA-01",
+      "executable": "node",
+      "argv": [
+        "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/validate-preparation.mjs",
+        "--mode",
+        "fresh-aggregation",
+        "--output",
+        "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1/raw-evidence/deterministic-qa-results.json"
+      ],
+      "expected_exit_code": 0,
+      "expected_check_count": 30,
+      "output_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1/raw-evidence/deterministic-qa-results.json"
+    },
+    {
+      "command_id": "CANONICAL-WRITER-01",
+      "executable": "node",
+      "argv": [
+        "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-INDEPENDENT-REVIEW-PREPARATION-01/review-packages/source-scope-aggregation-r1/canonical-json-writer.mjs",
+        "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1/raw-evidence/aggregation-payload-core.json",
+        "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1/source-scope-review-aggregation-result.json"
+      ],
+      "expected_exit_code": 0,
+      "output_absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-SOURCE-SCOPE-AGGREGATION-R1/source-scope-review-aggregation-result.json"
+    }
+  ],
+  "shell_interpretation_allowed": false,
+  "extra_commands_allowed": false,
+  "qa_failure_action": "NO_GO"
+}

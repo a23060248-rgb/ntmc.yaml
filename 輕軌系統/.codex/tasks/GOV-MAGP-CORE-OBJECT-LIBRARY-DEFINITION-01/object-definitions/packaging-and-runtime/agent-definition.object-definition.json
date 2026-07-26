@@ -1,0 +1,56 @@
+{
+  "core_object_library_status": "PROPOSED_NOT_ADOPTED",
+  "normative_object_library": false,
+  "human_adoption_required": true,
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01",
+  "object_type_id": "OBJ-TYPE-018",
+  "object_type": "AGENT_DEFINITION",
+  "object_category": "PACKAGING_AND_RUNTIME_OBJECTS",
+  "canonical_name": "Agent Definition",
+  "type_prefix": "adef",
+  "design_time_or_runtime": "DESIGN_TIME",
+  "normative_or_non_normative": "EXECUTABLE_DEFINITION_ONLY_AFTER_REQUIRED_APPROVAL_AND_PACKAGE_BINDING",
+  "current_normative_effect": false,
+  "authority_level": "DECLARED_CAPABILITY_CEILING_NO_SELF_AUTHORIZATION",
+  "lifecycle_owner": "AGENT_FACTORY_AND_REGISTRY_WITH_EXTERNAL_GATE",
+  "evidence_owner": "FACTORY_REGISTRY_AND_EVIDENCE_LEDGER",
+  "human_gate_requirement": "HUMAN_OR_RELEASE_GATE_REQUIRED_FOR_ACTIVATION_CAPABILITY_TOOL_OR_AUTHORITY_CHANGE",
+  "accountable_human_role": "AGENT_DEFINITION_OWNER",
+  "responsible_machine_role": "AGENT_FACTORY",
+  "allowed_mutations": [
+    "new definition version",
+    "capability reduction",
+    "approved capability change"
+  ],
+  "prohibited_mutations": [
+    "self-modification",
+    "self-authority elevation",
+    "self-tool addition",
+    "self-output approval",
+    "finding deletion",
+    "Normative Policy mutation"
+  ],
+  "required_payload_fields": [
+    "agent_definition_identity",
+    "role",
+    "purpose",
+    "permitted_capabilities",
+    "prohibited_capabilities",
+    "authority_ceiling",
+    "allowed_tools",
+    "allowed_data_scopes",
+    "required_policies",
+    "evidence_duties",
+    "human_approval_dependency",
+    "shutdown_conditions",
+    "version"
+  ],
+  "source_architecture_lineage": {
+    "architecture_baseline_id": "MAGP-ARCH-BASELINE-V1",
+    "architecture_entrypoint_manifest": "input-binding/architecture-entrypoint-manifest.json",
+    "lineage_mode": "TRANSITIVE_THROUGH_HUMAN_ADOPTED_ARCHITECTURE_AND_4A_1_CLAIM_LEDGER"
+  },
+  "schema_proposal": "agent-definition.schema-proposal.schema.json",
+  "lifecycle_profile": "DESIGN_TIME_COMMON_FSM"
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "blueprint_role": "Governed design input compiled from approved intent, policies, knowledge, and adopted architecture decisions.",
+  "rfc_versus_blueprint": "An adopted RFC or architecture decision has higher decision authority; Blueprint operationalizes those decisions for a bounded design.",
+  "human_gates": [
+    "source-scope adoption",
+    "architecture adoption",
+    "authority/public-contract RFC adoption",
+    "Blueprint adoption",
+    "package release",
+    "high-risk runtime approval"
+  ],
+  "runtime_reverse_modify_design_artifact": false,
+  "runtime_change_path": [
+    "runtime evidence",
+    "change proposal",
+    "design-time review",
+    "Human decision",
+    "new adopted version"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-ARCHITECTURE-RECONCILIATION-01",
+  "decision_id": "HAD-005",
+  "decision_title": "Runtime Governance placement",
+  "competing_options": [
+    "OPTION_A_AGENT_OS_INTERNAL_GOVERNANCE_SUBSYSTEM",
+    "OPTION_B_SEPARATE_GOVERNANCE_RUNTIME_CONTROL_PLANE"
+  ],
+  "source_support": [
+    "ARC-CLM-023",
+    "ARC-CLM-033"
+  ],
+  "authority_analysis": "Sources support evaluation and runtime enforcement but do not uniquely determine physical placement.",
+  "advantages": {
+    "option_a": "Lower latency and simpler deployment.",
+    "option_b": "Stronger separation of execution and authority with independent evidence."
+  },
+  "risks": {
+    "option_a": "Executor may accumulate governance authority.",
+    "option_b": "Availability, latency, and split-brain risks must be designed."
+  },
+  "downstream_impact": "Affects control-plane availability, policy distribution, and fail-closed runtime behavior.",
+  "codex_recommendation": "ADOPT_MODIFIED_OPTION: logical separation is mandatory; defer physical separation until runtime non-functional requirements exist.",
+  "available_human_decisions": [
+    "ADOPT_OPTION_A",
+    "ADOPT_OPTION_B",
+    "ADOPT_MODIFIED_OPTION",
+    "DEFER_DECISION",
+    "REJECT_ALL_OPTIONS"
+  ],
+  "current_status": "PENDING_HUMAN_DECISION",
+  "human_decision": "PENDING_HUMAN_DECISION",
+  "codex_filled_human_decision": false
+}

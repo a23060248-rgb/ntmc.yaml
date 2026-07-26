@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-SOURCE-SCOPE-AGGREGATION-HUMAN-ADJUDICATED-R1",
+  "counts": {
+    "CORE": 4,
+    "OPTIONAL": 1,
+    "EXCLUDED": 6
+  },
+  "expected_counts": {
+    "CORE": 4,
+    "OPTIONAL": 1,
+    "EXCLUDED": 6
+  },
+  "groups": {
+    "CORE": [
+      "SOURCE-MAGP-01",
+      "SOURCE-MAGP-02",
+      "SOURCE-MAGP-03",
+      "SOURCE-MAGP-04"
+    ],
+    "OPTIONAL": [
+      "SOURCE-PATTERN-01"
+    ],
+    "EXCLUDED": [
+      "SOURCE-EXCLUDED-01",
+      "SOURCE-EXCLUDED-02",
+      "SOURCE-EXCLUDED-03",
+      "SOURCE-EXCLUDED-04",
+      "SOURCE-EXCLUDED-05",
+      "SOURCE-EXCLUDED-06"
+    ]
+  },
+  "identity_match_count": 11,
+  "status": "UNCHANGED_4_CORE_1_OPTIONAL_6_EXCLUDED"
+}

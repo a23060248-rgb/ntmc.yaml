@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-REVIEWER-RETURN-AND-TRANSPORT-SCHEMA-V2-REMEDIATION-01",
+  "required_test_count": 34,
+  "pass_count": 34,
+  "fail_count": 0,
+  "tests": [
+    {
+      "test_id": 1,
+      "requirement": "V1 Schema bytes unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "V1 Transport Schema bytes unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "V2 Schema IDs unique",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "V2 Schema SHA valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "V2 wrapper exactly two fields",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "STARTUP_VALID discriminator valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "STARTUP_BLOCKER discriminator valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "STARTUP_VALID requires clean context success",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "STARTUP_VALID requires review_started true",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "STARTUP_VALID requires completed true",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "STARTUP_BLOCKER requires review_started false",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "STARTUP_BLOCKER requires completed false",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "STARTUP_BLOCKER requires review_status BLOCKER",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "STARTUP_BLOCKER requires substantive credit NONE",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "STARTUP_BLOCKER prohibits Aggregator eligibility",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "STARTUP_BLOCKER requires real violation",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "STARTUP_BLOCKER requires OPEN HIGH or CRITICAL Finding",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Attempt 1 V1 remains FORMALLY_REJECTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "Attempt 1 V2 admitted as failure evidence",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Attempt 1 original SHA matches",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "Attempt 1 Wrapper unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "Attempt 1 cannot close COMPAT-R1 Findings",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "Attempt 1 cannot be Aggregator success input",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "V2 Transport represents failure evidence",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "V2 Transport binds Schema ID and hash",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Retry Package uses fresh identity",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Retry Package binds V2 Schema",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Aggregator Package rejects failure evidence",
+      "status": "PASS"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Base Review Target unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 30,
+      "requirement": "Corrective Overlay unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 31,
+      "requirement": "Source files unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 32,
+      "requirement": "Product and governance baseline unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 33,
+      "requirement": "Architecture Reconciliation not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 34,
+      "requirement": "Git not used",
+      "status": "PASS"
+    }
+  ],
+  "overall_status": "PASS_34_OF_34",
+  "git_used": false,
+  "reviewer_launched": false,
+  "aggregator_launched": false,
+  "architecture_reconciliation_started": false,
+  "source_scope_review_gate": "NO-GO"
+}

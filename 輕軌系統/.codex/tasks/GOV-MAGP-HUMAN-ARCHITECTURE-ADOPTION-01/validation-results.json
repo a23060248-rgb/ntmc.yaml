@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01",
+  "run_id": "MAGP-HUMAN-ARCHITECTURE-ADOPTION-20260723-R1",
+  "validator": "TASK_LOCAL_HUMAN_ARCHITECTURE_ADOPTION_VALIDATOR",
+  "validator_script": {
+    "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01/scripts/run-human-architecture-adoption.mjs",
+    "sha256": "465668C49814E0EEEE2842722702D09A037A6BDCD6B10A092A2F729FEF448993",
+    "bytes": 68594
+  },
+  "required_tests": [
+    {
+      "test_id": 1,
+      "requirement": "Human Architecture Adoption Decision exists",
+      "status": "PASS"
+    },
+    {
+      "test_id": 2,
+      "requirement": "Human Architecture Adoption Decision is APPROVED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 3,
+      "requirement": "Adopted Source Scope binding is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 4,
+      "requirement": "Architecture Reconciliation result is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 5,
+      "requirement": "Architecture Open CRITICAL is zero",
+      "status": "PASS"
+    },
+    {
+      "test_id": 6,
+      "requirement": "Architecture Open HIGH is zero",
+      "status": "PASS"
+    },
+    {
+      "test_id": 7,
+      "requirement": "Canonical Layer Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 8,
+      "requirement": "Canonical Component Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 9,
+      "requirement": "Governance Artifact Hierarchy is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 10,
+      "requirement": "Authority Flow is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 11,
+      "requirement": "Evidence Flow is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 12,
+      "requirement": "Design-Time Flow is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 13,
+      "requirement": "Runtime Flow is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 14,
+      "requirement": "Human Gate Model is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 15,
+      "requirement": "Architecture Boundary is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 16,
+      "requirement": "Thesis Extension Boundary is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 17,
+      "requirement": "Every Claim has Lineage",
+      "status": "PASS"
+    },
+    {
+      "test_id": 18,
+      "requirement": "Derived Claim is not represented as Source Explicit",
+      "status": "PASS"
+    },
+    {
+      "test_id": 19,
+      "requirement": "New Proposal is not represented as Source Conclusion",
+      "status": "PASS"
+    },
+    {
+      "test_id": 20,
+      "requirement": "Optional Source is not Normative",
+      "status": "PASS"
+    },
+    {
+      "test_id": 21,
+      "requirement": "Excluded Source does not contaminate Architecture",
+      "status": "PASS"
+    },
+    {
+      "test_id": 22,
+      "requirement": "Human Decision Matrix is fully disposed",
+      "status": "PASS"
+    },
+    {
+      "test_id": 23,
+      "requirement": "No blocking Decision remains unresolved",
+      "status": "PASS"
+    },
+    {
+      "test_id": 24,
+      "requirement": "Deferred Decisions have explicit boundaries",
+      "status": "PASS"
+    },
+    {
+      "test_id": 25,
+      "requirement": "Architecture Status is HUMAN_ADOPTED",
+      "status": "PASS"
+    },
+    {
+      "test_id": 26,
+      "requirement": "Normative Architecture is true",
+      "status": "PASS"
+    },
+    {
+      "test_id": 27,
+      "requirement": "Architecture Baseline Hash is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 28,
+      "requirement": "Architecture Change Control exists",
+      "status": "PASS"
+    },
+    {
+      "test_id": 29,
+      "requirement": "Product/Governance baseline is unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 30,
+      "requirement": "Source files are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 31,
+      "requirement": "Historical Tasks are unchanged",
+      "status": "PASS"
+    },
+    {
+      "test_id": 32,
+      "requirement": "Core Object Library is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 33,
+      "requirement": "Database Model is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 34,
+      "requirement": "API Contract is not created",
+      "status": "PASS"
+    },
+    {
+      "test_id": 35,
+      "requirement": "Product Implementation is not started",
+      "status": "PASS"
+    },
+    {
+      "test_id": 36,
+      "requirement": "Core Object Library Readiness Package is complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": 37,
+      "requirement": "Core Object Library Human Launch Decision is PENDING",
+      "status": "PASS"
+    },
+    {
+      "test_id": 38,
+      "requirement": "Reduced-Assurance Disclosure is valid",
+      "status": "PASS"
+    },
+    {
+      "test_id": 39,
+      "requirement": "Architecture Adoption does not authorize implementation",
+      "status": "PASS"
+    },
+    {
+      "test_id": 40,
+      "requirement": "Git was not used",
+      "status": "PASS"
+    }
+  ],
+  "required_test_count": 40,
+  "required_pass_count": 40,
+  "required_fail_count": 0,
+  "required_status": "PASS_40_OF_40",
+  "negative_fail_closed_tests": [
+    {
+      "test_id": "NEG-01",
+      "requirement": "Reject missing exact Human adoption decision",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-02",
+      "requirement": "Reject unapproved Human adoption decision",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-03",
+      "requirement": "Reject invalid 4A-1 reconciliation result",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-04",
+      "requirement": "Reject missing Claim lineage",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-05",
+      "requirement": "Reject OPTIONAL source as Normative",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-06",
+      "requirement": "Reject EXCLUDED source claim contamination",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-07",
+      "requirement": "Reject invalid thesis-extension boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-08",
+      "requirement": "Reject unresolved authority boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-09",
+      "requirement": "Reject unresolved security boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-10",
+      "requirement": "Reject unresolved evidence boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-11",
+      "requirement": "Reject unresolved Human gate boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-12",
+      "requirement": "Reject invalid baseline hash",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-13",
+      "requirement": "Reject Normative Architecture scope expansion",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-14",
+      "requirement": "Reject early Core Object Library creation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-15",
+      "requirement": "Reject early Database Model creation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-16",
+      "requirement": "Reject early API Contract creation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-17",
+      "requirement": "Reject early Product implementation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-18",
+      "requirement": "Reject historical/source/product mutation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-19",
+      "requirement": "Reject prefilled Core Object Library launch decision",
+      "status": "PASS"
+    },
+    {
+      "test_id": "NEG-20",
+      "requirement": "Reject Git requirement",
+      "status": "PASS"
+    }
+  ],
+  "negative_test_count": 20,
+  "negative_pass_count": 20,
+  "negative_status": "PASS_20_OF_20",
+  "hard_stop_codes_triggered": [],
+  "prohibited_action_attestation": {
+    "git_used": false,
+    "network_used": false,
+    "service_used": false,
+    "database_used": false,
+    "seed_used": false,
+    "migration_used": false,
+    "dot_env_read": false,
+    "subagent_used": false,
+    "core_object_library_created": false,
+    "database_model_created": false,
+    "api_contract_created": false,
+    "product_implementation_started": false,
+    "deployment_started": false,
+    "historical_artifact_rewritten": false,
+    "writes_outside_task_root": 0
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-CORE-OBJECT-LIBRARY-ADOPTION-01",
+  "artifact_type": "ADOPTED_PROHIBITED_RELATIONSHIP_INDEX",
+  "adoption_status": "HUMAN_ADOPTED",
+  "normative_object_library": true,
+  "object_library_baseline": "MAGP-OBJECT-LIBRARY-BASELINE-V1",
+  "adoption_method": "EXACT_5A_1_PROPOSAL_REFERENCE_WITH_SEPARATE_HUMAN_EFFECTIVE_STATE",
+  "original_proposal_references": [
+    {
+      "relative_path": "core-object-library-proposal/prohibited-relationship-index.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/core-object-library-proposal/prohibited-relationship-index.json",
+      "sha256": "EFA2DE0E2962D93373048D04DBFF873AF53582AD967A165CBDB995B029B78D43",
+      "bytes": 929
+    },
+    {
+      "relative_path": "cross-object-relationship-model/prohibited-relationships.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/cross-object-relationship-model/prohibited-relationships.json",
+      "sha256": "0A57AF991E11544294DE09FA76BDAF1F02598F63F8B4AFD28DBA7A02ED9F19BF",
+      "bytes": 2599
+    },
+    {
+      "relative_path": "cross-object-relationship-model/cycle-detection-rules.json",
+      "absolute_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-CORE-OBJECT-LIBRARY-DEFINITION-01/cross-object-relationship-model/cycle-detection-rules.json",
+      "sha256": "F3C52DE66A6B7563993242F5B2B0A265758ECE7C56C35F2C1D49F5F8538F044E",
+      "bytes": 1369
+    }
+  ],
+  "original_proposal_bytes_modified": false,
+  "human_decision_reference": {
+    "absolute_path": "C:/Users/a2306/.codex/attachments/4fe7f976-cdff-42d9-9925-03380db09254/pasted-text.txt",
+    "sha256": "EE6F3A2B7EA4685422467791C3CD9340A19F640E0B4A93663672CB82B59BDB9E",
+    "bytes": 27044
+  },
+  "prohibited_relationship_count": 10,
+  "authority_cycles_allowed": false,
+  "approval_cycles_allowed": false,
+  "evidence_self_reference_cycles_allowed": false,
+  "package_runtime_dependency_cycles_allowed": false,
+  "ontology_inheritance_cycles_allowed": false,
+  "lifecycle_cycles_without_exit_allowed": false,
+  "policy_rule_circular_authorization_allowed": false
+}

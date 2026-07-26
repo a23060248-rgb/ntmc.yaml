@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:magp:human-adjudicated-compatibility-finding-decision:v1",
+  "title": "Human-Adjudicated Compatibility Finding Decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "finding_id",
+    "technical_assessment",
+    "exact_evidence_paths",
+    "deterministic_validation_result",
+    "human_decision",
+    "human_rationale",
+    "assurance_limitation_acknowledged",
+    "decision_timestamp",
+    "adopted_review_model"
+  ],
+  "properties": {
+    "finding_id": {
+      "enum": ["COMPAT-R1-001", "COMPAT-R1-002"]
+    },
+    "technical_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessor_role", "recommendation", "rationale"],
+      "properties": {
+        "assessor_role": { "const": "NON_INDEPENDENT_TECHNICAL_ASSESSOR" },
+        "recommendation": { "enum": ["CLOSE", "DO_NOT_CLOSE"] },
+        "rationale": { "type": "string", "minLength": 1 }
+      }
+    },
+    "exact_evidence_paths": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z]:/"
+      }
+    },
+    "deterministic_validation_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validator_role", "status", "report_absolute_path", "report_sha256"],
+      "properties": {
+        "validator_role": { "const": "EVIDENCE_AND_BINDING_VALIDATOR" },
+        "status": { "enum": ["PASS", "FAIL"] },
+        "report_absolute_path": { "type": "string", "pattern": "^[A-Za-z]:/" },
+        "report_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      }
+    },
+    "human_decision": {
+      "enum": ["HUMAN_CLOSED", "HUMAN_NOT_CLOSED"]
+    },
+    "human_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assurance_limitation_acknowledged": {
+      "const": true
+    },
+    "decision_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "adopted_review_model": {
+      "const": "HUMAN_ADJUDICATED_COMPATIBILITY_ASSESSMENT"
+    }
+  }
+}

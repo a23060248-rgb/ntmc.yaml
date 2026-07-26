@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Logical Command Envelope Proposal",
+  "type": "object",
+  "required": [
+    "command_id",
+    "command_type",
+    "actor_identity",
+    "authority_context",
+    "target_aggregate",
+    "target_version",
+    "intent",
+    "input_payload_schema",
+    "preconditions",
+    "validation_rules",
+    "required_evidence",
+    "required_human_approval",
+    "idempotency_key",
+    "expected_revision",
+    "success_result",
+    "failure_results",
+    "produced_events",
+    "audit_requirements"
+  ],
+  "properties": {
+    "command_id": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "command_type": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "actor_identity": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "authority_context": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "target_aggregate": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "target_version": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "intent": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "input_payload_schema": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "preconditions": {
+      "type": "array"
+    },
+    "validation_rules": {
+      "type": "array"
+    },
+    "required_evidence": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "required_human_approval": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "idempotency_key": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "expected_revision": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "success_result": {
+      "type": [
+        "string",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "failure_results": {
+      "type": "array"
+    },
+    "produced_events": {
+      "type": "array"
+    },
+    "audit_requirements": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

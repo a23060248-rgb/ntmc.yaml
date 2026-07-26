@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "source_payload_verification_path": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統/.codex/tasks/GOV-MAGP-COMPATIBILITY-R2-STARTUP-BLOCKER-INTAKE-AND-RETRY-PREPARATION-01/compatibility-r2-attempt-1/payload-verification.json",
+  "source_payload_verification_sha256": "9AA56A5A04003F360022A7F8827544DEC61FA0DD7E6A510F3090D496B64BADF6",
+  "conflict_count": 4,
+  "conflicts": [
+    {
+      "json_pointer": "/payload_core/clean_context_attestation/preparation_conversation_memory_used",
+      "v1_expected_const": false,
+      "actual_value": true,
+      "actual_value_supported_by_payload": true,
+      "actual_value_supported_by_finding": true,
+      "actual_value_supported_by_access_evidence": true,
+      "legitimate_startup_failure_state": true,
+      "schema_modeling_defect": true,
+      "wrapper_defect": false
+    },
+    {
+      "json_pointer": "/payload_core/clean_context_attestation/implementation_conversation_used",
+      "v1_expected_const": false,
+      "actual_value": true,
+      "actual_value_supported_by_payload": true,
+      "actual_value_supported_by_finding": true,
+      "actual_value_supported_by_access_evidence": true,
+      "legitimate_startup_failure_state": true,
+      "schema_modeling_defect": true,
+      "wrapper_defect": false
+    },
+    {
+      "json_pointer": "/payload_core/clean_context_attestation/forbidden_read_count",
+      "v1_expected_const": 0,
+      "actual_value": 3,
+      "actual_value_supported_by_payload": true,
+      "actual_value_supported_by_finding": true,
+      "actual_value_supported_by_access_evidence": true,
+      "legitimate_startup_failure_state": true,
+      "schema_modeling_defect": true,
+      "wrapper_defect": false
+    },
+    {
+      "json_pointer": "/payload_core/clean_context_attestation/out_of_scope_read_count",
+      "v1_expected_const": 0,
+      "actual_value": 3,
+      "actual_value_supported_by_payload": true,
+      "actual_value_supported_by_finding": true,
+      "actual_value_supported_by_access_evidence": true,
+      "legitimate_startup_failure_state": true,
+      "schema_modeling_defect": true,
+      "wrapper_defect": false
+    }
+  ],
+  "conclusion": "V1_SCHEMA_MODELS_ONLY_CLEAN_CONTEXT_AND_CANNOT_REPRESENT_TRUTHFUL_STARTUP_FAILURE"
+}

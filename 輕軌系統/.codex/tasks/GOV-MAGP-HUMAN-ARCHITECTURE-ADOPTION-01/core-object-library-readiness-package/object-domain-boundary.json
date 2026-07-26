@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-HUMAN-ARCHITECTURE-ADOPTION-01",
+  "domain": "MAGP_CORE_GOVERNANCE_OBJECTS",
+  "included_future_definition_dimensions": [
+    "canonical identity",
+    "schema",
+    "version",
+    "lifecycle",
+    "FSM",
+    "authority",
+    "ownership",
+    "evidence binding",
+    "lineage",
+    "validation",
+    "mutation policy",
+    "Human Gate",
+    "cross-object relationships",
+    "runtime representation",
+    "archival rules"
+  ],
+  "excluded": [
+    "RAILWAY_PRODUCT_DOMAIN_SCHEMA",
+    "DATABASE_PHYSICAL_MODEL",
+    "API_CONTRACT",
+    "IMPLEMENTATION"
+  ],
+  "readiness_only": true,
+  "core_object_library_authorized": false,
+  "formal_object_schema_created": false,
+  "database_model_created": false,
+  "api_contract_created": false,
+  "product_implementation_started": false
+}
