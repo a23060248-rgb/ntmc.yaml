@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01/**"
+  ],
+  "agent_assignments": [
+    {
+      "role": "root-governance-orchestrator",
+      "write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01/**"
+      ],
+      "commit_scope": "Human-approved exact manifest only after Stage 0 PASS"
+    }
+  ],
+  "stages": [
+    {
+      "stage": 0,
+      "name": "HUMAN_BINDING_AND_REPOSITORY_PRECHECK",
+      "result": "HARD_STOP",
+      "primary_blocker": "HUMAN_DECISION_BINDING_MISMATCH"
+    },
+    {
+      "stage": 1,
+      "name": "EXACT_STAGING",
+      "result": "NOT_STARTED"
+    },
+    {
+      "stage": 2,
+      "name": "LOCAL_TRUST_ANCHOR_COMMIT",
+      "result": "NOT_STARTED"
+    },
+    {
+      "stage": 3,
+      "name": "POST_COMMIT_INDEPENDENT_VERIFICATION",
+      "result": "NOT_STARTED"
+    }
+  ],
+  "candidate_rules": [],
+  "applicable_rules": [],
+  "git_write_authorized_conditionally": true,
+  "git_write_executed": false
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01",
+  "level": "L3",
+  "reasons": [
+    "Controlled local Git Commit changes governance trust state",
+    "Unresolved worktree baseline reproducibility blocker",
+    "Exact Human-approved path, parent and hash bindings must fail closed"
+  ],
+  "triggers": [
+    "release_or_commit_gate",
+    "unresolved_governance_blocker",
+    "historical_artifact_integrity"
+  ],
+  "required_agents": [
+    "root-governance-orchestrator"
+  ],
+  "required_reviews": [
+    "deterministic-stage-0-binding-review",
+    "post-commit-tree-review-if-commit-occurs"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "Human decision receipt",
+    "approved versus actual Parent HEAD",
+    "approved versus actual branch",
+    "four SHA-256 binding verification",
+    "exact staged and committed set verification if Stage 0 passes"
+  ],
+  "human_approval": [
+    "Human approved exact 147-path Commit scope and four proposal bindings",
+    "A new Human disposition is required because Stage 0 did not match that approval"
+  ],
+  "stop_conditions": [
+    "HUMAN_DECISION_BINDING_MISMATCH",
+    "APPROVED_PARENT_HEAD_MISMATCH",
+    "APPROVED_TARGET_BRANCH_MISMATCH",
+    "STAGED_SET_MISMATCH",
+    "COMMITTED_SET_MISMATCH"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01/**",
+      "exact 147 paths only if Stage 0 passes"
+    ],
+    "exclude": [
+      "Product Code",
+      "Repository-external sources",
+      "any 148th commit path",
+      "Git branch creation or switching",
+      "Git push, tag or remote operation",
+      "8A-0R replay",
+      "8A-1",
+      "network, database, migration and deployment"
+    ]
+  },
+  "classified_by": "task-classification",
+  "classification_status": "HUMAN_APPROVED_EXACT_COMMIT_SCOPE_BUT_STAGE_0_BLOCKED"
+}

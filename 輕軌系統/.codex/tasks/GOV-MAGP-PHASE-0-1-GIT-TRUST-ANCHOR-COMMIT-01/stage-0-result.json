@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01",
+  "stage": 0,
+  "observed_at": "2026-07-26T13:06:20.3066770+08:00",
+  "result": "HARD_STOP",
+  "primary_blocker": "HUMAN_DECISION_BINDING_MISMATCH",
+  "blockers": [
+    "APPROVED_PARENT_HEAD_MISMATCH",
+    "APPROVED_TARGET_BRANCH_MISMATCH",
+    "PARENT_HEAD_BINDING_SHA256_MISMATCH"
+  ],
+  "checks": [
+    {
+      "id": 1,
+      "name": "Repository Root",
+      "expected": "C:/Users/a2306/Desktop/code/ntmc.yaml",
+      "actual": "C:/Users/a2306/Desktop/code/ntmc.yaml",
+      "status": "PASS"
+    },
+    {
+      "id": 2,
+      "name": "Parent HEAD",
+      "expected": "187ca36a2ef2c4be991e2f94956eae151b417217",
+      "actual": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+      "status": "FAIL"
+    },
+    {
+      "id": 3,
+      "name": "Target Branch",
+      "expected": "codex/magp-governance-trust-anchor-v1",
+      "actual": "codex/precheck-template-maintenance",
+      "status": "FAIL"
+    },
+    {
+      "id": 4,
+      "name": "In-progress Git operations and locks",
+      "status": "NOT_EVALUATED_AFTER_MANDATORY_STOP"
+    },
+    {
+      "id": 5,
+      "name": "Staged Files Before",
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    },
+    {
+      "id": 6,
+      "name": "Four Human Bindings",
+      "expected": "4/4 MATCH",
+      "actual": "3/4 MATCH",
+      "status": "FAIL",
+      "failed_binding": "Parent HEAD Binding"
+    },
+    {
+      "id": 7,
+      "name": "Exact 147 paths",
+      "status": "NOT_REEVALUATED_AFTER_MANDATORY_STOP"
+    },
+    {
+      "id": 8,
+      "name": "147 file SHA-256, size and status",
+      "status": "NOT_REEVALUATED_AFTER_MANDATORY_STOP"
+    },
+    {
+      "id": 9,
+      "name": "Candidate files unchanged",
+      "status": "NOT_REEVALUATED_AFTER_MANDATORY_STOP"
+    },
+    {
+      "id": 10,
+      "name": "Ignored File Count",
+      "status": "NOT_REEVALUATED_AFTER_MANDATORY_STOP"
+    },
+    {
+      "id": 11,
+      "name": "Transformation Risk Count",
+      "status": "NOT_REEVALUATED_AFTER_MANDATORY_STOP"
+    },
+    {
+      "id": 12,
+      "name": "Collision Count",
+      "status": "NOT_REEVALUATED_AFTER_MANDATORY_STOP"
+    },
+    {
+      "id": 13,
+      "name": "Non-blocking external references",
+      "status": "NOT_DEREFERENCED"
+    },
+    {
+      "id": 14,
+      "name": "Product, Secret, Credential and Environment exclusion",
+      "status": "NOT_REEVALUATED_AFTER_MANDATORY_STOP"
+    },
+    {
+      "id": 15,
+      "name": "Hooks and signing side effects",
+      "effective_signing_configuration_query": "NO_MATCHING_CONFIGURATION_RETURNED",
+      "active_hook_files": "NOT_EVALUATED_AFTER_MANDATORY_STOP",
+      "status": "NOT_COMPLETED"
+    }
+  ],
+  "approved_commit_message": "governance(magp): establish phase 0/1 trust anchor",
+  "approved_target_branch": "codex/magp-governance-trust-anchor-v1",
+  "actual_branch": "codex/precheck-template-maintenance",
+  "approved_parent_head": "187ca36a2ef2c4be991e2f94956eae151b417217",
+  "actual_head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+  "git_safe_directory_handling": {
+    "initial_read_only_attempt": "REJECTED_BY_DUBIOUS_OWNERSHIP_CHECK",
+    "subsequent_handling": "PER_INVOCATION_SAFE_DIRECTORY_PARAMETER",
+    "persistent_git_config_modified": false
+  },
+  "git_add_executed": false,
+  "git_commit_executed": false,
+  "git_write": "NO"
+}

@@ -1,0 +1,2373 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03",
+  "baseline_stage": "NO_WRITE_REBOUND",
+  "bound_head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+  "bound_branch": "codex/precheck-template-maintenance",
+  "bound_tree": "c6f30a81ff45273aca851126160f2588937d2550",
+  "exact_path_count": 147,
+  "source_7a_2_count": 106,
+  "attempt_1_count": 41,
+  "scoped_status_count": 0,
+  "scoped_worktree_diff_count": 0,
+  "scoped_index_diff_count": 0,
+  "git_diagnostics": [
+    "warning: unable to access 'C:\\Users\\a2306/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\a2306/.config/git/ignore': Permission denied",
+    "warning: unable to access 'C:\\Users\\a2306/.config/git/ignore': Permission denied"
+  ],
+  "entries": [
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/HANDOFF.md",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1062,
+      "sha256": "61B764DF433DB206BBE8A85B45D3792DDE99003BAF8A6801E3B09E704B3969DB",
+      "head_mode": "100644",
+      "head_blob_oid": "b610f541aba8682908ca6f30325eac6bcbc5fd88",
+      "index_mode": "100644",
+      "index_blob_oid": "b610f541aba8682908ca6f30325eac6bcbc5fd88",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/baseline-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1226,
+      "sha256": "9A58F9A78112F0CABCB10437080B325B0F69B7CC991EEA0D6541E11DC260747E",
+      "head_mode": "100644",
+      "head_blob_oid": "6478432357195a4c163129c3f76a1935d9612538",
+      "index_mode": "100644",
+      "index_blob_oid": "6478432357195a4c163129c3f76a1935d9612538",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/change-control-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 237,
+      "sha256": "1627A3E98BEBE35C1CCE5C7A8E4076664B405946B73600BA5FF464A108698369",
+      "head_mode": "100644",
+      "head_blob_oid": "65ad681ed5835de40208d7e219e061c2a4c6d31b",
+      "index_mode": "100644",
+      "index_blob_oid": "65ad681ed5835de40208d7e219e061c2a4c6d31b",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/conformance-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 274,
+      "sha256": "76A6CEE0E823E4099535C5D40A540E16B3A664097F2ECF7373F891DB7AE091B3",
+      "head_mode": "100644",
+      "head_blob_oid": "919de714a9e740f8d73529414f6306b9f8e5e42f",
+      "index_mode": "100644",
+      "index_blob_oid": "919de714a9e740f8d73529414f6306b9f8e5e42f",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/deviation-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 260,
+      "sha256": "F201917FBB2582D741B05C369D7027AFDB0184C76DC81FD9A394319C45E1755D",
+      "head_mode": "100644",
+      "head_blob_oid": "2e6e44f04627019c7bbaeb336ebaa33b4b02775a",
+      "index_mode": "100644",
+      "index_blob_oid": "2e6e44f04627019c7bbaeb336ebaa33b4b02775a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/exact-artifact-manifest.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 7879,
+      "sha256": "ACEB820572DCC2A5E4238454DFDF7FDC102CB2A2A87C87945169BE4595C5A2D0",
+      "head_mode": "100644",
+      "head_blob_oid": "ecfc912c142b75fa0801d62db178d895e806b436",
+      "index_mode": "100644",
+      "index_blob_oid": "ecfc912c142b75fa0801d62db178d895e806b436",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/hash-binding.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1521,
+      "sha256": "B493C6C11F8F4EC338C913AA0AB558C0BE42F66D51411EFF0B51FC891CD2D995",
+      "head_mode": "100644",
+      "head_blob_oid": "aa5fd1870c81a49e03d45af872e71f45e320299c",
+      "index_mode": "100644",
+      "index_blob_oid": "aa5fd1870c81a49e03d45af872e71f45e320299c",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/reduced-assurance-disclosure.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 328,
+      "sha256": "B65ACA99E3B69B1F36572CE57D708F6C07050DF94F197817FB8A4B78067D7165",
+      "head_mode": "100644",
+      "head_blob_oid": "f87e04d4a43d27535acee1e82922c1911abca97d",
+      "index_mode": "100644",
+      "index_blob_oid": "f87e04d4a43d27535acee1e82922c1911abca97d",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/api-event-contract-baseline/version-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 324,
+      "sha256": "348249BBBDC3F872C094B0AAF9FB4A81D216640F8980C1882B76FAFAEA3E7C94",
+      "head_mode": "100644",
+      "head_blob_oid": "7fd0b999cb4cc2a150ab4808d160c0f41d2e7e08",
+      "index_mode": "100644",
+      "index_blob_oid": "7fd0b999cb4cc2a150ab4808d160c0f41d2e7e08",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/baseline-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1237,
+      "sha256": "6583E7A3502DF5A071AE63D9C66E8058DFDC2622C4EFB9C8623BE5F5DDD82B19",
+      "head_mode": "100644",
+      "head_blob_oid": "dfc0f6fed5a1be8ae1ed85ad7d6f88ce0e7339eb",
+      "index_mode": "100644",
+      "index_blob_oid": "dfc0f6fed5a1be8ae1ed85ad7d6f88ce0e7339eb",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/change-control-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 243,
+      "sha256": "C3E4D1DA20145E649E04142CF692F48604D052B9D6CBF7E133CC159160AAB8AF",
+      "head_mode": "100644",
+      "head_blob_oid": "1818ecde3a241a3bb3c4314747dc461d2b038d31",
+      "index_mode": "100644",
+      "index_blob_oid": "1818ecde3a241a3bb3c4314747dc461d2b038d31",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/conformance-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 280,
+      "sha256": "72FEF8CF910632B25FF98721839F86055E94A71FA6F6CBD1BE6F7A14A984701B",
+      "head_mode": "100644",
+      "head_blob_oid": "9d4f59ae484c75ee413f502b3e7b0a85122ad964",
+      "index_mode": "100644",
+      "index_blob_oid": "9d4f59ae484c75ee413f502b3e7b0a85122ad964",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/deviation-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 266,
+      "sha256": "051FCBD353A8C5AD295754392ACECA3FE84C8FB7F2EA2929B8136B2E8614BE2E",
+      "head_mode": "100644",
+      "head_blob_oid": "274aafe909083fa0ccbdf891a065e1a463a30c07",
+      "index_mode": "100644",
+      "index_blob_oid": "274aafe909083fa0ccbdf891a065e1a463a30c07",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/exact-artifact-manifest.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 6924,
+      "sha256": "5A6665905BB7781B4C40DE4D6B3B4C8FEC554E79867F615E3D7E27955D525C4E",
+      "head_mode": "100644",
+      "head_blob_oid": "f03d8b43ee81250399d8f3a6be322d571369ee92",
+      "index_mode": "100644",
+      "index_blob_oid": "f03d8b43ee81250399d8f3a6be322d571369ee92",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/hash-binding.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1527,
+      "sha256": "EC9B50106C6A3A3918754CE007FF936013C510BCD58DBAE3A58AF9DA48B3CA71",
+      "head_mode": "100644",
+      "head_blob_oid": "609f413e916578c654bfb5d1332b04749d19a0d9",
+      "index_mode": "100644",
+      "index_blob_oid": "609f413e916578c654bfb5d1332b04749d19a0d9",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/reduced-assurance-disclosure.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 334,
+      "sha256": "8A2796D6C8BF0D2A7E9ECE75F8580EACB6283B155AC324D2B3B3898F92B30A51",
+      "head_mode": "100644",
+      "head_blob_oid": "cdf08b2c81a1de8f39d4d7ec47ae8d646baf6fc1",
+      "index_mode": "100644",
+      "index_blob_oid": "cdf08b2c81a1de8f39d4d7ec47ae8d646baf6fc1",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/implementation-blueprint-baseline/version-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 330,
+      "sha256": "A2CEE0ED0C8537BDE049F4E3935291431C441A11F5A085F64623EE015745B253",
+      "head_mode": "100644",
+      "head_blob_oid": "2bf7645922f3bfa0bab5674cfb578644f4515c5a",
+      "index_mode": "100644",
+      "index_blob_oid": "2bf7645922f3bfa0bab5674cfb578644f4515c5a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/baseline-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1228,
+      "sha256": "09AB883E3B52D3176E51B706B2F8738E26D25D8DD6DF060E585A4D5C79D38A34",
+      "head_mode": "100644",
+      "head_blob_oid": "7c5c6d0b57b855680a090f4a56cfdbf2a4ad7cad",
+      "index_mode": "100644",
+      "index_blob_oid": "7c5c6d0b57b855680a090f4a56cfdbf2a4ad7cad",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/change-control-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 237,
+      "sha256": "9A0657E68E32DF7CAC1EB8D28F1FEB1B1A9804603C9C46EECC56703EFE5AB27E",
+      "head_mode": "100644",
+      "head_blob_oid": "0c5945bb2fab50c6c9e84358d97ba3e3ca15d2a2",
+      "index_mode": "100644",
+      "index_blob_oid": "0c5945bb2fab50c6c9e84358d97ba3e3ca15d2a2",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/conformance-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 274,
+      "sha256": "73CBFF3F97982151D483A09B59B9D5EE8523A764135BFFA898DBF4EF3EDF3F97",
+      "head_mode": "100644",
+      "head_blob_oid": "92489393e7dedad3bdf40f58c7d79629223a1d41",
+      "index_mode": "100644",
+      "index_blob_oid": "92489393e7dedad3bdf40f58c7d79629223a1d41",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/deviation-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 260,
+      "sha256": "C7976F246376F60E8940B79A0E7DB356E8CB4B5D4F24A20A114AE2F8A0BA89FB",
+      "head_mode": "100644",
+      "head_blob_oid": "2f0475279585409113307f76a49e65782b4f515f",
+      "index_mode": "100644",
+      "index_blob_oid": "2f0475279585409113307f76a49e65782b4f515f",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/exact-artifact-manifest.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 7865,
+      "sha256": "F13FC6E1B26249941715BB2013DD846AC26A698F55393FCB8AFCB35A05065942",
+      "head_mode": "100644",
+      "head_blob_oid": "b834df630987aa9bbeaba885da4548da9bdd422f",
+      "index_mode": "100644",
+      "index_blob_oid": "b834df630987aa9bbeaba885da4548da9bdd422f",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/hash-binding.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1521,
+      "sha256": "5F85451CDA4C7E7CBDD7DF00C700DDDB3F53324D12213A90804C7A8ED5DC8371",
+      "head_mode": "100644",
+      "head_blob_oid": "efa824cceae7bb1a3cba067b73723465174dbfb8",
+      "index_mode": "100644",
+      "index_blob_oid": "efa824cceae7bb1a3cba067b73723465174dbfb8",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/reduced-assurance-disclosure.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 328,
+      "sha256": "106CEA5F3FAC4072790C5BA1D6E6CE44BCFD0D8E737EDA45C3D53B5DAA99CBEE",
+      "head_mode": "100644",
+      "head_blob_oid": "655f84f76ce852230c042d60eee36dcd87ee6a0a",
+      "index_mode": "100644",
+      "index_blob_oid": "655f84f76ce852230c042d60eee36dcd87ee6a0a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/persistence-design-baseline/version-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 324,
+      "sha256": "77FA01FF6F8697D012744B9A5CC0269F90834FB25F8C80EBEFFBE7355915FEB7",
+      "head_mode": "100644",
+      "head_blob_oid": "4134cec0b8ec44f6289f3ffecfd023186b9a67df",
+      "index_mode": "100644",
+      "index_blob_oid": "4134cec0b8ec44f6289f3ffecfd023186b9a67df",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/baseline-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1235,
+      "sha256": "E3FA104A7336ACA90C6A54B0168A0CBE185F53615BFDD44B09D1E55711E71619",
+      "head_mode": "100644",
+      "head_blob_oid": "772aaa85743526d421cee699b5e576c5770d2e08",
+      "index_mode": "100644",
+      "index_blob_oid": "772aaa85743526d421cee699b5e576c5770d2e08",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/change-control-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 238,
+      "sha256": "17E52494558B9A138E53E2A52F00F8782106DC15BFDB79AEF2B82824BC1AB67D",
+      "head_mode": "100644",
+      "head_blob_oid": "75f000b5908a475f277aa0a5eabef73783985dd3",
+      "index_mode": "100644",
+      "index_blob_oid": "75f000b5908a475f277aa0a5eabef73783985dd3",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/conformance-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 275,
+      "sha256": "0419D0621C7139EA4F2842B0A08387AEE11CB1EE32FA139123467E1BA5BD3204",
+      "head_mode": "100644",
+      "head_blob_oid": "8101583701af845e8a8361abb7c8a530d2a612d1",
+      "index_mode": "100644",
+      "index_blob_oid": "8101583701af845e8a8361abb7c8a530d2a612d1",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/deviation-policy.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 261,
+      "sha256": "13FE51E3DA9062E59E0738F3E9449AC829AA10829EAAB41606F94D488768FB42",
+      "head_mode": "100644",
+      "head_blob_oid": "608d84954248b366739b0d2c68276f5572e258ee",
+      "index_mode": "100644",
+      "index_blob_oid": "608d84954248b366739b0d2c68276f5572e258ee",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/exact-artifact-manifest.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 6026,
+      "sha256": "E4CBD611E439FB6C8824EA744E3850CAA9CE4275FEE63B70FA502B7FB9B367E1",
+      "head_mode": "100644",
+      "head_blob_oid": "2f12defc66a0ec325a93e535b0883e6ec306f613",
+      "index_mode": "100644",
+      "index_blob_oid": "2f12defc66a0ec325a93e535b0883e6ec306f613",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/hash-binding.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1522,
+      "sha256": "7361E81F8B69C5EBD0C81821C110F21B307B8CF5E1EECD03C06D36B32195BB9F",
+      "head_mode": "100644",
+      "head_blob_oid": "920600b0dd772757d980cb993554f7a05328a32b",
+      "index_mode": "100644",
+      "index_blob_oid": "920600b0dd772757d980cb993554f7a05328a32b",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/reduced-assurance-disclosure.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 329,
+      "sha256": "2100CBF4E2FBBE092C0919ABD8D425F2DA32B6E488D79ADC80EB6C3168292B58",
+      "head_mode": "100644",
+      "head_blob_oid": "92f742ad314e58f37dfdc111505c2d9d79c5f581",
+      "index_mode": "100644",
+      "index_blob_oid": "92f742ad314e58f37dfdc111505c2d9d79c5f581",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/adopted-design-baselines/security-deployment-baseline/version-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 325,
+      "sha256": "C82564AFDB4898BB5E34D2BFF4D6ED62C431B8CECDDA879C0BBDEE84C908CD3F",
+      "head_mode": "100644",
+      "head_blob_oid": "2465b10403bb9d47243578466e0b152e6bacd617",
+      "index_mode": "100644",
+      "index_blob_oid": "2465b10403bb9d47243578466e0b152e6bacd617",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/architecture-baseline-integrity.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 370,
+      "sha256": "C0789F9F7AFC1CAA43A8B05106CCB7573463571FF3AD484B00106B5D2D7DF8E4",
+      "head_mode": "100644",
+      "head_blob_oid": "316c4e678acb13ea882c64e097358b5d3e916564",
+      "index_mode": "100644",
+      "index_blob_oid": "316c4e678acb13ea882c64e097358b5d3e916564",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/blueprint.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 453,
+      "sha256": "743562A72AA55755DF0323983E14F79969362E8CFE11BE4ABC60441D4A0CF7A2",
+      "head_mode": "100644",
+      "head_blob_oid": "4890785b6fb82b144751a5da0a7eec2cd4fc5c2f",
+      "index_mode": "100644",
+      "index_blob_oid": "4890785b6fb82b144751a5da0a7eec2cd4fc5c2f",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/classification.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 381,
+      "sha256": "E6C7A82DBEEF83FB6C9EB468D0335B9407117235792A306B2E511E8C86EECFE3",
+      "head_mode": "100644",
+      "head_blob_oid": "13398a2bf468b53881ec6fb177dc2dfbd1cade3a",
+      "index_mode": "100644",
+      "index_blob_oid": "13398a2bf468b53881ec6fb177dc2dfbd1cade3a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/deterministic-stage-1-result.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 859,
+      "sha256": "0B6D8E7D72573687CA84CB9D1E911EFBD7AE27A522AC20011BDA571AD415D867",
+      "head_mode": "100644",
+      "head_blob_oid": "bbbb1fc432d46233c86c600a994b1ecd4949855b",
+      "index_mode": "100644",
+      "index_blob_oid": "bbbb1fc432d46233c86c600a994b1ecd4949855b",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/deterministic-stage-2-result.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 911,
+      "sha256": "5559F1619B1CDC2BE9044E3D0425B69369FBB242B491DEE0F6CF4283FAA1752B",
+      "head_mode": "100644",
+      "head_blob_oid": "98495663a06485f0122ba6da9a63b8d1dc8721e0",
+      "index_mode": "100644",
+      "index_blob_oid": "98495663a06485f0122ba6da9a63b8d1dc8721e0",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/final-summary.md",
+      "partition": "SOURCE_7A_2",
+      "bytes": 579,
+      "sha256": "59743FFCA797A038AE0628FF56648FA965EB9D4E5A4D978C3CA31D6E58CAAC83",
+      "head_mode": "100644",
+      "head_blob_oid": "668c7bb86757fd743bd1310fc3aef74a2db04432",
+      "index_mode": "100644",
+      "index_blob_oid": "668c7bb86757fd743bd1310fc3aef74a2db04432",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/historical-artifact-integrity.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 6343,
+      "sha256": "4B090585C821ECAA2A702581FC6840D783DEE9F128B3275A60A50F5CFF3A36CC",
+      "head_mode": "100644",
+      "head_blob_oid": "8a567801f19c2b9a8fe889f865f454c1a8d6b010",
+      "index_mode": "100644",
+      "index_blob_oid": "8a567801f19c2b9a8fe889f865f454c1a8d6b010",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-decision-intake/exact-binding-verification.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 857,
+      "sha256": "9C9DFD7635BDDC6EE47B4B51944EE8676DD45D6615B4CE52DBBE749A727554A5",
+      "head_mode": "100644",
+      "head_blob_oid": "add24b7271dd07e425a1c2e5e14efb5a43fea433",
+      "index_mode": "100644",
+      "index_blob_oid": "add24b7271dd07e425a1c2e5e14efb5a43fea433",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-decision-intake/human-authority-verification.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 286,
+      "sha256": "4747AE3B572DBC83725D5A8B4167F0234A033522B4FF5B2631D8FA56F13DA148",
+      "head_mode": "100644",
+      "head_blob_oid": "e1fbc91f242c5227f2cd51a1933fb7dbae399db2",
+      "index_mode": "100644",
+      "index_blob_oid": "e1fbc91f242c5227f2cd51a1933fb7dbae399db2",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-decision-intake/human-decision-integrity.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 993,
+      "sha256": "1DAF7DABB2544DEBFBA95A87EC8046AB8739070F50183815526344940E68260A",
+      "head_mode": "100644",
+      "head_blob_oid": "5a4e5f112e86a072d3ef6844e53ea09b54706c3b",
+      "index_mode": "100644",
+      "index_blob_oid": "5a4e5f112e86a072d3ef6844e53ea09b54706c3b",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-decision-intake/human-decision-schema-validation.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1165,
+      "sha256": "E6FCE5A6E4FEF7A8EE3C7EED8A82E17BEC98D0E841212CF17EF650D1BADBC125",
+      "head_mode": "100644",
+      "head_blob_oid": "80bf4584efbe384afc192f8cb1ea86809e7eb822",
+      "index_mode": "100644",
+      "index_blob_oid": "80bf4584efbe384afc192f8cb1ea86809e7eb822",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-decision-intake/intake-status.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 304,
+      "sha256": "89B6F69E49E69F9CE2F0506BC3480711E382F9E3971AAE7F199D03DEB130A750",
+      "head_mode": "100644",
+      "head_blob_oid": "795b225a575b09938089ef1bbcb0161aa3c5ae4a",
+      "index_mode": "100644",
+      "index_blob_oid": "795b225a575b09938089ef1bbcb0161aa3c5ae4a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-decision-intake/parsed-human-decision.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1763,
+      "sha256": "D8BCB658C1C7B47DBB8ED111834212582BB2546D0A5F099829180787CBF24D01",
+      "head_mode": "100644",
+      "head_blob_oid": "f4e670ab7be0514b88c2687ab99c28503636862a",
+      "index_mode": "100644",
+      "index_blob_oid": "f4e670ab7be0514b88c2687ab99c28503636862a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-decision-intake/raw-human-decision.txt",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1763,
+      "sha256": "D8BCB658C1C7B47DBB8ED111834212582BB2546D0A5F099829180787CBF24D01",
+      "head_mode": "100644",
+      "head_blob_oid": "f4e670ab7be0514b88c2687ab99c28503636862a",
+      "index_mode": "100644",
+      "index_blob_oid": "f4e670ab7be0514b88c2687ab99c28503636862a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/blocking-decision-classification.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1248,
+      "sha256": "9518241D2FB0F96D718C49B4243AD8246EDB3AFB6E20EB84CC1C63B89134D515",
+      "head_mode": "100644",
+      "head_blob_oid": "d58271f12bfc51a0c538cf3143f2bef718f5bc81",
+      "index_mode": "100644",
+      "index_blob_oid": "d58271f12bfc51a0c538cf3143f2bef718f5bc81",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/codex-recommendation-matrix.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 30531,
+      "sha256": "8CA636ECA40FE2E3DA0A1CDA3A3F118290DDB57714FC3911A4F78B157171437D",
+      "head_mode": "100644",
+      "head_blob_oid": "02024c7929674adc96ee85d11e46fb04c8d653cd",
+      "index_mode": "100644",
+      "index_blob_oid": "02024c7929674adc96ee85d11e46fb04c8d653cd",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/decision-impact-matrix.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 44610,
+      "sha256": "210DAC85A2F537D3D3F3311387617EBEAB19F015D0008D332BF7B2F2C6D68B7A",
+      "head_mode": "100644",
+      "head_blob_oid": "ab0f7991b00e72af0ef070c02f044a0f0671dedf",
+      "index_mode": "100644",
+      "index_blob_oid": "ab0f7991b00e72af0ef070c02f044a0f0671dedf",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/decision-register.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 107368,
+      "sha256": "9054408EC82C51914FAC3212CFCCE8601930FC9F761F06A4DB62644BED483FEC",
+      "head_mode": "100644",
+      "head_blob_oid": "fea092df35357bb6b258b25a93b0a1bd2243e75e",
+      "index_mode": "100644",
+      "index_blob_oid": "fea092df35357bb6b258b25a93b0a1bd2243e75e",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/decision-summary.md",
+      "partition": "SOURCE_7A_2",
+      "bytes": 401,
+      "sha256": "A81F812AB076D6CE111279B14C19AC8DA0362C06D66DCE3E6E5318A81A0FBE99",
+      "head_mode": "100644",
+      "head_blob_oid": "b5a26c1b2bad84f0db68b886231ba38e97cefdaa",
+      "index_mode": "100644",
+      "index_blob_oid": "b5a26c1b2bad84f0db68b886231ba38e97cefdaa",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/exact-decision-binding.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1790,
+      "sha256": "8259D5622536CBE178CF7241A61E2DBBA5C9B32C12358D24265BFA8381E06281",
+      "head_mode": "100644",
+      "head_blob_oid": "e7d5727bbf101ad11cff92b585c42d63f3a9e1c4",
+      "index_mode": "100644",
+      "index_blob_oid": "e7d5727bbf101ad11cff92b585c42d63f3a9e1c4",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/exact-proposal-binding.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 40242,
+      "sha256": "28342E6B8ABA66D366A9F7C6E0F33BE50AB5B3EC1EEC47498A6D48EA27AD84D3",
+      "head_mode": "100644",
+      "head_blob_oid": "3372c692e49400e008b83dff1579d9f20ebafa02",
+      "index_mode": "100644",
+      "index_blob_oid": "3372c692e49400e008b83dff1579d9f20ebafa02",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/human-decision-form.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1229,
+      "sha256": "C30E722100278434BF6EA4612AB16559B1B66AA6A121BA290AC6220F7C2CC8B1",
+      "head_mode": "100644",
+      "head_blob_oid": "e6196e847798f5fe54692039bee44d7359575894",
+      "index_mode": "100644",
+      "index_blob_oid": "e6196e847798f5fe54692039bee44d7359575894",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/human-decision-form.schema.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 5603,
+      "sha256": "2B3EDE4A40EDDB0E01C0A426F6BA4C026E617AEB7192B099579A1434F4C807DF",
+      "head_mode": "100644",
+      "head_blob_oid": "172fddb65582438332fdf86436d78e403ecfa9d6",
+      "index_mode": "100644",
+      "index_blob_oid": "172fddb65582438332fdf86436d78e403ecfa9d6",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/human-decision-instructions.md",
+      "partition": "SOURCE_7A_2",
+      "bytes": 950,
+      "sha256": "8FFFF0EF437E89CD3BAE8A3A8050248FB798105B4B9B948A89D09C6A1F646B59",
+      "head_mode": "100644",
+      "head_blob_oid": "91d5681a266c31e983cabf905ba7a8809285583a",
+      "index_mode": "100644",
+      "index_blob_oid": "91d5681a266c31e983cabf905ba7a8809285583a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-adoption-decision-package/legacy-decision-traceability.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 3444,
+      "sha256": "00CBE7631F273F7C076A103DEC591B13D91349EB327C3F1232ACE76877D6A7A2",
+      "head_mode": "100644",
+      "head_blob_oid": "35122c6c1c0e975b96c4f3be1a7ed63f5d954b23",
+      "index_mode": "100644",
+      "index_blob_oid": "35122c6c1c0e975b96c4f3be1a7ed63f5d954b23",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/adoption-integrity.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 7850,
+      "sha256": "42EDF51A20C4DCA76A593F5ADD2BC95A4D78D1EB742D4BEE9B8AFCDAF2E14235",
+      "head_mode": "100644",
+      "head_blob_oid": "7adde052dc1ca8e76f7624f4d171402a8e886faf",
+      "index_mode": "100644",
+      "index_blob_oid": "7adde052dc1ca8e76f7624f4d171402a8e886faf",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/explicit-deferral-ledger.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 638,
+      "sha256": "54F88DAA0CFCA9E111864DE765D040227697226F2079758D24EA483EA6BEE7A7",
+      "head_mode": "100644",
+      "head_blob_oid": "1c0ed7065fe23f15670efe4d9e1d486d2534c194",
+      "index_mode": "100644",
+      "index_blob_oid": "1c0ed7065fe23f15670efe4d9e1d486d2534c194",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/formal-api-event-adoption-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 814,
+      "sha256": "AC6D5A24B2EC3A62EE14BD71690292009C93EEF166E44E21EDBBEA033562FB21",
+      "head_mode": "100644",
+      "head_blob_oid": "391ccc8864365df139118a5b8df4dbef6eeb1fc1",
+      "index_mode": "100644",
+      "index_blob_oid": "391ccc8864365df139118a5b8df4dbef6eeb1fc1",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/human-authority-attestation.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 587,
+      "sha256": "5E2668A738D125C18084890D4F7C21F5CEBBB1048A3CC1963E9E3C9347630DD8",
+      "head_mode": "100644",
+      "head_blob_oid": "ea042549e4324d5deca1c0d212cb98e014ecd09a",
+      "index_mode": "100644",
+      "index_blob_oid": "ea042549e4324d5deca1c0d212cb98e014ecd09a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/human-integrated-design-adoption-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 2082,
+      "sha256": "18F39E872F04DB70E736BAED0ED3648D242FB1A92B46B9FB7E612268E20BF890",
+      "head_mode": "100644",
+      "head_blob_oid": "d5bfde5f0ea3f729838b5cc9030d1aeb7f12ef1b",
+      "index_mode": "100644",
+      "index_blob_oid": "d5bfde5f0ea3f729838b5cc9030d1aeb7f12ef1b",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/implementation-blueprint-adoption-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 730,
+      "sha256": "229712AE5410BE42A023FBAAEB172A6CD1A87BB72D5C985A988DBF4475AD28A1",
+      "head_mode": "100644",
+      "head_blob_oid": "51645d1a44e285040e8dbee7ff9d2244a13dcd7e",
+      "index_mode": "100644",
+      "index_blob_oid": "51645d1a44e285040e8dbee7ff9d2244a13dcd7e",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/integrated-decision-resolution-ledger.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 47783,
+      "sha256": "994FB7288269FD82618A132BF3116B583E52928B73442D45DF49B12D40DAB0CB",
+      "head_mode": "100644",
+      "head_blob_oid": "1988e51ff8eb8b9c919a0e862877cfcb64dd24a4",
+      "index_mode": "100644",
+      "index_blob_oid": "1988e51ff8eb8b9c919a0e862877cfcb64dd24a4",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/physical-persistence-adoption-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 859,
+      "sha256": "6DED1519D317CF19EE4BB6135F79936337578078066E7A904290BC8035FBEAE9",
+      "head_mode": "100644",
+      "head_blob_oid": "1138dfabeee4d060c49e87c3d0166d76c4d7f2ec",
+      "index_mode": "100644",
+      "index_blob_oid": "1138dfabeee4d060c49e87c3d0166d76c4d7f2ec",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/reduced-assurance-acknowledgement.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 650,
+      "sha256": "F2E4782F8C8F33CB98B58E908748ACA6B3869AB6823F685C9D58D4ED2E262126",
+      "head_mode": "100644",
+      "head_blob_oid": "9f3f48632b1641ac1f747e7e098c509157cf1ac4",
+      "index_mode": "100644",
+      "index_blob_oid": "9f3f48632b1641ac1f747e7e098c509157cf1ac4",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/human-integrated-design-adoption/security-deployment-adoption-record.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 739,
+      "sha256": "E58E5B115912EAE2911EF6127DA64EF74F76720DCC5626D476BC15D9C1642785",
+      "head_mode": "100644",
+      "head_blob_oid": "17b5339b6349099f5231329635aea9cb4a23d988",
+      "index_mode": "100644",
+      "index_blob_oid": "17b5339b6349099f5231329635aea9cb4a23d988",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/input-binding/baseline-bindings.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1819,
+      "sha256": "780E3FD9F5B9236B2DC2999121A7E8F6ADB197EF571F2C36F8E729DEB3371C4C",
+      "head_mode": "100644",
+      "head_blob_oid": "2062381602207b55a3c4613fff532a3868be7d13",
+      "index_mode": "100644",
+      "index_blob_oid": "2062381602207b55a3c4613fff532a3868be7d13",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/input-binding/four-adoption-package-binding.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 13894,
+      "sha256": "68DBDDB84A84B5E449C05408B1EBDD3F0C5C5AC45E85AD0AD1FD3D11FBA05557",
+      "head_mode": "100644",
+      "head_blob_oid": "3df882c24ffb85d32532155e8da9406800ac4bb2",
+      "index_mode": "100644",
+      "index_blob_oid": "3df882c24ffb85d32532155e8da9406800ac4bb2",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/input-binding/integrated-planning-task-binding.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 501,
+      "sha256": "9A800F95DC9C9435EE23091F4E7471C8504601F4AEA6A9979524366A4C1CD45B",
+      "head_mode": "100644",
+      "head_blob_oid": "eeec1b1b6f583be89ccd14d59ad6712fa0c2719d",
+      "index_mode": "100644",
+      "index_blob_oid": "eeec1b1b6f583be89ccd14d59ad6712fa0c2719d",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/input-binding/prohibited-execution-state.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 447,
+      "sha256": "256E7F05FE6997E7DF38B042B5D076A32621EBD84E3E06E78262CFC7CD219DF7",
+      "head_mode": "100644",
+      "head_blob_oid": "c59997f2797e88866a251c9f32349bb3e16e3189",
+      "index_mode": "100644",
+      "index_blob_oid": "c59997f2797e88866a251c9f32349bb3e16e3189",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/input-binding/source-pending-decision-binding.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 911,
+      "sha256": "60B623A6945DA907B3A4B6A3568A731F24E71DBCC87FDCEC532E1431AB1814F2",
+      "head_mode": "100644",
+      "head_blob_oid": "3f798b259d4340011c9b8c30f26e038c0ff2030c",
+      "index_mode": "100644",
+      "index_blob_oid": "3f798b259d4340011c9b8c30f26e038c0ff2030c",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/integrated-design-adoption-result.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 809,
+      "sha256": "BF596DA4F6E12446B73C52677B034864F09CA61925AFA608D94F0039C95C5B00",
+      "head_mode": "100644",
+      "head_blob_oid": "a1b1d22d63c5d56ca1bbf8dd3381dacc45e61e90",
+      "index_mode": "100644",
+      "index_blob_oid": "a1b1d22d63c5d56ca1bbf8dd3381dacc45e61e90",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/logical-contract-baseline-integrity.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 417,
+      "sha256": "556C892A3E1F04D723106AB5BD8E06837569311C3FBC9311B7D9625C0DB694A0",
+      "head_mode": "100644",
+      "head_blob_oid": "e98aaf43b924cd71c464efd3a1863f825dd2c603",
+      "index_mode": "100644",
+      "index_blob_oid": "e98aaf43b924cd71c464efd3a1863f825dd2c603",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/object-library-baseline-integrity.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 380,
+      "sha256": "F5E67F492E9D4B8B447FE0571AC2DD2AFB9E9DEE1C8C06A7EDF0A4759B9CEE90",
+      "head_mode": "100644",
+      "head_blob_oid": "e5ba7d0359d7eec654879060c2f702a801cfad36",
+      "index_mode": "100644",
+      "index_blob_oid": "e5ba7d0359d7eec654879060c2f702a801cfad36",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/adopted-baseline-bindings.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 2501,
+      "sha256": "9A375FCA06BAB3924D390067A293286BA25ED8C3276262D3F458497D2C749FA8",
+      "head_mode": "100644",
+      "head_blob_oid": "1249c5587d2bcfdd3099f1c82ca68d0d5bab5ec3",
+      "index_mode": "100644",
+      "index_blob_oid": "1249c5587d2bcfdd3099f1c82ca68d0d5bab5ec3",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/database-execution-boundary.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 280,
+      "sha256": "5AE411439487336FD8F0244F3BB9E1AF8D1B9724AC35B9A5B59E06BCF062483A",
+      "head_mode": "100644",
+      "head_blob_oid": "5f9c209adaa797bd619b277b6efbfbe8318cdbc0",
+      "index_mode": "100644",
+      "index_blob_oid": "5f9c209adaa797bd619b277b6efbfbe8318cdbc0",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/evidence-requirements.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 374,
+      "sha256": "21D1A5BD484D1B706A671512896D2E87A15F20E0DA2D5E4FE8BB80DA1B94D272",
+      "head_mode": "100644",
+      "head_blob_oid": "6030788a8aecab3b9c1b5eb76ba1b6b8d17e7985",
+      "index_mode": "100644",
+      "index_blob_oid": "6030788a8aecab3b9c1b5eb76ba1b6b8d17e7985",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/exact-phase-scope.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1848,
+      "sha256": "1234092D9A884F5316A6BA49995DA6CA64B85EE49FFCC74E8E4EE3A58D0B6C48",
+      "head_mode": "100644",
+      "head_blob_oid": "295d8650d31f9de19350f0e60ef138e160529186",
+      "index_mode": "100644",
+      "index_blob_oid": "295d8650d31f9de19350f0e60ef138e160529186",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/human-gate-requirements.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 582,
+      "sha256": "9F4E29792CBBDEEA2FBBAD859FF17B1E0DB50C59445963242B03EEFBF9C35867",
+      "head_mode": "100644",
+      "head_blob_oid": "904a2018e0d58b70891ae2219a2e4ed12e2bd701",
+      "index_mode": "100644",
+      "index_blob_oid": "904a2018e0d58b70891ae2219a2e4ed12e2bd701",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/implementation-go-no-go.schema.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1644,
+      "sha256": "EE7435195D7A2B075BB58152A8E029D8FF427DD7C5C3F894F4BBD6F84ADFA9EA",
+      "head_mode": "100644",
+      "head_blob_oid": "b896047ec347560e63b14b5fa98dc1b92a62ce68",
+      "index_mode": "100644",
+      "index_blob_oid": "b896047ec347560e63b14b5fa98dc1b92a62ce68",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/implementation-task-prompt.md",
+      "partition": "SOURCE_7A_2",
+      "bytes": 787,
+      "sha256": "023F238CF61BCCC639F3D2DA504796ADF7F1C875F8592748A62E5E51893EDD84",
+      "head_mode": "100644",
+      "head_blob_oid": "5c9f4ecb99df377e0d0bc2054878278a9fe0c012",
+      "index_mode": "100644",
+      "index_blob_oid": "5c9f4ecb99df377e0d0bc2054878278a9fe0c012",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/launch-readiness-manifest.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 376,
+      "sha256": "ADA1F75F788830B73E6DADC4FD10DC9E5D6F4AD0D7FDE8D8AD6C18FD0968AA9D",
+      "head_mode": "100644",
+      "head_blob_oid": "5dfba7d90ea481826ea9072366d0a40fe51567d6",
+      "index_mode": "100644",
+      "index_blob_oid": "5dfba7d90ea481826ea9072366d0a40fe51567d6",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/migration-boundary.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 275,
+      "sha256": "1E84B0F29A5E315A38F92296F3D49A36A0D80EAF6F9F8E7DB5A470781C99EA0A",
+      "head_mode": "100644",
+      "head_blob_oid": "d08b17db700e6df278a59e7c541fa3446eb136e9",
+      "index_mode": "100644",
+      "index_blob_oid": "d08b17db700e6df278a59e7c541fa3446eb136e9",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/prohibited-scope.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 579,
+      "sha256": "58E91AE55F4F0B5BDEEDFCB64125917CC5851F9D79F23F152221FC75A76084B0",
+      "head_mode": "100644",
+      "head_blob_oid": "2305f87650e8efd18ae374d7b9f06a9f76984e07",
+      "index_mode": "100644",
+      "index_blob_oid": "2305f87650e8efd18ae374d7b9f06a9f76984e07",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/repository-write-boundary.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 386,
+      "sha256": "3A849B535CC83AB629080FC54396A0ABD959A1D0D5D66D6D0ABCB91DE5BFDCC1",
+      "head_mode": "100644",
+      "head_blob_oid": "fd695dbdd7e0aec8a154270cafcb34e4b77bd68e",
+      "index_mode": "100644",
+      "index_blob_oid": "fd695dbdd7e0aec8a154270cafcb34e4b77bd68e",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/review-requirements.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 337,
+      "sha256": "D18A32822FB8852A9D83CD64BD2B96910114C9223987B57D57CB297C25F8CE67",
+      "head_mode": "100644",
+      "head_blob_oid": "635c9756961bfb1494e0b480a6b240f580f1a5c5",
+      "index_mode": "100644",
+      "index_blob_oid": "635c9756961bfb1494e0b480a6b240f580f1a5c5",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/rollback-requirements.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 360,
+      "sha256": "21D41AD1134820F94FC00793146D153A6CE74AA7557AC7FAC5AF660B5B837458",
+      "head_mode": "100644",
+      "head_blob_oid": "bca2c075333c4407f21e0fc72dbc30af610711b6",
+      "index_mode": "100644",
+      "index_blob_oid": "bca2c075333c4407f21e0fc72dbc30af610711b6",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/security-requirements.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 358,
+      "sha256": "C0AA8665846082CE6A8D52972913E3D2295E7F83BCF2EA35DB62388A39EFF79A",
+      "head_mode": "100644",
+      "head_blob_oid": "b94a353ff9a06fc8cffe8519ebb140362037fb06",
+      "index_mode": "100644",
+      "index_blob_oid": "b94a353ff9a06fc8cffe8519ebb140362037fb06",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/test-requirements.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 430,
+      "sha256": "8EFB726D2C5767C6E9E341E81BFED84B4C238C642808B61F9C29C32BAF86036C",
+      "head_mode": "100644",
+      "head_blob_oid": "f3663cba03aff29ad44c0984a1b604b475eb0f29",
+      "index_mode": "100644",
+      "index_blob_oid": "f3663cba03aff29ad44c0984a1b604b475eb0f29",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-implementation-launch-package/work-package-sequence.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 414,
+      "sha256": "93E9F25F9DEB700B2B49AAA9366CE75D7C802A50258B89505EF4A32A2C51CB9C",
+      "head_mode": "100644",
+      "head_blob_oid": "cc387b1209ae2d71545b4e1a3712fd4f7bd89d2c",
+      "index_mode": "100644",
+      "index_blob_oid": "cc387b1209ae2d71545b4e1a3712fd4f7bd89d2c",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-0-1-launch-readiness.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 420,
+      "sha256": "A59DAB6D6FFC071D44EED9CC5FFA9A551EBDF98AD4B8E0D519C48E5F93135F80",
+      "head_mode": "100644",
+      "head_blob_oid": "d842ed829f3131591b03989a8f65c5e5d7c46534",
+      "index_mode": "100644",
+      "index_blob_oid": "d842ed829f3131591b03989a8f65c5e5d7c46534",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/phase-authorization-result.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 620,
+      "sha256": "639A16CAAE76DC5E75A3B5605745BFC8981064D927F89C2A4598EB6C63F6545C",
+      "head_mode": "100644",
+      "head_blob_oid": "e6aa6ed35c67d8b57dd759ad34f467bce6b0f023",
+      "index_mode": "100644",
+      "index_blob_oid": "e6aa6ed35c67d8b57dd759ad34f467bce6b0f023",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/product-governance-integrity.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1488,
+      "sha256": "BE4F75EFD57875EB9897445FF32C6F54277C8A99AF30D66D7985F635846D9EAE",
+      "head_mode": "100644",
+      "head_blob_oid": "f92c773383a8ae13003d2c0a30cdcf04c591beb4",
+      "index_mode": "100644",
+      "index_blob_oid": "f92c773383a8ae13003d2c0a30cdcf04c591beb4",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/scripts/run-stage-1-integrated-decision-preparation.mjs",
+      "partition": "SOURCE_7A_2",
+      "bytes": 64148,
+      "sha256": "C339E23A653E3CE00D3D344FA0AC658628D7CD173B166FA82438253C251A0DD9",
+      "head_mode": "100644",
+      "head_blob_oid": "50b5b70feac3e81c8e3dc6f6f86d7ceb5e82e16d",
+      "index_mode": "100644",
+      "index_blob_oid": "50b5b70feac3e81c8e3dc6f6f86d7ceb5e82e16d",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/scripts/run-stage-2-integrated-adoption-and-authorization.mjs",
+      "partition": "SOURCE_7A_2",
+      "bytes": 44292,
+      "sha256": "7B966482789E7629DABAB42771DE6D09E21980936EA2031CB52C729FE78A34C9",
+      "head_mode": "100644",
+      "head_blob_oid": "1444fad7dc6fd2ae8e2945e9ebe7b2f114283fd9",
+      "index_mode": "100644",
+      "index_blob_oid": "1444fad7dc6fd2ae8e2945e9ebe7b2f114283fd9",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/scripts/validate-stage-1-integrated-decision-preparation.mjs",
+      "partition": "SOURCE_7A_2",
+      "bytes": 9576,
+      "sha256": "6BC66BE2ECA239333E10A0B5923D21B561C6B2D413B45EE236DB7880BAC31E9D",
+      "head_mode": "100644",
+      "head_blob_oid": "bd236b2db08874c14476ee4bc8b92ad81d3b2643",
+      "index_mode": "100644",
+      "index_blob_oid": "bd236b2db08874c14476ee4bc8b92ad81d3b2643",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/scripts/validate-stage-2-integrated-adoption.mjs",
+      "partition": "SOURCE_7A_2",
+      "bytes": 11869,
+      "sha256": "F3B9F04873F52FBC4391B88C68C4205D1374A1CA379FB493D7A9A0A0FA91076B",
+      "head_mode": "100644",
+      "head_blob_oid": "f4a0fea5afbdb47442e22c4b2cb82b96c928ae93",
+      "index_mode": "100644",
+      "index_blob_oid": "f4a0fea5afbdb47442e22c4b2cb82b96c928ae93",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/stage-1-result.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1248,
+      "sha256": "C24AA8C6F4244B7A55DC19F43FD2A4116C9EAC44E8489C17E156A1621771D93F",
+      "head_mode": "100644",
+      "head_blob_oid": "6dfb8eab0222508dccd1f0d0ad6aa6ea93109cb5",
+      "index_mode": "100644",
+      "index_blob_oid": "6dfb8eab0222508dccd1f0d0ad6aa6ea93109cb5",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/stage-1-validation-results.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 2536,
+      "sha256": "ABE5E210A94D6EB958C9D2D239753B9D7BCDB90D3BF0DA44031E2386E3E29F22",
+      "head_mode": "100644",
+      "head_blob_oid": "024c300ac2e3b0f10632e336b3b2dd6a47af4e57",
+      "index_mode": "100644",
+      "index_blob_oid": "024c300ac2e3b0f10632e336b3b2dd6a47af4e57",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/stage-2-result.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 1103,
+      "sha256": "2052DE078E0D768C54FB1DF2D55377AD424A0A6454AFF83AFC51796C547C85C1",
+      "head_mode": "100644",
+      "head_blob_oid": "c43ffc1788dcab77c8e56fa281eaacd1c29f5dc4",
+      "index_mode": "100644",
+      "index_blob_oid": "c43ffc1788dcab77c8e56fa281eaacd1c29f5dc4",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/stage-2-task-artifact-manifest.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 21725,
+      "sha256": "9FD0855146F6EDD71A7ABFB863C994FC880607B1DC72BF2BD7653D7483E7D09E",
+      "head_mode": "100644",
+      "head_blob_oid": "1a03c6b247094c5f8a3ded3e6334263bb4a7abd2",
+      "index_mode": "100644",
+      "index_blob_oid": "1a03c6b247094c5f8a3ded3e6334263bb4a7abd2",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/task-artifact-manifest.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 7037,
+      "sha256": "E1E32C1A312067842622974597D80587A0E62D60ECAA51C0B13C43CD3070126B",
+      "head_mode": "100644",
+      "head_blob_oid": "c1bb2bea5123cb1aaddd91ba3a3d1aa7f3765466",
+      "index_mode": "100644",
+      "index_blob_oid": "c1bb2bea5123cb1aaddd91ba3a3d1aa7f3765466",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/task-intent.yaml",
+      "partition": "SOURCE_7A_2",
+      "bytes": 801,
+      "sha256": "2DE98BF437345F919F5D30C250CCA42335632D74BFED35323AD3E7F614A912CB",
+      "head_mode": "100644",
+      "head_blob_oid": "0f5b57480e8e336094e70687879241f48521ec37",
+      "index_mode": "100644",
+      "index_blob_oid": "0f5b57480e8e336094e70687879241f48521ec37",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-INTEGRATED-DESIGN-ADOPTION-AND-PHASE-01-AUTHORIZATION-01/validation-results.json",
+      "partition": "SOURCE_7A_2",
+      "bytes": 4109,
+      "sha256": "1E4FBC070FA965235311E68DDB9B9C9B2D2515F54D05E0B97F94E5E96C04B10E",
+      "head_mode": "100644",
+      "head_blob_oid": "369a34778da80790ea739ef576aa556a52840c6d",
+      "index_mode": "100644",
+      "index_blob_oid": "369a34778da80790ea739ef576aa556a52840c6d",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/HANDOFF.md",
+      "partition": "ATTEMPT_1",
+      "bytes": 1020,
+      "sha256": "A9D28196225EE30DCCB9A3AACFE2304AEF57EC1DB8AB2416C2DA9019D3CC8A31",
+      "head_mode": "100644",
+      "head_blob_oid": "f5a0a5e2cd8302efd2f367fdd060dfa50b2a19a9",
+      "index_mode": "100644",
+      "index_blob_oid": "f5a0a5e2cd8302efd2f367fdd060dfa50b2a19a9",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/api-event-baseline-integrity.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 411,
+      "sha256": "BE41E19F5D5ECE5A696AF51841E84F2C80141DB3D8B00C89D02FD80D5A705CC1",
+      "head_mode": "100644",
+      "head_blob_oid": "2f6e0d12526c0e0f3228164fcc5cae797c2be3cc",
+      "index_mode": "100644",
+      "index_blob_oid": "2f6e0d12526c0e0f3228164fcc5cae797c2be3cc",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/architecture-baseline-integrity.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 379,
+      "sha256": "88170BC8440675C4C633A90C702546A063B7211CB76B36975704040FB55D6F84",
+      "head_mode": "100644",
+      "head_blob_oid": "65cb24d3c842fa8f0b86f6e276b9fd0063736054",
+      "index_mode": "100644",
+      "index_blob_oid": "65cb24d3c842fa8f0b86f6e276b9fd0063736054",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/blueprint.yaml",
+      "partition": "ATTEMPT_1",
+      "bytes": 458,
+      "sha256": "B2C39ADD1400CE18AAC060A317CBA9ABE335D8A2CD4758A44D2E5F691BE67611",
+      "head_mode": "100644",
+      "head_blob_oid": "a6ab0cf556d604962db0c8dca38e11aa3d52f016",
+      "index_mode": "100644",
+      "index_blob_oid": "a6ab0cf556d604962db0c8dca38e11aa3d52f016",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/classification.yaml",
+      "partition": "ATTEMPT_1",
+      "bytes": 359,
+      "sha256": "9A5779EABC0A12BD22FC2F663A813B486875D6CB6991B251E665C1C5C2EC37C8",
+      "head_mode": "100644",
+      "head_blob_oid": "da865d718fd80fa1a4786a46d8734cc7785f623e",
+      "index_mode": "100644",
+      "index_blob_oid": "da865d718fd80fa1a4786a46d8734cc7785f623e",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/deterministic-stage-0-result.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 688,
+      "sha256": "C87B37F92760BE53DB19E3F33485A1233A31409E6A042218DF4DB35D082DE7A2",
+      "head_mode": "100644",
+      "head_blob_oid": "df623166ddb5be1f0698de2f6c2e425ba6282073",
+      "index_mode": "100644",
+      "index_blob_oid": "df623166ddb5be1f0698de2f6c2e425ba6282073",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/final-summary.md",
+      "partition": "ATTEMPT_1",
+      "bytes": 688,
+      "sha256": "1057B5A29A4FCF26C5EBE0B19433E3980E4B5287D688953D0B2DA23806E77F2B",
+      "head_mode": "100644",
+      "head_blob_oid": "6e103633f6e7b32f7a5cf524f7600df9989fbef3",
+      "index_mode": "100644",
+      "index_blob_oid": "6e103633f6e7b32f7a5cf524f7600df9989fbef3",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/findings/implementation-scope-conflict.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 478,
+      "sha256": "94F9786DF9A00EC78C22EF03FD18E78672DFE722C8E92B7974CA3FD18A76E7F6",
+      "head_mode": "100644",
+      "head_blob_oid": "a5c910194f2966e9c71ab263eb94fd31f3c7d750",
+      "index_mode": "100644",
+      "index_blob_oid": "a5c910194f2966e9c71ab263eb94fd31f3c7d750",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/findings/implementation-write-scope-missing.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 708,
+      "sha256": "D73A4D7893D558D2F6AC8A64C240260D9D30649AF8FA98D1924A762421A2F2F3",
+      "head_mode": "100644",
+      "head_blob_oid": "67a19bc79e5259cf2fba9bb7503b27cd076f877a",
+      "index_mode": "100644",
+      "index_blob_oid": "67a19bc79e5259cf2fba9bb7503b27cd076f877a",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/git-control/git-not-started.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 329,
+      "sha256": "10D07708BD2097B98E66C64A44281E75DD47DC52801D3A93841F89170BE337D7",
+      "head_mode": "100644",
+      "head_blob_oid": "f18a7cefdffe8ef217029739be33627f2b82ecab",
+      "index_mode": "100644",
+      "index_blob_oid": "f18a7cefdffe8ef217029739be33627f2b82ecab",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/historical-artifact-integrity.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 497,
+      "sha256": "198718C74E2DB463072024A79D7C4903E1E177A17ABBF6D4F0EF4FF4D3B75DAB",
+      "head_mode": "100644",
+      "head_blob_oid": "99cb48c9b9768149de83eff3600f0a80221b82aa",
+      "index_mode": "100644",
+      "index_blob_oid": "99cb48c9b9768149de83eff3600f0a80221b82aa",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/human-phase-0-1-acceptance-package/package-not-prepared.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 204,
+      "sha256": "95D5EB868E98140B8DC12819B30798CBA5C40F84508CCDC87B3E3A1A65DAA11D",
+      "head_mode": "100644",
+      "head_blob_oid": "9aa3ab166e33bbe82b2f2d58884b5f1ca384835e",
+      "index_mode": "100644",
+      "index_blob_oid": "9aa3ab166e33bbe82b2f2d58884b5f1ca384835e",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/implementation-blueprint-baseline-integrity.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 417,
+      "sha256": "10B93A5D5C54D42392C5A07E9C5E08F422F67F223A4C15D2EBACF5BA66B25EA0",
+      "head_mode": "100644",
+      "head_blob_oid": "af43252f7dfd9a98863d2ab15b43f33902dd30ee",
+      "index_mode": "100644",
+      "index_blob_oid": "af43252f7dfd9a98863d2ab15b43f33902dd30ee",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/implementation-evidence/implementation-not-started.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 230,
+      "sha256": "559E3070037CA2A0D8B3B572DAC926F39DF16C1719A0F2079CC4A27610EAA783",
+      "head_mode": "100644",
+      "head_blob_oid": "079905ceb494a98522e48e76fa8709ce642535fc",
+      "index_mode": "100644",
+      "index_blob_oid": "079905ceb494a98522e48e76fa8709ce642535fc",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/implementation-plan/implementation-not-started.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 252,
+      "sha256": "E1C601C285C627DFB2B26C84817998772EB609B6C0C04095B7DCEC5F37F9B353",
+      "head_mode": "100644",
+      "head_blob_oid": "ce98c0c5496516a4fcd58a45af23aa701afa6926",
+      "index_mode": "100644",
+      "index_blob_oid": "ce98c0c5496516a4fcd58a45af23aa701afa6926",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/implementation-scope-conflict.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 787,
+      "sha256": "414EAD803120BAD1ACB1F6AF98F7A112F98E3536A7817F371637B3B466D6237B",
+      "head_mode": "100644",
+      "head_blob_oid": "cf413031186697597d76a3ff64cf0a1bc35dec0d",
+      "index_mode": "100644",
+      "index_blob_oid": "cf413031186697597d76a3ff64cf0a1bc35dec0d",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/api-event-baseline-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 1449,
+      "sha256": "C7781BA162A68F7FDA521B500B332B070A08217676CE1250A0DEC9E364860536",
+      "head_mode": "100644",
+      "head_blob_oid": "78db8c40b3dc84c27a127c9fa7e521d5d979a494",
+      "index_mode": "100644",
+      "index_blob_oid": "78db8c40b3dc84c27a127c9fa7e521d5d979a494",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/architecture-baseline-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 677,
+      "sha256": "6029FA7FE2F608E8E92C4154B6E40B8CC242B8AB3ED446E9AC0A215F5F14A0F4",
+      "head_mode": "100644",
+      "head_blob_oid": "a36191ac796572ee9d3e5f3f2b5b4b528a3e838e",
+      "index_mode": "100644",
+      "index_blob_oid": "a36191ac796572ee9d3e5f3f2b5b4b528a3e838e",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/assurance-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 586,
+      "sha256": "1D7C70332B517ABC9057CBC761F95CD0D96B1FBE33F341110D07415914EE71DC",
+      "head_mode": "100644",
+      "head_blob_oid": "8b3b1db0132c4e56a2f4870cfc779a3ed9c9ba90",
+      "index_mode": "100644",
+      "index_blob_oid": "8b3b1db0132c4e56a2f4870cfc779a3ed9c9ba90",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/implementation-blueprint-baseline-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 1488,
+      "sha256": "20976D763B1F8B25FD01AB3F8F35607D967382F41F1110F96BB4549F7D5FE319",
+      "head_mode": "100644",
+      "head_blob_oid": "f0867c7b80a33809854784715495d1965cdb7060",
+      "index_mode": "100644",
+      "index_blob_oid": "f0867c7b80a33809854784715495d1965cdb7060",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/implementation-scope-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 1098,
+      "sha256": "59B2181FC221197B27881F4BB33B33B1F32323881A08E0D24A9F9F8FBF4D1C37",
+      "head_mode": "100644",
+      "head_blob_oid": "23156ca40fd3bcfd0079211bfc095a1c637d1c6b",
+      "index_mode": "100644",
+      "index_blob_oid": "23156ca40fd3bcfd0079211bfc095a1c637d1c6b",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/launch-package-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 3811,
+      "sha256": "1F900345CC2AD772112C6DA1096EF19ACBDF5FC10F2856BC53249DC7B900D247",
+      "head_mode": "100644",
+      "head_blob_oid": "6899cffc688b5a73f27cb5aa4e9fa2c6f7eb6c38",
+      "index_mode": "100644",
+      "index_blob_oid": "6899cffc688b5a73f27cb5aa4e9fa2c6f7eb6c38",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/logical-contract-baseline-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 697,
+      "sha256": "1E53BD05E20E49CBC0C85335FDD0F0CCB91A5E5EB95F8186A31AB620F9EB052B",
+      "head_mode": "100644",
+      "head_blob_oid": "9357dffa05e15ba7f3dd12261ef4468d23196bc7",
+      "index_mode": "100644",
+      "index_blob_oid": "9357dffa05e15ba7f3dd12261ef4468d23196bc7",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/object-library-baseline-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 691,
+      "sha256": "37266FA9C5490D25577A9A60D1A516F1278B0F99B25787FEF1EE68D10F1FE09C",
+      "head_mode": "100644",
+      "head_blob_oid": "54d02c378f3c5513abb35190d1c3944bdcc2b2ec",
+      "index_mode": "100644",
+      "index_blob_oid": "54d02c378f3c5513abb35190d1c3944bdcc2b2ec",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/persistence-baseline-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 1451,
+      "sha256": "CCA43C773E3AE9263D8555EFFA5D8276633BA94E8A89A2F6B666655E57586759",
+      "head_mode": "100644",
+      "head_blob_oid": "fb2d93cda1dceb56e55b1f45897c284f9c6b1d54",
+      "index_mode": "100644",
+      "index_blob_oid": "fb2d93cda1dceb56e55b1f45897c284f9c6b1d54",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/prohibited-scope-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 493,
+      "sha256": "9D9FDFA8E996934068ECB94DAEAAB7FE001D7A266E6F6ACE934FE245A40920EA",
+      "head_mode": "100644",
+      "head_blob_oid": "9081a9f6483a77bc9710e55481595edc00a52af7",
+      "index_mode": "100644",
+      "index_blob_oid": "9081a9f6483a77bc9710e55481595edc00a52af7",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/input-binding/security-deployment-baseline-binding.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 1463,
+      "sha256": "EC71756AC4C626D62CF4FBBF108BEB254576E1D0718BDE1B39670BDDA450F88D",
+      "head_mode": "100644",
+      "head_blob_oid": "ebc22a7f289b46b04a2fd128c994f366be22cae0",
+      "index_mode": "100644",
+      "index_blob_oid": "ebc22a7f289b46b04a2fd128c994f366be22cae0",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/logical-contract-baseline-integrity.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 391,
+      "sha256": "E92E6DAA7CB41A45586804825007C0DBAEB33671EE084979285B2CA33B710AC9",
+      "head_mode": "100644",
+      "head_blob_oid": "f9087af58fbfc1b823892be4b4ed692b8e69379c",
+      "index_mode": "100644",
+      "index_blob_oid": "f9087af58fbfc1b823892be4b4ed692b8e69379c",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/object-library-baseline-integrity.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 389,
+      "sha256": "A4A9876E620211C0E466DE2D0BDF0A519431506B03672E5610493C723D3EFEA2",
+      "head_mode": "100644",
+      "head_blob_oid": "9cbcfc548cce3150798b7ff726c5c2ff6d244ea6",
+      "index_mode": "100644",
+      "index_blob_oid": "9cbcfc548cce3150798b7ff726c5c2ff6d244ea6",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/persistence-baseline-integrity.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 411,
+      "sha256": "5A9C1FB7151A2E0B70249AACE09B3B40517440B8ED7B5B61B1D76DAD98649243",
+      "head_mode": "100644",
+      "head_blob_oid": "ba7538b7a4ab76b3b0efaf03652fcd42d4cc2ae7",
+      "index_mode": "100644",
+      "index_blob_oid": "ba7538b7a4ab76b3b0efaf03652fcd42d4cc2ae7",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/phase-2-readiness-package/package-not-prepared.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 210,
+      "sha256": "192983E09CB6844AF338C82BE9CE450DBB6D48DF46E082AF5762035A8F4DCD63",
+      "head_mode": "100644",
+      "head_blob_oid": "54114abce94d930924ae5596e21d359799d49df6",
+      "index_mode": "100644",
+      "index_blob_oid": "54114abce94d930924ae5596e21d359799d49df6",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/preflight/preflight-not-started.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 226,
+      "sha256": "B920BDEA5931A07502399CC3C0C092BE12D2A8D30919F31C1724A99C1CA76E79",
+      "head_mode": "100644",
+      "head_blob_oid": "99691e809146d30195b1ceb9569d3ba42d048ccc",
+      "index_mode": "100644",
+      "index_blob_oid": "99691e809146d30195b1ceb9569d3ba42d048ccc",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/product-governance-integrity.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 615,
+      "sha256": "56392E4562F357822009BCBF47B8010C3F990EF5DF090ADBD16CCE66C0ECD82A",
+      "head_mode": "100644",
+      "head_blob_oid": "9594c7442b6badfc8f3f19aab17146e718b85e3e",
+      "index_mode": "100644",
+      "index_blob_oid": "9594c7442b6badfc8f3f19aab17146e718b85e3e",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/review/review-not-started.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 200,
+      "sha256": "A65C06BB3A91D6760111E81A0ADAA0748AAE6C4D28BDA054895331891FB9AB59",
+      "head_mode": "100644",
+      "head_blob_oid": "05a5c54c3d19dd9ef2acfd70b012d95d18eeaef7",
+      "index_mode": "100644",
+      "index_blob_oid": "05a5c54c3d19dd9ef2acfd70b012d95d18eeaef7",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/scripts/run-stage-0-launch-intake.mjs",
+      "partition": "ATTEMPT_1",
+      "bytes": 21069,
+      "sha256": "EE8F1017294DCA67EDE6244092927E4EA16FCF41641BC1409A9E7716115B9347",
+      "head_mode": "100644",
+      "head_blob_oid": "7f9d9f9b15584f5adb30f740c5ebaa4e58c9706b",
+      "index_mode": "100644",
+      "index_blob_oid": "7f9d9f9b15584f5adb30f740c5ebaa4e58c9706b",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/scripts/validate-stage-0-hard-stop.mjs",
+      "partition": "ATTEMPT_1",
+      "bytes": 8838,
+      "sha256": "47EA75029D3BDF9940C07EE08BE0AA37816EB6A14499916E5C2C596144DB5F1B",
+      "head_mode": "100644",
+      "head_blob_oid": "dc35aa8e0b44d49275070b67f05797560ba36fe1",
+      "index_mode": "100644",
+      "index_blob_oid": "dc35aa8e0b44d49275070b67f05797560ba36fe1",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/security-deployment-baseline-integrity.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 412,
+      "sha256": "67AAE852D254E945530B8A7D5E69D6DF206AC63838C4B602A3B2BEA476EC55E8",
+      "head_mode": "100644",
+      "head_blob_oid": "33fa01af64dd00d1db7ecd854bdd04057d1c6f1d",
+      "index_mode": "100644",
+      "index_blob_oid": "33fa01af64dd00d1db7ecd854bdd04057d1c6f1d",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/stage-0-result.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 620,
+      "sha256": "ED68B89326CADC5AAB52EC513D2B06B756AD69CB60F4D39D6FC2CBC2856528FF",
+      "head_mode": "100644",
+      "head_blob_oid": "79527bd868a288f56f41603af80a2c5a7ffd4f91",
+      "index_mode": "100644",
+      "index_blob_oid": "79527bd868a288f56f41603af80a2c5a7ffd4f91",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/task-artifact-manifest.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 7466,
+      "sha256": "AC70E3C82E88A82F037878CD16C1AA372D2B18BF1410DBAD4F3C6777AC04B8DC",
+      "head_mode": "100644",
+      "head_blob_oid": "58cadb5296042cf9dfad587fe73c1afc01daff1d",
+      "index_mode": "100644",
+      "index_blob_oid": "58cadb5296042cf9dfad587fe73c1afc01daff1d",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/task-intent.yaml",
+      "partition": "ATTEMPT_1",
+      "bytes": 366,
+      "sha256": "63E11E34F0A3B3E699529E486C6082AA3B09F4F31819FBB8077EA420D54A2F93",
+      "head_mode": "100644",
+      "head_blob_oid": "e77c66a4e8045fb35118248f7b2fc886ca30482b",
+      "index_mode": "100644",
+      "index_blob_oid": "e77c66a4e8045fb35118248f7b2fc886ca30482b",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    },
+    {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-IMPLEMENTATION-01/validation-results.json",
+      "partition": "ATTEMPT_1",
+      "bytes": 2223,
+      "sha256": "1A1370A31C68378EB6251C9B18AC6353DE1D66E46928A4491B894C43DC4F4504",
+      "head_mode": "100644",
+      "head_blob_oid": "02950293fcfef65080f0d00dfdb7d22a16a31fa6",
+      "index_mode": "100644",
+      "index_blob_oid": "02950293fcfef65080f0d00dfdb7d22a16a31fa6",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "unspecified",
+        "filter": "unspecified",
+        "working-tree-encoding": "unspecified"
+      }
+    }
+  ],
+  "binding_sha256": "566D583E2B060B3597BB764689C222416030F11A1D013E39DA3FCABFE7D8CB4B"
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01",
+  "received_at": "2026-07-26T13:06:20.3066770+08:00",
+  "human_decision": "APPROVED_FOR_EXACT_LOCAL_TRUST_ANCHOR_COMMIT",
+  "approved_proposal_task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "approved_exact_commit_path_count": 147,
+  "approved_source_7a_2_path_count": 106,
+  "approved_attempt_1_path_count": 41,
+  "approved_ignored_file_count": 0,
+  "approved_transformation_risk_count": 0,
+  "approved_collision_count": 0,
+  "approved_unresolved_reference_count": 11,
+  "approved_blocking_unresolved_reference_count": 0,
+  "approved_parent_head": "187ca36a2ef2c4be991e2f94956eae151b417217",
+  "approved_sha256": {
+    "exact_commit_paths": "E8A5650A85D0DDADA08483493D866BF9A815F4EBAF1BE07987E8EBB7885E8FC3",
+    "dependency_closure": "23FD1B0236CC19E69147B0ACF49DD617B55DCFC679241919237B5E2953684A71",
+    "trust_anchor_commit_plan": "A768CBF9D8AEF7736DDEB4FE617D53BF18FCD3C027A8BD857E683490AF3F19A2",
+    "parent_head_binding": "69755381E38A36390CC49ED8F83F9451B5FCF8537F34E278473A71B4FBAA759B"
+  },
+  "observed_sha256": {
+    "exact_commit_paths": "E8A5650A85D0DDADA08483493D866BF9A815F4EBAF1BE07987E8EBB7885E8FC3",
+    "dependency_closure": "23FD1B0236CC19E69147B0ACF49DD617B55DCFC679241919237B5E2953684A71",
+    "trust_anchor_commit_plan": "A768CBF9D8AEF7736DDEB4FE617D53BF18FCD3C027A8BD857E683490AF3F19A2",
+    "actual_current_head_binding": "529AE67219F970C5B3AFDD694D51384F5DC4290E3D13B36B3416946D25C2977D"
+  },
+  "binding_results": {
+    "exact_commit_paths": "MATCH",
+    "dependency_closure": "MATCH",
+    "trust_anchor_commit_plan": "MATCH",
+    "parent_head_binding": "MISMATCH"
+  },
+  "matching_binding_count": 3,
+  "required_binding_count": 4,
+  "decision_effective_for_current_repository_state": false
+}

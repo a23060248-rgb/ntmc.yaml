@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "binding_type": "TASK_LOCAL_TRANSCRIPTION_OF_HUMAN_EXACT_SCOPE_INSTRUCTION",
+  "cryptographic_human_identity_provided": false,
+  "cryptographic_human_identity_claimed": false,
+  "allowed_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01/**",
+  "trust_anchor_model": "EXISTING_HEAD_EXACT_MANIFEST_ATTESTATION",
+  "human_model_selection_is_adoption": false,
+  "head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+  "head_binding_sha256": "529AE67219F970C5B3AFDD694D51384F5DC4290E3D13B36B3416946D25C2977D",
+  "branch": "codex/precheck-template-maintenance",
+  "branch_binding_sha256": "6C1B53839F433463CCCA131A09A8DB3EE3B5387F0F2CCB67DCDE437984C2768D",
+  "exact_path_count": 147,
+  "manifest_source": ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/exact-commit-paths.json",
+  "manifest_source_sha256": "5CE80FC02491E66701D9D5573DB3123561FE41C74BABE7C0D0F5496404207685",
+  "previous_candidate": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "work_findings": [
+    "NO_COMMIT_DELTA",
+    "VALIDATOR_NOT_FAIL_CLOSED"
+  ],
+  "downstream_git_mutation_authorized": false,
+  "product_implementation_authorized": false,
+  "formal_trust_anchor_adoption_completed": false
+}

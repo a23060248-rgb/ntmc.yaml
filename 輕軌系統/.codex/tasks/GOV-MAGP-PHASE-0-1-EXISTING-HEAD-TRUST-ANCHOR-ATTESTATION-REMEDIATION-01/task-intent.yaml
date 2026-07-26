@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "task_type": "EXISTING_HEAD_EXACT_MANIFEST_ATTESTATION_REMEDIATION",
+  "execution_mode": "TASK_LOCAL_GOVERNANCE_ATTESTATION_ONLY",
+  "allowed_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01/**",
+  "objective": "Propose the already-existing Git commit and tree as an exact 147-path content-addressed trust anchor while independently recomputing every required binding.",
+  "human_selected_trust_anchor_model": "EXISTING_HEAD_EXACT_MANIFEST_ATTESTATION",
+  "exact_bindings": {
+    "head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+    "branch": "codex/precheck-template-maintenance",
+    "exact_path_count": 147,
+    "manifest_source": ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/exact-commit-paths.json",
+    "previous_candidate": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02"
+  },
+  "work_findings_in_scope": [
+    "NO_COMMIT_DELTA",
+    "VALIDATOR_NOT_FAIL_CLOSED"
+  ],
+  "highest_candidate_result": "READY_FOR_WORK_READ_ONLY_REVIEW",
+  "prohibited_actions": [
+    "modify frozen historical tasks",
+    "modify any of the 147 candidate files",
+    "modify Phase Policy",
+    "any Git mutation",
+    "empty commit",
+    "8A-0GC",
+    "Product Implementation",
+    "Source Authority Adoption",
+    "Architecture Reconciliation",
+    "formal Human Trust Anchor Adoption"
+  ]
+}

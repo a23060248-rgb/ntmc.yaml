@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "authority_source": ".codex/governance/phase-policy.yaml",
+  "phase_status_used_as_gate": false,
+  "phase_status_used_as_scope": false,
+  "phase_status_used_as_approval": false,
+  "evidence": {
+    "phase_id": "phase1_governance_only",
+    "task_local_governance_write_allowed": true,
+    "git_mutation_allowed": false,
+    "prohibited_git_actions": [
+      "stage",
+      "commit",
+      "push",
+      "branch",
+      "worktree",
+      "merge",
+      "stash",
+      "reset",
+      "restore",
+      "clean"
+    ]
+  }
+}

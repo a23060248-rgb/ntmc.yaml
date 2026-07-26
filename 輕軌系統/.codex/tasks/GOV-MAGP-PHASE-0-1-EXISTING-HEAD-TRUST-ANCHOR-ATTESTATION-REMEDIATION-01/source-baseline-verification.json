@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "canonicalization_contract": "ORDINAL_SORT_RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_NEWLINE_SHA256",
+  "before": {
+    "historical_tasks": {
+      "proposal_01": {
+        "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+        "file_count": 19,
+        "manifest_sha256": "487E221D9BE82E9F1E9A5F6A30D53711354B36DECFEDA14EE262D49B139835B7",
+        "status": "MATCH"
+      },
+      "proposal_02": {
+        "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+        "file_count": 23,
+        "manifest_sha256": "3D763DD0EFB76403D9AC8E64EA74B6BFF4ACD602C0650378FD87DA3243BA1FC4",
+        "status": "MATCH"
+      },
+      "commit_01": {
+        "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01",
+        "file_count": 16,
+        "manifest_sha256": "F2DB3ACA49A667704C221F35C36964C7F0C2A7BBFA016230F41A08BA69CF41F5",
+        "status": "MATCH"
+      }
+    },
+    "candidates": {
+      "file_count": 147,
+      "manifest_sha256": "2C01A85E3348B174B7BFB1F3F1D0A26CAB485423297252C7C7F4F35C65702E5D"
+    }
+  },
+  "after": {
+    "historical_tasks": {
+      "proposal_01": {
+        "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+        "file_count": 19,
+        "manifest_sha256": "487E221D9BE82E9F1E9A5F6A30D53711354B36DECFEDA14EE262D49B139835B7",
+        "status": "MATCH"
+      },
+      "proposal_02": {
+        "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+        "file_count": 23,
+        "manifest_sha256": "3D763DD0EFB76403D9AC8E64EA74B6BFF4ACD602C0650378FD87DA3243BA1FC4",
+        "status": "MATCH"
+      },
+      "commit_01": {
+        "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01",
+        "file_count": 16,
+        "manifest_sha256": "F2DB3ACA49A667704C221F35C36964C7F0C2A7BBFA016230F41A08BA69CF41F5",
+        "status": "MATCH"
+      }
+    },
+    "candidates": {
+      "file_count": 147,
+      "manifest_sha256": "2C01A85E3348B174B7BFB1F3F1D0A26CAB485423297252C7C7F4F35C65702E5D"
+    }
+  },
+  "comparison_status": "MATCH",
+  "proposal_01_match": true,
+  "proposal_02_match": true,
+  "commit_01_match": true,
+  "candidate_147_match": true,
+  "git_status_used_as_byte_integrity_proof": false
+}

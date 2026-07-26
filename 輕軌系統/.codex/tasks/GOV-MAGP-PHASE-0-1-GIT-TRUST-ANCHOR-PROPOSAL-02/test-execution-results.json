@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "result": "PASS",
+  "tests": [
+    {
+      "name": "syntax_check_generate_proposal",
+      "command": "node --check scripts/generate-proposal.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "syntax_check_generate_task_manifest",
+      "command": "node --check scripts/generate-task-manifest.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "syntax_check_validate_proposal",
+      "command": "node --check scripts/validate-proposal.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "syntax_check_safety_rejection",
+      "command": "node --check scripts/test-safety-rejection.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "positive_validation",
+      "command": "node scripts/validate-proposal.mjs",
+      "status": "PASS",
+      "result": "READY_FOR_WORK_READ_ONLY_REVIEW"
+    },
+    {
+      "name": "safety_rejection_parent_mismatch",
+      "command": "node scripts/test-safety-rejection.mjs",
+      "status": "PASS",
+      "expected_rejection": "BOUND_PARENT_HEAD_MISMATCH",
+      "actual_rejection": "BOUND_PARENT_HEAD_MISMATCH"
+    }
+  ],
+  "syntax_check_count": 4,
+  "positive_case_count": 1,
+  "safety_rejection_case_count": 1,
+  "files_modified_outside_task": 0,
+  "git_mutation": "NO"
+}

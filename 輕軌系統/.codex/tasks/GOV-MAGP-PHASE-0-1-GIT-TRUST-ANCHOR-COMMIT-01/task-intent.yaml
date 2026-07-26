@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01",
+  "master_batch": "8A-0GC",
+  "task_type": "GOVERNANCE_GIT_TRUST_ANCHOR_COMMIT",
+  "authorization": "EXACT_147_PATH_LOCAL_COMMIT_ONLY",
+  "objective": "Validate the approved 8A-0G bindings and, only if every Stage 0 condition passes, create and verify one local Governance Git Trust Anchor Commit.",
+  "approved_proposal_task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01",
+  "allowed_evidence_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01/**",
+  "allowed_commit_scope_source": "../GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-01/exact-commit-paths.json",
+  "prohibited_actions": [
+    "commit any 148th path",
+    "read Repository-external source content",
+    "modify Product Code",
+    "adopt Implementation Root",
+    "adopt allowed_paths",
+    "adopt Tech Stack",
+    "rerun 8A-0R",
+    "start 8A-1",
+    "push, fetch, pull, tag, remote or network operation",
+    "database, migration or deployment operation"
+  ],
+  "actual_disposition": "HARD_STOP_AT_STAGE_0"
+}

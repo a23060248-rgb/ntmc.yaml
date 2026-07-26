@@ -1,0 +1,17 @@
+task_id: GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02
+status: DRAFT
+objective: Remediate eight Work findings through one fail-closed production validator.
+opening_contract:
+  head: 22baa18784a081dd8c0d8a3ce177ba00363251de
+  branch: codex/precheck-template-maintenance
+  exact_path_count: 147
+validation_contract:
+  - no-argument production execution is the only complete candidate-verdict path
+  - all other command-line modes are rejection-only or usage errors
+  - manifest uses RFC8785 JCS with an omit-manifest_sha256 contract
+  - opening and closing repository snapshots must match
+  - producer summaries and PASS-shaped fields are non-authoritative
+stop_boundary:
+  highest_candidate_verdict: READY_FOR_WORK_READ_ONLY_REVIEW
+  human_adoption_performed: false
+  git_mutation_performed: false

@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+node_modules/
+npm-debug.log*
+dist/
+build/
+!輕軌系統/frontend/dist/
+!輕軌系統/frontend/dist/index.html
+.DS_Store
+Thumbs.db
+*.log
+
+# 本機 PostgreSQL 資料夾叢集（不進版控）
+.runtime/
+.local-rehearsal/
+
+# 暫存解析資料夾（xlsx 解析用，Google Drive 可能鎖住，之後可手動刪）
+_xlsxtmp/
+
+# Claude 本機個人設定（每台機器各自管理，不進版控，避免兩台衝突）
+.claude/settings.local.json
+

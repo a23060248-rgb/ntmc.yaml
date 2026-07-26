@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "candidate_count": 147,
+  "ignored_file_count": 0,
+  "ignored_files": [],
+  "transformation_risk_count": 0,
+  "transformation_risks": [],
+  "attribute_value_counts": {
+    "text": {
+      "unspecified": 147
+    },
+    "eol": {
+      "unspecified": 147
+    },
+    "filter": {
+      "unspecified": 147
+    },
+    "working_tree_encoding": {
+      "unspecified": 147
+    }
+  },
+  "git_config_snapshot": {
+    "core_autocrlf": "true",
+    "core_eol": null,
+    "core_safecrlf": null,
+    "core_attributesfile": null,
+    "core_excludesfile": null
+  },
+  "check_ignore_warnings": [
+    "warning: unable to access 'C:\\Users\\a2306/.config/git/ignore': Permission denied"
+  ],
+  "hash_object_warning_count": 0,
+  "hash_object_warnings": [],
+  "analysis_contract": "Exact candidate paths through git check-ignore, git check-attr and read-only git hash-object without -w."
+}

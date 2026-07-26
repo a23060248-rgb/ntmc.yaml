@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "execution_mode": "READ_ONLY_STARTUP_THEN_TASK_LOCAL_WRITE",
+  "result": "PASS",
+  "checks": [
+    {
+      "id": "STARTUP-HEAD",
+      "expected": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+      "actual": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": "STARTUP-BRANCH",
+      "expected": "codex/precheck-template-maintenance",
+      "actual": "codex/precheck-template-maintenance",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": "STARTUP-STAGED-GOVERNANCE",
+      "expected": 0,
+      "actual": 0,
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": "STARTUP-PRODUCT-ROOT",
+      "expected": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統",
+      "actual": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": "STARTUP-GIT-ROOT",
+      "expected": "C:/Users/a2306/Desktop/code/ntmc.yaml",
+      "actual": "C:/Users/a2306/Desktop/code/ntmc.yaml",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": "STARTUP-PHASE-TASK-LOCAL-WRITE",
+      "expected": ".codex/**",
+      "actual": ".codex/**",
+      "pass": true,
+      "status": "PASS"
+    }
+  ],
+  "product_root": "C:/Users/a2306/Desktop/code/ntmc.yaml/輕軌系統",
+  "git_root": "C:/Users/a2306/Desktop/code/ntmc.yaml",
+  "bound_parent_head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+  "actual_head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+  "bound_target_branch": "codex/precheck-template-maintenance",
+  "actual_branch": "codex/precheck-template-maintenance",
+  "staged_governance_path_count": 0,
+  "persistent_safe_directory_configuration_modified": false,
+  "git_mutation_executed": false
+}

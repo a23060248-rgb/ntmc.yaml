@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "level": "L3",
+  "reasons": [
+    "Trust-anchor model selection affects a release gate.",
+    "Exact commit, tree, path, blob and Hash bindings require fail-closed evidence.",
+    "The prior Work review contains unresolved blocker findings."
+  ],
+  "triggers": [
+    "release_gate",
+    "exact_git_object_binding",
+    "unresolved_reviewer_blocker"
+  ],
+  "required_agents": [
+    "root-governance-orchestrator"
+  ],
+  "required_reviews": [
+    "work-read-only-review",
+    "human-exact-trust-anchor-adoption-decision"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "HEAD commit and tree object identity",
+    "147 path, blob, working-tree and index identities",
+    "independently recomputed dependency closure",
+    "production validator direct-entry rejection evidence",
+    "historical and candidate before/after byte baselines",
+    "final self-excluding Task artifact manifest"
+  ],
+  "human_approval": [
+    "Human selected the existing-HEAD attestation model for proposal generation.",
+    "Separate Human adoption remains required after Work read-only review."
+  ],
+  "stop_conditions": [
+    "HEAD_BINDING_MISMATCH",
+    "BRANCH_BINDING_MISMATCH",
+    "EXACT_PATH_BINDING_FAILURE",
+    "HEAD_TREE_OR_BLOB_BINDING_FAILURE",
+    "CANDIDATE_BYTE_BINDING_FAILURE",
+    "DEPENDENCY_RECOMPUTATION_FAILURE",
+    "HISTORICAL_BASELINE_FAILURE",
+    "PRODUCTION_VALIDATOR_REJECTION_TEST_FAILURE",
+    "TASK_MANIFEST_FAILURE"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01/**"
+    ],
+    "exclude": [
+      "all frozen historical Tasks",
+      "all 147 candidate files",
+      "Phase Policy",
+      "Git state mutations",
+      "Product Code",
+      ".env*",
+      "sibling, Legacy, prototype and backup directories",
+      "database, migration, network and deployment"
+    ]
+  },
+  "classified_by": "task-classification",
+  "classification_status": "proposed"
+}

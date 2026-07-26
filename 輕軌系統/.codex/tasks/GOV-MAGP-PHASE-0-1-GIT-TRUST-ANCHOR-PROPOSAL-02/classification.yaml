@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "level": "L3",
+  "reasons": [
+    "Git trust anchor and exact commit scope",
+    "Release gate and Hash binding",
+    "Human approval required before any Git mutation"
+  ],
+  "triggers": [
+    "git_trust_anchor",
+    "release_gate",
+    "exact_hash_binding"
+  ],
+  "required_agents": [
+    "root-governance-orchestrator"
+  ],
+  "required_reviews": [
+    "work-read-only-review",
+    "human-exact-binding-decision"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "exact 147-path manifest",
+    "dependency closure",
+    "Parent HEAD and target branch bindings",
+    "old-task and candidate before/after byte baselines",
+    "Task artifact manifest"
+  ],
+  "human_approval": [
+    "Human approval of Proposal-02 file hashes and bindings",
+    "Separate Human authorization for any future Git mutation"
+  ],
+  "stop_conditions": [
+    "STARTUP_BLOCKER",
+    "EXACT_PATH_COUNT_MISMATCH",
+    "CANDIDATE_CONTENT_CHANGED_FROM_PROPOSAL_01_BINDING",
+    "TRANSITIVE_DEPENDENCY_MISMATCH",
+    "OLD_PROPOSAL_CHANGED",
+    "OLD_COMMIT_TASK_CHANGED",
+    "CANDIDATE_BASELINE_CHANGED"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/**"
+    ],
+    "exclude": [
+      "all Git mutations",
+      "147 candidate modifications",
+      "PROPOSAL-01 modifications",
+      "Commit Task modifications",
+      "Product Code",
+      ".env*",
+      "Repository siblings",
+      "network, database, migration and deployment"
+    ]
+  },
+  "classified_by": "task-classification",
+  "classification_status": "proposed"
+}

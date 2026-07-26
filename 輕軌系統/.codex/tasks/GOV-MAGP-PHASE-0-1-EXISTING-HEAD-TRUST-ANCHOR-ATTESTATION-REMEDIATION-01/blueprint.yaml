@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01/**"
+  ],
+  "agent_assignments": [
+    {
+      "role": "root-governance-orchestrator",
+      "write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01/**"
+      ],
+      "git_mutation_allowed": false
+    }
+  ],
+  "stages": [
+    {
+      "stage": 0,
+      "name": "EXACT_ROOT_HEAD_BRANCH_AND_TASK_PATH_STARTUP",
+      "required_result": "PASS"
+    },
+    {
+      "stage": 1,
+      "name": "EXISTING_HEAD_COMMIT_TREE_AND_147_PATH_ATTESTATION",
+      "required_result": "CANDIDATE_READY_FOR_WORK_REVIEW"
+    },
+    {
+      "stage": 2,
+      "name": "PRODUCTION_VALIDATOR_DIRECT_ENTRY_SAFETY_REJECTIONS",
+      "required_result": "ALL_CASES_REJECTED_AS_EXPECTED"
+    },
+    {
+      "stage": 3,
+      "name": "HANDOFF_FREEZE_THEN_FINAL_SELF_EXCLUDING_MANIFEST",
+      "required_result": "READY_FOR_WORK_READ_ONLY_REVIEW"
+    }
+  ],
+  "applicable_rules": [],
+  "candidate_rules": [],
+  "rollback_restore_evidence": "NOT_APPLICABLE_READ_ONLY_GOVERNANCE_PROPOSAL_WITH_TASK_LOCAL_ADDITIONS_ONLY",
+  "calculated_gate": "HUMAN_DECISION_REQUIRED_AFTER_WORK_READ_ONLY_REVIEW"
+}

@@ -1,0 +1,41 @@
+{
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03",
+  "level": "L3",
+  "blueprint_status": "proposed",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03/**"
+  ],
+  "applicable_rules": [],
+  "candidate_rules": [],
+  "agent_assignments": [
+    {
+      "actor_role": "sole-writing-codex",
+      "mode": "write",
+      "allowed_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03/**"
+      ]
+    },
+    {
+      "actor_role": "independent-work-reviewer",
+      "mode": "read_only",
+      "allowed_paths": []
+    }
+  ],
+  "stages": [
+    "NO_WRITE_REBOUND",
+    "STAGE_A_VERIFICATION_SUBJECT_FREEZE",
+    "FORTY_THREE_CASE_EXECUTION",
+    "PRODUCTION_OBSERVATION",
+    "STAGE_B_FINAL_PACKAGE_FREEZE",
+    "INDEPENDENT_WORK_READ_ONLY_VALIDATION"
+  ],
+  "assurance": "INTERNAL_CONSISTENCY_ONLY",
+  "maximum_candidate_verdict": "READY_FOR_INDEPENDENT_WORK_VALIDATION",
+  "prohibited_outcomes": [
+    "any_claim_of_completed_trust_anchor_adoption",
+    "any_claim_of_human_final_approval",
+    "any_claim_of_downstream_8a_0gc_readiness",
+    "any_claim_of_product_implementation_authority",
+    "any_claim_of_git_write_authority"
+  ]
+}

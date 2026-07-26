@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "result": "READY_FOR_WORK_READ_ONLY_REVIEW",
+  "trust_anchor_model": "EXISTING_HEAD_EXACT_MANIFEST_ATTESTATION",
+  "anchor_object_type": "EXISTING_GIT_COMMIT_AND_TREE",
+  "trust_anchor_candidate_status": "PROPOSED_NOT_ADOPTED",
+  "creates_new_commit": false,
+  "empty_commit_used": false,
+  "new_tree_delta_claimed": false,
+  "exact_path_count": 147,
+  "unique_path_count": 147,
+  "partition_counts": {
+    "source_7a_2": 106,
+    "attempt_1": 41
+  },
+  "work_findings_candidate_disposition": {
+    "NO_COMMIT_DELTA": "ADDRESSED_BY_EXISTING_HEAD_ATTESTATION_MODEL_PENDING_REVIEW",
+    "VALIDATOR_NOT_FAIL_CLOSED": "REMEDIATED_BY_INDEPENDENT_PRODUCTION_VALIDATOR_PENDING_REVIEW"
+  },
+  "human_trust_anchor_adoption_completed": false,
+  "git_mutation_executed": false,
+  "next_human_gate": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_EXACT_TRUST_ANCHOR_ADOPTION_DECISION"
+}

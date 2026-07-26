@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "canonicalization_method": "ORDINAL_SORT_RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_NEWLINE_SHA256",
+  "rfc_8785_jcs_used": false,
+  "exclusions": [
+    "task-artifact-manifest.json"
+  ],
+  "file_count": 22,
+  "manifest_sha256": "19C66FE7D3F21D479CF19FB67B84C8F2DB0C9346CB6FF243F2EC4C73FBAD4CFE",
+  "entries": [
+    {
+      "relative_path": "HANDOFF.md",
+      "sha256": "F194FB8375DB811914A2C169F65DA61F18B9B9C8635AA707373848E909520ADB",
+      "bytes": 2088
+    },
+    {
+      "relative_path": "blueprint.yaml",
+      "sha256": "ED875B2AF3B069096D76E9F5EFB4CCC14ABC33E914DBC3933536669AF51180B0",
+      "bytes": 777
+    },
+    {
+      "relative_path": "change-collision-analysis.json",
+      "sha256": "DF009D9B82680E4306795CAD27841C95CF5CA1509CE8E1AE2A369495AA23EFE3",
+      "bytes": 481
+    },
+    {
+      "relative_path": "classification.yaml",
+      "sha256": "EA1FF4EF7F2AEF5C16C49BB650DED908E37239AF7F27B337AE07A3892F7A6793",
+      "bytes": 1654
+    },
+    {
+      "relative_path": "dependency-closure.json",
+      "sha256": "B320CEC8FAC46723D6BFD2D9726357A959DA14D1E8C06FD01D27037928F619E6",
+      "bytes": 641368
+    },
+    {
+      "relative_path": "exact-commit-paths.json",
+      "sha256": "5CE80FC02491E66701D9D5573DB3123561FE41C74BABE7C0D0F5496404207685",
+      "bytes": 271802
+    },
+    {
+      "relative_path": "excluded-paths.json",
+      "sha256": "2C217B9D8F359059AD7CD7F99B9FD92B78DC55F77F96466691B7A601D0242065",
+      "bytes": 6915
+    },
+    {
+      "relative_path": "final-summary.md",
+      "sha256": "8DEA0D058423D5A85693BCBB24202647FDC8BAD8B159C4F63CE0EB17A0C6EB8B",
+      "bytes": 1342
+    },
+    {
+      "relative_path": "git-attribute-and-ignore-analysis.json",
+      "sha256": "8988364B18FD404493265E8776DF1CB1B3EA35B5C039A310BD2B3F4EFB9B7A5E",
+      "bytes": 957
+    },
+    {
+      "relative_path": "governance-source-roots.json",
+      "sha256": "9C42B4A9CAFBA41D5758B49DAE7F88F605C9F8AC1DFDE40944AA663292FF74F8",
+      "bytes": 13968
+    },
+    {
+      "relative_path": "historical-integrity-verification.json",
+      "sha256": "21ECB810A3D55131ABB0DC5AE8D0B4A60253DA1340AE80BA5C41C968F86948F0",
+      "bytes": 1397
+    },
+    {
+      "relative_path": "human-decision-binding.json",
+      "sha256": "A8E5DF9D7BA8222166B2D872C35D3AC41A9121656BE5911025304494393748AB",
+      "bytes": 2327
+    },
+    {
+      "relative_path": "scripts/generate-proposal.mjs",
+      "sha256": "2427A21591D87A2704D610676BAB97A4CEBB75B809AF43872B63662763BA7369",
+      "bytes": 46924
+    },
+    {
+      "relative_path": "scripts/generate-task-manifest.mjs",
+      "sha256": "8E40D7FCB7F34EC1FFA2CAA9C049BAD592E70A7DFA18F3FC2B8DB54DB58072E1",
+      "bytes": 1988
+    },
+    {
+      "relative_path": "scripts/test-safety-rejection.mjs",
+      "sha256": "A1E0FF60F1AFA0C7623F1A9DD48C1546B8BEDA5E4CC0F3BCB3758105B68DC122",
+      "bytes": 1122
+    },
+    {
+      "relative_path": "scripts/validate-proposal.mjs",
+      "sha256": "5F62AA15FCE8BF8C6622C67C87D7F0DF98C5F74D8DC597D04F937E393036DEC4",
+      "bytes": 7890
+    },
+    {
+      "relative_path": "stage-0-result.json",
+      "sha256": "67D403E84170193BA5246BD4A419EAEBFCB974EC077E8B99A97C388219014B13",
+      "bytes": 1841
+    },
+    {
+      "relative_path": "stage-1-result.json",
+      "sha256": "34962CFA7A8D65E0EA88BC41E1704EAE795F5A6ABEC54E60514C66E7F2788D36",
+      "bytes": 1325
+    },
+    {
+      "relative_path": "task-intent.yaml",
+      "sha256": "BD272FAA1CE6FBE1A3E6DC47F3942B7B7E00D40E8E8820851EAEC29F745729DC",
+      "bytes": 1017
+    },
+    {
+      "relative_path": "test-execution-results.json",
+      "sha256": "D31E4C717362FCC9390EE7754BB0521315D2E63E78184AAA773107CF083BAFD0",
+      "bytes": 1317
+    },
+    {
+      "relative_path": "trust-anchor-commit-plan.json",
+      "sha256": "6FCA2E5C9E50D62FA763352B422FF7B0738D3DD8A1C053606F8DF2EA5321C5C1",
+      "bytes": 1472
+    },
+    {
+      "relative_path": "validation-results.json",
+      "sha256": "0A8898569C7C4318693AD06F302B6232DA0D43422F65AD05DA36D4D14446D135",
+      "bytes": 2789
+    }
+  ]
+}

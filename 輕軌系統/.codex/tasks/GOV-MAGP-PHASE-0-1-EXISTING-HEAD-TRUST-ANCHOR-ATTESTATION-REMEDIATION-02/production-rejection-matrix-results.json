@@ -1,0 +1,505 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02",
+  "evidence_authority": "NON_AUTHORITATIVE_CANDIDATE_EVIDENCE",
+  "observed_exit_code": 1,
+  "observed_stdout": {
+    "schema_version": 1,
+    "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02",
+    "evidence_authority": "NON_AUTHORITATIVE_CANDIDATE_EVIDENCE",
+    "entry_under_test": "scripts/validate-production.mjs",
+    "production_entry_spawned_directly": true,
+    "copied_simplified_validator_used": false,
+    "case_count": 43,
+    "rejected_as_expected_count": 40,
+    "not_verified_count": 3,
+    "coverage_status": "NOT_VERIFIED",
+    "cases": [
+      {
+        "case_id": "skip-task-manifest-flag-rejected",
+        "test_type": "PRODUCTION_ENTRY_CLI_REJECTION",
+        "args": [
+          "--skip-task-manifest"
+        ],
+        "observed_exit_code": 2,
+        "observed_error_code": "CLI_USAGE_ERROR",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "discovery-cannot-return-verdict",
+        "test_type": "PRODUCTION_ENTRY_CLI_REJECTION",
+        "args": [
+          "--discovery"
+        ],
+        "observed_exit_code": 2,
+        "observed_error_code": "CLI_USAGE_ERROR",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "bare-fixture-usage-error",
+        "test_type": "PRODUCTION_ENTRY_CLI_REJECTION",
+        "args": [
+          "--fixture"
+        ],
+        "observed_exit_code": 2,
+        "observed_error_code": "CLI_USAGE_ERROR",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "bare-self-test-fixture-usage-error",
+        "test_type": "PRODUCTION_ENTRY_CLI_REJECTION",
+        "args": [
+          "--self-test-fixture"
+        ],
+        "observed_exit_code": 2,
+        "observed_error_code": "CLI_USAGE_ERROR",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "unknown-flag-rejected",
+        "test_type": "PRODUCTION_ENTRY_CLI_REJECTION",
+        "args": [
+          "--unknown-flag"
+        ],
+        "observed_exit_code": 2,
+        "observed_error_code": "CLI_USAGE_ERROR",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "duplicate-mutually-exclusive-flags-rejected",
+        "test_type": "PRODUCTION_ENTRY_CLI_REJECTION",
+        "args": [
+          "--self-test-fixture",
+          "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.codex\\tasks\\GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02\\test-fixtures\\wrong-head.json",
+          "--self-test-fixture",
+          "C:\\Users\\a2306\\Desktop\\code\\ntmc.yaml\\輕軌系統\\.codex\\tasks\\GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02\\test-fixtures\\wrong-branch.json"
+        ],
+        "observed_exit_code": 2,
+        "observed_error_code": "CLI_USAGE_ERROR",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "absolute-path",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "path_absolute",
+        "expected_error_code": "PATH_ABSOLUTE_NOT_ALLOWED",
+        "observed_exit_code": 2,
+        "observed_error_code": "PATH_ABSOLUTE_NOT_ALLOWED",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "attribute-incomplete",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "attribute_incomplete",
+        "expected_error_code": "ATTRIBUTE_EVIDENCE_INCOMPLETE",
+        "observed_exit_code": 2,
+        "observed_error_code": "ATTRIBUTE_EVIDENCE_INCOMPLETE",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "backslash-path",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "path_backslash",
+        "expected_error_code": "PATH_BACKSLASH_NOT_ALLOWED",
+        "observed_exit_code": 2,
+        "observed_error_code": "PATH_BACKSLASH_NOT_ALLOWED",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "case-collision",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "path_case_collision",
+        "expected_error_code": "CANDIDATE_CASE_OR_NFC_COLLISION",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_CASE_OR_NFC_COLLISION",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "closing-state-mismatch",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "closing_state_mismatch",
+        "expected_error_code": "CLOSING_STATE_REBOUND_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_ACTUAL_COUNT_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "NOT_VERIFIED",
+        "stderr": null
+      },
+      {
+        "case_id": "dependency-mismatch",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "dependency_mismatch",
+        "expected_error_code": "DEPENDENCY_DIRECT_BINDING_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "DEPENDENCY_DIRECT_BINDING_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "drive-path",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "path_drive",
+        "expected_error_code": "PATH_DRIVE_NOT_ALLOWED",
+        "observed_exit_code": 2,
+        "observed_error_code": "PATH_DRIVE_NOT_ALLOWED",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "duplicate-path",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "candidate_duplicate",
+        "expected_error_code": "CANDIDATE_PATH_DUPLICATE",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_PATH_DUPLICATE",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "extra-path",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "candidate_extra",
+        "expected_error_code": "CANDIDATE_PATH_COUNT_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_PATH_COUNT_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "filter-oid-mismatch",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "filter_oid_mismatch",
+        "expected_error_code": "CANDIDATE_FILTER_OR_RAW_IDENTITY_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_FILTER_OR_RAW_IDENTITY_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "historical-mismatch",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "historical_mismatch",
+        "expected_error_code": "HISTORICAL_MANIFEST_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "HISTORICAL_MANIFEST_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "ignore-permission-limitation",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "ignore_permission_limitation",
+        "expected_error_code": "IGNORE_EVIDENCE_NOT_VERIFIED",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_ACTUAL_COUNT_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "NOT_VERIFIED",
+        "stderr": null
+      },
+      {
+        "case_id": "index-changed",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "index_changed",
+        "expected_error_code": "CANDIDATE_INDEX_CHANGED",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_INDEX_CHANGED",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "index-oid-mismatch",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "index_oid_mismatch",
+        "expected_error_code": "CANDIDATE_INDEX_HEAD_OID_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_INDEX_HEAD_OID_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "manifest-canonicalization",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "manifest_canonicalization",
+        "expected_error_code": "TASK_MANIFEST_CANONICALIZATION_INVALID",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_CANONICALIZATION_INVALID",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "manifest-corrupt",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "manifest_corrupt",
+        "expected_error_code": "TASK_MANIFEST_INVALID_JSON",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_INVALID_JSON",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "manifest-generation",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "manifest_generation",
+        "expected_error_code": "TASK_MANIFEST_GENERATION_ORDER_INVALID",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_GENERATION_ORDER_INVALID",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "manifest-missing",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "manifest_missing",
+        "expected_error_code": "TASK_MANIFEST_MISSING",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_MISSING",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "manifest-physical-count",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "manifest_physical_count",
+        "expected_error_code": "TASK_MANIFEST_PHYSICAL_COUNT_INVALID",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_PHYSICAL_COUNT_INVALID",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "manifest-reordered",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "manifest_reordered",
+        "expected_error_code": "TASK_MANIFEST_ENTRY_ORDER_NOT_CANONICAL",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_ENTRY_ORDER_NOT_CANONICAL",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "manifest-schema",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "manifest_schema",
+        "expected_error_code": "TASK_MANIFEST_SCHEMA_INVALID",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_SCHEMA_INVALID",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "manifest-self-included",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "manifest_self_included",
+        "expected_error_code": "TASK_MANIFEST_SELF_INCLUDED",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_SELF_INCLUDED",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "manifest-wrong-hash",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "manifest_wrong_hash",
+        "expected_error_code": "TASK_MANIFEST_JCS_HASH_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "TASK_MANIFEST_ACTUAL_COUNT_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "NOT_VERIFIED",
+        "stderr": null
+      },
+      {
+        "case_id": "missing-path",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "candidate_missing",
+        "expected_error_code": "CANDIDATE_PATH_COUNT_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_PATH_COUNT_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "nfc-invalid-path",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "path_nfc",
+        "expected_error_code": "PATH_NOT_NFC",
+        "observed_exit_code": 2,
+        "observed_error_code": "PATH_NOT_NFC",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "producer-pass-underlying-mismatch",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "producer_pass_underlying_mismatch",
+        "expected_error_code": "CANDIDATE_SHA256_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_SHA256_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "provenance-mismatch",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "provenance_mismatch",
+        "expected_error_code": "PROVENANCE_MANIFEST_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "PROVENANCE_MANIFEST_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "traversal-path",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "path_traversal",
+        "expected_error_code": "PATH_TRAVERSAL_NOT_ALLOWED",
+        "observed_exit_code": 2,
+        "observed_error_code": "PATH_TRAVERSAL_NOT_ALLOWED",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "unc-path",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "path_unc",
+        "expected_error_code": "PATH_UNC_NOT_ALLOWED",
+        "observed_exit_code": 2,
+        "observed_error_code": "PATH_UNC_NOT_ALLOWED",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "worktree-changed",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "worktree_changed",
+        "expected_error_code": "CANDIDATE_WORKTREE_CHANGED",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_WORKTREE_CHANGED",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "wrong-blob-oid",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "wrong_blob_oid",
+        "expected_error_code": "CANDIDATE_SOURCE_BLOB_OID_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_SOURCE_BLOB_OID_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "wrong-branch",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "wrong_branch",
+        "expected_error_code": "BRANCH_BINDING_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "BRANCH_BINDING_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "wrong-file-sha256",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "wrong_file_sha256",
+        "expected_error_code": "CANDIDATE_SHA256_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "CANDIDATE_SHA256_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "wrong-head",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "wrong_head",
+        "expected_error_code": "HEAD_BINDING_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "HEAD_BINDING_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "wrong-path-count",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "wrong_path_count",
+        "expected_error_code": "BOUND_PATH_COUNT_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "BOUND_PATH_COUNT_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "wrong-source-manifest-hash",
+        "test_type": "PRODUCTION_ENTRY_FIXTURE_REJECTION",
+        "mutation": "wrong_source_manifest_hash",
+        "expected_error_code": "SOURCE_MANIFEST_SHA256_MISMATCH",
+        "observed_exit_code": 2,
+        "observed_error_code": "SOURCE_MANIFEST_SHA256_MISMATCH",
+        "forbidden_verdict_text_observed": false,
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      },
+      {
+        "case_id": "fixture-reparse-scope-escape",
+        "test_type": "PRODUCTION_ENTRY_REPARSE_REJECTION",
+        "expected_error_code": "FIXTURE_REPARSE_POINT_NOT_ALLOWED",
+        "observed_exit_code": 2,
+        "observed_error_code": "FIXTURE_REPARSE_POINT_NOT_ALLOWED",
+        "result": "REJECTED_AS_EXPECTED",
+        "stderr": null
+      }
+    ],
+    "environment_limitations": [],
+    "formal_candidate_verdict_issued": false,
+    "git_mutation": "NO"
+  },
+  "observed_stderr": null,
+  "formal_candidate_verdict_issued": false
+}

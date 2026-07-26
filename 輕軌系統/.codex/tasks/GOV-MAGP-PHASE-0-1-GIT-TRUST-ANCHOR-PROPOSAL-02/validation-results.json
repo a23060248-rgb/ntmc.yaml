@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "validation_type": "DETERMINISTIC_PROPOSAL_02_VALIDATION",
+  "status": "PASS_18_OF_18",
+  "pass_count": 18,
+  "required_count": 18,
+  "checks": [
+    {
+      "id": 1,
+      "requirement": "Bound Parent HEAD equals actual HEAD.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 2,
+      "requirement": "Bound target branch equals actual branch.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 3,
+      "requirement": "Exact and unique path counts are 147.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 4,
+      "requirement": "Partition counts are 106 and 41.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 5,
+      "requirement": "Every candidate matches its prior exact content binding.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 6,
+      "requirement": "Every candidate path is NFC.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 7,
+      "requirement": "Ignored count is zero.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 8,
+      "requirement": "Transformation risk count is zero.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 9,
+      "requirement": "Collision count is zero.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 10,
+      "requirement": "Unresolved count is 11 and blocking count is zero.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 11,
+      "requirement": "All 17 transitive provenance roots match.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 12,
+      "requirement": "Old Proposal before and after baseline matches.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 13,
+      "requirement": "Old Commit Task before and after baseline matches.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 14,
+      "requirement": "Candidate before and after baseline matches.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 15,
+      "requirement": "No staged governance path exists.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 16,
+      "requirement": "No Git mutation is authorized or executed.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 17,
+      "requirement": "Parent and target branch binding hashes use explicit exact-string contracts.",
+      "pass": true,
+      "status": "PASS"
+    },
+    {
+      "id": 18,
+      "requirement": "Proposal file bindings are exact-byte SHA-256 values.",
+      "pass": true,
+      "status": "PASS"
+    }
+  ],
+  "structural_blockers": [],
+  "git_mutation_executed": false
+}

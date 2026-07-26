@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "source_review": "WORK_READ_ONLY_REVIEW_OF_PROPOSAL_02",
+  "findings": [
+    {
+      "finding_id": "NO_COMMIT_DELTA",
+      "original_status": "BLOCKER",
+      "remediation_model": "EXISTING_GIT_COMMIT_AND_TREE_WITH_EXACT_MANIFEST_ATTESTATION",
+      "candidate_disposition": "ADDRESSED_BY_MODEL_SELECTION_PENDING_WORK_REVIEW_AND_HUMAN_ADOPTION",
+      "creates_new_commit": false,
+      "empty_commit_used": false,
+      "new_tree_delta_claimed": false
+    },
+    {
+      "finding_id": "VALIDATOR_NOT_FAIL_CLOSED",
+      "original_status": "BLOCKER",
+      "remediation_model": "PRODUCTION_VALIDATOR_INDEPENDENTLY_RECOMPUTES_ALL_BOTTOM_LEVEL_EVIDENCE",
+      "candidate_disposition": "REMEDIATED_PENDING_WORK_READ_ONLY_REVIEW",
+      "producer_summary_trusted": false,
+      "safety_tests_use_production_validator_entry": true
+    }
+  ],
+  "work_acceptance_completed": false,
+  "human_adoption_completed": false
+}

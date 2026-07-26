@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03",
+  "verification_subject_manifest_hash": "219D258CF9A2D645D57A1DC034FF68B69F637F17C07E83EB2B998C36152866E7",
+  "rejection_matrix_hash": "95FC32FEDA90CDEA2F1B9D2CE9B2628BABC098A32B7083891C2F669207604FAE",
+  "production_observation_hash": "0DE9C636FB9A588A2EB1FB383331FCC05282BFA08322D7991917F2D6B04C482C",
+  "counts": {
+    "total_cases": 43,
+    "expected_rejection_confirmed": 43,
+    "unexpected_acceptance": 0,
+    "execution_error": 0,
+    "not_verified": 0
+  },
+  "candidate_verdict": "BLOCKER",
+  "stage_b_sequence": [
+    "matrix_written_after_stage_a_freeze",
+    "production_observation_bound_to_matrix",
+    "validation_summary_and_handoff_bound_to_same_hashes",
+    "task_artifact_manifest_generated_last",
+    "post_freeze_checks_read_only"
+  ],
+  "writes_after_final_manifest_allowed": false,
+  "human_gate": "INDEPENDENT_WORK_READ_ONLY_VALIDATION_BEFORE_ANY_FUTURE_HUMAN_DECISION"
+}

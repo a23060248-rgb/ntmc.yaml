@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "task_type": "EXACT_BOUND_GOVERNANCE_GIT_TRUST_ANCHOR_PROPOSAL",
+  "execution_mode": "TASK_LOCAL_PROPOSAL_ONLY",
+  "allowed_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/**",
+  "objective": "Recompute the exact 147-path trust-anchor proposal for the Human-bound current Parent HEAD and target branch.",
+  "human_exact_scope_approval": {
+    "parent_head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+    "target_branch": "codex/precheck-template-maintenance"
+  },
+  "prohibited_actions": [
+    "branch creation or switch",
+    "checkout",
+    "stage",
+    "commit",
+    "push",
+    "merge",
+    "rebase",
+    "stash",
+    "reset",
+    "restore",
+    "clean",
+    "candidate modification",
+    "PROPOSAL-01 modification",
+    "Commit Task modification",
+    "Phase Policy modification",
+    "8A-0GC",
+    "Product Implementation",
+    "Source Authority Adoption",
+    "Architecture Reconciliation"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "result": "READY_FOR_WORK_READ_ONLY_REVIEW",
+  "bound_parent_head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+  "actual_head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+  "bound_target_branch": "codex/precheck-template-maintenance",
+  "actual_branch": "codex/precheck-template-maintenance",
+  "exact_path_count": 147,
+  "unique_path_count": 147,
+  "partition_counts": {
+    "source_7a_2": 106,
+    "attempt_1": 41
+  },
+  "proposal_file_hashes": {
+    "exact_commit_paths_sha256": "5CE80FC02491E66701D9D5573DB3123561FE41C74BABE7C0D0F5496404207685",
+    "dependency_closure_sha256": "B320CEC8FAC46723D6BFD2D9726357A959DA14D1E8C06FD01D27037928F619E6",
+    "trust_anchor_commit_plan_sha256": "6FCA2E5C9E50D62FA763352B422FF7B0738D3DD8A1C053606F8DF2EA5321C5C1"
+  },
+  "parent_head_binding_sha256": "529AE67219F970C5B3AFDD694D51384F5DC4290E3D13B36B3416946D25C2977D",
+  "target_branch_binding_sha256": "6C1B53839F433463CCCA131A09A8DB3EE3B5387F0F2CCB67DCDE437984C2768D",
+  "blockers": [],
+  "future_git_mutation_blockers": [
+    "PHASE_POLICY_PROHIBITS_GIT_MUTATION",
+    "HUMAN_PROPOSAL_02_DECISION_NOT_COMPLETED"
+  ],
+  "next_human_gate": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_EXACT_PROPOSAL_02_DECISION",
+  "git_mutation_executed": false
+}

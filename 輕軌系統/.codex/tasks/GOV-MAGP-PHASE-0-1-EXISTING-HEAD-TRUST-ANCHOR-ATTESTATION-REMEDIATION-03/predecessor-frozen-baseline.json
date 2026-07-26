@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03",
+  "baseline_stage": "NO_WRITE_REBOUND",
+  "predecessor": {
+    "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02",
+    "disposition": "CLOSED_AS_FAILED_AND_FROZEN",
+    "manifest_file_sha256": "768B32301C8A8F6D79A3CEA00287882D5A13C75DE8FD3E1BD4CE7338C0C2D842",
+    "internal_manifest_sha256": "1818373460317FD1B82321A63DF2034862167EC7076EFC9F84F759A911BBC826",
+    "physical_file_count": 55,
+    "manifest_entry_count": 54,
+    "matrix_file_sha256": "2ECD72BAF53115D59BDE242AF84F465734F51016BDFF888B139F9EA0D1EA2598",
+    "entries": [
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/HANDOFF.md",
+        "bytes": 1906,
+        "sha256": "37A5CF48C78CC952ADFD31E517F5140E2441190F5DF7328D032E9BD35B94F57E"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/baseline-input-bindings.json",
+        "bytes": 1652,
+        "sha256": "5D30213BEA32C41327606A8951ADD4B53EB75524757CC1C6270B59915C62A20A"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/blueprint.yaml",
+        "bytes": 824,
+        "sha256": "9577884BD1DF9DD3F6500A59FE3D68F9CD10FF4A22C8136D973B9067A455CEC7"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/classification.yaml",
+        "bytes": 338,
+        "sha256": "7585A46AE8E696BA9E199399148E35F82EA02F93C32A1AC6044181BB84CD09A0"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/existing-head-attestation-draft.json",
+        "bytes": 1644,
+        "sha256": "701285153DEA36F5DC2112B7514AD37C19086FA736C403B00568F68ABA71E43C"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/final-summary.md",
+        "bytes": 1176,
+        "sha256": "775C98514F18CED7868CCBFA344ABFD5840222F1AA17CDAB1D76F6DECA0E2CFB"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/human-model-selection-binding.json",
+        "bytes": 1054,
+        "sha256": "3A00A4D621A3B55F8942259BC60B63910F50FEDB391D54D0BF5900F1C7DEC8C0"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/production-entry-observation.json",
+        "bytes": 385241,
+        "sha256": "7DA22B513B515DC20CB37966F9B3BC8C0949384179AE2E8DAC59B3BF1ADAD1AE"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/production-rejection-matrix-results.json",
+        "bytes": 19502,
+        "sha256": "2ECD72BAF53115D59BDE242AF84F465734F51016BDFF888B139F9EA0D1EA2598"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/scripts/finalize-task.mjs",
+        "bytes": 4115,
+        "sha256": "D6F51487364C133B31DF4BD74964139DD5FB917C53BAC448769B13A99978DCE5"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/scripts/generate-draft-task.mjs",
+        "bytes": 15817,
+        "sha256": "D8E7EB5102327591108FD2A1A977EBBFC1A86EE27F0492D4F4795AC31C7118A5"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/scripts/generate-task-manifest.mjs",
+        "bytes": 5358,
+        "sha256": "6FAF1E96EAF8251BD07C2E2FBB7B90EF80A67F5BAF1C4AA548A77B5388E235FD"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/scripts/run-production-rejection-matrix.mjs",
+        "bytes": 7407,
+        "sha256": "7CE987B6DAA1ECC181DB0D9229FAFF5D0495090ABF4B80BDF9ED41B6C3F3A44C"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/scripts/validate-production.mjs",
+        "bytes": 52080,
+        "sha256": "793014BD3AFCA2E2204684BD9882ACAC3EE865AA63CC6EB2DDFED6CD8F33AEBF"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/startup-reverification.json",
+        "bytes": 584,
+        "sha256": "1E5ABD34B64DDA9D1686DCE14152E94B843929FDA1F93FE7C988A3664C995124"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/task-intent.yaml",
+        "bytes": 547,
+        "sha256": "58CB67B160F4260ECFE4F04652E49E852E376CACEEDC0DD6F6101C1556EE56F3"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/absolute-path.json",
+        "bytes": 139,
+        "sha256": "53544AD29E3BA784355F87978428F5C0AE2321159F423AC3586F1BA4439965CE"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/attribute-incomplete.json",
+        "bytes": 157,
+        "sha256": "8C2011F8DB986992CAABF488F18AB857DB689CCFE97DD0406A9B343F2ED8F2E8"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/backslash-path.json",
+        "bytes": 142,
+        "sha256": "289391B3921BE3DBC38476FFBC0A898D90BC5251EF9072E6265D339359036ABD"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/case-collision.json",
+        "bytes": 152,
+        "sha256": "6F98FB6271B7E2BB517470B51CF0521B0F301B196F835F57994CEA6B3ED2A40D"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/closing-state-mismatch.json",
+        "bytes": 162,
+        "sha256": "98BFC52BF7D0E0004B6D7E081C81DD2CD37516DDE1FE3531A49BED09D1A8B656"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/dependency-mismatch.json",
+        "bytes": 160,
+        "sha256": "DFC2A2CC46B22131A0133E858EB610A48B82DC5BB72A9B89698B6AF46DC94E7C"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/drive-path.json",
+        "bytes": 130,
+        "sha256": "9B43A3A98A58C8F5B13450220B52A7FC67B55614E7BDC8EF67075F96A6323C95"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/duplicate-path.json",
+        "bytes": 145,
+        "sha256": "2DDB0FC7B2B0A225AAB08F963BCF38409423C9DCB5B439F96DB10EDA7054F887"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/extra-path.json",
+        "bytes": 142,
+        "sha256": "48FEFAC6D6237A3701D2A98F26D166C1FD5123FEA3815C8A95097F0C543A2307"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/filter-oid-mismatch.json",
+        "bytes": 167,
+        "sha256": "EAC06DC2AE9D3CE37A110BA4313C0E782AA758B397ED2CE3B49045AF8454FD38"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/historical-mismatch.json",
+        "bytes": 154,
+        "sha256": "82D403EE46C240A6E33EEDABF35040E8D3F94BBDC2E51A643EF3E42A303C75E1"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/ignore-permission-limitation.json",
+        "bytes": 172,
+        "sha256": "BB011438835179A63DD6648DAF1F0B254BA1BAB134FDB64C7235BC9D92ECB340"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/index-changed.json",
+        "bytes": 137,
+        "sha256": "69FE54507D3F7FF56E280B61DF23DBAE35E82623B9DFD220FBF1440D546F6380"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/index-oid-mismatch.json",
+        "bytes": 157,
+        "sha256": "74FE43D15D6BA084887CA7F18DEBD27847430AAA25AB59686AFFE5D6BBB46B16"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/manifest-canonicalization.json",
+        "bytes": 176,
+        "sha256": "F4C338F37871A46CC397AB50D8210FF28D659D9BB94558B782908C187611D615"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/manifest-corrupt.json",
+        "bytes": 146,
+        "sha256": "98E21E6D97B5DB7C7F21CB17EDF0B916B41D64A8973389BA59D550EA7C4B1137"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/manifest-generation.json",
+        "bytes": 164,
+        "sha256": "F2B50D5DEE6BBA971616535A8C098BB311E0328306D40CFB8C4D9E13FC90E736"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/manifest-missing.json",
+        "bytes": 141,
+        "sha256": "62D4C80971B997FCB86B5373F5DB9D0E1B7E1361D90B617365614E9176E7B330"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/manifest-physical-count.json",
+        "bytes": 170,
+        "sha256": "11F307D228441E14346B2FF57BA72EBF05425462DB2D54ECF870049505490B1A"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/manifest-reordered.json",
+        "bytes": 163,
+        "sha256": "CBCA46968AA21C3D562537B2DBD580E401EC334ED0AC5D7E5AD49A585C0F58BF"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/manifest-schema.json",
+        "bytes": 146,
+        "sha256": "97E2A6B686C3E5DEEAA7A977160BE6CC2D9B498FC008E5C2FDEF86940D634DCB"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/manifest-self-included.json",
+        "bytes": 159,
+        "sha256": "101EF09B1E723449B03315FFEB025722AC7E90C0062B0A57B24B1881ECE968EC"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/manifest-wrong-hash.json",
+        "bytes": 157,
+        "sha256": "91830F26159F95AC79470867316C41181602192DDFAF64017CAEA4777749119A"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/missing-path.json",
+        "bytes": 146,
+        "sha256": "F7BA166BC78EFF8BFE986D2C36A8311A73DF0F90E55D989F84B8E0A71DAC956F"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/nfc-invalid-path.json",
+        "bytes": 124,
+        "sha256": "7A26ECA8C0C557ED6864D93E3746E183CC72B2E82FC2B66D026E9A909D518CE6"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/producer-pass-underlying-mismatch.json",
+        "bytes": 179,
+        "sha256": "00ED727EEB724ED29898917CF2704A4C3F7D7F8F2EF06925EA4EBEFBACB84DF2"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/provenance-mismatch.json",
+        "bytes": 154,
+        "sha256": "65F4DB84AB5124B484D0A3724DC73A36708F0CC1DA4F604DB9AAE62982FDFD47"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/traversal-path.json",
+        "bytes": 142,
+        "sha256": "53055EC730EF236CA9B9593D0B39E7A809A7186931EEFC773E15DE435A117A60"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/unc-path.json",
+        "bytes": 124,
+        "sha256": "9693D740E046BBACCD483F81E76AD3B1E66E9920A4995EC0E2F73A49F3556274"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/worktree-changed.json",
+        "bytes": 146,
+        "sha256": "DD66D63B641E868FE648ABF96F9213493E24A147A06DB79D8E9BE52D306BD614"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/wrong-blob-oid.json",
+        "bytes": 150,
+        "sha256": "E3EA8A822F5250CA2F46849080B47EF8D3A651E3EFA38372D85A75AE048EFD65"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/wrong-branch.json",
+        "bytes": 135,
+        "sha256": "93184062B1CF872BAB2F5C337519C6B2E8E605808F8CB04731785CDADD065A69"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/wrong-file-sha256.json",
+        "bytes": 147,
+        "sha256": "DA2AD7F7C73CFA59D93A7DA0A64FAFBBF05DFEF3CB37C5F27D8464CD09F2D387"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/wrong-head.json",
+        "bytes": 129,
+        "sha256": "C2080E1940C4B6E7D6E6E181572D3503B887B52974097A55F8C4BDF5A58745F4"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/wrong-path-count.json",
+        "bytes": 145,
+        "sha256": "79FB9AF1E137926EE2F1D54264D66C0358427CF289978C09A38A436A9AE77FDD"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/test-fixtures/wrong-source-manifest-hash.json",
+        "bytes": 171,
+        "sha256": "6C3A42B0B77A6FDA8615BE0415B74AECA97BF4AFDDDE964CB842E2EC3F8BEA8D"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/validation-results.json",
+        "bytes": 511,
+        "sha256": "47B79CF0E9EE8B367BD6B6A09D6D042E03D39DEBCC52058E894C847CA99D99FD"
+      },
+      {
+        "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02/work-finding-disposition.json",
+        "bytes": 2079,
+        "sha256": "1F66F5A089680D727B9C28F56C6C50FF4689FB1FBE5C8CD8904B87AFCBEF6FC2"
+      }
+    ]
+  },
+  "baseline_binding_sha256": "C4D03AB02F6225C4B67D42E3B14EC46CC160A0DAE1D7BA01B646669C67FBEE27"
+}

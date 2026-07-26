@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "generation_order": "LAST_AFTER_HANDOFF_FREEZE",
+  "canonicalization_method": "ORDINAL_SORT_RELATIVE_PATH_PIPE_SHA256_PIPE_BYTES_NEWLINE_SHA256",
+  "rfc_8785_jcs_used": false,
+  "exclusions": [
+    "task-artifact-manifest.json"
+  ],
+  "file_count": 34,
+  "physical_file_count": 35,
+  "manifest_sha256": "9B8B7699FFA3247DEB4CAE9BE015EF144A2064229F8AC9EF725854BC6BC9D145",
+  "entries": [
+    {
+      "relative_path": "HANDOFF.md",
+      "sha256": "8954E6EF073B8CC1EC7B719A35A803585D6F801AB7FFE0E159522843A8B84DA8",
+      "bytes": 2226
+    },
+    {
+      "relative_path": "blueprint.yaml",
+      "sha256": "45220BED5D6A4486D907866FAC9D5142AD6D3A95DC4AC6E316DD13B901CCBC90",
+      "bytes": 1344
+    },
+    {
+      "relative_path": "candidate-tree-verification.json",
+      "sha256": "85AF9B47BC68D9674569C3B53609AB9195548FD8E20DF98E32B73DC9194AD715",
+      "bytes": 157307
+    },
+    {
+      "relative_path": "classification.yaml",
+      "sha256": "AD68C7C1D1C176DC82984EDC08FE14C3780B537EC03B19B4D0204D30C2B23FBE",
+      "bytes": 2075
+    },
+    {
+      "relative_path": "dependency-closure-verification.json",
+      "sha256": "FDA5DCF9ABF956215A236594081A2576E7593137A8D0A088D52F6CF9B13FAC37",
+      "bytes": 9555
+    },
+    {
+      "relative_path": "existing-head-attestation-proposal.json",
+      "sha256": "E7C4790647C83B0A13D58EAF17790EA3BA04B180F6781ECB9A09D5B52ECA9247",
+      "bytes": 1979
+    },
+    {
+      "relative_path": "final-summary.md",
+      "sha256": "50436F6BACAA9767A25295F8A67396E230F847D330C0934C472F76C670BC94C6",
+      "bytes": 1038
+    },
+    {
+      "relative_path": "git-attribute-ignore-and-filter-verification.json",
+      "sha256": "03451E2BFCA1E29B87EDD87AEB55FAA933B213F043E1484F27A03BF6159A938C",
+      "bytes": 801
+    },
+    {
+      "relative_path": "human-model-selection-binding.json",
+      "sha256": "AED69CC9E270CACA7FB5FE8A5FAC2B9E9B28FF331A5B0315B5A5DF2CDA07EA07",
+      "bytes": 1342
+    },
+    {
+      "relative_path": "phase-policy-verification.json",
+      "sha256": "9F169E3E2F56C7A4BD1D4C8EAD332411AB13A846A9B5936FF3239447FD28B39E",
+      "bytes": 635
+    },
+    {
+      "relative_path": "production-validation-evidence.json",
+      "sha256": "AF27BF1AB24983499818F5E57FD99A441CF4B92F0E110415FF81B4B48C19A03A",
+      "bytes": 170564
+    },
+    {
+      "relative_path": "safety-rejection-results.json",
+      "sha256": "32CD9450C22265658F19BD91E59D8E2C931B7C53B6B09B117ADE658330B226AB",
+      "bytes": 3519
+    },
+    {
+      "relative_path": "scripts/generate-attestation-task.mjs",
+      "sha256": "59276CE7E1AA426300ABEF34C822136A6809F668C279E446993FCC0AB011162B",
+      "bytes": 24087
+    },
+    {
+      "relative_path": "scripts/generate-final-task-manifest.mjs",
+      "sha256": "63B609FA3217DA94CCDD14AE1E386D0F89CF3D12B41D34048A8E5B882E1FC40A",
+      "bytes": 3797
+    },
+    {
+      "relative_path": "scripts/test-production-validator-rejections.mjs",
+      "sha256": "F156F4D0645750A6969B9707473387CDDFD592463932126F2C0305F5E6E6D38F",
+      "bytes": 2668
+    },
+    {
+      "relative_path": "scripts/validate-attestation.mjs",
+      "sha256": "EF594DA7FC7ECE084C074A71CC9A3EB5CD18FCFD25C105E1CD7C436F6FF2D41F",
+      "bytes": 43752
+    },
+    {
+      "relative_path": "source-baseline-verification.json",
+      "sha256": "B08C471C5DA9CFAA566CE436ED88ED4F1E001173F28DB4FB2CBF64E5A69E0965",
+      "bytes": 2287
+    },
+    {
+      "relative_path": "stage-0-result.json",
+      "sha256": "814860F8F6DACE5A60325C087364D5B75F28B9F750B027266A846BCD553ED81F",
+      "bytes": 815
+    },
+    {
+      "relative_path": "stage-1-result.json",
+      "sha256": "FA287C632D84FB99061BAE06EF08E453C8434103CC22DEF1F542FDBA217FAD7D",
+      "bytes": 978
+    },
+    {
+      "relative_path": "task-intent.yaml",
+      "sha256": "6ECEAAC7095B23AB57FEFA16B823E7FF6592CC846B47E539614DA492826DF778",
+      "bytes": 1461
+    },
+    {
+      "relative_path": "test-execution-results.json",
+      "sha256": "7E79CF5D640AFBC09939C32450D9B94D573D370B19A685B816D542EF8D9D81CE",
+      "bytes": 1263
+    },
+    {
+      "relative_path": "test-fixtures/duplicate-path.json",
+      "sha256": "F0DEE462427FAD10900FC6D22DF7BE13C669A2BE9F5437D105987A2E515A2975",
+      "bytes": 163
+    },
+    {
+      "relative_path": "test-fixtures/extra-path.json",
+      "sha256": "8E86AB9FC848D8DF9CA9812CA90BAFE69AC65ACE11920F014ADF820F6C483355",
+      "bytes": 314
+    },
+    {
+      "relative_path": "test-fixtures/missing-path.json",
+      "sha256": "13CE0E69DF76C66A2EF6167A96BAE2193C8353A456E72AA25F5A0DF6CA7D84C4",
+      "bytes": 158
+    },
+    {
+      "relative_path": "test-fixtures/nfc-invalid-path.json",
+      "sha256": "4470EDC2FC8D5B9983D96E14A5145F609BA2B5BDC6BB16032C9DA397BF3A53F6",
+      "bytes": 166
+    },
+    {
+      "relative_path": "test-fixtures/producer-pass-underlying-mismatch.json",
+      "sha256": "2425F4F2AE78AAD115E701F08101BB7A9C43374986170EDB918F6B9B699AD5E0",
+      "bytes": 345
+    },
+    {
+      "relative_path": "test-fixtures/wrong-blob-oid.json",
+      "sha256": "1EDE6404E7F367D971B6EE7D8D6DEC010BA4B2285EADFFA8223E6D5F21DA6D43",
+      "bytes": 259
+    },
+    {
+      "relative_path": "test-fixtures/wrong-branch.json",
+      "sha256": "1813CDA9E33ED6153C3B1A8EE34405E3C774B3FF9AA8E73243CD534E66D3629D",
+      "bytes": 86
+    },
+    {
+      "relative_path": "test-fixtures/wrong-file-sha256.json",
+      "sha256": "F40CBC26F1E3A2F93FD7123F353143F759B568DAD8FDCF428B11797113D25C98",
+      "bytes": 292
+    },
+    {
+      "relative_path": "test-fixtures/wrong-head.json",
+      "sha256": "E1FCE7371101091CA0E992E0D4C1CAF1F23A6ED0CCB9CA7FD86C2271A522A0AB",
+      "bytes": 96
+    },
+    {
+      "relative_path": "test-fixtures/wrong-manifest-sha256.json",
+      "sha256": "4F6E74D7983455F4493B241200EC612B9807F14D0E3CC45DAB8B3F241349F436",
+      "bytes": 149
+    },
+    {
+      "relative_path": "test-fixtures/wrong-path-count.json",
+      "sha256": "1881E82AE87B58EA4F8FD4B22A1ED5B57B1B12A3C87B2EA60F9BB894A9CA7314",
+      "bytes": 69
+    },
+    {
+      "relative_path": "validation-results.json",
+      "sha256": "C614420A64F39CFD5FB1366D7B9C2CF9B2FB03B4057F641214E6F9DDABEC6ACF",
+      "bytes": 2848
+    },
+    {
+      "relative_path": "work-finding-disposition.json",
+      "sha256": "8A99156DB10AE1F6581A74035AB3AC1C3625DFAC6B5138C500AB9E97BC02BD40",
+      "bytes": 1031
+    }
+  ]
+}

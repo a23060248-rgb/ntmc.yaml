@@ -1,0 +1,54 @@
+{
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03",
+  "level": "L3",
+  "reasons": [
+    "Unresolved reviewer blocker",
+    "Git Trust Anchor candidate gate",
+    "Release-gate and exact hash binding"
+  ],
+  "triggers": [
+    "unresolved_reviewer_blocker",
+    "release_gate",
+    "unknown_ignore_source_provenance"
+  ],
+  "required_agents": [
+    "sole-writing-codex",
+    "independent-work-reviewer"
+  ],
+  "required_reviews": [
+    "independent_work_read_only_validation"
+  ],
+  "parallel_allowed": false,
+  "evidence_required": [
+    "43_case_rejection_matrix",
+    "effective_git_ignore_inventory",
+    "predecessor_byte_identity",
+    "stage_a_subject_manifest",
+    "stage_b_task_manifest"
+  ],
+  "human_approval": {
+    "scope_approval": "RECEIVED",
+    "execution_approval": "RECEIVED_FOR_TASK_LOCAL_EVIDENCE_ONLY",
+    "trust_anchor_adoption": "NOT_AUTHORIZED"
+  },
+  "stop_conditions": [
+    "binding_drift",
+    "predecessor_mutation",
+    "forbidden_write",
+    "git_mutation",
+    "subject_drift",
+    "ignore_evidence_not_verified"
+  ],
+  "scope": {
+    "include": [
+      ".codex/tasks/GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-03/**"
+    ],
+    "exclude": [
+      "all_other_paths",
+      ".git/**",
+      ".env*"
+    ]
+  },
+  "classified_by": "task-classification",
+  "classification_status": "proposed"
+}

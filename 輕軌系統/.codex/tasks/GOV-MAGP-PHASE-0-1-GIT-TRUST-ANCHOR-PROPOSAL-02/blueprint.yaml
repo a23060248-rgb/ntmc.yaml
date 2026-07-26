@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "allowed_paths": [
+    ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/**"
+  ],
+  "agent_assignments": [
+    {
+      "role": "root-governance-orchestrator",
+      "write_paths": [
+        ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/**"
+      ],
+      "git_mutation_allowed": false
+    }
+  ],
+  "stages": [
+    {
+      "stage": 0,
+      "name": "EXACT_ROOT_HEAD_BRANCH_AND_SCOPE_REVERIFICATION",
+      "result": "PASS"
+    },
+    {
+      "stage": 1,
+      "name": "TASK_LOCAL_EXACT_BOUND_PROPOSAL",
+      "result": "READY_FOR_WORK_READ_ONLY_REVIEW"
+    }
+  ],
+  "applicable_rules": [],
+  "candidate_rules": [],
+  "final_gate": "HUMAN_DECISION_REQUIRED"
+}

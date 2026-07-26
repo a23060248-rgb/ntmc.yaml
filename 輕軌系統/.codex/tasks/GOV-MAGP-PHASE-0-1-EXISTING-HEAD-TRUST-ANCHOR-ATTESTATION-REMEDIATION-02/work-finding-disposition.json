@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02",
+  "producer_evidence_authority": "NON_AUTHORITATIVE_CANDIDATE_EVIDENCE",
+  "disposition_status": "DRAFT_PENDING_PRODUCTION_VALIDATION_AND_WORK_REVIEW",
+  "findings": [
+    {
+      "finding_id": "VALIDATOR_CLI_BYPASS",
+      "producer_remediation_claim": "IMPLEMENTED_NOT_AUTHORITATIVELY_VERIFIED",
+      "final_closure_authority": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_GATE"
+    },
+    {
+      "finding_id": "BARE_FIXTURE_FAIL_OPEN",
+      "producer_remediation_claim": "IMPLEMENTED_NOT_AUTHORITATIVELY_VERIFIED",
+      "final_closure_authority": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_GATE"
+    },
+    {
+      "finding_id": "MANIFEST_CANONICAL_IDENTITY_NOT_ENFORCED",
+      "producer_remediation_claim": "IMPLEMENTED_NOT_AUTHORITATIVELY_VERIFIED",
+      "final_closure_authority": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_GATE"
+    },
+    {
+      "finding_id": "PASS_SHAPED_EVIDENCE_TRUST",
+      "producer_remediation_claim": "IMPLEMENTED_NOT_AUTHORITATIVELY_VERIFIED",
+      "final_closure_authority": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_GATE"
+    },
+    {
+      "finding_id": "FIXTURE_REPARSE_SCOPE_ESCAPE",
+      "producer_remediation_claim": "IMPLEMENTED_NOT_AUTHORITATIVELY_VERIFIED",
+      "final_closure_authority": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_GATE"
+    },
+    {
+      "finding_id": "IGNORE_PERMISSION_FAIL_OPEN",
+      "producer_remediation_claim": "IMPLEMENTED_NOT_AUTHORITATIVELY_VERIFIED",
+      "final_closure_authority": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_GATE"
+    },
+    {
+      "finding_id": "TOCTOU_NO_CLOSING_REBOUND",
+      "producer_remediation_claim": "IMPLEMENTED_NOT_AUTHORITATIVELY_VERIFIED",
+      "final_closure_authority": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_GATE"
+    },
+    {
+      "finding_id": "REJECTION_COVERAGE_INCOMPLETE",
+      "producer_remediation_claim": "IMPLEMENTED_NOT_AUTHORITATIVELY_VERIFIED",
+      "final_closure_authority": "WORK_READ_ONLY_REVIEW_THEN_HUMAN_GATE"
+    }
+  ],
+  "finding_deleted": false,
+  "finding_waived": false
+}

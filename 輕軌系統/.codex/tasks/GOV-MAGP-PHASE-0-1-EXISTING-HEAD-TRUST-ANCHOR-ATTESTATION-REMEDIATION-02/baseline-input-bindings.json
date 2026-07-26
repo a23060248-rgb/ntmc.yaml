@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-02",
+  "producer_evidence_authority": "NON_AUTHORITATIVE_CANDIDATE_EVIDENCE",
+  "production_verification_status": "NOT_VERIFIED",
+  "source_manifest": {
+    "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/exact-commit-paths.json",
+    "exact_bytes_sha256": "5CE80FC02491E66701D9D5573DB3123561FE41C74BABE7C0D0F5496404207685"
+  },
+  "dependency_closure": {
+    "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/dependency-closure.json",
+    "exact_bytes_sha256": "B320CEC8FAC46723D6BFD2D9726357A959DA14D1E8C06FD01D27037928F619E6",
+    "direct_count": 147,
+    "provenance_group_count": 17,
+    "provenance_entry_count": 1190,
+    "external_metadata_count": 11,
+    "external_content_status": "NOT_VERIFIED_CONTENT"
+  },
+  "candidate_manifest_sha256": "2C01A85E3348B174B7BFB1F3F1D0A26CAB485423297252C7C7F4F35C65702E5D",
+  "historical_expected_bindings": {
+    "remediation_01": {
+      "file_count": 35,
+      "manifest_sha256": "D1CBD110BD9921124DC935FB808152DB841B2EEAFB35AD857639AE503D0B3080"
+    },
+    "proposal_02": {
+      "file_count": 23,
+      "manifest_sha256": "3D763DD0EFB76403D9AC8E64EA74B6BFF4ACD602C0650378FD87DA3243BA1FC4"
+    },
+    "proposal_01": {
+      "file_count": 19,
+      "manifest_sha256": "487E221D9BE82E9F1E9A5F6A30D53711354B36DECFEDA14EE262D49B139835B7"
+    },
+    "commit_01": {
+      "file_count": 16,
+      "manifest_sha256": "F2DB3ACA49A667704C221F35C36964C7F0C2A7BBFA016230F41A08BA69CF41F5"
+    }
+  }
+}

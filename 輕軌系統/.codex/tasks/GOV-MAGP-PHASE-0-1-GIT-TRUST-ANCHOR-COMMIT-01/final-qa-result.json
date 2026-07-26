@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-COMMIT-01",
+  "required_check_count": 15,
+  "result": "BLOCKED_AT_STAGE_0",
+  "checks": [
+    {
+      "id": 1,
+      "name": "Human four bindings exactly match",
+      "status": "FAIL",
+      "detail": "3/4 match; actual current HEAD binding differs."
+    },
+    {
+      "id": 2,
+      "name": "Parent HEAD exactly matches",
+      "status": "FAIL"
+    },
+    {
+      "id": 3,
+      "name": "Exact Commit Paths is 147",
+      "status": "NOT_REEVALUATED"
+    },
+    {
+      "id": 4,
+      "name": "Dependency Closure matches approved proposal",
+      "status": "PASS",
+      "detail": "Approved file SHA-256 matches."
+    },
+    {
+      "id": 5,
+      "name": "Staged Set exactly 147",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": 6,
+      "name": "Committed Set exactly 147",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": 7,
+      "name": "Staged and committed blobs match",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": 8,
+      "name": "Commit has specified Parent",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": 9,
+      "name": "No Product Code",
+      "status": "PASS",
+      "detail": "No Commit or staging occurred."
+    },
+    {
+      "id": 10,
+      "name": "No Secret or Credential",
+      "status": "PASS",
+      "detail": "No candidate or external source content was read after the stop."
+    },
+    {
+      "id": 11,
+      "name": "No 148th file",
+      "status": "PASS",
+      "detail": "No staging or Commit occurred."
+    },
+    {
+      "id": 12,
+      "name": "No historical Artifact content modified",
+      "status": "PASS"
+    },
+    {
+      "id": 13,
+      "name": "No Push, Tag or extra Branch",
+      "status": "PASS"
+    },
+    {
+      "id": 14,
+      "name": "No Network, Database, Migration or Deployment",
+      "status": "PASS"
+    },
+    {
+      "id": 15,
+      "name": "Index empty after Commit",
+      "status": "NOT_APPLICABLE_NO_COMMIT",
+      "detail": "Index had 0 staged files at Stage 0 and no Git write was executed."
+    }
+  ]
+}

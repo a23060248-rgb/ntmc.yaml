@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "validation_model": "INDEPENDENT_BOTTOM_LEVEL_RECOMPUTATION_WITH_PRODUCTION_ENTRY_REJECTIONS",
+  "status": "CANDIDATE_VALIDATION_COMPLETE",
+  "pass_count": 20,
+  "required_count": 20,
+  "checks": [
+    {
+      "id": 1,
+      "requirement": "EXACT_PRODUCT_AND_GIT_ROOT_BINDING",
+      "status": "PASS"
+    },
+    {
+      "id": 2,
+      "requirement": "HEAD_EXACT_STRING_AND_BINDING_HASH",
+      "status": "PASS"
+    },
+    {
+      "id": 3,
+      "requirement": "BRANCH_EXACT_STRING_AND_BINDING_HASH",
+      "status": "PASS"
+    },
+    {
+      "id": 4,
+      "requirement": "HEAD_COMMIT_AND_TREE_OBJECT_IDENTITY",
+      "status": "PASS"
+    },
+    {
+      "id": 5,
+      "requirement": "147_UNIQUE_NFC_PATHS",
+      "status": "PASS"
+    },
+    {
+      "id": 6,
+      "requirement": "HEAD_TREE_AND_BLOB_IDENTITIES",
+      "status": "PASS"
+    },
+    {
+      "id": 7,
+      "requirement": "WORKING_TREE_BYTES_AND_SHA256",
+      "status": "PASS"
+    },
+    {
+      "id": 8,
+      "requirement": "TRACKED_UNTRACKED_WORKTREE_INDEX_STATE",
+      "status": "PASS"
+    },
+    {
+      "id": 9,
+      "requirement": "IGNORE_RESULT_AND_PERMISSION_LIMITATION_RECORDED",
+      "status": "PASS"
+    },
+    {
+      "id": 10,
+      "requirement": "ATTRIBUTES_FILTER_RAW_INDEX_BLOB_IDENTITY",
+      "status": "PASS"
+    },
+    {
+      "id": 11,
+      "requirement": "PARTITION_106_PLUS_41",
+      "status": "PASS"
+    },
+    {
+      "id": 12,
+      "requirement": "DEPENDENCY_CLOSURE_17_GROUPS_RECOMPUTED",
+      "status": "PASS"
+    },
+    {
+      "id": 13,
+      "requirement": "EXTERNAL_REFERENCE_METADATA_11_BOUND_WITHOUT_DEREFERENCE",
+      "status": "PASS"
+    },
+    {
+      "id": 14,
+      "requirement": "COUNTS_RECOMPUTED",
+      "status": "PASS"
+    },
+    {
+      "id": 15,
+      "requirement": "THREE_HISTORICAL_TASK_BASELINES_MATCH",
+      "status": "PASS"
+    },
+    {
+      "id": 16,
+      "requirement": "CANDIDATE_147_BASELINE_MATCH",
+      "status": "PASS"
+    },
+    {
+      "id": 17,
+      "requirement": "PRODUCTION_VALIDATOR_POSITIVE_CASE",
+      "status": "PASS"
+    },
+    {
+      "id": 18,
+      "requirement": "PRODUCTION_VALIDATOR_DIRECT_REJECTIONS",
+      "status": "PASS"
+    },
+    {
+      "id": 19,
+      "requirement": "PHASE_POLICY_GIT_MUTATION_PROHIBITION",
+      "status": "PASS"
+    },
+    {
+      "id": 20,
+      "requirement": "FINAL_MANIFEST_SELF_EXCLUSION",
+      "status": "PASS"
+    }
+  ],
+  "task_manifest_note": "The manifest is generated last after HANDOFF freeze and immediately revalidated by the production validator.",
+  "formal_work_acceptance_completed": false,
+  "formal_human_adoption_completed": false,
+  "candidate_verdict": "READY_FOR_WORK_READ_ONLY_REVIEW",
+  "git_mutation_executed": false
+}

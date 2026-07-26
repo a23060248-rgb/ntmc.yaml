@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "task_id": "GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02",
+  "allowed_path": ".codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/**",
+  "decision_status": "PENDING_HUMAN_REVIEW",
+  "transcription_model": "TASK_LOCAL_TRANSCRIPTION_OF_HUMAN_INSTRUCTION",
+  "cryptographic_human_identity_provided": false,
+  "cryptographic_human_identity_claimed": false,
+  "parent_head": "22baa18784a081dd8c0d8a3ce177ba00363251de",
+  "parent_head_binding_sha256": "529AE67219F970C5B3AFDD694D51384F5DC4290E3D13B36B3416946D25C2977D",
+  "target_branch": "codex/precheck-template-maintenance",
+  "target_branch_binding_sha256": "6C1B53839F433463CCCA131A09A8DB3EE3B5387F0F2CCB67DCDE437984C2768D",
+  "binding_contracts": {
+    "parent_head": "UTF8_EXACT_STRING_NO_NEWLINE_SHA256_UPPERCASE_HEX",
+    "target_branch": "UTF8_EXACT_STRING_NO_NEWLINE_SHA256_UPPERCASE_HEX",
+    "proposal_files": "EXACT_FILE_BYTES_SHA256_UPPERCASE_HEX",
+    "rfc_8785_jcs_used": false
+  },
+  "proposal_file_bindings": {
+    "exact_commit_paths": {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/exact-commit-paths.json",
+      "bytes": 271802,
+      "sha256": "5CE80FC02491E66701D9D5573DB3123561FE41C74BABE7C0D0F5496404207685",
+      "hash_contract": "EXACT_FILE_BYTES_SHA256_UPPERCASE_HEX"
+    },
+    "dependency_closure": {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/dependency-closure.json",
+      "bytes": 641368,
+      "sha256": "B320CEC8FAC46723D6BFD2D9726357A959DA14D1E8C06FD01D27037928F619E6",
+      "hash_contract": "EXACT_FILE_BYTES_SHA256_UPPERCASE_HEX"
+    },
+    "trust_anchor_commit_plan": {
+      "repository_relative_path": "輕軌系統/.codex/tasks/GOV-MAGP-PHASE-0-1-GIT-TRUST-ANCHOR-PROPOSAL-02/trust-anchor-commit-plan.json",
+      "bytes": 1472,
+      "sha256": "6FCA2E5C9E50D62FA763352B422FF7B0738D3DD8A1C053606F8DF2EA5321C5C1",
+      "hash_contract": "EXACT_FILE_BYTES_SHA256_UPPERCASE_HEX"
+    }
+  },
+  "old_parent_head_binding_reused": false,
+  "stage_authorized": false,
+  "commit_authorized": false,
+  "push_authorized": false,
+  "branch_mutation_authorized": false,
+  "product_implementation_authorized": false,
+  "highest_allowed_verdict": "READY_FOR_WORK_READ_ONLY_REVIEW"
+}

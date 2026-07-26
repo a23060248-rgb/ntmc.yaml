@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "task_id": "GOV-MAGP-PHASE-0-1-EXISTING-HEAD-TRUST-ANCHOR-ATTESTATION-REMEDIATION-01",
+  "syntax_checks": {
+    "pass_count": 4,
+    "required_count": 4,
+    "results": [
+      {
+        "script": "scripts/validate-attestation.mjs",
+        "status": "PASS"
+      },
+      {
+        "script": "scripts/test-production-validator-rejections.mjs",
+        "status": "PASS"
+      },
+      {
+        "script": "scripts/generate-attestation-task.mjs",
+        "status": "PASS"
+      },
+      {
+        "script": "scripts/generate-final-task-manifest.mjs",
+        "status": "PASS"
+      }
+    ]
+  },
+  "positive_case": {
+    "production_validator_entry": "scripts/validate-attestation.mjs",
+    "status": "PASS",
+    "candidate_verdict": "READY_FOR_WORK_READ_ONLY_REVIEW"
+  },
+  "safety_rejections": {
+    "production_validator_entry": "scripts/validate-attestation.mjs",
+    "simplified_duplicate_binding_function_used": false,
+    "pass_count": 11,
+    "required_count": 11,
+    "status": "PASS_11_OF_11"
+  },
+  "post_generation_read_back": "PASS",
+  "historical_and_candidate_baseline_comparison": "MATCH",
+  "final_task_manifest_validation": "EXECUTED_BY_FINAL_MANIFEST_GENERATOR_AFTER_HANDOFF_FREEZE",
+  "git_mutation_executed": false
+}

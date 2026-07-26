@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "test_type": "PRODUCTION_VALIDATOR_DIRECT_ENTRY_SAFETY_REJECTIONS",
+  "simplified_duplicate_binding_function_used": false,
+  "case_count": 11,
+  "pass_count": 11,
+  "status": "PASS_11_OF_11",
+  "cases": [
+    {
+      "fixture": "wrong-head.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "HEAD_BINDING_MISMATCH",
+      "actual_error_code": "HEAD_BINDING_MISMATCH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "wrong-branch.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "BRANCH_BINDING_MISMATCH",
+      "actual_error_code": "BRANCH_BINDING_MISMATCH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "missing-path.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "EXACT_PATH_COUNT_MISMATCH",
+      "actual_error_code": "EXACT_PATH_COUNT_MISMATCH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "extra-path.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "EXACT_PATH_COUNT_MISMATCH",
+      "actual_error_code": "EXACT_PATH_COUNT_MISMATCH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "duplicate-path.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "DUPLICATE_PATH",
+      "actual_error_code": "DUPLICATE_PATH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "nfc-invalid-path.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "PATH_NOT_NFC",
+      "actual_error_code": "PATH_NOT_NFC",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "wrong-file-sha256.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "CANDIDATE_SHA256_MISMATCH",
+      "actual_error_code": "CANDIDATE_SHA256_MISMATCH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "wrong-blob-oid.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "CANDIDATE_SOURCE_BLOB_OID_MISMATCH",
+      "actual_error_code": "CANDIDATE_SOURCE_BLOB_OID_MISMATCH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "wrong-path-count.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "BOUND_PATH_COUNT_MISMATCH",
+      "actual_error_code": "BOUND_PATH_COUNT_MISMATCH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "wrong-manifest-sha256.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "SOURCE_MANIFEST_SHA256_MISMATCH",
+      "actual_error_code": "SOURCE_MANIFEST_SHA256_MISMATCH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    },
+    {
+      "fixture": "producer-pass-underlying-mismatch.json",
+      "production_validator_entry": "scripts/validate-attestation.mjs",
+      "expected_error_code": "CANDIDATE_SHA256_MISMATCH",
+      "actual_error_code": "CANDIDATE_SHA256_MISMATCH",
+      "validator_exit_code": 2,
+      "result": "PASS"
+    }
+  ],
+  "files_modified": 0,
+  "git_mutation_executed": false
+}
